@@ -127,6 +127,6 @@ func test_pick_timings(t: TestCtx) -> void:
 		vw.pick(Vector2(700.0 + float(i % 20) * 30.0, 500.0 + float(i / 20) * 20.0), ViewPicker.PICK_ANY)
 	var pick_us: float = float(Time.get_ticks_usec() - t1) / 200.0
 	t.note("pick_box(%d entities): %.3f ms; pick: %.0f us" % [vw.entity_count(), box_ms, pick_us])
-	t.lt(box_ms, 2.5, "pick_box over ~400 entities stays near the 2 ms budget")
-	t.lt(pick_us, 400.0, "pick stays in the hundreds of microseconds")
+	t.lt(box_ms, 2.5 * TestCtx.perf_factor(), "pick_box over ~400 entities stays near the 2 ms budget (x perf_factor)")
+	t.lt(pick_us, 400.0 * TestCtx.perf_factor(), "pick stays in the hundreds of microseconds (x perf_factor)")
 	Kit.free_view(vw)

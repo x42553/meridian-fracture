@@ -165,7 +165,7 @@ func test_trivial_op_plays_2000_ticks_within_budget(t: TestCtx) -> void:
 	t.le(c.total_wu, d.wu_per_tick * c.total_ticks + d.call_cap_wu, "average work units per tick within the profile")
 	t.le(c.wu_max_think, d.call_cap_wu + 500, "one think stays near the call cap")
 	var us_per_tick: int = th.controller.perf.total_us / maxi(c.total_ticks, 1)
-	t.le(us_per_tick, 1500, "average wall time per tick <= 1.5 ms (measured %d us)" % us_per_tick)
+	t.le(float(us_per_tick), 1500.0 * TestCtx.perf_factor(), "average wall time per tick <= 1.5 ms x perf_factor (measured %d us)" % us_per_tick)
 	t.note("AI: %d thinks, %d cmds, avg %d wu/tick (profile %d), max think %d wu, %d us/tick, worst think %d us" % [
 		th.thinks, int(r["emitted"]), c.total_wu / maxi(c.total_ticks, 1), d.wu_per_tick, c.wu_max_think, us_per_tick, c.perf.worst_us])
 	# the commands were valid and effective

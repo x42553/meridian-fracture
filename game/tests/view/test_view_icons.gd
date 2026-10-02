@@ -104,7 +104,7 @@ func test_cache_hit_path_is_fast_and_async(t: TestCtx) -> void:
 	var t0: int = Time.get_ticks_usec()
 	for i: int in 200:
 		b.request(&"again", StringName(ids[0]), style, 10000, sz)
-	t.lt(float(Time.get_ticks_usec() - t0) / 200.0, 50.0, "memory hit under 50 us")
+	t.lt(float(Time.get_ticks_usec() - t0) / 200.0, 50.0 * TestCtx.perf_factor(), "memory hit under 50 us (x perf_factor)")
 	b.queue_free()
 	_clean()
 

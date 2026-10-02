@@ -57,7 +57,7 @@ func test_functioning_economy_and_composition(t: TestCtx) -> void:
 	var c0: AiController = (m["factory"] as AiFactory).thinker(0).controller
 	var d: AiDifficultyProfile = c0.ctx.diff
 	t.le(c0.total_wu, d.wu_per_tick * c0.total_ticks + d.call_cap_wu, "average work units per tick within the profile")
-	t.le(int(r["ai_us_per_tick"]), 1500, "AI wall time per tick <= 1.5 ms (%d us)" % int(r["ai_us_per_tick"]))
+	t.le(float(r["ai_us_per_tick"]), 1500.0 * TestCtx.perf_factor(), "AI wall time per tick <= 1.5 ms x perf_factor (%d us)" % int(r["ai_us_per_tick"]))
 	t.note("15000 ticks, 2 AIs (Hard): AI %d us/tick avg, worst think %d us, whole sim+AI %.2f ms/tick; %s" % [
 		int(r["ai_us_per_tick"]), int(r["ai_worst_us"]), float(r["ms_per_tick"]), AiEconKit.summary(m, 0).substr(0, 170)])
 
@@ -127,7 +127,7 @@ func test_every_difficulty_plays(t: TestCtx) -> void:
 		t.ge(eco.refineries_total, 1, "level %d: refinery" % lv)
 		t.ge(eco.collectors_alive, 2, "level %d: collectors" % lv)
 		t.ge(eco.army_units + eco.production.trained, 1, "level %d: army (%d alive, %d trained)" % [lv, eco.army_units, eco.production.trained])
-		t.le(int(r["ai_us_per_tick"]), 1500, "level %d: budget (%d us/tick)" % [lv, int(r["ai_us_per_tick"])])
+		t.le(float(r["ai_us_per_tick"]), 1500.0 * TestCtx.perf_factor(), "level %d: budget x perf_factor (%d us/tick)" % [lv, int(r["ai_us_per_tick"])])
 		if lv == AiTypes.Difficulty.EASY:
 			t.le(eco.collector_target, 2 * maxi(eco.refineries_active, 1), "Easy runs the leanest collector ratio")
 
