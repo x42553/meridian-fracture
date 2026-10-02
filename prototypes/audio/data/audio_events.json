@@ -1,0 +1,2120 @@
+{
+ "version": 1,
+ "groups": {
+  "small_arms": {
+   "max_voices": 10,
+   "steal": "oldest"
+  },
+  "heavy": {
+   "max_voices": 8
+  },
+  "explosions": {
+   "max_voices": 6
+  },
+  "loops": {
+   "max_voices": 16
+  },
+  "voice": {
+   "max_voices": 2
+  }
+ },
+ "events": {
+  "weapon.rifle.fire": {
+   "category": "weapons",
+   "bus": "Sfx",
+   "priority": 30,
+   "variants": [
+    {
+     "stream": "res://assets/audio/weapons/rifle_shot_1.ogg",
+     "weight": 1.0
+    },
+    {
+     "stream": "res://assets/audio/weapons/rifle_shot_2.ogg",
+     "weight": 1.0
+    },
+    {
+     "stream": "res://assets/audio/weapons/rifle_shot_3.ogg",
+     "weight": 1.0
+    }
+   ],
+   "volume_db": -3,
+   "volume_jitter_db": 1.5,
+   "pitch": 1.0,
+   "pitch_jitter_semitones": 0.8,
+   "loop": false,
+   "spatial": {
+    "mode": "3d",
+    "unit_size": 22,
+    "max_distance": 170,
+    "attenuation": "inverse",
+    "lowpass_hz": 9000,
+    "panning_strength": 1.0
+   },
+   "limit": {
+    "max_instances": 6,
+    "min_interval_ms": 35,
+    "steal": "oldest",
+    "group": "small_arms"
+   },
+   "cull_below_db": -48.0
+  },
+  "weapon.autocannon.fire": {
+   "category": "weapons",
+   "bus": "Sfx",
+   "priority": 40,
+   "variants": [
+    {
+     "stream": "res://assets/audio/weapons/autocannon_burst.ogg",
+     "weight": 1.0
+    }
+   ],
+   "volume_db": -2,
+   "volume_jitter_db": 1.0,
+   "pitch": 1.0,
+   "pitch_jitter_semitones": 0.5,
+   "loop": false,
+   "spatial": {
+    "mode": "3d",
+    "unit_size": 28,
+    "max_distance": 200,
+    "attenuation": "inverse",
+    "lowpass_hz": 9000,
+    "panning_strength": 1.0
+   },
+   "limit": {
+    "max_instances": 4,
+    "min_interval_ms": 150,
+    "steal": "oldest",
+    "group": "small_arms"
+   },
+   "cull_below_db": -48.0
+  },
+  "weapon.cannon_heavy.fire": {
+   "category": "weapons",
+   "bus": "Sfx",
+   "priority": 60,
+   "variants": [
+    {
+     "stream": "res://assets/audio/weapons/tank_cannon.mono.ogg",
+     "weight": 1.0
+    }
+   ],
+   "volume_db": 0.0,
+   "volume_jitter_db": 1.0,
+   "pitch": 1.0,
+   "pitch_jitter_semitones": 0.6,
+   "loop": false,
+   "spatial": {
+    "mode": "3d",
+    "unit_size": 45,
+    "max_distance": 320,
+    "attenuation": "inverse",
+    "lowpass_hz": 12000,
+    "panning_strength": 1.0
+   },
+   "limit": {
+    "max_instances": 4,
+    "min_interval_ms": 90,
+    "steal": "oldest",
+    "group": "heavy"
+   },
+   "cull_below_db": -48.0
+  },
+  "weapon.artillery.fire": {
+   "category": "weapons",
+   "bus": "Sfx",
+   "priority": 65,
+   "variants": [
+    {
+     "stream": "res://assets/audio/weapons/howitzer_thump.mono.ogg",
+     "weight": 1.0
+    }
+   ],
+   "volume_db": 0.0,
+   "volume_jitter_db": 0.0,
+   "pitch": 1.0,
+   "pitch_jitter_semitones": 0.0,
+   "loop": false,
+   "spatial": {
+    "mode": "3d",
+    "unit_size": 70,
+    "max_distance": 450,
+    "attenuation": "inverse",
+    "lowpass_hz": 12000,
+    "panning_strength": 1.0
+   },
+   "limit": {
+    "max_instances": 3,
+    "min_interval_ms": 200,
+    "steal": "oldest",
+    "group": "heavy"
+   },
+   "cull_below_db": -48.0
+  },
+  "weapon.missile.fire": {
+   "category": "weapons",
+   "bus": "Sfx",
+   "priority": 55,
+   "variants": [
+    {
+     "stream": "res://assets/audio/weapons/missile_launch.mono.ogg",
+     "weight": 1.0
+    }
+   ],
+   "volume_db": 0.0,
+   "volume_jitter_db": 0.0,
+   "pitch": 1.0,
+   "pitch_jitter_semitones": 0.0,
+   "loop": false,
+   "spatial": {
+    "mode": "3d",
+    "unit_size": 40,
+    "max_distance": 350,
+    "attenuation": "inverse",
+    "lowpass_hz": 12000,
+    "panning_strength": 1.0
+   },
+   "limit": {
+    "max_instances": 4,
+    "min_interval_ms": 120,
+    "steal": "oldest",
+    "group": "heavy"
+   },
+   "cull_below_db": -48.0
+  },
+  "weapon.rocket.fire": {
+   "category": "weapons",
+   "bus": "Sfx",
+   "priority": 45,
+   "variants": [
+    {
+     "stream": "res://assets/audio/weapons/rocket_whoosh.mono.ogg",
+     "weight": 1.0
+    }
+   ],
+   "volume_db": 0.0,
+   "volume_jitter_db": 0.0,
+   "pitch": 1.0,
+   "pitch_jitter_semitones": 1.0,
+   "loop": false,
+   "spatial": {
+    "mode": "3d",
+    "unit_size": 30,
+    "max_distance": 220,
+    "attenuation": "inverse",
+    "lowpass_hz": 12000,
+    "panning_strength": 1.0
+   },
+   "limit": {
+    "max_instances": 4,
+    "min_interval_ms": 80,
+    "steal": "oldest",
+    "group": "small_arms"
+   },
+   "cull_below_db": -48.0
+  },
+  "weapon.beam.fire": {
+   "category": "energy",
+   "bus": "Sfx",
+   "priority": 50,
+   "variants": [
+    {
+     "stream": "res://assets/audio/energy/beam_discharge.mono.ogg",
+     "weight": 1.0
+    }
+   ],
+   "volume_db": 0.0,
+   "volume_jitter_db": 0.0,
+   "pitch": 1.0,
+   "pitch_jitter_semitones": 0.0,
+   "loop": false,
+   "spatial": {
+    "mode": "3d",
+    "unit_size": 40,
+    "max_distance": 300,
+    "attenuation": "inverse",
+    "lowpass_hz": 12000,
+    "panning_strength": 1.0
+   },
+   "limit": {
+    "max_instances": 4,
+    "min_interval_ms": 150,
+    "steal": "oldest",
+    "group": "heavy"
+   },
+   "cull_below_db": -48.0
+  },
+  "weapon.beam.loop": {
+   "category": "energy",
+   "bus": "Sfx",
+   "priority": 25,
+   "variants": [
+    {
+     "stream": "res://assets/audio/energy/beam_hum_loop.mono.ogg",
+     "weight": 1.0
+    }
+   ],
+   "volume_db": 0.0,
+   "volume_jitter_db": 0.0,
+   "pitch": 1.0,
+   "pitch_jitter_semitones": 0.0,
+   "loop": true,
+   "spatial": {
+    "mode": "3d",
+    "unit_size": 25,
+    "max_distance": 160,
+    "attenuation": "inverse",
+    "lowpass_hz": 12000,
+    "panning_strength": 1.0
+   },
+   "limit": {
+    "max_instances": 6,
+    "min_interval_ms": 0,
+    "steal": "oldest",
+    "group": "loops"
+   },
+   "cull_below_db": -48.0
+  },
+  "weapon.rail.fire": {
+   "category": "energy",
+   "bus": "Sfx",
+   "priority": 58,
+   "variants": [
+    {
+     "stream": "res://assets/audio/energy/rail_crack.mono.ogg",
+     "weight": 1.0
+    }
+   ],
+   "volume_db": 0.0,
+   "volume_jitter_db": 0.0,
+   "pitch": 1.0,
+   "pitch_jitter_semitones": 0.0,
+   "loop": false,
+   "spatial": {
+    "mode": "3d",
+    "unit_size": 50,
+    "max_distance": 400,
+    "attenuation": "inverse",
+    "lowpass_hz": 12000,
+    "panning_strength": 1.0
+   },
+   "limit": {
+    "max_instances": 3,
+    "min_interval_ms": 200,
+    "steal": "oldest",
+    "group": "heavy"
+   },
+   "cull_below_db": -48.0
+  },
+  "weapon.emp.fire": {
+   "category": "energy",
+   "bus": "Sfx",
+   "priority": 62,
+   "variants": [
+    {
+     "stream": "res://assets/audio/energy/emp_zap.mono.ogg",
+     "weight": 1.0
+    }
+   ],
+   "volume_db": 0.0,
+   "volume_jitter_db": 0.0,
+   "pitch": 1.0,
+   "pitch_jitter_semitones": 0.0,
+   "loop": false,
+   "spatial": {
+    "mode": "3d",
+    "unit_size": 45,
+    "max_distance": 350,
+    "attenuation": "inverse",
+    "lowpass_hz": 12000,
+    "panning_strength": 1.0
+   },
+   "limit": {
+    "max_instances": 3,
+    "min_interval_ms": 250,
+    "steal": "oldest",
+    "group": "heavy"
+   },
+   "cull_below_db": -48.0
+  },
+  "impact.explosion_small": {
+   "category": "explosions",
+   "bus": "Sfx",
+   "priority": 70,
+   "variants": [
+    {
+     "stream": "res://assets/audio/explosions/explosion_small_1.mono.ogg",
+     "weight": 1.0
+    },
+    {
+     "stream": "res://assets/audio/explosions/explosion_small_2.mono.ogg",
+     "weight": 1.0
+    }
+   ],
+   "volume_db": 0.0,
+   "volume_jitter_db": 1.0,
+   "pitch": 1.0,
+   "pitch_jitter_semitones": 1.0,
+   "loop": false,
+   "spatial": {
+    "mode": "3d",
+    "unit_size": 45,
+    "max_distance": 380,
+    "attenuation": "inverse",
+    "lowpass_hz": 12000,
+    "panning_strength": 1.0
+   },
+   "limit": {
+    "max_instances": 5,
+    "min_interval_ms": 60,
+    "steal": "oldest",
+    "group": "explosions"
+   },
+   "cull_below_db": -48.0
+  },
+  "impact.explosion_large": {
+   "category": "explosions",
+   "bus": "Sfx",
+   "priority": 85,
+   "variants": [
+    {
+     "stream": "res://assets/audio/explosions/explosion_large.mono.ogg",
+     "weight": 1.0
+    }
+   ],
+   "volume_db": 0.0,
+   "volume_jitter_db": 0.0,
+   "pitch": 1.0,
+   "pitch_jitter_semitones": 0.5,
+   "loop": false,
+   "spatial": {
+    "mode": "3d",
+    "unit_size": 90,
+    "max_distance": 650,
+    "attenuation": "inverse",
+    "lowpass_hz": 12000,
+    "panning_strength": 1.0
+   },
+   "limit": {
+    "max_instances": 3,
+    "min_interval_ms": 200,
+    "steal": "oldest",
+    "group": "explosions"
+   },
+   "cull_below_db": -48.0
+  },
+  "structure.collapse": {
+   "category": "explosions",
+   "bus": "Sfx",
+   "priority": 90,
+   "variants": [
+    {
+     "stream": "res://assets/audio/explosions/building_collapse.mono.ogg",
+     "weight": 1.0
+    }
+   ],
+   "volume_db": 0.0,
+   "volume_jitter_db": 0.0,
+   "pitch": 1.0,
+   "pitch_jitter_semitones": 0.0,
+   "loop": false,
+   "spatial": {
+    "mode": "3d",
+    "unit_size": 100,
+    "max_distance": 750,
+    "attenuation": "inverse",
+    "lowpass_hz": 12000,
+    "panning_strength": 1.0
+   },
+   "limit": {
+    "max_instances": 2,
+    "min_interval_ms": 300,
+    "steal": "oldest",
+    "group": "explosions"
+   },
+   "cull_below_db": -48.0
+  },
+  "air.jet.flyby": {
+   "category": "air",
+   "bus": "Sfx",
+   "priority": 60,
+   "variants": [
+    {
+     "stream": "res://assets/audio/air/jet_flyby.mono.ogg",
+     "weight": 1.0
+    }
+   ],
+   "volume_db": 0.0,
+   "volume_jitter_db": 0.0,
+   "pitch": 1.0,
+   "pitch_jitter_semitones": 0.0,
+   "loop": false,
+   "spatial": {
+    "mode": "3d",
+    "unit_size": 80,
+    "max_distance": 520,
+    "attenuation": "inverse",
+    "lowpass_hz": 12000,
+    "panning_strength": 1.0
+   },
+   "limit": {
+    "max_instances": 3,
+    "min_interval_ms": 400,
+    "steal": "oldest"
+   },
+   "cull_below_db": -48.0
+  },
+  "air.heli.rotor": {
+   "category": "air",
+   "bus": "Sfx",
+   "priority": 30,
+   "variants": [
+    {
+     "stream": "res://assets/audio/air/heli_rotor_loop.mono.ogg",
+     "weight": 1.0
+    }
+   ],
+   "volume_db": 0.0,
+   "volume_jitter_db": 0.0,
+   "pitch": 1.0,
+   "pitch_jitter_semitones": 0.0,
+   "loop": true,
+   "spatial": {
+    "mode": "3d",
+    "unit_size": 45,
+    "max_distance": 260,
+    "attenuation": "inverse",
+    "lowpass_hz": 12000,
+    "panning_strength": 1.0
+   },
+   "limit": {
+    "max_instances": 8,
+    "min_interval_ms": 0,
+    "steal": "oldest",
+    "group": "loops"
+   },
+   "cull_below_db": -48.0
+  },
+  "unit.engine.tracked": {
+   "category": "vehicles",
+   "bus": "Sfx",
+   "priority": 15,
+   "variants": [
+    {
+     "stream": "res://assets/audio/vehicles/engine_tracked_loop.ogg",
+     "weight": 1.0
+    }
+   ],
+   "volume_db": 0.0,
+   "volume_jitter_db": 0.0,
+   "pitch": 1.0,
+   "pitch_jitter_semitones": 0.0,
+   "loop": true,
+   "spatial": {
+    "mode": "3d",
+    "unit_size": 18,
+    "max_distance": 120,
+    "attenuation": "inverse",
+    "lowpass_hz": 6000,
+    "panning_strength": 1.0
+   },
+   "limit": {
+    "max_instances": 12,
+    "min_interval_ms": 0,
+    "steal": "oldest",
+    "group": "loops"
+   },
+   "cull_below_db": -48.0
+  },
+  "unit.engine.wheeled": {
+   "category": "vehicles",
+   "bus": "Sfx",
+   "priority": 15,
+   "variants": [
+    {
+     "stream": "res://assets/audio/vehicles/engine_wheeled_loop.ogg",
+     "weight": 1.0
+    }
+   ],
+   "volume_db": 0.0,
+   "volume_jitter_db": 0.0,
+   "pitch": 1.0,
+   "pitch_jitter_semitones": 0.0,
+   "loop": true,
+   "spatial": {
+    "mode": "3d",
+    "unit_size": 18,
+    "max_distance": 120,
+    "attenuation": "inverse",
+    "lowpass_hz": 6000,
+    "panning_strength": 1.0
+   },
+   "limit": {
+    "max_instances": 12,
+    "min_interval_ms": 0,
+    "steal": "oldest",
+    "group": "loops"
+   },
+   "cull_below_db": -48.0
+  },
+  "unit.engine.boat": {
+   "category": "vehicles",
+   "bus": "Sfx",
+   "priority": 15,
+   "variants": [
+    {
+     "stream": "res://assets/audio/vehicles/engine_boat_loop.ogg",
+     "weight": 1.0
+    }
+   ],
+   "volume_db": 0.0,
+   "volume_jitter_db": 0.0,
+   "pitch": 1.0,
+   "pitch_jitter_semitones": 0.0,
+   "loop": true,
+   "spatial": {
+    "mode": "3d",
+    "unit_size": 20,
+    "max_distance": 130,
+    "attenuation": "inverse",
+    "lowpass_hz": 6000,
+    "panning_strength": 1.0
+   },
+   "limit": {
+    "max_instances": 8,
+    "min_interval_ms": 0,
+    "steal": "oldest",
+    "group": "loops"
+   },
+   "cull_below_db": -48.0
+  },
+  "unit.foot.step": {
+   "category": "vehicles",
+   "bus": "Sfx",
+   "priority": 10,
+   "variants": [
+    {
+     "stream": "res://assets/audio/vehicles/footsteps_loop.ogg",
+     "weight": 1.0
+    }
+   ],
+   "volume_db": 0.0,
+   "volume_jitter_db": 0.0,
+   "pitch": 1.0,
+   "pitch_jitter_semitones": 0.0,
+   "loop": true,
+   "spatial": {
+    "mode": "3d",
+    "unit_size": 12,
+    "max_distance": 70,
+    "attenuation": "inverse",
+    "lowpass_hz": 6000,
+    "panning_strength": 1.0
+   },
+   "limit": {
+    "max_instances": 10,
+    "min_interval_ms": 0,
+    "steal": "oldest",
+    "group": "loops"
+   },
+   "cull_below_db": -48.0
+  },
+  "structure.construct.hammer": {
+   "category": "structures",
+   "bus": "Sfx",
+   "priority": 35,
+   "variants": [
+    {
+     "stream": "res://assets/audio/structures/construction_hammer.ogg",
+     "weight": 1.0
+    }
+   ],
+   "volume_db": 0.0,
+   "volume_jitter_db": 0.0,
+   "pitch": 1.0,
+   "pitch_jitter_semitones": 0.0,
+   "loop": false,
+   "spatial": {
+    "mode": "3d",
+    "unit_size": 25,
+    "max_distance": 150,
+    "attenuation": "inverse",
+    "lowpass_hz": 12000,
+    "panning_strength": 1.0
+   },
+   "limit": {
+    "max_instances": 6,
+    "min_interval_ms": 200,
+    "steal": "oldest"
+   },
+   "cull_below_db": -48.0
+  },
+  "structure.construct.servo": {
+   "category": "structures",
+   "bus": "Sfx",
+   "priority": 30,
+   "variants": [
+    {
+     "stream": "res://assets/audio/structures/construction_servo.mono.ogg",
+     "weight": 1.0
+    }
+   ],
+   "volume_db": 0.0,
+   "volume_jitter_db": 0.0,
+   "pitch": 1.0,
+   "pitch_jitter_semitones": 0.0,
+   "loop": false,
+   "spatial": {
+    "mode": "3d",
+    "unit_size": 25,
+    "max_distance": 150,
+    "attenuation": "inverse",
+    "lowpass_hz": 12000,
+    "panning_strength": 1.0
+   },
+   "limit": {
+    "max_instances": 4,
+    "min_interval_ms": 300,
+    "steal": "oldest"
+   },
+   "cull_below_db": -48.0
+  },
+  "structure.power.down": {
+   "category": "structures",
+   "bus": "Sfx",
+   "priority": 80,
+   "variants": [
+    {
+     "stream": "res://assets/audio/structures/power_down.ogg",
+     "weight": 1.0
+    }
+   ],
+   "volume_db": -2,
+   "volume_jitter_db": 0.0,
+   "pitch": 1.0,
+   "pitch_jitter_semitones": 0.0,
+   "loop": false,
+   "spatial": {
+    "mode": "global"
+   },
+   "limit": {
+    "max_instances": 8,
+    "min_interval_ms": 0,
+    "steal": "oldest"
+   },
+   "cull_below_db": -48.0
+  },
+  "structure.power.up": {
+   "category": "structures",
+   "bus": "Sfx",
+   "priority": 80,
+   "variants": [
+    {
+     "stream": "res://assets/audio/structures/power_up.ogg",
+     "weight": 1.0
+    }
+   ],
+   "volume_db": -2,
+   "volume_jitter_db": 0.0,
+   "pitch": 1.0,
+   "pitch_jitter_semitones": 0.0,
+   "loop": false,
+   "spatial": {
+    "mode": "global"
+   },
+   "limit": {
+    "max_instances": 8,
+    "min_interval_ms": 0,
+    "steal": "oldest"
+   },
+   "cull_below_db": -48.0
+  },
+  "structure.radar.ping": {
+   "category": "structures",
+   "bus": "Sfx",
+   "priority": 70,
+   "variants": [
+    {
+     "stream": "res://assets/audio/structures/radar_ping.ogg",
+     "weight": 1.0
+    }
+   ],
+   "volume_db": -3,
+   "volume_jitter_db": 0.0,
+   "pitch": 1.0,
+   "pitch_jitter_semitones": 0.0,
+   "loop": false,
+   "spatial": {
+    "mode": "global"
+   },
+   "limit": {
+    "max_instances": 2,
+    "min_interval_ms": 0,
+    "steal": "oldest"
+   },
+   "cull_below_db": -48.0
+  },
+  "economy.cash_tick": {
+   "category": "structures",
+   "bus": "Sfx",
+   "priority": 60,
+   "variants": [
+    {
+     "stream": "res://assets/audio/structures/cash_tick.ogg",
+     "weight": 1.0
+    }
+   ],
+   "volume_db": 0.0,
+   "volume_jitter_db": 0.0,
+   "pitch": 1.0,
+   "pitch_jitter_semitones": 0.4,
+   "loop": false,
+   "spatial": {
+    "mode": "global"
+   },
+   "limit": {
+    "max_instances": 3,
+    "min_interval_ms": 45,
+    "steal": "oldest"
+   },
+   "cull_below_db": -48.0
+  },
+  "ui.click": {
+   "category": "ui",
+   "bus": "Ui",
+   "priority": 95,
+   "variants": [
+    {
+     "stream": "res://assets/audio/ui/ui_click.ogg",
+     "weight": 1.0
+    }
+   ],
+   "volume_db": 0.0,
+   "volume_jitter_db": 0.0,
+   "pitch": 1.0,
+   "pitch_jitter_semitones": 0.2,
+   "loop": false,
+   "spatial": {
+    "mode": "ui"
+   },
+   "limit": {
+    "max_instances": 4,
+    "min_interval_ms": 30,
+    "steal": "oldest"
+   },
+   "cull_below_db": -48.0
+  },
+  "ui.hover": {
+   "category": "ui",
+   "bus": "Ui",
+   "priority": 90,
+   "variants": [
+    {
+     "stream": "res://assets/audio/ui/ui_hover.ogg",
+     "weight": 1.0
+    }
+   ],
+   "volume_db": 0.0,
+   "volume_jitter_db": 0.0,
+   "pitch": 1.0,
+   "pitch_jitter_semitones": 0.0,
+   "loop": false,
+   "spatial": {
+    "mode": "ui"
+   },
+   "limit": {
+    "max_instances": 2,
+    "min_interval_ms": 60,
+    "steal": "oldest"
+   },
+   "cull_below_db": -48.0
+  },
+  "ui.error": {
+   "category": "ui",
+   "bus": "Ui",
+   "priority": 95,
+   "variants": [
+    {
+     "stream": "res://assets/audio/ui/ui_error.ogg",
+     "weight": 1.0
+    }
+   ],
+   "volume_db": 0.0,
+   "volume_jitter_db": 0.0,
+   "pitch": 1.0,
+   "pitch_jitter_semitones": 0.0,
+   "loop": false,
+   "spatial": {
+    "mode": "ui"
+   },
+   "limit": {
+    "max_instances": 1,
+    "min_interval_ms": 200,
+    "steal": "oldest"
+   },
+   "cull_below_db": -48.0
+  },
+  "ui.confirm": {
+   "category": "ui",
+   "bus": "Ui",
+   "priority": 95,
+   "variants": [
+    {
+     "stream": "res://assets/audio/ui/ui_confirm.ogg",
+     "weight": 1.0
+    }
+   ],
+   "volume_db": 0.0,
+   "volume_jitter_db": 0.0,
+   "pitch": 1.0,
+   "pitch_jitter_semitones": 0.0,
+   "loop": false,
+   "spatial": {
+    "mode": "ui"
+   },
+   "limit": {
+    "max_instances": 2,
+    "min_interval_ms": 100,
+    "steal": "oldest"
+   },
+   "cull_below_db": -48.0
+  },
+  "alarm.superweapon.siren": {
+   "category": "alarms",
+   "bus": "Sfx",
+   "priority": 97,
+   "variants": [
+    {
+     "stream": "res://assets/audio/alarms/sw_siren_loop.ogg",
+     "weight": 1.0
+    }
+   ],
+   "volume_db": -2,
+   "volume_jitter_db": 0.0,
+   "pitch": 1.0,
+   "pitch_jitter_semitones": 0.0,
+   "loop": true,
+   "spatial": {
+    "mode": "global"
+   },
+   "limit": {
+    "max_instances": 1,
+    "min_interval_ms": 0,
+    "steal": "oldest"
+   },
+   "cull_below_db": -48.0
+  },
+  "alarm.countdown.beep": {
+   "category": "alarms",
+   "bus": "Sfx",
+   "priority": 96,
+   "variants": [
+    {
+     "stream": "res://assets/audio/alarms/countdown_beep.ogg",
+     "weight": 1.0
+    }
+   ],
+   "volume_db": 0.0,
+   "volume_jitter_db": 0.0,
+   "pitch": 1.0,
+   "pitch_jitter_semitones": 0.0,
+   "loop": false,
+   "spatial": {
+    "mode": "global"
+   },
+   "limit": {
+    "max_instances": 2,
+    "min_interval_ms": 0,
+    "steal": "oldest"
+   },
+   "cull_below_db": -48.0
+  },
+  "alarm.countdown.final": {
+   "category": "alarms",
+   "bus": "Sfx",
+   "priority": 97,
+   "variants": [
+    {
+     "stream": "res://assets/audio/alarms/countdown_final.ogg",
+     "weight": 1.0
+    }
+   ],
+   "volume_db": 0.0,
+   "volume_jitter_db": 0.0,
+   "pitch": 1.0,
+   "pitch_jitter_semitones": 0.0,
+   "loop": false,
+   "spatial": {
+    "mode": "global"
+   },
+   "limit": {
+    "max_instances": 1,
+    "min_interval_ms": 0,
+    "steal": "oldest"
+   },
+   "cull_below_db": -48.0
+  },
+  "ambience.wind": {
+   "category": "ambience",
+   "bus": "Ambience",
+   "priority": 5,
+   "variants": [
+    {
+     "stream": "res://assets/audio/ambience/amb_wind_loop.ogg",
+     "weight": 1.0
+    }
+   ],
+   "volume_db": 0.0,
+   "volume_jitter_db": 0.0,
+   "pitch": 1.0,
+   "pitch_jitter_semitones": 0.0,
+   "loop": true,
+   "spatial": {
+    "mode": "global"
+   },
+   "limit": {
+    "max_instances": 1,
+    "min_interval_ms": 0,
+    "steal": "oldest"
+   },
+   "cull_below_db": -48.0
+  },
+  "ambience.city": {
+   "category": "ambience",
+   "bus": "Ambience",
+   "priority": 5,
+   "variants": [
+    {
+     "stream": "res://assets/audio/ambience/amb_city_hum_loop.ogg",
+     "weight": 1.0
+    }
+   ],
+   "volume_db": 0.0,
+   "volume_jitter_db": 0.0,
+   "pitch": 1.0,
+   "pitch_jitter_semitones": 0.0,
+   "loop": true,
+   "spatial": {
+    "mode": "global"
+   },
+   "limit": {
+    "max_instances": 1,
+    "min_interval_ms": 0,
+    "steal": "oldest"
+   },
+   "cull_below_db": -48.0
+  },
+  "ambience.coast": {
+   "category": "ambience",
+   "bus": "Ambience",
+   "priority": 5,
+   "variants": [
+    {
+     "stream": "res://assets/audio/ambience/amb_coast_waves_loop.ogg",
+     "weight": 1.0
+    }
+   ],
+   "volume_db": 0.0,
+   "volume_jitter_db": 0.0,
+   "pitch": 1.0,
+   "pitch_jitter_semitones": 0.0,
+   "loop": true,
+   "spatial": {
+    "mode": "global"
+   },
+   "limit": {
+    "max_instances": 1,
+    "min_interval_ms": 0,
+    "steal": "oldest"
+   },
+   "cull_below_db": -48.0
+  },
+  "voice.construction_complete": {
+   "category": "voice",
+   "bus": "Voice",
+   "priority": 95,
+   "variants": [
+    {
+     "stream": "res://assets/audio/voice/default/construction_complete.ogg",
+     "weight": 1.0
+    }
+   ],
+   "volume_db": 0.0,
+   "spatial": {
+    "mode": "ui"
+   },
+   "limit": {
+    "max_instances": 1,
+    "group": "voice",
+    "steal": "none"
+   }
+  },
+  "voice.unit_ready": {
+   "category": "voice",
+   "bus": "Voice",
+   "priority": 95,
+   "variants": [
+    {
+     "stream": "res://assets/audio/voice/default/unit_ready.ogg",
+     "weight": 1.0
+    }
+   ],
+   "volume_db": 0.0,
+   "spatial": {
+    "mode": "ui"
+   },
+   "limit": {
+    "max_instances": 1,
+    "group": "voice",
+    "steal": "none"
+   }
+  },
+  "voice.unit_lost": {
+   "category": "voice",
+   "bus": "Voice",
+   "priority": 95,
+   "variants": [
+    {
+     "stream": "res://assets/audio/voice/default/unit_lost.ogg",
+     "weight": 1.0
+    }
+   ],
+   "volume_db": 0.0,
+   "spatial": {
+    "mode": "ui"
+   },
+   "limit": {
+    "max_instances": 1,
+    "group": "voice",
+    "steal": "none"
+   }
+  },
+  "voice.low_power": {
+   "category": "voice",
+   "bus": "Voice",
+   "priority": 95,
+   "variants": [
+    {
+     "stream": "res://assets/audio/voice/default/low_power.ogg",
+     "weight": 1.0
+    }
+   ],
+   "volume_db": 0.0,
+   "spatial": {
+    "mode": "ui"
+   },
+   "limit": {
+    "max_instances": 1,
+    "group": "voice",
+    "steal": "none"
+   }
+  },
+  "voice.power_restored": {
+   "category": "voice",
+   "bus": "Voice",
+   "priority": 95,
+   "variants": [
+    {
+     "stream": "res://assets/audio/voice/default/power_restored.ogg",
+     "weight": 1.0
+    }
+   ],
+   "volume_db": 0.0,
+   "spatial": {
+    "mode": "ui"
+   },
+   "limit": {
+    "max_instances": 1,
+    "group": "voice",
+    "steal": "none"
+   }
+  },
+  "voice.superweapon_ready": {
+   "category": "voice",
+   "bus": "Voice",
+   "priority": 95,
+   "variants": [
+    {
+     "stream": "res://assets/audio/voice/default/superweapon_ready.ogg",
+     "weight": 1.0
+    }
+   ],
+   "volume_db": 0.0,
+   "spatial": {
+    "mode": "ui"
+   },
+   "limit": {
+    "max_instances": 1,
+    "group": "voice",
+    "steal": "none"
+   }
+  },
+  "voice.superweapon_detected": {
+   "category": "voice",
+   "bus": "Voice",
+   "priority": 95,
+   "variants": [
+    {
+     "stream": "res://assets/audio/voice/default/superweapon_detected.ogg",
+     "weight": 1.0
+    }
+   ],
+   "volume_db": 0.0,
+   "spatial": {
+    "mode": "ui"
+   },
+   "limit": {
+    "max_instances": 1,
+    "group": "voice",
+    "steal": "none"
+   }
+  },
+  "voice.enemy_superweapon_charging": {
+   "category": "voice",
+   "bus": "Voice",
+   "priority": 95,
+   "variants": [
+    {
+     "stream": "res://assets/audio/voice/default/enemy_superweapon_charging.ogg",
+     "weight": 1.0
+    }
+   ],
+   "volume_db": 0.0,
+   "spatial": {
+    "mode": "ui"
+   },
+   "limit": {
+    "max_instances": 1,
+    "group": "voice",
+    "steal": "none"
+   }
+  },
+  "voice.base_under_attack": {
+   "category": "voice",
+   "bus": "Voice",
+   "priority": 95,
+   "variants": [
+    {
+     "stream": "res://assets/audio/voice/default/base_under_attack.ogg",
+     "weight": 1.0
+    }
+   ],
+   "volume_db": 0.0,
+   "spatial": {
+    "mode": "ui"
+   },
+   "limit": {
+    "max_instances": 1,
+    "group": "voice",
+    "steal": "none"
+   }
+  },
+  "voice.collector_under_attack": {
+   "category": "voice",
+   "bus": "Voice",
+   "priority": 95,
+   "variants": [
+    {
+     "stream": "res://assets/audio/voice/default/collector_under_attack.ogg",
+     "weight": 1.0
+    }
+   ],
+   "volume_db": 0.0,
+   "spatial": {
+    "mode": "ui"
+   },
+   "limit": {
+    "max_instances": 1,
+    "group": "voice",
+    "steal": "none"
+   }
+  },
+  "voice.insufficient_funds": {
+   "category": "voice",
+   "bus": "Voice",
+   "priority": 95,
+   "variants": [
+    {
+     "stream": "res://assets/audio/voice/default/insufficient_funds.ogg",
+     "weight": 1.0
+    }
+   ],
+   "volume_db": 0.0,
+   "spatial": {
+    "mode": "ui"
+   },
+   "limit": {
+    "max_instances": 1,
+    "group": "voice",
+    "steal": "none"
+   }
+  },
+  "voice.new_construction_options": {
+   "category": "voice",
+   "bus": "Voice",
+   "priority": 95,
+   "variants": [
+    {
+     "stream": "res://assets/audio/voice/default/new_construction_options.ogg",
+     "weight": 1.0
+    }
+   ],
+   "volume_db": 0.0,
+   "spatial": {
+    "mode": "ui"
+   },
+   "limit": {
+    "max_instances": 1,
+    "group": "voice",
+    "steal": "none"
+   }
+  },
+  "voice.reinforcements_arrived": {
+   "category": "voice",
+   "bus": "Voice",
+   "priority": 95,
+   "variants": [
+    {
+     "stream": "res://assets/audio/voice/default/reinforcements_arrived.ogg",
+     "weight": 1.0
+    }
+   ],
+   "volume_db": 0.0,
+   "spatial": {
+    "mode": "ui"
+   },
+   "limit": {
+    "max_instances": 1,
+    "group": "voice",
+    "steal": "none"
+   }
+  },
+  "voice.research_complete": {
+   "category": "voice",
+   "bus": "Voice",
+   "priority": 95,
+   "variants": [
+    {
+     "stream": "res://assets/audio/voice/default/research_complete.ogg",
+     "weight": 1.0
+    }
+   ],
+   "volume_db": 0.0,
+   "spatial": {
+    "mode": "ui"
+   },
+   "limit": {
+    "max_instances": 1,
+    "group": "voice",
+    "steal": "none"
+   }
+  },
+  "voice.building_captured": {
+   "category": "voice",
+   "bus": "Voice",
+   "priority": 95,
+   "variants": [
+    {
+     "stream": "res://assets/audio/voice/default/building_captured.ogg",
+     "weight": 1.0
+    }
+   ],
+   "volume_db": 0.0,
+   "spatial": {
+    "mode": "ui"
+   },
+   "limit": {
+    "max_instances": 1,
+    "group": "voice",
+    "steal": "none"
+   }
+  },
+  "voice.structure_lost": {
+   "category": "voice",
+   "bus": "Voice",
+   "priority": 95,
+   "variants": [
+    {
+     "stream": "res://assets/audio/voice/default/structure_lost.ogg",
+     "weight": 1.0
+    }
+   ],
+   "volume_db": 0.0,
+   "spatial": {
+    "mode": "ui"
+   },
+   "limit": {
+    "max_instances": 1,
+    "group": "voice",
+    "steal": "none"
+   }
+  },
+  "voice.cannot_deploy": {
+   "category": "voice",
+   "bus": "Voice",
+   "priority": 95,
+   "variants": [
+    {
+     "stream": "res://assets/audio/voice/default/cannot_deploy.ogg",
+     "weight": 1.0
+    }
+   ],
+   "volume_db": 0.0,
+   "spatial": {
+    "mode": "ui"
+   },
+   "limit": {
+    "max_instances": 1,
+    "group": "voice",
+    "steal": "none"
+   }
+  },
+  "voice.on_hold": {
+   "category": "voice",
+   "bus": "Voice",
+   "priority": 95,
+   "variants": [
+    {
+     "stream": "res://assets/audio/voice/default/on_hold.ogg",
+     "weight": 1.0
+    }
+   ],
+   "volume_db": 0.0,
+   "spatial": {
+    "mode": "ui"
+   },
+   "limit": {
+    "max_instances": 1,
+    "group": "voice",
+    "steal": "none"
+   }
+  },
+  "voice.canceled": {
+   "category": "voice",
+   "bus": "Voice",
+   "priority": 95,
+   "variants": [
+    {
+     "stream": "res://assets/audio/voice/default/canceled.ogg",
+     "weight": 1.0
+    }
+   ],
+   "volume_db": 0.0,
+   "spatial": {
+    "mode": "ui"
+   },
+   "limit": {
+    "max_instances": 1,
+    "group": "voice",
+    "steal": "none"
+   }
+  },
+  "voice.mission_accomplished": {
+   "category": "voice",
+   "bus": "Voice",
+   "priority": 95,
+   "variants": [
+    {
+     "stream": "res://assets/audio/voice/default/mission_accomplished.ogg",
+     "weight": 1.0
+    }
+   ],
+   "volume_db": 0.0,
+   "spatial": {
+    "mode": "ui"
+   },
+   "limit": {
+    "max_instances": 1,
+    "group": "voice",
+    "steal": "none"
+   }
+  },
+  "voice.victory": {
+   "category": "voice",
+   "bus": "Voice",
+   "priority": 95,
+   "variants": [
+    {
+     "stream": "res://assets/audio/voice/default/victory.ogg",
+     "weight": 1.0
+    }
+   ],
+   "volume_db": 0.0,
+   "spatial": {
+    "mode": "ui"
+   },
+   "limit": {
+    "max_instances": 1,
+    "group": "voice",
+    "steal": "none"
+   }
+  },
+  "voice.defeat": {
+   "category": "voice",
+   "bus": "Voice",
+   "priority": 95,
+   "variants": [
+    {
+     "stream": "res://assets/audio/voice/default/defeat.ogg",
+     "weight": 1.0
+    }
+   ],
+   "volume_db": 0.0,
+   "spatial": {
+    "mode": "ui"
+   },
+   "limit": {
+    "max_instances": 1,
+    "group": "voice",
+    "steal": "none"
+   }
+  },
+  "voice.base_under_attack@radio": {
+   "category": "voice",
+   "bus": "Voice",
+   "priority": 95,
+   "variants": [
+    {
+     "stream": "res://assets/audio/voice/radio/base_under_attack.ogg",
+     "weight": 1.0
+    }
+   ],
+   "volume_db": 0.0,
+   "spatial": {
+    "mode": "ui"
+   },
+   "limit": {
+    "max_instances": 1,
+    "group": "voice",
+    "steal": "none"
+   }
+  },
+  "voice.reinforcements_arrived@radio": {
+   "category": "voice",
+   "bus": "Voice",
+   "priority": 95,
+   "variants": [
+    {
+     "stream": "res://assets/audio/voice/radio/reinforcements_arrived.ogg",
+     "weight": 1.0
+    }
+   ],
+   "volume_db": 0.0,
+   "spatial": {
+    "mode": "ui"
+   },
+   "limit": {
+    "max_instances": 1,
+    "group": "voice",
+    "steal": "none"
+   }
+  },
+  "voice.unit_lost@radio": {
+   "category": "voice",
+   "bus": "Voice",
+   "priority": 95,
+   "variants": [
+    {
+     "stream": "res://assets/audio/voice/radio/unit_lost.ogg",
+     "weight": 1.0
+    }
+   ],
+   "volume_db": 0.0,
+   "spatial": {
+    "mode": "ui"
+   },
+   "limit": {
+    "max_instances": 1,
+    "group": "voice",
+    "steal": "none"
+   }
+  },
+  "voice.mission_accomplished@radio": {
+   "category": "voice",
+   "bus": "Voice",
+   "priority": 95,
+   "variants": [
+    {
+     "stream": "res://assets/audio/voice/radio/mission_accomplished.ogg",
+     "weight": 1.0
+    }
+   ],
+   "volume_db": 0.0,
+   "spatial": {
+    "mode": "ui"
+   },
+   "limit": {
+    "max_instances": 1,
+    "group": "voice",
+    "steal": "none"
+   }
+  },
+  "voice.collector_under_attack@radio": {
+   "category": "voice",
+   "bus": "Voice",
+   "priority": 95,
+   "variants": [
+    {
+     "stream": "res://assets/audio/voice/radio/collector_under_attack.ogg",
+     "weight": 1.0
+    }
+   ],
+   "volume_db": 0.0,
+   "spatial": {
+    "mode": "ui"
+   },
+   "limit": {
+    "max_instances": 1,
+    "group": "voice",
+    "steal": "none"
+   }
+  },
+  "voice.building_captured@radio": {
+   "category": "voice",
+   "bus": "Voice",
+   "priority": 95,
+   "variants": [
+    {
+     "stream": "res://assets/audio/voice/radio/building_captured.ogg",
+     "weight": 1.0
+    }
+   ],
+   "volume_db": 0.0,
+   "spatial": {
+    "mode": "ui"
+   },
+   "limit": {
+    "max_instances": 1,
+    "group": "voice",
+    "steal": "none"
+   }
+  },
+  "voice.base_under_attack@napc": {
+   "category": "voice",
+   "bus": "Voice",
+   "priority": 95,
+   "variants": [
+    {
+     "stream": "res://assets/audio/voice/napc/base_under_attack.ogg",
+     "weight": 1.0
+    }
+   ],
+   "volume_db": 0.0,
+   "spatial": {
+    "mode": "ui"
+   },
+   "limit": {
+    "max_instances": 1,
+    "group": "voice",
+    "steal": "none"
+   }
+  },
+  "voice.construction_complete@napc": {
+   "category": "voice",
+   "bus": "Voice",
+   "priority": 95,
+   "variants": [
+    {
+     "stream": "res://assets/audio/voice/napc/construction_complete.ogg",
+     "weight": 1.0
+    }
+   ],
+   "volume_db": 0.0,
+   "spatial": {
+    "mode": "ui"
+   },
+   "limit": {
+    "max_instances": 1,
+    "group": "voice",
+    "steal": "none"
+   }
+  },
+  "voice.superweapon_ready@napc": {
+   "category": "voice",
+   "bus": "Voice",
+   "priority": 95,
+   "variants": [
+    {
+     "stream": "res://assets/audio/voice/napc/superweapon_ready.ogg",
+     "weight": 1.0
+    }
+   ],
+   "volume_db": 0.0,
+   "spatial": {
+    "mode": "ui"
+   },
+   "limit": {
+    "max_instances": 1,
+    "group": "voice",
+    "steal": "none"
+   }
+  },
+  "voice.base_under_attack@nec": {
+   "category": "voice",
+   "bus": "Voice",
+   "priority": 95,
+   "variants": [
+    {
+     "stream": "res://assets/audio/voice/nec/base_under_attack.ogg",
+     "weight": 1.0
+    }
+   ],
+   "volume_db": 0.0,
+   "spatial": {
+    "mode": "ui"
+   },
+   "limit": {
+    "max_instances": 1,
+    "group": "voice",
+    "steal": "none"
+   }
+  },
+  "voice.construction_complete@nec": {
+   "category": "voice",
+   "bus": "Voice",
+   "priority": 95,
+   "variants": [
+    {
+     "stream": "res://assets/audio/voice/nec/construction_complete.ogg",
+     "weight": 1.0
+    }
+   ],
+   "volume_db": 0.0,
+   "spatial": {
+    "mode": "ui"
+   },
+   "limit": {
+    "max_instances": 1,
+    "group": "voice",
+    "steal": "none"
+   }
+  },
+  "voice.superweapon_ready@nec": {
+   "category": "voice",
+   "bus": "Voice",
+   "priority": 95,
+   "variants": [
+    {
+     "stream": "res://assets/audio/voice/nec/superweapon_ready.ogg",
+     "weight": 1.0
+    }
+   ],
+   "volume_db": 0.0,
+   "spatial": {
+    "mode": "ui"
+   },
+   "limit": {
+    "max_instances": 1,
+    "group": "voice",
+    "steal": "none"
+   }
+  },
+  "voice.base_under_attack@olm": {
+   "category": "voice",
+   "bus": "Voice",
+   "priority": 95,
+   "variants": [
+    {
+     "stream": "res://assets/audio/voice/olm/base_under_attack.ogg",
+     "weight": 1.0
+    }
+   ],
+   "volume_db": 0.0,
+   "spatial": {
+    "mode": "ui"
+   },
+   "limit": {
+    "max_instances": 1,
+    "group": "voice",
+    "steal": "none"
+   }
+  },
+  "voice.construction_complete@olm": {
+   "category": "voice",
+   "bus": "Voice",
+   "priority": 95,
+   "variants": [
+    {
+     "stream": "res://assets/audio/voice/olm/construction_complete.ogg",
+     "weight": 1.0
+    }
+   ],
+   "volume_db": 0.0,
+   "spatial": {
+    "mode": "ui"
+   },
+   "limit": {
+    "max_instances": 1,
+    "group": "voice",
+    "steal": "none"
+   }
+  },
+  "voice.superweapon_ready@olm": {
+   "category": "voice",
+   "bus": "Voice",
+   "priority": 95,
+   "variants": [
+    {
+     "stream": "res://assets/audio/voice/olm/superweapon_ready.ogg",
+     "weight": 1.0
+    }
+   ],
+   "volume_db": 0.0,
+   "spatial": {
+    "mode": "ui"
+   },
+   "limit": {
+    "max_instances": 1,
+    "group": "voice",
+    "steal": "none"
+   }
+  },
+  "voice.base_under_attack@def": {
+   "category": "voice",
+   "bus": "Voice",
+   "priority": 95,
+   "variants": [
+    {
+     "stream": "res://assets/audio/voice/def/base_under_attack.ogg",
+     "weight": 1.0
+    }
+   ],
+   "volume_db": 0.0,
+   "spatial": {
+    "mode": "ui"
+   },
+   "limit": {
+    "max_instances": 1,
+    "group": "voice",
+    "steal": "none"
+   }
+  },
+  "voice.construction_complete@def": {
+   "category": "voice",
+   "bus": "Voice",
+   "priority": 95,
+   "variants": [
+    {
+     "stream": "res://assets/audio/voice/def/construction_complete.ogg",
+     "weight": 1.0
+    }
+   ],
+   "volume_db": 0.0,
+   "spatial": {
+    "mode": "ui"
+   },
+   "limit": {
+    "max_instances": 1,
+    "group": "voice",
+    "steal": "none"
+   }
+  },
+  "voice.superweapon_ready@def": {
+   "category": "voice",
+   "bus": "Voice",
+   "priority": 95,
+   "variants": [
+    {
+     "stream": "res://assets/audio/voice/def/superweapon_ready.ogg",
+     "weight": 1.0
+    }
+   ],
+   "volume_db": 0.0,
+   "spatial": {
+    "mode": "ui"
+   },
+   "limit": {
+    "max_instances": 1,
+    "group": "voice",
+    "steal": "none"
+   }
+  },
+  "voice.base_under_attack@pd": {
+   "category": "voice",
+   "bus": "Voice",
+   "priority": 95,
+   "variants": [
+    {
+     "stream": "res://assets/audio/voice/pd/base_under_attack.ogg",
+     "weight": 1.0
+    }
+   ],
+   "volume_db": 0.0,
+   "spatial": {
+    "mode": "ui"
+   },
+   "limit": {
+    "max_instances": 1,
+    "group": "voice",
+    "steal": "none"
+   }
+  },
+  "voice.construction_complete@pd": {
+   "category": "voice",
+   "bus": "Voice",
+   "priority": 95,
+   "variants": [
+    {
+     "stream": "res://assets/audio/voice/pd/construction_complete.ogg",
+     "weight": 1.0
+    }
+   ],
+   "volume_db": 0.0,
+   "spatial": {
+    "mode": "ui"
+   },
+   "limit": {
+    "max_instances": 1,
+    "group": "voice",
+    "steal": "none"
+   }
+  },
+  "voice.superweapon_ready@pd": {
+   "category": "voice",
+   "bus": "Voice",
+   "priority": 95,
+   "variants": [
+    {
+     "stream": "res://assets/audio/voice/pd/superweapon_ready.ogg",
+     "weight": 1.0
+    }
+   ],
+   "volume_db": 0.0,
+   "spatial": {
+    "mode": "ui"
+   },
+   "limit": {
+    "max_instances": 1,
+    "group": "voice",
+    "steal": "none"
+   }
+  },
+  "voice.base_under_attack@han": {
+   "category": "voice",
+   "bus": "Voice",
+   "priority": 95,
+   "variants": [
+    {
+     "stream": "res://assets/audio/voice/han/base_under_attack.ogg",
+     "weight": 1.0
+    }
+   ],
+   "volume_db": 0.0,
+   "spatial": {
+    "mode": "ui"
+   },
+   "limit": {
+    "max_instances": 1,
+    "group": "voice",
+    "steal": "none"
+   }
+  },
+  "voice.construction_complete@han": {
+   "category": "voice",
+   "bus": "Voice",
+   "priority": 95,
+   "variants": [
+    {
+     "stream": "res://assets/audio/voice/han/construction_complete.ogg",
+     "weight": 1.0
+    }
+   ],
+   "volume_db": 0.0,
+   "spatial": {
+    "mode": "ui"
+   },
+   "limit": {
+    "max_instances": 1,
+    "group": "voice",
+    "steal": "none"
+   }
+  },
+  "voice.superweapon_ready@han": {
+   "category": "voice",
+   "bus": "Voice",
+   "priority": 95,
+   "variants": [
+    {
+     "stream": "res://assets/audio/voice/han/superweapon_ready.ogg",
+     "weight": 1.0
+    }
+   ],
+   "volume_db": 0.0,
+   "spatial": {
+    "mode": "ui"
+   },
+   "limit": {
+    "max_instances": 1,
+    "group": "voice",
+    "steal": "none"
+   }
+  },
+  "voice.base_under_attack@ae": {
+   "category": "voice",
+   "bus": "Voice",
+   "priority": 95,
+   "variants": [
+    {
+     "stream": "res://assets/audio/voice/ae/base_under_attack.ogg",
+     "weight": 1.0
+    }
+   ],
+   "volume_db": 0.0,
+   "spatial": {
+    "mode": "ui"
+   },
+   "limit": {
+    "max_instances": 1,
+    "group": "voice",
+    "steal": "none"
+   }
+  },
+  "voice.construction_complete@ae": {
+   "category": "voice",
+   "bus": "Voice",
+   "priority": 95,
+   "variants": [
+    {
+     "stream": "res://assets/audio/voice/ae/construction_complete.ogg",
+     "weight": 1.0
+    }
+   ],
+   "volume_db": 0.0,
+   "spatial": {
+    "mode": "ui"
+   },
+   "limit": {
+    "max_instances": 1,
+    "group": "voice",
+    "steal": "none"
+   }
+  },
+  "voice.superweapon_ready@ae": {
+   "category": "voice",
+   "bus": "Voice",
+   "priority": 95,
+   "variants": [
+    {
+     "stream": "res://assets/audio/voice/ae/superweapon_ready.ogg",
+     "weight": 1.0
+    }
+   ],
+   "volume_db": 0.0,
+   "spatial": {
+    "mode": "ui"
+   },
+   "limit": {
+    "max_instances": 1,
+    "group": "voice",
+    "steal": "none"
+   }
+  },
+  "voice.base_under_attack@sap": {
+   "category": "voice",
+   "bus": "Voice",
+   "priority": 95,
+   "variants": [
+    {
+     "stream": "res://assets/audio/voice/sap/base_under_attack.ogg",
+     "weight": 1.0
+    }
+   ],
+   "volume_db": 0.0,
+   "spatial": {
+    "mode": "ui"
+   },
+   "limit": {
+    "max_instances": 1,
+    "group": "voice",
+    "steal": "none"
+   }
+  },
+  "voice.construction_complete@sap": {
+   "category": "voice",
+   "bus": "Voice",
+   "priority": 95,
+   "variants": [
+    {
+     "stream": "res://assets/audio/voice/sap/construction_complete.ogg",
+     "weight": 1.0
+    }
+   ],
+   "volume_db": 0.0,
+   "spatial": {
+    "mode": "ui"
+   },
+   "limit": {
+    "max_instances": 1,
+    "group": "voice",
+    "steal": "none"
+   }
+  },
+  "voice.superweapon_ready@sap": {
+   "category": "voice",
+   "bus": "Voice",
+   "priority": 95,
+   "variants": [
+    {
+     "stream": "res://assets/audio/voice/sap/superweapon_ready.ogg",
+     "weight": 1.0
+    }
+   ],
+   "volume_db": 0.0,
+   "spatial": {
+    "mode": "ui"
+   },
+   "limit": {
+    "max_instances": 1,
+    "group": "voice",
+    "steal": "none"
+   }
+  }
+ },
+ "music": {
+  "combat_tense": {
+   "folder": "res://assets/audio/music/combat_tense",
+   "bpm": 140.0,
+   "beat_count": 128,
+   "bar_beats": 4,
+   "stems": [
+    "drums",
+    "bass",
+    "pads",
+    "lead"
+   ],
+   "length_samples": 2419200,
+   "mode": "aeolian"
+  },
+  "calm_buildup": {
+   "folder": "res://assets/audio/music/calm_buildup",
+   "bpm": 84.0,
+   "beat_count": 64,
+   "bar_beats": 4,
+   "stems": [
+    "drums",
+    "bass",
+    "pads",
+    "lead"
+   ],
+   "length_samples": 2016000,
+   "mode": "dorian"
+  }
+ },
+ "sim_map": {
+  "weapon_fire": {
+   "pattern": "weapon.{snd}.fire",
+   "fallback": "weapon.rifle.fire"
+  },
+  "explosion": {
+   "pattern": "impact.explosion_{size}",
+   "fallback": "impact.explosion_small"
+  },
+  "movement_loop": {
+   "pattern": "unit.engine.{movement_class}",
+   "fallback": "unit.engine.wheeled"
+  },
+  "announcement": {
+   "pattern": "voice.{line}"
+  }
+ }
+}

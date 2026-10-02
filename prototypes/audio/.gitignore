@@ -1,0 +1,4 @@
+# regenerable build products (WAV masters, TTS raw takes incl. dev-only `say` output, Godot import cache, engine captures)
+.build/
+.godot/
+analysis/capture/

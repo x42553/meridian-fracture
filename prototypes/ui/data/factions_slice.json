@@ -1,0 +1,4309 @@
+{
+ "factions": [
+  {
+   "id": "faction.napc",
+   "code": "napc",
+   "name": "North American Peace Corps",
+   "motto": "Hold the line. Bring them home.",
+   "identity": "Durable combined arms; reliable frontline vehicles and recovery.",
+   "visual": "Olive, cream and rescue orange; broad hulls, modular armor, visible crew cabins.",
+   "lore": "After the Long Blackout, North American evacuation commands became the only institutions able to keep continental supply routes open. Their emergency charter hardened into the North American Peace Corps, a military reconstruction alliance rather than the historical civilian organization. Its elected Assembly promises to reopen the Meridian Network under public supervision. Generals argue that the network must first be secured by force. Communities grateful for restored power increasingly question why temporary military administrations never leave.",
+   "rosters": [
+    {
+     "id": "roster.napc.vanilla",
+     "kind": "vanilla",
+     "name": "Vanilla",
+     "title": "Vanilla",
+     "identity": "Durable combined arms; reliable frontline vehicles and recovery.",
+     "modifiers": [],
+     "units": [
+      "unit.napc.rifle_squad",
+      "unit.napc.javelin_team",
+      "unit.napc.combat_medic",
+      "unit.napc.pathfinder_apc",
+      "unit.napc.guardian_tank",
+      "unit.napc.sentinel_aa",
+      "unit.napc.paladin_howitzer",
+      "unit.napc.bastion_heavy_tank",
+      "unit.napc.falcon_interceptor",
+      "unit.napc.titan_gunship",
+      "unit.napc.riverwatch_patrol_boat",
+      "unit.napc.aegis_frigate",
+      "unit.napc.liberty_arsenal_ship"
+     ],
+     "service": [
+      "unit.shared.engineer",
+      "unit.shared.collector",
+      "unit.shared.mobile_construction_vehicle",
+      "unit.shared.landing_transport"
+     ],
+     "structures": [
+      "structure.shared.headquarters",
+      "structure.shared.generator",
+      "structure.shared.refinery",
+      "structure.shared.barracks",
+      "structure.shared.factory",
+      "structure.shared.dock",
+      "structure.shared.radar",
+      "structure.shared.airfield",
+      "structure.shared.laboratory",
+      "structure.shared.watchtower",
+      "structure.shared.anti_tank_turret",
+      "structure.shared.aa_battery",
+      "structure.napc.bulwark_cannon",
+      "structure.napc.atlas_kinetic_array"
+     ],
+     "powers": [
+      "power.napc.uav_sweep",
+      "power.napc.field_repair_drop",
+      "power.napc.combined_arms_window"
+     ],
+     "superweapon": "superweapon.napc.atlas_kinetic_array",
+     "research": [
+      "research.napc.adaptive_plating",
+      "research.napc.joint_tactical_links"
+     ],
+     "replacements": [],
+     "removed": []
+    },
+    {
+     "id": "roster.napc.usa",
+     "kind": "subfaction",
+     "name": "USA",
+     "title": "Air Mobility Command",
+     "identity": "Sustained air operations and precision strikes.",
+     "modifiers": [
+      "Aircraft cost -15%.",
+      "Aircraft rearm time -20%.",
+      "Land combat vehicle build time +15%."
+     ],
+     "units": [
+      "unit.napc.rifle_squad",
+      "unit.napc.javelin_team",
+      "unit.napc.combat_medic",
+      "unit.napc.pathfinder_apc",
+      "unit.napc.guardian_tank",
+      "unit.napc.sentinel_aa",
+      "unit.napc.paladin_howitzer",
+      "unit.napc.raptor_multirole_fighter",
+      "unit.napc.condor_stealth_bomber",
+      "unit.napc.riverwatch_patrol_boat",
+      "unit.napc.aegis_frigate",
+      "unit.napc.liberty_arsenal_ship"
+     ],
+     "service": [
+      "unit.shared.engineer",
+      "unit.shared.collector",
+      "unit.shared.mobile_construction_vehicle",
+      "unit.shared.landing_transport"
+     ],
+     "structures": [
+      "structure.shared.headquarters",
+      "structure.shared.generator",
+      "structure.shared.refinery",
+      "structure.shared.barracks",
+      "structure.shared.factory",
+      "structure.shared.dock",
+      "structure.shared.radar",
+      "structure.shared.airfield",
+      "structure.shared.laboratory",
+      "structure.shared.watchtower",
+      "structure.shared.anti_tank_turret",
+      "structure.shared.aa_battery",
+      "structure.napc.bulwark_cannon",
+      "structure.napc.atlas_kinetic_array"
+     ],
+     "powers": [
+      "power.napc.uav_sweep",
+      "power.napc.field_repair_drop",
+      "power.napc.rapid_turnaround"
+     ],
+     "superweapon": "superweapon.napc.atlas_kinetic_array",
+     "research": [
+      "research.napc.adaptive_plating",
+      "research.napc.joint_tactical_links",
+      "research.napc.dispersed_runways"
+     ],
+     "replacements": [
+      {
+       "replaced_unit_id": "unit.napc.falcon_interceptor",
+       "replacement_unit_id": "unit.napc.raptor_multirole_fighter"
+      },
+      {
+       "replaced_unit_id": "unit.napc.titan_gunship",
+       "replacement_unit_id": "unit.napc.condor_stealth_bomber"
+      }
+     ],
+     "removed": [
+      "unit.napc.bastion_heavy_tank"
+     ]
+    },
+    {
+     "id": "roster.napc.canada",
+     "kind": "subfaction",
+     "name": "Canada",
+     "title": "Northern Littoral Command",
+     "identity": "Amphibious armor and protected transport; useful on rivers and ordinary land.",
+     "modifiers": [
+      "Amphibious combat units gain health +10% on all terrain.",
+      "Ship build time -15%.",
+      "Amphibious vehicle movement speed on water +20%.",
+      "Land artillery reload interval +15%."
+     ],
+     "units": [
+      "unit.napc.rifle_squad",
+      "unit.napc.javelin_team",
+      "unit.napc.combat_medic",
+      "unit.napc.beaver_amphibious_apc",
+      "unit.napc.narwhal_amphibious_tank",
+      "unit.napc.sentinel_aa",
+      "unit.napc.paladin_howitzer",
+      "unit.napc.bastion_heavy_tank",
+      "unit.napc.falcon_interceptor",
+      "unit.napc.riverwatch_patrol_boat",
+      "unit.napc.aegis_frigate",
+      "unit.napc.liberty_arsenal_ship"
+     ],
+     "service": [
+      "unit.shared.engineer",
+      "unit.shared.collector",
+      "unit.shared.mobile_construction_vehicle",
+      "unit.shared.landing_transport"
+     ],
+     "structures": [
+      "structure.shared.headquarters",
+      "structure.shared.generator",
+      "structure.shared.refinery",
+      "structure.shared.barracks",
+      "structure.shared.factory",
+      "structure.shared.dock",
+      "structure.shared.radar",
+      "structure.shared.airfield",
+      "structure.shared.laboratory",
+      "structure.shared.watchtower",
+      "structure.shared.anti_tank_turret",
+      "structure.shared.aa_battery",
+      "structure.napc.bulwark_cannon",
+      "structure.napc.atlas_kinetic_array"
+     ],
+     "powers": [
+      "power.napc.uav_sweep",
+      "power.napc.field_repair_drop",
+      "power.napc.floating_workshop"
+     ],
+     "superweapon": "superweapon.napc.atlas_kinetic_array",
+     "research": [
+      "research.napc.adaptive_plating",
+      "research.napc.joint_tactical_links",
+      "research.napc.sealed_compartments"
+     ],
+     "replacements": [
+      {
+       "replaced_unit_id": "unit.napc.pathfinder_apc",
+       "replacement_unit_id": "unit.napc.beaver_amphibious_apc"
+      },
+      {
+       "replaced_unit_id": "unit.napc.guardian_tank",
+       "replacement_unit_id": "unit.napc.narwhal_amphibious_tank"
+      }
+     ],
+     "removed": [
+      "unit.napc.titan_gunship"
+     ]
+    },
+    {
+     "id": "roster.napc.mexico",
+     "kind": "subfaction",
+     "name": "Mexico",
+     "title": "Federal Vanguard",
+     "identity": "Affordable assault infantry with strong urban pressure.",
+     "modifiers": [
+      "Combat infantry cost -15%.",
+      "Combat infantry build time -20%.",
+      "Aircraft cost +20%."
+     ],
+     "units": [
+      "unit.napc.vanguard_rifle_squad",
+      "unit.napc.javelin_team",
+      "unit.napc.aguila_breach_team",
+      "unit.napc.pathfinder_apc",
+      "unit.napc.guardian_tank",
+      "unit.napc.sentinel_aa",
+      "unit.napc.paladin_howitzer",
+      "unit.napc.bastion_heavy_tank",
+      "unit.napc.falcon_interceptor",
+      "unit.napc.titan_gunship",
+      "unit.napc.riverwatch_patrol_boat",
+      "unit.napc.aegis_frigate"
+     ],
+     "service": [
+      "unit.shared.engineer",
+      "unit.shared.collector",
+      "unit.shared.mobile_construction_vehicle",
+      "unit.shared.landing_transport"
+     ],
+     "structures": [
+      "structure.shared.headquarters",
+      "structure.shared.generator",
+      "structure.shared.refinery",
+      "structure.shared.barracks",
+      "structure.shared.factory",
+      "structure.shared.dock",
+      "structure.shared.radar",
+      "structure.shared.airfield",
+      "structure.shared.laboratory",
+      "structure.shared.watchtower",
+      "structure.shared.anti_tank_turret",
+      "structure.shared.aa_battery",
+      "structure.napc.bulwark_cannon",
+      "structure.napc.atlas_kinetic_array"
+     ],
+     "powers": [
+      "power.napc.uav_sweep",
+      "power.napc.field_repair_drop",
+      "power.napc.coordinated_advance"
+     ],
+     "superweapon": "superweapon.napc.atlas_kinetic_array",
+     "research": [
+      "research.napc.adaptive_plating",
+      "research.napc.joint_tactical_links",
+      "research.napc.section_logistics"
+     ],
+     "replacements": [
+      {
+       "replaced_unit_id": "unit.napc.rifle_squad",
+       "replacement_unit_id": "unit.napc.vanguard_rifle_squad"
+      },
+      {
+       "replaced_unit_id": "unit.napc.combat_medic",
+       "replacement_unit_id": "unit.napc.aguila_breach_team"
+      }
+     ],
+     "removed": [
+      "unit.napc.liberty_arsenal_ship"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "faction.nec",
+   "code": "nec",
+   "name": "New European Confederation",
+   "motto": "No city stands alone.",
+   "identity": "Precision, sensor networks and deliberate positional warfare.",
+   "visual": "Slate blue, white and amber; low profiles, angular turrets, fold-out sensor masts.",
+   "lore": "The old continental institutions failed when member governments seized their own power reserves. City leagues, surviving national services and industrial cooperatives later negotiated a new confederation with narrow but enforceable obligations. Its armies defend a dense lattice of shared sensors and guaranteed supply routes. The Confederation wants Meridian governed by treaty and transparent technical standards, yet its smaller members fear that the engineers who define those standards will quietly become the new rulers.",
+   "rosters": [
+    {
+     "id": "roster.nec.vanilla",
+     "kind": "vanilla",
+     "name": "Vanilla",
+     "title": "Vanilla",
+     "identity": "Precision, sensor networks and deliberate positional warfare.",
+     "modifiers": [],
+     "units": [
+      "unit.nec.jager_squad",
+      "unit.nec.spike_team",
+      "unit.nec.sapper",
+      "unit.nec.surveyor_apc",
+      "unit.nec.leopard_tank",
+      "unit.nec.rapier_aa",
+      "unit.nec.archer_spg",
+      "unit.nec.argent_rail_tank",
+      "unit.nec.kestrel_interceptor",
+      "unit.nec.aster_ew_aircraft",
+      "unit.nec.skerry_patrol_boat",
+      "unit.nec.horizon_escort",
+      "unit.nec.concord_monitor"
+     ],
+     "service": [
+      "unit.shared.engineer",
+      "unit.shared.collector",
+      "unit.shared.mobile_construction_vehicle",
+      "unit.shared.landing_transport"
+     ],
+     "structures": [
+      "structure.shared.headquarters",
+      "structure.shared.generator",
+      "structure.shared.refinery",
+      "structure.shared.barracks",
+      "structure.shared.factory",
+      "structure.shared.dock",
+      "structure.shared.radar",
+      "structure.shared.airfield",
+      "structure.shared.laboratory",
+      "structure.shared.watchtower",
+      "structure.shared.anti_tank_turret",
+      "structure.shared.aa_battery",
+      "structure.nec.lance_rail_emplacement",
+      "structure.nec.aurora_microwave_array",
+      "structure.nec.relay"
+     ],
+     "powers": [
+      "power.nec.survey_drone",
+      "power.nec.counterbattery_mission",
+      "power.nec.treaty_coordination"
+     ],
+     "superweapon": "superweapon.nec.aurora_microwave_array",
+     "research": [
+      "research.nec.sensor_fusion",
+      "research.nec.distributed_control"
+     ],
+     "replacements": [],
+     "removed": []
+    },
+    {
+     "id": "roster.nec.nordics",
+     "kind": "subfaction",
+     "name": "Nordics",
+     "title": "Northern Watch",
+     "identity": "Reconnaissance, mobile missiles and coastal denial.",
+     "modifiers": [
+      "Scout and artillery sight +20%.",
+      "Amphibious vehicle movement speed +15% on land and water.",
+      "Tank health -10%."
+     ],
+     "units": [
+      "unit.nec.jager_squad",
+      "unit.nec.spike_team",
+      "unit.nec.sapper",
+      "unit.nec.fen_recon_carrier",
+      "unit.nec.leopard_tank",
+      "unit.nec.rapier_aa",
+      "unit.nec.fjord_missile_carrier",
+      "unit.nec.kestrel_interceptor",
+      "unit.nec.aster_ew_aircraft",
+      "unit.nec.skerry_patrol_boat",
+      "unit.nec.horizon_escort",
+      "unit.nec.concord_monitor"
+     ],
+     "service": [
+      "unit.shared.engineer",
+      "unit.shared.collector",
+      "unit.shared.mobile_construction_vehicle",
+      "unit.shared.landing_transport"
+     ],
+     "structures": [
+      "structure.shared.headquarters",
+      "structure.shared.generator",
+      "structure.shared.refinery",
+      "structure.shared.barracks",
+      "structure.shared.factory",
+      "structure.shared.dock",
+      "structure.shared.radar",
+      "structure.shared.airfield",
+      "structure.shared.laboratory",
+      "structure.shared.watchtower",
+      "structure.shared.anti_tank_turret",
+      "structure.shared.aa_battery",
+      "structure.nec.lance_rail_emplacement",
+      "structure.nec.aurora_microwave_array",
+      "structure.nec.relay"
+     ],
+     "powers": [
+      "power.nec.survey_drone",
+      "power.nec.counterbattery_mission",
+      "power.nec.silent_watch"
+     ],
+     "superweapon": "superweapon.nec.aurora_microwave_array",
+     "research": [
+      "research.nec.sensor_fusion",
+      "research.nec.distributed_control",
+      "research.nec.dispersed_links"
+     ],
+     "replacements": [
+      {
+       "replaced_unit_id": "unit.nec.surveyor_apc",
+       "replacement_unit_id": "unit.nec.fen_recon_carrier"
+      },
+      {
+       "replaced_unit_id": "unit.nec.archer_spg",
+       "replacement_unit_id": "unit.nec.fjord_missile_carrier"
+      }
+     ],
+     "removed": [
+      "unit.nec.argent_rail_tank"
+     ]
+    },
+    {
+     "id": "roster.nec.eurocorps",
+     "kind": "subfaction",
+     "name": "Eurocorps",
+     "title": "Franco-German Armored Directorate",
+     "identity": "Expensive armored formations and siege breakthroughs.",
+     "modifiers": [
+      "Tank health +15%.",
+      "Tank cost +10%.",
+      "All land combat vehicle build time +10%."
+     ],
+     "units": [
+      "unit.nec.jager_squad",
+      "unit.nec.spike_team",
+      "unit.nec.sapper",
+      "unit.nec.surveyor_apc",
+      "unit.nec.marte_heavy_mbt",
+      "unit.nec.rapier_aa",
+      "unit.nec.archer_spg",
+      "unit.nec.charlemagne_siege_tank",
+      "unit.nec.kestrel_interceptor",
+      "unit.nec.skerry_patrol_boat",
+      "unit.nec.horizon_escort",
+      "unit.nec.concord_monitor"
+     ],
+     "service": [
+      "unit.shared.engineer",
+      "unit.shared.collector",
+      "unit.shared.mobile_construction_vehicle",
+      "unit.shared.landing_transport"
+     ],
+     "structures": [
+      "structure.shared.headquarters",
+      "structure.shared.generator",
+      "structure.shared.refinery",
+      "structure.shared.barracks",
+      "structure.shared.factory",
+      "structure.shared.dock",
+      "structure.shared.radar",
+      "structure.shared.airfield",
+      "structure.shared.laboratory",
+      "structure.shared.watchtower",
+      "structure.shared.anti_tank_turret",
+      "structure.shared.aa_battery",
+      "structure.nec.lance_rail_emplacement",
+      "structure.nec.aurora_microwave_array",
+      "structure.nec.relay"
+     ],
+     "powers": [
+      "power.nec.survey_drone",
+      "power.nec.counterbattery_mission",
+      "power.nec.armored_overwatch"
+     ],
+     "superweapon": "superweapon.nec.aurora_microwave_array",
+     "research": [
+      "research.nec.sensor_fusion",
+      "research.nec.distributed_control",
+      "research.nec.shared_fire_solutions"
+     ],
+     "replacements": [
+      {
+       "replaced_unit_id": "unit.nec.leopard_tank",
+       "replacement_unit_id": "unit.nec.marte_heavy_mbt"
+      },
+      {
+       "replaced_unit_id": "unit.nec.argent_rail_tank",
+       "replacement_unit_id": "unit.nec.charlemagne_siege_tank"
+      }
+     ],
+     "removed": [
+      "unit.nec.aster_ew_aircraft"
+     ]
+    },
+    {
+     "id": "roster.nec.alpine_brotherhood",
+     "kind": "subfaction",
+     "name": "Alpine Brotherhood",
+     "title": "Pass and Tunnel Compact",
+     "identity": "Fortified infantry, compact artillery positions and repairable defenses.",
+     "modifiers": [
+      "Combat infantry health +15%.",
+      "Defensive structure cost -15%.",
+      "Aircraft build time +20%."
+     ],
+     "units": [
+      "unit.nec.jager_squad",
+      "unit.nec.spike_team",
+      "unit.nec.alpine_pioneer",
+      "unit.nec.surveyor_apc",
+      "unit.nec.leopard_tank",
+      "unit.nec.rapier_aa",
+      "unit.nec.ibex_crawler_gun",
+      "unit.nec.argent_rail_tank",
+      "unit.nec.kestrel_interceptor",
+      "unit.nec.aster_ew_aircraft",
+      "unit.nec.skerry_patrol_boat",
+      "unit.nec.horizon_escort"
+     ],
+     "service": [
+      "unit.shared.engineer",
+      "unit.shared.collector",
+      "unit.shared.mobile_construction_vehicle",
+      "unit.shared.landing_transport"
+     ],
+     "structures": [
+      "structure.shared.headquarters",
+      "structure.shared.generator",
+      "structure.shared.refinery",
+      "structure.shared.barracks",
+      "structure.shared.factory",
+      "structure.shared.dock",
+      "structure.shared.radar",
+      "structure.shared.airfield",
+      "structure.shared.laboratory",
+      "structure.shared.watchtower",
+      "structure.shared.anti_tank_turret",
+      "structure.shared.aa_battery",
+      "structure.nec.lance_rail_emplacement",
+      "structure.nec.aurora_microwave_array",
+      "structure.nec.relay"
+     ],
+     "powers": [
+      "power.nec.survey_drone",
+      "power.nec.counterbattery_mission",
+      "power.nec.emergency_earthworks"
+     ],
+     "superweapon": "superweapon.nec.aurora_microwave_array",
+     "research": [
+      "research.nec.sensor_fusion",
+      "research.nec.distributed_control",
+      "research.nec.tunnel_workshops"
+     ],
+     "replacements": [
+      {
+       "replaced_unit_id": "unit.nec.sapper",
+       "replacement_unit_id": "unit.nec.alpine_pioneer"
+      },
+      {
+       "replaced_unit_id": "unit.nec.archer_spg",
+       "replacement_unit_id": "unit.nec.ibex_crawler_gun"
+      }
+     ],
+     "removed": [
+      "unit.nec.concord_monitor"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "faction.olm",
+   "code": "olm",
+   "name": "Order of the Levant and Mediterranean",
+   "motto": "Keep the wells. Keep the word.",
+   "identity": "Mobile combined arms, concealment and abundant electrical power.",
+   "visual": "Ivory, copper and deep teal; heat shields, fabric screens and articulated wheels.",
+   "lore": "Desalination operators, Levantine municipal councils and Mediterranean convoy leagues created an oath-bound order to defend water and energy infrastructure during the Blackout. Membership is civic and includes many faiths and secular communities. The Order now protects a chain of coastal enclaves rather than a continuous empire. It argues that no distant government should be able to shut off another city's water. Its solar directorates nevertheless want exclusive custody of the very Meridian controls that would make such coercion possible.",
+   "rosters": [
+    {
+     "id": "roster.olm.vanilla",
+     "kind": "vanilla",
+     "name": "Vanilla",
+     "title": "Vanilla",
+     "identity": "Mobile combined arms, concealment and abundant electrical power.",
+     "modifiers": [],
+     "units": [
+      "unit.olm.wayfarer_guard",
+      "unit.olm.needle_team",
+      "unit.olm.mirage_observer",
+      "unit.olm.caravan_apc",
+      "unit.olm.sirocco_tank",
+      "unit.olm.crescent_aa",
+      "unit.olm.sandglass_mortar",
+      "unit.olm.sunlance_beam_tank",
+      "unit.olm.shrike_interceptor",
+      "unit.olm.nightjar_strike_drone",
+      "unit.olm.corsair_patrol_boat",
+      "unit.olm.lantern_escort",
+      "unit.olm.beacon_missile_ship"
+     ],
+     "service": [
+      "unit.shared.engineer",
+      "unit.shared.collector",
+      "unit.shared.mobile_construction_vehicle",
+      "unit.shared.landing_transport"
+     ],
+     "structures": [
+      "structure.shared.headquarters",
+      "structure.shared.generator",
+      "structure.shared.refinery",
+      "structure.shared.barracks",
+      "structure.shared.factory",
+      "structure.shared.dock",
+      "structure.shared.radar",
+      "structure.shared.airfield",
+      "structure.shared.laboratory",
+      "structure.shared.watchtower",
+      "structure.shared.anti_tank_turret",
+      "structure.shared.aa_battery",
+      "structure.olm.sunwall_projector",
+      "structure.olm.helios_reflector"
+     ],
+     "powers": [
+      "power.olm.dust_screen",
+      "power.olm.mobile_workshop",
+      "power.olm.open_corridor"
+     ],
+     "superweapon": "superweapon.olm.helios_reflector",
+     "research": [
+      "research.olm.thermal_shrouds",
+      "research.olm.optical_mesh"
+     ],
+     "replacements": [],
+     "removed": []
+    },
+    {
+     "id": "roster.olm.saudi_arabia",
+     "kind": "subfaction",
+     "name": "Saudi Arabia",
+     "title": "Solar Directorate",
+     "identity": "Energy weapons and power-efficient late-game positions.",
+     "modifiers": [
+      "Generator output +20% relative to the parent faction.",
+      "Thermal-beam weapon damage +15%.",
+      "Land combat vehicle movement speed -10%."
+     ],
+     "units": [
+      "unit.olm.wayfarer_guard",
+      "unit.olm.needle_team",
+      "unit.olm.mirage_observer",
+      "unit.olm.caravan_apc",
+      "unit.olm.sirocco_tank",
+      "unit.olm.dawn_laser_aa",
+      "unit.olm.sandglass_mortar",
+      "unit.olm.ifrit_prism_tank",
+      "unit.olm.shrike_interceptor",
+      "unit.olm.nightjar_strike_drone",
+      "unit.olm.corsair_patrol_boat",
+      "unit.olm.lantern_escort"
+     ],
+     "service": [
+      "unit.shared.engineer",
+      "unit.shared.collector",
+      "unit.shared.mobile_construction_vehicle",
+      "unit.shared.landing_transport"
+     ],
+     "structures": [
+      "structure.shared.headquarters",
+      "structure.shared.generator",
+      "structure.shared.refinery",
+      "structure.shared.barracks",
+      "structure.shared.factory",
+      "structure.shared.dock",
+      "structure.shared.radar",
+      "structure.shared.airfield",
+      "structure.shared.laboratory",
+      "structure.shared.watchtower",
+      "structure.shared.anti_tank_turret",
+      "structure.shared.aa_battery",
+      "structure.olm.sunwall_projector",
+      "structure.olm.helios_reflector"
+     ],
+     "powers": [
+      "power.olm.dust_screen",
+      "power.olm.mobile_workshop",
+      "power.olm.capacitor_discharge"
+     ],
+     "superweapon": "superweapon.olm.helios_reflector",
+     "research": [
+      "research.olm.thermal_shrouds",
+      "research.olm.optical_mesh",
+      "research.olm.thermal_reservoirs"
+     ],
+     "replacements": [
+      {
+       "replaced_unit_id": "unit.olm.crescent_aa",
+       "replacement_unit_id": "unit.olm.dawn_laser_aa"
+      },
+      {
+       "replaced_unit_id": "unit.olm.sunlance_beam_tank",
+       "replacement_unit_id": "unit.olm.ifrit_prism_tank"
+      }
+     ],
+     "removed": [
+      "unit.olm.beacon_missile_ship"
+     ]
+    },
+    {
+     "id": "roster.olm.algeria",
+     "kind": "subfaction",
+     "name": "Algeria",
+     "title": "Saharan Corridor Guard",
+     "identity": "Fast light vehicles, ambushes and harassment.",
+     "modifiers": [
+      "Light land vehicle cost -15%.",
+      "Light land vehicle build time -15%.",
+      "Light land vehicle health -10%.",
+      "Tank cost +15%."
+     ],
+     "units": [
+      "unit.olm.wayfarer_guard",
+      "unit.olm.needle_team",
+      "unit.olm.mirage_observer",
+      "unit.olm.dune_rover",
+      "unit.olm.sirocco_tank",
+      "unit.olm.crescent_aa",
+      "unit.olm.scorpion_rocket_buggy",
+      "unit.olm.shrike_interceptor",
+      "unit.olm.nightjar_strike_drone",
+      "unit.olm.corsair_patrol_boat",
+      "unit.olm.lantern_escort",
+      "unit.olm.beacon_missile_ship"
+     ],
+     "service": [
+      "unit.shared.engineer",
+      "unit.shared.collector",
+      "unit.shared.mobile_construction_vehicle",
+      "unit.shared.landing_transport"
+     ],
+     "structures": [
+      "structure.shared.headquarters",
+      "structure.shared.generator",
+      "structure.shared.refinery",
+      "structure.shared.barracks",
+      "structure.shared.factory",
+      "structure.shared.dock",
+      "structure.shared.radar",
+      "structure.shared.airfield",
+      "structure.shared.laboratory",
+      "structure.shared.watchtower",
+      "structure.shared.anti_tank_turret",
+      "structure.shared.aa_battery",
+      "structure.olm.sunwall_projector",
+      "structure.olm.helios_reflector"
+     ],
+     "powers": [
+      "power.olm.dust_screen",
+      "power.olm.mobile_workshop",
+      "power.olm.false_convoy"
+     ],
+     "superweapon": "superweapon.olm.helios_reflector",
+     "research": [
+      "research.olm.thermal_shrouds",
+      "research.olm.optical_mesh",
+      "research.olm.distributed_fuel_caches"
+     ],
+     "replacements": [
+      {
+       "replaced_unit_id": "unit.olm.caravan_apc",
+       "replacement_unit_id": "unit.olm.dune_rover"
+      },
+      {
+       "replaced_unit_id": "unit.olm.sandglass_mortar",
+       "replacement_unit_id": "unit.olm.scorpion_rocket_buggy"
+      }
+     ],
+     "removed": [
+      "unit.olm.sunlance_beam_tank"
+     ]
+    },
+    {
+     "id": "roster.olm.el_andalus",
+     "kind": "subfaction",
+     "name": "El-Andalus",
+     "title": "Western Straits Compact",
+     "identity": "Port defense, durable escorts and infantry holding power.",
+     "modifiers": [
+      "Ship health +15%.",
+      "Garrisoned combat infantry weapon damage +20%.",
+      "Aircraft cost +15%."
+     ],
+     "units": [
+      "unit.olm.gate_guard",
+      "unit.olm.needle_team",
+      "unit.olm.mirage_observer",
+      "unit.olm.caravan_apc",
+      "unit.olm.sirocco_tank",
+      "unit.olm.crescent_aa",
+      "unit.olm.sandglass_mortar",
+      "unit.olm.shrike_interceptor",
+      "unit.olm.nightjar_strike_drone",
+      "unit.olm.corsair_patrol_boat",
+      "unit.olm.strait_frigate",
+      "unit.olm.beacon_missile_ship"
+     ],
+     "service": [
+      "unit.shared.engineer",
+      "unit.shared.collector",
+      "unit.shared.mobile_construction_vehicle",
+      "unit.shared.landing_transport"
+     ],
+     "structures": [
+      "structure.shared.headquarters",
+      "structure.shared.generator",
+      "structure.shared.refinery",
+      "structure.shared.barracks",
+      "structure.shared.factory",
+      "structure.shared.dock",
+      "structure.shared.radar",
+      "structure.shared.airfield",
+      "structure.shared.laboratory",
+      "structure.shared.watchtower",
+      "structure.shared.anti_tank_turret",
+      "structure.shared.aa_battery",
+      "structure.olm.sunwall_projector",
+      "structure.olm.helios_reflector"
+     ],
+     "powers": [
+      "power.olm.dust_screen",
+      "power.olm.mobile_workshop",
+      "power.olm.straits_crossfire"
+     ],
+     "superweapon": "superweapon.olm.helios_reflector",
+     "research": [
+      "research.olm.thermal_shrouds",
+      "research.olm.optical_mesh",
+      "research.olm.harbor_militia"
+     ],
+     "replacements": [
+      {
+       "replaced_unit_id": "unit.olm.wayfarer_guard",
+       "replacement_unit_id": "unit.olm.gate_guard"
+      },
+      {
+       "replaced_unit_id": "unit.olm.lantern_escort",
+       "replacement_unit_id": "unit.olm.strait_frigate"
+      }
+     ],
+     "removed": [
+      "unit.olm.sunlance_beam_tank"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "faction.def",
+   "code": "def",
+   "name": "Democratic Eurasian Federation",
+   "motto": "A thousand districts. One supply line.",
+   "identity": "Industrial volume, artillery saturation and replaceable armored forces.",
+   "visual": "Oxide red, gray and pale yellow; slab armor, exposed running gear and standardized containers.",
+   "lore": "The Federation emerged from emergency congresses linking surviving Russian regions, Kazakh transport authorities and the northern Korean industrial state. Its charter distributes representation among territorial and workplace assemblies, but wartime production quotas give the central supply ministry enormous power. Some districts defend the federation as their only protection from abandonment; others call its elections ceremonial. It wants Meridian reopened as a shared industrial backbone and is willing to occupy reluctant junction cities to make the plan function.",
+   "rosters": [
+    {
+     "id": "roster.def.vanilla",
+     "kind": "vanilla",
+     "name": "Vanilla",
+     "title": "Vanilla",
+     "identity": "Industrial volume, artillery saturation and replaceable armored forces.",
+     "modifiers": [],
+     "units": [
+      "unit.def.line_conscript",
+      "unit.def.recoil_team",
+      "unit.def.signal_officer",
+      "unit.def.mule_apc",
+      "unit.def.hammer_tank",
+      "unit.def.porcupine_aa",
+      "unit.def.anvil_rocket_battery",
+      "unit.def.colossus_siege_tank",
+      "unit.def.kite_interceptor",
+      "unit.def.burya_bomber",
+      "unit.def.picket_boat",
+      "unit.def.rampart_escort",
+      "unit.def.boreal_missile_submarine"
+     ],
+     "service": [
+      "unit.shared.engineer",
+      "unit.shared.collector",
+      "unit.shared.mobile_construction_vehicle",
+      "unit.shared.landing_transport"
+     ],
+     "structures": [
+      "structure.shared.headquarters",
+      "structure.shared.generator",
+      "structure.shared.refinery",
+      "structure.shared.barracks",
+      "structure.shared.factory",
+      "structure.shared.dock",
+      "structure.shared.radar",
+      "structure.shared.airfield",
+      "structure.shared.laboratory",
+      "structure.shared.watchtower",
+      "structure.shared.anti_tank_turret",
+      "structure.shared.aa_battery",
+      "structure.def.citadel_mortar",
+      "structure.def.perun_missile_complex"
+     ],
+     "powers": [
+      "power.def.mobilization_order",
+      "power.def.tremor_barrage",
+      "power.def.redundant_orders"
+     ],
+     "superweapon": "superweapon.def.perun_missile_complex",
+     "research": [
+      "research.def.standardized_parts",
+      "research.def.coordinated_barrages"
+     ],
+     "replacements": [],
+     "removed": []
+    },
+    {
+     "id": "roster.def.russia",
+     "kind": "subfaction",
+     "name": "Russia",
+     "title": "Northern Arsenal Command",
+     "identity": "Slow armored assaults with active protection.",
+     "modifiers": [
+      "Land combat vehicle health +15%.",
+      "Land combat vehicle cost +10%.",
+      "Land combat vehicle movement speed -10%."
+     ],
+     "units": [
+      "unit.def.line_conscript",
+      "unit.def.recoil_team",
+      "unit.def.signal_officer",
+      "unit.def.mule_apc",
+      "unit.def.ural_assault_tank",
+      "unit.def.porcupine_aa",
+      "unit.def.anvil_rocket_battery",
+      "unit.def.bear_siege_crawler",
+      "unit.def.kite_interceptor",
+      "unit.def.picket_boat",
+      "unit.def.rampart_escort",
+      "unit.def.boreal_missile_submarine"
+     ],
+     "service": [
+      "unit.shared.engineer",
+      "unit.shared.collector",
+      "unit.shared.mobile_construction_vehicle",
+      "unit.shared.landing_transport"
+     ],
+     "structures": [
+      "structure.shared.headquarters",
+      "structure.shared.generator",
+      "structure.shared.refinery",
+      "structure.shared.barracks",
+      "structure.shared.factory",
+      "structure.shared.dock",
+      "structure.shared.radar",
+      "structure.shared.airfield",
+      "structure.shared.laboratory",
+      "structure.shared.watchtower",
+      "structure.shared.anti_tank_turret",
+      "structure.shared.aa_battery",
+      "structure.def.citadel_mortar",
+      "structure.def.perun_missile_complex"
+     ],
+     "powers": [
+      "power.def.mobilization_order",
+      "power.def.tremor_barrage",
+      "power.def.steel_advance"
+     ],
+     "superweapon": "superweapon.def.perun_missile_complex",
+     "research": [
+      "research.def.standardized_parts",
+      "research.def.coordinated_barrages",
+      "research.def.layered_protection"
+     ],
+     "replacements": [
+      {
+       "replaced_unit_id": "unit.def.hammer_tank",
+       "replacement_unit_id": "unit.def.ural_assault_tank"
+      },
+      {
+       "replaced_unit_id": "unit.def.colossus_siege_tank",
+       "replacement_unit_id": "unit.def.bear_siege_crawler"
+      }
+     ],
+     "removed": [
+      "unit.def.burya_bomber"
+     ]
+    },
+    {
+     "id": "roster.def.kazakhstan",
+     "kind": "subfaction",
+     "name": "Kazakhstan",
+     "title": "Steppe Transit Command",
+     "identity": "Fast reconnaissance and mobile missile warfare.",
+     "modifiers": [
+      "Ground combat unit movement speed +20%.",
+      "Refinery build cost -15%; collectors are not discounted.",
+      "Land combat vehicle health -15%."
+     ],
+     "units": [
+      "unit.def.line_conscript",
+      "unit.def.recoil_team",
+      "unit.def.signal_officer",
+      "unit.def.steppe_recon_carrier",
+      "unit.def.hammer_tank",
+      "unit.def.porcupine_aa",
+      "unit.def.saker_missile_truck",
+      "unit.def.kite_interceptor",
+      "unit.def.burya_bomber",
+      "unit.def.picket_boat",
+      "unit.def.rampart_escort",
+      "unit.def.boreal_missile_submarine"
+     ],
+     "service": [
+      "unit.shared.engineer",
+      "unit.shared.collector",
+      "unit.shared.mobile_construction_vehicle",
+      "unit.shared.landing_transport"
+     ],
+     "structures": [
+      "structure.shared.headquarters",
+      "structure.shared.generator",
+      "structure.shared.refinery",
+      "structure.shared.barracks",
+      "structure.shared.factory",
+      "structure.shared.dock",
+      "structure.shared.radar",
+      "structure.shared.airfield",
+      "structure.shared.laboratory",
+      "structure.shared.watchtower",
+      "structure.shared.anti_tank_turret",
+      "structure.shared.aa_battery",
+      "structure.def.citadel_mortar",
+      "structure.def.perun_missile_complex"
+     ],
+     "powers": [
+      "power.def.mobilization_order",
+      "power.def.tremor_barrage",
+      "power.def.transit_priority"
+     ],
+     "superweapon": "superweapon.def.perun_missile_complex",
+     "research": [
+      "research.def.standardized_parts",
+      "research.def.coordinated_barrages",
+      "research.def.mobile_dispatch"
+     ],
+     "replacements": [
+      {
+       "replaced_unit_id": "unit.def.mule_apc",
+       "replacement_unit_id": "unit.def.steppe_recon_carrier"
+      },
+      {
+       "replaced_unit_id": "unit.def.anvil_rocket_battery",
+       "replacement_unit_id": "unit.def.saker_missile_truck"
+      }
+     ],
+     "removed": [
+      "unit.def.colossus_siege_tank"
+     ]
+    },
+    {
+     "id": "roster.def.north_korea",
+     "kind": "subfaction",
+     "name": "North Korea",
+     "title": "Fortress Reconstruction Bureau",
+     "identity": "Durable infantry, prepared positions and decoys.",
+     "modifiers": [
+      "Combat infantry health +20%.",
+      "Combat infantry build time -15%.",
+      "Defensive structure cost -10%.",
+      "Aircraft cost +25%."
+     ],
+     "units": [
+      "unit.def.fortress_guard",
+      "unit.def.recoil_team",
+      "unit.def.echo_team",
+      "unit.def.mule_apc",
+      "unit.def.hammer_tank",
+      "unit.def.porcupine_aa",
+      "unit.def.anvil_rocket_battery",
+      "unit.def.colossus_siege_tank",
+      "unit.def.kite_interceptor",
+      "unit.def.burya_bomber",
+      "unit.def.picket_boat",
+      "unit.def.rampart_escort"
+     ],
+     "service": [
+      "unit.shared.engineer",
+      "unit.shared.collector",
+      "unit.shared.mobile_construction_vehicle",
+      "unit.shared.landing_transport"
+     ],
+     "structures": [
+      "structure.shared.headquarters",
+      "structure.shared.generator",
+      "structure.shared.refinery",
+      "structure.shared.barracks",
+      "structure.shared.factory",
+      "structure.shared.dock",
+      "structure.shared.radar",
+      "structure.shared.airfield",
+      "structure.shared.laboratory",
+      "structure.shared.watchtower",
+      "structure.shared.anti_tank_turret",
+      "structure.shared.aa_battery",
+      "structure.def.citadel_mortar",
+      "structure.def.perun_missile_complex"
+     ],
+     "powers": [
+      "power.def.mobilization_order",
+      "power.def.tremor_barrage",
+      "power.def.false_front"
+     ],
+     "superweapon": "superweapon.def.perun_missile_complex",
+     "research": [
+      "research.def.standardized_parts",
+      "research.def.coordinated_barrages",
+      "research.def.buried_command_lines"
+     ],
+     "replacements": [
+      {
+       "replaced_unit_id": "unit.def.line_conscript",
+       "replacement_unit_id": "unit.def.fortress_guard"
+      },
+      {
+       "replaced_unit_id": "unit.def.signal_officer",
+       "replacement_unit_id": "unit.def.echo_team"
+      }
+     ],
+     "removed": [
+      "unit.def.boreal_missile_submarine"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "faction.pd",
+   "code": "pd",
+   "name": "Pacific Dominion",
+   "motto": "The sea connects us.",
+   "identity": "Amphibious maneuver, naval reach and flexible coastal logistics.",
+   "visual": "Ocean blue, coral orange and white; sealed hulls, folding flight surfaces and deck-mounted drones.",
+   "lore": "Australia, Indonesian maritime leagues and Japanese industrial authorities kept each other alive through a chain of protected shipping routes. Their emergency maritime command became the Pacific Dominion: a treaty government whose authority is strongest at sea and contested on land. Its admirals want Meridian reopened without allowing a continental power to dictate access to ports. Smaller islands increasingly ask whether the Dominion's promise of open passage includes the right to refuse its bases.",
+   "rosters": [
+    {
+     "id": "roster.pd.vanilla",
+     "kind": "vanilla",
+     "name": "Vanilla",
+     "title": "Vanilla",
+     "identity": "Amphibious maneuver, naval reach and flexible coastal logistics.",
+     "modifiers": [],
+     "units": [
+      "unit.pd.ranger_marine",
+      "unit.pd.harpoon_team",
+      "unit.pd.reef_technician",
+      "unit.pd.wake_skimmer",
+      "unit.pd.tide_tank",
+      "unit.pd.storm_aa",
+      "unit.pd.breaker_howitzer",
+      "unit.pd.leviathan_assault_carrier",
+      "unit.pd.petrel_fighter",
+      "unit.pd.osprey_strike_tiltrotor",
+      "unit.pd.reef_patrol_boat",
+      "unit.pd.trident_escort",
+      "unit.pd.tempest_carrier"
+     ],
+     "service": [
+      "unit.shared.engineer",
+      "unit.shared.collector",
+      "unit.shared.mobile_construction_vehicle",
+      "unit.shared.landing_transport"
+     ],
+     "structures": [
+      "structure.shared.headquarters",
+      "structure.shared.generator",
+      "structure.shared.refinery",
+      "structure.shared.barracks",
+      "structure.shared.factory",
+      "structure.shared.dock",
+      "structure.shared.radar",
+      "structure.shared.airfield",
+      "structure.shared.laboratory",
+      "structure.shared.watchtower",
+      "structure.shared.anti_tank_turret",
+      "structure.shared.aa_battery",
+      "structure.pd.sea_spear_battery",
+      "structure.pd.tempest_swarm_hub"
+     ],
+     "powers": [
+      "power.pd.maritime_patrol",
+      "power.pd.expeditionary_workshop",
+      "power.pd.joint_landing"
+     ],
+     "superweapon": "superweapon.pd.tempest_swarm_hub",
+     "research": [
+      "research.pd.expeditionary_maintenance",
+      "research.pd.integrated_flight_decks"
+     ],
+     "replacements": [],
+     "removed": []
+    },
+    {
+     "id": "roster.pd.australia",
+     "kind": "subfaction",
+     "name": "Australia",
+     "title": "Southern Reach Command",
+     "identity": "Long-range expeditionary artillery backed by reconnaissance aircraft.",
+     "modifiers": [
+      "Land artillery weapon range +15%.",
+      "Airfield construction time -15%.",
+      "Land combat vehicle health -10%.",
+      "Ship build time +15%."
+     ],
+     "units": [
+      "unit.pd.ranger_marine",
+      "unit.pd.harpoon_team",
+      "unit.pd.reef_technician",
+      "unit.pd.wake_skimmer",
+      "unit.pd.tide_tank",
+      "unit.pd.storm_aa",
+      "unit.pd.outrider_howitzer",
+      "unit.pd.wedge_recon_fighter",
+      "unit.pd.osprey_strike_tiltrotor",
+      "unit.pd.reef_patrol_boat",
+      "unit.pd.trident_escort",
+      "unit.pd.tempest_carrier"
+     ],
+     "service": [
+      "unit.shared.engineer",
+      "unit.shared.collector",
+      "unit.shared.mobile_construction_vehicle",
+      "unit.shared.landing_transport"
+     ],
+     "structures": [
+      "structure.shared.headquarters",
+      "structure.shared.generator",
+      "structure.shared.refinery",
+      "structure.shared.barracks",
+      "structure.shared.factory",
+      "structure.shared.dock",
+      "structure.shared.radar",
+      "structure.shared.airfield",
+      "structure.shared.laboratory",
+      "structure.shared.watchtower",
+      "structure.shared.anti_tank_turret",
+      "structure.shared.aa_battery",
+      "structure.pd.sea_spear_battery",
+      "structure.pd.tempest_swarm_hub"
+     ],
+     "powers": [
+      "power.pd.maritime_patrol",
+      "power.pd.expeditionary_workshop",
+      "power.pd.long_watch"
+     ],
+     "superweapon": "superweapon.pd.tempest_swarm_hub",
+     "research": [
+      "research.pd.expeditionary_maintenance",
+      "research.pd.integrated_flight_decks",
+      "research.pd.forward_fire_control"
+     ],
+     "replacements": [
+      {
+       "replaced_unit_id": "unit.pd.breaker_howitzer",
+       "replacement_unit_id": "unit.pd.outrider_howitzer"
+      },
+      {
+       "replaced_unit_id": "unit.pd.petrel_fighter",
+       "replacement_unit_id": "unit.pd.wedge_recon_fighter"
+      }
+     ],
+     "removed": [
+      "unit.pd.leviathan_assault_carrier"
+     ]
+    },
+    {
+     "id": "roster.pd.indonesia",
+     "kind": "subfaction",
+     "name": "Indonesia",
+     "title": "Archipelago Defense League",
+     "identity": "Transport assaults, inexpensive marines and raids across several routes.",
+     "modifiers": [
+      "Combat infantry build time -15%.",
+      "Transport health +20%, including Landing Transports.",
+      "Tank cost +15%."
+     ],
+     "units": [
+      "unit.pd.island_raider",
+      "unit.pd.harpoon_team",
+      "unit.pd.reef_technician",
+      "unit.pd.kancil_landing_skimmer",
+      "unit.pd.tide_tank",
+      "unit.pd.storm_aa",
+      "unit.pd.breaker_howitzer",
+      "unit.pd.leviathan_assault_carrier",
+      "unit.pd.petrel_fighter",
+      "unit.pd.osprey_strike_tiltrotor",
+      "unit.pd.reef_patrol_boat",
+      "unit.pd.trident_escort"
+     ],
+     "service": [
+      "unit.shared.engineer",
+      "unit.shared.collector",
+      "unit.shared.mobile_construction_vehicle",
+      "unit.shared.landing_transport"
+     ],
+     "structures": [
+      "structure.shared.headquarters",
+      "structure.shared.generator",
+      "structure.shared.refinery",
+      "structure.shared.barracks",
+      "structure.shared.factory",
+      "structure.shared.dock",
+      "structure.shared.radar",
+      "structure.shared.airfield",
+      "structure.shared.laboratory",
+      "structure.shared.watchtower",
+      "structure.shared.anti_tank_turret",
+      "structure.shared.aa_battery",
+      "structure.pd.sea_spear_battery",
+      "structure.pd.tempest_swarm_hub"
+     ],
+     "powers": [
+      "power.pd.maritime_patrol",
+      "power.pd.expeditionary_workshop",
+      "power.pd.feint_landing"
+     ],
+     "superweapon": "superweapon.pd.tempest_swarm_hub",
+     "research": [
+      "research.pd.expeditionary_maintenance",
+      "research.pd.integrated_flight_decks",
+      "research.pd.distributed_beachheads"
+     ],
+     "replacements": [
+      {
+       "replaced_unit_id": "unit.pd.wake_skimmer",
+       "replacement_unit_id": "unit.pd.kancil_landing_skimmer"
+      },
+      {
+       "replaced_unit_id": "unit.pd.ranger_marine",
+       "replacement_unit_id": "unit.pd.island_raider"
+      }
+     ],
+     "removed": [
+      "unit.pd.tempest_carrier"
+     ]
+    },
+    {
+     "id": "roster.pd.japan",
+     "kind": "subfaction",
+     "name": "Japan",
+     "title": "Maritime Systems Authority",
+     "identity": "Expensive precision systems, adaptable armor and advanced carriers.",
+     "modifiers": [
+      "Aircraft and ship reload intervals -10%; Airfield rearm time is unchanged.",
+      "All combat unit cost +10%.",
+      "Defensive structure health -10%."
+     ],
+     "units": [
+      "unit.pd.ranger_marine",
+      "unit.pd.harpoon_team",
+      "unit.pd.reef_technician",
+      "unit.pd.wake_skimmer",
+      "unit.pd.shinano_adaptive_tank",
+      "unit.pd.storm_aa",
+      "unit.pd.leviathan_assault_carrier",
+      "unit.pd.petrel_fighter",
+      "unit.pd.osprey_strike_tiltrotor",
+      "unit.pd.reef_patrol_boat",
+      "unit.pd.trident_escort",
+      "unit.pd.shogun_drone_carrier"
+     ],
+     "service": [
+      "unit.shared.engineer",
+      "unit.shared.collector",
+      "unit.shared.mobile_construction_vehicle",
+      "unit.shared.landing_transport"
+     ],
+     "structures": [
+      "structure.shared.headquarters",
+      "structure.shared.generator",
+      "structure.shared.refinery",
+      "structure.shared.barracks",
+      "structure.shared.factory",
+      "structure.shared.dock",
+      "structure.shared.radar",
+      "structure.shared.airfield",
+      "structure.shared.laboratory",
+      "structure.shared.watchtower",
+      "structure.shared.anti_tank_turret",
+      "structure.shared.aa_battery",
+      "structure.pd.sea_spear_battery",
+      "structure.pd.tempest_swarm_hub"
+     ],
+     "powers": [
+      "power.pd.maritime_patrol",
+      "power.pd.expeditionary_workshop",
+      "power.pd.precision_window"
+     ],
+     "superweapon": "superweapon.pd.tempest_swarm_hub",
+     "research": [
+      "research.pd.expeditionary_maintenance",
+      "research.pd.integrated_flight_decks",
+      "research.pd.predictive_maintenance"
+     ],
+     "replacements": [
+      {
+       "replaced_unit_id": "unit.pd.tide_tank",
+       "replacement_unit_id": "unit.pd.shinano_adaptive_tank"
+      },
+      {
+       "replaced_unit_id": "unit.pd.tempest_carrier",
+       "replacement_unit_id": "unit.pd.shogun_drone_carrier"
+      }
+     ],
+     "removed": [
+      "unit.pd.breaker_howitzer"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "faction.han",
+   "code": "han",
+   "name": "Han Empire",
+   "motto": "A common future requires a common plan.",
+   "identity": "Affordable infantry, unmanned support and vulnerable command links.",
+   "visual": "Jade green, crimson and porcelain; compact modular hulls, sensor crowns and standardized drone racks.",
+   "lore": "A post-Blackout restoration movement recast the surviving Chinese central government as the Han Empire, claiming an old dynastic name for a new administrative order. In this setting the title is political, not a claim that its citizens share one ethnicity. Vietnamese and Cambodian successor governments joined through unequal security and infrastructure treaties, retaining their own armed commands. The imperial court promises to end scarcity by coordinating Meridian centrally; its provincial partners disagree sharply over who gets to write the plan.",
+   "rosters": [
+    {
+     "id": "roster.han.vanilla",
+     "kind": "vanilla",
+     "name": "Vanilla",
+     "title": "Vanilla",
+     "identity": "Affordable infantry, unmanned support and vulnerable command links.",
+     "modifiers": [],
+     "units": [
+      "unit.han.banner_infantry",
+      "unit.han.lance_team",
+      "unit.han.link_operator",
+      "unit.han.jade_carrier",
+      "unit.han.ox_tank",
+      "unit.han.firefly_aa_drone",
+      "unit.han.nest_rocket_drone",
+      "unit.han.dragon_command_walker",
+      "unit.han.swallow_interceptor",
+      "unit.han.silkwing_drone_bomber",
+      "unit.han.canal_patrol_boat",
+      "unit.han.jade_escort",
+      "unit.han.emperor_drone_ship"
+     ],
+     "service": [
+      "unit.shared.engineer",
+      "unit.shared.collector",
+      "unit.shared.mobile_construction_vehicle",
+      "unit.shared.landing_transport"
+     ],
+     "structures": [
+      "structure.shared.headquarters",
+      "structure.shared.generator",
+      "structure.shared.refinery",
+      "structure.shared.barracks",
+      "structure.shared.factory",
+      "structure.shared.dock",
+      "structure.shared.radar",
+      "structure.shared.airfield",
+      "structure.shared.laboratory",
+      "structure.shared.watchtower",
+      "structure.shared.anti_tank_turret",
+      "structure.shared.aa_battery",
+      "structure.han.dragon_tooth_launcher",
+      "structure.han.dragonfall_field_foundry"
+     ],
+     "powers": [
+      "power.han.wideband_scan",
+      "power.han.software_surge",
+      "power.han.reserve_bandwidth"
+     ],
+     "superweapon": "superweapon.han.dragonfall_field_foundry",
+     "research": [
+      "research.han.resilient_mesh",
+      "research.han.distributed_cognition"
+     ],
+     "replacements": [],
+     "removed": []
+    },
+    {
+     "id": "roster.han.china",
+     "kind": "subfaction",
+     "name": "China",
+     "title": "Imperial Standards Army",
+     "identity": "Heavy armor and stronger local command coverage.",
+     "modifiers": [
+      "Land combat vehicle health +15%.",
+      "Land combat vehicle cost +10%.",
+      "Combat infantry build time +10%."
+     ],
+     "units": [
+      "unit.han.banner_infantry",
+      "unit.han.lance_team",
+      "unit.han.link_operator",
+      "unit.han.jade_carrier",
+      "unit.han.imperial_guard_tank",
+      "unit.han.firefly_aa_drone",
+      "unit.han.nest_rocket_drone",
+      "unit.han.long_command_walker",
+      "unit.han.swallow_interceptor",
+      "unit.han.canal_patrol_boat",
+      "unit.han.jade_escort",
+      "unit.han.emperor_drone_ship"
+     ],
+     "service": [
+      "unit.shared.engineer",
+      "unit.shared.collector",
+      "unit.shared.mobile_construction_vehicle",
+      "unit.shared.landing_transport"
+     ],
+     "structures": [
+      "structure.shared.headquarters",
+      "structure.shared.generator",
+      "structure.shared.refinery",
+      "structure.shared.barracks",
+      "structure.shared.factory",
+      "structure.shared.dock",
+      "structure.shared.radar",
+      "structure.shared.airfield",
+      "structure.shared.laboratory",
+      "structure.shared.watchtower",
+      "structure.shared.anti_tank_turret",
+      "structure.shared.aa_battery",
+      "structure.han.dragon_tooth_launcher",
+      "structure.han.dragonfall_field_foundry"
+     ],
+     "powers": [
+      "power.han.wideband_scan",
+      "power.han.software_surge",
+      "power.han.central_priority"
+     ],
+     "superweapon": "superweapon.han.dragonfall_field_foundry",
+     "research": [
+      "research.han.resilient_mesh",
+      "research.han.distributed_cognition",
+      "research.han.guard_integration"
+     ],
+     "replacements": [
+      {
+       "replaced_unit_id": "unit.han.ox_tank",
+       "replacement_unit_id": "unit.han.imperial_guard_tank"
+      },
+      {
+       "replaced_unit_id": "unit.han.dragon_command_walker",
+       "replacement_unit_id": "unit.han.long_command_walker"
+      }
+     ],
+     "removed": [
+      "unit.han.silkwing_drone_bomber"
+     ]
+    },
+    {
+     "id": "roster.han.vietnam",
+     "kind": "subfaction",
+     "name": "Vietnam",
+     "title": "Canopy Defense Command",
+     "identity": "Concealed infantry and amphibious rocket raids.",
+     "modifiers": [
+      "Combat infantry movement speed +10%.",
+      "Light land vehicle cost -10%.",
+      "Tank cost +20%."
+     ],
+     "units": [
+      "unit.han.canopy_ranger",
+      "unit.han.lance_team",
+      "unit.han.link_operator",
+      "unit.han.jade_carrier",
+      "unit.han.ox_tank",
+      "unit.han.firefly_aa_drone",
+      "unit.han.reed_rocket_skimmer",
+      "unit.han.swallow_interceptor",
+      "unit.han.silkwing_drone_bomber",
+      "unit.han.canal_patrol_boat",
+      "unit.han.jade_escort",
+      "unit.han.emperor_drone_ship"
+     ],
+     "service": [
+      "unit.shared.engineer",
+      "unit.shared.collector",
+      "unit.shared.mobile_construction_vehicle",
+      "unit.shared.landing_transport"
+     ],
+     "structures": [
+      "structure.shared.headquarters",
+      "structure.shared.generator",
+      "structure.shared.refinery",
+      "structure.shared.barracks",
+      "structure.shared.factory",
+      "structure.shared.dock",
+      "structure.shared.radar",
+      "structure.shared.airfield",
+      "structure.shared.laboratory",
+      "structure.shared.watchtower",
+      "structure.shared.anti_tank_turret",
+      "structure.shared.aa_battery",
+      "structure.han.dragon_tooth_launcher",
+      "structure.han.dragonfall_field_foundry"
+     ],
+     "powers": [
+      "power.han.wideband_scan",
+      "power.han.software_surge",
+      "power.han.broken_contact"
+     ],
+     "superweapon": "superweapon.han.dragonfall_field_foundry",
+     "research": [
+      "research.han.resilient_mesh",
+      "research.han.distributed_cognition",
+      "research.han.hidden_relays"
+     ],
+     "replacements": [
+      {
+       "replaced_unit_id": "unit.han.banner_infantry",
+       "replacement_unit_id": "unit.han.canopy_ranger"
+      },
+      {
+       "replaced_unit_id": "unit.han.nest_rocket_drone",
+       "replacement_unit_id": "unit.han.reed_rocket_skimmer"
+      }
+     ],
+     "removed": [
+      "unit.han.dragon_command_walker"
+     ]
+    },
+    {
+     "id": "roster.han.cambodia",
+     "kind": "subfaction",
+     "name": "Cambodia",
+     "title": "Mekong Reconstruction Authority",
+     "identity": "Drone sustain, field repair and economical support systems.",
+     "modifiers": [
+      "Unmanned combat unit cost -15%.",
+      "Repairs to friendly structures progress 25% faster; cost per health is unchanged.",
+      "Tank build time +20%."
+     ],
+     "units": [
+      "unit.han.banner_infantry",
+      "unit.han.lance_team",
+      "unit.han.mekong_field_engineer",
+      "unit.han.lotus_drone_tender",
+      "unit.han.ox_tank",
+      "unit.han.firefly_aa_drone",
+      "unit.han.nest_rocket_drone",
+      "unit.han.dragon_command_walker",
+      "unit.han.swallow_interceptor",
+      "unit.han.silkwing_drone_bomber",
+      "unit.han.canal_patrol_boat",
+      "unit.han.jade_escort"
+     ],
+     "service": [
+      "unit.shared.engineer",
+      "unit.shared.collector",
+      "unit.shared.mobile_construction_vehicle",
+      "unit.shared.landing_transport"
+     ],
+     "structures": [
+      "structure.shared.headquarters",
+      "structure.shared.generator",
+      "structure.shared.refinery",
+      "structure.shared.barracks",
+      "structure.shared.factory",
+      "structure.shared.dock",
+      "structure.shared.radar",
+      "structure.shared.airfield",
+      "structure.shared.laboratory",
+      "structure.shared.watchtower",
+      "structure.shared.anti_tank_turret",
+      "structure.shared.aa_battery",
+      "structure.han.dragon_tooth_launcher",
+      "structure.han.dragonfall_field_foundry"
+     ],
+     "powers": [
+      "power.han.wideband_scan",
+      "power.han.software_surge",
+      "power.han.repair_swarm"
+     ],
+     "superweapon": "superweapon.han.dragonfall_field_foundry",
+     "research": [
+      "research.han.resilient_mesh",
+      "research.han.distributed_cognition",
+      "research.han.modular_servicing"
+     ],
+     "replacements": [
+      {
+       "replaced_unit_id": "unit.han.jade_carrier",
+       "replacement_unit_id": "unit.han.lotus_drone_tender"
+      },
+      {
+       "replaced_unit_id": "unit.han.link_operator",
+       "replacement_unit_id": "unit.han.mekong_field_engineer"
+      }
+     ],
+     "removed": [
+      "unit.han.emperor_drone_ship"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "faction.ae",
+   "code": "ae",
+   "name": "African Empire",
+   "motto": "What survives belongs to the future.",
+   "identity": "Recovery, battlefield salvage and practical industrial endurance.",
+   "visual": "Ochre, charcoal and bright cyan; repairable panels, reinforced wheels and interchangeable weapon modules.",
+   "lore": "Nigerian commercial and civic alliances, a Kongo basin compact and southern industrial states built a reconstruction federation around power corridors and mutual investment. Its elected High Steward adopted the title Emperor after mediating a succession of near-civil wars, turning a temporary compromise into a disputed constitutional institution. This Empire claims no automatic authority over all Africa. It wants to own the machinery of recovery rather than purchase access from outsiders, but debates over corridor revenues and the Steward's emergency powers threaten its cohesion.",
+   "rosters": [
+    {
+     "id": "roster.ae.vanilla",
+     "kind": "vanilla",
+     "name": "Vanilla",
+     "title": "Vanilla",
+     "identity": "Recovery, battlefield salvage and practical industrial endurance.",
+     "modifiers": [],
+     "units": [
+      "unit.ae.union_guard",
+      "unit.ae.pike_team",
+      "unit.ae.reclaimer",
+      "unit.ae.mamba_apc",
+      "unit.ae.buffalo_tank",
+      "unit.ae.weaver_aa",
+      "unit.ae.forge_howitzer",
+      "unit.ae.kiln_assault_crawler",
+      "unit.ae.sunbird_interceptor",
+      "unit.ae.hammerhead_gunship",
+      "unit.ae.delta_patrol_boat",
+      "unit.ae.anchor_escort",
+      "unit.ae.sovereign_arsenal_ship"
+     ],
+     "service": [
+      "unit.shared.engineer",
+      "unit.shared.collector",
+      "unit.shared.mobile_construction_vehicle",
+      "unit.shared.landing_transport"
+     ],
+     "structures": [
+      "structure.shared.headquarters",
+      "structure.shared.generator",
+      "structure.shared.refinery",
+      "structure.shared.barracks",
+      "structure.shared.factory",
+      "structure.shared.dock",
+      "structure.shared.radar",
+      "structure.shared.airfield",
+      "structure.shared.laboratory",
+      "structure.shared.watchtower",
+      "structure.shared.anti_tank_turret",
+      "structure.shared.aa_battery",
+      "structure.ae.forge_cannon",
+      "structure.ae.horizon_mass_driver"
+     ],
+     "powers": [
+      "power.ae.survey_network",
+      "power.ae.field_refurbishment",
+      "power.ae.recovery_priority"
+     ],
+     "superweapon": "superweapon.ae.horizon_mass_driver",
+     "research": [
+      "research.ae.recovery_winches",
+      "research.ae.circular_armor"
+     ],
+     "replacements": [],
+     "removed": []
+    },
+    {
+     "id": "roster.ae.nigeria",
+     "kind": "subfaction",
+     "name": "Nigeria",
+     "title": "Civic Logistics Directorate",
+     "identity": "Fast mobilization, infantry presence and protective drone support.",
+     "modifiers": [
+      "Combat infantry cost -15%.",
+      "Combat infantry build time -15%.",
+      "Non-superweapon structure construction time -10%.",
+      "Aircraft health -10%."
+     ],
+     "units": [
+      "unit.ae.civic_rifle_team",
+      "unit.ae.pike_team",
+      "unit.ae.reclaimer",
+      "unit.ae.mamba_apc",
+      "unit.ae.buffalo_tank",
+      "unit.ae.lagos_drone_guard",
+      "unit.ae.forge_howitzer",
+      "unit.ae.sunbird_interceptor",
+      "unit.ae.hammerhead_gunship",
+      "unit.ae.delta_patrol_boat",
+      "unit.ae.anchor_escort",
+      "unit.ae.sovereign_arsenal_ship"
+     ],
+     "service": [
+      "unit.shared.engineer",
+      "unit.shared.collector",
+      "unit.shared.mobile_construction_vehicle",
+      "unit.shared.landing_transport"
+     ],
+     "structures": [
+      "structure.shared.headquarters",
+      "structure.shared.generator",
+      "structure.shared.refinery",
+      "structure.shared.barracks",
+      "structure.shared.factory",
+      "structure.shared.dock",
+      "structure.shared.radar",
+      "structure.shared.airfield",
+      "structure.shared.laboratory",
+      "structure.shared.watchtower",
+      "structure.shared.anti_tank_turret",
+      "structure.shared.aa_battery",
+      "structure.ae.forge_cannon",
+      "structure.ae.horizon_mass_driver"
+     ],
+     "powers": [
+      "power.ae.survey_network",
+      "power.ae.field_refurbishment",
+      "power.ae.civil_defense_net"
+     ],
+     "superweapon": "superweapon.ae.horizon_mass_driver",
+     "research": [
+      "research.ae.recovery_winches",
+      "research.ae.circular_armor",
+      "research.ae.municipal_reserves"
+     ],
+     "replacements": [
+      {
+       "replaced_unit_id": "unit.ae.union_guard",
+       "replacement_unit_id": "unit.ae.civic_rifle_team"
+      },
+      {
+       "replaced_unit_id": "unit.ae.weaver_aa",
+       "replacement_unit_id": "unit.ae.lagos_drone_guard"
+      }
+     ],
+     "removed": [
+      "unit.ae.kiln_assault_crawler"
+     ]
+    },
+    {
+     "id": "roster.ae.kongo",
+     "kind": "subfaction",
+     "name": "Kongo",
+     "title": "River Compact Guard",
+     "identity": "Amphibious transport, durable infantry and concealed recovery teams.",
+     "modifiers": [
+      "Amphibious vehicle movement speed +20% on land and water.",
+      "Combat infantry health +10%.",
+      "Land artillery cost +20%."
+     ],
+     "units": [
+      "unit.ae.union_guard",
+      "unit.ae.pike_team",
+      "unit.ae.river_warden",
+      "unit.ae.okapi_amphibious_carrier",
+      "unit.ae.buffalo_tank",
+      "unit.ae.weaver_aa",
+      "unit.ae.forge_howitzer",
+      "unit.ae.kiln_assault_crawler",
+      "unit.ae.sunbird_interceptor",
+      "unit.ae.hammerhead_gunship",
+      "unit.ae.delta_patrol_boat",
+      "unit.ae.anchor_escort"
+     ],
+     "service": [
+      "unit.shared.engineer",
+      "unit.shared.collector",
+      "unit.shared.mobile_construction_vehicle",
+      "unit.shared.landing_transport"
+     ],
+     "structures": [
+      "structure.shared.headquarters",
+      "structure.shared.generator",
+      "structure.shared.refinery",
+      "structure.shared.barracks",
+      "structure.shared.factory",
+      "structure.shared.dock",
+      "structure.shared.radar",
+      "structure.shared.airfield",
+      "structure.shared.laboratory",
+      "structure.shared.watchtower",
+      "structure.shared.anti_tank_turret",
+      "structure.shared.aa_battery",
+      "structure.ae.forge_cannon",
+      "structure.ae.horizon_mass_driver"
+     ],
+     "powers": [
+      "power.ae.survey_network",
+      "power.ae.field_refurbishment",
+      "power.ae.concealed_crossing"
+     ],
+     "superweapon": "superweapon.ae.horizon_mass_driver",
+     "research": [
+      "research.ae.recovery_winches",
+      "research.ae.circular_armor",
+      "research.ae.watershed_logistics"
+     ],
+     "replacements": [
+      {
+       "replaced_unit_id": "unit.ae.mamba_apc",
+       "replacement_unit_id": "unit.ae.okapi_amphibious_carrier"
+      },
+      {
+       "replaced_unit_id": "unit.ae.reclaimer",
+       "replacement_unit_id": "unit.ae.river_warden"
+      }
+     ],
+     "removed": [
+      "unit.ae.sovereign_arsenal_ship"
+     ]
+    },
+    {
+     "id": "roster.ae.south_africa",
+     "kind": "subfaction",
+     "name": "South Africa",
+     "title": "Southern Arsenal Union",
+     "identity": "Long-range ground weapons and expensive precision vehicles.",
+     "modifiers": [
+      "Land combat vehicle weapon range +10%.",
+      "Land combat vehicle cost +15%.",
+      "Combat infantry build time +15%."
+     ],
+     "units": [
+      "unit.ae.union_guard",
+      "unit.ae.pike_team",
+      "unit.ae.reclaimer",
+      "unit.ae.mamba_apc",
+      "unit.ae.rhino_rail_tank",
+      "unit.ae.weaver_aa",
+      "unit.ae.protea_gun_carrier",
+      "unit.ae.kiln_assault_crawler",
+      "unit.ae.sunbird_interceptor",
+      "unit.ae.delta_patrol_boat",
+      "unit.ae.anchor_escort",
+      "unit.ae.sovereign_arsenal_ship"
+     ],
+     "service": [
+      "unit.shared.engineer",
+      "unit.shared.collector",
+      "unit.shared.mobile_construction_vehicle",
+      "unit.shared.landing_transport"
+     ],
+     "structures": [
+      "structure.shared.headquarters",
+      "structure.shared.generator",
+      "structure.shared.refinery",
+      "structure.shared.barracks",
+      "structure.shared.factory",
+      "structure.shared.dock",
+      "structure.shared.radar",
+      "structure.shared.airfield",
+      "structure.shared.laboratory",
+      "structure.shared.watchtower",
+      "structure.shared.anti_tank_turret",
+      "structure.shared.aa_battery",
+      "structure.ae.forge_cannon",
+      "structure.ae.horizon_mass_driver"
+     ],
+     "powers": [
+      "power.ae.survey_network",
+      "power.ae.field_refurbishment",
+      "power.ae.counterbattery_solution"
+     ],
+     "superweapon": "superweapon.ae.horizon_mass_driver",
+     "research": [
+      "research.ae.recovery_winches",
+      "research.ae.circular_armor",
+      "research.ae.precision_machining"
+     ],
+     "replacements": [
+      {
+       "replaced_unit_id": "unit.ae.buffalo_tank",
+       "replacement_unit_id": "unit.ae.rhino_rail_tank"
+      },
+      {
+       "replaced_unit_id": "unit.ae.forge_howitzer",
+       "replacement_unit_id": "unit.ae.protea_gun_carrier"
+      }
+     ],
+     "removed": [
+      "unit.ae.hammerhead_gunship"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "faction.sap",
+   "code": "sap",
+   "name": "South Asian Protectorate",
+   "motto": "No refuge left undefended.",
+   "identity": "Protected advances, resilient defenses and battlefield engineering.",
+   "visual": "Sand, indigo and saffron; layered armor, deployable braces and prominent interception sensors.",
+   "lore": "After successive grid failures and displacement crises, Indian, Pakistani and Thai successor authorities negotiated a mutual-protection compact for power, food and evacuation routes. Thailand belongs through maritime and infrastructure treaties, not through a claim that it is geographically South Asian. The Protectorate was meant to expire when civilian systems recovered. Its military council now argues that only permanent joint guardianship can prevent another catastrophe, while reformers demand the return of emergency powers to local governments.",
+   "rosters": [
+    {
+     "id": "roster.sap.vanilla",
+     "kind": "vanilla",
+     "name": "Vanilla",
+     "title": "Vanilla",
+     "identity": "Protected advances, resilient defenses and battlefield engineering.",
+     "modifiers": [],
+     "units": [
+      "unit.sap.shield_rifle_squad",
+      "unit.sap.kavach_team",
+      "unit.sap.combat_pioneer",
+      "unit.sap.jackal_apc",
+      "unit.sap.bulwark_tank",
+      "unit.sap.vajra_aa",
+      "unit.sap.monsoon_howitzer",
+      "unit.sap.elephant_siege_tank",
+      "unit.sap.garuda_interceptor",
+      "unit.sap.sarus_gunship",
+      "unit.sap.estuary_patrol_boat",
+      "unit.sap.shield_escort",
+      "unit.sap.citadel_monitor"
+     ],
+     "service": [
+      "unit.shared.engineer",
+      "unit.shared.collector",
+      "unit.shared.mobile_construction_vehicle",
+      "unit.shared.landing_transport"
+     ],
+     "structures": [
+      "structure.shared.headquarters",
+      "structure.shared.generator",
+      "structure.shared.refinery",
+      "structure.shared.barracks",
+      "structure.shared.factory",
+      "structure.shared.dock",
+      "structure.shared.radar",
+      "structure.shared.airfield",
+      "structure.shared.laboratory",
+      "structure.shared.watchtower",
+      "structure.shared.anti_tank_turret",
+      "structure.shared.aa_battery",
+      "structure.sap.bastion_missile_tower",
+      "structure.sap.trident_interception_array"
+     ],
+     "powers": [
+      "power.sap.recon_balloon",
+      "power.sap.emergency_fortification",
+      "power.sap.protected_advance"
+     ],
+     "superweapon": "superweapon.sap.trident_interception_array",
+     "research": [
+      "research.sap.layered_fieldworks",
+      "research.sap.reserve_capacitors"
+     ],
+     "replacements": [],
+     "removed": []
+    },
+    {
+     "id": "roster.sap.india",
+     "kind": "subfaction",
+     "name": "India",
+     "title": "Integrated Defense Command",
+     "identity": "Heavy protected pushes supported by economical power infrastructure.",
+     "modifiers": [
+      "Land combat vehicle health +15%.",
+      "Land combat vehicle build time +15%.",
+      "Generator cost -10%."
+     ],
+     "units": [
+      "unit.sap.shield_rifle_squad",
+      "unit.sap.kavach_team",
+      "unit.sap.combat_pioneer",
+      "unit.sap.jackal_apc",
+      "unit.sap.arjun_assault_tank",
+      "unit.sap.vajra_aa",
+      "unit.sap.monsoon_howitzer",
+      "unit.sap.gaj_siege_platform",
+      "unit.sap.garuda_interceptor",
+      "unit.sap.estuary_patrol_boat",
+      "unit.sap.shield_escort",
+      "unit.sap.citadel_monitor"
+     ],
+     "service": [
+      "unit.shared.engineer",
+      "unit.shared.collector",
+      "unit.shared.mobile_construction_vehicle",
+      "unit.shared.landing_transport"
+     ],
+     "structures": [
+      "structure.shared.headquarters",
+      "structure.shared.generator",
+      "structure.shared.refinery",
+      "structure.shared.barracks",
+      "structure.shared.factory",
+      "structure.shared.dock",
+      "structure.shared.radar",
+      "structure.shared.airfield",
+      "structure.shared.laboratory",
+      "structure.shared.watchtower",
+      "structure.shared.anti_tank_turret",
+      "structure.shared.aa_battery",
+      "structure.sap.bastion_missile_tower",
+      "structure.sap.trident_interception_array"
+     ],
+     "powers": [
+      "power.sap.recon_balloon",
+      "power.sap.emergency_fortification",
+      "power.sap.assault_coordination"
+     ],
+     "superweapon": "superweapon.sap.trident_interception_array",
+     "research": [
+      "research.sap.layered_fieldworks",
+      "research.sap.reserve_capacitors",
+      "research.sap.integrated_protection"
+     ],
+     "replacements": [
+      {
+       "replaced_unit_id": "unit.sap.bulwark_tank",
+       "replacement_unit_id": "unit.sap.arjun_assault_tank"
+      },
+      {
+       "replaced_unit_id": "unit.sap.elephant_siege_tank",
+       "replacement_unit_id": "unit.sap.gaj_siege_platform"
+      }
+     ],
+     "removed": [
+      "unit.sap.sarus_gunship"
+     ]
+    },
+    {
+     "id": "roster.sap.thailand",
+     "kind": "subfaction",
+     "name": "Thailand",
+     "title": "River and Strait Command",
+     "identity": "Amphibious infantry assaults and mobile defense.",
+     "modifiers": [
+      "Amphibious combat vehicle cost -15%.",
+      "Combat infantry movement speed +10%.",
+      "Defensive structure health -10%.",
+      "Tank reload interval +10%."
+     ],
+     "units": [
+      "unit.sap.river_marine",
+      "unit.sap.kavach_team",
+      "unit.sap.combat_pioneer",
+      "unit.sap.naga_amphibious_carrier",
+      "unit.sap.bulwark_tank",
+      "unit.sap.vajra_aa",
+      "unit.sap.monsoon_howitzer",
+      "unit.sap.garuda_interceptor",
+      "unit.sap.sarus_gunship",
+      "unit.sap.estuary_patrol_boat",
+      "unit.sap.shield_escort",
+      "unit.sap.citadel_monitor"
+     ],
+     "service": [
+      "unit.shared.engineer",
+      "unit.shared.collector",
+      "unit.shared.mobile_construction_vehicle",
+      "unit.shared.landing_transport"
+     ],
+     "structures": [
+      "structure.shared.headquarters",
+      "structure.shared.generator",
+      "structure.shared.refinery",
+      "structure.shared.barracks",
+      "structure.shared.factory",
+      "structure.shared.dock",
+      "structure.shared.radar",
+      "structure.shared.airfield",
+      "structure.shared.laboratory",
+      "structure.shared.watchtower",
+      "structure.shared.anti_tank_turret",
+      "structure.shared.aa_battery",
+      "structure.sap.bastion_missile_tower",
+      "structure.sap.trident_interception_array"
+     ],
+     "powers": [
+      "power.sap.recon_balloon",
+      "power.sap.emergency_fortification",
+      "power.sap.mobile_reserve"
+     ],
+     "superweapon": "superweapon.sap.trident_interception_array",
+     "research": [
+      "research.sap.layered_fieldworks",
+      "research.sap.reserve_capacitors",
+      "research.sap.rapid_ferry_drills"
+     ],
+     "replacements": [
+      {
+       "replaced_unit_id": "unit.sap.jackal_apc",
+       "replacement_unit_id": "unit.sap.naga_amphibious_carrier"
+      },
+      {
+       "replaced_unit_id": "unit.sap.shield_rifle_squad",
+       "replacement_unit_id": "unit.sap.river_marine"
+      }
+     ],
+     "removed": [
+      "unit.sap.elephant_siege_tank"
+     ]
+    },
+    {
+     "id": "roster.sap.pakistan",
+     "kind": "subfaction",
+     "name": "Pakistan",
+     "title": "Frontier Observation Command",
+     "identity": "Long-range missile artillery and concealed forward observation.",
+     "modifiers": [
+      "Land artillery weapon range +15%.",
+      "Ordinary guided-missile flight speed +20%; excludes superweapons.",
+      "Light land vehicle health -15%."
+     ],
+     "units": [
+      "unit.sap.shield_rifle_squad",
+      "unit.sap.kavach_team",
+      "unit.sap.watchpost_recon_team",
+      "unit.sap.jackal_apc",
+      "unit.sap.bulwark_tank",
+      "unit.sap.vajra_aa",
+      "unit.sap.shaheen_missile_battery",
+      "unit.sap.elephant_siege_tank",
+      "unit.sap.garuda_interceptor",
+      "unit.sap.sarus_gunship",
+      "unit.sap.estuary_patrol_boat",
+      "unit.sap.shield_escort"
+     ],
+     "service": [
+      "unit.shared.engineer",
+      "unit.shared.collector",
+      "unit.shared.mobile_construction_vehicle",
+      "unit.shared.landing_transport"
+     ],
+     "structures": [
+      "structure.shared.headquarters",
+      "structure.shared.generator",
+      "structure.shared.refinery",
+      "structure.shared.barracks",
+      "structure.shared.factory",
+      "structure.shared.dock",
+      "structure.shared.radar",
+      "structure.shared.airfield",
+      "structure.shared.laboratory",
+      "structure.shared.watchtower",
+      "structure.shared.anti_tank_turret",
+      "structure.shared.aa_battery",
+      "structure.sap.bastion_missile_tower",
+      "structure.sap.trident_interception_array"
+     ],
+     "powers": [
+      "power.sap.recon_balloon",
+      "power.sap.emergency_fortification",
+      "power.sap.counterlaunch_plot"
+     ],
+     "superweapon": "superweapon.sap.trident_interception_array",
+     "research": [
+      "research.sap.layered_fieldworks",
+      "research.sap.reserve_capacitors",
+      "research.sap.observer_network"
+     ],
+     "replacements": [
+      {
+       "replaced_unit_id": "unit.sap.monsoon_howitzer",
+       "replacement_unit_id": "unit.sap.shaheen_missile_battery"
+      },
+      {
+       "replaced_unit_id": "unit.sap.combat_pioneer",
+       "replacement_unit_id": "unit.sap.watchpost_recon_team"
+      }
+     ],
+     "removed": [
+      "unit.sap.citadel_monitor"
+     ]
+    }
+   ]
+  }
+ ],
+ "units": {
+  "unit.napc.rifle_squad": {
+   "name": "Rifle Squad",
+   "tier": 1,
+   "producer": "structure.shared.barracks",
+   "cost": null,
+   "role": "General infantry; good against infantry, weak against armor.",
+   "replaces": null,
+   "roster": "roster.napc.vanilla"
+  },
+  "unit.napc.javelin_team": {
+   "name": "Javelin Team",
+   "tier": 1,
+   "producer": "structure.shared.barracks",
+   "cost": null,
+   "role": "Stationary-firing anti-tank missiles; vulnerable while repositioning.",
+   "replaces": null,
+   "roster": "roster.napc.vanilla"
+  },
+  "unit.napc.combat_medic": {
+   "name": "Combat Medic",
+   "tier": 2,
+   "producer": "structure.shared.barracks",
+   "cost": null,
+   "role": "Unarmed infantry healer; cannot repair vehicles.",
+   "replaces": null,
+   "roster": "roster.napc.vanilla"
+  },
+  "unit.napc.pathfinder_apc": {
+   "name": "Pathfinder APC",
+   "tier": 1,
+   "producer": "structure.shared.factory",
+   "cost": null,
+   "role": "Light transport, scout and detector; loses to tanks.",
+   "replaces": null,
+   "roster": "roster.napc.vanilla"
+  },
+  "unit.napc.guardian_tank": {
+   "name": "Guardian Tank",
+   "tier": 1,
+   "producer": "structure.shared.factory",
+   "cost": null,
+   "role": "Conventional medium tank; main frontline unit.",
+   "replaces": null,
+   "roster": "roster.napc.vanilla"
+  },
+  "unit.napc.sentinel_aa": {
+   "name": "Sentinel AA",
+   "tier": 2,
+   "producer": "structure.shared.factory",
+   "cost": null,
+   "role": "Dedicated mobile anti-air and detector; poor ground weapon.",
+   "replaces": null,
+   "roster": "roster.napc.vanilla"
+  },
+  "unit.napc.paladin_howitzer": {
+   "name": "Paladin Howitzer",
+   "tier": 2,
+   "producer": "structure.shared.factory",
+   "cost": null,
+   "role": "Indirect siege artillery; must deploy for 3 seconds.",
+   "replaces": null,
+   "roster": "roster.napc.vanilla"
+  },
+  "unit.napc.bastion_heavy_tank": {
+   "name": "Bastion Heavy Tank",
+   "tier": 3,
+   "producer": "structure.shared.factory",
+   "cost": null,
+   "role": "Slow twin-gun breakthrough tank; easily outmaneuvered.",
+   "replaces": null,
+   "roster": "roster.napc.vanilla"
+  },
+  "unit.napc.falcon_interceptor": {
+   "name": "Falcon Interceptor",
+   "tier": 2,
+   "producer": "structure.shared.airfield",
+   "cost": null,
+   "role": "Air-superiority fighter; no ground attack.",
+   "replaces": null,
+   "roster": "roster.napc.vanilla"
+  },
+  "unit.napc.titan_gunship": {
+   "name": "Titan Gunship",
+   "tier": 3,
+   "producer": "structure.shared.airfield",
+   "cost": null,
+   "role": "Armored hovering anti-vehicle aircraft; vulnerable to concentrated AA.",
+   "replaces": null,
+   "roster": "roster.napc.vanilla"
+  },
+  "unit.napc.riverwatch_patrol_boat": {
+   "name": "Riverwatch Patrol Boat",
+   "tier": 1,
+   "producer": "structure.shared.dock",
+   "cost": null,
+   "role": "Cheap anti-infantry and light-surface patrol craft.",
+   "replaces": null,
+   "roster": "roster.napc.vanilla"
+  },
+  "unit.napc.aegis_frigate": {
+   "name": "Aegis Frigate",
+   "tier": 2,
+   "producer": "structure.shared.dock",
+   "cost": null,
+   "role": "Anti-air, anti-submarine escort and detector.",
+   "replaces": null,
+   "roster": "roster.napc.vanilla"
+  },
+  "unit.napc.liberty_arsenal_ship": {
+   "name": "Liberty Arsenal Ship",
+   "tier": 3,
+   "producer": "structure.shared.dock",
+   "cost": null,
+   "role": "Long-range land bombardment; depends on escorts.",
+   "replaces": null,
+   "roster": "roster.napc.vanilla"
+  },
+  "unit.shared.engineer": {
+   "name": "Engineer",
+   "tier": 1,
+   "producer": "structure.shared.barracks",
+   "cost": 500,
+   "role": "Captures neutral tech structures and repairs friendly land vehicles or structures. No weapon. Baseline repair rate 1% target maximum health/s, costing 0.5% of the target's paid price/s. Enemy production and superweapons are not capturable in this prototype.",
+   "replaces": null,
+   "roster": null
+  },
+  "unit.shared.collector": {
+   "name": "Collector",
+   "tier": 1,
+   "producer": "structure.shared.refinery",
+   "cost": 1400,
+   "role": "One supplied by each completed Refinery; additional Collectors can be purchased. Harvest and unload rules are identical for all rosters unless explicitly changed.",
+   "replaces": null,
+   "roster": null
+  },
+  "unit.shared.mobile_construction_vehicle": {
+   "name": "Mobile Construction Vehicle",
+   "tier": 2,
+   "producer": "structure.shared.factory",
+   "cost": 3000,
+   "role": "Deploys into a Headquarters to establish another construction area. Slow, unarmed and expensive; no free deployment income.",
+   "replaces": null,
+   "roster": null
+  },
+  "unit.shared.landing_transport": {
+   "name": "Landing Transport",
+   "tier": 1,
+   "producer": "structure.shared.dock",
+   "cost": 900,
+   "role": "Unarmed amphibious service transport. Carries four infantry squads or two non-amphibious land vehicles, but never another transport or an MCV. Provides a water-crossing option to every roster.",
+   "replaces": null,
+   "roster": null
+  },
+  "unit.napc.raptor_multirole_fighter": {
+   "name": "Raptor Multirole Fighter",
+   "tier": 2,
+   "producer": "structure.shared.airfield",
+   "cost": null,
+   "role": "Switches between anti-air and anti-vehicle missile loads at an Airfield. Cannot carry both; less effective in air combat than a dedicated Falcon.",
+   "replaces": "unit.napc.falcon_interceptor",
+   "roster": "roster.napc.usa"
+  },
+  "unit.napc.condor_stealth_bomber": {
+   "name": "Condor Stealth Bomber",
+   "tier": 3,
+   "producer": "structure.shared.airfield",
+   "cost": null,
+   "role": "Camouflages after 6 seconds without attacking. One heavy anti-structure bomb per sortie; slow rearm and weak protection when detected.",
+   "replaces": "unit.napc.titan_gunship",
+   "roster": "roster.napc.usa"
+  },
+  "unit.napc.beaver_amphibious_apc": {
+   "name": "Beaver Amphibious APC",
+   "tier": 1,
+   "producer": "structure.shared.factory",
+   "cost": null,
+   "role": "Detector and infantry transport that crosses water; reinforced passenger protection, but a weak weapon.",
+   "replaces": "unit.napc.pathfinder_apc",
+   "roster": "roster.napc.canada"
+  },
+  "unit.napc.narwhal_amphibious_tank": {
+   "name": "Narwhal Amphibious Tank",
+   "tier": 2,
+   "producer": "structure.shared.factory",
+   "cost": null,
+   "role": "Medium cannon tank that crosses water. Slower and less heavily armed than a Guardian; requires Radar.",
+   "replaces": "unit.napc.guardian_tank",
+   "roster": "roster.napc.canada"
+  },
+  "unit.napc.vanguard_rifle_squad": {
+   "name": "Vanguard Rifle Squad",
+   "tier": 1,
+   "producer": "structure.shared.barracks",
+   "cost": null,
+   "role": "May deploy portable cover in 4 seconds. Gains 20% bullet-damage resistance while stationary behind it; packing takes 2 seconds.",
+   "replaces": "unit.napc.rifle_squad",
+   "roster": "roster.napc.mexico"
+  },
+  "unit.napc.aguila_breach_team": {
+   "name": "Aguila Breach Team",
+   "tier": 2,
+   "producer": "structure.shared.barracks",
+   "cost": null,
+   "role": "Armored assault infantry with anti-building charges and a short-range grenade launcher. Cannot heal; vulnerable in open ground.",
+   "replaces": "unit.napc.combat_medic",
+   "roster": "roster.napc.mexico"
+  },
+  "unit.nec.jager_squad": {
+   "name": "Jager Squad",
+   "tier": 1,
+   "producer": "structure.shared.barracks",
+   "cost": null,
+   "role": "Accurate general infantry; vulnerable to area damage.",
+   "replaces": null,
+   "roster": "roster.nec.vanilla"
+  },
+  "unit.nec.spike_team": {
+   "name": "Spike Team",
+   "tier": 1,
+   "producer": "structure.shared.barracks",
+   "cost": null,
+   "role": "Long-range guided anti-tank infantry; must stop to fire.",
+   "replaces": null,
+   "roster": "roster.nec.vanilla"
+  },
+  "unit.nec.sapper": {
+   "name": "Sapper",
+   "tier": 2,
+   "producer": "structure.shared.barracks",
+   "cost": null,
+   "role": "Combat engineer with a short-range weapon and temporary infantry cover; cannot replace the service Engineer.",
+   "replaces": null,
+   "roster": "roster.nec.vanilla"
+  },
+  "unit.nec.surveyor_apc": {
+   "name": "Surveyor APC",
+   "tier": 1,
+   "producer": "structure.shared.factory",
+   "cost": null,
+   "role": "Fast scout, detector and light infantry transport.",
+   "replaces": null,
+   "roster": "roster.nec.vanilla"
+  },
+  "unit.nec.leopard_tank": {
+   "name": "Leopard Tank",
+   "tier": 1,
+   "producer": "structure.shared.factory",
+   "cost": null,
+   "role": "Well-balanced medium tank; limited splash damage.",
+   "replaces": null,
+   "roster": "roster.nec.vanilla"
+  },
+  "unit.nec.rapier_aa": {
+   "name": "Rapier AA",
+   "tier": 2,
+   "producer": "structure.shared.factory",
+   "cost": null,
+   "role": "Long-range mobile anti-air and detector.",
+   "replaces": null,
+   "roster": "roster.nec.vanilla"
+  },
+  "unit.nec.archer_spg": {
+   "name": "Archer SPG",
+   "tier": 2,
+   "producer": "structure.shared.factory",
+   "cost": null,
+   "role": "Accurate indirect artillery; fragile and slow to deploy.",
+   "replaces": null,
+   "roster": "roster.nec.vanilla"
+  },
+  "unit.nec.argent_rail_tank": {
+   "name": "Argent Rail Tank",
+   "tier": 3,
+   "producer": "structure.shared.factory",
+   "cost": null,
+   "role": "Long-range armor killer; slow reload, weak against infantry.",
+   "replaces": null,
+   "roster": "roster.nec.vanilla"
+  },
+  "unit.nec.kestrel_interceptor": {
+   "name": "Kestrel Interceptor",
+   "tier": 2,
+   "producer": "structure.shared.airfield",
+   "cost": null,
+   "role": "Dedicated fighter with a short rearm cycle.",
+   "replaces": null,
+   "roster": "roster.nec.vanilla"
+  },
+  "unit.nec.aster_ew_aircraft": {
+   "name": "Aster EW Aircraft",
+   "tier": 3,
+   "producer": "structure.shared.airfield",
+   "cost": null,
+   "role": "Unarmed jammer: enemies within 5 cells have sight -25%; no effect on weapon range or fixed detection radius.",
+   "replaces": null,
+   "roster": "roster.nec.vanilla"
+  },
+  "unit.nec.skerry_patrol_boat": {
+   "name": "Skerry Patrol Boat",
+   "tier": 1,
+   "producer": "structure.shared.dock",
+   "cost": null,
+   "role": "Fast surface scout with a light autocannon.",
+   "replaces": null,
+   "roster": "roster.nec.vanilla"
+  },
+  "unit.nec.horizon_escort": {
+   "name": "Horizon Escort",
+   "tier": 2,
+   "producer": "structure.shared.dock",
+   "cost": null,
+   "role": "Anti-air, anti-submarine escort and detector.",
+   "replaces": null,
+   "roster": "roster.nec.vanilla"
+  },
+  "unit.nec.concord_monitor": {
+   "name": "Concord Monitor",
+   "tier": 3,
+   "producer": "structure.shared.dock",
+   "cost": null,
+   "role": "Precision coastal artillery ship; vulnerable to close attack.",
+   "replaces": null,
+   "roster": "roster.nec.vanilla"
+  },
+  "unit.nec.fen_recon_carrier": {
+   "name": "Fen Recon Carrier",
+   "tier": 1,
+   "producer": "structure.shared.factory",
+   "cost": null,
+   "role": "Amphibious detector and transport. Can deploy a 6-cell sensor mast, becoming immobile and visibly exposed.",
+   "replaces": "unit.nec.surveyor_apc",
+   "roster": "roster.nec.nordics"
+  },
+  "unit.nec.fjord_missile_carrier": {
+   "name": "Fjord Missile Carrier",
+   "tier": 2,
+   "producer": "structure.shared.factory",
+   "cost": null,
+   "role": "Amphibious precision missile artillery; fast redeployment, long reload and little splash.",
+   "replaces": "unit.nec.archer_spg",
+   "roster": "roster.nec.nordics"
+  },
+  "unit.nec.marte_heavy_mbt": {
+   "name": "Marte Heavy MBT",
+   "tier": 2,
+   "producer": "structure.shared.factory",
+   "cost": null,
+   "role": "Heavy medium-tank replacement with good frontal protection and slow acceleration. Requires Radar, delaying the first tank.",
+   "replaces": "unit.nec.leopard_tank",
+   "roster": "roster.nec.eurocorps"
+  },
+  "unit.nec.charlemagne_siege_tank": {
+   "name": "Charlemagne Siege Tank",
+   "tier": 3,
+   "producer": "structure.shared.factory",
+   "cost": null,
+   "role": "Deploys in 4 seconds to gain weapon range +25%. Cannot turn its hull or move while deployed; weak against infantry.",
+   "replaces": "unit.nec.argent_rail_tank",
+   "roster": "roster.nec.eurocorps"
+  },
+  "unit.nec.alpine_pioneer": {
+   "name": "Alpine Pioneer",
+   "tier": 2,
+   "producer": "structure.shared.barracks",
+   "cost": null,
+   "role": "Builds one temporary infantry shelter per squad and repairs friendly defenses. A shelter lasts 45 seconds and grants occupants 25% bullet-damage resistance.",
+   "replaces": "unit.nec.sapper",
+   "roster": "roster.nec.alpine_brotherhood"
+  },
+  "unit.nec.ibex_crawler_gun": {
+   "name": "Ibex Crawler Gun",
+   "tier": 2,
+   "producer": "structure.shared.factory",
+   "cost": null,
+   "role": "Compact tracked howitzer with a 2-second deployment and strong frontal protection. Less range than Archer, vulnerable from behind.",
+   "replaces": "unit.nec.archer_spg",
+   "roster": "roster.nec.alpine_brotherhood"
+  },
+  "unit.olm.wayfarer_guard": {
+   "name": "Wayfarer Guard",
+   "tier": 1,
+   "producer": "structure.shared.barracks",
+   "cost": null,
+   "role": "Mobile general infantry with modest protection.",
+   "replaces": null,
+   "roster": "roster.olm.vanilla"
+  },
+  "unit.olm.needle_team": {
+   "name": "Needle Team",
+   "tier": 1,
+   "producer": "structure.shared.barracks",
+   "cost": null,
+   "role": "Anti-vehicle missile infantry; little anti-infantry damage.",
+   "replaces": null,
+   "roster": "roster.olm.vanilla"
+  },
+  "unit.olm.mirage_observer": {
+   "name": "Mirage Observer",
+   "tier": 2,
+   "producer": "structure.shared.barracks",
+   "cost": null,
+   "role": "Unarmed detector and artillery spotter; camouflages after 6 stationary seconds.",
+   "replaces": null,
+   "roster": "roster.olm.vanilla"
+  },
+  "unit.olm.caravan_apc": {
+   "name": "Caravan APC",
+   "tier": 1,
+   "producer": "structure.shared.factory",
+   "cost": null,
+   "role": "Light transport, scout and detector; designed for rapid withdrawal.",
+   "replaces": null,
+   "roster": "roster.olm.vanilla"
+  },
+  "unit.olm.sirocco_tank": {
+   "name": "Sirocco Tank",
+   "tier": 1,
+   "producer": "structure.shared.factory",
+   "cost": null,
+   "role": "Fast medium tank; less armor than conventional rivals.",
+   "replaces": null,
+   "roster": "roster.olm.vanilla"
+  },
+  "unit.olm.crescent_aa": {
+   "name": "Crescent AA",
+   "tier": 2,
+   "producer": "structure.shared.factory",
+   "cost": null,
+   "role": "Mobile anti-air missile system and detector.",
+   "replaces": null,
+   "roster": "roster.olm.vanilla"
+  },
+  "unit.olm.sandglass_mortar": {
+   "name": "Sandglass Mortar",
+   "tier": 2,
+   "producer": "structure.shared.factory",
+   "cost": null,
+   "role": "Light indirect artillery with a short deployment delay and limited range.",
+   "replaces": null,
+   "roster": "roster.olm.vanilla"
+  },
+  "unit.olm.sunlance_beam_tank": {
+   "name": "Sunlance Beam Tank",
+   "tier": 3,
+   "producer": "structure.shared.factory",
+   "cost": null,
+   "role": "Focused thermal beam damages a single target over time; vulnerable during sustained firing.",
+   "replaces": null,
+   "roster": "roster.olm.vanilla"
+  },
+  "unit.olm.shrike_interceptor": {
+   "name": "Shrike Interceptor",
+   "tier": 2,
+   "producer": "structure.shared.airfield",
+   "cost": null,
+   "role": "Fast air-superiority fighter with limited endurance.",
+   "replaces": null,
+   "roster": "roster.olm.vanilla"
+  },
+  "unit.olm.nightjar_strike_drone": {
+   "name": "Nightjar Strike Drone",
+   "tier": 3,
+   "producer": "structure.shared.airfield",
+   "cost": null,
+   "role": "Unmanned precision attacker; one anti-vehicle missile salvo before rearm.",
+   "replaces": null,
+   "roster": "roster.olm.vanilla"
+  },
+  "unit.olm.corsair_patrol_boat": {
+   "name": "Corsair Patrol Boat",
+   "tier": 1,
+   "producer": "structure.shared.dock",
+   "cost": null,
+   "role": "Fast coastal scout and anti-infantry gunboat.",
+   "replaces": null,
+   "roster": "roster.olm.vanilla"
+  },
+  "unit.olm.lantern_escort": {
+   "name": "Lantern Escort",
+   "tier": 2,
+   "producer": "structure.shared.dock",
+   "cost": null,
+   "role": "Anti-air, anti-submarine escort and detector.",
+   "replaces": null,
+   "roster": "roster.olm.vanilla"
+  },
+  "unit.olm.beacon_missile_ship": {
+   "name": "Beacon Missile Ship",
+   "tier": 3,
+   "producer": "structure.shared.dock",
+   "cost": null,
+   "role": "Long-range missile siege ship; weak at close range.",
+   "replaces": null,
+   "roster": "roster.olm.vanilla"
+  },
+  "unit.olm.dawn_laser_aa": {
+   "name": "Dawn Laser AA",
+   "tier": 2,
+   "producer": "structure.shared.factory",
+   "cost": null,
+   "role": "Detector with a continuous anti-air laser. Reliable against small drones, weaker against heavily armored aircraft; no ground attack.",
+   "replaces": "unit.olm.crescent_aa",
+   "roster": "roster.olm.saudi_arabia"
+  },
+  "unit.olm.ifrit_prism_tank": {
+   "name": "Ifrit Prism Tank",
+   "tier": 3,
+   "producer": "structure.shared.factory",
+   "cost": null,
+   "role": "Deploys in 3 seconds to focus a stronger anti-structure beam. Must remain stationary and maintain line of sight; no bouncing beams.",
+   "replaces": "unit.olm.sunlance_beam_tank",
+   "roster": "roster.olm.saudi_arabia"
+  },
+  "unit.olm.dune_rover": {
+   "name": "Dune Rover",
+   "tier": 1,
+   "producer": "structure.shared.factory",
+   "cost": null,
+   "role": "Fast light transport and detector. Camouflages after 6 seconds without firing even while moving, but detection or taking damage reveals it for 6 seconds.",
+   "replaces": "unit.olm.caravan_apc",
+   "roster": "roster.olm.algeria"
+  },
+  "unit.olm.scorpion_rocket_buggy": {
+   "name": "Scorpion Rocket Buggy",
+   "tier": 2,
+   "producer": "structure.shared.factory",
+   "cost": null,
+   "role": "Light artillery vehicle firing a short rocket salvo before a long reload; no deployment delay, fragile chassis.",
+   "replaces": "unit.olm.sandglass_mortar",
+   "roster": "roster.olm.algeria"
+  },
+  "unit.olm.gate_guard": {
+   "name": "Gate Guard",
+   "tier": 1,
+   "producer": "structure.shared.barracks",
+   "cost": null,
+   "role": "Shield-equipped infantry taking 25% less frontal bullet damage. Slower than Wayfarers; shields do not stop blasts or attacks from behind.",
+   "replaces": "unit.olm.wayfarer_guard",
+   "roster": "roster.olm.el_andalus"
+  },
+  "unit.olm.strait_frigate": {
+   "name": "Strait Frigate",
+   "tier": 2,
+   "producer": "structure.shared.dock",
+   "cost": null,
+   "role": "Detector and anti-air/anti-submarine escort with stronger short-range surface guns, at the cost of slower movement.",
+   "replaces": "unit.olm.lantern_escort",
+   "roster": "roster.olm.el_andalus"
+  },
+  "unit.def.line_conscript": {
+   "name": "Line Conscript",
+   "tier": 1,
+   "producer": "structure.shared.barracks",
+   "cost": null,
+   "role": "Inexpensive rifle infantry; poor at independent assaults.",
+   "replaces": null,
+   "roster": "roster.def.vanilla"
+  },
+  "unit.def.recoil_team": {
+   "name": "Recoil Team",
+   "tier": 1,
+   "producer": "structure.shared.barracks",
+   "cost": null,
+   "role": "Unguided anti-vehicle weapon with useful close-range damage.",
+   "replaces": null,
+   "roster": "roster.def.vanilla"
+  },
+  "unit.def.signal_officer": {
+   "name": "Signal Officer",
+   "tier": 2,
+   "producer": "structure.shared.barracks",
+   "cost": null,
+   "role": "Detector; nearby infantry recover from suppression 50% faster within 5 cells.",
+   "replaces": null,
+   "roster": "roster.def.vanilla"
+  },
+  "unit.def.mule_apc": {
+   "name": "Mule APC",
+   "tier": 1,
+   "producer": "structure.shared.factory",
+   "cost": null,
+   "role": "Light transport and detector; robust but slow.",
+   "replaces": null,
+   "roster": "roster.def.vanilla"
+  },
+  "unit.def.hammer_tank": {
+   "name": "Hammer Tank",
+   "tier": 1,
+   "producer": "structure.shared.factory",
+   "cost": null,
+   "role": "Mass-produced medium tank with modest sight.",
+   "replaces": null,
+   "roster": "roster.def.vanilla"
+  },
+  "unit.def.porcupine_aa": {
+   "name": "Porcupine AA",
+   "tier": 2,
+   "producer": "structure.shared.factory",
+   "cost": null,
+   "role": "Dual-purpose flak against aircraft and light infantry; also a detector.",
+   "replaces": null,
+   "roster": "roster.def.vanilla"
+  },
+  "unit.def.anvil_rocket_battery": {
+   "name": "Anvil Rocket Battery",
+   "tier": 2,
+   "producer": "structure.shared.factory",
+   "cost": null,
+   "role": "Wide-area indirect barrage; inaccurate against isolated moving targets.",
+   "replaces": null,
+   "roster": "roster.def.vanilla"
+  },
+  "unit.def.colossus_siege_tank": {
+   "name": "Colossus Siege Tank",
+   "tier": 3,
+   "producer": "structure.shared.factory",
+   "cost": null,
+   "role": "Slow heavy assault gun with strong area damage and poor traverse.",
+   "replaces": null,
+   "roster": "roster.def.vanilla"
+  },
+  "unit.def.kite_interceptor": {
+   "name": "Kite Interceptor",
+   "tier": 2,
+   "producer": "structure.shared.airfield",
+   "cost": null,
+   "role": "Simple air-superiority fighter; limited ground utility.",
+   "replaces": null,
+   "roster": "roster.def.vanilla"
+  },
+  "unit.def.burya_bomber": {
+   "name": "Burya Bomber",
+   "tier": 3,
+   "producer": "structure.shared.airfield",
+   "cost": null,
+   "role": "Conventional area-bombing aircraft; visible and vulnerable on approach.",
+   "replaces": null,
+   "roster": "roster.def.vanilla"
+  },
+  "unit.def.picket_boat": {
+   "name": "Picket Boat",
+   "tier": 1,
+   "producer": "structure.shared.dock",
+   "cost": null,
+   "role": "Cheap patrol craft with a heavy machine gun.",
+   "replaces": null,
+   "roster": "roster.def.vanilla"
+  },
+  "unit.def.rampart_escort": {
+   "name": "Rampart Escort",
+   "tier": 2,
+   "producer": "structure.shared.dock",
+   "cost": null,
+   "role": "Anti-air, anti-submarine escort and detector.",
+   "replaces": null,
+   "roster": "roster.def.vanilla"
+  },
+  "unit.def.boreal_missile_submarine": {
+   "name": "Boreal Missile Submarine",
+   "tier": 3,
+   "producer": "structure.shared.dock",
+   "cost": null,
+   "role": "Concealed missile submarine; surfaces for 8 seconds to bombard the coast, exposing itself to ordinary weapons.",
+   "replaces": null,
+   "roster": "roster.def.vanilla"
+  },
+  "unit.def.ural_assault_tank": {
+   "name": "Ural Assault Tank",
+   "tier": 2,
+   "producer": "structure.shared.factory",
+   "cost": null,
+   "role": "Heavy tank intercepting one incoming ordinary missile every 12 seconds. Cannot intercept shells, beams or superweapons; requires Radar.",
+   "replaces": "unit.def.hammer_tank",
+   "roster": "roster.def.russia"
+  },
+  "unit.def.bear_siege_crawler": {
+   "name": "Bear Siege Crawler",
+   "tier": 3,
+   "producer": "structure.shared.factory",
+   "cost": null,
+   "role": "Very slow assault platform with frontal armor and a heavy demolition cannon. Poor vision and weak rear protection.",
+   "replaces": "unit.def.colossus_siege_tank",
+   "roster": "roster.def.russia"
+  },
+  "unit.def.steppe_recon_carrier": {
+   "name": "Steppe Recon Carrier",
+   "tier": 1,
+   "producer": "structure.shared.factory",
+   "cost": null,
+   "role": "Fast light transport and detector with extended sight, but poor armor.",
+   "replaces": "unit.def.mule_apc",
+   "roster": "roster.def.kazakhstan"
+  },
+  "unit.def.saker_missile_truck": {
+   "name": "Saker Missile Truck",
+   "tier": 2,
+   "producer": "structure.shared.factory",
+   "cost": null,
+   "role": "Precision anti-vehicle and anti-structure missile artillery; deploys in 1 second, with little splash.",
+   "replaces": "unit.def.anvil_rocket_battery",
+   "roster": "roster.def.kazakhstan"
+  },
+  "unit.def.fortress_guard": {
+   "name": "Fortress Guard",
+   "tier": 1,
+   "producer": "structure.shared.barracks",
+   "cost": null,
+   "role": "Rifle squad that deploys in 3 seconds for stronger suppressive fire; cannot move while deployed.",
+   "replaces": "unit.def.line_conscript",
+   "roster": "roster.def.north_korea"
+  },
+  "unit.def.echo_team": {
+   "name": "Echo Team",
+   "tier": 2,
+   "producer": "structure.shared.barracks",
+   "cost": null,
+   "role": "Detector and suppression-recovery support. Can place one non-blocking decoy tank per team every 40 seconds; decoy lasts 30 seconds and has 1 health.",
+   "replaces": "unit.def.signal_officer",
+   "roster": "roster.def.north_korea"
+  },
+  "unit.pd.ranger_marine": {
+   "name": "Ranger Marine",
+   "tier": 1,
+   "producer": "structure.shared.barracks",
+   "cost": null,
+   "role": "General infantry optimized for fighting after transport deployment.",
+   "replaces": null,
+   "roster": "roster.pd.vanilla"
+  },
+  "unit.pd.harpoon_team": {
+   "name": "Harpoon Team",
+   "tier": 1,
+   "producer": "structure.shared.barracks",
+   "cost": null,
+   "role": "Anti-vehicle missile infantry; may target surface ships, never aircraft.",
+   "replaces": null,
+   "roster": "roster.pd.vanilla"
+  },
+  "unit.pd.reef_technician": {
+   "name": "Reef Technician",
+   "tier": 2,
+   "producer": "structure.shared.barracks",
+   "cost": null,
+   "role": "Unarmed specialist repairing nearby land vehicles or ships, one target at a time.",
+   "replaces": null,
+   "roster": "roster.pd.vanilla"
+  },
+  "unit.pd.wake_skimmer": {
+   "name": "Wake Skimmer",
+   "tier": 1,
+   "producer": "structure.shared.factory",
+   "cost": null,
+   "role": "Amphibious light transport and detector.",
+   "replaces": null,
+   "roster": "roster.pd.vanilla"
+  },
+  "unit.pd.tide_tank": {
+   "name": "Tide Tank",
+   "tier": 1,
+   "producer": "structure.shared.factory",
+   "cost": null,
+   "role": "Amphibious medium tank; slow movement on water.",
+   "replaces": null,
+   "roster": "roster.pd.vanilla"
+  },
+  "unit.pd.storm_aa": {
+   "name": "Storm AA",
+   "tier": 2,
+   "producer": "structure.shared.factory",
+   "cost": null,
+   "role": "Land-based anti-air and detector; requires a transport to cross water.",
+   "replaces": null,
+   "roster": "roster.pd.vanilla"
+  },
+  "unit.pd.breaker_howitzer": {
+   "name": "Breaker Howitzer",
+   "tier": 2,
+   "producer": "structure.shared.factory",
+   "cost": null,
+   "role": "Conventional land artillery with good sustained fire.",
+   "replaces": null,
+   "roster": "roster.pd.vanilla"
+  },
+  "unit.pd.leviathan_assault_carrier": {
+   "name": "Leviathan Assault Carrier",
+   "tier": 3,
+   "producer": "structure.shared.factory",
+   "cost": null,
+   "role": "Heavy amphibious vehicle with a short-range siege cannon and infantry capacity.",
+   "replaces": null,
+   "roster": "roster.pd.vanilla"
+  },
+  "unit.pd.petrel_fighter": {
+   "name": "Petrel Fighter",
+   "tier": 2,
+   "producer": "structure.shared.airfield",
+   "cost": null,
+   "role": "Dedicated interceptor with good patrol endurance.",
+   "replaces": null,
+   "roster": "roster.pd.vanilla"
+  },
+  "unit.pd.osprey_strike_tiltrotor": {
+   "name": "Osprey Strike Tiltrotor",
+   "tier": 3,
+   "producer": "structure.shared.airfield",
+   "cost": null,
+   "role": "Anti-vehicle attack aircraft that hovers when firing; vulnerable to focused AA.",
+   "replaces": null,
+   "roster": "roster.pd.vanilla"
+  },
+  "unit.pd.reef_patrol_boat": {
+   "name": "Reef Patrol Boat",
+   "tier": 1,
+   "producer": "structure.shared.dock",
+   "cost": null,
+   "role": "Fast coastal scout and light-surface attacker.",
+   "replaces": null,
+   "roster": "roster.pd.vanilla"
+  },
+  "unit.pd.trident_escort": {
+   "name": "Trident Escort",
+   "tier": 2,
+   "producer": "structure.shared.dock",
+   "cost": null,
+   "role": "Anti-air, anti-submarine escort and detector.",
+   "replaces": null,
+   "roster": "roster.pd.vanilla"
+  },
+  "unit.pd.tempest_carrier": {
+   "name": "Tempest Carrier",
+   "tier": 3,
+   "producer": "structure.shared.dock",
+   "cost": null,
+   "role": "Launches short-range strike drones against ground or surface targets; needs escort protection.",
+   "replaces": null,
+   "roster": "roster.pd.vanilla"
+  },
+  "unit.pd.outrider_howitzer": {
+   "name": "Outrider Howitzer",
+   "tier": 2,
+   "producer": "structure.shared.factory",
+   "cost": null,
+   "role": "Long-range mobile artillery with a narrow firing arc and 3-second deployment; weak at close range.",
+   "replaces": "unit.pd.breaker_howitzer",
+   "roster": "roster.pd.australia"
+  },
+  "unit.pd.wedge_recon_fighter": {
+   "name": "Wedge Recon Fighter",
+   "tier": 2,
+   "producer": "structure.shared.airfield",
+   "cost": null,
+   "role": "Detector-equipped fighter with extended sight; lower anti-air damage than Petrel.",
+   "replaces": "unit.pd.petrel_fighter",
+   "roster": "roster.pd.australia"
+  },
+  "unit.pd.island_raider": {
+   "name": "Island Raider",
+   "tier": 1,
+   "producer": "structure.shared.barracks",
+   "cost": null,
+   "role": "Mobile rifle infantry gaining weapon damage +20% for 6 seconds after disembarking. The effect cannot be refreshed by immediate reboarding.",
+   "replaces": "unit.pd.ranger_marine",
+   "roster": "roster.pd.indonesia"
+  },
+  "unit.pd.kancil_landing_skimmer": {
+   "name": "Kancil Landing Skimmer",
+   "tier": 1,
+   "producer": "structure.shared.factory",
+   "cost": null,
+   "role": "Fast amphibious light transport and detector. Passengers unload 50% faster; its weapon is weaker than Wake's.",
+   "replaces": "unit.pd.wake_skimmer",
+   "roster": "roster.pd.indonesia"
+  },
+  "unit.pd.shinano_adaptive_tank": {
+   "name": "Shinano Adaptive Tank",
+   "tier": 2,
+   "producer": "structure.shared.factory",
+   "cost": null,
+   "role": "Amphibious tank switching in 3 seconds between mobile direct fire and stationary long-range siege fire. Siege mode loses anti-infantry effectiveness.",
+   "replaces": "unit.pd.tide_tank",
+   "roster": "roster.pd.japan"
+  },
+  "unit.pd.shogun_drone_carrier": {
+   "name": "Shogun Drone Carrier",
+   "tier": 3,
+   "producer": "structure.shared.dock",
+   "cost": null,
+   "role": "Advanced carrier switching between surface-strike drones and interceptor drones; only one wing type may operate at a time.",
+   "replaces": "unit.pd.tempest_carrier",
+   "roster": "roster.pd.japan"
+  },
+  "unit.han.banner_infantry": {
+   "name": "Banner Infantry",
+   "tier": 1,
+   "producer": "structure.shared.barracks",
+   "cost": null,
+   "role": "Inexpensive general infantry; needs supporting weapons against armor.",
+   "replaces": null,
+   "roster": "roster.han.vanilla"
+  },
+  "unit.han.lance_team": {
+   "name": "Lance Team",
+   "tier": 1,
+   "producer": "structure.shared.barracks",
+   "cost": null,
+   "role": "Anti-vehicle rocket infantry with a long reload.",
+   "replaces": null,
+   "roster": "roster.han.vanilla"
+  },
+  "unit.han.link_operator": {
+   "name": "Link Operator",
+   "tier": 2,
+   "producer": "structure.shared.barracks",
+   "cost": null,
+   "role": "Unarmed detector and provider of the 5-cell command field.",
+   "replaces": null,
+   "roster": "roster.han.vanilla"
+  },
+  "unit.han.jade_carrier": {
+   "name": "Jade Carrier",
+   "tier": 1,
+   "producer": "structure.shared.factory",
+   "cost": null,
+   "role": "Light transport and detector; vulnerable to direct tank fire.",
+   "replaces": null,
+   "roster": "roster.han.vanilla"
+  },
+  "unit.han.ox_tank": {
+   "name": "Ox Tank",
+   "tier": 1,
+   "producer": "structure.shared.factory",
+   "cost": null,
+   "role": "Simple medium tank used to screen infantry formations.",
+   "replaces": null,
+   "roster": "roster.han.vanilla"
+  },
+  "unit.han.firefly_aa_drone": {
+   "name": "Firefly AA Drone",
+   "tier": 2,
+   "producer": "structure.shared.factory",
+   "cost": null,
+   "role": "Unmanned mobile anti-air and detector; no useful anti-tank attack.",
+   "replaces": null,
+   "roster": "roster.han.vanilla"
+  },
+  "unit.han.nest_rocket_drone": {
+   "name": "Nest Rocket Drone",
+   "tier": 2,
+   "producer": "structure.shared.factory",
+   "cost": null,
+   "role": "Unmanned indirect-fire launcher; fragile and dependent on spotting.",
+   "replaces": null,
+   "roster": "roster.han.vanilla"
+  },
+  "unit.han.dragon_command_walker": {
+   "name": "Dragon Command Walker",
+   "tier": 3,
+   "producer": "structure.shared.factory",
+   "cost": null,
+   "role": "Crewed heavy support vehicle with a cannon and 5-cell command field; expensive, large target.",
+   "replaces": null,
+   "roster": "roster.han.vanilla"
+  },
+  "unit.han.swallow_interceptor": {
+   "name": "Swallow Interceptor",
+   "tier": 2,
+   "producer": "structure.shared.airfield",
+   "cost": null,
+   "role": "Unmanned air-superiority fighter; cannot attack ground targets.",
+   "replaces": null,
+   "roster": "roster.han.vanilla"
+  },
+  "unit.han.silkwing_drone_bomber": {
+   "name": "Silkwing Drone Bomber",
+   "tier": 3,
+   "producer": "structure.shared.airfield",
+   "cost": null,
+   "role": "Unmanned precision bomber with a slow rearm cycle.",
+   "replaces": null,
+   "roster": "roster.han.vanilla"
+  },
+  "unit.han.canal_patrol_boat": {
+   "name": "Canal Patrol Boat",
+   "tier": 1,
+   "producer": "structure.shared.dock",
+   "cost": null,
+   "role": "Cheap coastal scout and infantry support craft.",
+   "replaces": null,
+   "roster": "roster.han.vanilla"
+  },
+  "unit.han.jade_escort": {
+   "name": "Jade Escort",
+   "tier": 2,
+   "producer": "structure.shared.dock",
+   "cost": null,
+   "role": "Anti-air, anti-submarine escort and detector.",
+   "replaces": null,
+   "roster": "roster.han.vanilla"
+  },
+  "unit.han.emperor_drone_ship": {
+   "name": "Emperor Drone Ship",
+   "tier": 3,
+   "producer": "structure.shared.dock",
+   "cost": null,
+   "role": "Crewed carrier launching unmanned surface-strike drones; weak at close range.",
+   "replaces": null,
+   "roster": "roster.han.vanilla"
+  },
+  "unit.han.imperial_guard_tank": {
+   "name": "Imperial Guard Tank",
+   "tier": 2,
+   "producer": "structure.shared.factory",
+   "cost": null,
+   "role": "Better-armored medium tank with an accurate anti-vehicle gun; requires Radar and remains weak against infantry masses.",
+   "replaces": "unit.han.ox_tank",
+   "roster": "roster.han.china"
+  },
+  "unit.han.long_command_walker": {
+   "name": "Long Command Walker",
+   "tier": 3,
+   "producer": "structure.shared.factory",
+   "cost": null,
+   "role": "Heavy crewed command platform. Deploying in 3 seconds extends its command radius by 2 cells but prevents movement.",
+   "replaces": "unit.han.dragon_command_walker",
+   "roster": "roster.han.china"
+  },
+  "unit.han.canopy_ranger": {
+   "name": "Canopy Ranger",
+   "tier": 1,
+   "producer": "structure.shared.barracks",
+   "cost": null,
+   "role": "Rifle infantry camouflaging after 6 seconds stationary without firing on any terrain. Moving, attacking or taking damage reveals it.",
+   "replaces": "unit.han.banner_infantry",
+   "roster": "roster.han.vietnam"
+  },
+  "unit.han.reed_rocket_skimmer": {
+   "name": "Reed Rocket Skimmer",
+   "tier": 2,
+   "producer": "structure.shared.factory",
+   "cost": null,
+   "role": "Unmanned amphibious light artillery firing short rocket bursts; less range and health than Nest.",
+   "replaces": "unit.han.nest_rocket_drone",
+   "roster": "roster.han.vietnam"
+  },
+  "unit.han.mekong_field_engineer": {
+   "name": "Mekong Field Engineer",
+   "tier": 2,
+   "producer": "structure.shared.barracks",
+   "cost": null,
+   "role": "Unarmed detector, structure repairer and command provider. Its command field requires a 2-second stationary deployment; service Engineers remain available.",
+   "replaces": "unit.han.link_operator",
+   "roster": "roster.han.cambodia"
+  },
+  "unit.han.lotus_drone_tender": {
+   "name": "Lotus Drone Tender",
+   "tier": 1,
+   "producer": "structure.shared.factory",
+   "cost": null,
+   "role": "Light transport and detector. Repairs one nearby friendly unmanned land unit at 1% maximum health per second, paying normal repair cost; cannot repair itself.",
+   "replaces": "unit.han.jade_carrier",
+   "roster": "roster.han.cambodia"
+  },
+  "unit.ae.union_guard": {
+   "name": "Union Guard",
+   "tier": 1,
+   "producer": "structure.shared.barracks",
+   "cost": null,
+   "role": "Reliable general infantry protecting repair and salvage teams.",
+   "replaces": null,
+   "roster": "roster.ae.vanilla"
+  },
+  "unit.ae.pike_team": {
+   "name": "Pike Team",
+   "tier": 1,
+   "producer": "structure.shared.barracks",
+   "cost": null,
+   "role": "Anti-tank infantry with a short-to-medium-range missile.",
+   "replaces": null,
+   "roster": "roster.ae.vanilla"
+  },
+  "unit.ae.reclaimer": {
+   "name": "Reclaimer",
+   "tier": 2,
+   "producer": "structure.shared.barracks",
+   "cost": null,
+   "role": "Armed salvage specialist; repairs one land vehicle at normal Engineer rate and gains salvage access.",
+   "replaces": null,
+   "roster": "roster.ae.vanilla"
+  },
+  "unit.ae.mamba_apc": {
+   "name": "Mamba APC",
+   "tier": 1,
+   "producer": "structure.shared.factory",
+   "cost": null,
+   "role": "Wheeled light transport and detector; strong road mobility.",
+   "replaces": null,
+   "roster": "roster.ae.vanilla"
+  },
+  "unit.ae.buffalo_tank": {
+   "name": "Buffalo Tank",
+   "tier": 1,
+   "producer": "structure.shared.factory",
+   "cost": null,
+   "role": "Conventional medium tank designed for repair and reuse.",
+   "replaces": null,
+   "roster": "roster.ae.vanilla"
+  },
+  "unit.ae.weaver_aa": {
+   "name": "Weaver AA",
+   "tier": 2,
+   "producer": "structure.shared.factory",
+   "cost": null,
+   "role": "Mobile anti-air and detector with poor anti-armor capability.",
+   "replaces": null,
+   "roster": "roster.ae.vanilla"
+  },
+  "unit.ae.forge_howitzer": {
+   "name": "Forge Howitzer",
+   "tier": 2,
+   "producer": "structure.shared.factory",
+   "cost": null,
+   "role": "Durable indirect artillery with shorter range than most rivals.",
+   "replaces": null,
+   "roster": "roster.ae.vanilla"
+  },
+  "unit.ae.kiln_assault_crawler": {
+   "name": "Kiln Assault Crawler",
+   "tier": 3,
+   "producer": "structure.shared.factory",
+   "cost": null,
+   "role": "Heavy demolition vehicle with a broad blast and short reach.",
+   "replaces": null,
+   "roster": "roster.ae.vanilla"
+  },
+  "unit.ae.sunbird_interceptor": {
+   "name": "Sunbird Interceptor",
+   "tier": 2,
+   "producer": "structure.shared.airfield",
+   "cost": null,
+   "role": "Dedicated fighter protecting advancing ground formations.",
+   "replaces": null,
+   "roster": "roster.ae.vanilla"
+  },
+  "unit.ae.hammerhead_gunship": {
+   "name": "Hammerhead Gunship",
+   "tier": 3,
+   "producer": "structure.shared.airfield",
+   "cost": null,
+   "role": "Close-support anti-vehicle aircraft, vulnerable to prepared AA.",
+   "replaces": null,
+   "roster": "roster.ae.vanilla"
+  },
+  "unit.ae.delta_patrol_boat": {
+   "name": "Delta Patrol Boat",
+   "tier": 1,
+   "producer": "structure.shared.dock",
+   "cost": null,
+   "role": "River and coastal scout with a light cannon.",
+   "replaces": null,
+   "roster": "roster.ae.vanilla"
+  },
+  "unit.ae.anchor_escort": {
+   "name": "Anchor Escort",
+   "tier": 2,
+   "producer": "structure.shared.dock",
+   "cost": null,
+   "role": "Anti-air, anti-submarine escort and detector.",
+   "replaces": null,
+   "roster": "roster.ae.vanilla"
+  },
+  "unit.ae.sovereign_arsenal_ship": {
+   "name": "Sovereign Arsenal Ship",
+   "tier": 3,
+   "producer": "structure.shared.dock",
+   "cost": null,
+   "role": "Heavy naval artillery platform with limited mobility.",
+   "replaces": null,
+   "roster": "roster.ae.vanilla"
+  },
+  "unit.ae.civic_rifle_team": {
+   "name": "Civic Rifle Team",
+   "tier": 1,
+   "producer": "structure.shared.barracks",
+   "cost": null,
+   "role": "Rifle infantry able to place one 20-second sensor puck every 30 seconds. Puck reveals a 4-cell area but does not detect camouflage and is destructible.",
+   "replaces": "unit.ae.union_guard",
+   "roster": "roster.ae.nigeria"
+  },
+  "unit.ae.lagos_drone_guard": {
+   "name": "Lagos Drone Guard",
+   "tier": 2,
+   "producer": "structure.shared.factory",
+   "cost": null,
+   "role": "Mobile anti-air and detector with one small repair drone. The drone repairs one nearby infantry unit at 1% maximum health per second and can be shot down.",
+   "replaces": "unit.ae.weaver_aa",
+   "roster": "roster.ae.nigeria"
+  },
+  "unit.ae.river_warden": {
+   "name": "River Warden",
+   "tier": 2,
+   "producer": "structure.shared.barracks",
+   "cost": null,
+   "role": "Armed repair and salvage infantry. Camouflages after 6 seconds stationary; repairing, salvaging or firing reveals it.",
+   "replaces": "unit.ae.reclaimer",
+   "roster": "roster.ae.kongo"
+  },
+  "unit.ae.okapi_amphibious_carrier": {
+   "name": "Okapi Amphibious Carrier",
+   "tier": 1,
+   "producer": "structure.shared.factory",
+   "cost": null,
+   "role": "Amphibious light transport and detector; thin armor but strong passenger capacity.",
+   "replaces": "unit.ae.mamba_apc",
+   "roster": "roster.ae.kongo"
+  },
+  "unit.ae.rhino_rail_tank": {
+   "name": "Rhino Rail Tank",
+   "tier": 2,
+   "producer": "structure.shared.factory",
+   "cost": null,
+   "role": "Accurate anti-armor rail tank with little splash; requires Radar and cannot efficiently clear infantry alone.",
+   "replaces": "unit.ae.buffalo_tank",
+   "roster": "roster.ae.south_africa"
+  },
+  "unit.ae.protea_gun_carrier": {
+   "name": "Protea Gun Carrier",
+   "tier": 2,
+   "producer": "structure.shared.factory",
+   "cost": null,
+   "role": "Switches in 3 seconds between indirect siege shells and short-range defensive canister fire; cannot use both simultaneously.",
+   "replaces": "unit.ae.forge_howitzer",
+   "roster": "roster.ae.south_africa"
+  },
+  "unit.sap.shield_rifle_squad": {
+   "name": "Shield Rifle Squad",
+   "tier": 1,
+   "producer": "structure.shared.barracks",
+   "cost": null,
+   "role": "General infantry with good staying power behind cover.",
+   "replaces": null,
+   "roster": "roster.sap.vanilla"
+  },
+  "unit.sap.kavach_team": {
+   "name": "Kavach Team",
+   "tier": 1,
+   "producer": "structure.shared.barracks",
+   "cost": null,
+   "role": "Anti-vehicle missile infantry; cannot fire on the move.",
+   "replaces": null,
+   "roster": "roster.sap.vanilla"
+  },
+  "unit.sap.combat_pioneer": {
+   "name": "Combat Pioneer",
+   "tier": 2,
+   "producer": "structure.shared.barracks",
+   "cost": null,
+   "role": "Armed engineer building temporary cover and repairing defenses; cannot capture structures.",
+   "replaces": null,
+   "roster": "roster.sap.vanilla"
+  },
+  "unit.sap.jackal_apc": {
+   "name": "Jackal APC",
+   "tier": 1,
+   "producer": "structure.shared.factory",
+   "cost": null,
+   "role": "Light transport and detector with modest armor.",
+   "replaces": null,
+   "roster": "roster.sap.vanilla"
+  },
+  "unit.sap.bulwark_tank": {
+   "name": "Bulwark Tank",
+   "tier": 1,
+   "producer": "structure.shared.factory",
+   "cost": null,
+   "role": "Slow medium tank supporting infantry advances.",
+   "replaces": null,
+   "roster": "roster.sap.vanilla"
+  },
+  "unit.sap.vajra_aa": {
+   "name": "Vajra AA",
+   "tier": 2,
+   "producer": "structure.shared.factory",
+   "cost": null,
+   "role": "Dedicated mobile anti-air and detector.",
+   "replaces": null,
+   "roster": "roster.sap.vanilla"
+  },
+  "unit.sap.monsoon_howitzer": {
+   "name": "Monsoon Howitzer",
+   "tier": 2,
+   "producer": "structure.shared.factory",
+   "cost": null,
+   "role": "Steady indirect artillery with a 3-second deployment.",
+   "replaces": null,
+   "roster": "roster.sap.vanilla"
+  },
+  "unit.sap.elephant_siege_tank": {
+   "name": "Elephant Siege Tank",
+   "tier": 3,
+   "producer": "structure.shared.factory",
+   "cost": null,
+   "role": "Heavy assault gun with strong anti-structure damage and slow traverse.",
+   "replaces": null,
+   "roster": "roster.sap.vanilla"
+  },
+  "unit.sap.garuda_interceptor": {
+   "name": "Garuda Interceptor",
+   "tier": 2,
+   "producer": "structure.shared.airfield",
+   "cost": null,
+   "role": "Dedicated defensive fighter with good endurance.",
+   "replaces": null,
+   "roster": "roster.sap.vanilla"
+  },
+  "unit.sap.sarus_gunship": {
+   "name": "Sarus Gunship",
+   "tier": 3,
+   "producer": "structure.shared.airfield",
+   "cost": null,
+   "role": "Close-support anti-vehicle aircraft with a short effective range.",
+   "replaces": null,
+   "roster": "roster.sap.vanilla"
+  },
+  "unit.sap.estuary_patrol_boat": {
+   "name": "Estuary Patrol Boat",
+   "tier": 1,
+   "producer": "structure.shared.dock",
+   "cost": null,
+   "role": "River and coastal scout with a light cannon.",
+   "replaces": null,
+   "roster": "roster.sap.vanilla"
+  },
+  "unit.sap.shield_escort": {
+   "name": "Shield Escort",
+   "tier": 2,
+   "producer": "structure.shared.dock",
+   "cost": null,
+   "role": "Anti-air, anti-submarine escort and detector.",
+   "replaces": null,
+   "roster": "roster.sap.vanilla"
+  },
+  "unit.sap.citadel_monitor": {
+   "name": "Citadel Monitor",
+   "tier": 3,
+   "producer": "structure.shared.dock",
+   "cost": null,
+   "role": "Armored coastal artillery ship, slow and vulnerable without escorts.",
+   "replaces": null,
+   "roster": "roster.sap.vanilla"
+  },
+  "unit.sap.arjun_assault_tank": {
+   "name": "Arjun Assault Tank",
+   "tier": 2,
+   "producer": "structure.shared.factory",
+   "cost": null,
+   "role": "Armored medium tank mounting a short-range active-protection system. It intercepts one ordinary missile every 15 seconds; requires Radar.",
+   "replaces": "unit.sap.bulwark_tank",
+   "roster": "roster.sap.india"
+  },
+  "unit.sap.gaj_siege_platform": {
+   "name": "Gaj Siege Platform",
+   "tier": 3,
+   "producer": "structure.shared.factory",
+   "cost": null,
+   "role": "Heavy siege vehicle that deploys in 4 seconds for weapon range +20% and cannot move while deployed.",
+   "replaces": "unit.sap.elephant_siege_tank",
+   "roster": "roster.sap.india"
+  },
+  "unit.sap.river_marine": {
+   "name": "River Marine",
+   "tier": 1,
+   "producer": "structure.shared.barracks",
+   "cost": null,
+   "role": "Rifle infantry taking 20% less weapon damage for 6 seconds after disembarking. Immediate reboarding cannot refresh the effect.",
+   "replaces": "unit.sap.shield_rifle_squad",
+   "roster": "roster.sap.thailand"
+  },
+  "unit.sap.naga_amphibious_carrier": {
+   "name": "Naga Amphibious Carrier",
+   "tier": 1,
+   "producer": "structure.shared.factory",
+   "cost": null,
+   "role": "Amphibious light transport and detector with a smoke launcher: one 4-cell-radius, 6-second shared-rule smoke screen every 40 seconds.",
+   "replaces": "unit.sap.jackal_apc",
+   "roster": "roster.sap.thailand"
+  },
+  "unit.sap.watchpost_recon_team": {
+   "name": "Watchpost Recon Team",
+   "tier": 2,
+   "producer": "structure.shared.barracks",
+   "cost": null,
+   "role": "Detector and artillery observer that camouflages after 6 stationary seconds. Cannot build cover or repair defenses.",
+   "replaces": "unit.sap.combat_pioneer",
+   "roster": "roster.sap.pakistan"
+  },
+  "unit.sap.shaheen_missile_battery": {
+   "name": "Shaheen Missile Battery",
+   "tier": 2,
+   "producer": "structure.shared.factory",
+   "cost": null,
+   "role": "Precision missile artillery requiring 3 seconds to deploy; long reach, small blast radius and vulnerable during reload.",
+   "replaces": "unit.sap.monsoon_howitzer",
+   "roster": "roster.sap.pakistan"
+  }
+ },
+ "structures": {
+  "structure.shared.headquarters": {
+   "name": "Headquarters",
+   "cost": 0,
+   "time": null,
+   "power": 0,
+   "requires": []
+  },
+  "structure.shared.generator": {
+   "name": "Generator",
+   "cost": 600,
+   "time": 25,
+   "power": 150,
+   "requires": [
+    "structure.shared.headquarters"
+   ]
+  },
+  "structure.shared.refinery": {
+   "name": "Refinery",
+   "cost": 1800,
+   "time": 40,
+   "power": -30,
+   "requires": [
+    "structure.shared.generator"
+   ]
+  },
+  "structure.shared.barracks": {
+   "name": "Barracks",
+   "cost": 500,
+   "time": 20,
+   "power": -10,
+   "requires": [
+    "structure.shared.generator"
+   ]
+  },
+  "structure.shared.factory": {
+   "name": "Factory",
+   "cost": 2000,
+   "time": 40,
+   "power": -40,
+   "requires": [
+    "structure.shared.refinery"
+   ]
+  },
+  "structure.shared.dock": {
+   "name": "Dock",
+   "cost": 1800,
+   "time": 40,
+   "power": -35,
+   "requires": [
+    "structure.shared.refinery"
+   ]
+  },
+  "structure.shared.radar": {
+   "name": "Radar",
+   "cost": 1500,
+   "time": 30,
+   "power": -40,
+   "requires": [
+    "structure.shared.factory"
+   ]
+  },
+  "structure.shared.airfield": {
+   "name": "Airfield",
+   "cost": 1600,
+   "time": 35,
+   "power": -40,
+   "requires": [
+    "structure.shared.radar"
+   ]
+  },
+  "structure.shared.laboratory": {
+   "name": "Laboratory",
+   "cost": 2500,
+   "time": 50,
+   "power": -60,
+   "requires": [
+    "structure.shared.radar"
+   ]
+  },
+  "structure.shared.watchtower": {
+   "name": "Watchtower",
+   "cost": 450,
+   "time": 15,
+   "power": -5,
+   "requires": [
+    "structure.shared.barracks"
+   ]
+  },
+  "structure.shared.anti_tank_turret": {
+   "name": "Anti-tank turret",
+   "cost": 800,
+   "time": 20,
+   "power": -15,
+   "requires": [
+    "structure.shared.factory"
+   ]
+  },
+  "structure.shared.aa_battery": {
+   "name": "AA battery",
+   "cost": 900,
+   "time": 20,
+   "power": -20,
+   "requires": [
+    "structure.shared.radar"
+   ]
+  },
+  "structure.napc.bulwark_cannon": {
+   "name": "Bulwark Cannon",
+   "cost": 1800,
+   "time": 35,
+   "power": -40,
+   "requires": [
+    "structure.shared.radar",
+    "structure.shared.laboratory"
+   ]
+  },
+  "structure.napc.atlas_kinetic_array": {
+   "name": "Atlas Kinetic Array",
+   "cost": 5000,
+   "time": 90,
+   "power": -200,
+   "requires": [
+    "structure.shared.radar",
+    "structure.shared.laboratory"
+   ]
+  },
+  "structure.nec.lance_rail_emplacement": {
+   "name": "Lance Rail Emplacement",
+   "cost": 1800,
+   "time": 35,
+   "power": -40,
+   "requires": [
+    "structure.shared.radar",
+    "structure.shared.laboratory"
+   ]
+  },
+  "structure.nec.aurora_microwave_array": {
+   "name": "Aurora Microwave Array",
+   "cost": 5000,
+   "time": 90,
+   "power": -200,
+   "requires": [
+    "structure.shared.radar",
+    "structure.shared.laboratory"
+   ]
+  },
+  "structure.nec.relay": {
+   "name": "Relay",
+   "cost": 600,
+   "time": null,
+   "power": -20,
+   "requires": [
+    "structure.shared.radar"
+   ]
+  },
+  "structure.olm.sunwall_projector": {
+   "name": "Sunwall Projector",
+   "cost": 1800,
+   "time": 35,
+   "power": -40,
+   "requires": [
+    "structure.shared.radar",
+    "structure.shared.laboratory"
+   ]
+  },
+  "structure.olm.helios_reflector": {
+   "name": "Helios Reflector",
+   "cost": 5000,
+   "time": 90,
+   "power": -200,
+   "requires": [
+    "structure.shared.radar",
+    "structure.shared.laboratory"
+   ]
+  },
+  "structure.def.citadel_mortar": {
+   "name": "Citadel Mortar",
+   "cost": 1800,
+   "time": 35,
+   "power": -40,
+   "requires": [
+    "structure.shared.radar",
+    "structure.shared.laboratory"
+   ]
+  },
+  "structure.def.perun_missile_complex": {
+   "name": "Perun Missile Complex",
+   "cost": 5000,
+   "time": 90,
+   "power": -200,
+   "requires": [
+    "structure.shared.radar",
+    "structure.shared.laboratory"
+   ]
+  },
+  "structure.pd.sea_spear_battery": {
+   "name": "Sea Spear Battery",
+   "cost": 1800,
+   "time": 35,
+   "power": -40,
+   "requires": [
+    "structure.shared.radar",
+    "structure.shared.laboratory"
+   ]
+  },
+  "structure.pd.tempest_swarm_hub": {
+   "name": "Tempest Swarm Hub",
+   "cost": 5000,
+   "time": 90,
+   "power": -200,
+   "requires": [
+    "structure.shared.radar",
+    "structure.shared.laboratory"
+   ]
+  },
+  "structure.han.dragon_tooth_launcher": {
+   "name": "Dragon Tooth Launcher",
+   "cost": 1800,
+   "time": 35,
+   "power": -40,
+   "requires": [
+    "structure.shared.radar",
+    "structure.shared.laboratory"
+   ]
+  },
+  "structure.han.dragonfall_field_foundry": {
+   "name": "Dragonfall Field Foundry",
+   "cost": 5000,
+   "time": 90,
+   "power": -200,
+   "requires": [
+    "structure.shared.radar",
+    "structure.shared.laboratory"
+   ]
+  },
+  "structure.ae.forge_cannon": {
+   "name": "Forge Cannon",
+   "cost": 1800,
+   "time": 35,
+   "power": -40,
+   "requires": [
+    "structure.shared.radar",
+    "structure.shared.laboratory"
+   ]
+  },
+  "structure.ae.horizon_mass_driver": {
+   "name": "Horizon Mass Driver",
+   "cost": 5000,
+   "time": 90,
+   "power": -200,
+   "requires": [
+    "structure.shared.radar",
+    "structure.shared.laboratory"
+   ]
+  },
+  "structure.sap.bastion_missile_tower": {
+   "name": "Bastion Missile Tower",
+   "cost": 1800,
+   "time": 35,
+   "power": -40,
+   "requires": [
+    "structure.shared.radar",
+    "structure.shared.laboratory"
+   ]
+  },
+  "structure.sap.trident_interception_array": {
+   "name": "Trident Interception Array",
+   "cost": 5000,
+   "time": 90,
+   "power": -200,
+   "requires": [
+    "structure.shared.radar",
+    "structure.shared.laboratory"
+   ]
+  }
+ },
+ "powers": {
+  "power.napc.uav_sweep": {
+   "name": "UAV Sweep",
+   "cost": 500,
+   "cooldown": 90,
+   "text": "A shootable reconnaissance UAV circles a 7-cell-radius area for 12 seconds, revealing terrain and detecting concealed units."
+  },
+  "power.napc.field_repair_drop": {
+   "name": "Field Repair Drop",
+   "cost": 900,
+   "cooldown": 180,
+   "text": "A shootable cargo aircraft delivers a repair station. It repairs friendly land vehicles in 5 cells by 2% maximum health per second for 10 seconds; stations do not stack."
+  },
+  "power.napc.combined_arms_window": {
+   "name": "Combined Arms Window",
+   "cost": 900,
+   "cooldown": 180,
+   "text": "For 15 seconds, friendly infantry, land vehicles and aircraft in a selected 6-cell-radius zone deal 10% more weapon damage. Ships and structures receive no bonus."
+  },
+  "power.napc.rapid_turnaround": {
+   "name": "Rapid Turnaround",
+   "cost": 700,
+   "cooldown": 150,
+   "text": "One powered Airfield rearms aircraft 50% faster for 20 seconds. Does not accelerate aircraft production."
+  },
+  "power.napc.floating_workshop": {
+   "name": "Floating Workshop",
+   "cost": 800,
+   "cooldown": 180,
+   "text": "Deploy a visible repair pontoon on clear land or water. For 20 seconds it repairs friendly vehicles and ships within 5 cells at 1.5% maximum health per second."
+  },
+  "power.napc.coordinated_advance": {
+   "name": "Coordinated Advance",
+   "cost": 600,
+   "cooldown": 150,
+   "text": "Friendly infantry in a 6-cell-radius zone gain movement speed +25% and suppression immunity for 12 seconds. Existing suppression is removed."
+  },
+  "power.nec.survey_drone": {
+   "name": "Survey Drone",
+   "cost": 450,
+   "cooldown": 90,
+   "text": "A shootable drone reveals and detects within 6 cells of the target for 15 seconds."
+  },
+  "power.nec.counterbattery_mission": {
+   "name": "Counterbattery Mission",
+   "cost": 1100,
+   "cooldown": 180,
+   "text": "After 5 seconds of warning, six conventional precision shells strike a selected 4-cell-radius area over 4 seconds. Moderate siege damage; moving units can escape."
+  },
+  "power.nec.treaty_coordination": {
+   "name": "Treaty Coordination",
+   "cost": 800,
+   "cooldown": 180,
+   "text": "For 20 seconds, powered Relays provide damage +15% instead of +10%. No additional benefit outside their fields."
+  },
+  "power.nec.silent_watch": {
+   "name": "Silent Watch",
+   "cost": 600,
+   "cooldown": 150,
+   "text": "Friendly stationary ground units in a 6-cell-radius area camouflage for up to 15 seconds. Movement, firing or detection breaks concealment."
+  },
+  "power.nec.armored_overwatch": {
+   "name": "Armored Overwatch",
+   "cost": 900,
+   "cooldown": 180,
+   "text": "For 15 seconds, stationary tanks in a selected 6-cell-radius zone gain weapon range +10%. Moving immediately removes the bonus."
+  },
+  "power.nec.emergency_earthworks": {
+   "name": "Emergency Earthworks",
+   "cost": 700,
+   "cooldown": 180,
+   "text": "Friendly infantry and defenses in a 5-cell-radius zone take 20% less explosive damage for 15 seconds. Does not protect vehicles."
+  },
+  "power.olm.dust_screen": {
+   "name": "Dust Screen",
+   "cost": 400,
+   "cooldown": 90,
+   "text": "A 6-cell-radius smoke zone lasts 12 seconds. All ground units inside, friendly or enemy, take 30% less direct-fire weapon damage; artillery and area blasts are unaffected."
+  },
+  "power.olm.mobile_workshop": {
+   "name": "Mobile Workshop",
+   "cost": 900,
+   "cooldown": 180,
+   "text": "Place a visible, destructible repair drone station on clear ground. It repairs friendly vehicles in 5 cells at 2% maximum health per second for 15 seconds; no stacking."
+  },
+  "power.olm.open_corridor": {
+   "name": "Open Corridor",
+   "cost": 650,
+   "cooldown": 150,
+   "text": "Friendly land vehicles in a selected 6-cell-radius zone gain movement speed +25% for 12 seconds. Units must be in the zone when activated."
+  },
+  "power.olm.capacitor_discharge": {
+   "name": "Capacitor Discharge",
+   "cost": 800,
+   "cooldown": 180,
+   "text": "Thermal-beam units and Sunwall defenses in a 6-cell-radius zone deal damage +20% for 10 seconds, then cannot fire for 4 seconds while cooling."
+  },
+  "power.olm.false_convoy": {
+   "name": "False Convoy",
+   "cost": 500,
+   "cooldown": 120,
+   "text": "Create four visible decoy light vehicles for 25 seconds at a scouted clear location. They have 1 health, no damage, no collision and no capture ability; detectors identify them."
+  },
+  "power.olm.straits_crossfire": {
+   "name": "Straits Crossfire",
+   "cost": 800,
+   "cooldown": 180,
+   "text": "Friendly infantry and ships in a selected 6-cell-radius zone gain weapon range +10% and sight +20% for 15 seconds."
+  },
+  "power.def.mobilization_order": {
+   "name": "Mobilization Order",
+   "cost": 700,
+   "cooldown": 180,
+   "text": "For 20 seconds, Barracks and Factory production progresses 25% faster. Costs remain unchanged; benefit applies only while this power is active."
+  },
+  "power.def.tremor_barrage": {
+   "name": "Tremor Barrage",
+   "cost": 1300,
+   "cooldown": 210,
+   "text": "After a 6-second warning, four waves of conventional shells strike a 5-cell-radius area over 8 seconds. High area pressure, limited precision."
+  },
+  "power.def.redundant_orders": {
+   "name": "Redundant Orders",
+   "cost": 650,
+   "cooldown": 180,
+   "text": "Friendly vehicles in a 6-cell-radius zone ignore weapon-disabling EMP effects for 10 seconds. Does not protect buildings or prevent damage."
+  },
+  "power.def.steel_advance": {
+   "name": "Steel Advance",
+   "cost": 900,
+   "cooldown": 180,
+   "text": "Land vehicles in a 6-cell-radius zone take 20% less weapon damage for 12 seconds, but movement speed is reduced by a further 20% during the effect."
+  },
+  "power.def.transit_priority": {
+   "name": "Transit Priority",
+   "cost": 600,
+   "cooldown": 150,
+   "text": "Friendly collectors and ground transports in a 7-cell-radius zone gain movement speed +35% for 15 seconds. Does not improve harvesting or unloading rate."
+  },
+  "power.def.false_front": {
+   "name": "False Front",
+   "cost": 500,
+   "cooldown": 150,
+   "text": "Place a 30-second decoy Radar and three decoy tanks in a scouted 6-cell zone. All are harmless, non-blocking and revealed by detectors."
+  },
+  "power.pd.maritime_patrol": {
+   "name": "Maritime Patrol",
+   "cost": 500,
+   "cooldown": 90,
+   "text": "A shootable patrol aircraft reveals and detects a 20-cell-long, 6-cell-wide corridor for 12 seconds. Works over land and water."
+  },
+  "power.pd.expeditionary_workshop": {
+   "name": "Expeditionary Workshop",
+   "cost": 900,
+   "cooldown": 180,
+   "text": "A shootable aircraft drops a 20-second workshop on clear land or water, repairing friendly vehicles and ships in 5 cells at 1.5% maximum health per second."
+  },
+  "power.pd.joint_landing": {
+   "name": "Joint Landing",
+   "cost": 700,
+   "cooldown": 180,
+   "text": "For 15 seconds, friendly ground units that disembark from transports take 20% less weapon damage for 6 seconds. Reboarding cannot refresh an existing protection effect."
+  },
+  "power.pd.long_watch": {
+   "name": "Long Watch",
+   "cost": 600,
+   "cooldown": 150,
+   "text": "Reveal a 7-cell-radius area for 18 seconds through a high-altitude sensor pass. It reveals terrain and ordinary units but does not detect camouflage."
+  },
+  "power.pd.feint_landing": {
+   "name": "Feint Landing",
+   "cost": 500,
+   "cooldown": 120,
+   "text": "Create three harmless, non-blocking decoy transports for 25 seconds on scouted land or water. They cannot carry units and are identified by detectors."
+  },
+  "power.pd.precision_window": {
+   "name": "Precision Window",
+   "cost": 900,
+   "cooldown": 180,
+   "text": "Friendly aircraft and ships in a 6-cell-radius zone gain weapon damage +20% for 10 seconds, but receive no bonus to sight or survivability."
+  },
+  "power.han.wideband_scan": {
+   "name": "Wideband Scan",
+   "cost": 400,
+   "cooldown": 90,
+   "text": "Reveal and detect a 7-cell-radius area for 6 seconds. A visible scan warning gives opponents 2 seconds before detection begins."
+  },
+  "power.han.software_surge": {
+   "name": "Software Surge",
+   "cost": 900,
+   "cooldown": 180,
+   "text": "Friendly unmanned combat units in a 6-cell-radius zone gain reload interval -25% for 12 seconds, then lose weapons for 3 seconds. Excludes superweapon summons."
+  },
+  "power.han.reserve_bandwidth": {
+   "name": "Reserve Bandwidth",
+   "cost": 650,
+   "cooldown": 150,
+   "text": "For 20 seconds, all surviving command-field providers gain radius +3 cells. Damage bonus stays at +10% and overlapping fields still do not stack."
+  },
+  "power.han.central_priority": {
+   "name": "Central Priority",
+   "cost": 800,
+   "cooldown": 180,
+   "text": "For 15 seconds, command fields provide weapon damage +20% instead of +10%; their radius is unchanged."
+  },
+  "power.han.broken_contact": {
+   "name": "Broken Contact",
+   "cost": 650,
+   "cooldown": 150,
+   "text": "Ground combat units in a 6-cell-radius zone gain movement speed +20% for 10 seconds and leave a 6-second smoke screen at their initial position. Smoke follows the shared Dust Screen rule."
+  },
+  "power.han.repair_swarm": {
+   "name": "Repair Swarm",
+   "cost": 700,
+   "cooldown": 180,
+   "text": "Repair friendly unmanned land units and structures in a 5-cell-radius zone by 2% maximum health per second for 10 seconds. This paid power has no further repair charge."
+  },
+  "power.ae.survey_network": {
+   "name": "Survey Network",
+   "cost": 400,
+   "cooldown": 90,
+   "text": "Reveal a 7-cell-radius area for 12 seconds and highlight salvageable wrecks there. Reveals ordinary units but does not detect camouflage."
+  },
+  "power.ae.field_refurbishment": {
+   "name": "Field Refurbishment",
+   "cost": 1000,
+   "cooldown": 180,
+   "text": "Repair friendly land vehicles in a 6-cell-radius zone by 3% maximum health per second for 10 seconds. They cannot fire while receiving repairs; moving ends repair on that unit."
+  },
+  "power.ae.recovery_priority": {
+   "name": "Recovery Priority",
+   "cost": 600,
+   "cooldown": 150,
+   "text": "For 20 seconds, Engineers and Reclaimers gain movement speed +25% and salvage in 3 seconds. Salvage payout is unchanged."
+  },
+  "power.ae.civil_defense_net": {
+   "name": "Civil Defense Net",
+   "cost": 600,
+   "cooldown": 150,
+   "text": "Friendly infantry in a 6-cell-radius area gain sight +25% and suppression immunity for 15 seconds."
+  },
+  "power.ae.concealed_crossing": {
+   "name": "Concealed Crossing",
+   "cost": 600,
+   "cooldown": 150,
+   "text": "Lay a 16-cell-long, 4-cell-wide smoke corridor on land or water for 12 seconds. It follows the shared Dust Screen damage rule and protects either side."
+  },
+  "power.ae.counterbattery_solution": {
+   "name": "Counterbattery Solution",
+   "cost": 900,
+   "cooldown": 180,
+   "text": "Reveal enemy artillery that fired during the preceding 8 seconds within a selected 9-cell area, then mark those units for 12 seconds. Friendly ground weapons deal +15% damage to marked targets."
+  },
+  "power.sap.recon_balloon": {
+   "name": "Recon Balloon",
+   "cost": 450,
+   "cooldown": 90,
+   "text": "Deploy a shootable tethered observation drone at a clear location for 20 seconds. It reveals terrain and detects within 6 cells."
+  },
+  "power.sap.emergency_fortification": {
+   "name": "Emergency Fortification",
+   "cost": 900,
+   "cooldown": 180,
+   "text": "Friendly defenses and production buildings in a 6-cell-radius zone take 25% less weapon damage for 15 seconds. Does not protect the superweapon structure or prevent EMP."
+  },
+  "power.sap.protected_advance": {
+   "name": "Protected Advance",
+   "cost": 750,
+   "cooldown": 180,
+   "text": "For 12 seconds, infantry and land vehicles in a selected 6-cell-radius zone take 15% less weapon damage. Units receive no movement bonus."
+  },
+  "power.sap.assault_coordination": {
+   "name": "Assault Coordination",
+   "cost": 900,
+   "cooldown": 180,
+   "text": "Friendly tanks in a 6-cell-radius zone gain reload interval -15% and sight +15% for 12 seconds."
+  },
+  "power.sap.mobile_reserve": {
+   "name": "Mobile Reserve",
+   "cost": 650,
+   "cooldown": 150,
+   "text": "Friendly ground transports in a 7-cell-radius zone gain movement speed +30% for 15 seconds and may unload while moving at half speed."
+  },
+  "power.sap.counterlaunch_plot": {
+   "name": "Counterlaunch Plot",
+   "cost": 800,
+   "cooldown": 180,
+   "text": "Mark enemy artillery that fired in the last 8 seconds inside a selected 8-cell-radius zone. After a 5-second warning, conventional shells hit the marked positions, not the units' new locations."
+  }
+ },
+ "superweapons": {
+  "superweapon.napc.atlas_kinetic_array": {
+   "name": "Atlas Kinetic Array",
+   "recharge": 480,
+   "warning": 10,
+   "launcher": "structure.napc.atlas_kinetic_array"
+  },
+  "superweapon.nec.aurora_microwave_array": {
+   "name": "Aurora Microwave Array",
+   "recharge": 420,
+   "warning": 8,
+   "launcher": "structure.nec.aurora_microwave_array"
+  },
+  "superweapon.olm.helios_reflector": {
+   "name": "Helios Reflector",
+   "recharge": 480,
+   "warning": 10,
+   "launcher": "structure.olm.helios_reflector"
+  },
+  "superweapon.def.perun_missile_complex": {
+   "name": "Perun Missile Complex",
+   "recharge": 480,
+   "warning": 10,
+   "launcher": "structure.def.perun_missile_complex"
+  },
+  "superweapon.pd.tempest_swarm_hub": {
+   "name": "Tempest Swarm Hub",
+   "recharge": 480,
+   "warning": 10,
+   "launcher": "structure.pd.tempest_swarm_hub"
+  },
+  "superweapon.han.dragonfall_field_foundry": {
+   "name": "Dragonfall Field Foundry",
+   "recharge": 480,
+   "warning": 10,
+   "launcher": "structure.han.dragonfall_field_foundry"
+  },
+  "superweapon.ae.horizon_mass_driver": {
+   "name": "Horizon Mass Driver",
+   "recharge": 480,
+   "warning": 10,
+   "launcher": "structure.ae.horizon_mass_driver"
+  },
+  "superweapon.sap.trident_interception_array": {
+   "name": "Trident Interception Array",
+   "recharge": 360,
+   "warning": 6,
+   "launcher": "structure.sap.trident_interception_array"
+  }
+ }
+}

@@ -1,0 +1,18 @@
+; Engine configuration file for the Meridian Fracture audio R&D spike (self-contained; not the game project).
+config_version=5
+
+[application]
+
+config/name="Meridian Audio Spike"
+run/main_scene="res://scenes/monitor.tscn"
+config/features=PackedStringArray("4.7")
+
+[audio]
+
+driver/mix_rate=44100
+general/3d_panning_strength=0.5
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
