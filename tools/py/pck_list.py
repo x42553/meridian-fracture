@@ -58,7 +58,7 @@ def project_files_missing(project, paths):
         for f in fn:
             if f.endswith((".import", ".uid", ".md5", ".md", ".DS_Store", ".gdignore")) or f in ("export_presets.cfg", "project.godot"):
                 continue
-            rel = os.path.relpath(os.path.join(dp, f), project)
+            rel = os.path.relpath(os.path.join(dp, f), project).replace(os.sep, "/")  # pck entries always use "/"
             cand = {rel, rel + ".remap"}
             if rel.endswith(".ogg"):
                 cand.add(rel)  # imported: located via the .import remap

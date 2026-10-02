@@ -45,8 +45,9 @@ class TestProjectCoverage(unittest.TestCase):
         self.assertEqual(pck_list.project_files_missing(d, ["src/a.gd.remap", "data/x.json"]), [])
 
     def test_a_file_that_is_not_packed_is_reported(self) -> None:
-        d = self._tree({"src/a.gd": b"x", "data/x.json": b"{}"})
-        self.assertEqual(pck_list.project_files_missing(d, ["src/a.gd.remap"]), ["data/x.json"])
+        d = self._tree({"src/a.gd": b"x", "data/deep/x.json": b"{}"})
+        # relative paths use "/" like the pck entries on every platform (os.walk yields "\\" on Windows)
+        self.assertEqual(pck_list.project_files_missing(d, ["src/a.gd.remap"]), ["data/deep/x.json"])
 
     def test_gdignore_folders_are_skipped_with_everything_below(self) -> None:
         """Godot never exports a folder with a .gdignore (the generated icon set lives in one)."""
