@@ -226,7 +226,7 @@ jobs:
       - name: pck audit (runtime data in; tests / tools / prototypes / docs out) + pck hash
         shell: bash
         run: |
-          pck=$(ls builds/${{ matrix.platform }}/*.pck builds/macos/*.app/Contents/Resources/*.pck 2>/dev/null | head -1)
+          pck=$( { ls builds/${{ matrix.platform }}/*.pck builds/macos/*.app/Contents/Resources/*.pck 2>/dev/null || true; } | sed -n 1p)
           python tools/py/pck_list.py "$pck" --audit --project game
           python -c "import hashlib,sys; print('pck sha256', hashlib.sha256(open(sys.argv[1],'rb').read()).hexdigest())" "$pck"
       - name: Run the exported build - headless autostart match from the pck (Linux / macOS)
