@@ -140,6 +140,7 @@ def test_deb(deb: Path, images=TEST_IMAGES) -> int:
     """Install the .deb into CLEAN Debian containers (12 and 13, amd64) and prove it runs: minimal install (no recommends)
     -> headless smoke from /opt and the /usr/bin symlink + a 600-tick headless match; then the recommended GPU/audio stack
     plus xvfb -> the real window (Vulkan on lavapipe) comes up and quits by itself; then the .deb is removed again."""
+    deb = Path(deb).resolve()  # docker reads a relative -v source as a volume name, so the mount must be absolute
     rc_all = 0
     for image in images:
         script = f"""

@@ -133,6 +133,37 @@ class TestIconOutputs(unittest.TestCase):
         self.assertEqual((package_linux.make_icon(256)), (ICONS / "set" / "app_icon_256.png").read_bytes())
 
 
+class TestDebInstallTest(unittest.TestCase):
+    def test_package_folder_is_mounted_by_absolute_path(self) -> None:
+        """CI called test_deb with builds/packages/x.deb relative to the repo root; docker took the relative -v source for a volume name and failed."""
+        import contextlib
+        import io
+        import os
+        import subprocess
+        from unittest import mock
+
+        import package_linux
+        seen: list = []
+
+        def fake_run(cmd, **kw):
+            seen.append(cmd)
+            return subprocess.CompletedProcess(cmd, 0, stdout="", stderr="")
+
+        cwd = os.getcwd()
+        with tempfile.TemporaryDirectory() as d:
+            (Path(d) / "builds" / "packages").mkdir(parents=True)
+            (Path(d) / "builds" / "packages" / "x.deb").write_bytes(b"")
+            os.chdir(d)
+            try:
+                with mock.patch.object(package_linux.subprocess, "run", fake_run), contextlib.redirect_stdout(io.StringIO()):
+                    self.assertEqual(package_linux.test_deb(Path("builds/packages/x.deb"), images=("debian:12-slim",)), 0)
+            finally:
+                os.chdir(cwd)
+        self.assertEqual(len(seen), 1)
+        host = seen[0][seen[0].index("-v") + 1].rsplit(":/pkg", 1)[0]
+        self.assertTrue(os.path.isabs(host), host)
+
+
 @unittest.skipUnless(sys.platform == "darwin" and (ROOT / "builds/macos/MeridianFracture.app").is_dir(), "needs an exported macOS app on a macOS host")
 class TestMacosApp(unittest.TestCase):
     def test_exported_app_has_icon_version_and_signature(self) -> None:
