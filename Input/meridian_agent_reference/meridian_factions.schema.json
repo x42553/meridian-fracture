@@ -1,0 +1,1080 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:meridian-fracture:factions:schema:1.0.0",
+  "title": "Meridian Fracture agent reference 1.0.0",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "metadata": {
+      "type": "object"
+    },
+    "setting": {
+      "type": "object"
+    },
+    "rules": {
+      "type": "object",
+      "propertyNames": {
+        "$ref": "#/$defs/id"
+      },
+      "additionalProperties": {
+        "$ref": "#/$defs/rule"
+      }
+    },
+    "mechanical_conventions": {
+      "type": "object"
+    },
+    "selectors": {
+      "type": "object",
+      "propertyNames": {
+        "$ref": "#/$defs/id"
+      },
+      "additionalProperties": {
+        "$ref": "#/$defs/selector"
+      }
+    },
+    "structures": {
+      "type": "object",
+      "propertyNames": {
+        "$ref": "#/$defs/id"
+      },
+      "additionalProperties": {
+        "$ref": "#/$defs/structure"
+      }
+    },
+    "units": {
+      "type": "object",
+      "propertyNames": {
+        "$ref": "#/$defs/id"
+      },
+      "additionalProperties": {
+        "$ref": "#/$defs/unit"
+      }
+    },
+    "modifiers": {
+      "type": "object",
+      "propertyNames": {
+        "$ref": "#/$defs/id"
+      },
+      "additionalProperties": {
+        "$ref": "#/$defs/modifier"
+      }
+    },
+    "research": {
+      "type": "object",
+      "propertyNames": {
+        "$ref": "#/$defs/id"
+      },
+      "additionalProperties": {
+        "$ref": "#/$defs/research"
+      }
+    },
+    "support_powers": {
+      "type": "object",
+      "propertyNames": {
+        "$ref": "#/$defs/id"
+      },
+      "additionalProperties": {
+        "$ref": "#/$defs/power"
+      }
+    },
+    "superweapons": {
+      "type": "object",
+      "propertyNames": {
+        "$ref": "#/$defs/id"
+      },
+      "additionalProperties": {
+        "$ref": "#/$defs/superweapon"
+      }
+    },
+    "factions": {
+      "type": "object",
+      "propertyNames": {
+        "$ref": "#/$defs/id"
+      },
+      "additionalProperties": {
+        "$ref": "#/$defs/faction"
+      }
+    },
+    "rosters": {
+      "type": "object",
+      "propertyNames": {
+        "$ref": "#/$defs/id"
+      },
+      "additionalProperties": {
+        "$ref": "#/$defs/roster"
+      }
+    },
+    "prototype_priorities": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "$schema",
+    "metadata",
+    "setting",
+    "rules",
+    "mechanical_conventions",
+    "selectors",
+    "structures",
+    "units",
+    "modifiers",
+    "research",
+    "support_powers",
+    "superweapons",
+    "factions",
+    "rosters",
+    "prototype_priorities"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]*(\\.[a-z0-9_]+)+$"
+    },
+    "rule": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "title",
+        "text"
+      ],
+      "additionalProperties": false
+    },
+    "structure": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "faction_id": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^[a-z][a-z0-9_]*(\\.[a-z0-9_]+)+$"
+        },
+        "deployment_unit_id": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^[a-z][a-z0-9_]*(\\.[a-z0-9_]+)+$"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "cost_credits": {
+          "type": "number",
+          "minimum": 0
+        },
+        "power_supply_delta": {
+          "type": "number"
+        },
+        "build_time_seconds": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "requires_all_structure_ids": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/id"
+          },
+          "uniqueItems": true
+        },
+        "conditions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "can_start_deployed": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "name",
+        "description",
+        "faction_id",
+        "deployment_unit_id",
+        "tags",
+        "cost_credits",
+        "power_supply_delta",
+        "build_time_seconds",
+        "requires_all_structure_ids",
+        "conditions",
+        "can_start_deployed"
+      ],
+      "additionalProperties": false
+    },
+    "unit": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "role_and_abilities": {
+          "type": "string"
+        },
+        "faction_id": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^[a-z][a-z0-9_]*(\\.[a-z0-9_]+)+$"
+        },
+        "introduced_by_roster_id": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^[a-z][a-z0-9_]*(\\.[a-z0-9_]+)+$"
+        },
+        "replaces_unit_id": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^[a-z][a-z0-9_]*(\\.[a-z0-9_]+)+$"
+        },
+        "roster_class": {
+          "enum": [
+            "service",
+            "baseline_combat",
+            "unique_subfaction"
+          ]
+        },
+        "producer_structure_id": {
+          "$ref": "#/$defs/id"
+        },
+        "tier": {
+          "type": "integer",
+          "enum": [
+            1,
+            2,
+            3
+          ]
+        },
+        "requires_all_structure_ids": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/id"
+          },
+          "uniqueItems": true
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "base_stats": {
+          "type": "object",
+          "properties": {
+            "cost_credits": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "minimum": 0
+            },
+            "build_time_seconds": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "minimum": 0
+            },
+            "health": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "minimum": 0
+            },
+            "damage": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "minimum": 0
+            },
+            "weapon_range_cells": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "minimum": 0
+            },
+            "movement_speed": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "minimum": 0
+            }
+          },
+          "required": [
+            "cost_credits",
+            "build_time_seconds",
+            "health",
+            "damage",
+            "weapon_range_cells",
+            "movement_speed"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "name",
+        "role_and_abilities",
+        "faction_id",
+        "introduced_by_roster_id",
+        "replaces_unit_id",
+        "roster_class",
+        "producer_structure_id",
+        "tier",
+        "requires_all_structure_ids",
+        "tags",
+        "base_stats"
+      ],
+      "additionalProperties": false
+    },
+    "selector": {
+      "type": "object",
+      "properties": {
+        "entity_kinds": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "unit",
+              "structure",
+              "weapon",
+              "projectile"
+            ]
+          }
+        },
+        "all_tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "any_tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "exclude_tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "conditions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "explicit_entity_ids": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/id"
+          },
+          "uniqueItems": true
+        },
+        "additional_superweapon_ids": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/id"
+          },
+          "uniqueItems": true
+        },
+        "unresolved_target_domain": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "entity_kinds",
+        "all_tags",
+        "any_tags",
+        "exclude_tags",
+        "conditions",
+        "explicit_entity_ids",
+        "additional_superweapon_ids",
+        "unresolved_target_domain"
+      ],
+      "additionalProperties": false
+    },
+    "modifier": {
+      "type": "object",
+      "properties": {
+        "owner_id": {
+          "$ref": "#/$defs/id"
+        },
+        "layer": {
+          "enum": [
+            "parent_faction",
+            "subfaction"
+          ]
+        },
+        "stat": {
+          "type": "string"
+        },
+        "operation": {
+          "const": "add_percent_within_layer"
+        },
+        "delta_percent": {
+          "type": "number",
+          "exclusiveMinimum": -100
+        },
+        "selector_id": {
+          "$ref": "#/$defs/id"
+        },
+        "source_text": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "owner_id",
+        "layer",
+        "stat",
+        "operation",
+        "delta_percent",
+        "selector_id",
+        "source_text"
+      ],
+      "additionalProperties": false
+    },
+    "research": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "effect_text": {
+          "type": "string"
+        },
+        "faction_id": {
+          "$ref": "#/$defs/id"
+        },
+        "introduced_by_roster_id": {
+          "$ref": "#/$defs/id"
+        },
+        "tier": {
+          "type": "integer",
+          "enum": [
+            2,
+            3
+          ]
+        },
+        "cost_credits": {
+          "type": "number",
+          "minimum": 0
+        },
+        "requires_all_structure_ids": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/id"
+          },
+          "uniqueItems": true
+        },
+        "effect_encoding": {
+          "const": "normative_prose"
+        },
+        "inherited_by_all_subfactions": {
+          "type": "boolean"
+        },
+        "research_time_seconds": {
+          "type": "number",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "name",
+        "effect_text",
+        "faction_id",
+        "introduced_by_roster_id",
+        "tier",
+        "cost_credits",
+        "requires_all_structure_ids",
+        "effect_encoding",
+        "inherited_by_all_subfactions",
+        "research_time_seconds"
+      ],
+      "additionalProperties": false
+    },
+    "power": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "effect_text": {
+          "type": "string"
+        },
+        "faction_id": {
+          "$ref": "#/$defs/id"
+        },
+        "introduced_by_roster_id": {
+          "$ref": "#/$defs/id"
+        },
+        "tier": {
+          "type": "integer",
+          "enum": [
+            2,
+            3
+          ]
+        },
+        "cost_credits": {
+          "type": "number",
+          "minimum": 0
+        },
+        "requires_all_structure_ids": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/id"
+          },
+          "uniqueItems": true
+        },
+        "effect_encoding": {
+          "const": "normative_prose"
+        },
+        "inherited_by_all_subfactions": {
+          "type": "boolean"
+        },
+        "cooldown_seconds": {
+          "type": "number",
+          "minimum": 0
+        },
+        "requires_powered_prerequisites": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "name",
+        "effect_text",
+        "faction_id",
+        "introduced_by_roster_id",
+        "tier",
+        "cost_credits",
+        "requires_all_structure_ids",
+        "effect_encoding",
+        "inherited_by_all_subfactions",
+        "cooldown_seconds",
+        "requires_powered_prerequisites"
+      ],
+      "additionalProperties": false
+    },
+    "superweapon": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "effect_text": {
+          "type": "string"
+        },
+        "counterplay": {
+          "type": "string"
+        },
+        "faction_id": {
+          "$ref": "#/$defs/id"
+        },
+        "launcher_structure_id": {
+          "$ref": "#/$defs/id"
+        },
+        "requires_all_structure_ids": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/id"
+          },
+          "uniqueItems": true
+        },
+        "recharge_seconds": {
+          "type": "number",
+          "minimum": 0
+        },
+        "warning_seconds": {
+          "type": "number",
+          "minimum": 0
+        },
+        "maximum_stored_charges": {
+          "const": 1
+        },
+        "starts_charged": {
+          "const": false
+        },
+        "effect_encoding": {
+          "const": "normative_prose"
+        }
+      },
+      "required": [
+        "name",
+        "effect_text",
+        "counterplay",
+        "faction_id",
+        "launcher_structure_id",
+        "requires_all_structure_ids",
+        "recharge_seconds",
+        "warning_seconds",
+        "maximum_stored_charges",
+        "starts_charged",
+        "effect_encoding"
+      ],
+      "additionalProperties": false
+    },
+    "faction": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "code": {
+          "type": "string"
+        },
+        "motto": {
+          "type": "string"
+        },
+        "lore": {
+          "type": "string"
+        },
+        "identity": {
+          "type": "string"
+        },
+        "visual_direction": {
+          "type": "string"
+        },
+        "opening": {
+          "type": "string"
+        },
+        "counterplay": {
+          "type": "string"
+        },
+        "traits_text": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "passive_modifier_ids": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/id"
+          },
+          "uniqueItems": true
+        },
+        "baseline_combat_unit_ids": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/id"
+          },
+          "uniqueItems": true
+        },
+        "structure_ids": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/id"
+          },
+          "uniqueItems": true
+        },
+        "shared_research_ids": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/id"
+          },
+          "uniqueItems": true
+        },
+        "shared_support_power_ids": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/id"
+          },
+          "uniqueItems": true
+        },
+        "subfaction_roster_ids": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/id"
+          },
+          "uniqueItems": true
+        },
+        "vanilla_only_support_power_id": {
+          "$ref": "#/$defs/id"
+        },
+        "superweapon_id": {
+          "$ref": "#/$defs/id"
+        },
+        "vanilla_roster_id": {
+          "$ref": "#/$defs/id"
+        }
+      },
+      "required": [
+        "name",
+        "code",
+        "motto",
+        "lore",
+        "identity",
+        "visual_direction",
+        "opening",
+        "counterplay",
+        "traits_text",
+        "passive_modifier_ids",
+        "baseline_combat_unit_ids",
+        "structure_ids",
+        "shared_research_ids",
+        "shared_support_power_ids",
+        "subfaction_roster_ids",
+        "vanilla_only_support_power_id",
+        "superweapon_id",
+        "vanilla_roster_id"
+      ],
+      "additionalProperties": false
+    },
+    "replacement": {
+      "type": "object",
+      "properties": {
+        "replaced_unit_id": {
+          "$ref": "#/$defs/id"
+        },
+        "replacement_unit_id": {
+          "$ref": "#/$defs/id"
+        }
+      },
+      "required": [
+        "replaced_unit_id",
+        "replacement_unit_id"
+      ],
+      "additionalProperties": false
+    },
+    "delta": {
+      "type": "object",
+      "properties": {
+        "replacements": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/replacement"
+          }
+        },
+        "removed_without_replacement_unit_ids": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/id"
+          },
+          "uniqueItems": true
+        },
+        "unavailable_support_power_ids": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/id"
+          },
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "replacements",
+        "removed_without_replacement_unit_ids",
+        "unavailable_support_power_ids"
+      ],
+      "additionalProperties": false
+    },
+    "unit_override": {
+      "type": "object",
+      "properties": {
+        "add_tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "water_speed_fraction_of_land_speed": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "source_text": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "add_tags",
+        "water_speed_fraction_of_land_speed",
+        "source_text"
+      ],
+      "additionalProperties": false
+    },
+    "modifier_application": {
+      "type": "object",
+      "properties": {
+        "modifier_id": {
+          "$ref": "#/$defs/id"
+        },
+        "eligible_unit_ids": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/id"
+          },
+          "uniqueItems": true
+        },
+        "eligible_structure_ids": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/id"
+          },
+          "uniqueItems": true
+        },
+        "eligible_superweapon_ids": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/id"
+          },
+          "uniqueItems": true
+        },
+        "conditions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "unresolved_target_domain": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "modifier_id",
+        "eligible_unit_ids",
+        "eligible_structure_ids",
+        "eligible_superweapon_ids",
+        "conditions",
+        "unresolved_target_domain"
+      ],
+      "additionalProperties": false
+    },
+    "technology_node": {
+      "type": "object",
+      "properties": {
+        "unit_id": {
+          "$ref": "#/$defs/id"
+        },
+        "producer_structure_id": {
+          "$ref": "#/$defs/id"
+        },
+        "requires_all_structure_ids": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/id"
+          },
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "unit_id",
+        "producer_structure_id",
+        "requires_all_structure_ids"
+      ],
+      "additionalProperties": false
+    },
+    "resolved": {
+      "type": "object",
+      "properties": {
+        "combat_unit_ids": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/id"
+          },
+          "uniqueItems": true
+        },
+        "service_unit_ids": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/id"
+          },
+          "uniqueItems": true
+        },
+        "structure_ids": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/id"
+          },
+          "uniqueItems": true
+        },
+        "research_ids": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/id"
+          },
+          "uniqueItems": true
+        },
+        "support_power_ids": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/id"
+          },
+          "uniqueItems": true
+        },
+        "modifier_ids": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/id"
+          },
+          "uniqueItems": true
+        },
+        "superweapon_id": {
+          "$ref": "#/$defs/id"
+        },
+        "unit_overrides": {
+          "type": "object",
+          "propertyNames": {
+            "$ref": "#/$defs/id"
+          },
+          "additionalProperties": {
+            "$ref": "#/$defs/unit_override"
+          }
+        },
+        "modifier_applications": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/modifier_application"
+          }
+        },
+        "technology_nodes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/technology_node"
+          }
+        }
+      },
+      "required": [
+        "combat_unit_ids",
+        "service_unit_ids",
+        "structure_ids",
+        "research_ids",
+        "support_power_ids",
+        "modifier_ids",
+        "superweapon_id",
+        "unit_overrides",
+        "modifier_applications",
+        "technology_nodes"
+      ],
+      "additionalProperties": false
+    },
+    "roster": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "enum": [
+            "vanilla",
+            "subfaction"
+          ]
+        },
+        "name": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "lore": {
+          "type": "string"
+        },
+        "identity": {
+          "type": "string"
+        },
+        "superweapon_note": {
+          "type": "string"
+        },
+        "opening": {
+          "type": "string"
+        },
+        "counterplay": {
+          "type": "string"
+        },
+        "faction_id": {
+          "$ref": "#/$defs/id"
+        },
+        "parent_roster_id": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^[a-z][a-z0-9_]*(\\.[a-z0-9_]+)+$"
+        },
+        "exclusive_research_id": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^[a-z][a-z0-9_]*(\\.[a-z0-9_]+)+$"
+        },
+        "exclusive_support_power_id": {
+          "$ref": "#/$defs/id"
+        },
+        "modifiers_text": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "own_modifier_ids": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/id"
+          },
+          "uniqueItems": true
+        },
+        "delta": {
+          "$ref": "#/$defs/delta"
+        },
+        "resolved": {
+          "$ref": "#/$defs/resolved"
+        }
+      },
+      "required": [
+        "kind",
+        "name",
+        "title",
+        "lore",
+        "identity",
+        "superweapon_note",
+        "opening",
+        "counterplay",
+        "faction_id",
+        "parent_roster_id",
+        "exclusive_research_id",
+        "exclusive_support_power_id",
+        "modifiers_text",
+        "own_modifier_ids",
+        "delta",
+        "resolved"
+      ],
+      "additionalProperties": false
+    }
+  }
+}
