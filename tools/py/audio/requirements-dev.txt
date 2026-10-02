@@ -1,0 +1,3 @@
+# Optional: enables the scipy cross-check in qa/test_dsp.py (biquad vs scipy.signal.lfilter).
+-r requirements.txt
+scipy>=1.14

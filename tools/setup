@@ -1,0 +1,49 @@
+#!/usr/bin/env python3
+"""tools/setup - one-command bootstrap of a fresh checkout (idempotent; every step verifies checksums).
+
+    tools/setup                 engines for this host + Linux (amd64/arm64), bible mirror, first import
+    tools/setup --templates     also download + install the export templates (2 GB on disk)
+    tools/setup --docker        also build the meridian-linux-runner images (needs Docker)
+
+Engines land in tools/ (git-ignored) exactly where tools/gd expects them; nothing outside the repo is touched
+except the export-templates directory when --templates is given.
+"""
+from __future__ import annotations
+
+import argparse
+import subprocess
+import sys
+from pathlib import Path
+
+TOOLS = Path(__file__).resolve().parent
+PY = sys.executable
+
+
+def step(title: str, *cmd: str) -> None:
+    print(f"\n== {title}", flush=True)
+    r = subprocess.run([PY, *cmd])
+    if r.returncode != 0:
+        raise SystemExit(f"setup step failed: {title} (exit {r.returncode})")
+
+
+def main() -> int:
+    ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap.add_argument("--templates", action="store_true")
+    ap.add_argument("--docker", action="store_true")
+    a = ap.parse_args()
+    fetch = str(TOOLS / "py" / "fetch_engines.py")
+    step("Godot engines (macOS if on a Mac, Linux amd64 + arm64)", fetch)
+    if a.templates:
+        step("export templates: download", fetch, "--templates")
+        step("export templates: install", str(TOOLS / "py" / "export.py"), "install-templates")
+    step("bible mirror", str(TOOLS / "py" / "sync_bible.py"))
+    step("first import", str(TOOLS / "gd"), "import")
+    if a.docker:
+        for arch in ("amd64", "arm64"):
+            step(f"Debian 12 runner image ({arch})", str(TOOLS / "gd"), "linux", "--arch", arch, "check", "--fast")
+    print("\nsetup complete: try `tools/gd check` and `tools/gd test`")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

@@ -1,0 +1,68 @@
+{
+  "schema": "meridian.balance.units/1",
+  "_doc": [
+    "CANONICAL EXAMPLE of a faction sheet (2 of NAPC's 19 units). Copy to game/data/balance/units_<code>.json, change 'faction', and author ALL bible units of that faction (V-CMP-01).",
+    "Numbers come from: python3 tools/py/balance_calc.py proposals --faction <code> --styled (cost, build_s, hp, speed, vision, radius). Tier, prerequisites, producer are bible-owned: omit them (a repeated tier is only V-CNF-02 info; a different one is V-CNF-01). Exception: set 'tier' only for a real override that the bible states.",
+    "Weapon instance = archetype from global.json weapon_archetypes + damage/hits_per_volley/reload_s/range_cells; archetype-locked fields (damage_type, fire_mode, projectile_kind) are forbidden (V-CNF-08). Slot number = position in the unit's 'weapons' list.",
+    "Abilities are bare framework names (aliases) or ability.<kind>.<variant> template ids; params override via ability_params. Implicit abilities (detector for bible tag 'detector', transport for veh_scout ...) are added by the loader: do not list them.",
+    "Keys: units/weapons/summons sorted by id (V-SCH-09); numbers <= 3 decimals; integer fields integral. Validate: python3 tools/py/validate_balance.py --strict --only units_<code>.json",
+    "Keys starting with an underscore (like this one) are documentation and ignored."
+  ],
+  "faction": "faction.napc",
+  "units": [
+    {
+      "id": "unit.napc.guardian_tank",
+      "archetype": "mbt_t1",
+      "cost_credits": 850,
+      "build_time_s": 27.5,
+      "health": 907,
+      "speed_cells_s": 2.0,
+      "vision_cells": 9.0,
+      "radius_cells": 0.55,
+      "weapons": ["weapon.napc.guardian_cannon"],
+      "abilities": [],
+      "tags": [],
+      "dps_vs_primary": 117.5,
+      "range_cells": 7.0
+    },
+    {
+      "id": "unit.napc.paladin_howitzer",
+      "archetype": "arty_howitzer",
+      "cost_credits": 1375,
+      "build_time_s": 40.5,
+      "health": 655,
+      "speed_cells_s": 1.5,
+      "vision_cells": 8.5,
+      "radius_cells": 0.6,
+      "weapons": ["weapon.napc.paladin_shell"],
+      "abilities": ["deployable_mode"],
+      "ability_params": {
+        "deployable_mode": {"deploy_s": 3, "pack_s": 2}
+      },
+      "tags": [],
+      "dps_vs_primary": 57.6,
+      "range_cells": 15.0
+    }
+  ],
+  "weapons": [
+    {
+      "id": "weapon.napc.guardian_cannon",
+      "archetype": "tank_cannon",
+      "damage": 141,
+      "hits_per_volley": 1,
+      "reload_s": 1.2,
+      "range_cells": 7.0
+    },
+    {
+      "id": "weapon.napc.paladin_shell",
+      "archetype": "artillery_shell",
+      "damage": 202,
+      "hits_per_volley": 1,
+      "reload_s": 3.5,
+      "range_cells": 15.0,
+      "min_range_cells": 4.0,
+      "deploy_s": 3.0
+    }
+  ],
+  "summons": []
+}

@@ -1,0 +1,6 @@
+# Voice pipeline (AUD-T5): announcer lines through Kokoro-82M. Build time only; nothing here ships.
+# `python3 tools/py/audio/bootstrap.py --voice` verifies these against .cache/venv.
+-r requirements.txt
+kokoro-onnx==0.4.7        # MIT; pulls in espeakng-loader + phonemizer-fork (GPL-3.0+, build-time tools only, see NOTICE.txt)
+onnxruntime==1.30.0       # MIT
+# Model files (not pip): .cache/tts/kokoro-v1.0.int8.onnx + voices-v1.0.bin (Kokoro-82M, Apache-2.0); see NOTICE.txt for the sources.

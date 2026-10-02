@@ -1,0 +1,197 @@
+#!/usr/bin/env python3
+"""tools/gd - the ONE way to run Godot in this repository (Python 3.9+, stdlib only).
+
+Many agents run Godot on the same game/ project at once. gd serialises the shared game/.godot import
+cache with a fair reader/writer lock (.cache/gd.lock): imports are exclusive, everything else shared,
+and any command auto-imports first when a tracked file changed. Full manual: docs/spec/qa_tooling.md
+
+  gd import [--if-stale]                      refresh game/.godot (class cache) - exclusive lock
+  gd check [paths] [--fast] [--strict]        lint (tools/py/lint.py) + compile every script (file:line)
+  gd test [filter...] [--file F] [--list]     run game/tests (headless); exit 1 on any failure
+  gd run <res://x.gd|x.tscn> [--gui] [-- args]   run a script/scene (headless by default)
+  gd shot <scene> <out.png> [--frames N] [--size WxH]   real-renderer screenshot
+  gd docs <Class> [member] | --find <text>    Godot API reference from tools/godot_docs
+  gd linux [--arch amd64|arm64] <command...>  the same commands inside a Debian 12 container
+  gd ps                                       who holds / waits for the project lock
+  gd snapshot [label]                         tar.zst of the source tree into .backups/
+Global: -v/--verbose prints the exact Godot command line. Args after a bare `--` go to the script
+(OS.get_cmdline_user_args()).
+"""
+from __future__ import annotations
+
+import argparse
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent / "py"))
+
+from gdlib import commands, docs, env  # noqa: E402
+
+
+def split_user_args(argv):
+    """Everything after the first bare `--` is passed through to the Godot script untouched."""
+    if "--" in argv:
+        i = argv.index("--")
+        return argv[:i], argv[i + 1:]
+    return argv, []
+
+
+def build_parser() -> argparse.ArgumentParser:
+    common = argparse.ArgumentParser(add_help=False)
+    common.add_argument("-v", "--verbose", action="store_true", help="print the exact Godot command line")
+    common.add_argument("--timeout", type=float, default=0, help="hard wall-clock limit in seconds (command specific default)")
+
+    p = argparse.ArgumentParser(prog="gd", description="Godot wrapper for the Meridian Fracture repo (see docs/spec/qa_tooling.md)")
+    sub = p.add_subparsers(dest="cmd", required=True, metavar="command")
+
+    s = sub.add_parser("import", parents=[common], help="import project resources / refresh the class_name cache (exclusive lock)")
+    s.add_argument("--if-stale", action="store_true", help="skip when nothing changed since the last import")
+
+    s = sub.add_parser("check", parents=[common], help="lint + parse/compile every script under res://src and res://tests")
+    s.add_argument("paths", nargs="*", help="limit to files/dirs (res://src/sim, game/src/sim, src/sim); default: src + tests")
+    s.add_argument("--fast", action="store_true", help="skip the GDScript-warnings pass (one Godot process instead of two)")
+    s.add_argument("--strict", action="store_true", help="GDScript warnings fail the check too")
+    s.add_argument("--warnings", action="store_true", help="list every GDScript warning (default: only counts)")
+    s.add_argument("--no-lint", action="store_true", help="skip tools/py/lint.py")
+    s.add_argument("--lint-only", action="store_true", help="run only tools/py/lint.py (no Godot, no import)")
+    s.add_argument("--rules", help="comma separated lint rule ids to run (default: all)")
+    s.add_argument("--json", metavar="FILE", help="also write the findings as JSON")
+
+    s = sub.add_parser("test", parents=[common], help="run game/tests (headless)")
+    s.add_argument("filter", nargs="*", help="case-insensitive substrings of <file>::<method>; any match runs")
+    s.add_argument("--file", action="append", help="run exactly this test file (repeatable; may be a fixture)")
+    s.add_argument("--dir", help="discover test_*.gd below this directory instead of tests/")
+    s.add_argument("--list", action="store_true", help="list the selected tests without running them")
+    s.add_argument("--trace", action="store_true", help="print RUN <id> before each test (find a hanging test)")
+    s.add_argument("--fail-fast", action="store_true", help="stop after the first failing test")
+    s.add_argument("-q", "--quiet", action="store_true", help="print only tests that did not pass, plus the summary")
+    s.add_argument("--allow-empty", action="store_true", help="exit 0 even when no test matched")
+    s.add_argument("--stall", type=float, default=60, help="kill when silent this many seconds after an engine error (0 = off)")
+    s.add_argument("--json", metavar="FILE", help="copy the machine readable report here")
+
+    s = sub.add_parser("run", parents=[common], help="run a script or scene (headless unless --gui)")
+    s.add_argument("target", help="res://x.gd (extends SceneTree) or res://x.tscn; game/x, x also accepted")
+    s.add_argument("--gui", action="store_true", help="open a real window instead of --headless")
+    s.add_argument("--quit-after", type=int, help="quit after N main-loop iterations")
+    s.add_argument("--size", help="window size WxH (with --gui)")
+    s.add_argument("--stall", type=float, default=20, help="kill when silent this many seconds after an engine error (0 = off)")
+    s.add_argument("--allow-errors", action="store_true", help="do not turn printed engine errors into a failure")
+
+    s = sub.add_parser("shot", parents=[common], help="screenshot a scene with the real renderer")
+    s.add_argument("scene", help="res://scene.tscn")
+    s.add_argument("out", help="output png path")
+    s.add_argument("--frames", type=int, default=30, help="process frames to wait before capturing (default 30)")
+    s.add_argument("--size", default="960x540", help="window/viewport size WxH (default 960x540)")
+    s.add_argument("--rendering-method", choices=commands.RENDER_METHODS, help="forward_plus (project default), mobile, gl_compatibility")
+    s.add_argument("--visible", action="store_true", help="do not move the window off-screen")
+    s.add_argument("--allow-errors", action="store_true")
+    s.add_argument("--quiet", action="store_true", help="only print the output path")
+
+    s = sub.add_parser("docs", help="Godot class reference lookup")
+    s.add_argument("cls", nargs="?", help="class name (Node2D, Vector2i, @GlobalScope) or a global function (roundi)")
+    s.add_argument("member", nargs="?", help="method / property / signal / constant / enum member")
+    s.add_argument("--find", metavar="TEXT", help="search class and member names")
+    s.add_argument("--list", action="store_true", help="list class names (optionally filtered by the first argument)")
+    s.add_argument("--all", action="store_true", help="include inherited members")
+
+    s = sub.add_parser("linux", help="run any gd command inside the Debian 12 container")
+    s.add_argument("--arch", choices=("amd64", "arm64"), help="container architecture (default amd64 = the shipping target)")
+    s.add_argument("--rebuild", action="store_true", help="rebuild the meridian-linux-runner image first")
+    s.add_argument("--keep", action="store_true", help="reuse the previous source copy instead of syncing again")
+    s.add_argument("rest", nargs=argparse.REMAINDER, help="the gd command to run inside the container, e.g. `test fp`")
+
+    sub.add_parser("ps", help="list gd processes that hold or wait for the project lock (why is my command waiting?)")
+
+    s = sub.add_parser("snapshot", help="tar.zst of the source tree into .backups/")
+    s.add_argument("label", nargs="?", default="", help="short label appended to the file name")
+    s.add_argument("--list", action="store_true", help="list existing snapshots")
+    return p
+
+
+def parse_linux_prefix(tokens):
+    """`gd linux [--arch A] [--rebuild] [--keep] [-v] [--timeout S] <inner gd command...>`: only options
+    before the inner command belong to `gd linux`; the rest (including a `--`) is forwarded verbatim."""
+    opts = {"arch": None, "rebuild": False, "keep": False, "verbose": False, "timeout": 0.0}
+    i = 0
+    while i < len(tokens):
+        t = tokens[i]
+        if t == "--arch" and i + 1 < len(tokens):
+            opts["arch"] = tokens[i + 1]
+            i += 2
+        elif t.startswith("--arch="):
+            opts["arch"] = t.split("=", 1)[1]
+            i += 1
+        elif t == "--rebuild":
+            opts["rebuild"] = True
+            i += 1
+        elif t == "--keep":
+            opts["keep"] = True
+            i += 1
+        elif t in ("-v", "--verbose"):
+            opts["verbose"] = True
+            i += 1
+        elif t == "--timeout" and i + 1 < len(tokens):
+            opts["timeout"] = float(tokens[i + 1])
+            i += 2
+        else:
+            break
+    if opts["arch"] not in (None, "amd64", "arm64"):
+        env.die(f"--arch must be amd64 or arm64, got {opts['arch']!r}", 2)
+    return opts, tokens[i:]
+
+
+def main(argv=None) -> int:
+    argv = list(sys.argv[1:] if argv is None else argv)
+    for stream in (sys.stdout, sys.stderr):
+        try:
+            stream.reconfigure(errors="replace")  # Godot output may contain characters the Windows console code page lacks
+        except (AttributeError, ValueError):
+            pass
+    from gdlib import godotrun
+    godotrun._install_signal_handlers()  # Ctrl-C / SIGTERM must reap Godot children, also those started from worker threads
+    if argv and argv[0] == "linux":
+        opts, inner = parse_linux_prefix(argv[1:])
+        if not inner or inner[0] in ("-h", "--help"):
+            build_parser().parse_args(["linux", "--help"])
+        from gdlib import linuxrun  # lazy: only this command needs docker
+        return linuxrun.cmd_linux(opts, inner)
+    main_args, user_args = split_user_args(argv)
+    if len(main_args) > 1 and main_args[0] in ("-v", "--verbose"):
+        main_args = [main_args[1], main_args[0], *main_args[2:]]  # `gd -v test` == `gd test -v`
+    args = build_parser().parse_args(main_args)
+    cmd = args.cmd
+    if cmd == "import":
+        return commands.cmd_import(args)
+    if cmd == "check":
+        if args.lint_only:
+            return commands.cmd_lint_only(args)
+        return commands.cmd_check(args)
+    if cmd == "test":
+        return commands.cmd_test(args, user_args)
+    if cmd == "run":
+        return commands.cmd_run(args, user_args)
+    if cmd == "shot":
+        return commands.cmd_shot(args, user_args)
+    if cmd == "docs":
+        return docs.cmd_docs(args)
+    if cmd == "ps":
+        from gdlib import locks
+        recs = locks.list_holders(env.CACHE)
+        if not recs:
+            print("no gd process holds a project lock")
+        import time as _time
+        for r in recs:
+            print(f"pid {r['pid']:>6}  {r['lock']:<16} {r['kind']:<9} {_time.time() - float(r['since']):5.0f}s  gd {r.get('cmd', '')}")
+        return 0
+    if cmd == "snapshot":
+        from gdlib import snapshot
+        return snapshot.cmd_snapshot(args)
+    env.die(f"unknown command {cmd}", 2)
+    return 2
+
+
+if __name__ == "__main__":
+    try:
+        sys.exit(main())
+    except KeyboardInterrupt:
+        sys.exit(130)

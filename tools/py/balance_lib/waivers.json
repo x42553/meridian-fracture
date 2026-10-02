@@ -1,0 +1,25 @@
+{
+ "_doc": "Documented waivers for validate_balance.py. A waiver downgrades ONE warning (never an error) to a waived note, so `--strict` exits 0 while the finding stays reviewable (`-v` prints it). id = '<file>:<entity>.<field>' exactly as the warning's [bracket] shows it with the file name in front. A waiver that matches no finding is itself reported (V-WAIVER-01, stale) so the list cannot rot.",
+ "waivers": [
+  {
+   "rule": "V-RNG-02",
+   "id": "units_nec.json:weapon.nec.alpine_pioneer.damage",
+   "reason": "Light small-arms infantry weapon, 2 hits per volley of 20 each; the numbers were tuned in BAL2 against the +-8 % fair-cost band. Damage per hit below 25 only means a +10 % modifier can round away on a single hit, which is accepted for NEC light infantry."
+  },
+  {
+   "rule": "V-RNG-02",
+   "id": "units_nec.json:weapon.nec.fen_recon_carrier.damage",
+   "reason": "Scout carrier machine gun (9 per hit): a deliberate harassment-only weapon. Raising it would make the recon carrier a combat unit; the 10 % quantisation loss is irrelevant at this scale."
+  },
+  {
+   "rule": "V-RNG-02",
+   "id": "units_nec.json:weapon.nec.sapper.damage",
+   "reason": "Short-range side arm of an engineer-class infantry unit (18 per hit, 2 hits per volley); its value is the demolition ability, not the gun."
+  },
+  {
+   "rule": "V-RNG-02",
+   "id": "units_nec.json:weapon.nec.surveyor_apc.damage",
+   "reason": "Escort machine gun of a transport-class carrier (15 per hit); combat value is intentionally low, the unit is priced for transport and detection."
+  }
+ ]
+}

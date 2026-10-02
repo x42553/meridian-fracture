@@ -1,0 +1,132 @@
+#!/usr/bin/env python3
+"""Print one numbered section of a big spec instead of reading the whole file.
+
+  tools/spec list  sim_core            # outline: every numbered heading with line range and size
+  tools/spec show  sim_core 3.2        # print section 3.2 (heading through the line before the next heading of same/higher level)
+  tools/spec show  sim_core 4          # a whole top-level section (can be large; prefer sub-sections)
+  tools/spec show  economy 7.3 6.1     # several sections at once
+  tools/spec grep  combat "lease"      # grep with file:line and the enclosing section id
+  tools/spec sizes                     # size table of every spec (KB per top-level section)
+  tools/spec dev KB DA MAPA            # implementation deviations reported by finished tasks (docs/DEVIATIONS.md); prefix match on the task label
+
+Specs live in docs/spec/<name>.md (and docs/balance/{FRAMEWORK,TAXONOMY}.md as 'framework' / 'taxonomy').
+Stdlib only. Read-only.
+"""
+from __future__ import annotations
+
+import re
+import sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent
+ALIASES = {"framework": ROOT / "docs/balance/FRAMEWORK.md", "taxonomy": ROOT / "docs/balance/TAXONOMY.md"}
+HEAD = re.compile(r"^(#{1,6})\s+(?:§\s*)?(\d+(?:\.\d+)*)\.?(?:\s|$)(.*)$")
+
+
+def spec_path(name: str) -> Path:
+    if name in ALIASES:
+        return ALIASES[name]
+    p = ROOT / "docs/spec" / (name if name.endswith(".md") else name + ".md")
+    if not p.exists():
+        avail = sorted(x.stem for x in (ROOT / "docs/spec").glob("*.md")) + sorted(ALIASES)
+        sys.exit(f"unknown spec '{name}'. available: {', '.join(avail)}")
+    return p
+
+
+def outline(lines: list[str]):
+    """[(line_idx, level, sec_id, title)] for numbered headings outside code fences."""
+    out = []
+    fence = False
+    for i, l in enumerate(lines):
+        if l.lstrip().startswith("```"):
+            fence = not fence
+            continue
+        if fence:
+            continue
+        m = HEAD.match(l)
+        if m:
+            out.append((i, len(m.group(1)), m.group(2), (m.group(3) or "").strip()))
+    return out
+
+
+def section_range(lines, heads, sec):
+    for k, (i, lvl, sid, _t) in enumerate(heads):
+        if sid == sec:
+            end = len(lines)
+            for (j, lvl2, _s, _t2) in heads[k + 1:]:
+                if lvl2 <= lvl:
+                    end = j
+                    break
+            return i, end
+    return None
+
+
+def main() -> int:
+    a = sys.argv[1:]
+    if not a or a[0] in ("-h", "--help"):
+        print(__doc__)
+        return 0
+    cmd = a[0]
+    if cmd == "dev":
+        txt = (ROOT / "docs/DEVIATIONS.md").read_text(encoding="utf-8")
+        chunks = re.split(r"\n(?=## )", txt)
+        want = a[1:]
+        hit = False
+        for c in chunks:
+            if c.startswith("## ") and any(c[3:].startswith(w) for w in want):
+                print(c.rstrip() + "\n")
+                hit = True
+        if not hit:
+            heads = [c.split("\n", 1)[0] for c in chunks if c.startswith("## ")]
+            print("no match; available:", "; ".join(h[3:] for h in heads))
+        return 0
+    if cmd == "sizes":
+        for p in sorted((ROOT / "docs/spec").glob("*.md")) + list(ALIASES.values()):
+            lines = p.read_text(encoding="utf-8").split("\n")
+            heads = [h for h in outline(lines) if "." not in h[2]]
+            row = []
+            for k, (i, _l, sid, _t) in enumerate(heads):
+                end = heads[k + 1][0] if k + 1 < len(heads) else len(lines)
+                row.append(f"{sid}:{sum(len(x) + 1 for x in lines[i:end]) // 1024}K")
+            print(f"{p.stem:18s} {' '.join(row)}")
+        return 0
+    if len(a) < 2:
+        sys.exit(__doc__)
+    p = spec_path(a[1])
+    lines = p.read_text(encoding="utf-8").split("\n")
+    heads = outline(lines)
+    if cmd == "list":
+        for k, (i, lvl, sid, title) in enumerate(heads):
+            end = len(lines)
+            for (j, lvl2, _s, _t) in heads[k + 1:]:
+                if lvl2 <= lvl:
+                    end = j
+                    break
+            kb = sum(len(x) + 1 for x in lines[i:end]) / 1024
+            print(f"{'  ' * (lvl - 2 if lvl > 2 else 0)}{sid:<8s} L{i + 1}-{end} {kb:5.1f}K  {title[:90]}")
+        return 0
+    if cmd == "show":
+        for sec in a[2:]:
+            r = section_range(lines, heads, sec.rstrip("."))
+            if not r:
+                print(f"[section {sec} not found in {p.name}]")
+                continue
+            print("\n".join(lines[r[0]:r[1]]).rstrip())
+            print()
+        return 0
+    if cmd == "grep":
+        pat = re.compile(a[2], re.I)
+        cur = "-"
+        hi = 0
+        for i, l in enumerate(lines):
+            while hi < len(heads) and heads[hi][0] <= i:
+                cur = heads[hi][2]
+                hi += 1
+            if pat.search(l):
+                print(f"{p.name}:{i + 1} [§{cur}] {l.strip()[:200]}")
+        return 0
+    sys.exit(__doc__)
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

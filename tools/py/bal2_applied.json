@@ -1,0 +1,1701 @@
+[
+ {
+  "id": "unit.ae.civic_rifle_team",
+  "pi_pct": -0.66,
+  "health": [
+   375,
+   373
+  ],
+  "damage": {},
+  "why": [
+   "-5.0% Nigeria 68 %",
+   "-4.0% Nigeria 67 % shipped, 64 % doctrine-free (clamped to the band)",
+   "scaled x0.08 to stay inside the fair-cost band"
+  ]
+ },
+ {
+  "id": "unit.ae.lagos_drone_guard",
+  "pi_pct": -0.95,
+  "health": [
+   750,
+   743
+  ],
+  "damage": {},
+  "why": [
+   "-3.0% Nigeria 68 %",
+   "scaled x0.32 to stay inside the fair-cost band"
+  ]
+ },
+ {
+  "id": "unit.ae.protea_gun_carrier",
+  "pi_pct": -9.67,
+  "health": [
+   685,
+   619
+  ],
+  "damage": {},
+  "why": [
+   "-4.0% South Africa 60 %",
+   "-3.0% South Africa 57 % shipped, 60 % doctrine-free",
+   "-3.0% South Africa exchange 1.47 doctrine-free"
+  ]
+ },
+ {
+  "id": "unit.ae.rhino_rail_tank",
+  "pi_pct": -9.67,
+  "health": [
+   1580,
+   1502
+  ],
+  "damage": {
+   "weapon.ae.rhino_rail": [
+    780,
+    741
+   ]
+  },
+  "why": [
+   "-4.0% South Africa 60 %, value exchange 1.36",
+   "-3.0% South Africa 57 % shipped, 60 % doctrine-free, exchange 1.54",
+   "-3.0% South Africa exchange 1.47 doctrine-free"
+  ]
+ },
+ {
+  "id": "unit.def.anvil_rocket_battery",
+  "pi_pct": -3.96,
+  "health": [
+   588,
+   565
+  ],
+  "damage": {},
+  "why": [
+   "-2.0% DEF faction offset: 57.5 % round robin, +0.20 equal-spend grid",
+   "-2.0% DEF faction offset, second step: 59 % doctrine-free / 56 % shipped; Kazakhstan 72 % and Russia 61 % in the doctrine-free run"
+  ]
+ },
+ {
+  "id": "unit.def.bear_siege_crawler",
+  "pi_pct": -6.84,
+  "health": [
+   3723,
+   3593
+  ],
+  "damage": {
+   "weapon.def.bear_demolition": [
+    980,
+    946
+   ]
+  },
+  "why": [
+   "-2.0% DEF faction offset: 57.5 % round robin, +0.20 equal-spend grid",
+   "-3.0% Russia: never lost in 24 games",
+   "-2.0% DEF faction offset, second step: 59 % doctrine-free / 56 % shipped; Kazakhstan 72 % and Russia 61 % in the doctrine-free run"
+  ]
+ },
+ {
+  "id": "unit.def.boreal_missile_submarine",
+  "pi_pct": -3.96,
+  "health": [
+   1960,
+   1921
+  ],
+  "damage": {
+   "weapon.def.boreal_torpedo": [
+    490,
+    480
+   ],
+   "weapon.def.boreal_cruise": [
+    588,
+    576
+   ]
+  },
+  "why": [
+   "-2.0% DEF faction offset: 57.5 % round robin, +0.20 equal-spend grid",
+   "-2.0% DEF faction offset, second step: 59 % doctrine-free / 56 % shipped; Kazakhstan 72 % and Russia 61 % in the doctrine-free run"
+  ]
+ },
+ {
+  "id": "unit.def.burya_bomber",
+  "pi_pct": -3.96,
+  "health": [
+   1078,
+   1056
+  ],
+  "damage": {
+   "weapon.def.burya_bomb": [
+    686,
+    672
+   ]
+  },
+  "why": [
+   "-2.0% DEF faction offset: 57.5 % round robin, +0.20 equal-spend grid",
+   "-2.0% DEF faction offset, second step: 59 % doctrine-free / 56 % shipped; Kazakhstan 72 % and Russia 61 % in the doctrine-free run"
+  ]
+ },
+ {
+  "id": "unit.def.colossus_siege_tank",
+  "pi_pct": -3.96,
+  "health": [
+   3527,
+   3456
+  ],
+  "damage": {
+   "weapon.def.colossus_gun": [
+    686,
+    672
+   ]
+  },
+  "why": [
+   "-2.0% DEF faction offset: 57.5 % round robin, +0.20 equal-spend grid",
+   "-2.0% DEF faction offset, second step: 59 % doctrine-free / 56 % shipped; Kazakhstan 72 % and Russia 61 % in the doctrine-free run"
+  ]
+ },
+ {
+  "id": "unit.def.fortress_guard",
+  "pi_pct": -3.96,
+  "health": [
+   368,
+   353
+  ],
+  "damage": {},
+  "why": [
+   "-2.0% DEF faction offset: 57.5 % round robin, +0.20 equal-spend grid",
+   "-2.0% DEF faction offset, second step: 59 % doctrine-free / 56 % shipped; Kazakhstan 72 % and Russia 61 % in the doctrine-free run"
+  ]
+ },
+ {
+  "id": "unit.def.hammer_tank",
+  "pi_pct": -3.96,
+  "health": [
+   882,
+   864
+  ],
+  "damage": {
+   "weapon.def.hammer_gun": [
+    137,
+    134
+   ]
+  },
+  "why": [
+   "-2.0% DEF faction offset: 57.5 % round robin, +0.20 equal-spend grid",
+   "-2.0% DEF faction offset, second step: 59 % doctrine-free / 56 % shipped; Kazakhstan 72 % and Russia 61 % in the doctrine-free run"
+  ]
+ },
+ {
+  "id": "unit.def.kite_interceptor",
+  "pi_pct": -3.96,
+  "health": [
+   686,
+   672
+  ],
+  "damage": {
+   "weapon.def.kite_aam": [
+    83,
+    81
+   ]
+  },
+  "why": [
+   "-2.0% DEF faction offset: 57.5 % round robin, +0.20 equal-spend grid",
+   "-2.0% DEF faction offset, second step: 59 % doctrine-free / 56 % shipped; Kazakhstan 72 % and Russia 61 % in the doctrine-free run"
+  ]
+ },
+ {
+  "id": "unit.def.line_conscript",
+  "pi_pct": -3.96,
+  "health": [
+   333,
+   320
+  ],
+  "damage": {},
+  "why": [
+   "-2.0% DEF faction offset: 57.5 % round robin, +0.20 equal-spend grid",
+   "-2.0% DEF faction offset, second step: 59 % doctrine-free / 56 % shipped; Kazakhstan 72 % and Russia 61 % in the doctrine-free run"
+  ]
+ },
+ {
+  "id": "unit.def.mule_apc",
+  "pi_pct": -3.96,
+  "health": [
+   637,
+   612
+  ],
+  "damage": {},
+  "why": [
+   "-2.0% DEF faction offset: 57.5 % round robin, +0.20 equal-spend grid",
+   "-2.0% DEF faction offset, second step: 59 % doctrine-free / 56 % shipped; Kazakhstan 72 % and Russia 61 % in the doctrine-free run"
+  ]
+ },
+ {
+  "id": "unit.def.picket_boat",
+  "pi_pct": -3.96,
+  "health": [
+   686,
+   659
+  ],
+  "damage": {},
+  "why": [
+   "-2.0% DEF faction offset: 57.5 % round robin, +0.20 equal-spend grid",
+   "-2.0% DEF faction offset, second step: 59 % doctrine-free / 56 % shipped; Kazakhstan 72 % and Russia 61 % in the doctrine-free run"
+  ]
+ },
+ {
+  "id": "unit.def.porcupine_aa",
+  "pi_pct": -3.96,
+  "health": [
+   784,
+   753
+  ],
+  "damage": {},
+  "why": [
+   "-2.0% DEF faction offset: 57.5 % round robin, +0.20 equal-spend grid",
+   "-2.0% DEF faction offset, second step: 59 % doctrine-free / 56 % shipped; Kazakhstan 72 % and Russia 61 % in the doctrine-free run"
+  ]
+ },
+ {
+  "id": "unit.def.rampart_escort",
+  "pi_pct": -3.96,
+  "health": [
+   2156,
+   2071
+  ],
+  "damage": {},
+  "why": [
+   "-2.0% DEF faction offset: 57.5 % round robin, +0.20 equal-spend grid",
+   "-2.0% DEF faction offset, second step: 59 % doctrine-free / 56 % shipped; Kazakhstan 72 % and Russia 61 % in the doctrine-free run"
+  ]
+ },
+ {
+  "id": "unit.def.recoil_team",
+  "pi_pct": -3.96,
+  "health": [
+   294,
+   288
+  ],
+  "damage": {
+   "weapon.def.recoil_rocket": [
+    304,
+    298
+   ]
+  },
+  "why": [
+   "-2.0% DEF faction offset: 57.5 % round robin, +0.20 equal-spend grid",
+   "-2.0% DEF faction offset, second step: 59 % doctrine-free / 56 % shipped; Kazakhstan 72 % and Russia 61 % in the doctrine-free run"
+  ]
+ },
+ {
+  "id": "unit.def.saker_missile_truck",
+  "pi_pct": -15.92,
+  "health": [
+   588,
+   539
+  ],
+  "damage": {
+   "weapon.def.saker_missile": [
+    412,
+    378
+   ]
+  },
+  "why": [
+   "-2.0% DEF faction offset: 57.5 % round robin, +0.20 equal-spend grid",
+   "-5.0% Kazakhstan 67 %",
+   "-4.0% Kazakhstan 64 % shipped, 74 % doctrine-free (best roster of 32), exchange 1.24",
+   "-2.0% DEF faction offset, second step: 59 % doctrine-free / 56 % shipped; Kazakhstan 72 % and Russia 61 % in the doctrine-free run",
+   "-4.0% Kazakhstan still 72 % doctrine-free after round 2 (best roster of 32)"
+  ]
+ },
+ {
+  "id": "unit.def.steppe_recon_carrier",
+  "pi_pct": -12.35,
+  "health": [
+   433,
+   380
+  ],
+  "damage": {},
+  "why": [
+   "-2.0% DEF faction offset: 57.5 % round robin, +0.20 equal-spend grid",
+   "-3.0% Kazakhstan 67 %",
+   "-3.0% Kazakhstan 64 % shipped, 74 % doctrine-free",
+   "-2.0% DEF faction offset, second step: 59 % doctrine-free / 56 % shipped; Kazakhstan 72 % and Russia 61 % in the doctrine-free run",
+   "-3.0% Kazakhstan still 72 % doctrine-free after round 2"
+  ]
+ },
+ {
+  "id": "unit.def.ural_assault_tank",
+  "pi_pct": -8.76,
+  "health": [
+   1803,
+   1722
+  ],
+  "damage": {
+   "weapon.def.ural_cannon": [
+    196,
+    187
+   ]
+  },
+  "why": [
+   "-2.0% DEF faction offset: 57.5 % round robin, +0.20 equal-spend grid",
+   "-5.0% Russia 63 %, duel +0.51 vs tank (best T2 tank by far), grid +0.43",
+   "-2.0% DEF faction offset, second step: 59 % doctrine-free / 56 % shipped; Kazakhstan 72 % and Russia 61 % in the doctrine-free run"
+  ]
+ },
+ {
+  "id": "unit.han.canopy_ranger",
+  "pi_pct": -7.85,
+  "health": [
+   397,
+   366
+  ],
+  "damage": {},
+  "why": [
+   "-5.0% Vietnam 61 %, duel +0.43 vs tank (infantry line with the cheap-light-vehicle and +10 % speed packages)",
+   "-3.0% Vietnam 67 % shipped, 58 % doctrine-free"
+  ]
+ },
+ {
+  "id": "unit.han.reed_rocket_skimmer",
+  "pi_pct": -3.0,
+  "health": [
+   405,
+   393
+  ],
+  "damage": {},
+  "why": [
+   "-3.0% Vietnam 61 %"
+  ]
+ },
+ {
+  "id": "unit.napc.aegis_frigate",
+  "pi_pct": 4.04,
+  "health": [
+   2216,
+   2260
+  ],
+  "damage": {
+   "weapon.napc.aegis_gun": [
+    181,
+    185
+   ],
+   "weapon.napc.aegis_aa_missile": [
+    60,
+    61
+   ],
+   "weapon.napc.aegis_torpedo": [
+    252,
+    257
+   ]
+  },
+  "why": [
+   "+2.0% NAPC faction offset: napc.vanilla 41-44 %, canada 41 % in the shipped and the doctrine-free runs",
+   "+2.0% NAPC faction offset, second step: napc.vanilla 40 % and canada 42 % doctrine-free"
+  ]
+ },
+ {
+  "id": "unit.napc.aguila_breach_team",
+  "pi_pct": 0.96,
+  "health": [
+   540,
+   545
+  ],
+  "damage": {},
+  "why": [
+   "+2.0% NAPC faction offset: napc.vanilla 41-44 %, canada 41 % in the shipped and the doctrine-free runs",
+   "+2.0% NAPC faction offset, second step: napc.vanilla 40 % and canada 42 % doctrine-free",
+   "scaled x0.24 to stay inside the fair-cost band"
+  ]
+ },
+ {
+  "id": "unit.napc.bastion_heavy_tank",
+  "pi_pct": 4.04,
+  "health": [
+   3627,
+   3700
+  ],
+  "damage": {
+   "weapon.napc.bastion_twin_cannon": [
+    161,
+    164
+   ]
+  },
+  "why": [
+   "+2.0% NAPC faction offset: napc.vanilla 41-44 %, canada 41 % in the shipped and the doctrine-free runs",
+   "+2.0% NAPC faction offset, second step: napc.vanilla 40 % and canada 42 % doctrine-free"
+  ]
+ },
+ {
+  "id": "unit.napc.beaver_amphibious_apc",
+  "pi_pct": 4.04,
+  "health": [
+   602,
+   626
+  ],
+  "damage": {},
+  "why": [
+   "+2.0% NAPC faction offset: napc.vanilla 41-44 %, canada 41 % in the shipped and the doctrine-free runs",
+   "+2.0% NAPC faction offset, second step: napc.vanilla 40 % and canada 42 % doctrine-free"
+  ]
+ },
+ {
+  "id": "unit.napc.condor_stealth_bomber",
+  "pi_pct": 4.04,
+  "health": [
+   1108,
+   1130
+  ],
+  "damage": {
+   "weapon.napc.condor_bomb": [
+    1552,
+    1583
+   ]
+  },
+  "why": [
+   "+2.0% NAPC faction offset: napc.vanilla 41-44 %, canada 41 % in the shipped and the doctrine-free runs",
+   "+2.0% NAPC faction offset, second step: napc.vanilla 40 % and canada 42 % doctrine-free"
+  ]
+ },
+ {
+  "id": "unit.napc.falcon_interceptor",
+  "pi_pct": 4.04,
+  "health": [
+   705,
+   719
+  ],
+  "damage": {
+   "weapon.napc.falcon_aam": [
+    101,
+    103
+   ]
+  },
+  "why": [
+   "+2.0% NAPC faction offset: napc.vanilla 41-44 %, canada 41 % in the shipped and the doctrine-free runs",
+   "+2.0% NAPC faction offset, second step: napc.vanilla 40 % and canada 42 % doctrine-free"
+  ]
+ },
+ {
+  "id": "unit.napc.guardian_tank",
+  "pi_pct": 4.04,
+  "health": [
+   907,
+   925
+  ],
+  "damage": {
+   "weapon.napc.guardian_cannon": [
+    141,
+    144
+   ]
+  },
+  "why": [
+   "+2.0% NAPC faction offset: napc.vanilla 41-44 %, canada 41 % in the shipped and the doctrine-free runs",
+   "+2.0% NAPC faction offset, second step: napc.vanilla 40 % and canada 42 % doctrine-free"
+  ]
+ },
+ {
+  "id": "unit.napc.javelin_team",
+  "pi_pct": 4.04,
+  "health": [
+   302,
+   308
+  ],
+  "damage": {
+   "weapon.napc.javelin_missile": [
+    272,
+    277
+   ]
+  },
+  "why": [
+   "+2.0% NAPC faction offset: napc.vanilla 41-44 %, canada 41 % in the shipped and the doctrine-free runs",
+   "+2.0% NAPC faction offset, second step: napc.vanilla 40 % and canada 42 % doctrine-free"
+  ]
+ },
+ {
+  "id": "unit.napc.liberty_arsenal_ship",
+  "pi_pct": 4.04,
+  "health": [
+   4534,
+   4625
+  ],
+  "damage": {
+   "weapon.napc.liberty_bombard": [
+    322,
+    328
+   ]
+  },
+  "why": [
+   "+2.0% NAPC faction offset: napc.vanilla 41-44 %, canada 41 % in the shipped and the doctrine-free runs",
+   "+2.0% NAPC faction offset, second step: napc.vanilla 40 % and canada 42 % doctrine-free"
+  ]
+ },
+ {
+  "id": "unit.napc.narwhal_amphibious_tank",
+  "pi_pct": 4.04,
+  "health": [
+   907,
+   925
+  ],
+  "damage": {
+   "weapon.napc.narwhal_cannon": [
+    120,
+    122
+   ]
+  },
+  "why": [
+   "+2.0% NAPC faction offset: napc.vanilla 41-44 %, canada 41 % in the shipped and the doctrine-free runs",
+   "+2.0% NAPC faction offset, second step: napc.vanilla 40 % and canada 42 % doctrine-free"
+  ]
+ },
+ {
+  "id": "unit.napc.paladin_howitzer",
+  "pi_pct": 4.04,
+  "health": [
+   655,
+   668
+  ],
+  "damage": {
+   "weapon.napc.paladin_shell": [
+    201,
+    205
+   ]
+  },
+  "why": [
+   "+2.0% NAPC faction offset: napc.vanilla 41-44 %, canada 41 % in the shipped and the doctrine-free runs",
+   "+2.0% NAPC faction offset, second step: napc.vanilla 40 % and canada 42 % doctrine-free"
+  ]
+ },
+ {
+  "id": "unit.napc.pathfinder_apc",
+  "pi_pct": 4.04,
+  "health": [
+   524,
+   545
+  ],
+  "damage": {},
+  "why": [
+   "+2.0% NAPC faction offset: napc.vanilla 41-44 %, canada 41 % in the shipped and the doctrine-free runs",
+   "+2.0% NAPC faction offset, second step: napc.vanilla 40 % and canada 42 % doctrine-free"
+  ]
+ },
+ {
+  "id": "unit.napc.raptor_multirole_fighter",
+  "pi_pct": 4.04,
+  "health": [
+   705,
+   719
+  ],
+  "damage": {
+   "weapon.napc.raptor_aam": [
+    86,
+    88
+   ],
+   "weapon.napc.raptor_agm": [
+    70,
+    71
+   ]
+  },
+  "why": [
+   "+2.0% NAPC faction offset: napc.vanilla 41-44 %, canada 41 % in the shipped and the doctrine-free runs",
+   "+2.0% NAPC faction offset, second step: napc.vanilla 40 % and canada 42 % doctrine-free"
+  ]
+ },
+ {
+  "id": "unit.napc.rifle_squad",
+  "pi_pct": 4.04,
+  "health": [
+   403,
+   419
+  ],
+  "damage": {},
+  "why": [
+   "+2.0% NAPC faction offset: napc.vanilla 41-44 %, canada 41 % in the shipped and the doctrine-free runs",
+   "+2.0% NAPC faction offset, second step: napc.vanilla 40 % and canada 42 % doctrine-free"
+  ]
+ },
+ {
+  "id": "unit.napc.riverwatch_patrol_boat",
+  "pi_pct": 4.04,
+  "health": [
+   705,
+   733
+  ],
+  "damage": {},
+  "why": [
+   "+2.0% NAPC faction offset: napc.vanilla 41-44 %, canada 41 % in the shipped and the doctrine-free runs",
+   "+2.0% NAPC faction offset, second step: napc.vanilla 40 % and canada 42 % doctrine-free"
+  ]
+ },
+ {
+  "id": "unit.napc.sentinel_aa",
+  "pi_pct": 4.04,
+  "health": [
+   806,
+   839
+  ],
+  "damage": {},
+  "why": [
+   "+2.0% NAPC faction offset: napc.vanilla 41-44 %, canada 41 % in the shipped and the doctrine-free runs",
+   "+2.0% NAPC faction offset, second step: napc.vanilla 40 % and canada 42 % doctrine-free"
+  ]
+ },
+ {
+  "id": "unit.napc.titan_gunship",
+  "pi_pct": 4.04,
+  "health": [
+   1738,
+   1773
+  ],
+  "damage": {
+   "weapon.napc.titan_missiles": [
+    91,
+    93
+   ]
+  },
+  "why": [
+   "+2.0% NAPC faction offset: napc.vanilla 41-44 %, canada 41 % in the shipped and the doctrine-free runs",
+   "+2.0% NAPC faction offset, second step: napc.vanilla 40 % and canada 42 % doctrine-free"
+  ]
+ },
+ {
+  "id": "unit.napc.vanguard_rifle_squad",
+  "pi_pct": 4.04,
+  "health": [
+   403,
+   419
+  ],
+  "damage": {},
+  "why": [
+   "+2.0% NAPC faction offset: napc.vanilla 41-44 %, canada 41 % in the shipped and the doctrine-free runs",
+   "+2.0% NAPC faction offset, second step: napc.vanilla 40 % and canada 42 % doctrine-free"
+  ]
+ },
+ {
+  "id": "unit.nec.alpine_pioneer",
+  "pi_pct": 6.12,
+  "health": [
+   426,
+   452
+  ],
+  "damage": {},
+  "why": [
+   "+2.0% NEC faction offset: 37 % round robin, grid -0.09 / -0.31",
+   "+2.0% NEC faction offset, second step: 36.8 % shipped, 44.7 % doctrine-free",
+   "+2.0% NEC faction offset, third step: 44.7 % doctrine-free, nec.vanilla 38 % in both settings"
+  ]
+ },
+ {
+  "id": "unit.nec.archer_spg",
+  "pi_pct": 6.12,
+  "health": [
+   607,
+   625
+  ],
+  "damage": {
+   "weapon.nec.archer_spg": [
+    203,
+    209
+   ]
+  },
+  "why": [
+   "+2.0% NEC faction offset: 37 % round robin, grid -0.09 / -0.31",
+   "+2.0% NEC faction offset, second step: 36.8 % shipped, 44.7 % doctrine-free",
+   "+2.0% NEC faction offset, third step: 44.7 % doctrine-free, nec.vanilla 38 % in both settings"
+  ]
+ },
+ {
+  "id": "unit.nec.argent_rail_tank",
+  "pi_pct": 6.12,
+  "health": [
+   3349,
+   3450
+  ],
+  "damage": {
+   "weapon.nec.argent_rail_tank": [
+    771,
+    794
+   ]
+  },
+  "why": [
+   "+2.0% NEC faction offset: 37 % round robin, grid -0.09 / -0.31",
+   "+2.0% NEC faction offset, second step: 36.8 % shipped, 44.7 % doctrine-free",
+   "+2.0% NEC faction offset, third step: 44.7 % doctrine-free, nec.vanilla 38 % in both settings"
+  ]
+ },
+ {
+  "id": "unit.nec.charlemagne_siege_tank",
+  "pi_pct": 6.12,
+  "health": [
+   3456,
+   3560
+  ],
+  "damage": {
+   "weapon.nec.charlemagne_siege_tank": [
+    796,
+    820
+   ]
+  },
+  "why": [
+   "+2.0% NEC faction offset: 37 % round robin, grid -0.09 / -0.31",
+   "+2.0% NEC faction offset, second step: 36.8 % shipped, 44.7 % doctrine-free",
+   "+2.0% NEC faction offset, third step: 44.7 % doctrine-free, nec.vanilla 38 % in both settings"
+  ]
+ },
+ {
+  "id": "unit.nec.concord_monitor",
+  "pi_pct": 6.12,
+  "health": [
+   3882,
+   3999
+  ],
+  "damage": {
+   "weapon.nec.concord_monitor": [
+    325,
+    335
+   ]
+  },
+  "why": [
+   "+2.0% NEC faction offset: 37 % round robin, grid -0.09 / -0.31",
+   "+2.0% NEC faction offset, second step: 36.8 % shipped, 44.7 % doctrine-free",
+   "+2.0% NEC faction offset, third step: 44.7 % doctrine-free, nec.vanilla 38 % in both settings"
+  ]
+ },
+ {
+  "id": "unit.nec.fen_recon_carrier",
+  "pi_pct": 12.58,
+  "health": [
+   528,
+   594
+  ],
+  "damage": {},
+  "why": [
+   "+2.0% NEC faction offset: 37 % round robin, grid -0.09 / -0.31",
+   "+3.0% Nordics 36 %",
+   "+2.0% NEC faction offset, second step: 36.8 % shipped, 44.7 % doctrine-free",
+   "+3.0% Nordics 35 % shipped, 38.6 % doctrine-free",
+   "+2.0% NEC faction offset, third step: 44.7 % doctrine-free, nec.vanilla 38 % in both settings"
+  ]
+ },
+ {
+  "id": "unit.nec.fjord_missile_carrier",
+  "pi_pct": 2.46,
+  "health": [
+   609,
+   616
+  ],
+  "damage": {
+   "weapon.nec.fjord_missile_carrier": [
+    459,
+    465
+   ]
+  },
+  "why": [
+   "+2.0% NEC faction offset: 37 % round robin, grid -0.09 / -0.31",
+   "+4.0% Nordics 36 %, fair-cost deviation -6.7 % (clamped to the band)",
+   "+2.0% NEC faction offset, second step: 36.8 % shipped, 44.7 % doctrine-free",
+   "+2.0% NEC faction offset, third step: 44.7 % doctrine-free, nec.vanilla 38 % in both settings",
+   "scaled x0.24 to stay inside the fair-cost band"
+  ]
+ },
+ {
+  "id": "unit.nec.horizon_escort",
+  "pi_pct": 6.12,
+  "health": [
+   2233,
+   2300
+  ],
+  "damage": {
+   "weapon.nec.horizon_escort_naval_gun": [
+    183,
+    189
+   ],
+   "weapon.nec.horizon_escort_aa_missile": [
+    61,
+    63
+   ],
+   "weapon.nec.horizon_escort_torpedo": [
+    254,
+    262
+   ]
+  },
+  "why": [
+   "+2.0% NEC faction offset: 37 % round robin, grid -0.09 / -0.31",
+   "+2.0% NEC faction offset, second step: 36.8 % shipped, 44.7 % doctrine-free",
+   "+2.0% NEC faction offset, third step: 44.7 % doctrine-free, nec.vanilla 38 % in both settings"
+  ]
+ },
+ {
+  "id": "unit.nec.ibex_crawler_gun",
+  "pi_pct": 6.12,
+  "health": [
+   759,
+   782
+  ],
+  "damage": {
+   "weapon.nec.ibex_crawler_gun": [
+    186,
+    192
+   ]
+  },
+  "why": [
+   "+2.0% NEC faction offset: 37 % round robin, grid -0.09 / -0.31",
+   "+2.0% NEC faction offset, second step: 36.8 % shipped, 44.7 % doctrine-free",
+   "+2.0% NEC faction offset, third step: 44.7 % doctrine-free, nec.vanilla 38 % in both settings"
+  ]
+ },
+ {
+  "id": "unit.nec.jager_squad",
+  "pi_pct": 6.12,
+  "health": [
+   373,
+   396
+  ],
+  "damage": {},
+  "why": [
+   "+2.0% NEC faction offset: 37 % round robin, grid -0.09 / -0.31",
+   "+2.0% NEC faction offset, second step: 36.8 % shipped, 44.7 % doctrine-free",
+   "+2.0% NEC faction offset, third step: 44.7 % doctrine-free, nec.vanilla 38 % in both settings"
+  ]
+ },
+ {
+  "id": "unit.nec.kestrel_interceptor",
+  "pi_pct": 6.12,
+  "health": [
+   710,
+   731
+  ],
+  "damage": {
+   "weapon.nec.kestrel_interceptor": [
+    101,
+    104
+   ]
+  },
+  "why": [
+   "+2.0% NEC faction offset: 37 % round robin, grid -0.09 / -0.31",
+   "+2.0% NEC faction offset, second step: 36.8 % shipped, 44.7 % doctrine-free",
+   "+2.0% NEC faction offset, third step: 44.7 % doctrine-free, nec.vanilla 38 % in both settings"
+  ]
+ },
+ {
+  "id": "unit.nec.leopard_tank",
+  "pi_pct": 6.12,
+  "health": [
+   913,
+   941
+  ],
+  "damage": {
+   "weapon.nec.leopard_tank": [
+    142,
+    146
+   ]
+  },
+  "why": [
+   "+2.0% NEC faction offset: 37 % round robin, grid -0.09 / -0.31",
+   "+2.0% NEC faction offset, second step: 36.8 % shipped, 44.7 % doctrine-free",
+   "+2.0% NEC faction offset, third step: 44.7 % doctrine-free, nec.vanilla 38 % in both settings"
+  ]
+ },
+ {
+  "id": "unit.nec.marte_heavy_mbt",
+  "pi_pct": 6.12,
+  "health": [
+   1927,
+   1985
+  ],
+  "damage": {
+   "weapon.nec.marte_heavy_mbt": [
+    210,
+    216
+   ]
+  },
+  "why": [
+   "+2.0% NEC faction offset: 37 % round robin, grid -0.09 / -0.31",
+   "+2.0% NEC faction offset, second step: 36.8 % shipped, 44.7 % doctrine-free",
+   "+2.0% NEC faction offset, third step: 44.7 % doctrine-free, nec.vanilla 38 % in both settings"
+  ]
+ },
+ {
+  "id": "unit.nec.rapier_aa",
+  "pi_pct": 6.12,
+  "health": [
+   812,
+   836
+  ],
+  "damage": {
+   "weapon.nec.rapier_aa": [
+    101,
+    104
+   ]
+  },
+  "why": [
+   "+2.0% NEC faction offset: 37 % round robin, grid -0.09 / -0.31",
+   "+2.0% NEC faction offset, second step: 36.8 % shipped, 44.7 % doctrine-free",
+   "+2.0% NEC faction offset, third step: 44.7 % doctrine-free, nec.vanilla 38 % in both settings"
+  ]
+ },
+ {
+  "id": "unit.nec.sapper",
+  "pi_pct": 6.12,
+  "health": [
+   426,
+   452
+  ],
+  "damage": {},
+  "why": [
+   "+2.0% NEC faction offset: 37 % round robin, grid -0.09 / -0.31",
+   "+2.0% NEC faction offset, second step: 36.8 % shipped, 44.7 % doctrine-free",
+   "+2.0% NEC faction offset, third step: 44.7 % doctrine-free, nec.vanilla 38 % in both settings"
+  ]
+ },
+ {
+  "id": "unit.nec.skerry_patrol_boat",
+  "pi_pct": 6.12,
+  "health": [
+   710,
+   753
+  ],
+  "damage": {},
+  "why": [
+   "+2.0% NEC faction offset: 37 % round robin, grid -0.09 / -0.31",
+   "+2.0% NEC faction offset, second step: 36.8 % shipped, 44.7 % doctrine-free",
+   "+2.0% NEC faction offset, third step: 44.7 % doctrine-free, nec.vanilla 38 % in both settings"
+  ]
+ },
+ {
+  "id": "unit.nec.spike_team",
+  "pi_pct": 6.12,
+  "health": [
+   304,
+   313
+  ],
+  "damage": {
+   "weapon.nec.spike_team": [
+    274,
+    282
+   ]
+  },
+  "why": [
+   "+2.0% NEC faction offset: 37 % round robin, grid -0.09 / -0.31",
+   "+2.0% NEC faction offset, second step: 36.8 % shipped, 44.7 % doctrine-free",
+   "+2.0% NEC faction offset, third step: 44.7 % doctrine-free, nec.vanilla 38 % in both settings"
+  ]
+ },
+ {
+  "id": "unit.nec.surveyor_apc",
+  "pi_pct": 6.12,
+  "health": [
+   528,
+   560
+  ],
+  "damage": {},
+  "why": [
+   "+2.0% NEC faction offset: 37 % round robin, grid -0.09 / -0.31",
+   "+2.0% NEC faction offset, second step: 36.8 % shipped, 44.7 % doctrine-free",
+   "+2.0% NEC faction offset, third step: 44.7 % doctrine-free, nec.vanilla 38 % in both settings"
+  ]
+ },
+ {
+  "id": "unit.olm.beacon_missile_ship",
+  "pi_pct": -3.96,
+  "health": [
+   4500,
+   4410
+  ],
+  "damage": {
+   "weapon.olm.beacon_bombard": [
+    320,
+    314
+   ]
+  },
+  "why": [
+   "-2.0% OLM faction offset: 64 % shipped / 58 % doctrine-free over four rosters (algeria 72 / 60, el_andalus 62 / 64)",
+   "-2.0% OLM faction offset, second step: 59 % doctrine-free / 64 % shipped after round 2"
+  ]
+ },
+ {
+  "id": "unit.olm.caravan_apc",
+  "pi_pct": -3.96,
+  "health": [
+   520,
+   499
+  ],
+  "damage": {},
+  "why": [
+   "-2.0% OLM faction offset: 64 % shipped / 58 % doctrine-free over four rosters (algeria 72 / 60, el_andalus 62 / 64)",
+   "-2.0% OLM faction offset, second step: 59 % doctrine-free / 64 % shipped after round 2"
+  ]
+ },
+ {
+  "id": "unit.olm.corsair_patrol_boat",
+  "pi_pct": -3.96,
+  "health": [
+   700,
+   672
+  ],
+  "damage": {},
+  "why": [
+   "-2.0% OLM faction offset: 64 % shipped / 58 % doctrine-free over four rosters (algeria 72 / 60, el_andalus 62 / 64)",
+   "-2.0% OLM faction offset, second step: 59 % doctrine-free / 64 % shipped after round 2"
+  ]
+ },
+ {
+  "id": "unit.olm.crescent_aa",
+  "pi_pct": -3.96,
+  "health": [
+   800,
+   784
+  ],
+  "damage": {
+   "weapon.olm.crescent_aa_missile": [
+    100,
+    98
+   ]
+  },
+  "why": [
+   "-2.0% OLM faction offset: 64 % shipped / 58 % doctrine-free over four rosters (algeria 72 / 60, el_andalus 62 / 64)",
+   "-2.0% OLM faction offset, second step: 59 % doctrine-free / 64 % shipped after round 2"
+  ]
+ },
+ {
+  "id": "unit.olm.dawn_laser_aa",
+  "pi_pct": -5.88,
+  "health": [
+   800,
+   753
+  ],
+  "damage": {},
+  "why": [
+   "-2.0% OLM faction offset: 64 % shipped / 58 % doctrine-free over four rosters (algeria 72 / 60, el_andalus 62 / 64)",
+   "-2.0% Saudi Arabia 60 % shipped",
+   "-2.0% OLM faction offset, second step: 59 % doctrine-free / 64 % shipped after round 2"
+  ]
+ },
+ {
+  "id": "unit.olm.dune_rover",
+  "pi_pct": -11.5,
+  "health": [
+   520,
+   460
+  ],
+  "damage": {},
+  "why": [
+   "-5.0% Algeria 66 %",
+   "-2.0% OLM faction offset: 64 % shipped / 58 % doctrine-free over four rosters (algeria 72 / 60, el_andalus 62 / 64)",
+   "-2.0% OLM faction offset, second step: 59 % doctrine-free / 64 % shipped after round 2",
+   "-3.0% Algeria 62 % doctrine-free after round 2"
+  ]
+ },
+ {
+  "id": "unit.olm.gate_guard",
+  "pi_pct": -11.28,
+  "health": [
+   400,
+   355
+  ],
+  "damage": {},
+  "why": [
+   "-5.0% El Andalus 65 %, value exchange 1.58 (lost/built 0.27 for 896 built)",
+   "-2.0% OLM faction offset: 64 % shipped / 58 % doctrine-free over four rosters (algeria 72 / 60, el_andalus 62 / 64)",
+   "-4.0% El Andalus 62 % shipped, 64 % doctrine-free, exchange 1.38-1.63",
+   "-2.0% OLM faction offset, second step: 59 % doctrine-free / 64 % shipped after round 2",
+   "-3.0% El Andalus 68 % doctrine-free, exchange 1.38",
+   "scaled x0.75 to stay inside the fair-cost band"
+  ]
+ },
+ {
+  "id": "unit.olm.ifrit_prism_tank",
+  "pi_pct": -6.84,
+  "health": [
+   3200,
+   2981
+  ],
+  "damage": {},
+  "why": [
+   "-2.0% OLM faction offset: 64 % shipped / 58 % doctrine-free over four rosters (algeria 72 / 60, el_andalus 62 / 64)",
+   "-3.0% Saudi Arabia 60 % shipped",
+   "-2.0% OLM faction offset, second step: 59 % doctrine-free / 64 % shipped after round 2"
+  ]
+ },
+ {
+  "id": "unit.olm.lantern_escort",
+  "pi_pct": -3.96,
+  "health": [
+   2200,
+   2156
+  ],
+  "damage": {
+   "weapon.olm.lantern_gun": [
+    180,
+    176
+   ],
+   "weapon.olm.lantern_aa_missile": [
+    60,
+    59
+   ],
+   "weapon.olm.lantern_torpedo": [
+    250,
+    245
+   ]
+  },
+  "why": [
+   "-2.0% OLM faction offset: 64 % shipped / 58 % doctrine-free over four rosters (algeria 72 / 60, el_andalus 62 / 64)",
+   "-2.0% OLM faction offset, second step: 59 % doctrine-free / 64 % shipped after round 2"
+  ]
+ },
+ {
+  "id": "unit.olm.needle_team",
+  "pi_pct": -3.96,
+  "health": [
+   300,
+   294
+  ],
+  "damage": {
+   "weapon.olm.needle_needle_missile": [
+    270,
+    265
+   ]
+  },
+  "why": [
+   "-2.0% OLM faction offset: 64 % shipped / 58 % doctrine-free over four rosters (algeria 72 / 60, el_andalus 62 / 64)",
+   "-2.0% OLM faction offset, second step: 59 % doctrine-free / 64 % shipped after round 2"
+  ]
+ },
+ {
+  "id": "unit.olm.nightjar_strike_drone",
+  "pi_pct": -3.96,
+  "health": [
+   650,
+   637
+  ],
+  "damage": {
+   "weapon.olm.nightjar_salvo_missile": [
+    150,
+    147
+   ]
+  },
+  "why": [
+   "-2.0% OLM faction offset: 64 % shipped / 58 % doctrine-free over four rosters (algeria 72 / 60, el_andalus 62 / 64)",
+   "-2.0% OLM faction offset, second step: 59 % doctrine-free / 64 % shipped after round 2"
+  ]
+ },
+ {
+  "id": "unit.olm.sandglass_mortar",
+  "pi_pct": -3.96,
+  "health": [
+   480,
+   470
+  ],
+  "damage": {
+   "weapon.olm.sandglass_mortar": [
+    130,
+    127
+   ]
+  },
+  "why": [
+   "-2.0% OLM faction offset: 64 % shipped / 58 % doctrine-free over four rosters (algeria 72 / 60, el_andalus 62 / 64)",
+   "-2.0% OLM faction offset, second step: 59 % doctrine-free / 64 % shipped after round 2"
+  ]
+ },
+ {
+  "id": "unit.olm.scorpion_rocket_buggy",
+  "pi_pct": -9.64,
+  "health": [
+   408,
+   388
+  ],
+  "damage": {
+   "weapon.olm.scorpion_rocket_salvo": [
+    70,
+    67
+   ]
+  },
+  "why": [
+   "-3.0% Algeria 66 %",
+   "-2.0% OLM faction offset: 64 % shipped / 58 % doctrine-free over four rosters (algeria 72 / 60, el_andalus 62 / 64)",
+   "-2.0% OLM faction offset, second step: 59 % doctrine-free / 64 % shipped after round 2",
+   "-3.0% Algeria 62 % doctrine-free after round 2"
+  ]
+ },
+ {
+  "id": "unit.olm.shrike_interceptor",
+  "pi_pct": -3.96,
+  "health": [
+   700,
+   686
+  ],
+  "damage": {
+   "weapon.olm.shrike_aam": [
+    100,
+    98
+   ]
+  },
+  "why": [
+   "-2.0% OLM faction offset: 64 % shipped / 58 % doctrine-free over four rosters (algeria 72 / 60, el_andalus 62 / 64)",
+   "-2.0% OLM faction offset, second step: 59 % doctrine-free / 64 % shipped after round 2"
+  ]
+ },
+ {
+  "id": "unit.olm.sirocco_tank",
+  "pi_pct": -3.96,
+  "health": [
+   765,
+   750
+  ],
+  "damage": {
+   "weapon.olm.sirocco_cannon": [
+    140,
+    137
+   ]
+  },
+  "why": [
+   "-2.0% OLM faction offset: 64 % shipped / 58 % doctrine-free over four rosters (algeria 72 / 60, el_andalus 62 / 64)",
+   "-2.0% OLM faction offset, second step: 59 % doctrine-free / 64 % shipped after round 2"
+  ]
+ },
+ {
+  "id": "unit.olm.strait_frigate",
+  "pi_pct": -9.64,
+  "health": [
+   2200,
+   2091
+  ],
+  "damage": {
+   "weapon.olm.strait_gun": [
+    207,
+    197
+   ],
+   "weapon.olm.strait_aa_missile": [
+    69,
+    66
+   ],
+   "weapon.olm.strait_torpedo": [
+    288,
+    274
+   ]
+  },
+  "why": [
+   "-3.0% El Andalus 65 %",
+   "-2.0% OLM faction offset: 64 % shipped / 58 % doctrine-free over four rosters (algeria 72 / 60, el_andalus 62 / 64)",
+   "-2.0% OLM faction offset, second step: 59 % doctrine-free / 64 % shipped after round 2",
+   "-3.0% El Andalus 68 % doctrine-free"
+  ]
+ },
+ {
+  "id": "unit.olm.sunlance_beam_tank",
+  "pi_pct": -3.96,
+  "health": [
+   3200,
+   3073
+  ],
+  "damage": {},
+  "why": [
+   "-2.0% OLM faction offset: 64 % shipped / 58 % doctrine-free over four rosters (algeria 72 / 60, el_andalus 62 / 64)",
+   "-2.0% OLM faction offset, second step: 59 % doctrine-free / 64 % shipped after round 2"
+  ]
+ },
+ {
+  "id": "unit.olm.wayfarer_guard",
+  "pi_pct": -3.96,
+  "health": [
+   400,
+   384
+  ],
+  "damage": {},
+  "why": [
+   "-2.0% OLM faction offset: 64 % shipped / 58 % doctrine-free over four rosters (algeria 72 / 60, el_andalus 62 / 64)",
+   "-2.0% OLM faction offset, second step: 59 % doctrine-free / 64 % shipped after round 2"
+  ]
+ },
+ {
+  "id": "unit.pd.breaker_howitzer",
+  "pi_pct": 6.12,
+  "health": [
+   650,
+   670
+  ],
+  "damage": {
+   "weapon.pd.breaker_shell": [
+    160,
+    165
+   ]
+  },
+  "why": [
+   "+2.0% PD faction offset: 44 % round robin, exchange 0.77-0.85",
+   "+2.0% PD faction offset, second step: 43.6 % shipped, 41.5 % doctrine-free (exchange 0.73-0.96)",
+   "+2.0% PD faction offset, third step: 43 % doctrine-free and shipped, exchange 0.83-0.90"
+  ]
+ },
+ {
+  "id": "unit.pd.harpoon_team",
+  "pi_pct": 6.12,
+  "health": [
+   300,
+   309
+  ],
+  "damage": {
+   "weapon.pd.harpoon_missile": [
+    270,
+    278
+   ]
+  },
+  "why": [
+   "+2.0% PD faction offset: 44 % round robin, exchange 0.77-0.85",
+   "+2.0% PD faction offset, second step: 43.6 % shipped, 41.5 % doctrine-free (exchange 0.73-0.96)",
+   "+2.0% PD faction offset, third step: 43 % doctrine-free and shipped, exchange 0.83-0.90"
+  ]
+ },
+ {
+  "id": "unit.pd.island_raider",
+  "pi_pct": 6.12,
+  "health": [
+   380,
+   403
+  ],
+  "damage": {},
+  "why": [
+   "+2.0% PD faction offset: 44 % round robin, exchange 0.77-0.85",
+   "+2.0% PD faction offset, second step: 43.6 % shipped, 41.5 % doctrine-free (exchange 0.73-0.96)",
+   "+2.0% PD faction offset, third step: 43 % doctrine-free and shipped, exchange 0.83-0.90"
+  ]
+ },
+ {
+  "id": "unit.pd.kancil_landing_skimmer",
+  "pi_pct": 6.12,
+  "health": [
+   520,
+   552
+  ],
+  "damage": {},
+  "why": [
+   "+2.0% PD faction offset: 44 % round robin, exchange 0.77-0.85",
+   "+2.0% PD faction offset, second step: 43.6 % shipped, 41.5 % doctrine-free (exchange 0.73-0.96)",
+   "+2.0% PD faction offset, third step: 43 % doctrine-free and shipped, exchange 0.83-0.90"
+  ]
+ },
+ {
+  "id": "unit.pd.leviathan_assault_carrier",
+  "pi_pct": 6.12,
+  "health": [
+   4000,
+   4121
+  ],
+  "damage": {
+   "weapon.pd.leviathan_siege_cannon": [
+    580,
+    597
+   ]
+  },
+  "why": [
+   "+2.0% PD faction offset: 44 % round robin, exchange 0.77-0.85",
+   "+2.0% PD faction offset, second step: 43.6 % shipped, 41.5 % doctrine-free (exchange 0.73-0.96)",
+   "+2.0% PD faction offset, third step: 43 % doctrine-free and shipped, exchange 0.83-0.90"
+  ]
+ },
+ {
+  "id": "unit.pd.osprey_strike_tiltrotor",
+  "pi_pct": 6.12,
+  "health": [
+   1500,
+   1545
+  ],
+  "damage": {
+   "weapon.pd.osprey_missiles": [
+    90,
+    93
+   ]
+  },
+  "why": [
+   "+2.0% PD faction offset: 44 % round robin, exchange 0.77-0.85",
+   "+2.0% PD faction offset, second step: 43.6 % shipped, 41.5 % doctrine-free (exchange 0.73-0.96)",
+   "+2.0% PD faction offset, third step: 43 % doctrine-free and shipped, exchange 0.83-0.90"
+  ]
+ },
+ {
+  "id": "unit.pd.outrider_howitzer",
+  "pi_pct": 13.68,
+  "health": [
+   650,
+   693
+  ],
+  "damage": {
+   "weapon.pd.outrider_shell": [
+    170,
+    181
+   ]
+  },
+  "why": [
+   "+2.0% PD faction offset: 44 % round robin, exchange 0.77-0.85",
+   "+4.0% Australia 39.5 %, grid -0.16",
+   "+2.0% PD faction offset, second step: 43.6 % shipped, 41.5 % doctrine-free (exchange 0.73-0.96)",
+   "+3.0% Australia 36 % shipped, 37.5 % doctrine-free, exchange 0.73",
+   "+2.0% PD faction offset, third step: 43 % doctrine-free and shipped, exchange 0.83-0.90"
+  ]
+ },
+ {
+  "id": "unit.pd.petrel_fighter",
+  "pi_pct": 6.12,
+  "health": [
+   700,
+   721
+  ],
+  "damage": {
+   "weapon.pd.petrel_aam": [
+    100,
+    103
+   ]
+  },
+  "why": [
+   "+2.0% PD faction offset: 44 % round robin, exchange 0.77-0.85",
+   "+2.0% PD faction offset, second step: 43.6 % shipped, 41.5 % doctrine-free (exchange 0.73-0.96)",
+   "+2.0% PD faction offset, third step: 43 % doctrine-free and shipped, exchange 0.83-0.90"
+  ]
+ },
+ {
+  "id": "unit.pd.ranger_marine",
+  "pi_pct": 6.12,
+  "health": [
+   400,
+   424
+  ],
+  "damage": {},
+  "why": [
+   "+2.0% PD faction offset: 44 % round robin, exchange 0.77-0.85",
+   "+2.0% PD faction offset, second step: 43.6 % shipped, 41.5 % doctrine-free (exchange 0.73-0.96)",
+   "+2.0% PD faction offset, third step: 43 % doctrine-free and shipped, exchange 0.83-0.90"
+  ]
+ },
+ {
+  "id": "unit.pd.reef_patrol_boat",
+  "pi_pct": 6.12,
+  "health": [
+   700,
+   743
+  ],
+  "damage": {},
+  "why": [
+   "+2.0% PD faction offset: 44 % round robin, exchange 0.77-0.85",
+   "+2.0% PD faction offset, second step: 43.6 % shipped, 41.5 % doctrine-free (exchange 0.73-0.96)",
+   "+2.0% PD faction offset, third step: 43 % doctrine-free and shipped, exchange 0.83-0.90"
+  ]
+ },
+ {
+  "id": "unit.pd.shinano_adaptive_tank",
+  "pi_pct": 10.37,
+  "health": [
+   952,
+   1000
+  ],
+  "damage": {
+   "weapon.pd.shinano_cannon": [
+    148,
+    155
+   ],
+   "weapon.pd.shinano_siege_rail": [
+    380,
+    399
+   ]
+  },
+  "why": [
+   "+2.0% PD faction offset: 44 % round robin, exchange 0.77-0.85",
+   "+4.0% Japan 43 %, exchange 0.77",
+   "+2.0% PD faction offset, second step: 43.6 % shipped, 41.5 % doctrine-free (exchange 0.73-0.96)",
+   "+2.0% PD faction offset, third step: 43 % doctrine-free and shipped, exchange 0.83-0.90"
+  ]
+ },
+ {
+  "id": "unit.pd.shogun_drone_carrier",
+  "pi_pct": 3.0,
+  "health": [
+   5292,
+   5451
+  ],
+  "damage": {},
+  "why": [
+   "+3.0% Japan 43 %"
+  ]
+ },
+ {
+  "id": "unit.pd.storm_aa",
+  "pi_pct": 6.12,
+  "health": [
+   800,
+   824
+  ],
+  "damage": {
+   "weapon.pd.storm_aa_missile": [
+    100,
+    103
+   ]
+  },
+  "why": [
+   "+2.0% PD faction offset: 44 % round robin, exchange 0.77-0.85",
+   "+2.0% PD faction offset, second step: 43.6 % shipped, 41.5 % doctrine-free (exchange 0.73-0.96)",
+   "+2.0% PD faction offset, third step: 43 % doctrine-free and shipped, exchange 0.83-0.90"
+  ]
+ },
+ {
+  "id": "unit.pd.tide_tank",
+  "pi_pct": 6.12,
+  "health": [
+   900,
+   927
+  ],
+  "damage": {
+   "weapon.pd.tide_cannon": [
+    140,
+    144
+   ]
+  },
+  "why": [
+   "+2.0% PD faction offset: 44 % round robin, exchange 0.77-0.85",
+   "+2.0% PD faction offset, second step: 43.6 % shipped, 41.5 % doctrine-free (exchange 0.73-0.96)",
+   "+2.0% PD faction offset, third step: 43 % doctrine-free and shipped, exchange 0.83-0.90"
+  ]
+ },
+ {
+  "id": "unit.pd.trident_escort",
+  "pi_pct": 6.12,
+  "health": [
+   2200,
+   2266
+  ],
+  "damage": {
+   "weapon.pd.escort_gun": [
+    180,
+    185
+   ],
+   "weapon.pd.escort_aam": [
+    60,
+    62
+   ],
+   "weapon.pd.escort_torpedo": [
+    250,
+    258
+   ]
+  },
+  "why": [
+   "+2.0% PD faction offset: 44 % round robin, exchange 0.77-0.85",
+   "+2.0% PD faction offset, second step: 43.6 % shipped, 41.5 % doctrine-free (exchange 0.73-0.96)",
+   "+2.0% PD faction offset, third step: 43 % doctrine-free and shipped, exchange 0.83-0.90"
+  ]
+ },
+ {
+  "id": "unit.pd.wake_skimmer",
+  "pi_pct": 6.12,
+  "health": [
+   520,
+   552
+  ],
+  "damage": {},
+  "why": [
+   "+2.0% PD faction offset: 44 % round robin, exchange 0.77-0.85",
+   "+2.0% PD faction offset, second step: 43.6 % shipped, 41.5 % doctrine-free (exchange 0.73-0.96)",
+   "+2.0% PD faction offset, third step: 43 % doctrine-free and shipped, exchange 0.83-0.90"
+  ]
+ },
+ {
+  "id": "unit.pd.wedge_recon_fighter",
+  "pi_pct": 12.58,
+  "health": [
+   700,
+   743
+  ],
+  "damage": {
+   "weapon.pd.wedge_aam": [
+    85,
+    90
+   ]
+  },
+  "why": [
+   "+2.0% PD faction offset: 44 % round robin, exchange 0.77-0.85",
+   "+3.0% Australia 39.5 %",
+   "+2.0% PD faction offset, second step: 43.6 % shipped, 41.5 % doctrine-free (exchange 0.73-0.96)",
+   "+3.0% Australia 36 % shipped, 37.5 % doctrine-free",
+   "+2.0% PD faction offset, third step: 43 % doctrine-free and shipped, exchange 0.83-0.90"
+  ]
+ },
+ {
+  "id": "unit.sap.arjun_assault_tank",
+  "pi_pct": -8.8,
+  "health": [
+   1600,
+   1528
+  ],
+  "damage": {
+   "weapon.sap.arjun_assault_tank": [
+    200,
+    191
+   ]
+  },
+  "why": [
+   "-5.0% India 63 %, duel +0.36 vs tank at equal cost, grid +0.39",
+   "-4.0% India 64 % pooled shipped"
+  ]
+ },
+ {
+  "id": "unit.sap.gaj_siege_platform",
+  "pi_pct": -5.91,
+  "health": [
+   3600,
+   3492
+  ],
+  "damage": {
+   "weapon.sap.gaj_siege_platform": [
+    700,
+    679
+   ]
+  },
+  "why": [
+   "-3.0% India 63 %",
+   "-3.0% India 64 % pooled shipped"
+  ]
+ },
+ {
+  "id": "unit.sap.naga_amphibious_carrier",
+  "pi_pct": -3.0,
+  "health": [
+   520,
+   504
+  ],
+  "damage": {},
+  "why": [
+   "-3.0% Thailand 72 %"
+  ]
+ },
+ {
+  "id": "unit.sap.river_marine",
+  "pi_pct": -8.8,
+  "health": [
+   400,
+   365
+  ],
+  "damage": {},
+  "why": [
+   "-5.0% Thailand 72 % (River Marine is 31 % of its built value, duel +0.22 vs rifle line)",
+   "-4.0% Thailand 70 % shipped (pooled base+r1), 62 % doctrine-free, exchange 1.08-1.14"
+  ]
+ },
+ {
+  "id": "unit.sap.shaheen_missile_battery",
+  "pi_pct": 3.0,
+  "health": [
+   600,
+   609
+  ],
+  "damage": {
+   "weapon.sap.shaheen_missile_battery": [
+    420,
+    426
+   ]
+  },
+  "why": [
+   "+3.0% Pakistan 38.6 % doctrine-free (shipped 48 %)"
+  ]
+ },
+ {
+  "id": "unit.sap.watchpost_recon_team",
+  "pi_pct": 3.0,
+  "health": [
+   300,
+   309
+  ],
+  "damage": {},
+  "why": [
+   "+3.0% Pakistan 38.6 % doctrine-free"
+  ]
+ }
+]

@@ -1,0 +1,6 @@
+# Meridian Fracture audio toolchain (build-time only; nothing here ships in the game).
+# Exact pins: the committed OGGs are byte-reproducible only with matching numpy FFT + libsndfile/libvorbis builds
+# (see game/assets/audio/audio_manifest.json "generator"; check --verify falls back to metric comparison otherwise).
+numpy==2.5.3
+soundfile==0.14.0
+Pillow==12.3.0
