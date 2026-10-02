@@ -1,0 +1,26 @@
+{
+ "format": 1,
+ "profiles": {
+  "jittery_lan": {
+   "latency_ms": 3,
+   "jitter_ms": 2,
+   "loss_pct": 0.5
+  },
+  "lossy_wifi": {
+   "preset": "wifi",
+   "loss_pct": 2.0,
+   "bandwidth_kbps": 20000
+  },
+  "laggy": {
+   "latency_ms": 40,
+   "jitter_ms": 20,
+   "loss_pct": 2.0
+  },
+  "chaos_ordered": {
+   "preset": "internet",
+   "latency_ms": 25,
+   "jitter_ms": 30,
+   "loss_pct": 3.0
+  }
+ }
+}

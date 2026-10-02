@@ -1,0 +1,476 @@
+{
+ "schema": "meridian.test.convert_vectors/1",
+ "generator": "tools/py/gen_convert_vectors.py",
+ "vectors": [
+  {
+   "fn": "milli",
+   "in": 0,
+   "out": 0
+  },
+  {
+   "fn": "milli",
+   "in": 1,
+   "out": 1000
+  },
+  {
+   "fn": "milli",
+   "in": 1.5,
+   "out": 1500
+  },
+  {
+   "fn": "milli",
+   "in": 0.001,
+   "out": 1
+  },
+  {
+   "fn": "milli",
+   "in": 27.5,
+   "out": 27500
+  },
+  {
+   "fn": "milli",
+   "in": 1.05,
+   "out": 1050
+  },
+  {
+   "fn": "milli",
+   "in": 1.051,
+   "out": 1051
+  },
+  {
+   "fn": "milli",
+   "in": -2.25,
+   "out": -2250
+  },
+  {
+   "fn": "milli",
+   "in": 0.0005,
+   "err": "V-SCH-04"
+  },
+  {
+   "fn": "milli",
+   "in": 1.0005,
+   "err": "V-SCH-04"
+  },
+  {
+   "fn": "milli",
+   "in": 1000000000000.0,
+   "err": "V-SCH-04"
+  },
+  {
+   "fn": "milli",
+   "in": 1099511627.775,
+   "out": 1099511627775
+  },
+  {
+   "fn": "cells_to_units",
+   "in": 0,
+   "out": 0
+  },
+  {
+   "fn": "cells_to_units",
+   "in": 7.0,
+   "out": 7168
+  },
+  {
+   "fn": "cells_to_units",
+   "in": 7.5,
+   "out": 7680
+  },
+  {
+   "fn": "cells_to_units",
+   "in": 0.45,
+   "out": 461
+  },
+  {
+   "fn": "cells_to_units",
+   "in": 0.55,
+   "out": 563
+  },
+  {
+   "fn": "cells_to_units",
+   "in": 1.0,
+   "out": 1024
+  },
+  {
+   "fn": "cells_to_units",
+   "in": 0.001,
+   "out": 1
+  },
+  {
+   "fn": "cells_to_units",
+   "in": 0.0005,
+   "err": "V-SCH-04"
+  },
+  {
+   "fn": "cells_to_units",
+   "in": 1.5,
+   "out": 1536
+  },
+  {
+   "fn": "cells_to_units",
+   "in": 0.5,
+   "out": 512
+  },
+  {
+   "fn": "cells_to_units",
+   "in": 6.25,
+   "out": 6400
+  },
+  {
+   "fn": "cells_s_to_upt",
+   "in": 0,
+   "out": 0
+  },
+  {
+   "fn": "cells_s_to_upt",
+   "in": 1.0,
+   "out": 51
+  },
+  {
+   "fn": "cells_s_to_upt",
+   "in": 2.0,
+   "out": 102
+  },
+  {
+   "fn": "cells_s_to_upt",
+   "in": 3.0,
+   "out": 154
+  },
+  {
+   "fn": "cells_s_to_upt",
+   "in": 3.2,
+   "out": 164
+  },
+  {
+   "fn": "cells_s_to_upt",
+   "in": 2.6,
+   "out": 133
+  },
+  {
+   "fn": "cells_s_to_upt",
+   "in": 8.0,
+   "out": 410
+  },
+  {
+   "fn": "cells_s_to_upt",
+   "in": 16.0,
+   "out": 819
+  },
+  {
+   "fn": "cells_s_to_upt",
+   "in": 0.001,
+   "out": 0
+  },
+  {
+   "fn": "cells_s_to_upt",
+   "in": 1.5,
+   "out": 77
+  },
+  {
+   "fn": "cells_s_to_upt",
+   "in": 7.0,
+   "out": 358
+  },
+  {
+   "fn": "s_to_ticks",
+   "in": 0,
+   "out": 0
+  },
+  {
+   "fn": "s_to_ticks",
+   "in": 1.05,
+   "out": 21
+  },
+  {
+   "fn": "s_to_ticks",
+   "in": 1.051,
+   "out": 22
+  },
+  {
+   "fn": "s_to_ticks",
+   "in": 0.05,
+   "out": 1
+  },
+  {
+   "fn": "s_to_ticks",
+   "in": 0.06,
+   "out": 2
+  },
+  {
+   "fn": "s_to_ticks",
+   "in": 8,
+   "out": 160
+  },
+  {
+   "fn": "s_to_ticks",
+   "in": 15.5,
+   "out": 310
+  },
+  {
+   "fn": "s_to_ticks",
+   "in": 27.5,
+   "out": 550
+  },
+  {
+   "fn": "s_to_ticks",
+   "in": 45,
+   "out": 900
+  },
+  {
+   "fn": "s_to_ticks",
+   "in": 75,
+   "out": 1500
+  },
+  {
+   "fn": "s_to_ticks",
+   "in": 1.2,
+   "out": 24
+  },
+  {
+   "fn": "s_to_ticks",
+   "in": 0.001,
+   "out": 1
+  },
+  {
+   "fn": "s_to_ticks",
+   "in": 30.5,
+   "out": 610
+  },
+  {
+   "fn": "s_to_ticks",
+   "in": 105.5,
+   "out": 2110
+  },
+  {
+   "fn": "s_to_ticks",
+   "in": 0.0005,
+   "err": "V-SCH-04"
+  },
+  {
+   "fn": "s_to_mt",
+   "in": 0,
+   "out": 0
+  },
+  {
+   "fn": "s_to_mt",
+   "in": 1.2,
+   "out": 24000
+  },
+  {
+   "fn": "s_to_mt",
+   "in": 0.25,
+   "out": 5000
+  },
+  {
+   "fn": "s_to_mt",
+   "in": 1.6,
+   "out": 32000
+  },
+  {
+   "fn": "s_to_mt",
+   "in": 1.0,
+   "out": 20000
+  },
+  {
+   "fn": "s_to_mt",
+   "in": 0.05,
+   "out": 1000
+  },
+  {
+   "fn": "s_to_mt",
+   "in": 0.001,
+   "out": 20
+  },
+  {
+   "fn": "pct_to_bp",
+   "in": 0,
+   "out": 0
+  },
+  {
+   "fn": "pct_to_bp",
+   "in": 10,
+   "out": 1000
+  },
+  {
+   "fn": "pct_to_bp",
+   "in": 12.5,
+   "out": 1250
+  },
+  {
+   "fn": "pct_to_bp",
+   "in": 0.5,
+   "out": 50
+  },
+  {
+   "fn": "pct_to_bp",
+   "in": -15,
+   "out": -1500
+  },
+  {
+   "fn": "pct_to_bp",
+   "in": 0.01,
+   "out": 1
+  },
+  {
+   "fn": "pct_to_bp",
+   "in": 0.005,
+   "err": "V-SCH-06"
+  },
+  {
+   "fn": "pct_to_bp",
+   "in": 33.33,
+   "out": 3333
+  },
+  {
+   "fn": "pct_to_bp",
+   "in": 100,
+   "out": 10000
+  },
+  {
+   "fn": "pct_to_bp",
+   "in": 25,
+   "out": 2500
+  },
+  {
+   "fn": "deg_to_a",
+   "in": 0,
+   "out": 0
+  },
+  {
+   "fn": "deg_to_a",
+   "in": 90,
+   "out": 1024
+  },
+  {
+   "fn": "deg_to_a",
+   "in": 360,
+   "out": 4096
+  },
+  {
+   "fn": "deg_to_a",
+   "in": 45,
+   "out": 512
+  },
+  {
+   "fn": "deg_to_a",
+   "in": 22.5,
+   "out": 256
+  },
+  {
+   "fn": "deg_to_a",
+   "in": 180,
+   "out": 2048
+  },
+  {
+   "fn": "deg_to_a",
+   "in": 0.001,
+   "out": 0
+  },
+  {
+   "fn": "deg_s_to_apt",
+   "in": 0,
+   "out": 0
+  },
+  {
+   "fn": "deg_s_to_apt",
+   "in": 90,
+   "out": 51
+  },
+  {
+   "fn": "deg_s_to_apt",
+   "in": 120,
+   "out": 68
+  },
+  {
+   "fn": "deg_s_to_apt",
+   "in": 150,
+   "out": 85
+  },
+  {
+   "fn": "deg_s_to_apt",
+   "in": 180,
+   "out": 102
+  },
+  {
+   "fn": "deg_s_to_apt",
+   "in": 720,
+   "out": 410
+  },
+  {
+   "fn": "deg_s_to_apt",
+   "in": 0.001,
+   "out": 1
+  },
+  {
+   "fn": "deg_s_to_apt",
+   "in": 60,
+   "out": 34
+  },
+  {
+   "fn": "deg_s_to_apt",
+   "in": 45,
+   "out": 26
+  },
+  {
+   "fn": "crps_to_mcpt",
+   "in": 0,
+   "out": 0
+  },
+  {
+   "fn": "crps_to_mcpt",
+   "in": 100,
+   "out": 5000
+  },
+  {
+   "fn": "crps_to_mcpt",
+   "in": 20,
+   "out": 1000
+  },
+  {
+   "fn": "crps_to_mcpt",
+   "in": 1,
+   "out": 50
+  },
+  {
+   "fn": "crps_to_mcpt",
+   "in": 3,
+   "out": 150
+  },
+  {
+   "fn": "crps_to_mcpt",
+   "in": 46,
+   "out": 2300
+  },
+  {
+   "fn": "pcts_to_bps",
+   "in": 0,
+   "out": 0
+  },
+  {
+   "fn": "pcts_to_bps",
+   "in": 1,
+   "out": 100
+  },
+  {
+   "fn": "pcts_to_bps",
+   "in": 2.5,
+   "out": 250
+  },
+  {
+   "fn": "pcts_to_bps",
+   "in": 0.01,
+   "out": 1
+  },
+  {
+   "fn": "pcts_to_bps",
+   "in": 0.005,
+   "err": "V-SCH-06"
+  },
+  {
+   "fn": "pcts_to_bps",
+   "in": 12.5,
+   "out": 1250
+  }
+ ]
+}

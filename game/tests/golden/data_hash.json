@@ -1,0 +1,21 @@
+{
+  "format": 1,
+  "hash": 311392374,
+  "tables": {
+    "abilities": 2166136261,
+    "factions": 166271821,
+    "global": 3490630089,
+    "ids": 2152917842,
+    "modifiers": 2166136261,
+    "neutrals": 1150822282,
+    "powers": 1588982736,
+    "research": 2903342305,
+    "rosters": 1743216562,
+    "selectors": 2166136261,
+    "structures": 833710606,
+    "superweapons": 2166136261,
+    "units": 4033017627,
+    "weapon_archs": 4263680756,
+    "zones": 1066306456
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "format": 1,
+  "roster": "roster.napc.canada",
+  "map": { "w": 128, "h": 128 },
+  "viewer": 0,
+  "tick": 15200,
+  "players": [
+    { "pid": 0, "name": "Simon", "team": 1, "color": 0, "roster": "roster.napc.canada", "credits": 12450, "harvested": 61000, "power_supply": 300, "power_demand": 265, "unit_cap": 150 },
+    { "pid": 1, "name": "AI 2", "team": 2, "color": 1, "roster": "roster.def.kazakhstan", "credits": 8000 },
+    { "pid": 2, "name": "Ally", "team": 1, "color": 2, "roster": "roster.napc.vanilla", "credits": 5000 }
+  ],
+  "construction": {
+    "state": 1, "def": "structure.shared.radar", "progress_permille": 372, "eta_ticks": 377, "rate_pct": 100, "queue_state": 0,
+    "queue": ["structure.shared.generator", "structure.shared.refinery"]
+  },
+  "producers": [
+    { "id": 88, "def": "structure.shared.factory", "queue": ["unit.napc.narwhal_amphibious_tank", "unit.napc.narwhal_amphibious_tank"], "progress_permille": 620, "queue_state": 0 },
+    { "id": 89, "def": "structure.shared.barracks", "queue": [], "queue_state": 0 }
+  ],
+  "research": { "active": "research.napc.adaptive_plating", "progress_permille": 250, "eta_ticks": 900, "queue_state": 0, "queue": [] },
+  "powers": {
+    "power.napc.uav_sweep": { "status": 1, "ready_tick": 16400, "cooldown_ticks": 1800, "slot": 0 },
+    "power.napc.field_repair_drop": { "status": 0, "ready_tick": 0, "cooldown_ticks": 2400, "slot": 1 },
+    "power.napc.floating_workshop": { "status": 2, "slot": 2 }
+  },
+  "superweapon": { "def": "superweapon.napc.atlas_kinetic_array", "status": 1, "charge_permille": 740, "ready_tick": 17000, "launcher": 91 },
+  "entities": [
+    { "id": 1, "def": "structure.shared.headquarters", "owner": 0, "x": 60416, "y": 60416, "hp": 5000, "hp_max": 5000, "paid_cost": 0 },
+    { "id": 88, "def": "structure.shared.factory", "owner": 0, "x": 68608, "y": 60416, "hp": 2000, "hp_max": 2000, "paid_cost": 2000, "queue_len": 2, "primary": true },
+    { "id": 89, "def": "structure.shared.barracks", "owner": 0, "x": 68608, "y": 68608, "hp": 1200, "hp_max": 1200, "paid_cost": 800 },
+    { "id": 90, "def": "structure.shared.refinery", "owner": 0, "x": 52224, "y": 60416, "hp": 1800, "hp_max": 1800, "paid_cost": 1500 },
+    { "id": 1001, "def": "unit.napc.guardian_tank", "owner": 0, "x": 65536, "y": 61440, "hp": 800, "hp_max": 800, "order": 0, "selected": true },
+    { "id": 1002, "def": "unit.napc.guardian_tank", "owner": 0, "x": 66560, "y": 62464, "hp": 640, "hp_max": 800, "order": 0, "selected": true },
+    { "id": 1003, "def": "unit.napc.rifle_squad", "owner": 0, "x": 64512, "y": 63488, "hp": 300, "hp_max": 300, "squad": 4, "squad_max": 5, "order": 1 },
+    { "id": 1004, "def": "unit.shared.collector", "owner": 0, "x": 55296, "y": 62464, "hp": 500, "hp_max": 500, "order": 6 },
+    { "id": 2001, "def": "unit.def.hammer_tank", "owner": 1, "x": 90112, "y": 51200, "hp": 500, "hp_max": 700, "visible": true },
+    { "id": 2002, "def": "unit.def.hammer_tank", "owner": 1, "x": 100352, "y": 70656, "hp": 700, "hp_max": 700, "visible": false },
+    { "id": 2003, "def": "structure.shared.radar", "owner": 1, "x": 110592, "y": 40960, "hp": 900, "hp_max": 900, "ghost": true, "visible": false },
+    { "id": 3001, "def": "unit.napc.rifle_squad", "owner": 2, "x": 58368, "y": 66560, "hp": 300, "hp_max": 300, "squad": 5, "squad_max": 5 }
+  ],
+  "events": [
+    { "at_tick": 15210, "type": "EV_ATTACK_ALERT", "x": 70000, "y": 60000, "a": 0, "b": 1001, "c": 1, "d": 0 },
+    { "at_tick": 15300, "type": "EVT_POWER_SHORTAGE", "a": 0, "b": 265, "c": 300 }
+  ],
+  "warnings": [
+    { "id": 3, "owner": 1, "kind": 0, "sw": "superweapon.def.perun_missile_complex", "x": 40960, "y": 30720, "radius": 9216, "angle": 0, "start_tick": 16900, "exec_tick": 17300 }
+  ],
+  "deposits": [ { "x": 48, "y": 17, "amount": 2400 }, { "x": 49, "y": 17, "amount": 1800 } ]
+}
