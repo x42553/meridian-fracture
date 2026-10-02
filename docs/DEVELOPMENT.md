@@ -251,7 +251,7 @@ The `.pck` is about 100 MB and byte-identical across OSes. The macOS app is ad-h
 
 ## Continuous integration
 
-`.github/workflows/build.yml`: a `tools` job (Python tests, version and icon consistency, bible mirror, strict balance validator), per platform (Linux, Windows, macOS) a `test` job (import, strict check, the suite in shards, headless quit stress, a screenshot smoke), determinism hash chains per runner and a final comparison, exports with the templates, smoke runs of the exports, packaging (including the DMG on the macOS runner), a Debian 12 container job for linux/amd64, and a nightly soak. The workflow exists and is checked for sanity by a Python test; it has **not yet been executed on GitHub**.
+`.github/workflows/build.yml`: a `tools` job (Python tests, version and icon consistency, bible mirror, strict balance validator), per platform (Linux, Windows, macOS) a `test` job (import, strict check, the suite in shards, headless quit stress, a screenshot smoke), determinism hash chains per runner and a final comparison, exports with the templates, smoke runs of the exports, packaging (including the DMG on the macOS runner), a Debian 12 container job for linux/amd64, and a nightly soak. The workflow is checked for sanity by a Python test and runs on GitHub on every push to `main`, on pull requests, nightly (the soak) and on demand (`gh workflow run build.yml`); a push cancels the run in progress for the same branch. Wall-clock budgets in tests must multiply by `TestCtx.perf_factor()` (hosted runners are slower and noisier), and tools that CI runs must work on Windows (start `tools/gd` with `sys.executable`, expect `\\` paths and CRLF).
 
 ## Working agreements
 

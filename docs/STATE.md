@@ -9,23 +9,23 @@ _Maintained by the assistant that orchestrated the build. Last updated 2026-10-0
 | Area | State |
 |---|---|
 | Rules | 156 units, 29 structures, 40 research upgrades, 48 support powers, 8 superweapons, abilities/zones/summons/engineers, fog and stealth — all data-driven (`game/data/`), all implemented |
-| Simulation | integer-only deterministic; macOS arm64 = Linux amd64 = Linux arm64 on 20 hash-chain scenarios |
+| Simulation | integer-only deterministic; macOS arm64 = Linux amd64 = Linux arm64 on 20 hash-chain scenarios; GitHub's Linux x86_64, Windows x86_64 and macOS arm64 runners agree on 6 scenarios, and the exported Windows, Linux and macOS builds end the same 1,200-tick match on the same chain |
 | AI | economy, expansion, production/composition, scouting, attack/defend/harass/hunt, siege, micro, naval/air/amphibious, powers and superweapons, dispersal; Medium-vs-Medium ends by elimination ~32 % of the time, Hard beats Easy 30/32 by elimination |
 | Network | NetSession (LOCAL/HOST/CLIENT), lobby, UDP discovery, lockstep, desync detection; two-process ENet proofs identical on macOS and Linux |
 | Presentation | procedural models per faction/subfaction, terrain/water/atmosphere/moods, FX (191 effects), HUD, menus, Field Manual with 3D viewer, options, campaign UI, replays/observer UI |
 | Audio | 492 SFX, 17 music tracks x 4 stems, 25 stingers, 513 announcer lines (Kokoro TTS, Apache-2.0), unit responses; runtime wired |
-| Tests | 2,448 tests green on macOS arm64, Linux arm64 and Linux amd64; `tools/gd check --strict` clean; ~153k lines of game code, ~87k lines of tests, ~32k lines of Python tooling; a fresh `git clone` (only the engine linked in) passes the same suite and `check --strict` (2,448/2,448, 691 s, macOS arm64) and the 195 Python tool tests |
+| Tests | 2,448 tests green on macOS arm64, Linux arm64 and Linux amd64; `tools/gd check --strict` clean; ~153k lines of game code, ~87k lines of tests, ~32k lines of Python tooling; a fresh `git clone` (only the engine linked in) passes the same suite and `check --strict` (2,448/2,448, 691 s, macOS arm64) and the 195 Python tool tests; CI (GitHub Actions: Linux, Windows and macOS runners plus Debian 12 containers, run 37008439730) runs the same suite on every push |
 | Packages | macOS universal `.dmg` + `.zip`, Linux `.tar.gz` + amd64 `.deb`, Windows `.zip` (`builds/packages/`, checksums in `builds/RELEASE_MANIFEST.json`; `builds/` is not versioned) |
-| Version control | git, branch `main`, history starts at this release candidate (tag `v0.1.0-rc1`); remote `origin` = the public GitHub repository `x42553/meridian-fracture` (public since 2026-10-02, MIT), GitHub Actions disabled there until a first CI run is wanted; `docs/shots/` (835 MB working screenshots), `builds/`, `.backups/`, engines and the import cache are git-ignored |
+| Version control | git, branch `main`, history starts at this release candidate (tag `v0.1.0-rc1`); remote `origin` = the public GitHub repository `x42553/meridian-fracture` (public since 2026-10-02, MIT), GitHub Actions enabled (a push cancels the run in progress for the same branch); `docs/shots/` (835 MB working screenshots), `builds/`, `.backups/`, engines and the import cache are git-ignored |
 | Performance | exported macOS build: 1.65 s to menu, 2.6 s to a running match; frame time p95 10.7 ms at 1080p, 4 players, 192x192 (M5 Max); RSS ~710 MB in a match |
 
 ## Not verified (needs a human or other hardware)
 
-- The **Windows executable has never been run** (static checks only; the exe has no embedded icon/version resource — needs rcedit/wine).
+- The **Windows executable has not been run by a person** on a real PC (CI runs it headless on a Windows runner: smoke test, bot match, missions, record/replay; the exe has no embedded icon/version resource — needs rcedit/wine).
 - **Audio was never listened to**; it was measured (loudness, true peak, spectrograms, loop seams) only.
 - **No real two-machine LAN game** was played (all multi-process proofs ran on one machine; in-match chat/pings untested on two real machines).
 - **No human playtest**: balance was tuned by AI self-play (Hard vs Hard round robins; every roster inside 35-65 %); feel and fun are unknown.
-- macOS builds are ad-hoc signed, **not notarized**; the GitHub CI workflow has **never run**.
+- macOS builds are ad-hoc signed, **not notarized**; the GitHub CI workflow ran for the first time on 2026-10-02 and is green (see KNOWN_ISSUES, section 1).
 - A rare Godot 4.7.2 GDScript operator-cache race (about 1 crash per 400-600 exported real-renderer match starts before the mitigation, 0 in 1000 boots after) is mitigated, not removed — retest on every engine upgrade and report upstream.
 
 ## How to run, test, build
@@ -49,7 +49,7 @@ _Maintained by the assistant that orchestrated the build. Last updated 2026-10-0
 
 1. Human-only checks above (Windows run, listening review, two-machine LAN game, playtest, Debian real device).
 2. Weaker-GPU path: no MultiMesh batch backend for the Mobile/Compatibility renderers (node backend only); no integrated-GPU measurements.
-3. Release polish: macOS notarization (Apple Developer account), Windows icon/version embedding and code signing, first real CI run, placeholder .deb maintainer/homepage, license choice (MIT placeholder).
+3. Release polish: macOS notarization (Apple Developer account), Windows icon/version embedding and code signing, placeholder .deb maintainer/homepage, license choice (MIT placeholder).
 4. Gameplay extensions: multi-human/coop missions, LAN spectators (lobby-only today), more maps/biomes, veterancy (bible: none in the first prototype), AI second attack wave and siege kills, Field Manual counter suggestions.
 5. Small known issues: map generator leaves ~10 % of coast water cells above water level (the view compensates).
 
