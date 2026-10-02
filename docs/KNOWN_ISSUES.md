@@ -13,7 +13,7 @@ State of v0.1.0, compiled from the orchestration log ([STATE.md](STATE.md)), the
 | **Low-end hardware** | Measured on an Apple M5 Max and in Linux containers. The 60 FPS at 1080p target for a 2019 4-core with an integrated GPU is a target, not a measurement. A cheaper rendering path for Mobile/Compatibility (batched instances) is not built. |
 | **macOS Gatekeeper, notarization** | The app is ad-hoc signed, not notarized (needs a paid Apple Developer account). First launch needs right click > Open. A real DMG install on a clean Mac was not done. |
 | **Debian real device** | The `.deb` installs and starts in Debian 12 and 13 containers; no real desktop session (menu entry, icon) was checked. |
-| **First real CI run** | `.github/workflows/build.yml` exists and is sanity-checked offline; it has never run on GitHub. |
+| **First real CI run** | `.github/workflows/build.yml` exists and is sanity-checked offline; it has never run on GitHub (Actions are disabled on the repository on purpose: enable with `gh api -X PUT repos/x42553/meridian-fracture/actions/permissions -F enabled=true` or Settings > Actions > General). |
 | **License** | The MIT license is a placeholder; the owner may change it. |
 
 ## 2. Input: the keyboard shortcuts (connected by HOT1; was: listed but not connected)
@@ -55,7 +55,7 @@ DOC2 found that about 45 of the 159 registered keymap actions had no handler in 
 
 ## 6. Engineering
 
-- **Version control:** the history starts at the v0.1.0 release candidate (tag `v0.1.0-rc1`, branch `main`, no remote configured; commits carry the machine's global git identity and were never pushed). `docs/shots/` (about 835 MB of working screenshots, not documentation) is git-ignored; delete it if you need the disk space; `docs/img/` (about 25 MB) is the curated set that is versioned. Packages (`builds/`), the engines in `tools/` and the import cache `game/.godot/` are git-ignored too (`tools/setup` re-creates the engines and the cache on a fresh clone).
+- **Version control:** the history starts at the v0.1.0 release candidate (tag `v0.1.0-rc1`, branch `main`; remote `origin` is the private GitHub repository `x42553/meridian-fracture`; commits carry the machine's global git identity). `docs/shots/` (about 835 MB of working screenshots, not documentation) is git-ignored; delete it if you need the disk space; `docs/img/` (about 25 MB) is the curated set that is versioned. Packages (`builds/`), the engines in `tools/` and the import cache `game/.godot/` are git-ignored too (`tools/setup` re-creates the engines and the cache on a fresh clone).
 - Hotkeys: `tests/ui/test_hot1_keys.gd` presses every default key in a live match and checks an effect (section 2); most other screens' unit tests still cover pure models.
 - Data hash: `terrain.json` and `map_gen.json` are now covered through the manifest and the join reject names the differing file, but the launch-time check reports only "game data mismatch" with hash numbers, and `MapTerrain` and `MapGenTables` still read those two files from disk themselves.
 - The Python tests need Pillow and PyYAML installed (`pip install pillow pyyaml`) for the icon and workflow checks; `tools/py/gen_app_icon.py` needs Pillow.
