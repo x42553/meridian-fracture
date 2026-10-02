@@ -1,0 +1,17 @@
+[I] 2269 [app] audio disabled (--no-audio)
+[I] 2269 [app] cursors: system cursors (1 registered)
+[I] 2269 [app] match glue ready: bots= player=Commander
+APP_READY mode=match data_hash=29057E50
+APPTEST tick=36000 chain=752562A0 checksum=E827B0F0 cmds=3310 ui_cmds=0 refused=0
+APPPERF {"avg_ms":90.42,"draws_avg":0.0,"draws_max":0,"entities_max":366,"fps_avg":11.1,"frames":1125,"gpu_ms_avg":0.0,"gpu_ms_worst":0.0,"hitches_gt33ms":1015,"label":"soak_plain","mem_mb_end":289.4,"mem_mb_peak":289.4,"mem_mb_start":280.8,"model_sync_builds_in_match":0,"model_sync_last":"","model_sync_ms_in_match":0.0,"objects_max":11693,"p50_ms":99.16,"p95_ms":132.79,"p99_ms":145.87,"prims_max":0,"proc_avg_ms":108.72,"proc_p95_ms":146.35,"render_cpu_ms_avg":0.0,"sim_step_ms_avg":2.429,"sim_step_ms_avg_ewma":2.46,"sim_step_ms_worst":13.04,"sim_steps":36000,"ticks":35936,"vram_mb_peak":0.0,"worst_ms":160.29}
+APPTEST_SUMMARY result=observed winner_team=-1 duration_ticks=36000 players=8 samples=181
+APPTEST_PLAYER pid=0 name=Bot_0 ai=true level=1 team=1 built=55 lost=28 killed=39 structs=23/2 earned=58587 spent=66087 score=5269 apm=16 elim=false
+APPTEST_PLAYER pid=1 name=Bot_1 ai=true level=1 team=2 built=59 lost=36 killed=42 structs=25/0 earned=60059 spent=66965 score=5522 apm=15 elim=false
+APPTEST_PLAYER pid=2 name=Bot_2 ai=true level=1 team=3 built=53 lost=37 killed=37 structs=19/2 earned=46903 spent=54403 score=4665 apm=13 elim=false
+APPTEST_PLAYER pid=3 name=Bot_3 ai=true level=1 team=4 built=54 lost=38 killed=32 structs=24/1 earned=57600 spent=65000 score=5300 apm=15 elim=false
+APPTEST_PLAYER pid=4 name=Bot_4 ai=true level=1 team=12 built=54 lost=48 killed=36 structs=20/0 earned=55240 spent=61980 score=5422 apm=14 elim=false
+APPTEST_PLAYER pid=5 name=Bot_5 ai=true level=1 team=13 built=14 lost=11 killed=13 structs=12/1 earned=12057 spent=19557 score=1382 apm=4 elim=false
+APPTEST_PLAYER pid=6 name=Bot_6 ai=true level=1 team=14 built=56 lost=24 killed=20 structs=23/0 earned=59679 spent=67158 score=4483 apm=16 elim=false
+APPTEST_PLAYER pid=7 name=Bot_7 ai=true level=1 team=15 built=58 lost=34 killed=26 structs=29/0 earned=59400 spent=66900 score=4530 apm=13 elim=false
+APPTEST_END reason=ticks tick=36000
+[I] 104472 [app] boot complete in 102560 ms (splash at 15 ms)

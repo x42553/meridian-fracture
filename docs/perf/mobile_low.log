@@ -1,0 +1,74 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Metal 4.0 - Forward Mobile - Using Device #0: Apple - Apple M5 Max (Apple9)
+
+[I] 2455 [app] cursors: game cursors (17 registered)
+[I] 2456 [app] match glue ready: bots=all player=Commander
+APP_READY mode=match data_hash=29057E50
+[I] 2528 [app] audio ready (driver Dummy)
+[I] 5028 [ui] game screen entered: pid 0, 8 players
+APPTEST_STRESS spawned=416 at_tick=300
+APPTEST tick=3600 chain=4D4A6CB8 checksum=808EF87F cmds=143 ui_cmds=0 refused=0
+APPPERF {"avg_ms":8.34,"backend":{"backend":"nodes","created":550,"live":550,"parked":0,"reused":0},"draws_avg":719.0,"draws_max":739,"entities_max":548,"fps_avg":120.0,"frames":10499,"fx_meshes_live":0,"gpu_ms_avg":0.0,"gpu_ms_worst":0.0,"hitches_gt33ms":1,"label":"mobile_low","mem_mb_end":415.2,"mem_mb_peak":415.0,"mem_mb_start":395.2,"model_sync_builds_in_match":0,"model_sync_last":"","model_sync_ms_in_match":0.0,"objects_max":22042,"p50_ms":8.32,"p95_ms":9.34,"p99_ms":11.53,"prims_max":245767,"proc_avg_ms":12.29,"proc_p95_ms":13.53,"render_cpu_ms_avg":0.24,"sim_step_ms_avg":4.52,"sim_step_ms_avg_ewma":4.81,"sim_step_ms_worst":8.58,"sim_steps":3600,"ticks":3500,"vram_mb_peak":296.8,"worst_ms":37.47}
+APPTEST_SUMMARY result=draw winner_team=-1 duration_ticks=3600 players=8 samples=19
+APPTEST_PLAYER pid=0 name=Commander ai=false level=0 team=1 built=59 lost=0 killed=0 structs=4/0 earned=2400 spent=9864 score=120 apm=6 elim=false
+APPTEST_PLAYER pid=1 name=Bot_1 ai=true level=1 team=2 built=58 lost=0 killed=0 structs=4/0 earned=1866 spent=9354 score=93 apm=6 elim=false
+APPTEST_PLAYER pid=2 name=Bot_2 ai=true level=1 team=3 built=59 lost=0 killed=0 structs=4/0 earned=2088 spent=9490 score=104 apm=6 elim=false
+APPTEST_PLAYER pid=3 name=Bot_3 ai=true level=1 team=4 built=59 lost=0 killed=0 structs=4/0 earned=2346 spent=9779 score=117 apm=6 elim=false
+APPTEST_PLAYER pid=4 name=Bot_4 ai=true level=1 team=12 built=58 lost=0 killed=0 structs=4/0 earned=1800 spent=9300 score=90 apm=6 elim=false
+APPTEST_PLAYER pid=5 name=Bot_5 ai=true level=1 team=13 built=59 lost=0 killed=0 structs=4/0 earned=1800 spent=9300 score=90 apm=5 elim=false
+APPTEST_PLAYER pid=6 name=Bot_6 ai=true level=1 team=14 built=59 lost=0 killed=0 structs=4/0 earned=2178 spent=9551 score=108 apm=6 elim=false
+APPTEST_PLAYER pid=7 name=Bot_7 ai=true level=1 team=15 built=58 lost=0 killed=0 structs=4/0 earned=2148 spent=9610 score=107 apm=6 elim=false
+APPTEST_AUDIO starts=40 culls=2 voices_now=6/1 voices_per_s=0.22 events_fed=35920 music_state=2
+APPTEST_FX {"deduped":0,"events":3690,"gated":0,"handle_us":2577,"handled":684,"ignored":3006,"spawns":35,"unknown":0}
+APPTEST_FX_IDS n=0 {}
+APPTEST_END reason=ticks tick=3600
+[I] 95055 [app] boot complete in 93006 ms (splash at 51 ms)
+ERROR: 47 RID allocations of type 'N10RendererRD14TextureStorage7TextureE' were leaked at exit.
+WARNING: Screen-space ambient occlusion (SSAO) is only available when using the Forward+ or Compatibility renderers.
+     at: environment_set_ssao (servers/rendering/storage/environment_storage.cpp:700)
+     GDScript backtrace (most recent call first):
+         [0] setup (res://src/view/terrain/view_atmosphere.gd:61)
+         [1] _build_look (res://src/app/app_view_stage.gd:160)
+         [2] build_async (res://src/app/app_view_stage.gd:66)
+         [3] build_async (res://src/view/view_world.gd:125)
+         [4] _yield (res://src/view/view_world.gd:137)
+WARNING: 94 RIDs of type "Texture" were leaked.
+   at: finalize (servers/rendering/rendering_device.cpp:8900)
+ERROR: Parameter "RenderingServer::get_singleton()" is null.
+   at: ~ImageTexture (scene/resources/image_texture.cpp:245)
+ERROR: Parameter "RenderingServer::get_singleton()" is null.
+   at: ~ImageTexture (scene/resources/image_texture.cpp:245)
+ERROR: Parameter "RenderingServer::get_singleton()" is null.
+   at: ~ImageTexture (scene/resources/image_texture.cpp:245)
+ERROR: Parameter "RenderingServer::get_singleton()" is null.
+   at: ~ImageTexture (scene/resources/image_texture.cpp:245)
+ERROR: Parameter "RenderingServer::get_singleton()" is null.
+   at: ~ImageTexture (scene/resources/image_texture.cpp:245)
+ERROR: Parameter "RenderingServer::get_singleton()" is null.
+   at: ~ImageTexture (scene/resources/image_texture.cpp:245)
+ERROR: Parameter "RenderingServer::get_singleton()" is null.
+   at: ~ImageTexture (scene/resources/image_texture.cpp:245)
+ERROR: Parameter "RenderingServer::get_singleton()" is null.
+   at: ~ImageTexture (scene/resources/image_texture.cpp:245)
+ERROR: Parameter "RenderingServer::get_singleton()" is null.
+   at: ~ImageTexture (scene/resources/image_texture.cpp:245)
+ERROR: Parameter "RenderingServer::get_singleton()" is null.
+   at: ~ImageTexture (scene/resources/image_texture.cpp:245)
+ERROR: Parameter "RenderingServer::get_singleton()" is null.
+   at: ~ImageTexture (scene/resources/image_texture.cpp:245)
+ERROR: Parameter "RenderingServer::get_singleton()" is null.
+   at: ~ImageTexture (scene/resources/image_texture.cpp:245)
+ERROR: Parameter "RenderingServer::get_singleton()" is null.
+   at: ~ImageTexture (scene/resources/image_texture.cpp:245)
+ERROR: Parameter "RenderingServer::get_singleton()" is null.
+   at: ~ImageTexture (scene/resources/image_texture.cpp:245)
+ERROR: Parameter "RenderingServer::get_singleton()" is null.
+   at: ~ImageTexture (scene/resources/image_texture.cpp:245)
+ERROR: Parameter "RenderingServer::get_singleton()" is null.
+   at: ~ImageTexture (scene/resources/image_texture.cpp:245)
+ERROR: Parameter "RenderingServer::get_singleton()" is null.
+   at: ~ImageTexture (scene/resources/image_texture.cpp:245)
+WARNING: 9705 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 165 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)
