@@ -186,8 +186,11 @@ jobs:
           merge-multiple: true
       - name: The EXPORTED builds (Windows .exe on a real Windows host, Linux, macOS) end the same 1200-tick match on the same chain
         run: |
-          cat exported/*.txt
-          test "$(cat exported/*.txt | sort -u | wc -l)" = "1"
+          # the artifact keeps its exported-match/ folder (it has two upload paths, so the common ancestor is the root)
+          files=$(find exported -path '*exported-match/*.txt' | sort)
+          test "$(echo "$files" | wc -l | tr -d ' ')" = "3"
+          cat $files
+          test "$(cat $files | sort -u | wc -l | tr -d ' ')" = "1"
 
   export:
     name: export + package ${{ matrix.platform }}
