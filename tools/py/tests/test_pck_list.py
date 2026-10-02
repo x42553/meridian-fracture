@@ -27,5 +27,34 @@ class TestPck(unittest.TestCase):
         self.assertEqual(r.returncode, 0, r.stdout + r.stderr)
 
 
+class TestProjectCoverage(unittest.TestCase):
+    """project_files_missing(): which project files the audit expects in the pck."""
+
+    def _tree(self, files: dict) -> str:
+        import tempfile
+        d = tempfile.mkdtemp(prefix="pck_cov_")
+        self.addCleanup(__import__("shutil").rmtree, d, True)
+        for rel, data in files.items():
+            p = Path(d) / rel
+            p.parent.mkdir(parents=True, exist_ok=True)
+            p.write_bytes(data)
+        return d
+
+    def test_present_files_are_not_missing(self) -> None:
+        d = self._tree({"src/a.gd": b"x", "data/x.json": b"{}", "project.godot": b"", "src/a.gd.uid": b"u"})
+        self.assertEqual(pck_list.project_files_missing(d, ["src/a.gd.remap", "data/x.json"]), [])
+
+    def test_a_file_that_is_not_packed_is_reported(self) -> None:
+        d = self._tree({"src/a.gd": b"x", "data/x.json": b"{}"})
+        self.assertEqual(pck_list.project_files_missing(d, ["src/a.gd.remap"]), ["data/x.json"])
+
+    def test_gdignore_folders_are_skipped_with_everything_below(self) -> None:
+        """Godot never exports a folder with a .gdignore (the generated icon set lives in one)."""
+        d = self._tree({"assets/icons/set/.gdignore": b"", "assets/icons/set/app_icon_16.png": b"p",
+                        "assets/icons/set/deep/more.png": b"p", "assets/icons/app_icon.png": b"p"})
+        self.assertEqual(pck_list.project_files_missing(d, ["assets/icons/app_icon.png"]), [])
+        self.assertEqual(pck_list.project_files_missing(d, []), ["assets/icons/app_icon.png"])
+
+
 if __name__ == "__main__":
     unittest.main()

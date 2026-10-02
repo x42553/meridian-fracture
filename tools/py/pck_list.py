@@ -41,6 +41,32 @@ REQUIRED_PREFIXES = ["res://data/", "res://assets/fonts/", "res://assets/shaders
 FORBIDDEN_PARTS = ["tests/", "tools/", "prototypes/", "docs/", "Input/"]
 
 
+def project_files_missing(project, paths):
+    """Project files (relative to `project`) that should be in the pck but are not.
+
+    A folder holding a `.gdignore` file is invisible to Godot (never imported, never exported), so it and everything
+    below it is skipped; so are the import cache, the tests and the files that are never exported on their own.
+    """
+    import os
+    have_set = set(paths)
+    missing = []
+    for dp, dn, fn in os.walk(project):
+        if ".gdignore" in fn:
+            dn[:] = []
+            continue
+        dn[:] = [d for d in dn if d not in (".godot", "tests")]
+        for f in fn:
+            if f.endswith((".import", ".uid", ".md5", ".md", ".DS_Store", ".gdignore")) or f in ("export_presets.cfg", "project.godot"):
+                continue
+            rel = os.path.relpath(os.path.join(dp, f), project)
+            cand = {rel, rel + ".remap"}
+            if rel.endswith(".ogg"):
+                cand.add(rel)  # imported: located via the .import remap
+            if not (cand & have_set) and not any(q.startswith(".godot/imported/" + f + "-") for q in paths):
+                missing.append(rel)
+    return missing
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("pck")
@@ -103,19 +129,7 @@ def main():
             print(f"  {k:<22} {v}")
         missing = []
         if a.project:
-            import os
-            have_set = set(paths)
-            for dp, dn, fn in os.walk(a.project):
-                dn[:] = [d for d in dn if d not in (".godot", "tests")]
-                for f in fn:
-                    if f.endswith((".import", ".uid", ".md5", ".md", ".DS_Store", ".gdignore")) or f in ("export_presets.cfg", "project.godot"):
-                        continue
-                    rel = os.path.relpath(os.path.join(dp, f), a.project)
-                    cand = {rel, rel + ".remap"}
-                    if rel.endswith(".ogg"):
-                        cand.add(rel)  # imported: located via the .import remap
-                    if not (cand & have_set) and not any(q.startswith(".godot/imported/" + f + "-") for q in paths):
-                        missing.append(rel)
+            missing = project_files_missing(a.project, paths)
             print(f"project files missing from the pck: {len(missing)}")
             for m in missing[:20]:
                 print("   ", m)
