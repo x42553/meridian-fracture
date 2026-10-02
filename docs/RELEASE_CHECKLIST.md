@@ -86,7 +86,7 @@ and `xcrun stapler staple`; it has not been attempted. Windows SmartScreen: More
 
 ## 7. CI
 
-GitHub Actions are disabled on `x42553/meridian-fracture` until a first CI run is wanted (private repositories pay for macOS and Windows runner minutes; the nightly soak runs 30 minutes): enable them first with `gh api -X PUT repos/x42553/meridian-fracture/actions/permissions -F enabled=true` or Settings > Actions > General. Then push; `.github/workflows/build.yml` runs the version check, icon check, all suites, determinism diff, exports, packages (incl. the DMG on the
+GitHub Actions are disabled on `x42553/meridian-fracture` until a first CI run is wanted (the repository is public, so GitHub-hosted runners cost nothing; the workflow has never run and the nightly soak runs 30 minutes): enable them first with `gh api -X PUT repos/x42553/meridian-fracture/actions/permissions -F enabled=true` or Settings > Actions > General. Then push; `.github/workflows/build.yml` runs the version check, icon check, all suites, determinism diff, exports, packages (incl. the DMG on the
 macOS runner) and uploads `meridian-fracture-<version>-<platform>` artifacts. Download them for step 8.
 
 ## 8. Manual checks only a human can do
