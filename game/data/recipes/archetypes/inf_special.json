@@ -1,0 +1,155 @@
+{
+  "schema": "meridian.archetype/1",
+  "id": "inf_special",
+  "size_class": "inf",
+  "scale": 1.25,
+  "meta": {
+    "motion": "foot",
+    "doc": "Armed specialists (inf_combat_spec): n 1-3, gear breach|pioneer|sapper|torch|hook. Sockets muzzle0_0, muzzle1_0, top."
+  },
+  "defaults": {"n": 3, "gear": "breach", "helmet": "angular"},
+  "slots": {"gear": []},
+  "ops": [
+    ["meta", "members", "n"],
+    {
+      "for": "i",
+      "n": "n",
+      "do": [
+        {
+          "let": {
+            "a0": "(n) == 2 ? PI*0.5 : 0",
+            "fx": "((n) == 1 ? 0 : sin(i*TAU/(n) + a0)*0.44) + (rnd(i)-0.5)*0.05",
+            "fz": "((n) == 1 ? 0 : -cos(i*TAU/(n) + a0)*0.44) + (rnd(i+9)-0.5)*0.05",
+            "ph": "(i + 0.5)/(n)"
+          }
+        },
+        {
+          "switch": "gear",
+          "cases": {
+            "breach": [
+              {
+                "call": "soldier",
+                "args": {
+                  "x": "fx",
+                  "z": "fz",
+                  "phase": "ph",
+                  "member": "i",
+                  "count": "n",
+                  "kit": "i == 2 ? 'rifle' : 'breach'",
+                  "helmet": "helmet",
+                  "pack": "'large'"
+                }
+              }
+            ],
+            "pioneer": [
+              {
+                "call": "soldier",
+                "args": {
+                  "x": "fx",
+                  "z": "fz",
+                  "phase": "ph",
+                  "member": "i",
+                  "count": "n",
+                  "kit": "i == 1 ? 'rifle' : 'tool'",
+                  "helmet": "helmet",
+                  "pack": "'small'"
+                }
+              }
+            ],
+            "sapper": [
+              {
+                "call": "soldier",
+                "args": {
+                  "x": "fx",
+                  "z": "fz",
+                  "phase": "ph",
+                  "member": "i",
+                  "count": "n",
+                  "kit": "i == 1 ? 'breach' : 'tool'",
+                  "helmet": "helmet",
+                  "pack": "'large'"
+                }
+              }
+            ],
+            "torch": [
+              {
+                "call": "soldier",
+                "args": {
+                  "x": "fx",
+                  "z": "fz",
+                  "phase": "ph",
+                  "member": "i",
+                  "count": "n",
+                  "kit": "i == 2 ? 'rifle' : 'torch'",
+                  "helmet": "helmet",
+                  "pack": "'small'"
+                }
+              }
+            ]
+          },
+          "default": [
+            {
+              "call": "soldier",
+              "args": {
+                "x": "fx",
+                "z": "fz",
+                "phase": "ph",
+                "member": "i",
+                "count": "n",
+                "kit": "i == 1 ? 'rifle' : 'hook'",
+                "helmet": "helmet",
+                "pack": "'small'"
+              }
+            }
+          ]
+        },
+        {
+          "if": "(gear == 'sapper' or gear == 'breach') and i == 0",
+          "then": [
+            ["member", "i", "n"],
+            {
+              "part": {"kind": "body_bob", "pivot": [0, 0, 0], "param": "ph", "extra": 0},
+              "do": [
+                {
+                  "push": {"pos": ["fx", 0, "fz"]},
+                  "do": [
+                    ["brush", "acc"],
+                    ["box", [-0.2, 0.36, -0.06], [0.16, 0.14, 0.14], 0.01],
+                    ["brush", "dark"],
+                    ["box", [-0.2, 0.44, -0.06], [0.1, 0.02, 0.1], 0.0]
+                  ]
+                }
+              ]
+            },
+            ["member", 0, 0]
+          ]
+        },
+        {
+          "if": "gear == 'torch' and i == 0",
+          "then": [
+            ["member", "i", "n"],
+            {
+              "part": {"kind": "body_bob", "pivot": [0, 0, 0], "param": "ph", "extra": 0},
+              "do": [
+                {
+                  "push": {"pos": ["fx", 0, "fz"]},
+                  "do": [
+                    ["brush", "metal", "metal"],
+                    ["cyl", [0.0, 0.42, 0.34], [0.0, 0.92, 0.34], 0.08, 8, 0.0],
+                    ["brush", "acc"],
+                    ["cyl", [0.0, 0.92, 0.34], [0.0, 0.98, 0.34], 0.06, 8, 0.0]
+                  ]
+                }
+              ]
+            },
+            ["member", 0, 0]
+          ]
+        }
+      ]
+    },
+    {"slot": "gear"},
+    ["socket", "muzzle0_0", [0.2, 0.64, -0.68], [0, 0, -1]],
+    ["socket", "muzzle1_0", [0.2, 0.64, -0.68], [0, 0, -1]],
+    ["socket", "top", [0, 1.35, 0], [0, 1, 0]]
+  ]
+}

@@ -1,0 +1,608 @@
+{
+  "schema": "meridian.balance.units/1",
+  "faction": "faction.han",
+  "units": [
+    {
+      "id": "unit.han.banner_infantry",
+      "archetype": "inf_line",
+      "cost_credits": 230,
+      "build_time_s": 8.0,
+      "health": 337,
+      "speed_cells_s": 1.5,
+      "vision_cells": 7.0,
+      "radius_cells": 0.4,
+      "weapons": [
+        "weapon.han.banner_rifle"
+      ],
+      "abilities": [],
+      "tags": [
+        "fragile"
+      ]
+    },
+    {
+      "id": "unit.han.canal_patrol_boat",
+      "archetype": "ship_patrol",
+      "cost_credits": 600,
+      "build_time_s": 16.5,
+      "health": 695,
+      "speed_cells_s": 3.2,
+      "vision_cells": 11.0,
+      "radius_cells": 0.6,
+      "weapons": [
+        "weapon.han.patrol_mg"
+      ],
+      "abilities": [],
+      "tags": []
+    },
+    {
+      "id": "unit.han.canopy_ranger",
+      "archetype": "inf_line",
+      "cost_credits": 265,
+      "build_time_s": 9.5,
+      "health": 366,
+      "speed_cells_s": 1.5,
+      "vision_cells": 7.0,
+      "radius_cells": 0.4,
+      "weapons": [
+        "weapon.han.ranger_rifle"
+      ],
+      "abilities": [
+        "camouflage"
+      ],
+      "tags": []
+    },
+    {
+      "id": "unit.han.dragon_command_walker",
+      "archetype": "veh_command",
+      "cost_credits": 2800,
+      "build_time_s": 73.5,
+      "health": 2977,
+      "speed_cells_s": 1.3,
+      "vision_cells": 9.0,
+      "radius_cells": 1.0,
+      "weapons": [
+        "weapon.han.walker_cannon"
+      ],
+      "abilities": [],
+      "tags": []
+    },
+    {
+      "id": "unit.han.emperor_drone_ship",
+      "archetype": "ship_carrier",
+      "cost_credits": 3800,
+      "build_time_s": 105.5,
+      "health": 4962,
+      "speed_cells_s": 1.5,
+      "vision_cells": 11.0,
+      "radius_cells": 1.5,
+      "weapons": [],
+      "abilities": [],
+      "ability_params": {
+        "ability.carrier.default": {
+          "wings": [
+            {
+              "id": "strike",
+              "drone_id": "summon.han.emperor_strike_drone",
+              "wing_size_n": 6
+            }
+          ]
+        }
+      },
+      "tags": []
+    },
+    {
+      "id": "unit.han.firefly_aa_drone",
+      "archetype": "veh_aa",
+      "cost_credits": 940,
+      "build_time_s": 27.5,
+      "health": 675,
+      "speed_cells_s": 2.2,
+      "vision_cells": 10.0,
+      "radius_cells": 0.55,
+      "weapons": [
+        "weapon.han.firefly_aa"
+      ],
+      "abilities": [
+        "unmanned"
+      ],
+      "tags": [
+        "fragile"
+      ]
+    },
+    {
+      "id": "unit.han.imperial_guard_tank",
+      "archetype": "mbt_t2",
+      "cost_credits": 1250,
+      "build_time_s": 37.0,
+      "health": 1588,
+      "speed_cells_s": 1.8,
+      "vision_cells": 9.5,
+      "radius_cells": 0.6,
+      "weapons": [
+        "weapon.han.guard_cannon"
+      ],
+      "abilities": [],
+      "tags": [
+        "precise"
+      ]
+    },
+    {
+      "id": "unit.han.jade_carrier",
+      "archetype": "veh_scout",
+      "cost_credits": 505,
+      "build_time_s": 16.5,
+      "health": 439,
+      "speed_cells_s": 3.2,
+      "vision_cells": 12.0,
+      "radius_cells": 0.45,
+      "weapons": [
+        "weapon.han.jade_carrier_mg"
+      ],
+      "abilities": [],
+      "tags": [
+        "fragile"
+      ]
+    },
+    {
+      "id": "unit.han.jade_escort",
+      "archetype": "ship_escort",
+      "cost_credits": 1700,
+      "build_time_s": 47.0,
+      "health": 2183,
+      "speed_cells_s": 2.4,
+      "vision_cells": 11.0,
+      "radius_cells": 1.0,
+      "weapons": [
+        "weapon.han.escort_aa",
+        "weapon.han.escort_torpedo"
+      ],
+      "abilities": [],
+      "tags": []
+    },
+    {
+      "id": "unit.han.lance_team",
+      "archetype": "inf_at",
+      "cost_credits": 350,
+      "build_time_s": 12.5,
+      "health": 298,
+      "speed_cells_s": 1.4,
+      "vision_cells": 7.5,
+      "radius_cells": 0.4,
+      "weapons": [
+        "weapon.han.lance_rocket"
+      ],
+      "abilities": [],
+      "tags": [
+        "alpha"
+      ]
+    },
+    {
+      "id": "unit.han.link_operator",
+      "archetype": "inf_support",
+      "cost_credits": 495,
+      "build_time_s": 17.5,
+      "health": 298,
+      "speed_cells_s": 1.5,
+      "vision_cells": 9.0,
+      "radius_cells": 0.4,
+      "weapons": [],
+      "abilities": [
+        "command_field"
+      ],
+      "tags": [
+        "no_gun"
+      ]
+    },
+    {
+      "id": "unit.han.long_command_walker",
+      "archetype": "veh_command",
+      "cost_credits": 2950,
+      "build_time_s": 77.5,
+      "health": 2977,
+      "speed_cells_s": 1.3,
+      "vision_cells": 9.0,
+      "radius_cells": 1.0,
+      "weapons": [
+        "weapon.han.walker_cannon"
+      ],
+      "abilities": [
+        "deployable_mode"
+      ],
+      "ability_params": {
+        "deployable_mode": {
+          "deploy_s": 3,
+          "pack_s": 2,
+          "command_radius_bonus_cells": 2
+        }
+      },
+      "tags": []
+    },
+    {
+      "id": "unit.han.lotus_drone_tender",
+      "archetype": "veh_scout",
+      "cost_credits": 585,
+      "build_time_s": 19.0,
+      "health": 484,
+      "speed_cells_s": 3.2,
+      "vision_cells": 12.0,
+      "radius_cells": 0.45,
+      "weapons": [
+        "weapon.han.lotus_tender_mg"
+      ],
+      "abilities": [
+        "repair_aura"
+      ],
+      "ability_params": {
+        "repair_aura": {
+          "rate_pct_per_s": 1,
+          "cost": "paid",
+          "target_unit_tags": [
+            "unmanned",
+            "land_vehicle"
+          ],
+          "radius_cells": 3,
+          "one_target": true,
+          "can_self": false
+        }
+      },
+      "tags": []
+    },
+    {
+      "id": "unit.han.mekong_field_engineer",
+      "archetype": "inf_support",
+      "cost_credits": 520,
+      "build_time_s": 18.5,
+      "health": 279,
+      "speed_cells_s": 1.5,
+      "vision_cells": 9.0,
+      "radius_cells": 0.4,
+      "weapons": [],
+      "abilities": [
+        "command_field",
+        "repair_aura"
+      ],
+      "ability_params": {
+        "command_field": {
+          "deploy_s": 2
+        },
+        "repair_aura": {
+          "rate_pct_per_s": 1,
+          "cost": "paid",
+          "target_structure_tags": [
+            "structure"
+          ],
+          "radius_cells": 1
+        }
+      },
+      "tags": [
+        "no_gun"
+      ]
+    },
+    {
+      "id": "unit.han.nest_rocket_drone",
+      "archetype": "arty_rocket",
+      "cost_credits": 1125,
+      "build_time_s": 33.0,
+      "health": 506,
+      "speed_cells_s": 1.7,
+      "vision_cells": 8.5,
+      "radius_cells": 0.6,
+      "weapons": [
+        "weapon.han.nest_rockets"
+      ],
+      "abilities": [
+        "unmanned"
+      ],
+      "tags": [
+        "fragile"
+      ]
+    },
+    {
+      "id": "unit.han.ox_tank",
+      "archetype": "mbt_t1",
+      "cost_credits": 850,
+      "build_time_s": 27.5,
+      "health": 893,
+      "speed_cells_s": 2.0,
+      "vision_cells": 9.0,
+      "radius_cells": 0.55,
+      "weapons": [
+        "weapon.han.ox_cannon"
+      ],
+      "abilities": [],
+      "tags": []
+    },
+    {
+      "id": "unit.han.reed_rocket_skimmer",
+      "archetype": "arty_light",
+      "cost_credits": 855,
+      "build_time_s": 25.0,
+      "health": 393,
+      "speed_cells_s": 2.6,
+      "vision_cells": 9.0,
+      "radius_cells": 0.5,
+      "weapons": [
+        "weapon.han.reed_rockets"
+      ],
+      "abilities": [
+        "amphibious",
+        "unmanned"
+      ],
+      "tags": [
+        "fragile",
+        "alpha"
+      ],
+      "movement_class": "amphibious"
+    },
+    {
+      "id": "unit.han.silkwing_drone_bomber",
+      "archetype": "air_bomber",
+      "cost_credits": 1700,
+      "build_time_s": 46.5,
+      "health": 1092,
+      "speed_cells_s": 6.0,
+      "vision_cells": 10.0,
+      "radius_cells": 0.7,
+      "rearm_s_full": 28.0,
+      "weapons": [
+        "weapon.han.silkwing_bomb"
+      ],
+      "abilities": [
+        "unmanned"
+      ],
+      "tags": [
+        "precise",
+        "slow_rearm"
+      ]
+    },
+    {
+      "id": "unit.han.swallow_interceptor",
+      "archetype": "air_fighter",
+      "cost_credits": 1075,
+      "build_time_s": 30.0,
+      "health": 695,
+      "speed_cells_s": 7.0,
+      "vision_cells": 11.0,
+      "radius_cells": 0.5,
+      "rearm_s_full": 8.0,
+      "weapons": [
+        "weapon.han.swallow_aam"
+      ],
+      "abilities": [
+        "unmanned"
+      ],
+      "tags": []
+    }
+  ],
+  "weapons": [
+    {
+      "id": "weapon.han.banner_rifle",
+      "archetype": "small_arms",
+      "damage": 26,
+      "hits_per_volley": 2,
+      "reload_s": 1.0,
+      "range_cells": 5.5
+    },
+    {
+      "id": "weapon.han.dragonfall_siege_gun",
+      "archetype": "siege_gun",
+      "damage": 420,
+      "hits_per_volley": 1,
+      "reload_s": 3.5,
+      "range_cells": 8.0,
+      "splash_cells": 0.84,
+      "scatter_cells": 0.65
+    },
+    {
+      "id": "weapon.han.emperor_drone_missile",
+      "archetype": "drone_missile",
+      "damage": 60,
+      "hits_per_volley": 2,
+      "reload_s": 2.0,
+      "range_cells": 5.0
+    },
+    {
+      "id": "weapon.han.escort_aa",
+      "archetype": "aa_missile",
+      "damage": 60,
+      "hits_per_volley": 2,
+      "reload_s": 1.5,
+      "range_cells": 10.0
+    },
+    {
+      "id": "weapon.han.escort_torpedo",
+      "archetype": "torpedo",
+      "damage": 248,
+      "hits_per_volley": 1,
+      "reload_s": 6.0,
+      "range_cells": 7.0
+    },
+    {
+      "id": "weapon.han.firefly_aa",
+      "archetype": "aa_missile",
+      "damage": 99,
+      "hits_per_volley": 2,
+      "reload_s": 1.5,
+      "range_cells": 10.0
+    },
+    {
+      "id": "weapon.han.guard_cannon",
+      "archetype": "tank_cannon",
+      "damage": 198,
+      "hits_per_volley": 1,
+      "reload_s": 1.25,
+      "range_cells": 7.5
+    },
+    {
+      "id": "weapon.han.jade_carrier_mg",
+      "archetype": "machine_gun",
+      "damage": 30,
+      "hits_per_volley": 1,
+      "reload_s": 1.0,
+      "range_cells": 6.0
+    },
+    {
+      "id": "weapon.han.lance_rocket",
+      "archetype": "at_missile",
+      "damage": 348,
+      "hits_per_volley": 1,
+      "reload_s": 5.85,
+      "range_cells": 7.5
+    },
+    {
+      "id": "weapon.han.lotus_tender_mg",
+      "archetype": "machine_gun",
+      "damage": 28,
+      "hits_per_volley": 1,
+      "reload_s": 1.0,
+      "range_cells": 6.0
+    },
+    {
+      "id": "weapon.han.nest_rockets",
+      "archetype": "rocket_barrage",
+      "damage": 55,
+      "hits_per_volley": 6,
+      "reload_s": 6.0,
+      "range_cells": 13.0,
+      "min_range_cells": 3.5
+    },
+    {
+      "id": "weapon.han.ox_cannon",
+      "archetype": "tank_cannon",
+      "damage": 139,
+      "hits_per_volley": 1,
+      "reload_s": 1.2,
+      "range_cells": 7.0
+    },
+    {
+      "id": "weapon.han.patrol_mg",
+      "archetype": "machine_gun",
+      "damage": 28,
+      "hits_per_volley": 2,
+      "reload_s": 1.0,
+      "range_cells": 6.5
+    },
+    {
+      "id": "weapon.han.ranger_rifle",
+      "archetype": "small_arms",
+      "damage": 52,
+      "hits_per_volley": 1,
+      "reload_s": 1.0,
+      "range_cells": 5.9
+    },
+    {
+      "id": "weapon.han.reed_rockets",
+      "archetype": "rocket_barrage",
+      "damage": 48,
+      "hits_per_volley": 4,
+      "reload_s": 4.5,
+      "range_cells": 10.5,
+      "min_range_cells": 3.0
+    },
+    {
+      "id": "weapon.han.silkwing_bomb",
+      "archetype": "bomb",
+      "damage": 695,
+      "hits_per_volley": 1,
+      "reload_s": 1.2,
+      "range_cells": 1.5,
+      "ammo_volleys": 2
+    },
+    {
+      "id": "weapon.han.swallow_aam",
+      "archetype": "aa_missile",
+      "damage": 99,
+      "hits_per_volley": 1,
+      "reload_s": 1.0,
+      "range_cells": 8.0,
+      "ammo_volleys": 6
+    },
+    {
+      "id": "weapon.han.walker_cannon",
+      "archetype": "tank_cannon",
+      "damage": 198,
+      "hits_per_volley": 1,
+      "reload_s": 1.5,
+      "range_cells": 8.0
+    }
+  ],
+  "summons": [
+    {
+      "id": "summon.han.dragonfall_capsule",
+      "class": "summon",
+      "unit_tags": [
+        "summoned"
+      ],
+      "size_class": "heavy",
+      "armor_class": "heavy_armor",
+      "movement_class": "static",
+      "layer": "ground",
+      "health": 1500,
+      "speed_cells_s": 0,
+      "vision_cells": 3.0,
+      "radius_cells": 0.8,
+      "pop_n": 0,
+      "flags": [
+        "harmless",
+        "no_capture",
+        "no_command_buff",
+        "no_repair",
+        "no_salvage"
+      ],
+      "weapons": [],
+      "abilities": []
+    },
+    {
+      "id": "summon.han.dragonfall_engine",
+      "class": "summon",
+      "unit_tags": [
+        "land_vehicle",
+        "summoned"
+      ],
+      "size_class": "huge",
+      "armor_class": "heavy_armor",
+      "movement_class": "tracked",
+      "layer": "ground",
+      "health": 3200,
+      "speed_cells_s": 1.0,
+      "vision_cells": 6.0,
+      "radius_cells": 1.0,
+      "lifetime_s": 60,
+      "pop_n": 0,
+      "flags": [
+        "no_capture",
+        "no_command_buff",
+        "no_repair",
+        "no_salvage"
+      ],
+      "weapons": [
+        "weapon.han.dragonfall_siege_gun"
+      ],
+      "abilities": []
+    },
+    {
+      "id": "summon.han.emperor_strike_drone",
+      "class": "drone",
+      "unit_tags": [
+        "aircraft",
+        "combat",
+        "unmanned"
+      ],
+      "size_class": "air_medium",
+      "armor_class": "air_light",
+      "movement_class": "air_hover",
+      "layer": "air",
+      "health": 150,
+      "speed_cells_s": 6.0,
+      "vision_cells": 6.0,
+      "radius_cells": 0.3,
+      "cost_credits": 120,
+      "build_time_s": 14,
+      "pop_n": 0,
+      "weapons": [
+        "weapon.han.emperor_drone_missile"
+      ],
+      "abilities": []
+    }
+  ]
+}

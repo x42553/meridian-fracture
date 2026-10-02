@@ -1,0 +1,695 @@
+{
+  "schema": "meridian.balance.units/1",
+  "faction": "faction.nec",
+  "units": [
+    {
+      "id": "unit.nec.alpine_pioneer",
+      "archetype": "inf_combat_spec",
+      "cost_credits": 520,
+      "build_time_s": 18.5,
+      "health": 452,
+      "speed_cells_s": 1.4,
+      "vision_cells": 8.0,
+      "radius_cells": 0.4,
+      "weapons": [
+        "weapon.nec.alpine_pioneer"
+      ],
+      "abilities": [
+        "cover_builder",
+        "repair_aura"
+      ],
+      "tags": [
+        "short_range"
+      ],
+      "dps_vs_primary": 36.4,
+      "range_cells": 4.5,
+      "ability_params": {
+        "cover_builder": {
+          "build_s": 4,
+          "lifetime_s": 45,
+          "resist_pct": 25,
+          "pieces_per_builder_n": 1
+        },
+        "repair_aura": {
+          "rate_pct_per_s": 1,
+          "cost": "paid",
+          "target_structure_tags": [
+            "defense"
+          ],
+          "radius_cells": 1,
+          "one_target": true
+        }
+      },
+      "notes": "One shelter per squad; repair applies to friendly defensive structures only (cost 0.5% price per s = economy repair_cost_bp)."
+    },
+    {
+      "id": "unit.nec.archer_spg",
+      "archetype": "arty_howitzer",
+      "cost_credits": 1300,
+      "build_time_s": 38.0,
+      "health": 634,
+      "speed_cells_s": 1.5,
+      "vision_cells": 8.5,
+      "radius_cells": 0.6,
+      "weapons": [
+        "weapon.nec.archer_spg"
+      ],
+      "abilities": [
+        "deployable_mode"
+      ],
+      "tags": [
+        "precise",
+        "light_hull"
+      ],
+      "dps_vs_primary": 60.6,
+      "range_cells": 15.0,
+      "ability_params": {
+        "deployable_mode": {
+          "deploy_s": 4,
+          "pack_s": 4,
+          "immobile": true,
+          "deployed_slots_n": [
+            0
+          ]
+        }
+      }
+    },
+    {
+      "id": "unit.nec.argent_rail_tank",
+      "archetype": "siege_rail",
+      "cost_credits": 2400,
+      "build_time_s": 63.0,
+      "health": 3450,
+      "speed_cells_s": 1.4,
+      "vision_cells": 8.5,
+      "radius_cells": 0.8,
+      "weapons": [
+        "weapon.nec.argent_rail_tank"
+      ],
+      "abilities": [],
+      "tags": [],
+      "dps_vs_primary": 260.9,
+      "range_cells": 12.0
+    },
+    {
+      "id": "unit.nec.aster_ew_aircraft",
+      "archetype": "air_ew",
+      "cost_credits": 1800,
+      "build_time_s": 50.0,
+      "health": 913,
+      "speed_cells_s": 5.0,
+      "vision_cells": 10.0,
+      "radius_cells": 0.6,
+      "weapons": [],
+      "abilities": [],
+      "tags": []
+    },
+    {
+      "id": "unit.nec.charlemagne_siege_tank",
+      "archetype": "siege_rail",
+      "cost_credits": 2525,
+      "build_time_s": 61.2,
+      "health": 3560,
+      "speed_cells_s": 1.4,
+      "vision_cells": 8.5,
+      "radius_cells": 0.8,
+      "weapons": [
+        "weapon.nec.charlemagne_siege_tank"
+      ],
+      "abilities": [
+        "deployable_mode"
+      ],
+      "tags": [],
+      "dps_vs_primary": 269.4,
+      "range_cells": 12.0,
+      "ability_params": {
+        "deployable_mode": {
+          "deploy_s": 4,
+          "pack_s": 4,
+          "immobile": true,
+          "turn_locked": true,
+          "range_bonus_pct": 25,
+          "deployed_slots_n": [
+            0
+          ]
+        }
+      }
+    },
+    {
+      "id": "unit.nec.concord_monitor",
+      "archetype": "ship_siege",
+      "cost_credits": 2950,
+      "build_time_s": 82.0,
+      "health": 3999,
+      "speed_cells_s": 1.6,
+      "vision_cells": 10.5,
+      "radius_cells": 1.3,
+      "weapons": [
+        "weapon.nec.concord_monitor"
+      ],
+      "abilities": [],
+      "tags": [
+        "precise",
+        "fragile"
+      ],
+      "dps_vs_primary": 125.6,
+      "range_cells": 20.0
+    },
+    {
+      "id": "unit.nec.fen_recon_carrier",
+      "archetype": "veh_scout",
+      "cost_credits": 465,
+      "build_time_s": 15.0,
+      "health": 594,
+      "speed_cells_s": 3.2,
+      "vision_cells": 12.0,
+      "radius_cells": 0.45,
+      "weapons": [
+        "weapon.nec.fen_recon_carrier"
+      ],
+      "abilities": [
+        "amphibious",
+        "ability.sensor_mast.default"
+      ],
+      "tags": [
+        "weak_gun"
+      ],
+      "dps_vs_primary": 18.0,
+      "range_cells": 6.0,
+      "ability_params": {
+        "ability.sensor_mast.default": {
+          "deploy_s": 2,
+          "reveal_radius_cells": 6,
+          "immobile": true
+        }
+      },
+      "notes": "Deployed mast is visibly exposed (no camouflage); Dispersed Links research grants the 4-cell relay field later.",
+      "movement_class": "amphibious"
+    },
+    {
+      "id": "unit.nec.fjord_missile_carrier",
+      "archetype": "arty_missile",
+      "cost_credits": 1525,
+      "build_time_s": 45.0,
+      "health": 616,
+      "speed_cells_s": 1.7,
+      "vision_cells": 8.5,
+      "radius_cells": 0.6,
+      "weapons": [
+        "weapon.nec.fjord_missile_carrier"
+      ],
+      "abilities": [
+        "amphibious",
+        "deployable_mode"
+      ],
+      "tags": [
+        "precise"
+      ],
+      "dps_vs_primary": 66.4,
+      "range_cells": 17.0,
+      "ability_params": {
+        "deployable_mode": {
+          "deploy_s": 1.5,
+          "pack_s": 1.5,
+          "immobile": true,
+          "deployed_slots_n": [
+            0
+          ]
+        }
+      },
+      "movement_class": "amphibious"
+    },
+    {
+      "id": "unit.nec.horizon_escort",
+      "archetype": "ship_escort",
+      "cost_credits": 1700,
+      "build_time_s": 47.0,
+      "health": 2300,
+      "speed_cells_s": 2.4,
+      "vision_cells": 11.0,
+      "radius_cells": 1.0,
+      "weapons": [
+        "weapon.nec.horizon_escort_naval_gun",
+        "weapon.nec.horizon_escort_aa_missile",
+        "weapon.nec.horizon_escort_torpedo"
+      ],
+      "abilities": [],
+      "tags": [],
+      "dps_vs_primary": 94.5,
+      "range_cells": 10.0
+    },
+    {
+      "id": "unit.nec.ibex_crawler_gun",
+      "archetype": "arty_howitzer",
+      "cost_credits": 1375,
+      "build_time_s": 40.5,
+      "health": 782,
+      "speed_cells_s": 1.5,
+      "vision_cells": 8.5,
+      "radius_cells": 0.6,
+      "weapons": [
+        "weapon.nec.ibex_crawler_gun"
+      ],
+      "abilities": [
+        "frontal_armor",
+        "deployable_mode"
+      ],
+      "tags": [
+        "sturdy",
+        "short_range"
+      ],
+      "dps_vs_primary": 60.0,
+      "range_cells": 12.0,
+      "ability_params": {
+        "deployable_mode": {
+          "deploy_s": 2,
+          "pack_s": 2,
+          "immobile": true,
+          "deployed_slots_n": [
+            0
+          ]
+        },
+        "frontal_armor": {
+          "front_arc_deg": 120,
+          "front_reduction_pct": 25,
+          "rear_increase_pct": 15
+        }
+      }
+    },
+    {
+      "id": "unit.nec.jager_squad",
+      "archetype": "inf_line",
+      "cost_credits": 240,
+      "build_time_s": 8.5,
+      "health": 408,
+      "speed_cells_s": 1.5,
+      "vision_cells": 7.0,
+      "radius_cells": 0.4,
+      "weapons": [
+        "weapon.nec.jager_squad"
+      ],
+      "abilities": [],
+      "tags": [
+        "light_hull"
+      ],
+      "dps_vs_primary": 52.0,
+      "range_cells": 5.5,
+      "tags_add": [
+        "area_vulnerable"
+      ],
+      "notes": "Accurate line infantry; area_vulnerable = takes extra damage from splash (armor/damage-matrix domain reads the tag; no ability kind exists)."
+    },
+    {
+      "id": "unit.nec.kestrel_interceptor",
+      "archetype": "air_fighter",
+      "cost_credits": 1175,
+      "build_time_s": 32.5,
+      "health": 731,
+      "speed_cells_s": 7.0,
+      "vision_cells": 11.0,
+      "radius_cells": 0.5,
+      "rearm_s_full": 5.6,
+      "weapons": [
+        "weapon.nec.kestrel_interceptor"
+      ],
+      "abilities": [],
+      "tags": [
+        "quick_rearm"
+      ],
+      "dps_vs_primary": 34.6,
+      "range_cells": 8.0
+    },
+    {
+      "id": "unit.nec.leopard_tank",
+      "archetype": "mbt_t1",
+      "cost_credits": 850,
+      "build_time_s": 27.5,
+      "health": 955,
+      "speed_cells_s": 2.0,
+      "vision_cells": 9.0,
+      "radius_cells": 0.55,
+      "weapons": [
+        "weapon.nec.leopard_tank"
+      ],
+      "abilities": [],
+      "tags": [],
+      "dps_vs_primary": 123.3,
+      "range_cells": 7.0
+    },
+    {
+      "id": "unit.nec.marte_heavy_mbt",
+      "archetype": "mbt_t2",
+      "cost_credits": 1400,
+      "build_time_s": 37.7,
+      "health": 1985,
+      "speed_cells_s": 1.8,
+      "vision_cells": 9.5,
+      "radius_cells": 0.6,
+      "weapons": [
+        "weapon.nec.marte_heavy_mbt"
+      ],
+      "abilities": [
+        "frontal_armor"
+      ],
+      "tags": [
+        "sturdy"
+      ],
+      "dps_vs_primary": 172.8,
+      "range_cells": 7.5,
+      "accel_ticks": 14,
+      "ability_params": {
+        "frontal_armor": {
+          "front_arc_deg": 120,
+          "front_reduction_pct": 15
+        }
+      }
+    },
+    {
+      "id": "unit.nec.rapier_aa",
+      "archetype": "veh_aa",
+      "cost_credits": 1125,
+      "build_time_s": 33.0,
+      "health": 836,
+      "speed_cells_s": 2.2,
+      "vision_cells": 10.0,
+      "radius_cells": 0.55,
+      "weapons": [
+        "weapon.nec.rapier_aa"
+      ],
+      "abilities": [],
+      "tags": [
+        "long_range"
+      ],
+      "dps_vs_primary": 138.7,
+      "range_cells": 12.0
+    },
+    {
+      "id": "unit.nec.sapper",
+      "archetype": "inf_combat_spec",
+      "cost_credits": 490,
+      "build_time_s": 17.5,
+      "health": 452,
+      "speed_cells_s": 1.4,
+      "vision_cells": 8.0,
+      "radius_cells": 0.4,
+      "weapons": [
+        "weapon.nec.sapper"
+      ],
+      "abilities": [
+        "cover_builder"
+      ],
+      "tags": [
+        "short_range"
+      ],
+      "dps_vs_primary": 36.0,
+      "range_cells": 4.5,
+      "ability_params": {
+        "cover_builder": {
+          "build_s": 4,
+          "lifetime_s": 45,
+          "resist_pct": 20,
+          "pieces_per_builder_n": 1
+        }
+      },
+      "flags": [
+        "no_capture",
+        "no_repair"
+      ]
+    },
+    {
+      "id": "unit.nec.skerry_patrol_boat",
+      "archetype": "ship_patrol",
+      "cost_credits": 615,
+      "build_time_s": 17.0,
+      "health": 753,
+      "speed_cells_s": 4.0,
+      "vision_cells": 11.0,
+      "radius_cells": 0.6,
+      "weapons": [
+        "weapon.nec.skerry_patrol_boat"
+      ],
+      "abilities": [],
+      "tags": [
+        "fast"
+      ],
+      "dps_vs_primary": 47.9,
+      "range_cells": 6.5
+    },
+    {
+      "id": "unit.nec.spike_team",
+      "archetype": "inf_at",
+      "cost_credits": 365,
+      "build_time_s": 13.0,
+      "health": 318,
+      "speed_cells_s": 1.4,
+      "vision_cells": 7.5,
+      "radius_cells": 0.4,
+      "weapons": [
+        "weapon.nec.spike_team"
+      ],
+      "abilities": [],
+      "tags": [
+        "long_range"
+      ],
+      "dps_vs_primary": 63.6,
+      "range_cells": 9.0,
+      "flags": [
+        "fire_stationary"
+      ]
+    },
+    {
+      "id": "unit.nec.surveyor_apc",
+      "archetype": "veh_scout",
+      "cost_credits": 570,
+      "build_time_s": 18.5,
+      "health": 560,
+      "speed_cells_s": 3.58,
+      "vision_cells": 12.0,
+      "radius_cells": 0.45,
+      "weapons": [
+        "weapon.nec.surveyor_apc"
+      ],
+      "abilities": [],
+      "tags": [
+        "quick"
+      ],
+      "dps_vs_primary": 30.0,
+      "range_cells": 6.0
+    }
+  ],
+  "weapons": [
+    {
+      "archetype": "small_arms",
+      "damage": 20,
+      "hits_per_volley": 2,
+      "reload_s": 1.1,
+      "range_cells": 4.5,
+      "id": "weapon.nec.alpine_pioneer"
+    },
+    {
+      "archetype": "artillery_shell",
+      "damage": 212,
+      "hits_per_volley": 1,
+      "reload_s": 3.5,
+      "range_cells": 15.0,
+      "min_range_cells": 4.0,
+      "deploy_s": 4.0,
+      "id": "weapon.nec.archer_spg",
+      "scatter_cells": 0.63
+    },
+    {
+      "archetype": "rail_gun",
+      "damage": 794,
+      "hits_per_volley": 1,
+      "reload_s": 3.5,
+      "range_cells": 12.0,
+      "id": "weapon.nec.argent_rail_tank"
+    },
+    {
+      "archetype": "rail_gun",
+      "damage": 820,
+      "hits_per_volley": 1,
+      "reload_s": 3.5,
+      "range_cells": 12.0,
+      "id": "weapon.nec.charlemagne_siege_tank",
+      "deploy_s": 4.0
+    },
+    {
+      "archetype": "naval_bombard",
+      "damage": 335,
+      "hits_per_volley": 3,
+      "reload_s": 8.0,
+      "range_cells": 20.0,
+      "min_range_cells": 6.0,
+      "id": "weapon.nec.concord_monitor",
+      "scatter_cells": 0.84
+    },
+    {
+      "archetype": "machine_gun",
+      "damage": 9,
+      "hits_per_volley": 2,
+      "reload_s": 1.0,
+      "range_cells": 6.0,
+      "id": "weapon.nec.fen_recon_carrier"
+    },
+    {
+      "archetype": "missile_artillery",
+      "damage": 465,
+      "hits_per_volley": 1,
+      "reload_s": 7.0,
+      "range_cells": 17.0,
+      "min_range_cells": 4.0,
+      "deploy_s": 1.5,
+      "id": "weapon.nec.fjord_missile_carrier",
+      "splash_cells": 0.5,
+      "scatter_cells": 0.25
+    },
+    {
+      "archetype": "aa_missile",
+      "damage": 63,
+      "hits_per_volley": 2,
+      "reload_s": 1.5,
+      "range_cells": 10.0,
+      "id": "weapon.nec.horizon_escort_aa_missile"
+    },
+    {
+      "archetype": "naval_gun",
+      "damage": 189,
+      "hits_per_volley": 1,
+      "reload_s": 2.0,
+      "range_cells": 9.0,
+      "id": "weapon.nec.horizon_escort_naval_gun"
+    },
+    {
+      "archetype": "torpedo",
+      "damage": 262,
+      "hits_per_volley": 1,
+      "reload_s": 6.0,
+      "range_cells": 7.0,
+      "id": "weapon.nec.horizon_escort_torpedo"
+    },
+    {
+      "archetype": "artillery_shell",
+      "damage": 192,
+      "hits_per_volley": 1,
+      "reload_s": 3.2,
+      "range_cells": 12.0,
+      "min_range_cells": 4.0,
+      "deploy_s": 2.0,
+      "id": "weapon.nec.ibex_crawler_gun"
+    },
+    {
+      "archetype": "small_arms",
+      "damage": 26,
+      "hits_per_volley": 2,
+      "reload_s": 1.0,
+      "range_cells": 5.5,
+      "id": "weapon.nec.jager_squad"
+    },
+    {
+      "archetype": "aa_missile",
+      "damage": 104,
+      "hits_per_volley": 1,
+      "reload_s": 1.0,
+      "range_cells": 8.0,
+      "ammo_volleys": 6,
+      "id": "weapon.nec.kestrel_interceptor"
+    },
+    {
+      "archetype": "tank_cannon",
+      "damage": 148,
+      "hits_per_volley": 1,
+      "reload_s": 1.2,
+      "range_cells": 7.0,
+      "id": "weapon.nec.leopard_tank"
+    },
+    {
+      "archetype": "tank_cannon",
+      "damage": 216,
+      "hits_per_volley": 1,
+      "reload_s": 1.25,
+      "range_cells": 7.5,
+      "id": "weapon.nec.marte_heavy_mbt"
+    },
+    {
+      "archetype": "aa_missile",
+      "damage": 104,
+      "hits_per_volley": 2,
+      "reload_s": 1.5,
+      "range_cells": 12.0,
+      "id": "weapon.nec.rapier_aa"
+    },
+    {
+      "archetype": "small_arms",
+      "damage": 18,
+      "hits_per_volley": 2,
+      "reload_s": 1.0,
+      "range_cells": 4.5,
+      "id": "weapon.nec.sapper",
+      "notes": "Short-range weapon."
+    },
+    {
+      "id": "weapon.nec.skerry_patrol_boat",
+      "archetype": "autocannon",
+      "damage": 31,
+      "hits_per_volley": 1,
+      "reload_s": 0.55,
+      "range_cells": 6.5
+    },
+    {
+      "archetype": "at_missile",
+      "damage": 286,
+      "hits_per_volley": 1,
+      "reload_s": 4.5,
+      "range_cells": 9.0,
+      "id": "weapon.nec.spike_team",
+      "flags": [
+        "stationary_fire"
+      ]
+    },
+    {
+      "archetype": "machine_gun",
+      "damage": 15,
+      "hits_per_volley": 2,
+      "reload_s": 1.0,
+      "range_cells": 6.0,
+      "id": "weapon.nec.surveyor_apc"
+    }
+  ],
+  "summons": [
+    {
+      "id": "summon.nec.survey_drone",
+      "class": "summon",
+      "unit_tags": [
+        "aircraft",
+        "summoned"
+      ],
+      "size_class": "air_medium",
+      "armor_class": "air_light",
+      "movement_class": "air_hover",
+      "layer": "air",
+      "health": 60,
+      "speed_cells_s": 6.0,
+      "vision_cells": 6.0,
+      "radius_cells": 0.5,
+      "lifetime_s": 15,
+      "pop_n": 0,
+      "flags": [
+        "no_combat_mods",
+        "harmless"
+      ],
+      "abilities": [
+        "ability.summon_orbit.default",
+        "detector"
+      ],
+      "ability_params": {
+        "ability.summon_orbit.default": {
+          "orbit_radius_cells": 6
+        },
+        "detector": {
+          "radius_cells": 6
+        }
+      }
+    }
+  ]
+}

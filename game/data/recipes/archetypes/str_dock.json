@@ -1,0 +1,146 @@
+{
+  "schema": "meridian.archetype/1",
+  "id": "str_dock",
+  "size_class": "structure",
+  "meta": {"motion": "static", "death": {"kind": "structure", "ticks": 7}, "doc": "Dock (3x3): warehouse with roll-up door, quay deck with fenders and bollards, slip ramp, jib crane (SLIDE_Y hook) with a blinking light. The water side is +Z (must be placed on the shoreline)."},
+  "defaults": {},
+  "slots": {"roof": [], "front": [], "extra": []},
+  "derive": {
+    "pw": "fw*3-0.5",
+    "ph": "fh*3-0.5",
+    "hw": "pw*0.5",
+    "hh": "ph*0.5",
+    "ap": "fw*fh>1 ? 1.0 : 0.3",
+    "fz": "hh-ap",
+    "bk": "-hh+0.25",
+    "bd": "fz-bk",
+    "bz": "(fz+bk)*0.5",
+    "bw": "pw-0.5",
+    "k": "clamp(min(pw,ph)/8.5,0.8,1.25)",
+    "hcap": "(max(fw,fh)>=4 ? 12.5 : (max(fw,fh)>=3 ? 10 : 7))-0.35",
+    "wh": "3.0*k",
+    "wd": "bd*0.46",
+    "wz": "bk+wd*0.5",
+    "zq": "bk+wd",
+    "qd": "fz+0.2-zq",
+    "qz": "zq+qd*0.5",
+    "qy": 0.26,
+    "cx": "bw*0.5-1.0",
+    "ch": "min(6.4*k,hcap-0.8)",
+    "reach": "min(bw*0.5,4.2)",
+    "ry": "wh+0.09",
+    "door_w": "min(3.0*k,bw-2.4)",
+    "dx": "clamp(door_cx,-(bw*0.5-door_w*0.5-0.9),bw*0.5-door_w*0.5-0.9)"
+  },
+  "ops": [
+    ["bevel", 0.05],
+    {"call": "foundation", "args": {"fw": "fw", "fh": "fh", "depth": 1.2, "col": "concrete", "edge": "dark", "chevron": "fw*fh>1 ? 1 : 0", "acc": "acc"}},
+    {"call": "wall_block", "args": {"center": [0, "wh*0.5", "wz"], "size": ["bw", "wh", "wd"], "col": "base", "sec": "base", "dado": 0.0, "ribs": 1, "rib": "sec", "cap": "sec", "coping": 0}},
+    ["brush", "dark"],
+    ["ao", 0.75],
+    ["box", [0, 0.3, "wz"], ["bw+0.1", 0.3, "wd+0.1"], 0.02],
+    ["ao", 1.0],
+    ["brush", "mix(sec,dark,0.55)"],
+    ["box", [0, "(wh)+0.04", "wz"], ["(bw)+0.06", 0.08, "(wd)+0.06"], 0.01],
+    ["brush", "sec"],
+    ["box", [0, "(wh)+0.08+0.12", "(wz)+(wd)*0.5-0.075"], ["(bw)+0.16", 0.24, 0.15], 0.02],
+    ["box", [0, "(wh)+0.08+0.12", "(wz)-(wd)*0.5+0.075"], ["(bw)+0.16", 0.24, 0.15], 0.02],
+    ["box", ["0+(bw)*0.5-0.075", "(wh)+0.08+0.12", "wz"], [0.15, 0.24, "(wd)-0.3"], 0.02],
+    ["box", ["0-(bw)*0.5+0.075", "(wh)+0.08+0.12", "wz"], [0.15, 0.24, "(wd)-0.3"], 0.02],
+    {"call": "roller_door", "args": {"center": ["dx", 0, "zq+0.02"], "w": "door_w", "h": "min(2.5,wh-0.5)", "slats": 8, "wall_l": "dx+bw*0.5", "wall_r": "bw*0.5-dx", "wall_h": "wh+0.02", "thick": 0.5, "col": "base", "frame": "sec", "lintel": "acc"}},
+    {"call": "window_strip", "args": {"center": ["bw*0.5+0.02", "wh*0.55", "wz"], "n": 2, "size": [0.8, 0.55, 0.05], "dir": 90, "col": "mix(light,glass,0.5)"}},
+    {"call": "window_strip", "args": {"center": ["-bw*0.5-0.02", "wh*0.55", "wz"], "n": 2, "size": [0.8, 0.55, 0.05], "dir": -90, "col": "mix(light,glass,0.5)"}},
+    {
+      "push": {"pos": ["dx-door_w*0.5-0.4", 2.4, "zq+0.03"], "euler": [0, 0, 0]},
+      "do": [
+        ["brush", "metal", "metal"],
+        ["box", [0, 0, 0.05], [0.22, 0.12, 0.12], 0.01],
+        ["brush", "light", "emissive"],
+        ["box", [0, -0.02, 0.12], [0.16, 0.06, 0.03]]
+      ]
+    },
+    {
+      "push": {"pos": ["dx+door_w*0.5+0.4", 2.4, "zq+0.03"], "euler": [0, 0, 0]},
+      "do": [
+        ["brush", "metal", "metal"],
+        ["box", [0, 0, 0.05], [0.22, 0.12, 0.12], 0.01],
+        ["brush", "light", "emissive"],
+        ["box", [0, -0.02, 0.12], [0.16, 0.06, 0.03]]
+      ]
+    },
+    ["brush", "concrete"],
+    ["box", [0, "qy", "qz"], ["bw+0.1", 0.2, "qd"], 0.02],
+    ["brush", "acc"],
+    ["box", [0, "qy+0.11", "fz-0.05"], ["bw-0.2", 0.02, 0.16]],
+    ["brush", "rubber", "rubber"],
+    {
+      "for": "i",
+      "n": "bw>6 ? 5 : 3",
+      "do": [
+        ["box", ["(i-((bw>6 ? 5 : 3)-1)*0.5)*bw*0.2", 0.36, "fz+0.16"], [0.7, 0.34, 0.16], 0.02]
+      ]
+    },
+    ["brush", "dark", "metal"],
+    {
+      "for": "i",
+      "n": 3,
+      "do": [
+        ["cyl", ["(i-1)*bw*0.38", "qy+0.1", "fz-0.42"], ["(i-1)*bw*0.38", "qy+0.5", "fz-0.42"], 0.13, 8, 0.01]
+      ]
+    },
+    {
+      "push": {"pos": ["-bw*0.3", 0.25, "fz-0.6"], "euler": [10, 0, 0]},
+      "do": [
+        ["brush", "concrete"],
+        ["box", [0, 0, 0], [2.2, 0.12, 2.0], 0.02],
+        ["brush", "acc"],
+        ["box", [-1.05, 0.1, 0], [0.08, 0.1, 2.0]],
+        ["box", [1.05, 0.1, 0], [0.08, 0.1, 2.0]]
+      ]
+    },
+    {"call": "crane", "args": {"center": ["cx", "qy+0.1", "zq+qd*0.45"], "reach": "reach", "h": "ch", "kind": "jib", "yaw": 90, "col": "acc", "mast": "sec"}},
+    {"call": "beacon", "args": {"pos": ["cx", "qy+0.1+ch+0.7", "zq+qd*0.45"], "r": 0.1, "col": "#ff3b1a", "phase": 0}},
+    {"call": "container", "args": {"center": ["-bw*0.1", "qy+0.1", "zq+qd*0.3"], "size": [1.5, 0.55, 1.1], "col": "acc"}},
+    {"call": "container", "args": {"center": ["-bw*0.1", "qy+0.66", "zq+qd*0.3"], "size": [1.5, 0.55, 1.1], "col": "sec"}},
+    {
+      "if": "bw > 6",
+      "then": [
+        {"call": "container", "args": {"center": ["bw*0.16", "qy+0.1", "zq+qd*0.3"], "size": [1.5, 0.55, 1.1], "col": "base"}}
+      ]
+    },
+    {
+      "push": {"pos": ["bw*0.3", "qy+0.1", "zq+qd*0.6"], "euler": [0, 15, 0]},
+      "do": [
+        ["brush", "dark"],
+        ["box", [0, 0.16, 0], [0.5, 0.32, 0.4], 0.03],
+        ["brush", "acc"],
+        ["box", [0, 0.335, 0], [0.52, 0.03, 0.42], 0],
+        ["brush", "mix(base,dark,0.3)"],
+        ["box", [0.42, 0.11, 0.06], [0.34, 0.22, 0.3], 0.03],
+        ["box", [0.1, 0.44, 0.02], [0.36, 0.22, 0.3], 0.03]
+      ]
+    },
+    {"call": "roof_plate", "args": {"center": ["-bw*0.16", "ry+0.05", "wz"], "size": ["clamp(bw*0.34,1.6,3.0)", 0.03, "clamp(wd*0.4,1.0,1.8)"]}},
+    ["brush", "mix(sec,metal,0.5)"],
+    ["box", ["bw*0.28", "(ry)+0.2", "wz-wd*0.1"], [1.0, 0.4, 0.7], 0.03],
+    {"call": "vent", "args": {"center": ["bw*0.28", "(ry)+0.41000000000000003", "wz-wd*0.1"], "size": [0.72, 0.05, 0.48999999999999994], "slats": 3}},
+    ["brush", "sec"],
+    ["box", ["bw*0.02", "(ry)+0.06", "wz-wd*0.1"], ["0.9+0.18", 0.12, "0.6+0.18"], 0.02],
+    ["brush", "glass", "glass"],
+    ["box", ["bw*0.02", "(ry)+0.13", "wz-wd*0.1"], [0.9, 0.06, 0.6], 0],
+    ["brush", "dark"],
+    ["box", ["bw*0.02", "(ry)+0.17", "wz-wd*0.1"], [0.05, 0.03, 0.6], 0],
+    ["box", ["bw*0.02", "(ry)+0.17", "wz-wd*0.1"], [0.9, 0.03, 0.05], 0],
+    {"call": "pennant", "args": {"pos": ["-bw*0.5+0.5", "ry", "zq-0.6"], "h": 2.4}},
+    ["socket", "door_exit", ["door_cx", 0.3, "door_cz"], [0, 0, 1]],
+    ["socket", "weld0", [1.0, "wh+0.3", "wd*0.2"], [0, 1, 0]],
+    ["socket", "weld1", [-1.0, "wh+0.3", "-(wd*0.2)"], [0, 1, 0]],
+    ["socket", "weld2", [0, "wh+0.3", "(wd*0.2)*0.5"], [0, 1, 0]],
+    ["socket", "top", ["cx", "qy+0.1+ch", "zq+qd*0.45"], [0, 1, 0]],
+    ["socket", "dock", ["door_cx", 0.3, "door_cz"], [0, 0, 1]],
+    {"slot": "roof"},
+    {"slot": "front"},
+    {"slot": "extra"},
+    ["meta", "footprint", ["fw", "fh"]]
+  ]
+}

@@ -1,0 +1,597 @@
+{
+  "schema": "meridian.balance.units/1",
+  "faction": "faction.olm",
+  "units": [
+    {
+      "id": "unit.olm.beacon_missile_ship",
+      "archetype": "ship_siege",
+      "cost_credits": 3400,
+      "build_time_s": 94.5,
+      "health": 4410,
+      "speed_cells_s": 1.6,
+      "vision_cells": 10.5,
+      "radius_cells": 1.3,
+      "weapons": [
+        "weapon.olm.beacon_bombard"
+      ],
+      "dps_vs_primary": 117.8,
+      "range_cells": 24.0,
+      "tags": [
+        "long_range"
+      ]
+    },
+    {
+      "id": "unit.olm.caravan_apc",
+      "archetype": "veh_scout",
+      "cost_credits": 570,
+      "build_time_s": 18.5,
+      "health": 499,
+      "speed_cells_s": 3.58,
+      "vision_cells": 12.0,
+      "radius_cells": 0.45,
+      "weapons": [
+        "weapon.olm.caravan_mg"
+      ],
+      "dps_vs_primary": 30.0,
+      "range_cells": 6.0,
+      "tags": [
+        "quick"
+      ]
+    },
+    {
+      "id": "unit.olm.corsair_patrol_boat",
+      "archetype": "ship_patrol",
+      "cost_credits": 615,
+      "build_time_s": 17.0,
+      "health": 672,
+      "speed_cells_s": 4.0,
+      "vision_cells": 11.0,
+      "radius_cells": 0.6,
+      "weapons": [
+        "weapon.olm.corsair_gunboat_mg"
+      ],
+      "dps_vs_primary": 47.6,
+      "range_cells": 6.5,
+      "tags": [
+        "fast"
+      ]
+    },
+    {
+      "id": "unit.olm.crescent_aa",
+      "archetype": "veh_aa",
+      "cost_credits": 1050,
+      "build_time_s": 31.0,
+      "health": 784,
+      "speed_cells_s": 2.2,
+      "vision_cells": 10.0,
+      "radius_cells": 0.55,
+      "weapons": [
+        "weapon.olm.crescent_aa_missile"
+      ],
+      "dps_vs_primary": 130.7,
+      "range_cells": 10.0
+    },
+    {
+      "id": "unit.olm.dawn_laser_aa",
+      "archetype": "veh_aa_beam",
+      "cost_credits": 1050,
+      "build_time_s": 31.0,
+      "health": 753,
+      "speed_cells_s": 2.2,
+      "vision_cells": 10.0,
+      "radius_cells": 0.55,
+      "weapons": [
+        "weapon.olm.dawn_dawn_laser"
+      ],
+      "dps_vs_primary": 133.0,
+      "range_cells": 9.0
+    },
+    {
+      "id": "unit.olm.dune_rover",
+      "archetype": "veh_scout",
+      "cost_credits": 625,
+      "build_time_s": 20.0,
+      "health": 460,
+      "speed_cells_s": 4.0,
+      "vision_cells": 12.0,
+      "radius_cells": 0.45,
+      "weapons": [
+        "weapon.olm.dune_mg"
+      ],
+      "dps_vs_primary": 30.0,
+      "range_cells": 6.0,
+      "abilities": [
+        "camouflage"
+      ],
+      "tags": [
+        "fast"
+      ],
+      "ability_params": {
+        "camouflage": {
+          "delay_s": 6,
+          "needs_stationary": false,
+          "moving_ok": true,
+          "needs_no_attack": true,
+          "reveal_on_fire": true,
+          "reveal_on_damage": true,
+          "reveal_s": 6
+        }
+      }
+    },
+    {
+      "id": "unit.olm.gate_guard",
+      "archetype": "inf_line",
+      "cost_credits": 260,
+      "build_time_s": 9.5,
+      "health": 355,
+      "speed_cells_s": 1.32,
+      "vision_cells": 7.0,
+      "radius_cells": 0.4,
+      "weapons": [
+        "weapon.olm.gate_shield_rifle"
+      ],
+      "dps_vs_primary": 52.0,
+      "range_cells": 5.5,
+      "abilities": [
+        "shield_front"
+      ],
+      "tags": [
+        "slow"
+      ],
+      "ability_params": {
+        "shield_front": {
+          "arc_deg": 120,
+          "reduction_pct": 25,
+          "resist_groups": [
+            "bullet"
+          ]
+        }
+      }
+    },
+    {
+      "id": "unit.olm.ifrit_prism_tank",
+      "archetype": "siege_beam",
+      "cost_credits": 2700,
+      "build_time_s": 71.0,
+      "health": 2981,
+      "speed_cells_s": 1.4,
+      "vision_cells": 8.5,
+      "radius_cells": 0.8,
+      "weapons": [
+        "weapon.olm.ifrit_prism_beam"
+      ],
+      "dps_vs_primary": 228.0,
+      "range_cells": 9.0,
+      "abilities": [
+        "deployable_mode"
+      ],
+      "tags": [
+        "strong_gun"
+      ],
+      "ability_params": {
+        "deployable_mode": {
+          "deploy_s": 3,
+          "pack_s": 3,
+          "immobile": true
+        }
+      }
+    },
+    {
+      "id": "unit.olm.lantern_escort",
+      "archetype": "ship_escort",
+      "cost_credits": 1700,
+      "build_time_s": 47.0,
+      "health": 2156,
+      "speed_cells_s": 2.4,
+      "vision_cells": 11.0,
+      "radius_cells": 1.0,
+      "weapons": [
+        "weapon.olm.lantern_gun",
+        "weapon.olm.lantern_aa_missile",
+        "weapon.olm.lantern_torpedo"
+      ],
+      "dps_vs_primary": 88.0,
+      "range_cells": 10.0
+    },
+    {
+      "id": "unit.olm.mirage_observer",
+      "archetype": "inf_support",
+      "cost_credits": 525,
+      "build_time_s": 19.0,
+      "health": 300,
+      "speed_cells_s": 1.5,
+      "vision_cells": 11.2,
+      "radius_cells": 0.4,
+      "weapons": [],
+      "abilities": [
+        "camouflage",
+        "spotter"
+      ],
+      "tags": [
+        "no_gun",
+        "good_sight"
+      ],
+      "ability_params": {
+        "camouflage": {
+          "delay_s": 6,
+          "needs_stationary": true,
+          "needs_no_attack": true
+        },
+        "spotter": {
+          "radius_cells": 6,
+          "artillery_range_bonus_pct": 0
+        }
+      }
+    },
+    {
+      "id": "unit.olm.needle_team",
+      "archetype": "inf_at",
+      "cost_credits": 350,
+      "build_time_s": 12.5,
+      "health": 294,
+      "speed_cells_s": 1.4,
+      "vision_cells": 7.5,
+      "radius_cells": 0.4,
+      "weapons": [
+        "weapon.olm.needle_needle_missile"
+      ],
+      "dps_vs_primary": 58.9,
+      "range_cells": 7.5
+    },
+    {
+      "id": "unit.olm.nightjar_strike_drone",
+      "archetype": "air_drone",
+      "cost_credits": 1450,
+      "build_time_s": 40.5,
+      "health": 637,
+      "speed_cells_s": 6.5,
+      "vision_cells": 10.0,
+      "radius_cells": 0.5,
+      "rearm_s_full": 14.0,
+      "weapons": [
+        "weapon.olm.nightjar_salvo_missile"
+      ],
+      "dps_vs_primary": 21.4,
+      "range_cells": 6.0,
+      "abilities": [
+        "unmanned"
+      ]
+    },
+    {
+      "id": "unit.olm.sandglass_mortar",
+      "archetype": "arty_light",
+      "cost_credits": 855,
+      "build_time_s": 25.0,
+      "health": 470,
+      "speed_cells_s": 2.6,
+      "vision_cells": 9.0,
+      "radius_cells": 0.5,
+      "weapons": [
+        "weapon.olm.sandglass_mortar"
+      ],
+      "dps_vs_primary": 42.3,
+      "range_cells": 8.8,
+      "tags": [
+        "short_range"
+      ],
+      "abilities": [
+        "deployable_mode"
+      ],
+      "ability_params": {
+        "deployable_mode": {
+          "deploy_s": 2,
+          "pack_s": 2
+        }
+      }
+    },
+    {
+      "id": "unit.olm.scorpion_rocket_buggy",
+      "archetype": "arty_light",
+      "cost_credits": 830,
+      "build_time_s": 24.5,
+      "health": 388,
+      "speed_cells_s": 2.6,
+      "vision_cells": 9.0,
+      "radius_cells": 0.5,
+      "weapons": [
+        "weapon.olm.scorpion_rocket_salvo"
+      ],
+      "dps_vs_primary": 41.2,
+      "range_cells": 11.0,
+      "tags": [
+        "fragile",
+        "alpha"
+      ]
+    },
+    {
+      "id": "unit.olm.shrike_interceptor",
+      "archetype": "air_fighter",
+      "cost_credits": 915,
+      "build_time_s": 25.5,
+      "health": 686,
+      "speed_cells_s": 7.84,
+      "vision_cells": 11.0,
+      "radius_cells": 0.5,
+      "rearm_s_full": 8.0,
+      "weapons": [
+        "weapon.olm.shrike_aam"
+      ],
+      "dps_vs_primary": 20.0,
+      "range_cells": 8.0,
+      "tags": [
+        "quick",
+        "limited_endurance"
+      ]
+    },
+    {
+      "id": "unit.olm.sirocco_tank",
+      "archetype": "mbt_t1",
+      "cost_credits": 820,
+      "build_time_s": 26.5,
+      "health": 750,
+      "speed_cells_s": 2.5,
+      "vision_cells": 9.0,
+      "radius_cells": 0.55,
+      "weapons": [
+        "weapon.olm.sirocco_cannon"
+      ],
+      "dps_vs_primary": 114.2,
+      "range_cells": 7.0,
+      "tags": [
+        "fast",
+        "fragile"
+      ]
+    },
+    {
+      "id": "unit.olm.strait_frigate",
+      "archetype": "ship_escort",
+      "cost_credits": 1800,
+      "build_time_s": 50.0,
+      "health": 2091,
+      "speed_cells_s": 2.11,
+      "vision_cells": 11.0,
+      "radius_cells": 1.0,
+      "weapons": [
+        "weapon.olm.strait_gun",
+        "weapon.olm.strait_aa_missile",
+        "weapon.olm.strait_torpedo"
+      ],
+      "dps_vs_primary": 98.5,
+      "range_cells": 10.0,
+      "tags": [
+        "slow",
+        "strong_gun"
+      ]
+    },
+    {
+      "id": "unit.olm.sunlance_beam_tank",
+      "archetype": "siege_beam",
+      "cost_credits": 2400,
+      "build_time_s": 63.0,
+      "health": 3073,
+      "speed_cells_s": 1.4,
+      "vision_cells": 8.5,
+      "radius_cells": 0.8,
+      "weapons": [
+        "weapon.olm.sunlance_sunlance_beam"
+      ],
+      "dps_vs_primary": 200.0,
+      "range_cells": 9.0
+    },
+    {
+      "id": "unit.olm.wayfarer_guard",
+      "archetype": "inf_line",
+      "cost_credits": 250,
+      "build_time_s": 9.0,
+      "health": 384,
+      "speed_cells_s": 1.5,
+      "vision_cells": 7.0,
+      "radius_cells": 0.4,
+      "weapons": [
+        "weapon.olm.wayfarer_rifle"
+      ],
+      "dps_vs_primary": 52.0,
+      "range_cells": 5.5
+    }
+  ],
+  "weapons": [
+    {
+      "id": "weapon.olm.beacon_bombard",
+      "archetype": "naval_bombard",
+      "damage": 314,
+      "hits_per_volley": 3,
+      "reload_s": 8.0,
+      "range_cells": 24.0,
+      "min_range_cells": 6.0
+    },
+    {
+      "id": "weapon.olm.caravan_mg",
+      "archetype": "machine_gun",
+      "damage": 30,
+      "hits_per_volley": 1,
+      "reload_s": 1.0,
+      "range_cells": 6.0
+    },
+    {
+      "id": "weapon.olm.corsair_gunboat_mg",
+      "archetype": "machine_gun",
+      "damage": 28,
+      "hits_per_volley": 2,
+      "reload_s": 1.0,
+      "range_cells": 6.5
+    },
+    {
+      "id": "weapon.olm.crescent_aa_missile",
+      "archetype": "aa_missile",
+      "damage": 98,
+      "hits_per_volley": 2,
+      "reload_s": 1.5,
+      "range_cells": 10.0
+    },
+    {
+      "id": "weapon.olm.dawn_dawn_laser",
+      "archetype": "beam_thermal",
+      "damage": 35,
+      "hits_per_volley": 1,
+      "reload_s": 0.25,
+      "range_cells": 9.0,
+      "targets_override": [
+        "air"
+      ]
+    },
+    {
+      "id": "weapon.olm.dune_mg",
+      "archetype": "machine_gun",
+      "damage": 30,
+      "hits_per_volley": 1,
+      "reload_s": 1.0,
+      "range_cells": 6.0
+    },
+    {
+      "id": "weapon.olm.gate_shield_rifle",
+      "archetype": "small_arms",
+      "damage": 26,
+      "hits_per_volley": 2,
+      "reload_s": 1.0,
+      "range_cells": 5.5
+    },
+    {
+      "id": "weapon.olm.ifrit_prism_beam",
+      "archetype": "beam_thermal",
+      "damage": 57,
+      "hits_per_volley": 1,
+      "reload_s": 0.25,
+      "range_cells": 9.0,
+      "ramp_seconds": 5.0,
+      "ramp_max_pct": 150,
+      "deploy_s": 3.0,
+      "flags": [
+        "stationary_fire",
+        "needs_los"
+      ]
+    },
+    {
+      "id": "weapon.olm.lantern_aa_missile",
+      "archetype": "aa_missile",
+      "damage": 59,
+      "hits_per_volley": 2,
+      "reload_s": 1.5,
+      "range_cells": 10.0
+    },
+    {
+      "id": "weapon.olm.lantern_gun",
+      "archetype": "naval_gun",
+      "damage": 176,
+      "hits_per_volley": 1,
+      "reload_s": 2.0,
+      "range_cells": 9.0
+    },
+    {
+      "id": "weapon.olm.lantern_torpedo",
+      "archetype": "torpedo",
+      "damage": 245,
+      "hits_per_volley": 1,
+      "reload_s": 6.0,
+      "range_cells": 7.0
+    },
+    {
+      "id": "weapon.olm.needle_needle_missile",
+      "archetype": "at_missile",
+      "damage": 265,
+      "hits_per_volley": 1,
+      "reload_s": 4.5,
+      "range_cells": 7.5
+    },
+    {
+      "id": "weapon.olm.nightjar_salvo_missile",
+      "archetype": "air_missile",
+      "damage": 147,
+      "hits_per_volley": 4,
+      "reload_s": 2.0,
+      "range_cells": 6.0,
+      "ammo_volleys": 1
+    },
+    {
+      "id": "weapon.olm.sandglass_mortar",
+      "archetype": "mortar",
+      "damage": 127,
+      "hits_per_volley": 1,
+      "reload_s": 3.0,
+      "range_cells": 8.8,
+      "min_range_cells": 3.0,
+      "deploy_s": 2.0,
+      "flags": [
+        "stationary_fire"
+      ]
+    },
+    {
+      "id": "weapon.olm.scorpion_rocket_salvo",
+      "archetype": "rocket_barrage",
+      "damage": 67,
+      "hits_per_volley": 4,
+      "reload_s": 6.5,
+      "range_cells": 11.0,
+      "min_range_cells": 3.5
+    },
+    {
+      "id": "weapon.olm.shrike_aam",
+      "archetype": "aa_missile",
+      "damage": 98,
+      "hits_per_volley": 1,
+      "reload_s": 1.0,
+      "range_cells": 8.0,
+      "ammo_volleys": 4
+    },
+    {
+      "id": "weapon.olm.sirocco_cannon",
+      "archetype": "tank_cannon",
+      "damage": 137,
+      "hits_per_volley": 1,
+      "reload_s": 1.2,
+      "range_cells": 7.0
+    },
+    {
+      "id": "weapon.olm.strait_aa_missile",
+      "archetype": "aa_missile",
+      "damage": 66,
+      "hits_per_volley": 2,
+      "reload_s": 1.5,
+      "range_cells": 10.0
+    },
+    {
+      "id": "weapon.olm.strait_gun",
+      "archetype": "naval_gun",
+      "damage": 197,
+      "hits_per_volley": 1,
+      "reload_s": 2.0,
+      "range_cells": 8.5
+    },
+    {
+      "id": "weapon.olm.strait_torpedo",
+      "archetype": "torpedo",
+      "damage": 274,
+      "hits_per_volley": 1,
+      "reload_s": 6.0,
+      "range_cells": 7.0
+    },
+    {
+      "id": "weapon.olm.sunlance_sunlance_beam",
+      "archetype": "beam_thermal",
+      "damage": 50,
+      "hits_per_volley": 1,
+      "reload_s": 0.25,
+      "range_cells": 9.0,
+      "ramp_seconds": 5.0,
+      "ramp_max_pct": 150
+    },
+    {
+      "id": "weapon.olm.wayfarer_rifle",
+      "archetype": "small_arms",
+      "damage": 26,
+      "hits_per_volley": 2,
+      "reload_s": 1.0,
+      "range_cells": 5.5
+    }
+  ],
+  "summons": []
+}

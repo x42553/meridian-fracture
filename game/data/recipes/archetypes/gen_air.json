@@ -1,0 +1,159 @@
+{
+  "schema": "meridian.archetype/1",
+  "id": "gen_air",
+  "size_class": "air",
+  "meta": {
+    "motion": "air",
+    "doc": "Generic aircraft used by generated stubs until air_* archetypes exist: `kind` = jet | heli | bomber | drone | ew."
+  },
+  "defaults": { "kind": "jet" },
+  "ops": [
+    ["bevel", 0.03],
+    {
+      "switch": "kind",
+      "cases": {
+        "jet": [
+          {
+            "call": "fuselage",
+            "args": { "profile": "jet", "len": 5.0, "half_w": 0.36, "h": 0.8 }
+          },
+          ["brush", "base"],
+          {
+            "call": "wing",
+            "args": { "span": 4.8, "chord": 2.6, "sweep": 1.2, "thick": 0.09, "y": 0.7, "z": 0.9 }
+          },
+          {
+            "call": "wing",
+            "args": { "span": 2.2, "chord": 1.1, "sweep": 0.5, "thick": 0.07, "y": 0.72, "z": 2.0 }
+          },
+          ["brush", "base"],
+          { "mirror_x": [["box", [0.32, 1.05, 2.05], [0.05, 0.85, 0.9], 0.01]] },
+          {
+            "call": "nozzle",
+            "args": { "pos": [0.16, 0.75, 2.55], "r": 0.16 }
+          },
+          {
+            "call": "nozzle",
+            "args": { "pos": [-0.16, 0.75, 2.55], "r": 0.16 }
+          },
+          {
+            "call": "team_panel",
+            "args": { "center": [0, 1.06, 0.4], "size": [0.36, 0.03, 1.0], "col": "base" }
+          },
+          ["meta", "hover", 9.0],
+          ["socket", "muzzle0_0", [0, 0.8, -2.6], [0, 0, -1]],
+          ["socket", "exhaust0", [0, 0.75, 2.6], [0, 0, 1]],
+          ["socket", "top", [0, 1.6, 0], [0, 1, 0]]
+        ],
+        "heli": [
+          {
+            "call": "fuselage",
+            "args": { "profile": "heli", "len": 4.0, "half_w": 0.6, "h": 1.0 }
+          },
+          ["brush", "base"],
+          ["box", [0, 1.25, 2.6], [0.28, 0.34, 2.6], 0.03],
+          ["box", [0, 1.6, 3.7], [0.06, 0.8, 0.7], 0.01],
+          ["brush", "dark", "metal"],
+          ["box", [-0.55, 0.15, 0.2], [0.06, 0.06, 2.4], 0.0],
+          ["box", [0.55, 0.15, 0.2], [0.06, 0.06, 2.4], 0.0],
+          ["box", [-0.55, 0.45, -0.6], [0.05, 0.6, 0.05], 0.0],
+          ["box", [-0.55, 0.45, 0.9], [0.05, 0.6, 0.05], 0.0],
+          ["box", [0.55, 0.45, -0.6], [0.05, 0.6, 0.05], 0.0],
+          ["box", [0.55, 0.45, 0.9], [0.05, 0.6, 0.05], 0.0],
+          {
+            "call": "wing",
+            "args": { "span": 2.6, "chord": 0.6, "sweep": 0.0, "thick": 0.08, "y": 0.75, "z": 0.2 }
+          },
+          {
+            "call": "rotor_main",
+            "args": { "hub": [0, 2.0, 0.2], "blades": 4, "radius": 2.5, "chord": 0.24 }
+          },
+          {
+            "call": "rotor_tail",
+            "args": { "pos": [0.12, 1.75, 3.85] }
+          },
+          {
+            "call": "team_panel",
+            "args": { "center": [0, 1.93, 0.7], "size": [0.5, 0.03, 0.8], "col": "base" }
+          },
+          ["meta", "hover", 5.0],
+          ["socket", "muzzle0_0", [0, 0.6, -1.9], [0, 0, -1]],
+          ["socket", "top", [0, 2.5, 0], [0, 1, 0]]
+        ],
+        "bomber": [
+          {
+            "call": "fuselage",
+            "args": { "profile": "flying_wing", "len": 5.6, "half_w": 0.7, "h": 0.9 }
+          },
+          {
+            "call": "wing",
+            "args": { "span": 5.9, "chord": 3.2, "sweep": 1.6, "thick": 0.12, "y": 0.7, "z": 0.7 }
+          },
+          {
+            "call": "nozzle",
+            "args": { "pos": [0.5, 0.7, 2.3], "r": 0.2 }
+          },
+          {
+            "call": "nozzle",
+            "args": { "pos": [-0.5, 0.7, 2.3], "r": 0.2 }
+          },
+          {
+            "call": "team_panel",
+            "args": { "center": [0, 1.07, 0.6], "size": [0.7, 0.03, 1.4], "col": "base" }
+          },
+          ["meta", "hover", 10.0],
+          ["socket", "exhaust0", [0, 0.7, 2.4], [0, 0, 1]],
+          ["socket", "top", [0, 1.4, 0], [0, 1, 0]]
+        ],
+        "drone": [
+          {
+            "call": "drone_body",
+            "args": { "center": [0, 0.9, 0], "r": 0.42, "arms": 4 }
+          },
+          {
+            "call": "team_panel",
+            "args": { "center": [0, 1.26, 0], "size": [0.36, 0.03, 0.36], "col": "base" }
+          },
+          ["meta", "hover", 6.0],
+          ["socket", "muzzle0_0", [0, 0.8, -0.5], [0, 0, -1]],
+          ["socket", "top", [0, 1.4, 0], [0, 1, 0]]
+        ],
+        "ew": [
+          {
+            "call": "fuselage",
+            "args": { "profile": "pod", "len": 5.2, "half_w": 0.6, "h": 1.0 }
+          },
+          {
+            "call": "wing",
+            "args": { "span": 5.6, "chord": 1.8, "sweep": 0.3, "thick": 0.1, "y": 0.9, "z": 0.4 }
+          },
+          ["brush", "sec"],
+          ["cyl", [0, 1.55, 0.3], [0, 1.7, 0.3], 1.4, 20, 0.03],
+          {
+            "part": { "kind": "radar", "pivot": [0, 1.7, 0.3] },
+            "do": [
+              ["brush", "sec"],
+              ["cyl", [0, 1.7, 0.3], [0, 1.85, 0.3], 1.35, 20, 0.03],
+              ["brush", "acc"],
+              ["box", [0, 1.87, 0.3], [2.4, 0.03, 0.2], 0]
+            ]
+          },
+          {
+            "call": "nozzle",
+            "args": { "pos": [0.4, 0.85, 2.4], "r": 0.18 }
+          },
+          {
+            "call": "nozzle",
+            "args": { "pos": [-0.4, 0.85, 2.4], "r": 0.18 }
+          },
+          {
+            "call": "team_panel",
+            "args": { "center": [0, 1.26, -0.9], "size": [0.5, 0.03, 0.9], "col": "base" }
+          },
+          ["meta", "hover", 9.0],
+          ["socket", "top", [0, 2.2, 0], [0, 1, 0]]
+        ]
+      }
+    }
+  ]
+}

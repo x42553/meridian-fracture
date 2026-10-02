@@ -1,0 +1,140 @@
+{
+  "schema": "meridian.balance.neutral_structures/1",
+  "neutrals": {
+    "neutral.civilian_garrison": {
+      "kind": "civilian_garrison",
+      "health": 2000,
+      "armor_class": "building_light",
+      "footprint": {
+        "w": 3,
+        "h": 3
+      },
+      "sight_cells": 5,
+      "capturable": false,
+      "garrison_squads_n": 4,
+      "repair_basis_cost_credits": 600,
+      "_note": "Marked civilian garrison (cond code 2); 4 squads (bible); occupants fire out."
+    },
+    "neutral.field_hospital": {
+      "kind": "field_hospital",
+      "health": 1000,
+      "armor_class": "building_light",
+      "footprint": {
+        "w": 2,
+        "h": 3
+      },
+      "sight_cells": 6,
+      "capturable": true,
+      "capture_s": 15,
+      "repair_basis_cost_credits": 600,
+      "ability": {
+        "ref": "ability.heal.default",
+        "params": {
+          "rate_pct_per_s": 2,
+          "radius_cells": 5,
+          "target_unit_tags": [
+            "infantry"
+          ]
+        }
+      }
+    },
+    "neutral.harbor_terminal": {
+      "kind": "harbor_terminal",
+      "health": 2200,
+      "armor_class": "building_heavy",
+      "footprint": {
+        "w": 3,
+        "h": 3
+      },
+      "sight_cells": 6,
+      "capturable": true,
+      "capture_s": 25,
+      "repair_basis_cost_credits": 600,
+      "needs_shore": true,
+      "berth": [
+        0,
+        3,
+        3,
+        2
+      ],
+      "forward_queue": {
+        "queue": "dock",
+        "tier_cap_n": 1,
+        "counts_as_structure_id": "structure.shared.dock"
+      }
+    },
+    "neutral.observation_tower": {
+      "kind": "observation_post",
+      "health": 800,
+      "armor_class": "building_light",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "sight_cells": 14,
+      "capturable": true,
+      "capture_s": 15,
+      "repair_basis_cost_credits": 600
+    },
+    "neutral.salvage_depot": {
+      "kind": "salvage_depot",
+      "health": 1600,
+      "armor_class": "building_heavy",
+      "footprint": {
+        "w": 3,
+        "h": 3
+      },
+      "sight_cells": 6,
+      "capturable": true,
+      "capture_s": 20,
+      "repair_basis_cost_credits": 600,
+      "reward": {
+        "income_crps": 5
+      }
+    },
+    "neutral.salvage_field": {
+      "kind": "deposit",
+      "health": 1,
+      "armor_class": "building_light",
+      "footprint": {
+        "w": 3,
+        "h": 3
+      },
+      "sight_cells": 0,
+      "reward": {
+        "credits_per_cell": 600,
+        "cells_n": 24
+      }
+    },
+    "neutral.salvage_field_rich": {
+      "kind": "deposit",
+      "health": 1,
+      "armor_class": "building_light",
+      "footprint": {
+        "w": 3,
+        "h": 3
+      },
+      "sight_cells": 0,
+      "reward": {
+        "credits_per_cell": 1200,
+        "cells_n": 16
+      }
+    },
+    "neutral.substation": {
+      "kind": "power_substation",
+      "health": 1200,
+      "armor_class": "building_light",
+      "footprint": {
+        "w": 2,
+        "h": 2
+      },
+      "sight_cells": 6,
+      "capturable": true,
+      "capture_s": 12,
+      "repair_basis_cost_credits": 600,
+      "reward": {
+        "power_n": 100
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "schema": "meridian.recipe/1",
+  "id": "neutral.field_hospital",
+  "archetype": "neu_building",
+  "style": "auto",
+  "params": {
+    "kit": "hospital"
+  },
+  "meta": {
+    "stub": true,
+    "view_archetype": "neu_building",
+    "rule": "override"
+  }
+}

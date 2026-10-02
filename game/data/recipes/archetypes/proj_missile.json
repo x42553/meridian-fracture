@@ -1,0 +1,49 @@
+{
+  "schema": "meridian.archetype/1",
+  "id": "proj_missile",
+  "size_class": "light",
+  "meta": {"motion": "static", "doc": "Guided missile (1.9 m, nose -Z): smooth lathe body, dark nose, cruciform fins + canards, team band, emissive nozzle; `tail` socket for the trail."},
+  "defaults": {},
+  "ops": [
+    ["bevel", 0.02],
+    ["brush", "sec"],
+    ["lathe", [0, 0, 0.95], [0, 0, -0.95], [[0, 0, 0], [0.1, 0.02, 0], [0.14, 0.12, 0], [0.155, 0.3, 0], [0.155, 1.1, 0], [0.12, 1.4, 0]], 12, 38],
+    ["brush", "dark", "metal"],
+    ["lathe", [0, 0, -0.45], [0, 0, -0.95], [[0.12, 0, 0], [0.09, 0.2, 0], [0.04, 0.42, 0], [0, 0.5, 0]], 12, 38],
+    ["brush", "acc"],
+    ["cyl", [0, 0, 0.5], [0, 0, 0.36], 0.16, 12, 0],
+    ["brush", "acc"],
+    ["cyl", [0, 0, -0.42], [0, 0, -0.5], 0.13, 12, 0],
+    ["brush", "base", "paint", 1],
+    ["cyl", [0, 0, 0.68], [0, 0, 0.58], 0.162, 12, 0],
+    ["brush", "dark", "metal"],
+    {
+      "for": "f",
+      "n": 4,
+      "do": [
+        {
+          "push": {"pos": [0, 0, 0.78], "euler": [0, 0, "90*f"]},
+          "do": [
+            ["box", [0, 0.2, 0], [0.025, 0.26, 0.4], 0]
+          ]
+        }
+      ]
+    },
+    {
+      "for": "c",
+      "n": 4,
+      "do": [
+        {
+          "push": {"pos": [0, 0, -0.2], "euler": [0, 0, "90*c+45"]},
+          "do": [
+            ["box", [0, 0.16, 0], [0.02, 0.12, 0.16], 0]
+          ]
+        }
+      ]
+    },
+    ["brush", "light", "emissive"],
+    ["cyl", [0, 0, 0.94], [0, 0, 0.99], 0.095, 10, 0],
+    ["socket", "tail", [0, 0, 1.0], [0, 0, 1]],
+    ["socket", "top", [0, 0.3, 0], [0, 1, 0]]
+  ]
+}

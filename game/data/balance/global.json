@@ -1,0 +1,6482 @@
+{
+ "version": 1,
+ "notes": [
+  "Authoritative numbers for docs/balance/FRAMEWORK.md and TAXONOMY.md. Designed values only; every bible-fixed number is marked source:'bible'.",
+  "Units: distance in terrain cells (x1024 at load), time in seconds (ceil to 20 TPS ticks at load), speed in cells/s, percentages as integers.",
+  "Keys ending _pct are integer percents; *_bp are basis points (1/100 %). Keys ending _s are seconds; _cells are cells; _cells_s are cells per second.",
+  "The data_balance loader may reshape this file but must keep the numbers; tools/py/balance_calc.py validate is the acceptance test.",
+  "Top-level keys are documented in docs/balance/FRAMEWORK.md section 4.2; enums and the damage matrix rationale in docs/balance/TAXONOMY.md. Integer indices are frozen (append only).",
+  "null build_time_s (headquarters) is the bible's null: the HQ is never queued, it is deployed from an MCV (3 s)."
+ ],
+ "conventions": {
+  "tps": 20,
+  "cell_units": 1024,
+  "world_meters_per_cell": 3,
+  "rounding": "half_up",
+  "damage_rounding": "single_step_half_up_min_1"
+ },
+ "damage_types": [
+  {
+   "id": "bullet",
+   "index": 0,
+   "groups": [
+    "bullet"
+   ],
+   "nonlethal": false,
+   "label": "Small arms / autocannon / MG"
+  },
+  {
+   "id": "ap",
+   "index": 1,
+   "groups": [
+    "explosive"
+   ],
+   "nonlethal": false,
+   "label": "Armor-piercing warhead (cannon, AT missile, naval gun, torpedo)"
+  },
+  {
+   "id": "he",
+   "index": 2,
+   "groups": [
+    "explosive"
+   ],
+   "nonlethal": false,
+   "label": "High explosive / fragmentation (artillery, bombs, flak, demolition)"
+  },
+  {
+   "id": "thermal",
+   "index": 3,
+   "groups": [
+    "beam",
+    "thermal"
+   ],
+   "nonlethal": false,
+   "label": "Solar/thermal beam (Sunlance, Ifrit, Sunwall, Dawn, Helios)"
+  },
+  {
+   "id": "rail",
+   "index": 4,
+   "groups": [
+    "rail"
+   ],
+   "nonlethal": false,
+   "label": "Rail slug"
+  },
+  {
+   "id": "kinetic",
+   "index": 5,
+   "groups": [
+    "kinetic"
+   ],
+   "nonlethal": false,
+   "label": "Strategic kinetic penetrator / mass driver (Atlas, Horizon)"
+  },
+  {
+   "id": "emp",
+   "index": 6,
+   "groups": [
+    "emp"
+   ],
+   "nonlethal": true,
+   "label": "Electromagnetic disable (Aurora); never reduces health below 1"
+  }
+ ],
+ "resist_groups": [
+  "bullet",
+  "explosive",
+  "beam",
+  "thermal",
+  "rail",
+  "kinetic",
+  "emp"
+ ],
+ "armor_classes": [
+  {
+   "id": "infantry",
+   "index": 0,
+   "layer": "ground",
+   "label": "Foot squads"
+  },
+  {
+   "id": "light_vehicle",
+   "index": 1,
+   "layer": "ground",
+   "label": "APC/scout chassis, buggies, self-propelled artillery, collectors"
+  },
+  {
+   "id": "medium_armor",
+   "index": 2,
+   "layer": "ground",
+   "label": "Medium tanks, AA vehicles, MCV"
+  },
+  {
+   "id": "heavy_armor",
+   "index": 3,
+   "layer": "ground",
+   "label": "T3 tanks, walkers, crawlers, assault carriers"
+  },
+  {
+   "id": "air_light",
+   "index": 4,
+   "layer": "air",
+   "label": "Fighters, drones, UAVs"
+  },
+  {
+   "id": "air_heavy",
+   "index": 5,
+   "layer": "air",
+   "label": "Gunships, bombers, EW aircraft, cargo aircraft"
+  },
+  {
+   "id": "ship_light",
+   "index": 6,
+   "layer": "surface_water",
+   "label": "Patrol craft, landing craft"
+  },
+  {
+   "id": "ship_heavy",
+   "index": 7,
+   "layer": "surface_water",
+   "label": "Escorts, monitors, arsenal ships, carriers, submarines"
+  },
+  {
+   "id": "building_light",
+   "index": 8,
+   "layer": "ground",
+   "label": "Generators, barracks, radar-class, towers"
+  },
+  {
+   "id": "building_heavy",
+   "index": 9,
+   "layer": "ground",
+   "label": "Factories, refineries, labs, airfields, docks, turrets, advanced defenses"
+  },
+  {
+   "id": "fortress",
+   "index": 10,
+   "layer": "ground",
+   "label": "Headquarters and strategic (superweapon) structures"
+  }
+ ],
+ "damage_matrix": {
+  "bullet": {
+   "infantry": 100,
+   "light_vehicle": 55,
+   "medium_armor": 30,
+   "heavy_armor": 15,
+   "air_light": 65,
+   "air_heavy": 25,
+   "ship_light": 85,
+   "ship_heavy": 25,
+   "building_light": 25,
+   "building_heavy": 12,
+   "fortress": 6
+  },
+  "ap": {
+   "infantry": 40,
+   "light_vehicle": 100,
+   "medium_armor": 100,
+   "heavy_armor": 90,
+   "air_light": 100,
+   "air_heavy": 85,
+   "ship_light": 100,
+   "ship_heavy": 100,
+   "building_light": 65,
+   "building_heavy": 60,
+   "fortress": 40
+  },
+  "he": {
+   "infantry": 100,
+   "light_vehicle": 85,
+   "medium_armor": 65,
+   "heavy_armor": 50,
+   "air_light": 60,
+   "air_heavy": 45,
+   "ship_light": 85,
+   "ship_heavy": 60,
+   "building_light": 110,
+   "building_heavy": 100,
+   "fortress": 70
+  },
+  "thermal": {
+   "infantry": 55,
+   "light_vehicle": 100,
+   "medium_armor": 100,
+   "heavy_armor": 90,
+   "air_light": 95,
+   "air_heavy": 65,
+   "ship_light": 100,
+   "ship_heavy": 90,
+   "building_light": 100,
+   "building_heavy": 100,
+   "fortress": 80
+  },
+  "rail": {
+   "infantry": 20,
+   "light_vehicle": 100,
+   "medium_armor": 115,
+   "heavy_armor": 125,
+   "air_light": 0,
+   "air_heavy": 0,
+   "ship_light": 100,
+   "ship_heavy": 110,
+   "building_light": 60,
+   "building_heavy": 65,
+   "fortress": 55
+  },
+  "kinetic": {
+   "infantry": 40,
+   "light_vehicle": 70,
+   "medium_armor": 100,
+   "heavy_armor": 130,
+   "air_light": 0,
+   "air_heavy": 0,
+   "ship_light": 90,
+   "ship_heavy": 120,
+   "building_light": 130,
+   "building_heavy": 130,
+   "fortress": 100
+  },
+  "emp": {
+   "infantry": 0,
+   "light_vehicle": 100,
+   "medium_armor": 100,
+   "heavy_armor": 100,
+   "air_light": 100,
+   "air_heavy": 100,
+   "ship_light": 100,
+   "ship_heavy": 100,
+   "building_light": 100,
+   "building_heavy": 100,
+   "fortress": 100
+  }
+ },
+ "resistance_rules": {
+  "cap_pct": 50,
+  "combine": "additive_within_scope",
+  "applies_after_matrix": true,
+  "matrix_is_not_a_resistance": true,
+  "scopes": [
+   "damage_group",
+   "fire_mode",
+   "frontal_arc",
+   "target_state"
+  ],
+  "min_damage": 1,
+  "formula": "final = (raw * matrix_pct * (100 - res_pct) * falloff_pct + 500000) / 1000000, min 1 when raw>0 and matrix_pct>0",
+  "interception": "projectile removal is separate from resistance and exempt from the cap (bible); Trident strategic packets: -50% at 8 charges, never removed"
+ },
+ "layers": [
+  "ground",
+  "air",
+  "surface_water",
+  "underwater"
+ ],
+ "fire_modes": [
+  "direct",
+  "indirect",
+  "melee"
+ ],
+ "size_classes": {
+  "inf": {
+   "radius_cells": 0.4,
+   "turn_deg_s": 720,
+   "mass": 1,
+   "structure": false
+  },
+  "light": {
+   "radius_cells": 0.45,
+   "turn_deg_s": 240,
+   "mass": 2,
+   "structure": false
+  },
+  "medium": {
+   "radius_cells": 0.55,
+   "turn_deg_s": 150,
+   "mass": 3,
+   "structure": false
+  },
+  "heavy": {
+   "radius_cells": 0.8,
+   "turn_deg_s": 90,
+   "mass": 5,
+   "structure": false
+  },
+  "huge": {
+   "radius_cells": 1.0,
+   "turn_deg_s": 60,
+   "mass": 6,
+   "structure": false
+  },
+  "air_medium": {
+   "radius_cells": 0.5,
+   "turn_deg_s": 180,
+   "mass": 2,
+   "structure": false
+  },
+  "air_large": {
+   "radius_cells": 0.65,
+   "turn_deg_s": 120,
+   "mass": 3,
+   "structure": false
+  },
+  "ship_small": {
+   "radius_cells": 0.6,
+   "turn_deg_s": 120,
+   "mass": 3,
+   "structure": false
+  },
+  "ship_medium": {
+   "radius_cells": 1.0,
+   "turn_deg_s": 80,
+   "mass": 5,
+   "structure": false
+  },
+  "ship_large": {
+   "radius_cells": 1.4,
+   "turn_deg_s": 45,
+   "mass": 8,
+   "structure": false
+  },
+  "s1": {
+   "radius_cells": 0.5,
+   "footprint": [
+    1,
+    1
+   ],
+   "structure": true
+  },
+  "s2": {
+   "radius_cells": 1.0,
+   "footprint": [
+    2,
+    2
+   ],
+   "structure": true
+  },
+  "s3": {
+   "radius_cells": 1.5,
+   "footprint": [
+    3,
+    3
+   ],
+   "structure": true
+  },
+  "s4": {
+   "radius_cells": 2.0,
+   "footprint": [
+    4,
+    4
+   ],
+   "structure": true
+  }
+ },
+ "terrain_kinds": [
+  "road",
+  "open",
+  "rough",
+  "forest",
+  "marsh",
+  "shallow",
+  "deep",
+  "cliff"
+ ],
+ "movement_classes": {
+  "foot": {
+   "index": 0,
+   "layer": "ground",
+   "terrain_speed_pct": {
+    "road": 110,
+    "open": 100,
+    "rough": 80,
+    "forest": 70,
+    "marsh": 60,
+    "shallow": 70,
+    "deep": 0,
+    "cliff": 0
+   }
+  },
+  "wheeled": {
+   "index": 1,
+   "layer": "ground",
+   "terrain_speed_pct": {
+    "road": 130,
+    "open": 100,
+    "rough": 55,
+    "forest": 0,
+    "marsh": 35,
+    "shallow": 50,
+    "deep": 0,
+    "cliff": 0
+   }
+  },
+  "tracked": {
+   "index": 2,
+   "layer": "ground",
+   "terrain_speed_pct": {
+    "road": 105,
+    "open": 100,
+    "rough": 80,
+    "forest": 55,
+    "marsh": 55,
+    "shallow": 65,
+    "deep": 0,
+    "cliff": 0
+   }
+  },
+  "amphibious": {
+   "index": 3,
+   "layer": "ground",
+   "terrain_speed_pct": {
+    "road": 105,
+    "open": 100,
+    "rough": 75,
+    "forest": 50,
+    "marsh": 80,
+    "shallow": 90,
+    "deep": 70,
+    "cliff": 0
+   },
+   "note": "deep = 70% default; per-unit override deep_speed_pct (Tide Tank 60, PD Collector 70 by bible)"
+  },
+  "naval": {
+   "index": 4,
+   "layer": "surface_water",
+   "terrain_speed_pct": {
+    "road": 0,
+    "open": 0,
+    "rough": 0,
+    "forest": 0,
+    "marsh": 0,
+    "shallow": 80,
+    "deep": 100,
+    "cliff": 0
+   },
+   "note": "units with radius >= 0.9 cells are deep-only"
+  },
+  "submerged": {
+   "index": 5,
+   "layer": "underwater",
+   "terrain_speed_pct": {
+    "road": 0,
+    "open": 0,
+    "rough": 0,
+    "forest": 0,
+    "marsh": 0,
+    "shallow": 0,
+    "deep": 100,
+    "cliff": 0
+   }
+  },
+  "air_fixed": {
+   "index": 6,
+   "layer": "air",
+   "terrain_speed_pct": {
+    "road": 100,
+    "open": 100,
+    "rough": 100,
+    "forest": 100,
+    "marsh": 100,
+    "shallow": 100,
+    "deep": 100,
+    "cliff": 100
+   }
+  },
+  "air_hover": {
+   "index": 7,
+   "layer": "air",
+   "terrain_speed_pct": {
+    "road": 100,
+    "open": 100,
+    "rough": 100,
+    "forest": 100,
+    "marsh": 100,
+    "shallow": 100,
+    "deep": 100,
+    "cliff": 100
+   }
+  },
+  "static": {
+   "index": 8,
+   "layer": "ground",
+   "terrain_speed_pct": {
+    "road": 0,
+    "open": 0,
+    "rough": 0,
+    "forest": 0,
+    "marsh": 0,
+    "shallow": 0,
+    "deep": 0,
+    "cliff": 0
+   }
+  }
+ },
+ "vision_defaults_cells": {
+  "infantry_line": 7.0,
+  "infantry_at": 7.5,
+  "infantry_specialist": 9.0,
+  "spotter_observer": 12.0,
+  "scout_apc": 12.0,
+  "tank_t1": 9.0,
+  "tank_t2": 9.5,
+  "siege_tank": 8.5,
+  "anti_air_vehicle": 10.0,
+  "artillery": 8.5,
+  "fighter": 11.0,
+  "ground_attack_aircraft": 10.0,
+  "patrol_boat": 11.0,
+  "escort_ship": 11.0,
+  "capital_ship": 10.5,
+  "collector": 8.0,
+  "mcv": 8.0,
+  "structure_default": 8.0,
+  "radar": 14.0,
+  "headquarters": 11.0
+ },
+ "detection": {
+  "default_radius_cells": 5.0,
+  "watchtower_cells": 4.0,
+  "aa_battery_cells": 5.0,
+  "source": "bible"
+ },
+ "weapon_archetypes": {
+  "small_arms": {
+   "index": 0,
+   "damage_type": "bullet",
+   "fire_mode": "direct",
+   "projectile_kind": "bullet",
+   "projectile_speed_cells_s": 40,
+   "homing": true,
+   "targets": [
+    "ground",
+    "surface_water",
+    "air"
+   ],
+   "splash_cells": 0.0,
+   "splash_edge_pct": 0,
+   "scatter_cells": 0.0,
+   "range_cells_band": [
+    5.0,
+    6.0
+   ],
+   "min_range_cells": 0.0,
+   "reload_s_band": [
+    0.8,
+    1.2
+   ],
+   "turret_deg_s": 720,
+   "interceptable_by": "none",
+   "suppressive_default": false,
+   "notes": "Rifle squads. volley = hits_per_volley bullets; may hit aircraft (matrix 65/25)."
+  },
+  "machine_gun": {
+   "index": 1,
+   "damage_type": "bullet",
+   "fire_mode": "direct",
+   "projectile_kind": "bullet",
+   "projectile_speed_cells_s": 40,
+   "homing": true,
+   "targets": [
+    "ground",
+    "surface_water",
+    "air"
+   ],
+   "splash_cells": 0.0,
+   "splash_edge_pct": 0,
+   "scatter_cells": 0.0,
+   "range_cells_band": [
+    5.5,
+    7.0
+   ],
+   "min_range_cells": 0.0,
+   "reload_s_band": [
+    0.8,
+    1.2
+   ],
+   "turret_deg_s": 200,
+   "interceptable_by": "none",
+   "suppressive_default": false,
+   "notes": "APC/boat/tower MG. Same matrix behaviour as small_arms, higher range."
+  },
+  "autocannon": {
+   "index": 2,
+   "damage_type": "bullet",
+   "fire_mode": "direct",
+   "projectile_kind": "bullet",
+   "projectile_speed_cells_s": 30,
+   "homing": true,
+   "targets": [
+    "ground",
+    "surface_water",
+    "air"
+   ],
+   "splash_cells": 0.0,
+   "splash_edge_pct": 0,
+   "scatter_cells": 0.0,
+   "range_cells_band": [
+    6.0,
+    8.0
+   ],
+   "min_range_cells": 0.0,
+   "reload_s_band": [
+    0.4,
+    0.8
+   ],
+   "turret_deg_s": 150,
+   "interceptable_by": "none",
+   "suppressive_default": false,
+   "notes": "30 mm class; used by fast scouts and gunboats; suppressive when flagged."
+  },
+  "tank_cannon": {
+   "index": 3,
+   "damage_type": "ap",
+   "fire_mode": "direct",
+   "projectile_kind": "shell",
+   "projectile_speed_cells_s": 16,
+   "homing": true,
+   "targets": [
+    "ground",
+    "surface_water"
+   ],
+   "splash_cells": 0.5,
+   "splash_edge_pct": 50,
+   "scatter_cells": 0.0,
+   "range_cells_band": [
+    6.5,
+    9.0
+   ],
+   "min_range_cells": 0.0,
+   "reload_s_band": [
+    1.0,
+    1.6
+   ],
+   "turret_deg_s": 90,
+   "interceptable_by": "none",
+   "suppressive_default": false,
+   "notes": "Standard direct-fire anti-armor gun. Homing (always hits a live target); 50% splash edge."
+  },
+  "siege_gun": {
+   "index": 4,
+   "damage_type": "he",
+   "fire_mode": "direct",
+   "projectile_kind": "shell",
+   "projectile_speed_cells_s": 14,
+   "homing": false,
+   "targets": [
+    "ground",
+    "surface_water"
+   ],
+   "splash_cells": 1.2,
+   "splash_edge_pct": 40,
+   "scatter_cells": 0.5,
+   "range_cells_band": [
+    7.5,
+    9.5
+   ],
+   "min_range_cells": 0.0,
+   "reload_s_band": [
+    2.4,
+    3.6
+   ],
+   "turret_deg_s": 45,
+   "interceptable_by": "none",
+   "suppressive_default": false,
+   "notes": "Heavy HE assault gun (Colossus, Elephant, Gaj). Anti-structure specialist; ballistic (no lead)."
+  },
+  "demolition_cannon": {
+   "index": 5,
+   "damage_type": "he",
+   "fire_mode": "direct",
+   "projectile_kind": "shell",
+   "projectile_speed_cells_s": 12,
+   "homing": false,
+   "targets": [
+    "ground",
+    "surface_water"
+   ],
+   "splash_cells": 2.5,
+   "splash_edge_pct": 40,
+   "scatter_cells": 0.4,
+   "range_cells_band": [
+    3.5,
+    5.0
+   ],
+   "min_range_cells": 0.0,
+   "reload_s_band": [
+    3.5,
+    4.5
+   ],
+   "turret_deg_s": 30,
+   "interceptable_by": "none",
+   "suppressive_default": false,
+   "notes": "Kiln/Bear: short reach, very broad blast."
+  },
+  "at_missile": {
+   "index": 6,
+   "damage_type": "ap",
+   "fire_mode": "direct",
+   "projectile_kind": "missile",
+   "projectile_speed_cells_s": 10,
+   "homing": true,
+   "targets": [
+    "ground",
+    "surface_water"
+   ],
+   "splash_cells": 0.0,
+   "splash_edge_pct": 0,
+   "scatter_cells": 0.0,
+   "range_cells_band": [
+    6.0,
+    9.0
+   ],
+   "min_range_cells": 0.0,
+   "reload_s_band": [
+    4.0,
+    6.5
+   ],
+   "turret_deg_s": 720,
+   "interceptable_by": "aps_trident",
+   "suppressive_default": false,
+   "notes": "Guided anti-tank missile (infantry). Interceptable by APS and Trident (ordinary missile)."
+  },
+  "aa_missile": {
+   "index": 7,
+   "damage_type": "ap",
+   "fire_mode": "direct",
+   "projectile_kind": "missile",
+   "projectile_speed_cells_s": 14,
+   "homing": true,
+   "targets": [
+    "air"
+   ],
+   "splash_cells": 0.0,
+   "splash_edge_pct": 0,
+   "scatter_cells": 0.0,
+   "range_cells_band": [
+    8.0,
+    11.0
+   ],
+   "min_range_cells": 0.0,
+   "reload_s_band": [
+    1.0,
+    2.0
+   ],
+   "turret_deg_s": 180,
+   "interceptable_by": "aps_trident",
+   "suppressive_default": false,
+   "notes": "Guided anti-air missile. Air targets only."
+  },
+  "flak": {
+   "index": 8,
+   "damage_type": "he",
+   "fire_mode": "direct",
+   "projectile_kind": "shell",
+   "projectile_speed_cells_s": 20,
+   "homing": true,
+   "targets": [
+    "air"
+   ],
+   "splash_cells": 1.6,
+   "splash_edge_pct": 30,
+   "scatter_cells": 0.0,
+   "range_cells_band": [
+    7.0,
+    9.0
+   ],
+   "min_range_cells": 0.0,
+   "reload_s_band": [
+    0.8,
+    1.2
+   ],
+   "turret_deg_s": 180,
+   "interceptable_by": "none",
+   "suppressive_default": false,
+   "notes": "Air-burst flak; dual-purpose variants add ground layer (light infantry)."
+  },
+  "artillery_shell": {
+   "index": 9,
+   "damage_type": "he",
+   "fire_mode": "indirect",
+   "projectile_kind": "shell",
+   "projectile_speed_cells_s": 9,
+   "homing": false,
+   "targets": [
+    "ground"
+   ],
+   "splash_cells": 1.6,
+   "splash_edge_pct": 30,
+   "scatter_cells": 0.9,
+   "range_cells_band": [
+    12.0,
+    17.0
+   ],
+   "min_range_cells": 4.0,
+   "reload_s_band": [
+    3.0,
+    4.2
+   ],
+   "turret_deg_s": 40,
+   "interceptable_by": "trident",
+   "suppressive_default": false,
+   "notes": "Howitzer shell. Indirect: needs spotting; no lead on movers."
+  },
+  "rocket_barrage": {
+   "index": 10,
+   "damage_type": "he",
+   "fire_mode": "indirect",
+   "projectile_kind": "rocket",
+   "projectile_speed_cells_s": 10,
+   "homing": false,
+   "targets": [
+    "ground"
+   ],
+   "splash_cells": 1.3,
+   "splash_edge_pct": 30,
+   "scatter_cells": 1.8,
+   "range_cells_band": [
+    11.0,
+    14.0
+   ],
+   "min_range_cells": 3.5,
+   "reload_s_band": [
+    5.0,
+    8.0
+   ],
+   "turret_deg_s": 40,
+   "interceptable_by": "trident",
+   "suppressive_default": false,
+   "notes": "Salvo of small rockets; wide scatter."
+  },
+  "mortar": {
+   "index": 11,
+   "damage_type": "he",
+   "fire_mode": "indirect",
+   "projectile_kind": "shell",
+   "projectile_speed_cells_s": 9,
+   "homing": false,
+   "targets": [
+    "ground"
+   ],
+   "splash_cells": 1.4,
+   "splash_edge_pct": 30,
+   "scatter_cells": 1.0,
+   "range_cells_band": [
+    9.0,
+    12.0
+   ],
+   "min_range_cells": 3.0,
+   "reload_s_band": [
+    2.5,
+    3.5
+   ],
+   "turret_deg_s": 60,
+   "interceptable_by": "trident",
+   "suppressive_default": false,
+   "notes": "Light mortar/buggy artillery."
+  },
+  "missile_artillery": {
+   "index": 12,
+   "damage_type": "ap",
+   "fire_mode": "indirect",
+   "projectile_kind": "missile",
+   "projectile_speed_cells_s": 12,
+   "homing": false,
+   "targets": [
+    "ground",
+    "surface_water"
+   ],
+   "splash_cells": 0.7,
+   "splash_edge_pct": 40,
+   "scatter_cells": 0.35,
+   "range_cells_band": [
+    15.0,
+    19.0
+   ],
+   "min_range_cells": 4.0,
+   "reload_s_band": [
+    5.5,
+    8.0
+   ],
+   "turret_deg_s": 40,
+   "interceptable_by": "aps_trident",
+   "suppressive_default": false,
+   "notes": "Precision missile artillery; ballistic ('ordinary missile' for APS/Trident)."
+  },
+  "beam_thermal": {
+   "index": 13,
+   "damage_type": "thermal",
+   "fire_mode": "direct",
+   "projectile_kind": "beam",
+   "projectile_speed_cells_s": 0,
+   "homing": true,
+   "targets": [
+    "ground",
+    "surface_water"
+   ],
+   "splash_cells": 0.0,
+   "splash_edge_pct": 0,
+   "scatter_cells": 0.0,
+   "range_cells_band": [
+    8.0,
+    10.5
+   ],
+   "min_range_cells": 0.0,
+   "reload_s_band": [
+    0.25,
+    0.25
+   ],
+   "turret_deg_s": 60,
+   "interceptable_by": "none",
+   "suppressive_default": false,
+   "notes": "Continuous thermal beam; damage applied every 5 ticks; ramp (focus) raises damage on a single target."
+  },
+  "rail_gun": {
+   "index": 14,
+   "damage_type": "rail",
+   "fire_mode": "direct",
+   "projectile_kind": "rail",
+   "projectile_speed_cells_s": 0,
+   "homing": true,
+   "targets": [
+    "ground",
+    "surface_water"
+   ],
+   "splash_cells": 0.0,
+   "splash_edge_pct": 0,
+   "scatter_cells": 0.0,
+   "range_cells_band": [
+    10.0,
+    14.5
+   ],
+   "min_range_cells": 0.0,
+   "reload_s_band": [
+    3.5,
+    6.0
+   ],
+   "turret_deg_s": 45,
+   "interceptable_by": "none",
+   "suppressive_default": false,
+   "notes": "Hitscan slug; single target; no splash; long reload."
+  },
+  "torpedo": {
+   "index": 15,
+   "damage_type": "ap",
+   "fire_mode": "direct",
+   "projectile_kind": "torpedo",
+   "projectile_speed_cells_s": 8,
+   "homing": true,
+   "targets": [
+    "surface_water",
+    "underwater"
+   ],
+   "splash_cells": 0.0,
+   "splash_edge_pct": 0,
+   "scatter_cells": 0.0,
+   "range_cells_band": [
+    6.0,
+    9.0
+   ],
+   "min_range_cells": 0.0,
+   "reload_s_band": [
+    6.0,
+    10.0
+   ],
+   "turret_deg_s": 90,
+   "interceptable_by": "none",
+   "suppressive_default": false,
+   "notes": "Anti-ship / anti-submarine; travels under water; cannot hit land."
+  },
+  "depth_charge": {
+   "index": 16,
+   "damage_type": "he",
+   "fire_mode": "indirect",
+   "projectile_kind": "bomb",
+   "projectile_speed_cells_s": 6,
+   "homing": false,
+   "targets": [
+    "underwater"
+   ],
+   "splash_cells": 2.5,
+   "splash_edge_pct": 30,
+   "scatter_cells": 0.5,
+   "range_cells_band": [
+    3.0,
+    5.5
+   ],
+   "min_range_cells": 0.0,
+   "reload_s_band": [
+    4.0,
+    6.0
+   ],
+   "turret_deg_s": 120,
+   "interceptable_by": "none",
+   "suppressive_default": false,
+   "notes": "Anti-submarine area charge."
+  },
+  "bomb": {
+   "index": 17,
+   "damage_type": "he",
+   "fire_mode": "indirect",
+   "projectile_kind": "bomb",
+   "projectile_speed_cells_s": 8,
+   "homing": false,
+   "targets": [
+    "ground"
+   ],
+   "splash_cells": 2.2,
+   "splash_edge_pct": 35,
+   "scatter_cells": 0.7,
+   "range_cells_band": [
+    0.0,
+    1.5
+   ],
+   "min_range_cells": 0.0,
+   "reload_s_band": [
+    0.8,
+    1.6
+   ],
+   "turret_deg_s": 120,
+   "interceptable_by": "none",
+   "suppressive_default": false,
+   "notes": "Dropped by overflight; ammo-limited (sortie)."
+  },
+  "air_missile": {
+   "index": 18,
+   "damage_type": "ap",
+   "fire_mode": "direct",
+   "projectile_kind": "missile",
+   "projectile_speed_cells_s": 14,
+   "homing": true,
+   "targets": [
+    "ground",
+    "surface_water"
+   ],
+   "splash_cells": 0.0,
+   "splash_edge_pct": 0,
+   "scatter_cells": 0.0,
+   "range_cells_band": [
+    5.0,
+    7.0
+   ],
+   "min_range_cells": 0.0,
+   "reload_s_band": [
+    1.2,
+    2.0
+   ],
+   "turret_deg_s": 120,
+   "interceptable_by": "aps_trident",
+   "suppressive_default": false,
+   "notes": "Aircraft-launched anti-vehicle missile; ammo-limited."
+  },
+  "emp_pulse": {
+   "index": 19,
+   "damage_type": "emp",
+   "fire_mode": "direct",
+   "projectile_kind": "field",
+   "projectile_speed_cells_s": 0,
+   "homing": true,
+   "targets": [
+    "ground",
+    "air",
+    "surface_water"
+   ],
+   "splash_cells": 0.0,
+   "splash_edge_pct": 0,
+   "scatter_cells": 0.0,
+   "range_cells_band": [
+    0.0,
+    0.0
+   ],
+   "min_range_cells": 0.0,
+   "reload_s_band": [
+    0.0,
+    0.0
+   ],
+   "turret_deg_s": 120,
+   "interceptable_by": "none",
+   "suppressive_default": false,
+   "notes": "Area disable field (Aurora); non-lethal damage + status."
+  },
+  "canister": {
+   "index": 20,
+   "damage_type": "bullet",
+   "fire_mode": "direct",
+   "projectile_kind": "pellets",
+   "projectile_speed_cells_s": 30,
+   "homing": true,
+   "targets": [
+    "ground"
+   ],
+   "splash_cells": 1.2,
+   "splash_edge_pct": 60,
+   "scatter_cells": 0.0,
+   "range_cells_band": [
+    3.0,
+    4.0
+   ],
+   "min_range_cells": 0.0,
+   "reload_s_band": [
+    1.5,
+    2.5
+   ],
+   "turret_deg_s": 120,
+   "interceptable_by": "none",
+   "suppressive_default": false,
+   "notes": "Defensive shotgun-style burst (Protea alt mode)."
+  },
+  "grenade_launcher": {
+   "index": 21,
+   "damage_type": "he",
+   "fire_mode": "direct",
+   "projectile_kind": "grenade",
+   "projectile_speed_cells_s": 12,
+   "homing": false,
+   "targets": [
+    "ground"
+   ],
+   "splash_cells": 1.2,
+   "splash_edge_pct": 40,
+   "scatter_cells": 0.3,
+   "range_cells_band": [
+    2.5,
+    4.0
+   ],
+   "min_range_cells": 0.0,
+   "reload_s_band": [
+    1.2,
+    2.0
+   ],
+   "turret_deg_s": 360,
+   "interceptable_by": "none",
+   "suppressive_default": false,
+   "notes": "Infantry short-range grenade launcher."
+  },
+  "breach_charge": {
+   "index": 22,
+   "damage_type": "he",
+   "fire_mode": "melee",
+   "projectile_kind": "charge",
+   "projectile_speed_cells_s": 0,
+   "homing": true,
+   "targets": [
+    "ground"
+   ],
+   "splash_cells": 0.0,
+   "splash_edge_pct": 0,
+   "scatter_cells": 0.0,
+   "range_cells_band": [
+    0.0,
+    1.2
+   ],
+   "min_range_cells": 0.0,
+   "reload_s_band": [
+    6.0,
+    10.0
+   ],
+   "turret_deg_s": 120,
+   "interceptable_by": "none",
+   "suppressive_default": false,
+   "notes": "Anti-building charge (Aguila); only structures (ground layer, armor class building_*/fortress)."
+  },
+  "naval_gun": {
+   "index": 23,
+   "damage_type": "ap",
+   "fire_mode": "direct",
+   "projectile_kind": "shell",
+   "projectile_speed_cells_s": 14,
+   "homing": true,
+   "targets": [
+    "ground",
+    "surface_water"
+   ],
+   "splash_cells": 0.9,
+   "splash_edge_pct": 40,
+   "scatter_cells": 0.0,
+   "range_cells_band": [
+    8.0,
+    10.5
+   ],
+   "min_range_cells": 0.0,
+   "reload_s_band": [
+    1.6,
+    2.6
+   ],
+   "turret_deg_s": 70,
+   "interceptable_by": "none",
+   "suppressive_default": false,
+   "notes": "Ship main gun; anti-ship and shore support."
+  },
+  "naval_bombard": {
+   "index": 24,
+   "damage_type": "he",
+   "fire_mode": "indirect",
+   "projectile_kind": "shell",
+   "projectile_speed_cells_s": 10,
+   "homing": false,
+   "targets": [
+    "ground",
+    "surface_water"
+   ],
+   "splash_cells": 2.0,
+   "splash_edge_pct": 30,
+   "scatter_cells": 1.2,
+   "range_cells_band": [
+    18.0,
+    24.0
+   ],
+   "min_range_cells": 6.0,
+   "reload_s_band": [
+    6.0,
+    10.0
+   ],
+   "turret_deg_s": 30,
+   "interceptable_by": "trident",
+   "suppressive_default": false,
+   "notes": "Capital-ship land bombardment salvo."
+  },
+  "cruise_missile": {
+   "index": 25,
+   "damage_type": "he",
+   "fire_mode": "indirect",
+   "projectile_kind": "missile",
+   "projectile_speed_cells_s": 12,
+   "homing": false,
+   "targets": [
+    "ground"
+   ],
+   "splash_cells": 1.5,
+   "splash_edge_pct": 40,
+   "scatter_cells": 0.4,
+   "range_cells_band": [
+    20.0,
+    26.0
+   ],
+   "min_range_cells": 6.0,
+   "reload_s_band": [
+    9.0,
+    14.0
+   ],
+   "turret_deg_s": 120,
+   "interceptable_by": "aps_trident",
+   "suppressive_default": false,
+   "notes": "Submarine surface-launched land-attack missile."
+  },
+  "drone_missile": {
+   "index": 26,
+   "damage_type": "ap",
+   "fire_mode": "direct",
+   "projectile_kind": "missile",
+   "projectile_speed_cells_s": 14,
+   "homing": true,
+   "targets": [
+    "ground",
+    "surface_water"
+   ],
+   "splash_cells": 0.0,
+   "splash_edge_pct": 0,
+   "scatter_cells": 0.0,
+   "range_cells_band": [
+    3.5,
+    6.0
+   ],
+   "min_range_cells": 0.0,
+   "reload_s_band": [
+    1.5,
+    2.5
+   ],
+   "turret_deg_s": 120,
+   "interceptable_by": "aps_trident",
+   "suppressive_default": false,
+   "notes": "Carrier / swarm drone missile (drone HP is the weak point)."
+  }
+ },
+ "ability_templates": {
+  "deploy": {
+   "fields": [
+    "deploy_s",
+    "pack_s",
+    "mobile_in_mode",
+    "weapon_range_pct",
+    "locks_hull"
+   ],
+   "defaults": {
+    "deploy_s": 3.0,
+    "pack_s": 2.0
+   },
+   "bible_examples": {
+    "paladin": 3,
+    "charlemagne_range_pct": 125,
+    "ifrit": 3,
+    "gaj_range_pct": 120,
+    "saker": 1,
+    "ibex": 2,
+    "outrider": 3,
+    "fortress_guard": 3,
+    "shinano_mode_switch": 3,
+    "long_walker_radius_plus": 2
+   }
+  },
+  "camouflage": {
+   "fields": [
+    "delay_s",
+    "reveal_on",
+    "reveal_hold_s",
+    "while_moving"
+   ],
+   "defaults": {
+    "delay_s": 6.0,
+    "reveal_hold_s": 0.0
+   },
+   "reveal_events": [
+    "fire",
+    "damage",
+    "detected",
+    "move_when_stationary_type"
+   ],
+   "source": "bible: 6 s, detector radius 5, Dune Rover reveal 6 s"
+  },
+  "heal_aura": {
+   "fields": [
+    "pct_max_health_per_s_x100",
+    "radius_cells",
+    "targets"
+   ],
+   "defaults": {
+    "pct_x100": 200,
+    "radius_cells": 4.0
+   },
+   "same_source_stacking": false,
+   "note": "medic/technician baseline 2.0 %/s in 4 cells; bible upgrades quote 1 %/s references"
+  },
+  "repair_target": {
+   "fields": [
+    "pct_max_health_per_s_x100",
+    "cost_pct_of_paid_price_per_s_x100",
+    "targets",
+    "one_at_a_time"
+   ],
+   "defaults": {
+    "pct_x100": 100,
+    "cost_x100": 50
+   },
+   "source": "bible: Engineer 1 %/s for 0.5 %/s of price"
+  },
+  "command_field": {
+   "fields": [
+    "radius_cells",
+    "damage_pct",
+    "targets"
+   ],
+   "defaults": {
+    "radius_cells": 5.0,
+    "damage_pct": 10
+   },
+   "source": "bible"
+  },
+  "detector": {
+   "fields": [
+    "radius_cells"
+   ],
+   "defaults": {
+    "radius_cells": 5.0
+   },
+   "source": "bible"
+  },
+  "interception": {
+   "fields": [
+    "cooldown_s",
+    "range_cells",
+    "targets"
+   ],
+   "defaults": {
+    "cooldown_s": 12.0,
+    "range_cells": 3.0
+   },
+   "targets": "ordinary_missile_only",
+   "source": "bible: Ural 12 s, Arjun 15 s; never shells, beams or superweapons"
+  },
+  "smoke_launcher": {
+   "fields": [
+    "radius_cells",
+    "duration_s",
+    "cooldown_s"
+   ],
+   "defaults": {
+    "radius_cells": 4.0,
+    "duration_s": 6.0,
+    "cooldown_s": 40.0
+   },
+   "source": "bible: Naga"
+  },
+  "decoy": {
+   "fields": [
+    "cooldown_s",
+    "lifetime_s",
+    "health"
+   ],
+   "defaults": {
+    "cooldown_s": 40.0,
+    "lifetime_s": 30.0,
+    "health": 1
+   },
+   "source": "bible: Echo Team"
+  },
+  "cover": {
+   "fields": [
+    "build_s",
+    "lifetime_s",
+    "bullet_resist_pct",
+    "pieces_per_builder"
+   ],
+   "defaults": {
+    "build_s": 4.0,
+    "lifetime_s": 45.0,
+    "bullet_resist_pct": 20,
+    "pieces": 1
+   },
+   "source": "bible: 4 s / 45 s / 20 %; Alpine shelter 25 %"
+  },
+  "sensor": {
+   "fields": [
+    "radius_cells",
+    "duration_s",
+    "cooldown_s",
+    "detects_camouflage"
+   ],
+   "defaults": {
+    "radius_cells": 4.0,
+    "duration_s": 20.0,
+    "cooldown_s": 30.0
+   },
+   "source": "bible: Civic puck 4 cells/20 s/30 s; Fen mast 6 cells"
+  },
+  "salvage": {
+   "fields": [
+    "time_s",
+    "payout_pct_of_paid_cost",
+    "wreck_lifetime_s"
+   ],
+   "defaults": {
+    "time_s": 8.0,
+    "payout_pct": 20,
+    "wreck_lifetime_s": 60
+   },
+   "source": "bible"
+  },
+  "transport": {
+   "fields": [
+    "capacity_squads",
+    "capacity_vehicles",
+    "load_s",
+    "unload_s"
+   ],
+   "defaults": {
+    "capacity_squads": 2,
+    "load_s": 1.0,
+    "unload_s": 1.0
+   },
+   "source": "bible: APC 2, Okapi 3, Leviathan 4, Landing Transport 4 squads or 2 vehicles"
+  },
+  "emp": {
+   "fields": [
+    "weapon_disable_s",
+    "structure_shutdown_s",
+    "damage"
+   ],
+   "defaults": {
+    "weapon_disable_s": 8.0,
+    "structure_shutdown_s": 18.0
+   },
+   "source": "bible: Aurora"
+  },
+  "jammer": {
+   "fields": [
+    "radius_cells",
+    "sight_pct"
+   ],
+   "defaults": {
+    "radius_cells": 5.0,
+    "sight_pct": -25
+   },
+   "source": "bible: Aster"
+  },
+  "suppression": {
+   "fields": [
+    "hits_needed",
+    "window_s",
+    "slow_pct",
+    "slow_s"
+   ],
+   "defaults": {
+    "hits_needed": 3,
+    "window_s": 2.0,
+    "slow_pct": 25,
+    "slow_s": 3.0
+   },
+   "source": "bible"
+  }
+ },
+ "scaling": {
+  "power_index": "PI = HP^a_hp * DPS^a_dps * range^a_range * speed^a_speed * vision^a_vision (exponents per family in archetypes.*.power_exponents)",
+  "fair_cost": "cost = cost_ref * PI/PI_ref * (1 + sum(ability_value_pct)/100)",
+  "build_time": "build_time_s = cost / production_rate_cr_per_s[producer/tier], rounded to 0.5 s; per-unit override allowed within +-20%",
+  "tolerances": {
+   "cost_pct": 25,
+   "health_pct": 30,
+   "dps_pct": 30,
+   "range_pct": 25,
+   "speed_pct": 35,
+   "vision_pct": 30,
+   "radius_pct": 20,
+   "power_index_pct": 8,
+   "note": "A designer's unit passes lint when each stat is inside its band around the family reference AND the fair-cost deviation is within power_index_pct"
+  }
+ },
+ "production": {
+  "rate_credits_per_s": {
+   "barracks": 28,
+   "factory_t1": 31,
+   "factory_t2": 34,
+   "factory_t3": 38,
+   "airfield": 36,
+   "dock": 36,
+   "refinery": 46,
+   "construction": 48
+  },
+  "queue_length": 5,
+  "power_shortage_speed_pct": 50,
+  "cost_floor_pct": 60,
+  "build_time_floor_pct": 60,
+  "reload_floor_pct": 50,
+  "source": "floors: bible; rates: ours",
+  "build_time_rounding_s": 0.5
+ },
+ "structures": {
+  "headquarters": {
+   "cost_credits": 0,
+   "build_time_s": null,
+   "health": 6000,
+   "armor_class": "fortress",
+   "footprint": [
+    3,
+    3
+   ],
+   "radius_cells": 1.5,
+   "vision_cells": 11.0,
+   "power_delta": 0,
+   "deploy_s": 3.0,
+   "note": "Free when preset; via MCV deploy otherwise."
+  },
+  "generator": {
+   "cost_credits": 600,
+   "build_time_s": 25,
+   "health": 1200,
+   "armor_class": "building_light",
+   "footprint": [
+    2,
+    2
+   ],
+   "radius_cells": 1.0,
+   "vision_cells": 6.0,
+   "power_delta": 150
+  },
+  "refinery": {
+   "cost_credits": 1800,
+   "build_time_s": 40,
+   "health": 3600,
+   "armor_class": "building_heavy",
+   "footprint": [
+    3,
+    3
+   ],
+   "radius_cells": 1.5,
+   "vision_cells": 8.0,
+   "power_delta": -30,
+   "note": "Completes with 1 free Collector; unload slot 1."
+  },
+  "barracks": {
+   "cost_credits": 500,
+   "build_time_s": 20,
+   "health": 1000,
+   "armor_class": "building_light",
+   "footprint": [
+    2,
+    2
+   ],
+   "radius_cells": 1.0,
+   "vision_cells": 7.0,
+   "power_delta": -10
+  },
+  "factory": {
+   "cost_credits": 2000,
+   "build_time_s": 40,
+   "health": 4500,
+   "armor_class": "building_heavy",
+   "footprint": [
+    3,
+    3
+   ],
+   "radius_cells": 1.5,
+   "vision_cells": 8.0,
+   "power_delta": -40
+  },
+  "dock": {
+   "cost_credits": 1800,
+   "build_time_s": 40,
+   "health": 3600,
+   "armor_class": "building_heavy",
+   "footprint": [
+    3,
+    3
+   ],
+   "radius_cells": 1.5,
+   "vision_cells": 10.0,
+   "power_delta": -35
+  },
+  "radar": {
+   "cost_credits": 1500,
+   "build_time_s": 30,
+   "health": 3000,
+   "armor_class": "building_heavy",
+   "footprint": [
+    2,
+    2
+   ],
+   "radius_cells": 1.0,
+   "vision_cells": 14.0,
+   "power_delta": -40
+  },
+  "airfield": {
+   "cost_credits": 1600,
+   "build_time_s": 35,
+   "health": 3200,
+   "armor_class": "building_heavy",
+   "footprint": [
+    6,
+    3
+   ],
+   "radius_cells": 1.5,
+   "vision_cells": 8.0,
+   "power_delta": -40,
+   "pads": 4
+  },
+  "laboratory": {
+   "cost_credits": 2500,
+   "build_time_s": 50,
+   "health": 5000,
+   "armor_class": "building_heavy",
+   "footprint": [
+    3,
+    3
+   ],
+   "radius_cells": 1.5,
+   "vision_cells": 8.0,
+   "power_delta": -60
+  },
+  "watchtower": {
+   "cost_credits": 450,
+   "build_time_s": 15,
+   "health": 900,
+   "armor_class": "building_light",
+   "footprint": [
+    1,
+    1
+   ],
+   "radius_cells": 0.5,
+   "vision_cells": 8.0,
+   "power_delta": -5,
+   "detector_radius_cells": 4.0
+  },
+  "anti_tank_turret": {
+   "cost_credits": 800,
+   "build_time_s": 20,
+   "health": 1500,
+   "armor_class": "building_heavy",
+   "footprint": [
+    1,
+    1
+   ],
+   "radius_cells": 0.5,
+   "vision_cells": 9.0,
+   "power_delta": -15
+  },
+  "aa_battery": {
+   "cost_credits": 900,
+   "build_time_s": 20,
+   "health": 1500,
+   "armor_class": "building_heavy",
+   "footprint": [
+    2,
+    2
+   ],
+   "radius_cells": 1.0,
+   "vision_cells": 12.0,
+   "power_delta": -20,
+   "detector_radius_cells": 5.0
+  },
+  "advanced_defense": {
+   "cost_credits": 1800,
+   "build_time_s": 35,
+   "health": 3400,
+   "armor_class": "building_heavy",
+   "footprint": [
+    2,
+    2
+   ],
+   "radius_cells": 1.0,
+   "vision_cells": 13.0,
+   "power_delta": -40,
+   "note": "8 faction variants; see defenses.advanced."
+  },
+  "superweapon": {
+   "cost_credits": 5000,
+   "build_time_s": 90,
+   "health": 7000,
+   "armor_class": "fortress",
+   "footprint": [
+    4,
+    4
+   ],
+   "radius_cells": 2.0,
+   "vision_cells": 10.0,
+   "power_delta": -200,
+   "note": "Max one per player (bible)."
+  },
+  "relay": {
+   "cost_credits": 600,
+   "build_time_s": 15,
+   "health": 900,
+   "armor_class": "building_light",
+   "footprint": [
+    1,
+    1
+   ],
+   "radius_cells": 0.5,
+   "vision_cells": 8.0,
+   "power_delta": -20,
+   "note": "NEC only; build time is ours (bible null)."
+  }
+ },
+ "structures_source_note": "cost, build_time_s and power_delta of shared structures and the Relay cost are bible values; health/armor/vision are ours; footprints, exits, aprons and pads follow docs/CONTRACT_DATA.md section 5.4 (airfield 6x3 with 4 base pads, anti_tank_turret 1x1); Relay build time and HQ deploy are ours.",
+ "defenses": {
+  "shared": {
+   "watchtower": [
+    {
+     "archetype": "machine_gun",
+     "damage": 30,
+     "hits_per_volley": 2,
+     "reload_s": 1.0,
+     "range_cells": 7.0,
+     "suppressive": true
+    }
+   ],
+   "anti_tank_turret": [
+    {
+     "archetype": "tank_cannon",
+     "damage": 135,
+     "hits_per_volley": 1,
+     "reload_s": 1.3,
+     "range_cells": 8.0
+    }
+   ],
+   "aa_battery": [
+    {
+     "archetype": "aa_missile",
+     "damage": 100,
+     "hits_per_volley": 2,
+     "reload_s": 1.5,
+     "range_cells": 11.0
+    }
+   ]
+  },
+  "advanced": {
+   "bulwark_cannon": {
+    "faction": "napc",
+    "health": 3400,
+    "weapon": {
+     "archetype": "tank_cannon",
+     "damage": 700,
+     "hits_per_volley": 1,
+     "reload_s": 4.0,
+     "range_cells": 12.0,
+     "splash_cells": 0.6
+    },
+    "turret_deg_s": 25,
+    "note": "slow traverse; poor vs infantry by matrix"
+   },
+   "lance_rail": {
+    "faction": "nec",
+    "health": 3400,
+    "weapon": {
+     "archetype": "rail_gun",
+     "damage": 700,
+     "hits_per_volley": 1,
+     "reload_s": 5.0,
+     "range_cells": 14.0
+    },
+    "turret_deg_s": 40,
+    "note": "single target; very long range; long reload"
+   },
+   "sunwall_projector": {
+    "faction": "olm",
+    "health": 3300,
+    "weapon": {
+     "archetype": "beam_thermal",
+     "damage": 33,
+     "hits_per_volley": 1,
+     "reload_s": 0.25,
+     "range_cells": 10.0,
+     "ramp_seconds": 5.0,
+     "ramp_max_pct": 190
+    },
+    "turret_deg_s": 60,
+    "note": "beam ramps 130 -> 250 DPS on one target"
+   },
+   "citadel_mortar": {
+    "faction": "def",
+    "health": 4000,
+    "weapon": {
+     "archetype": "artillery_shell",
+     "damage": 340,
+     "hits_per_volley": 1,
+     "reload_s": 3.0,
+     "range_cells": 16.0,
+     "min_range_cells": 5.0
+    },
+    "turret_deg_s": 40,
+    "note": "armored; min range 5"
+   },
+   "sea_spear_battery": {
+    "faction": "pd",
+    "health": 3400,
+    "weapon": {
+     "archetype": "at_missile",
+     "damage": 170,
+     "hits_per_volley": 3,
+     "reload_s": 6.0,
+     "range_cells": 13.0,
+     "targets_override": [
+      "ground",
+      "surface_water"
+     ]
+    },
+    "turret_deg_s": 90,
+    "note": "3-missile salvo; no air"
+   },
+   "dragon_tooth_launcher": {
+    "faction": "han",
+    "health": 3400,
+    "weapon": {
+     "archetype": "at_missile",
+     "damage": 150,
+     "hits_per_volley": 4,
+     "reload_s": 7.5,
+     "range_cells": 11.0
+    },
+    "turret_deg_s": 90,
+    "note": "4-missile burst; vulnerable between salvos"
+   },
+   "forge_cannon": {
+    "faction": "ae",
+    "health": 3600,
+    "weapon": {
+     "archetype": "tank_cannon",
+     "damage": 110,
+     "hits_per_volley": 1,
+     "reload_s": 0.7,
+     "range_cells": 9.5
+    },
+    "turret_deg_s": 90,
+    "note": "rapid cycling; shorter range than rail"
+   },
+   "bastion_missile_tower": {
+    "faction": "sap",
+    "health": 3600,
+    "weapon": {
+     "archetype": "at_missile",
+     "damage": 550,
+     "hits_per_volley": 2,
+     "reload_s": 9.0,
+     "range_cells": 12.0
+    },
+    "turret_deg_s": 90,
+    "note": "2 x 550 burst then long reload; no AA"
+   }
+  },
+  "budget": {
+   "advanced_cost": 1800,
+   "advanced_health_range": [
+    3300,
+    4000
+   ],
+   "advanced_sustained_dps_vs_medium": {
+    "bulwark_cannon": 175,
+    "lance_rail": 161,
+    "sunwall_projector": "132 -> 251 (ramp)",
+    "citadel_mortar": 113,
+    "sea_spear_battery": 85,
+    "dragon_tooth_launcher": 80,
+    "forge_cannon": 157,
+    "bastion_missile_tower": 122
+   },
+   "rule": "Average across the eight advanced defenses: 1.30..1.65 break-cost ratio vs T2 tanks (balance_calc.py defenses). Burst/long-reload designs trade sustained DPS for alpha; short-range or minimum-range designs trade it for reach.",
+   "static_power_ratio": 1.25,
+   "note": "power ratio = (HP*DPS)^0.5/cost relative to same-cost mobile units of the same role; keep within 1.15..1.35"
+  }
+ },
+ "tier_curves": {
+  "T1": {
+   "infantry_line": {
+    "archetype": "inf_line",
+    "cost_credits": 250,
+    "build_time_s": 9.0,
+    "health": 400,
+    "dps_vs_primary": 52.0,
+    "range_cells": 5.5,
+    "speed_cells_s": 1.5,
+    "vision_cells": 7.0,
+    "radius_cells": 0.4
+   },
+   "infantry_at": {
+    "archetype": "inf_at",
+    "cost_credits": 350,
+    "build_time_s": 12.5,
+    "health": 300,
+    "dps_vs_primary": 60.0,
+    "range_cells": 7.5,
+    "speed_cells_s": 1.4,
+    "vision_cells": 7.5,
+    "radius_cells": 0.4
+   },
+   "scout_apc": {
+    "archetype": "veh_scout",
+    "cost_credits": 550,
+    "build_time_s": 17.5,
+    "health": 520,
+    "dps_vs_primary": 30.0,
+    "range_cells": 6.0,
+    "speed_cells_s": 3.2,
+    "vision_cells": 12.0,
+    "radius_cells": 0.45
+   },
+   "tank": {
+    "archetype": "mbt_t1",
+    "cost_credits": 850,
+    "build_time_s": 27.5,
+    "health": 900,
+    "dps_vs_primary": 116.7,
+    "range_cells": 7.0,
+    "speed_cells_s": 2.0,
+    "vision_cells": 9.0,
+    "radius_cells": 0.55
+   },
+   "patrol_boat": {
+    "archetype": "ship_patrol",
+    "cost_credits": 600,
+    "build_time_s": 16.5,
+    "health": 700,
+    "dps_vs_primary": 47.6,
+    "range_cells": 6.5,
+    "speed_cells_s": 3.2,
+    "vision_cells": 11.0,
+    "radius_cells": 0.6
+   }
+  },
+  "T2": {
+   "infantry_specialist_unarmed": {
+    "archetype": "inf_support",
+    "cost_credits": 450,
+    "build_time_s": 16.0,
+    "health": 300,
+    "dps_vs_primary": 0.0,
+    "range_cells": 0.0,
+    "speed_cells_s": 1.5,
+    "vision_cells": 9.0,
+    "radius_cells": 0.4
+   },
+   "infantry_specialist_armed": {
+    "archetype": "inf_combat_spec",
+    "cost_credits": 500,
+    "build_time_s": 18.0,
+    "health": 420,
+    "dps_vs_primary": 36.0,
+    "range_cells": 5.0,
+    "speed_cells_s": 1.4,
+    "vision_cells": 8.0,
+    "radius_cells": 0.4
+   },
+   "artillery_light": {
+    "archetype": "arty_light",
+    "cost_credits": 900,
+    "build_time_s": 26.5,
+    "health": 480,
+    "dps_vs_primary": 43.3,
+    "range_cells": 11.0,
+    "speed_cells_s": 2.6,
+    "vision_cells": 9.0,
+    "radius_cells": 0.5
+   },
+   "tank": {
+    "archetype": "mbt_t2",
+    "cost_credits": 1250,
+    "build_time_s": 37.0,
+    "health": 1600,
+    "dps_vs_primary": 160.0,
+    "range_cells": 7.5,
+    "speed_cells_s": 1.8,
+    "vision_cells": 9.5,
+    "radius_cells": 0.6
+   },
+   "anti_air_vehicle": {
+    "archetype": "veh_aa",
+    "cost_credits": 1050,
+    "build_time_s": 31.0,
+    "health": 800,
+    "dps_vs_primary": 133.3,
+    "range_cells": 10.0,
+    "speed_cells_s": 2.2,
+    "vision_cells": 10.0,
+    "radius_cells": 0.55
+   },
+   "artillery_howitzer": {
+    "archetype": "arty_howitzer",
+    "cost_credits": 1300,
+    "build_time_s": 38.0,
+    "health": 650,
+    "dps_vs_primary": 57.1,
+    "range_cells": 15.0,
+    "speed_cells_s": 1.5,
+    "vision_cells": 8.5,
+    "radius_cells": 0.6
+   },
+   "artillery_rocket": {
+    "archetype": "arty_rocket",
+    "cost_credits": 1250,
+    "build_time_s": 37.0,
+    "health": 600,
+    "dps_vs_primary": 55.0,
+    "range_cells": 13.0,
+    "speed_cells_s": 1.7,
+    "vision_cells": 8.5,
+    "radius_cells": 0.6
+   },
+   "artillery_missile": {
+    "archetype": "arty_missile",
+    "cost_credits": 1450,
+    "build_time_s": 42.5,
+    "health": 600,
+    "dps_vs_primary": 64.6,
+    "range_cells": 17.0,
+    "speed_cells_s": 1.7,
+    "vision_cells": 8.5,
+    "radius_cells": 0.6
+   },
+   "fighter": {
+    "archetype": "air_fighter",
+    "cost_credits": 1100,
+    "build_time_s": 30.5,
+    "health": 700,
+    "dps_vs_primary": 100.0,
+    "range_cells": 8.0,
+    "speed_cells_s": 7.0,
+    "vision_cells": 11.0,
+    "radius_cells": 0.5,
+    "sortie_damage_raw": 600,
+    "sortie_avg_dps_vs_primary": 30.0
+   },
+   "escort_ship": {
+    "archetype": "ship_escort",
+    "cost_credits": 1700,
+    "build_time_s": 47.0,
+    "health": 2200,
+    "dps_vs_primary": 90.0,
+    "range_cells": 10.0,
+    "speed_cells_s": 2.4,
+    "vision_cells": 11.0,
+    "radius_cells": 1.0
+   },
+   "tank:rail": {
+    "archetype": "mbt_t2_rail",
+    "cost_credits": 1250,
+    "build_time_s": 37,
+    "health": 1500,
+    "dps_vs_primary": 161.0,
+    "range_cells": 11.0,
+    "speed_cells_s": 1.8,
+    "vision_cells": 9.5,
+    "radius_cells": 0.6
+   },
+   "anti_air_vehicle:beam": {
+    "archetype": "veh_aa_beam",
+    "cost_credits": 1050,
+    "build_time_s": 31,
+    "health": 800,
+    "dps_vs_primary": 133.0,
+    "range_cells": 9.0,
+    "speed_cells_s": 2.2,
+    "vision_cells": 10.0,
+    "radius_cells": 0.55
+   },
+   "anti_air_vehicle:flak": {
+    "archetype": "veh_aa_flak",
+    "cost_credits": 1050,
+    "build_time_s": 31,
+    "health": 800,
+    "dps_vs_primary": 62.4,
+    "range_cells": 8.0,
+    "speed_cells_s": 2.2,
+    "vision_cells": 10.0,
+    "radius_cells": 0.55
+   }
+  },
+  "T3": {
+   "siege_tank:ap": {
+    "archetype": "siege_ap",
+    "cost_credits": 2400,
+    "build_time_s": 63.0,
+    "health": 3600,
+    "dps_vs_primary": 256.0,
+    "range_cells": 8.5,
+    "speed_cells_s": 1.4,
+    "vision_cells": 8.5,
+    "radius_cells": 0.8
+   },
+   "siege_tank:he": {
+    "archetype": "siege_he",
+    "cost_credits": 2400,
+    "build_time_s": 63.0,
+    "health": 3600,
+    "dps_vs_primary": 233.3,
+    "range_cells": 8.5,
+    "speed_cells_s": 1.4,
+    "vision_cells": 8.5,
+    "radius_cells": 0.8
+   },
+   "siege_tank:rail": {
+    "archetype": "siege_rail",
+    "cost_credits": 2400,
+    "build_time_s": 63.0,
+    "health": 3300,
+    "dps_vs_primary": 249.7,
+    "range_cells": 12.0,
+    "speed_cells_s": 1.4,
+    "vision_cells": 8.5,
+    "radius_cells": 0.8
+   },
+   "siege_tank:beam": {
+    "archetype": "siege_beam",
+    "cost_credits": 2400,
+    "build_time_s": 63.0,
+    "health": 3200,
+    "dps_vs_primary": 200.0,
+    "range_cells": 9.0,
+    "speed_cells_s": 1.4,
+    "vision_cells": 8.5,
+    "radius_cells": 0.8
+   },
+   "siege_tank:demo": {
+    "archetype": "siege_demo",
+    "cost_credits": 2400,
+    "build_time_s": 63.0,
+    "health": 3800,
+    "dps_vs_primary": 250.0,
+    "range_cells": 4.5,
+    "speed_cells_s": 1.2,
+    "vision_cells": 8.0,
+    "radius_cells": 0.85
+   },
+   "command_walker": {
+    "archetype": "veh_command",
+    "cost_credits": 2800,
+    "build_time_s": 73.5,
+    "health": 3000,
+    "dps_vs_primary": 133.3,
+    "range_cells": 8.0,
+    "speed_cells_s": 1.3,
+    "vision_cells": 9.0,
+    "radius_cells": 1.0
+   },
+   "assault_carrier": {
+    "archetype": "veh_assault_carrier",
+    "cost_credits": 2900,
+    "build_time_s": 76.5,
+    "health": 4000,
+    "dps_vs_primary": 166.7,
+    "range_cells": 5.5,
+    "speed_cells_s": 1.5,
+    "vision_cells": 8.5,
+    "radius_cells": 1.0
+   },
+   "gunship": {
+    "archetype": "air_gunship",
+    "cost_credits": 2100,
+    "build_time_s": 58.5,
+    "health": 1500,
+    "dps_vs_primary": 120.0,
+    "range_cells": 6.0,
+    "speed_cells_s": 4.5,
+    "vision_cells": 10.0,
+    "radius_cells": 0.6,
+    "sortie_damage_raw": 1260,
+    "sortie_avg_dps_vs_primary": 37.1
+   },
+   "bomber": {
+    "archetype": "air_bomber",
+    "cost_credits": 1900,
+    "build_time_s": 53.0,
+    "health": 1100,
+    "dps_vs_primary": 583.3,
+    "range_cells": 1.5,
+    "speed_cells_s": 6.0,
+    "vision_cells": 10.0,
+    "radius_cells": 0.7,
+    "sortie_damage_raw": 1400,
+    "sortie_avg_dps_vs_primary": 35.0
+   },
+   "strike_drone": {
+    "archetype": "air_drone",
+    "cost_credits": 1500,
+    "build_time_s": 41.5,
+    "health": 650,
+    "dps_vs_primary": 300.0,
+    "range_cells": 6.0,
+    "speed_cells_s": 6.5,
+    "vision_cells": 10.0,
+    "radius_cells": 0.5,
+    "sortie_damage_raw": 600,
+    "sortie_avg_dps_vs_primary": 21.4
+   },
+   "ew_aircraft": {
+    "archetype": "air_ew",
+    "cost_credits": 1800,
+    "build_time_s": 50.0,
+    "health": 900,
+    "dps_vs_primary": 0.0,
+    "range_cells": 0.0,
+    "speed_cells_s": 5.0,
+    "vision_cells": 10.0,
+    "radius_cells": 0.6
+   },
+   "siege_ship": {
+    "archetype": "ship_siege",
+    "cost_credits": 3200,
+    "build_time_s": 89.0,
+    "health": 4500,
+    "dps_vs_primary": 120.0,
+    "range_cells": 20.0,
+    "speed_cells_s": 1.6,
+    "vision_cells": 10.5,
+    "radius_cells": 1.3
+   },
+   "carrier": {
+    "archetype": "ship_carrier",
+    "cost_credits": 3800,
+    "build_time_s": 105.5,
+    "health": 5000,
+    "dps_vs_primary": 216.0,
+    "range_cells": 0.0,
+    "speed_cells_s": 1.5,
+    "vision_cells": 11.0,
+    "radius_cells": 1.5
+   },
+   "submarine": {
+    "archetype": "ship_sub",
+    "cost_credits": 2600,
+    "build_time_s": 72.0,
+    "health": 2000,
+    "dps_vs_primary": 62.5,
+    "range_cells": 22.0,
+    "speed_cells_s": 1.8,
+    "vision_cells": 9.0,
+    "radius_cells": 0.9
+   }
+  }
+ },
+ "archetypes": {
+  "inf_line": {
+   "family": "infantry",
+   "tier": 1,
+   "producer": "barracks",
+   "size_class": "inf",
+   "armor_class": "infantry",
+   "movement_class": "foot",
+   "layer": "ground",
+   "cost_credits": 250,
+   "build_time_s": 9.0,
+   "health": 400,
+   "speed_cells_s": 1.5,
+   "vision_cells": 7.0,
+   "radius_cells": 0.4,
+   "primary_target_class": "infantry",
+   "power_exponents": {
+    "hp": 0.5,
+    "dps": 0.5,
+    "range": 0.25,
+    "speed": 0.15,
+    "vision": 0.05
+   },
+   "weapons": [
+    {
+     "archetype": "small_arms",
+     "damage": 26,
+     "hits_per_volley": 2,
+     "reload_s": 1.0,
+     "range_cells": 5.5
+    }
+   ],
+   "notes": "Line/rifle squad. One entity; view shows ~4 soldiers (2 damage packets per volley, >= 25 per hit).",
+   "dps_ref": 52.0,
+   "range_cells": 5.5
+  },
+  "inf_at": {
+   "family": "infantry",
+   "tier": 1,
+   "producer": "barracks",
+   "size_class": "inf",
+   "armor_class": "infantry",
+   "movement_class": "foot",
+   "layer": "ground",
+   "cost_credits": 350,
+   "build_time_s": 12.5,
+   "health": 300,
+   "speed_cells_s": 1.4,
+   "vision_cells": 7.5,
+   "radius_cells": 0.4,
+   "primary_target_class": "medium_armor",
+   "power_exponents": {
+    "hp": 0.5,
+    "dps": 0.5,
+    "range": 0.25,
+    "speed": 0.15,
+    "vision": 0.05
+   },
+   "weapons": [
+    {
+     "archetype": "at_missile",
+     "damage": 270,
+     "hits_per_volley": 1,
+     "reload_s": 4.5,
+     "range_cells": 7.5
+    }
+   ],
+   "notes": "Anti-tank team; must stop to fire (movement domain). 4 missiles kill a T1 tank (270 x 4 >= 900).",
+   "dps_ref": 60.0,
+   "range_cells": 7.5
+  },
+  "inf_support": {
+   "family": "support",
+   "tier": 2,
+   "producer": "barracks",
+   "size_class": "inf",
+   "armor_class": "infantry",
+   "movement_class": "foot",
+   "layer": "ground",
+   "cost_credits": 450,
+   "build_time_s": 16.0,
+   "health": 300,
+   "speed_cells_s": 1.5,
+   "vision_cells": 9.0,
+   "radius_cells": 0.4,
+   "primary_target_class": "infantry",
+   "power_exponents": {
+    "hp": 0.5,
+    "dps": 0.5,
+    "range": 0.1,
+    "speed": 0.15,
+    "vision": 0.3
+   },
+   "weapons": [],
+   "notes": "Unarmed T2 specialist (medic, observer, technician, operator, officer). Ability supplies value; observers/spotters use vision 12.",
+   "dps_ref": 0.0,
+   "range_cells": 0.0
+  },
+  "inf_combat_spec": {
+   "family": "infantry",
+   "tier": 2,
+   "producer": "barracks",
+   "size_class": "inf",
+   "armor_class": "infantry",
+   "movement_class": "foot",
+   "layer": "ground",
+   "cost_credits": 500,
+   "build_time_s": 18.0,
+   "health": 420,
+   "speed_cells_s": 1.4,
+   "vision_cells": 8.0,
+   "radius_cells": 0.4,
+   "primary_target_class": "infantry",
+   "power_exponents": {
+    "hp": 0.5,
+    "dps": 0.5,
+    "range": 0.25,
+    "speed": 0.15,
+    "vision": 0.05
+   },
+   "weapons": [
+    {
+     "archetype": "small_arms",
+     "damage": 18,
+     "hits_per_volley": 2,
+     "reload_s": 1.0,
+     "range_cells": 5.0
+    }
+   ],
+   "notes": "Armed T2 specialist (sapper, pioneer, reclaimer, breach team).",
+   "dps_ref": 36.0,
+   "range_cells": 5.0
+  },
+  "veh_scout": {
+   "family": "scout",
+   "tier": 1,
+   "producer": "factory",
+   "size_class": "light",
+   "armor_class": "light_vehicle",
+   "movement_class": "wheeled",
+   "layer": "ground",
+   "cost_credits": 550,
+   "build_time_s": 17.5,
+   "health": 520,
+   "speed_cells_s": 3.2,
+   "vision_cells": 12.0,
+   "radius_cells": 0.45,
+   "primary_target_class": "infantry",
+   "power_exponents": {
+    "hp": 0.5,
+    "dps": 0.5,
+    "range": 0.2,
+    "speed": 0.35,
+    "vision": 0.25
+   },
+   "weapons": [
+    {
+     "archetype": "machine_gun",
+     "damage": 15,
+     "hits_per_volley": 2,
+     "reload_s": 1.0,
+     "range_cells": 6.0
+    }
+   ],
+   "transport_capacity_squads": 2,
+   "notes": "APC/scout/detector; carries 2 squads; detector radius 5.",
+   "dps_ref": 30.0,
+   "range_cells": 6.0
+  },
+  "arty_light": {
+   "family": "artillery",
+   "tier": 2,
+   "producer": "factory",
+   "size_class": "light",
+   "armor_class": "light_vehicle",
+   "movement_class": "wheeled",
+   "layer": "ground",
+   "cost_credits": 900,
+   "build_time_s": 26.5,
+   "health": 480,
+   "speed_cells_s": 2.6,
+   "vision_cells": 9.0,
+   "radius_cells": 0.5,
+   "primary_target_class": "infantry",
+   "power_exponents": {
+    "hp": 0.5,
+    "dps": 0.5,
+    "range": 0.45,
+    "speed": 0.1,
+    "vision": 0.1
+   },
+   "weapons": [
+    {
+     "archetype": "mortar",
+     "damage": 130,
+     "hits_per_volley": 1,
+     "reload_s": 3.0,
+     "range_cells": 11.0,
+     "min_range_cells": 3.0
+    }
+   ],
+   "notes": "Light indirect artillery (Sandglass, Scorpion, Reed).",
+   "dps_ref": 43.3,
+   "range_cells": 11.0
+  },
+  "mbt_t1": {
+   "family": "tank",
+   "tier": 1,
+   "producer": "factory",
+   "size_class": "medium",
+   "armor_class": "medium_armor",
+   "movement_class": "tracked",
+   "layer": "ground",
+   "cost_credits": 850,
+   "build_time_s": 27.5,
+   "health": 900,
+   "speed_cells_s": 2.0,
+   "vision_cells": 9.0,
+   "radius_cells": 0.55,
+   "primary_target_class": "medium_armor",
+   "power_exponents": {
+    "hp": 0.5,
+    "dps": 0.5,
+    "range": 0.3,
+    "speed": 0.2,
+    "vision": 0.05
+   },
+   "weapons": [
+    {
+     "archetype": "tank_cannon",
+     "damage": 140,
+     "hits_per_volley": 1,
+     "reload_s": 1.2,
+     "range_cells": 7.0
+    }
+   ],
+   "notes": "T1 medium tank: anchor of the whole framework.",
+   "dps_ref": 116.7,
+   "range_cells": 7.0
+  },
+  "mbt_t2": {
+   "family": "tank",
+   "tier": 2,
+   "producer": "factory",
+   "size_class": "medium",
+   "armor_class": "medium_armor",
+   "movement_class": "tracked",
+   "layer": "ground",
+   "cost_credits": 1250,
+   "build_time_s": 37.0,
+   "health": 1600,
+   "speed_cells_s": 1.8,
+   "vision_cells": 9.5,
+   "radius_cells": 0.6,
+   "primary_target_class": "medium_armor",
+   "power_exponents": {
+    "hp": 0.5,
+    "dps": 0.5,
+    "range": 0.3,
+    "speed": 0.2,
+    "vision": 0.05
+   },
+   "weapons": [
+    {
+     "archetype": "tank_cannon",
+     "damage": 200,
+     "hits_per_volley": 1,
+     "reload_s": 1.25,
+     "range_cells": 7.5
+    }
+   ],
+   "notes": "T2 heavy MBT (Marte, Ural, Imperial Guard, Arjun, Rhino).",
+   "dps_ref": 160.0,
+   "range_cells": 7.5
+  },
+  "veh_aa": {
+   "family": "aa",
+   "tier": 2,
+   "producer": "factory",
+   "size_class": "medium",
+   "armor_class": "medium_armor",
+   "movement_class": "tracked",
+   "layer": "ground",
+   "cost_credits": 1050,
+   "build_time_s": 31.0,
+   "health": 800,
+   "speed_cells_s": 2.2,
+   "vision_cells": 10.0,
+   "radius_cells": 0.55,
+   "primary_target_class": "air_light",
+   "power_exponents": {
+    "hp": 0.5,
+    "dps": 0.5,
+    "range": 0.4,
+    "speed": 0.15,
+    "vision": 0.1
+   },
+   "weapons": [
+    {
+     "archetype": "aa_missile",
+     "damage": 100,
+     "hits_per_volley": 2,
+     "reload_s": 1.5,
+     "range_cells": 10.0
+    }
+   ],
+   "notes": "Mobile AA + detector; optional weak ground MG (<=20% of AA DPS).",
+   "dps_ref": 133.3,
+   "range_cells": 10.0
+  },
+  "arty_howitzer": {
+   "family": "artillery",
+   "tier": 2,
+   "producer": "factory",
+   "size_class": "medium",
+   "armor_class": "light_vehicle",
+   "movement_class": "tracked",
+   "layer": "ground",
+   "cost_credits": 1300,
+   "build_time_s": 38.0,
+   "health": 650,
+   "speed_cells_s": 1.5,
+   "vision_cells": 8.5,
+   "radius_cells": 0.6,
+   "primary_target_class": "infantry",
+   "power_exponents": {
+    "hp": 0.5,
+    "dps": 0.5,
+    "range": 0.45,
+    "speed": 0.1,
+    "vision": 0.1
+   },
+   "weapons": [
+    {
+     "archetype": "artillery_shell",
+     "damage": 200,
+     "hits_per_volley": 1,
+     "reload_s": 3.5,
+     "range_cells": 15.0,
+     "min_range_cells": 4.0,
+     "deploy_s": 3.0
+    }
+   ],
+   "notes": "Self-propelled howitzer; deploys 2-3 s.",
+   "dps_ref": 57.1,
+   "range_cells": 15.0
+  },
+  "arty_rocket": {
+   "family": "artillery",
+   "tier": 2,
+   "producer": "factory",
+   "size_class": "medium",
+   "armor_class": "light_vehicle",
+   "movement_class": "tracked",
+   "layer": "ground",
+   "cost_credits": 1250,
+   "build_time_s": 37.0,
+   "health": 600,
+   "speed_cells_s": 1.7,
+   "vision_cells": 8.5,
+   "radius_cells": 0.6,
+   "primary_target_class": "infantry",
+   "power_exponents": {
+    "hp": 0.5,
+    "dps": 0.5,
+    "range": 0.45,
+    "speed": 0.1,
+    "vision": 0.1
+   },
+   "weapons": [
+    {
+     "archetype": "rocket_barrage",
+     "damage": 55,
+     "hits_per_volley": 6,
+     "reload_s": 6.0,
+     "range_cells": 13.0,
+     "min_range_cells": 3.5,
+     "deploy_s": 2.0
+    }
+   ],
+   "notes": "Rocket battery / drone launcher.",
+   "dps_ref": 55.0,
+   "range_cells": 13.0
+  },
+  "arty_missile": {
+   "family": "artillery",
+   "tier": 2,
+   "producer": "factory",
+   "size_class": "medium",
+   "armor_class": "light_vehicle",
+   "movement_class": "tracked",
+   "layer": "ground",
+   "cost_credits": 1450,
+   "build_time_s": 42.5,
+   "health": 600,
+   "speed_cells_s": 1.7,
+   "vision_cells": 8.5,
+   "radius_cells": 0.6,
+   "primary_target_class": "medium_armor",
+   "power_exponents": {
+    "hp": 0.5,
+    "dps": 0.5,
+    "range": 0.45,
+    "speed": 0.1,
+    "vision": 0.1
+   },
+   "weapons": [
+    {
+     "archetype": "missile_artillery",
+     "damage": 420,
+     "hits_per_volley": 1,
+     "reload_s": 6.5,
+     "range_cells": 17.0,
+     "min_range_cells": 4.0,
+     "deploy_s": 2.0
+    }
+   ],
+   "notes": "Precision missile artillery (Saker, Shaheen, Fjord).",
+   "dps_ref": 64.6,
+   "range_cells": 17.0
+  },
+  "siege_ap": {
+   "family": "siege",
+   "tier": 3,
+   "producer": "factory",
+   "size_class": "heavy",
+   "armor_class": "heavy_armor",
+   "movement_class": "tracked",
+   "layer": "ground",
+   "cost_credits": 2400,
+   "build_time_s": 63.0,
+   "health": 3600,
+   "speed_cells_s": 1.4,
+   "vision_cells": 8.5,
+   "radius_cells": 0.8,
+   "primary_target_class": "medium_armor",
+   "power_exponents": {
+    "hp": 0.5,
+    "dps": 0.5,
+    "range": 0.3,
+    "speed": 0.1,
+    "vision": 0.05
+   },
+   "weapons": [
+    {
+     "archetype": "tank_cannon",
+     "damage": 160,
+     "hits_per_volley": 2,
+     "reload_s": 1.25,
+     "range_cells": 8.5,
+     "splash_cells": 0.6
+    }
+   ],
+   "notes": "Twin-gun breakthrough tank (Bastion).",
+   "dps_ref": 256.0,
+   "range_cells": 8.5
+  },
+  "siege_he": {
+   "family": "siege",
+   "tier": 3,
+   "producer": "factory",
+   "size_class": "heavy",
+   "armor_class": "heavy_armor",
+   "movement_class": "tracked",
+   "layer": "ground",
+   "cost_credits": 2400,
+   "build_time_s": 63.0,
+   "health": 3600,
+   "speed_cells_s": 1.4,
+   "vision_cells": 8.5,
+   "radius_cells": 0.8,
+   "primary_target_class": "building_heavy",
+   "power_exponents": {
+    "hp": 0.5,
+    "dps": 0.5,
+    "range": 0.3,
+    "speed": 0.1,
+    "vision": 0.05
+   },
+   "weapons": [
+    {
+     "archetype": "siege_gun",
+     "damage": 700,
+     "hits_per_volley": 1,
+     "reload_s": 3.0,
+     "range_cells": 8.5
+    }
+   ],
+   "notes": "Heavy assault gun (Colossus, Elephant, Gaj, Kiln, Bear via tags).",
+   "dps_ref": 233.3,
+   "range_cells": 8.5
+  },
+  "siege_rail": {
+   "family": "siege",
+   "tier": 3,
+   "producer": "factory",
+   "size_class": "heavy",
+   "armor_class": "heavy_armor",
+   "movement_class": "tracked",
+   "layer": "ground",
+   "cost_credits": 2400,
+   "build_time_s": 63.0,
+   "health": 3300,
+   "speed_cells_s": 1.4,
+   "vision_cells": 8.5,
+   "radius_cells": 0.8,
+   "primary_target_class": "medium_armor",
+   "power_exponents": {
+    "hp": 0.5,
+    "dps": 0.5,
+    "range": 0.3,
+    "speed": 0.1,
+    "vision": 0.05
+   },
+   "weapons": [
+    {
+     "archetype": "rail_gun",
+     "damage": 760,
+     "hits_per_volley": 1,
+     "reload_s": 3.5,
+     "range_cells": 12.0
+    }
+   ],
+   "notes": "Long-range armor killer (Argent, Charlemagne): 874 per hit vs medium armor, two hits kill a T1 tank.",
+   "dps_ref": 249.7,
+   "range_cells": 12.0
+  },
+  "siege_beam": {
+   "family": "siege",
+   "tier": 3,
+   "producer": "factory",
+   "size_class": "heavy",
+   "armor_class": "heavy_armor",
+   "movement_class": "tracked",
+   "layer": "ground",
+   "cost_credits": 2400,
+   "build_time_s": 63.0,
+   "health": 3200,
+   "speed_cells_s": 1.4,
+   "vision_cells": 8.5,
+   "radius_cells": 0.8,
+   "primary_target_class": "medium_armor",
+   "power_exponents": {
+    "hp": 0.5,
+    "dps": 0.5,
+    "range": 0.3,
+    "speed": 0.1,
+    "vision": 0.05
+   },
+   "weapons": [
+    {
+     "archetype": "beam_thermal",
+     "damage": 50,
+     "hits_per_volley": 1,
+     "reload_s": 0.25,
+     "range_cells": 9.0,
+     "ramp_seconds": 5.0,
+     "ramp_max_pct": 150
+    }
+   ],
+   "notes": "Sunlance/Ifrit; 200 DPS base, ramps to 300.",
+   "dps_ref": 200.0,
+   "range_cells": 9.0
+  },
+  "siege_demo": {
+   "family": "siege",
+   "tier": 3,
+   "producer": "factory",
+   "size_class": "heavy",
+   "armor_class": "heavy_armor",
+   "movement_class": "tracked",
+   "layer": "ground",
+   "cost_credits": 2400,
+   "build_time_s": 63.0,
+   "health": 3800,
+   "speed_cells_s": 1.2,
+   "vision_cells": 8.0,
+   "radius_cells": 0.85,
+   "primary_target_class": "building_heavy",
+   "power_exponents": {
+    "hp": 0.5,
+    "dps": 0.5,
+    "range": 0.3,
+    "speed": 0.1,
+    "vision": 0.05
+   },
+   "weapons": [
+    {
+     "archetype": "demolition_cannon",
+     "damage": 1000,
+     "hits_per_volley": 1,
+     "reload_s": 4.0,
+     "range_cells": 4.5
+    }
+   ],
+   "notes": "Demolition crawler (Kiln, Bear): 4.5-cell reach, 2.5-cell blast, anti-structure specialist.",
+   "dps_ref": 250.0,
+   "range_cells": 4.5
+  },
+  "veh_command": {
+   "family": "siege",
+   "tier": 3,
+   "producer": "factory",
+   "size_class": "huge",
+   "armor_class": "heavy_armor",
+   "movement_class": "tracked",
+   "layer": "ground",
+   "cost_credits": 2800,
+   "build_time_s": 73.5,
+   "health": 3000,
+   "speed_cells_s": 1.3,
+   "vision_cells": 9.0,
+   "radius_cells": 1.0,
+   "primary_target_class": "medium_armor",
+   "power_exponents": {
+    "hp": 0.5,
+    "dps": 0.5,
+    "range": 0.3,
+    "speed": 0.1,
+    "vision": 0.05
+   },
+   "weapons": [
+    {
+     "archetype": "tank_cannon",
+     "damage": 200,
+     "hits_per_volley": 1,
+     "reload_s": 1.5,
+     "range_cells": 8.0
+    }
+   ],
+   "aura_radius_cells": 5.0,
+   "notes": "Crewed command walker: cannon + 5-cell command field.",
+   "dps_ref": 133.3,
+   "range_cells": 8.0
+  },
+  "veh_assault_carrier": {
+   "family": "siege",
+   "tier": 3,
+   "producer": "factory",
+   "size_class": "huge",
+   "armor_class": "heavy_armor",
+   "movement_class": "amphibious",
+   "layer": "ground",
+   "cost_credits": 2900,
+   "build_time_s": 76.5,
+   "health": 4000,
+   "speed_cells_s": 1.5,
+   "vision_cells": 8.5,
+   "radius_cells": 1.0,
+   "primary_target_class": "building_heavy",
+   "power_exponents": {
+    "hp": 0.5,
+    "dps": 0.5,
+    "range": 0.3,
+    "speed": 0.1,
+    "vision": 0.05
+   },
+   "weapons": [
+    {
+     "archetype": "siege_gun",
+     "damage": 500,
+     "hits_per_volley": 1,
+     "reload_s": 3.0,
+     "range_cells": 5.5
+    }
+   ],
+   "transport_capacity_squads": 4,
+   "notes": "Leviathan: amphibious heavy carrier, short siege cannon, 4 squads.",
+   "dps_ref": 166.7,
+   "range_cells": 5.5
+  },
+  "air_fighter": {
+   "family": "aircraft",
+   "tier": 2,
+   "producer": "airfield",
+   "size_class": "air_medium",
+   "armor_class": "air_light",
+   "movement_class": "air_fixed",
+   "layer": "air",
+   "cost_credits": 1100,
+   "build_time_s": 30.5,
+   "health": 700,
+   "speed_cells_s": 7.0,
+   "vision_cells": 11.0,
+   "radius_cells": 0.5,
+   "primary_target_class": "air_light",
+   "power_exponents": {
+    "hp": 0.5,
+    "dps": 0.5,
+    "range": 0.25,
+    "speed": 0.15,
+    "vision": 0.08
+   },
+   "weapons": [
+    {
+     "archetype": "aa_missile",
+     "damage": 100,
+     "hits_per_volley": 1,
+     "reload_s": 1.0,
+     "range_cells": 8.0,
+     "ammo_volleys": 6
+    }
+   ],
+   "sortie_cycle_s": 20,
+   "rearm_s_full": 8,
+   "notes": "Air-superiority fighter; air targets only.",
+   "dps_ref": 30.0,
+   "range_cells": 8.0,
+   "sortie_damage_raw": 600,
+   "burst_dps_vs_primary": 100.0,
+   "sortie_avg_dps_vs_primary": 30.0
+  },
+  "air_gunship": {
+   "family": "aircraft",
+   "tier": 3,
+   "producer": "airfield",
+   "size_class": "air_large",
+   "armor_class": "air_heavy",
+   "movement_class": "air_hover",
+   "layer": "air",
+   "cost_credits": 2100,
+   "build_time_s": 58.5,
+   "health": 1500,
+   "speed_cells_s": 4.5,
+   "vision_cells": 10.0,
+   "radius_cells": 0.6,
+   "primary_target_class": "medium_armor",
+   "power_exponents": {
+    "hp": 0.5,
+    "dps": 0.5,
+    "range": 0.25,
+    "speed": 0.15,
+    "vision": 0.08
+   },
+   "weapons": [
+    {
+     "archetype": "air_missile",
+     "damage": 90,
+     "hits_per_volley": 2,
+     "reload_s": 1.5,
+     "range_cells": 6.0,
+     "ammo_volleys": 7
+    }
+   ],
+   "sortie_cycle_s": 34,
+   "rearm_s_full": 12,
+   "notes": "Armored hovering anti-vehicle aircraft.",
+   "dps_ref": 37.1,
+   "range_cells": 6.0,
+   "sortie_damage_raw": 1260,
+   "burst_dps_vs_primary": 120.0,
+   "sortie_avg_dps_vs_primary": 37.1
+  },
+  "air_bomber": {
+   "family": "aircraft",
+   "tier": 3,
+   "producer": "airfield",
+   "size_class": "air_large",
+   "armor_class": "air_heavy",
+   "movement_class": "air_fixed",
+   "layer": "air",
+   "cost_credits": 1900,
+   "build_time_s": 53.0,
+   "health": 1100,
+   "speed_cells_s": 6.0,
+   "vision_cells": 10.0,
+   "radius_cells": 0.7,
+   "primary_target_class": "building_heavy",
+   "power_exponents": {
+    "hp": 0.5,
+    "dps": 0.5,
+    "range": 0.25,
+    "speed": 0.15,
+    "vision": 0.08
+   },
+   "weapons": [
+    {
+     "archetype": "bomb",
+     "damage": 700,
+     "hits_per_volley": 1,
+     "reload_s": 1.2,
+     "range_cells": 1.5,
+     "ammo_volleys": 2
+    }
+   ],
+   "sortie_cycle_s": 40,
+   "rearm_s_full": 20,
+   "notes": "Area bomber (2 bombs/sortie).",
+   "dps_ref": 35.0,
+   "range_cells": 1.5,
+   "sortie_damage_raw": 1400,
+   "burst_dps_vs_primary": 583.3,
+   "sortie_avg_dps_vs_primary": 35.0
+  },
+  "air_drone": {
+   "family": "aircraft",
+   "tier": 3,
+   "producer": "airfield",
+   "size_class": "air_medium",
+   "armor_class": "air_light",
+   "movement_class": "air_hover",
+   "layer": "air",
+   "cost_credits": 1500,
+   "build_time_s": 41.5,
+   "health": 650,
+   "speed_cells_s": 6.5,
+   "vision_cells": 10.0,
+   "radius_cells": 0.5,
+   "primary_target_class": "medium_armor",
+   "power_exponents": {
+    "hp": 0.5,
+    "dps": 0.5,
+    "range": 0.25,
+    "speed": 0.15,
+    "vision": 0.08
+   },
+   "weapons": [
+    {
+     "archetype": "air_missile",
+     "damage": 150,
+     "hits_per_volley": 1,
+     "reload_s": 0.5,
+     "range_cells": 6.0,
+     "ammo_volleys": 4
+    }
+   ],
+   "sortie_cycle_s": 28,
+   "rearm_s_full": 14,
+   "notes": "Unmanned strike drone: one 4-missile salvo per sortie.",
+   "dps_ref": 21.4,
+   "range_cells": 6.0,
+   "sortie_damage_raw": 600,
+   "burst_dps_vs_primary": 300.0,
+   "sortie_avg_dps_vs_primary": 21.4
+  },
+  "air_ew": {
+   "family": "support",
+   "tier": 3,
+   "producer": "airfield",
+   "size_class": "air_large",
+   "armor_class": "air_heavy",
+   "movement_class": "air_fixed",
+   "layer": "air",
+   "cost_credits": 1800,
+   "build_time_s": 50.0,
+   "health": 900,
+   "speed_cells_s": 5.0,
+   "vision_cells": 10.0,
+   "radius_cells": 0.6,
+   "primary_target_class": "air_heavy",
+   "power_exponents": {
+    "hp": 0.5,
+    "dps": 0.5,
+    "range": 0.1,
+    "speed": 0.15,
+    "vision": 0.3
+   },
+   "weapons": [],
+   "aura_radius_cells": 5.0,
+   "notes": "Unarmed jammer aircraft.",
+   "dps_ref": 0.0,
+   "range_cells": 0.0
+  },
+  "ship_patrol": {
+   "family": "ship",
+   "tier": 1,
+   "producer": "dock",
+   "size_class": "ship_small",
+   "armor_class": "ship_light",
+   "movement_class": "naval",
+   "layer": "surface_water",
+   "cost_credits": 600,
+   "build_time_s": 16.5,
+   "health": 700,
+   "speed_cells_s": 3.2,
+   "vision_cells": 11.0,
+   "radius_cells": 0.6,
+   "primary_target_class": "ship_light",
+   "power_exponents": {
+    "hp": 0.5,
+    "dps": 0.5,
+    "range": 0.35,
+    "speed": 0.1,
+    "vision": 0.1
+   },
+   "weapons": [
+    {
+     "archetype": "machine_gun",
+     "damage": 28,
+     "hits_per_volley": 2,
+     "reload_s": 1.0,
+     "range_cells": 6.5
+    }
+   ],
+   "notes": "Patrol boat / river scout.",
+   "dps_ref": 47.6,
+   "range_cells": 6.5
+  },
+  "ship_escort": {
+   "family": "ship",
+   "tier": 2,
+   "producer": "dock",
+   "size_class": "ship_medium",
+   "armor_class": "ship_heavy",
+   "movement_class": "naval",
+   "layer": "surface_water",
+   "cost_credits": 1700,
+   "build_time_s": 47.0,
+   "health": 2200,
+   "speed_cells_s": 2.4,
+   "vision_cells": 11.0,
+   "radius_cells": 1.0,
+   "primary_target_class": "ship_heavy",
+   "power_exponents": {
+    "hp": 0.5,
+    "dps": 0.5,
+    "range": 0.35,
+    "speed": 0.1,
+    "vision": 0.1
+   },
+   "weapons": [
+    {
+     "archetype": "naval_gun",
+     "damage": 180,
+     "hits_per_volley": 1,
+     "reload_s": 2.0,
+     "range_cells": 9.0
+    },
+    {
+     "archetype": "aa_missile",
+     "damage": 60,
+     "hits_per_volley": 2,
+     "reload_s": 1.5,
+     "range_cells": 10.0
+    },
+    {
+     "archetype": "torpedo",
+     "damage": 250,
+     "hits_per_volley": 1,
+     "reload_s": 6.0,
+     "range_cells": 7.0
+    }
+   ],
+   "notes": "Escort: gun + AA + anti-submarine + detector.",
+   "dps_ref": 90.0,
+   "range_cells": 10.0
+  },
+  "ship_siege": {
+   "family": "ship",
+   "tier": 3,
+   "producer": "dock",
+   "size_class": "ship_large",
+   "armor_class": "ship_heavy",
+   "movement_class": "naval",
+   "layer": "surface_water",
+   "cost_credits": 3200,
+   "build_time_s": 89.0,
+   "health": 4500,
+   "speed_cells_s": 1.6,
+   "vision_cells": 10.5,
+   "radius_cells": 1.3,
+   "primary_target_class": "building_heavy",
+   "power_exponents": {
+    "hp": 0.5,
+    "dps": 0.5,
+    "range": 0.35,
+    "speed": 0.1,
+    "vision": 0.1
+   },
+   "weapons": [
+    {
+     "archetype": "naval_bombard",
+     "damage": 320,
+     "hits_per_volley": 3,
+     "reload_s": 8.0,
+     "range_cells": 20.0,
+     "min_range_cells": 6.0
+    }
+   ],
+   "notes": "Arsenal/monitor: land bombardment.",
+   "dps_ref": 120.0,
+   "range_cells": 20.0
+  },
+  "ship_carrier": {
+   "family": "ship",
+   "tier": 3,
+   "producer": "dock",
+   "size_class": "ship_large",
+   "armor_class": "ship_heavy",
+   "movement_class": "naval",
+   "layer": "surface_water",
+   "cost_credits": 3800,
+   "build_time_s": 105.5,
+   "health": 5000,
+   "speed_cells_s": 1.5,
+   "vision_cells": 11.0,
+   "radius_cells": 1.5,
+   "primary_target_class": "building_heavy",
+   "power_exponents": {
+    "hp": 0.5,
+    "dps": 0.5,
+    "range": 0.35,
+    "speed": 0.1,
+    "vision": 0.1
+   },
+   "weapons": [],
+   "drone_count": 6,
+   "drone_health": 150,
+   "drone_speed_cells_s": 6.0,
+   "drone_replace_s": 14,
+   "drone_replace_cost": 120,
+   "drone_weapon": {
+    "archetype": "drone_missile",
+    "damage": 60,
+    "hits_per_volley": 2,
+    "reload_s": 2.0,
+    "range_cells": 5.0
+   },
+   "notes": "Carrier: 6 drones (weapon lives on the drones).",
+   "dps_ref": 216.0,
+   "range_cells": 0.0
+  },
+  "ship_sub": {
+   "family": "ship",
+   "tier": 3,
+   "producer": "dock",
+   "size_class": "ship_medium",
+   "armor_class": "ship_heavy",
+   "movement_class": "submerged",
+   "layer": "underwater",
+   "cost_credits": 2600,
+   "build_time_s": 72.0,
+   "health": 2000,
+   "speed_cells_s": 1.8,
+   "vision_cells": 9.0,
+   "radius_cells": 0.9,
+   "primary_target_class": "ship_heavy",
+   "power_exponents": {
+    "hp": 0.5,
+    "dps": 0.5,
+    "range": 0.35,
+    "speed": 0.1,
+    "vision": 0.1
+   },
+   "weapons": [
+    {
+     "archetype": "torpedo",
+     "damage": 500,
+     "hits_per_volley": 1,
+     "reload_s": 8.0,
+     "range_cells": 8.0
+    },
+    {
+     "archetype": "cruise_missile",
+     "damage": 600,
+     "hits_per_volley": 1,
+     "reload_s": 12.0,
+     "range_cells": 22.0,
+     "requires_surface_s": 8
+    }
+   ],
+   "notes": "Missile submarine: torpedo + surfaced land-attack missile.",
+   "dps_ref": 62.5,
+   "range_cells": 22.0
+  },
+  "mbt_t2_rail": {
+   "family": "tank",
+   "tier": 2,
+   "producer": "factory",
+   "size_class": "medium",
+   "armor_class": "medium_armor",
+   "movement_class": "tracked",
+   "layer": "ground",
+   "cost_credits": 1250,
+   "build_time_s": 37,
+   "health": 1500,
+   "speed_cells_s": 1.8,
+   "vision_cells": 9.5,
+   "radius_cells": 0.6,
+   "primary_target_class": "medium_armor",
+   "power_exponents": {
+    "hp": 0.5,
+    "dps": 0.5,
+    "range": 0.3,
+    "speed": 0.2,
+    "vision": 0.05
+   },
+   "weapons": [
+    {
+     "archetype": "rail_gun",
+     "damage": 700,
+     "hits_per_volley": 1,
+     "reload_s": 5.0,
+     "range_cells": 11.0
+    }
+   ],
+   "notes": "T2 rail tank (Rhino): accurate anti-armor, weak vs infantry via matrix.",
+   "dps_ref": 161.0,
+   "range_cells": 11.0
+  },
+  "veh_aa_beam": {
+   "family": "aa",
+   "tier": 2,
+   "producer": "factory",
+   "size_class": "medium",
+   "armor_class": "medium_armor",
+   "movement_class": "tracked",
+   "layer": "ground",
+   "cost_credits": 1050,
+   "build_time_s": 31,
+   "health": 800,
+   "speed_cells_s": 2.2,
+   "vision_cells": 10.0,
+   "radius_cells": 0.55,
+   "primary_target_class": "air_light",
+   "power_exponents": {
+    "hp": 0.5,
+    "dps": 0.5,
+    "range": 0.4,
+    "speed": 0.15,
+    "vision": 0.1
+   },
+   "weapons": [
+    {
+     "archetype": "beam_thermal",
+     "damage": 35,
+     "hits_per_volley": 1,
+     "reload_s": 0.25,
+     "range_cells": 9.0,
+     "targets_override": [
+      "air"
+     ]
+    }
+   ],
+   "notes": "Laser AA (Dawn): continuous thermal beam, air only, 140 raw DPS.",
+   "dps_ref": 133.0,
+   "range_cells": 9.0
+  },
+  "veh_aa_flak": {
+   "family": "aa",
+   "tier": 2,
+   "producer": "factory",
+   "size_class": "medium",
+   "armor_class": "medium_armor",
+   "movement_class": "tracked",
+   "layer": "ground",
+   "cost_credits": 1050,
+   "build_time_s": 31,
+   "health": 800,
+   "speed_cells_s": 2.2,
+   "vision_cells": 10.0,
+   "radius_cells": 0.55,
+   "primary_target_class": "air_light",
+   "power_exponents": {
+    "hp": 0.5,
+    "dps": 0.5,
+    "range": 0.4,
+    "speed": 0.15,
+    "vision": 0.1
+   },
+   "weapons": [
+    {
+     "archetype": "flak",
+     "damage": 52,
+     "hits_per_volley": 2,
+     "reload_s": 1.0,
+     "range_cells": 8.0,
+     "targets_override": [
+      "air",
+      "ground"
+     ]
+    }
+   ],
+   "notes": "Dual-purpose flak (Porcupine): 62 DPS vs air_light, 104 vs infantry.",
+   "dps_ref": 62.4,
+   "range_cells": 8.0
+  }
+ },
+ "service_units": {
+  "engineer": {
+   "cost_credits": 500,
+   "build_time_s": 18,
+   "health": 260,
+   "armor_class": "infantry",
+   "speed_cells_s": 1.5,
+   "vision_cells": 7.0,
+   "radius_cells": 0.4,
+   "producer": "barracks",
+   "source": "cost: bible"
+  },
+  "collector": {
+   "cost_credits": 1400,
+   "build_time_s": 30.5,
+   "health": 900,
+   "armor_class": "light_vehicle",
+   "speed_cells_s": 2.0,
+   "vision_cells": 8.0,
+   "radius_cells": 0.6,
+   "producer": "refinery",
+   "capacity_credits": 600,
+   "source": "cost: bible"
+  },
+  "mcv": {
+   "cost_credits": 3000,
+   "build_time_s": 67,
+   "health": 2000,
+   "armor_class": "medium_armor",
+   "speed_cells_s": 1.2,
+   "vision_cells": 8.0,
+   "radius_cells": 0.8,
+   "producer": "factory",
+   "deploy_s": 3.0,
+   "source": "cost: bible"
+  },
+  "landing_transport": {
+   "cost_credits": 900,
+   "build_time_s": 25,
+   "health": 1400,
+   "armor_class": "light_vehicle",
+   "speed_cells_s": 2.6,
+   "vision_cells": 9.0,
+   "radius_cells": 0.8,
+   "producer": "dock",
+   "capacity_squads": 4,
+   "capacity_vehicles": 2,
+   "source": "cost: bible"
+  }
+ },
+ "style_tags": {
+  "fast": {
+   "speed_pct": 125
+  },
+  "quick": {
+   "speed_pct": 112
+  },
+  "slow": {
+   "speed_pct": 88
+  },
+  "very_slow": {
+   "speed_pct": 70
+  },
+  "fragile": {
+   "health_pct": 85
+  },
+  "light_hull": {
+   "health_pct": 92
+  },
+  "sturdy": {
+   "health_pct": 115
+  },
+  "robust": {
+   "health_pct": 125
+  },
+  "armored": {
+   "health_pct": 130
+  },
+  "weak_gun": {
+   "damage_pct": 60
+  },
+  "weaker_gun": {
+   "damage_pct": 85
+  },
+  "strong_gun": {
+   "damage_pct": 115
+  },
+  "no_gun": {
+   "remove_weapons": true
+  },
+  "long_range": {
+   "range_pct": 120
+  },
+  "short_range": {
+   "range_pct": 80
+  },
+  "very_short_range": {
+   "range_pct": 55
+  },
+  "alpha": {
+   "damage_pct": 130,
+   "reload_pct": 130
+  },
+  "sustained": {
+   "damage_pct": 80,
+   "reload_pct": 80
+  },
+  "poor_sight": {
+   "vision_pct": 80
+  },
+  "good_sight": {
+   "vision_pct": 125
+  },
+  "precise": {
+   "scatter_pct": 60
+  },
+  "inaccurate": {
+   "scatter_pct": 150
+  },
+  "large": {
+   "radius_pct": 125
+  },
+  "compact": {
+   "radius_pct": 88
+  },
+  "endurance": {
+   "ammo_pct": 130
+  },
+  "limited_endurance": {
+   "ammo_pct": 75
+  },
+  "quick_rearm": {
+   "rearm_pct": 70
+  },
+  "slow_rearm": {
+   "rearm_pct": 140
+  },
+  "heavy_bomb": {
+   "damage_pct": 220,
+   "ammo_pct": 50
+  },
+  "note": "Tags change stats only. Abilities cost credits via ability_value_pct. Effects multiply."
+ },
+ "ability_value_pct": {
+  "amphibious": 6,
+  "camouflage": 5,
+  "stealth": 6,
+  "deployable_mode": 5,
+  "transport_3": 4,
+  "transport_4": 8,
+  "detector": 0,
+  "heal_aura": 8,
+  "repair_aura": 6,
+  "command_field": 10,
+  "aps_interception": 7,
+  "decoy": 3,
+  "sensor": 3,
+  "cover_builder": 4,
+  "shield_front": 5,
+  "unmanned": -3,
+  "smoke": 3,
+  "jammer": 4,
+  "multirole": 4,
+  "dual_purpose": 6,
+  "spotter": 4,
+  "salvage": 3,
+  "breach_charge": 4,
+  "frontal_armor": 4,
+  "drone_repair": 4,
+  "suppressive_deploy": 4,
+  "note": "Percent added to the fair cost. detector is baseline for scouts/AA/escorts (0)."
+ },
+ "faction_styles": {
+  "napc": {
+   "summary": "durable combined arms",
+   "power_offset_pct": 1.5
+  },
+  "nec": {
+   "summary": "precision fire and sensor networks",
+   "power_offset_pct": 3.0
+  },
+  "olm": {
+   "summary": "mobile energy warfare",
+   "power_offset_pct": 0.0
+  },
+  "def": {
+   "summary": "industrial volume and artillery saturation",
+   "power_offset_pct": -4.0
+  },
+  "pd": {
+   "summary": "amphibious reach and naval logistics",
+   "power_offset_pct": 0.0
+  },
+  "han": {
+   "summary": "affordable infantry and unmanned support",
+   "power_offset_pct": -1.5
+  },
+  "ae": {
+   "summary": "recovery, salvage and endurance",
+   "power_offset_pct": 0.0
+  },
+  "sap": {
+   "summary": "protected advance and fortification",
+   "power_offset_pct": 0.0
+  },
+  "note": "A faction style is only a summary plus power_offset_pct (filled from modifier_compensation.recommended). Passive bible modifiers are applied by the resolver and are never pre-baked into base numbers. Unit flavour is expressed with style_tags/abilities per unit_assignments."
+ },
+ "movement_defaults": {
+  "accel_ticks": {
+   "inf": 2,
+   "light": 4,
+   "medium": 6,
+   "heavy": 10,
+   "huge": 14,
+   "air_medium": 8,
+   "air_large": 10,
+   "ship_small": 12,
+   "ship_medium": 20,
+   "ship_large": 30
+  },
+  "decel_ticks_pct_of_accel": 70,
+  "reverse_speed_pct": 50,
+  "formation_spacing_cells_extra": 0.45,
+  "stuck_repath_ticks": 40,
+  "per_unit_override_fields": [
+   "accel_ticks",
+   "deep_speed_pct",
+   "turn_deg_s"
+  ],
+  "note": "'slow acceleration' (Marte) = accel_ticks 14 on a medium hull; values are ours (bible silent)"
+ },
+ "veterancy": {
+  "enabled": false,
+  "source": "bible starting_preset.veterancy_enabled=false"
+ },
+ "economy": {
+  "start_credits": 7500,
+  "start_structure": "headquarters",
+  "veterancy_enabled": false,
+  "source_start": "bible",
+  "collector": {
+   "capacity_credits": 600,
+   "harvest_pulse_ticks": 1,
+   "harvest_credits_per_pulse": 1,
+   "unload_pulse_ticks": 1,
+   "unload_credits_per_pulse": 6,
+   "unload_overhead_ticks": 40,
+   "speed_cells_s": 2.0,
+   "loaded_speed_pct": 100,
+   "health": 900,
+   "cost_credits": 1400,
+   "build_time_s": 30.5,
+   "refinery_unload_slots": 1,
+   "deposit_search_radius_cells": 28,
+   "source": "cost: bible; rest: ours"
+  },
+  "derived": {
+   "harvest_credits_per_s": 20,
+   "unload_credits_per_s": 120,
+   "full_load_harvest_s": 30.0,
+   "income_by_distance_cells": {
+    "6": {
+     "cycle_s": 43.0,
+     "income_cr_per_min": 837
+    },
+    "8": {
+     "cycle_s": 45.0,
+     "income_cr_per_min": 800
+    },
+    "10": {
+     "cycle_s": 47.0,
+     "income_cr_per_min": 766
+    },
+    "12": {
+     "cycle_s": 49.0,
+     "income_cr_per_min": 735
+    },
+    "16": {
+     "cycle_s": 53.0,
+     "income_cr_per_min": 679
+    },
+    "20": {
+     "cycle_s": 57.0,
+     "income_cr_per_min": 632
+    },
+    "24": {
+     "cycle_s": 61.0,
+     "income_cr_per_min": 590
+    },
+    "32": {
+     "cycle_s": 69.0,
+     "income_cr_per_min": 522
+    }
+   },
+   "reference_income_cr_per_min_per_collector": 766,
+   "reference_distance_cells": 10,
+   "collectors_per_refinery_recommended": 3,
+   "refinery_unload_utilisation_at_3_collectors_pct": 32
+  },
+  "deposit": {
+   "credits_per_cell": 600,
+   "rich_credits_per_cell": 1200,
+   "standard_field_cells": 24,
+   "standard_field_credits": 14400,
+   "rich_field_cells": 16,
+   "rich_field_credits": 19200,
+   "regrow": false,
+   "start_fields_per_player": 2,
+   "start_field_distance_cells": [
+    8,
+    16
+   ],
+   "expansion_fields_per_player_min": 2,
+   "note": "Finite. A load of 600 empties exactly one cell. 3 collectors drain a standard field in ~6.3 min."
+  },
+  "map_budget": {
+   "credits_per_player_reachable_min": 75000,
+   "credits_per_player_reachable_target": 110000,
+   "layout": "per player: 2 standard start fields (28.8k) + natural expansion 1 standard + 1 rich (33.6k) + 2 further standard (28.8k) + 2 contested rich centre fields shared (38.4k)",
+   "note": "Sum of deposits a player can reach without crossing the map centre; finite deposits (not the clock) end matches at 20-35 min."
+  },
+  "refinery": {
+   "cost_credits": 1800,
+   "free_collector": true,
+   "payback_min_first_collector": 2.35,
+   "payback_min_extra_collector": 1.83
+  },
+  "expansion": {
+   "components": {
+    "mcv": 3000,
+    "refinery": 1800,
+    "collectors_2": 2800,
+    "generator": 600,
+    "anti_tank_turret": 800,
+    "watchtower": 450
+   },
+   "total_credits": 9450,
+   "income_added_cr_per_min": 2298,
+   "payback_min": 4.1,
+   "note": "Buildings must be inside an HQ's 8-cell radius (bible), so an expansion needs an MCV."
+  },
+  "salvage": {
+   "payout_pct_of_paid_cost": 20,
+   "action_s": 8,
+   "wreck_lifetime_s": 60,
+   "source": "bible",
+   "alert_share_of_income_pct": 15,
+   "target_share_of_income_pct_max": 10,
+   "note": "AE only; track share of total income (bible prototype priority 5)"
+  },
+  "repair": {
+   "engineer_pct_per_s_x100": 100,
+   "cost_pct_of_paid_price_per_s_x100": 50,
+   "full_repair_cost_pct_of_price": 50,
+   "full_repair_time_s": 100,
+   "source": "bible",
+   "cost_per_health_formula": "0.005*paid_price / (0.01*max_health) = 0.5*paid_price/max_health credits per hit point"
+  },
+  "sell_refund_pct": 50,
+  "unit_cap": {
+   "default": 150,
+   "counts": "non-structure entities",
+   "exempt": [
+    "collector",
+    "mcv",
+    "summons",
+    "decoys",
+    "carrier_drones",
+    "superweapon_units"
+   ],
+   "note": "Typical 25-min army 40-70 entities; cap bounds sim cost, not economy."
+  },
+  "build_radius_cells": 8,
+  "source_build_radius": "bible"
+ },
+ "power": {
+  "generator_output": 150,
+  "generator_cost": 600,
+  "cost_per_power_credits": 4.0,
+  "shortage_production_speed_pct": 50,
+  "headroom_pct": 10,
+  "consumption": {
+   "refinery": 30,
+   "barracks": 10,
+   "factory": 40,
+   "dock": 35,
+   "radar": 40,
+   "airfield": 40,
+   "laboratory": 60,
+   "watchtower": 5,
+   "anti_tank_turret": 15,
+   "aa_battery": 20,
+   "advanced_defense": 40,
+   "superweapon": 200,
+   "relay": 20,
+   "defense_avg": 25
+  },
+  "sets": {
+   "opening": {
+    "structures": [
+     "refinery",
+     "barracks",
+     "factory"
+    ],
+    "draw": 80,
+    "generators": 1
+   },
+   "plus_radar": {
+    "structures": [
+     "refinery",
+     "barracks",
+     "factory",
+     "radar"
+    ],
+    "draw": 120,
+    "generators": 1
+   },
+   "tech_base": {
+    "structures": [
+     "refinery",
+     "barracks",
+     "factory",
+     "radar",
+     "airfield",
+     "laboratory"
+    ],
+    "draw": 220,
+    "generators": 2
+   },
+   "mid_base": {
+    "structures": [
+     "refinery x2",
+     "barracks x2",
+     "factory x2",
+     "radar",
+     "airfield",
+     "laboratory",
+     "at_turret x2",
+     "aa_battery x2"
+    ],
+    "draw": 370,
+    "generators": 3
+   },
+   "late_base": {
+    "structures": [
+     "refinery x3",
+     "barracks x2",
+     "factory x3",
+     "dock",
+     "radar",
+     "airfield x2",
+     "laboratory",
+     "defenses x6",
+     "superweapon"
+    ],
+    "draw": 795,
+    "generators": 6
+   }
+  },
+  "rule": "generators = ceil(draw * 1.10 / (150 * output_multiplier)); the superweapon alone draws 200 = 1.33 generators (800 credits); defense_avg = 25 power",
+  "source": "structure deltas: bible; sets: ours"
+ },
+ "aircraft": {
+  "reference_sortie_distance_cells": 50,
+  "pads_per_airfield": 4,
+  "rearm_needs_powered_pad": true,
+  "sortie_cycle_breakdown": {
+   "fighter": {
+    "fly_out_s": 7,
+    "rearm_s": 8,
+    "fly_back_s": 5,
+    "total_s": 20
+   },
+   "gunship": {
+    "fly_out_s": 11,
+    "rearm_s": 12,
+    "fly_back_s": 11,
+    "total_s": 34
+   },
+   "bomber": {
+    "fly_out_s": 8,
+    "rearm_s": 20,
+    "fly_back_s": 8,
+    "total_s": 36,
+    "note": "engine cycle uses 40 with turn-around"
+   },
+   "strike_drone": {
+    "fly_out_s": 8,
+    "rearm_s": 14,
+    "fly_back_s": 6,
+    "total_s": 28
+   }
+  },
+  "sortie_value_targets": {
+   "unprotected_value_ratio": {
+    "gunship": [
+     0.5,
+     0.65
+    ],
+    "bomber": [
+     0.9,
+     1.15
+    ],
+    "strike_drone": [
+     0.3,
+     0.45
+    ],
+    "note": "ground value destroyed per first sortie / aircraft cost, no AA"
+   },
+   "aa_share_neutralising_pct": 30,
+   "aa_share_nuisance_pct": 15
+  },
+  "hover_units": [
+   "gunship",
+   "strike_drone"
+  ],
+  "fixed_wing_units": [
+   "fighter",
+   "bomber",
+   "ew"
+  ],
+  "ammo_rule": "a sortie ends when ammo_volleys is 0; the aircraft returns to the nearest powered Airfield pad, rearms rearm_s_full, then resumes",
+  "leave_expose_s": 3.0,
+  "note": "Fighters cannot attack ground; AA weapons cannot attack ground; small arms hit air at bullet matrix 65/25."
+ },
+ "naval": {
+  "speed_cells_s": {
+   "patrol": 3.2,
+   "escort": 2.4,
+   "siege": 1.6,
+   "carrier": 1.5,
+   "submarine": 1.8,
+   "landing_transport": 2.6
+  },
+  "channel_width_cells_min": {
+   "small": 3,
+   "medium": 4,
+   "large": 6,
+   "note": "river widths the map generator should provide for navigability"
+  },
+  "hp_ratio_to_t1_tank": {
+   "patrol": 0.78,
+   "escort": 2.4,
+   "siege": 5.0,
+   "carrier": 5.6,
+   "submarine": 2.2
+  },
+  "range_cells": {
+   "patrol": 6.5,
+   "escort_gun": 9.0,
+   "escort_aa": 10.0,
+   "escort_asw": 7.0,
+   "siege_bombard": 20.0,
+   "submarine_torpedo": 8.0,
+   "submarine_cruise": 22.0
+  },
+  "ttk_targets_s": {
+   "patrol_vs_patrol": [
+    12,
+    20
+   ],
+   "escort_vs_escort": [
+    20,
+    30
+   ],
+   "siege_vs_escort": [
+    30,
+    45
+   ]
+  },
+  "note": "Ships are a side theatre: no baseline economy needs water (bible). Naval siege range 20 outranges howitzers (15) by 5 cells, so coastal defenses are answered by aircraft, submarines or own ships."
+ },
+ "artillery": {
+  "range_over_own_vision_ratio": {
+   "field_artillery": [
+    1.5,
+    2.1
+   ],
+   "light_artillery": [
+    1.1,
+    1.4
+   ],
+   "naval_bombardment": [
+    1.9,
+    2.4
+   ]
+  },
+  "spotter_vision_cells": {
+   "scout_apc": 12.0,
+   "observer": [
+    11.0,
+    13.8
+   ],
+   "fighter_recon": 13.8
+  },
+  "own_vision_cells": [
+   8.5,
+   9.0
+  ],
+  "min_range_pct_of_range": [
+   20,
+   30
+  ],
+  "deploy_s": [
+   1,
+   3
+  ],
+  "splash_cells": [
+   0.7,
+   2.0
+  ],
+  "scatter_cells": [
+   0.35,
+   1.8
+  ],
+  "targeting_rule": "indirect weapons may target anything visible to the owner (any friendly sight); the shell lands on the target's position at fire time (no lead).",
+  "reference_examples": {
+   "howitzer": {
+    "range": 15.0,
+    "own_vision": 8.5,
+    "ratio": 1.76
+   },
+   "rocket": {
+    "range": 13.0,
+    "own_vision": 8.5,
+    "ratio": 1.53
+   },
+   "missile": {
+    "range": 17.0,
+    "own_vision": 8.5,
+    "ratio": 2.0
+   },
+   "light": {
+    "range": 11.0,
+    "own_vision": 9.0,
+    "ratio": 1.22
+   },
+   "naval_bombard": {
+    "range": 20.0,
+    "own_vision": 10.5,
+    "ratio": 1.9
+   }
+  },
+  "note": "A 15-cell howitzer needs a spotter about 7 cells ahead of it: a scout (vision 12) then reaches 19 cells; own vision 8.5 only sees the first 8.5."
+ },
+ "carriers": {
+  "drone_count": 6,
+  "drone_health": 150,
+  "drone_armor_class": "air_light",
+  "drone_speed_cells_s": 6.0,
+  "drone_replace_s": 14,
+  "drone_replace_cost_credits": 120,
+  "drone_weapon": {
+   "archetype": "drone_missile",
+   "damage": 60,
+   "hits_per_volley": 2,
+   "reload_s": 2.0,
+   "range_cells": 5.0
+  },
+  "drone_leash_cells": 14,
+  "counted_in_unit_cap": false,
+  "note": "Bible leaves drone pricing unresolved (selector.unmanned_combat_units): ours = 120 credits per replacement drone, 14 s; PD/JP research scales the time."
+ },
+ "superweapons": {
+  "common": {
+   "power_draw": 200,
+   "cost_credits": 5000,
+   "build_time_s": 90,
+   "health": 7000,
+   "armor_class": "fortress",
+   "max_stored_charges": 1,
+   "source": "bible: cost/build/power; health ours"
+  },
+  "atlas": {
+   "recharge_s": 480,
+   "warning_s": 10,
+   "source_timing": "bible",
+   "packets": [
+    {
+     "radius_cells": 2.0,
+     "damage": 2400,
+     "damage_type": "kinetic",
+     "edge_pct": 50,
+     "offset_cells": -3.0,
+     "delay_ticks": 0
+    },
+    {
+     "radius_cells": 2.0,
+     "damage": 2400,
+     "damage_type": "kinetic",
+     "edge_pct": 50,
+     "offset_cells": 0.0,
+     "delay_ticks": 0
+    },
+    {
+     "radius_cells": 2.0,
+     "damage": 2400,
+     "damage_type": "kinetic",
+     "edge_pct": 50,
+     "offset_cells": 3.0,
+     "delay_ticks": 0
+    }
+   ],
+   "axis": "player-selected angle (binary angle 0..4095); default 0 (east-west)",
+   "trident_packets": 3
+  },
+  "aurora": {
+   "recharge_s": 420,
+   "warning_s": 8,
+   "radius_cells": 8.0,
+   "damage": {
+    "radius_cells": 8.0,
+    "damage": 150,
+    "damage_type": "emp",
+    "edge_pct": 100,
+    "non_lethal": true
+   },
+   "weapon_disable_s": 8,
+   "structure_shutdown_s": 18,
+   "affects": [
+    "enemy vehicles",
+    "enemy aircraft",
+    "enemy powered structures"
+   ],
+   "infantry_unaffected": true,
+   "bypasses_trident": true
+  },
+  "helios": {
+   "recharge_s": 480,
+   "warning_s": 10,
+   "line_length_cells": 16.0,
+   "line_width_cells": 3.0,
+   "traverse_s": 12.0,
+   "dps": 620,
+   "damage_type": "thermal",
+   "exposure_formula": "dwell_s = chord_len / (line_length/traverse_s); chord = 2*sqrt((width/2 + target_radius)^2 - across^2)",
+   "bypasses_trident": true,
+   "expected_dwell_s": {
+    "infantry": 2.9,
+    "medium_tank": 3.1,
+    "heavy_tank": 3.5,
+    "factory": 4.7
+   }
+  },
+  "perun": {
+   "recharge_s": 480,
+   "warning_s": 10,
+   "packets": [
+    {
+     "radius_cells": 3.0,
+     "damage": 5200,
+     "damage_type": "he",
+     "edge_pct": 50,
+     "name": "core"
+    },
+    {
+     "radius_cells": 7.0,
+     "damage": 400,
+     "damage_type": "he",
+     "edge_pct": 30,
+     "name": "fragmentation_ring"
+    }
+   ],
+   "trident_packets": 2
+  },
+  "tempest": {
+   "recharge_s": 480,
+   "warning_s": 10,
+   "drone_count": 24,
+   "zone_radius_cells": 6.0,
+   "attack_window_s": 20,
+   "drone_health": 90,
+   "drone_armor_class": "air_light",
+   "drone_speed_cells_s": 8.0,
+   "drone_weapon": {
+    "archetype": "drone_missile",
+    "damage": 60,
+    "hits_per_volley": 1,
+    "reload_s": 2.0,
+    "range_cells": 4.5
+   },
+   "max_aggregate_raw_damage": 14400,
+   "each_hit_is_packet": true,
+   "shootable_by_ordinary_aa": true
+  },
+  "dragonfall": {
+   "recharge_s": 480,
+   "warning_s": 10,
+   "capsule_count": 3,
+   "zone_radius_cells": 5.0,
+   "capsule_health": 1500,
+   "capsule_armor_class": "heavy_armor",
+   "unfold_s": 5,
+   "engine_health": 3200,
+   "engine_armor_class": "heavy_armor",
+   "engine_speed_cells_s": 1.0,
+   "engine_lifetime_s": 60,
+   "engine_weapon": {
+    "archetype": "siege_gun",
+    "damage": 420,
+    "hits_per_volley": 1,
+    "reload_s": 3.5,
+    "range_cells": 8.0,
+    "splash_cells": 0.7,
+    "scatter_cells": 1.2
+   },
+   "each_shot_is_packet": true
+  },
+  "horizon": {
+   "recharge_s": 480,
+   "warning_s": 10,
+   "line_length_cells": 10.0,
+   "duration_s": 9.0,
+   "packets": [
+    {
+     "radius_cells": 3.0,
+     "damage": 1300,
+     "damage_type": "kinetic",
+     "edge_pct": 50,
+     "offset_cells": -5.0,
+     "at_s": 0.0
+    },
+    {
+     "radius_cells": 3.0,
+     "damage": 1300,
+     "damage_type": "kinetic",
+     "edge_pct": 50,
+     "offset_cells": 0.0,
+     "at_s": 4.5
+    },
+    {
+     "radius_cells": 3.0,
+     "damage": 1300,
+     "damage_type": "kinetic",
+     "edge_pct": 50,
+     "offset_cells": 5.0,
+     "at_s": 9.0
+    }
+   ],
+   "debris": {
+    "land_vehicle_speed_pct": 65,
+    "duration_s": 20,
+    "blocks_new_construction": true
+   },
+   "trident_packets": 3
+  },
+  "trident": {
+   "recharge_s": 360,
+   "warning_s": 6,
+   "zone_radius_cells": 6.0,
+   "duration_s": 25,
+   "charges": 24,
+   "charges_per_ordinary_projectile": 1,
+   "charges_per_strategic_packet": 8,
+   "strategic_reduction_pct": 50,
+   "bypass": [
+    "beam",
+    "bullet",
+    "emp",
+    "units_inside",
+    "weapons_fired_from_inside"
+   ]
+  },
+  "design_targets": {
+   "direct_hit_key_building_kill": "Atlas 3 rods kill one 3x3 production building; fortress-class needs 2 shots",
+   "expected_value_credits_best_target": [
+    7000,
+    16000
+   ],
+   "note": "see FRAMEWORK sec. 5.11; measured by balance_calc.py sw"
+  }
+ },
+ "support_power_damage": {
+  "counterbattery_mission": {
+   "warning_s": 5,
+   "shells": 6,
+   "over_s": 4,
+   "zone_radius_cells": 4.0,
+   "shell": {
+    "archetype": "artillery_shell",
+    "damage": 320,
+    "hits_per_volley": 1,
+    "reload_s": 1.0,
+    "range_cells": 0.0,
+    "splash_cells": 1.6,
+    "edge_pct": 30
+   },
+   "placement": "random in zone (SimRng)"
+  },
+  "tremor_barrage": {
+   "warning_s": 6,
+   "waves": 4,
+   "shells_per_wave": 6,
+   "over_s": 8,
+   "zone_radius_cells": 5.0,
+   "shell": {
+    "archetype": "artillery_shell",
+    "damage": 260,
+    "hits_per_volley": 1,
+    "reload_s": 1.0,
+    "range_cells": 0.0,
+    "splash_cells": 1.8,
+    "edge_pct": 30
+   },
+   "placement": "random in zone (SimRng)"
+  },
+  "counterlaunch_plot": {
+   "warning_s": 5,
+   "zone_radius_cells": 8.0,
+   "shells_per_mark": 3,
+   "shell_gap_s": 0.6,
+   "max_marks": 6,
+   "shell": {
+    "archetype": "artillery_shell",
+    "damage": 260,
+    "hits_per_volley": 1,
+    "reload_s": 1.0,
+    "range_cells": 0.0,
+    "splash_cells": 1.6,
+    "edge_pct": 30
+   }
+  }
+ },
+ "unit_assignments": {
+  "unit.ae.anchor_escort": {
+   "archetype": "ship_escort",
+   "tags": [],
+   "abilities": []
+  },
+  "unit.ae.buffalo_tank": {
+   "archetype": "mbt_t1",
+   "tags": [],
+   "abilities": []
+  },
+  "unit.ae.civic_rifle_team": {
+   "archetype": "inf_line",
+   "tags": [],
+   "abilities": [
+    "sensor"
+   ]
+  },
+  "unit.ae.delta_patrol_boat": {
+   "archetype": "ship_patrol",
+   "tags": [],
+   "abilities": []
+  },
+  "unit.ae.forge_howitzer": {
+   "archetype": "arty_howitzer",
+   "tags": [
+    "sturdy",
+    "short_range"
+   ],
+   "abilities": [
+    "deployable_mode"
+   ]
+  },
+  "unit.ae.hammerhead_gunship": {
+   "archetype": "air_gunship",
+   "tags": [],
+   "abilities": []
+  },
+  "unit.ae.kiln_assault_crawler": {
+   "archetype": "siege_demo",
+   "tags": [],
+   "abilities": []
+  },
+  "unit.ae.lagos_drone_guard": {
+   "archetype": "veh_aa",
+   "tags": [],
+   "abilities": [
+    "drone_repair"
+   ]
+  },
+  "unit.ae.mamba_apc": {
+   "archetype": "veh_scout",
+   "tags": [],
+   "abilities": []
+  },
+  "unit.ae.okapi_amphibious_carrier": {
+   "archetype": "veh_scout",
+   "tags": [
+    "fragile"
+   ],
+   "abilities": [
+    "amphibious",
+    "transport_3"
+   ]
+  },
+  "unit.ae.pike_team": {
+   "archetype": "inf_at",
+   "tags": [
+    "short_range"
+   ],
+   "abilities": []
+  },
+  "unit.ae.protea_gun_carrier": {
+   "archetype": "arty_howitzer",
+   "tags": [],
+   "abilities": [
+    "deployable_mode"
+   ]
+  },
+  "unit.ae.reclaimer": {
+   "archetype": "inf_combat_spec",
+   "tags": [],
+   "abilities": [
+    "repair_aura",
+    "salvage"
+   ]
+  },
+  "unit.ae.rhino_rail_tank": {
+   "archetype": "mbt_t2_rail",
+   "tags": [],
+   "abilities": []
+  },
+  "unit.ae.river_warden": {
+   "archetype": "inf_combat_spec",
+   "tags": [],
+   "abilities": [
+    "camouflage",
+    "repair_aura",
+    "salvage"
+   ]
+  },
+  "unit.ae.sovereign_arsenal_ship": {
+   "archetype": "ship_siege",
+   "tags": [
+    "slow"
+   ],
+   "abilities": []
+  },
+  "unit.ae.sunbird_interceptor": {
+   "archetype": "air_fighter",
+   "tags": [],
+   "abilities": []
+  },
+  "unit.ae.union_guard": {
+   "archetype": "inf_line",
+   "tags": [],
+   "abilities": []
+  },
+  "unit.ae.weaver_aa": {
+   "archetype": "veh_aa",
+   "tags": [],
+   "abilities": []
+  },
+  "unit.def.anvil_rocket_battery": {
+   "archetype": "arty_rocket",
+   "tags": [
+    "inaccurate"
+   ],
+   "abilities": []
+  },
+  "unit.def.bear_siege_crawler": {
+   "archetype": "siege_demo",
+   "tags": [
+    "slow",
+    "poor_sight"
+   ],
+   "abilities": [
+    "frontal_armor"
+   ]
+  },
+  "unit.def.boreal_missile_submarine": {
+   "archetype": "ship_sub",
+   "tags": [],
+   "abilities": []
+  },
+  "unit.def.burya_bomber": {
+   "archetype": "air_bomber",
+   "tags": [],
+   "abilities": []
+  },
+  "unit.def.colossus_siege_tank": {
+   "archetype": "siege_he",
+   "tags": [],
+   "abilities": []
+  },
+  "unit.def.echo_team": {
+   "archetype": "inf_support",
+   "tags": [
+    "no_gun"
+   ],
+   "abilities": [
+    "decoy",
+    "ability.suppression_support.default"
+   ]
+  },
+  "unit.def.fortress_guard": {
+   "archetype": "inf_line",
+   "tags": [],
+   "abilities": [
+    "suppressive_deploy"
+   ]
+  },
+  "unit.def.hammer_tank": {
+   "archetype": "mbt_t1",
+   "tags": [
+    "poor_sight"
+   ],
+   "abilities": []
+  },
+  "unit.def.kite_interceptor": {
+   "archetype": "air_fighter",
+   "tags": [
+    "weaker_gun"
+   ],
+   "abilities": []
+  },
+  "unit.def.line_conscript": {
+   "archetype": "inf_line",
+   "tags": [
+    "fragile"
+   ],
+   "abilities": []
+  },
+  "unit.def.mule_apc": {
+   "archetype": "veh_scout",
+   "tags": [
+    "robust",
+    "slow"
+   ],
+   "abilities": []
+  },
+  "unit.def.picket_boat": {
+   "archetype": "ship_patrol",
+   "tags": [
+    "strong_gun"
+   ],
+   "abilities": []
+  },
+  "unit.def.porcupine_aa": {
+   "archetype": "veh_aa_flak",
+   "tags": [],
+   "abilities": []
+  },
+  "unit.def.rampart_escort": {
+   "archetype": "ship_escort",
+   "tags": [],
+   "abilities": []
+  },
+  "unit.def.recoil_team": {
+   "archetype": "inf_at",
+   "tags": [
+    "short_range",
+    "strong_gun"
+   ],
+   "abilities": []
+  },
+  "unit.def.saker_missile_truck": {
+   "archetype": "arty_missile",
+   "tags": [
+    "precise"
+   ],
+   "abilities": [
+    "deployable_mode"
+   ]
+  },
+  "unit.def.signal_officer": {
+   "archetype": "inf_support",
+   "tags": [
+    "no_gun"
+   ],
+   "abilities": [
+    "ability.suppression_support.default"
+   ]
+  },
+  "unit.def.steppe_recon_carrier": {
+   "archetype": "veh_scout",
+   "tags": [
+    "fast",
+    "good_sight",
+    "fragile"
+   ],
+   "abilities": []
+  },
+  "unit.def.ural_assault_tank": {
+   "archetype": "mbt_t2",
+   "tags": [
+    "sturdy"
+   ],
+   "abilities": [
+    "aps_interception"
+   ]
+  },
+  "unit.han.banner_infantry": {
+   "archetype": "inf_line",
+   "tags": [
+    "fragile"
+   ],
+   "abilities": []
+  },
+  "unit.han.canal_patrol_boat": {
+   "archetype": "ship_patrol",
+   "tags": [],
+   "abilities": []
+  },
+  "unit.han.canopy_ranger": {
+   "archetype": "inf_line",
+   "tags": [],
+   "abilities": [
+    "camouflage"
+   ]
+  },
+  "unit.han.dragon_command_walker": {
+   "archetype": "veh_command",
+   "tags": [],
+   "abilities": []
+  },
+  "unit.han.emperor_drone_ship": {
+   "archetype": "ship_carrier",
+   "tags": [],
+   "abilities": []
+  },
+  "unit.han.firefly_aa_drone": {
+   "archetype": "veh_aa",
+   "tags": [
+    "fragile"
+   ],
+   "abilities": [
+    "unmanned"
+   ]
+  },
+  "unit.han.imperial_guard_tank": {
+   "archetype": "mbt_t2",
+   "tags": [
+    "precise"
+   ],
+   "abilities": []
+  },
+  "unit.han.jade_carrier": {
+   "archetype": "veh_scout",
+   "tags": [
+    "fragile"
+   ],
+   "abilities": []
+  },
+  "unit.han.jade_escort": {
+   "archetype": "ship_escort",
+   "tags": [],
+   "abilities": []
+  },
+  "unit.han.lance_team": {
+   "archetype": "inf_at",
+   "tags": [
+    "alpha"
+   ],
+   "abilities": []
+  },
+  "unit.han.link_operator": {
+   "archetype": "inf_support",
+   "tags": [
+    "no_gun"
+   ],
+   "abilities": [
+    "command_field"
+   ]
+  },
+  "unit.han.long_command_walker": {
+   "archetype": "veh_command",
+   "tags": [],
+   "abilities": [
+    "deployable_mode"
+   ]
+  },
+  "unit.han.lotus_drone_tender": {
+   "archetype": "veh_scout",
+   "tags": [],
+   "abilities": [
+    "repair_aura"
+   ]
+  },
+  "unit.han.mekong_field_engineer": {
+   "archetype": "inf_support",
+   "tags": [
+    "no_gun"
+   ],
+   "abilities": [
+    "command_field",
+    "repair_aura"
+   ]
+  },
+  "unit.han.nest_rocket_drone": {
+   "archetype": "arty_rocket",
+   "tags": [
+    "fragile"
+   ],
+   "abilities": [
+    "unmanned"
+   ]
+  },
+  "unit.han.ox_tank": {
+   "archetype": "mbt_t1",
+   "tags": [],
+   "abilities": []
+  },
+  "unit.han.reed_rocket_skimmer": {
+   "archetype": "arty_light",
+   "tags": [
+    "fragile",
+    "alpha"
+   ],
+   "abilities": [
+    "amphibious",
+    "unmanned"
+   ]
+  },
+  "unit.han.silkwing_drone_bomber": {
+   "archetype": "air_bomber",
+   "tags": [
+    "precise",
+    "slow_rearm"
+   ],
+   "abilities": [
+    "unmanned"
+   ]
+  },
+  "unit.han.swallow_interceptor": {
+   "archetype": "air_fighter",
+   "tags": [],
+   "abilities": [
+    "unmanned"
+   ]
+  },
+  "unit.napc.aegis_frigate": {
+   "archetype": "ship_escort",
+   "tags": [],
+   "abilities": []
+  },
+  "unit.napc.aguila_breach_team": {
+   "archetype": "inf_combat_spec",
+   "tags": [
+    "armored",
+    "very_short_range"
+   ],
+   "abilities": [
+    "breach_charge"
+   ]
+  },
+  "unit.napc.bastion_heavy_tank": {
+   "archetype": "siege_ap",
+   "tags": [
+    "slow"
+   ],
+   "abilities": []
+  },
+  "unit.napc.beaver_amphibious_apc": {
+   "archetype": "veh_scout",
+   "tags": [
+    "weak_gun",
+    "sturdy"
+   ],
+   "abilities": [
+    "amphibious",
+    "ability.transport.squads2"
+   ]
+  },
+  "unit.napc.combat_medic": {
+   "archetype": "inf_support",
+   "tags": [
+    "no_gun"
+   ],
+   "abilities": [
+    "heal_aura"
+   ]
+  },
+  "unit.napc.condor_stealth_bomber": {
+   "archetype": "air_bomber",
+   "tags": [
+    "heavy_bomb",
+    "slow_rearm"
+   ],
+   "abilities": [
+    "stealth"
+   ]
+  },
+  "unit.napc.falcon_interceptor": {
+   "archetype": "air_fighter",
+   "tags": [],
+   "abilities": []
+  },
+  "unit.napc.guardian_tank": {
+   "archetype": "mbt_t1",
+   "tags": [],
+   "abilities": []
+  },
+  "unit.napc.javelin_team": {
+   "archetype": "inf_at",
+   "tags": [],
+   "abilities": []
+  },
+  "unit.napc.liberty_arsenal_ship": {
+   "archetype": "ship_siege",
+   "tags": [
+    "long_range"
+   ],
+   "abilities": []
+  },
+  "unit.napc.narwhal_amphibious_tank": {
+   "archetype": "mbt_t1",
+   "tags": [
+    "slow",
+    "weaker_gun"
+   ],
+   "abilities": [
+    "amphibious"
+   ],
+   "tier": 2
+  },
+  "unit.napc.paladin_howitzer": {
+   "archetype": "arty_howitzer",
+   "tags": [],
+   "abilities": [
+    "deployable_mode"
+   ]
+  },
+  "unit.napc.pathfinder_apc": {
+   "archetype": "veh_scout",
+   "tags": [],
+   "abilities": []
+  },
+  "unit.napc.raptor_multirole_fighter": {
+   "archetype": "air_fighter",
+   "tags": [
+    "weaker_gun"
+   ],
+   "abilities": [
+    "multirole"
+   ]
+  },
+  "unit.napc.rifle_squad": {
+   "archetype": "inf_line",
+   "tags": [],
+   "abilities": []
+  },
+  "unit.napc.riverwatch_patrol_boat": {
+   "archetype": "ship_patrol",
+   "tags": [],
+   "abilities": []
+  },
+  "unit.napc.sentinel_aa": {
+   "archetype": "veh_aa",
+   "tags": [],
+   "abilities": []
+  },
+  "unit.napc.titan_gunship": {
+   "archetype": "air_gunship",
+   "tags": [
+    "sturdy"
+   ],
+   "abilities": []
+  },
+  "unit.napc.vanguard_rifle_squad": {
+   "archetype": "inf_line",
+   "tags": [],
+   "abilities": [
+    "cover_builder"
+   ]
+  },
+  "unit.nec.alpine_pioneer": {
+   "archetype": "inf_combat_spec",
+   "tags": [
+    "short_range"
+   ],
+   "abilities": [
+    "cover_builder",
+    "repair_aura"
+   ]
+  },
+  "unit.nec.archer_spg": {
+   "archetype": "arty_howitzer",
+   "tags": [
+    "precise",
+    "light_hull"
+   ],
+   "abilities": [
+    "deployable_mode"
+   ]
+  },
+  "unit.nec.argent_rail_tank": {
+   "archetype": "siege_rail",
+   "tags": [],
+   "abilities": []
+  },
+  "unit.nec.aster_ew_aircraft": {
+   "archetype": "air_ew",
+   "tags": [],
+   "abilities": []
+  },
+  "unit.nec.charlemagne_siege_tank": {
+   "archetype": "siege_rail",
+   "tags": [],
+   "abilities": [
+    "deployable_mode"
+   ]
+  },
+  "unit.nec.concord_monitor": {
+   "archetype": "ship_siege",
+   "tags": [
+    "precise",
+    "fragile"
+   ],
+   "abilities": []
+  },
+  "unit.nec.fen_recon_carrier": {
+   "archetype": "veh_scout",
+   "tags": [
+    "weak_gun"
+   ],
+   "abilities": [
+    "amphibious",
+    "sensor"
+   ]
+  },
+  "unit.nec.fjord_missile_carrier": {
+   "archetype": "arty_missile",
+   "tags": [
+    "precise"
+   ],
+   "abilities": [
+    "amphibious",
+    "deployable_mode"
+   ]
+  },
+  "unit.nec.horizon_escort": {
+   "archetype": "ship_escort",
+   "tags": [],
+   "abilities": []
+  },
+  "unit.nec.ibex_crawler_gun": {
+   "archetype": "arty_howitzer",
+   "tags": [
+    "sturdy",
+    "short_range"
+   ],
+   "abilities": [
+    "frontal_armor",
+    "deployable_mode"
+   ]
+  },
+  "unit.nec.jager_squad": {
+   "archetype": "inf_line",
+   "tags": [
+    "light_hull"
+   ],
+   "abilities": []
+  },
+  "unit.nec.kestrel_interceptor": {
+   "archetype": "air_fighter",
+   "tags": [
+    "quick_rearm"
+   ],
+   "abilities": []
+  },
+  "unit.nec.leopard_tank": {
+   "archetype": "mbt_t1",
+   "tags": [],
+   "abilities": []
+  },
+  "unit.nec.marte_heavy_mbt": {
+   "archetype": "mbt_t2",
+   "tags": [
+    "sturdy"
+   ],
+   "abilities": [
+    "frontal_armor"
+   ]
+  },
+  "unit.nec.rapier_aa": {
+   "archetype": "veh_aa",
+   "tags": [
+    "long_range"
+   ],
+   "abilities": []
+  },
+  "unit.nec.sapper": {
+   "archetype": "inf_combat_spec",
+   "tags": [
+    "short_range"
+   ],
+   "abilities": [
+    "cover_builder"
+   ]
+  },
+  "unit.nec.skerry_patrol_boat": {
+   "archetype": "ship_patrol",
+   "tags": [
+    "fast"
+   ],
+   "abilities": []
+  },
+  "unit.nec.spike_team": {
+   "archetype": "inf_at",
+   "tags": [
+    "long_range"
+   ],
+   "abilities": []
+  },
+  "unit.nec.surveyor_apc": {
+   "archetype": "veh_scout",
+   "tags": [
+    "quick"
+   ],
+   "abilities": []
+  },
+  "unit.olm.beacon_missile_ship": {
+   "archetype": "ship_siege",
+   "tags": [
+    "long_range"
+   ],
+   "abilities": []
+  },
+  "unit.olm.caravan_apc": {
+   "archetype": "veh_scout",
+   "tags": [
+    "quick"
+   ],
+   "abilities": []
+  },
+  "unit.olm.corsair_patrol_boat": {
+   "archetype": "ship_patrol",
+   "tags": [
+    "fast"
+   ],
+   "abilities": []
+  },
+  "unit.olm.crescent_aa": {
+   "archetype": "veh_aa",
+   "tags": [],
+   "abilities": []
+  },
+  "unit.olm.dawn_laser_aa": {
+   "archetype": "veh_aa_beam",
+   "tags": [],
+   "abilities": []
+  },
+  "unit.olm.dune_rover": {
+   "archetype": "veh_scout",
+   "tags": [
+    "fast"
+   ],
+   "abilities": [
+    "camouflage"
+   ]
+  },
+  "unit.olm.gate_guard": {
+   "archetype": "inf_line",
+   "tags": [
+    "slow"
+   ],
+   "abilities": [
+    "shield_front"
+   ]
+  },
+  "unit.olm.ifrit_prism_tank": {
+   "archetype": "siege_beam",
+   "tags": [
+    "strong_gun"
+   ],
+   "abilities": [
+    "deployable_mode"
+   ]
+  },
+  "unit.olm.lantern_escort": {
+   "archetype": "ship_escort",
+   "tags": [],
+   "abilities": []
+  },
+  "unit.olm.mirage_observer": {
+   "archetype": "inf_support",
+   "tags": [
+    "no_gun",
+    "good_sight"
+   ],
+   "abilities": [
+    "camouflage",
+    "spotter"
+   ]
+  },
+  "unit.olm.needle_team": {
+   "archetype": "inf_at",
+   "tags": [],
+   "abilities": []
+  },
+  "unit.olm.nightjar_strike_drone": {
+   "archetype": "air_drone",
+   "tags": [],
+   "abilities": [
+    "unmanned"
+   ]
+  },
+  "unit.olm.sandglass_mortar": {
+   "archetype": "arty_light",
+   "tags": [
+    "short_range"
+   ],
+   "abilities": [
+    "deployable_mode"
+   ]
+  },
+  "unit.olm.scorpion_rocket_buggy": {
+   "archetype": "arty_light",
+   "tags": [
+    "fragile",
+    "alpha"
+   ],
+   "abilities": []
+  },
+  "unit.olm.shrike_interceptor": {
+   "archetype": "air_fighter",
+   "tags": [
+    "quick",
+    "limited_endurance"
+   ],
+   "abilities": []
+  },
+  "unit.olm.sirocco_tank": {
+   "archetype": "mbt_t1",
+   "tags": [
+    "fast",
+    "fragile"
+   ],
+   "abilities": []
+  },
+  "unit.olm.strait_frigate": {
+   "archetype": "ship_escort",
+   "tags": [
+    "slow",
+    "strong_gun"
+   ],
+   "abilities": []
+  },
+  "unit.olm.sunlance_beam_tank": {
+   "archetype": "siege_beam",
+   "tags": [],
+   "abilities": []
+  },
+  "unit.olm.wayfarer_guard": {
+   "archetype": "inf_line",
+   "tags": [],
+   "abilities": []
+  },
+  "unit.pd.breaker_howitzer": {
+   "archetype": "arty_howitzer",
+   "tags": [
+    "sustained"
+   ],
+   "abilities": [
+    "deployable_mode"
+   ]
+  },
+  "unit.pd.harpoon_team": {
+   "archetype": "inf_at",
+   "tags": [],
+   "abilities": []
+  },
+  "unit.pd.island_raider": {
+   "archetype": "inf_line",
+   "tags": [],
+   "abilities": [
+    "ability.disembark_buff.default"
+   ]
+  },
+  "unit.pd.kancil_landing_skimmer": {
+   "archetype": "veh_scout",
+   "tags": [
+    "fast",
+    "weak_gun"
+   ],
+   "abilities": [
+    "amphibious",
+    "ability.transport.squads2"
+   ]
+  },
+  "unit.pd.leviathan_assault_carrier": {
+   "archetype": "veh_assault_carrier",
+   "tags": [],
+   "abilities": []
+  },
+  "unit.pd.osprey_strike_tiltrotor": {
+   "archetype": "air_gunship",
+   "tags": [],
+   "abilities": []
+  },
+  "unit.pd.outrider_howitzer": {
+   "archetype": "arty_howitzer",
+   "tags": [
+    "long_range",
+    "weaker_gun"
+   ],
+   "abilities": [
+    "deployable_mode"
+   ]
+  },
+  "unit.pd.petrel_fighter": {
+   "archetype": "air_fighter",
+   "tags": [
+    "endurance"
+   ],
+   "abilities": []
+  },
+  "unit.pd.ranger_marine": {
+   "archetype": "inf_line",
+   "tags": [],
+   "abilities": []
+  },
+  "unit.pd.reef_patrol_boat": {
+   "archetype": "ship_patrol",
+   "tags": [
+    "fast"
+   ],
+   "abilities": []
+  },
+  "unit.pd.reef_technician": {
+   "archetype": "inf_support",
+   "tags": [
+    "no_gun"
+   ],
+   "abilities": [
+    "repair_aura"
+   ]
+  },
+  "unit.pd.shinano_adaptive_tank": {
+   "archetype": "mbt_t1",
+   "tags": [],
+   "abilities": [
+    "amphibious",
+    "deployable_mode"
+   ],
+   "tier": 2
+  },
+  "unit.pd.shogun_drone_carrier": {
+   "archetype": "ship_carrier",
+   "tags": [],
+   "abilities": [
+    "multirole"
+   ]
+  },
+  "unit.pd.storm_aa": {
+   "archetype": "veh_aa",
+   "tags": [],
+   "abilities": []
+  },
+  "unit.pd.tempest_carrier": {
+   "archetype": "ship_carrier",
+   "tags": [],
+   "abilities": []
+  },
+  "unit.pd.tide_tank": {
+   "archetype": "mbt_t1",
+   "tags": [],
+   "abilities": [
+    "amphibious"
+   ]
+  },
+  "unit.pd.trident_escort": {
+   "archetype": "ship_escort",
+   "tags": [],
+   "abilities": []
+  },
+  "unit.pd.wake_skimmer": {
+   "archetype": "veh_scout",
+   "tags": [],
+   "abilities": [
+    "amphibious"
+   ]
+  },
+  "unit.pd.wedge_recon_fighter": {
+   "archetype": "air_fighter",
+   "tags": [
+    "weaker_gun",
+    "good_sight"
+   ],
+   "abilities": []
+  },
+  "unit.sap.arjun_assault_tank": {
+   "archetype": "mbt_t2",
+   "tags": [],
+   "abilities": [
+    "aps_interception"
+   ]
+  },
+  "unit.sap.bulwark_tank": {
+   "archetype": "mbt_t1",
+   "tags": [
+    "slow"
+   ],
+   "abilities": []
+  },
+  "unit.sap.citadel_monitor": {
+   "archetype": "ship_siege",
+   "tags": [
+    "slow",
+    "sturdy"
+   ],
+   "abilities": []
+  },
+  "unit.sap.combat_pioneer": {
+   "archetype": "inf_combat_spec",
+   "tags": [],
+   "abilities": [
+    "cover_builder",
+    "repair_aura"
+   ]
+  },
+  "unit.sap.elephant_siege_tank": {
+   "archetype": "siege_he",
+   "tags": [],
+   "abilities": []
+  },
+  "unit.sap.estuary_patrol_boat": {
+   "archetype": "ship_patrol",
+   "tags": [],
+   "abilities": []
+  },
+  "unit.sap.gaj_siege_platform": {
+   "archetype": "siege_he",
+   "tags": [],
+   "abilities": [
+    "deployable_mode"
+   ]
+  },
+  "unit.sap.garuda_interceptor": {
+   "archetype": "air_fighter",
+   "tags": [
+    "endurance"
+   ],
+   "abilities": []
+  },
+  "unit.sap.jackal_apc": {
+   "archetype": "veh_scout",
+   "tags": [
+    "sturdy"
+   ],
+   "abilities": []
+  },
+  "unit.sap.kavach_team": {
+   "archetype": "inf_at",
+   "tags": [],
+   "abilities": []
+  },
+  "unit.sap.monsoon_howitzer": {
+   "archetype": "arty_howitzer",
+   "tags": [],
+   "abilities": [
+    "deployable_mode"
+   ]
+  },
+  "unit.sap.naga_amphibious_carrier": {
+   "archetype": "veh_scout",
+   "tags": [],
+   "abilities": [
+    "amphibious",
+    "smoke"
+   ]
+  },
+  "unit.sap.river_marine": {
+   "archetype": "inf_line",
+   "tags": [],
+   "abilities": [
+    "ability.disembark_buff.default"
+   ]
+  },
+  "unit.sap.sarus_gunship": {
+   "archetype": "air_gunship",
+   "tags": [
+    "short_range"
+   ],
+   "abilities": []
+  },
+  "unit.sap.shaheen_missile_battery": {
+   "archetype": "arty_missile",
+   "tags": [
+    "precise"
+   ],
+   "abilities": [
+    "deployable_mode"
+   ]
+  },
+  "unit.sap.shield_escort": {
+   "archetype": "ship_escort",
+   "tags": [],
+   "abilities": []
+  },
+  "unit.sap.shield_rifle_squad": {
+   "archetype": "inf_line",
+   "tags": [
+    "sturdy"
+   ],
+   "abilities": []
+  },
+  "unit.sap.vajra_aa": {
+   "archetype": "veh_aa",
+   "tags": [],
+   "abilities": []
+  },
+  "unit.sap.watchpost_recon_team": {
+   "archetype": "inf_support",
+   "tags": [
+    "no_gun",
+    "good_sight"
+   ],
+   "abilities": [
+    "camouflage",
+    "spotter"
+   ]
+  },
+  "unit.shared.collector": {
+   "archetype": "service.collector",
+   "tags": [],
+   "abilities": []
+  },
+  "unit.shared.engineer": {
+   "archetype": "service.engineer",
+   "tags": [],
+   "abilities": []
+  },
+  "unit.shared.landing_transport": {
+   "archetype": "service.landing_transport",
+   "tags": [],
+   "abilities": []
+  },
+  "unit.shared.mobile_construction_vehicle": {
+   "archetype": "service.mcv",
+   "tags": [],
+   "abilities": []
+  }
+ },
+ "targets": {
+  "ttk_unopposed_s": [
+   [
+    "mbt_t1",
+    "mbt_t1",
+    6,
+    9
+   ],
+   [
+    "mbt_t2",
+    "mbt_t2",
+    8,
+    12
+   ],
+   [
+    "siege_ap",
+    "siege_ap",
+    12,
+    18
+   ],
+   [
+    "inf_at",
+    "mbt_t1",
+    12,
+    18
+   ],
+   [
+    "inf_line",
+    "inf_line",
+    6,
+    9
+   ],
+   [
+    "inf_line",
+    "mbt_t1",
+    40,
+    70
+   ],
+   [
+    "mbt_t1",
+    "inf_line",
+    8,
+    12
+   ],
+   [
+    "mbt_t1",
+    "veh_scout",
+    3.5,
+    6
+   ],
+   [
+    "siege_ap",
+    "mbt_t1",
+    3,
+    5
+   ],
+   [
+    "mbt_t1",
+    "siege_ap",
+    24,
+    36
+   ],
+   [
+    "inf_at",
+    "inf_line",
+    14,
+    22
+   ],
+   [
+    "inf_line",
+    "inf_at",
+    5,
+    8
+   ],
+   [
+    "veh_aa",
+    "air_fighter",
+    4,
+    7
+   ],
+   [
+    "veh_aa",
+    "air_gunship",
+    10,
+    15
+   ],
+   [
+    "air_fighter",
+    "air_fighter",
+    5,
+    8
+   ],
+   [
+    "air_fighter",
+    "air_gunship",
+    15,
+    22
+   ],
+   [
+    "air_gunship",
+    "mbt_t1",
+    6,
+    9
+   ],
+   [
+    "arty_howitzer",
+    "mbt_t1",
+    20,
+    30
+   ],
+   [
+    "arty_howitzer",
+    "inf_line",
+    5,
+    9
+   ],
+   [
+    "arty_missile",
+    "mbt_t1",
+    11,
+    17
+   ],
+   [
+    "siege_rail",
+    "mbt_t1",
+    3,
+    5
+   ],
+   [
+    "siege_he",
+    "building_heavy@4500",
+    15,
+    25
+   ],
+   [
+    "ship_patrol",
+    "ship_patrol",
+    12,
+    20
+   ],
+   [
+    "ship_escort",
+    "ship_escort",
+    20,
+    30
+   ],
+   [
+    "ship_siege",
+    "ship_escort",
+    27,
+    40
+   ],
+   [
+    "mbt_t1",
+    "building_heavy@4500",
+    55,
+    80
+   ]
+  ],
+  "rps_equal_cost": {
+   "cost_per_side": 6000,
+   "start_distance_cells": 24,
+   "metric": "remaining cost share of A minus remaining cost share of B (-1..+1)",
+   "bands": [
+    [
+     "inf_line",
+     "inf_at",
+     0.45,
+     0.95,
+     "rifles hard-counter AT infantry"
+    ],
+    [
+     "inf_at",
+     "mbt_t1",
+     0.4,
+     0.9,
+     "AT infantry hard-counters T1 tanks"
+    ],
+    [
+     "inf_at",
+     "mbt_t2",
+     0.2,
+     0.7,
+     "and (softer) T2 tanks"
+    ],
+    [
+     "mbt_t1",
+     "inf_line",
+     0.0,
+     0.4,
+     "tanks soft-counter rifles"
+    ],
+    [
+     "inf_at",
+     "siege_ap",
+     0.15,
+     0.6,
+     "cheap AT punishes heavy armor"
+    ],
+    [
+     "siege_ap",
+     "mbt_t1",
+     0.1,
+     0.55,
+     "T3 beats T1 at equal cost (tier premium)"
+    ],
+    [
+     "mbt_t2",
+     "mbt_t1",
+     0.1,
+     0.45,
+     "T2 beats T1 at equal cost"
+    ],
+    [
+     "mbt_t1",
+     "veh_scout",
+     0.6,
+     1.0,
+     "scouts lose to tanks"
+    ],
+    [
+     "mbt_t1",
+     "arty_howitzer",
+     0.4,
+     0.95,
+     "unescorted howitzers lose to a tank charge"
+    ],
+    [
+     "arty_howitzer",
+     "inf_line",
+     0.3,
+     0.8,
+     "artillery beats infantry blobs"
+    ],
+    [
+     "arty_howitzer",
+     "arty_howitzer",
+     -0.05,
+     0.05,
+     "mirror"
+    ],
+    [
+     "siege_he",
+     "inf_line",
+     0.6,
+     1.0,
+     "siege guns crush rifles"
+    ]
+   ]
+  },
+  "sortie": {
+   "ground_cost": 6000,
+   "air_group": {
+    "gunship": 2,
+    "bomber": 2,
+    "strike_drone": 3
+   },
+   "window_s": 22,
+   "value_ratio_no_aa": {
+    "gunship": [
+     0.5,
+     0.65
+    ],
+    "bomber": [
+     0.9,
+     1.15
+    ],
+    "strike_drone": [
+     0.3,
+     0.45
+    ]
+   },
+   "air_loss_share_at_aa_share": {
+    "pct15": [
+     0.05,
+     0.25
+    ],
+    "pct30": [
+     0.3,
+     0.7
+    ]
+   }
+  },
+  "defenses": {
+   "shared_pair_break_ratio": [
+    1.2,
+    1.7
+   ],
+   "advanced_break_ratio_each": [
+    1.0,
+    2.1
+   ],
+   "advanced_break_ratio_mean": [
+    1.3,
+    1.65
+   ],
+   "howitzers_must_outrange": true,
+   "note": "pair = anti_tank_turret + watchtower (1250) vs T1 tanks; advanced (1800) vs T2 tanks; ratio = attacker cost / defense cost at break-even"
+  },
+  "economy": {
+   "collector_payback_min": [
+    1.6,
+    2.6
+   ],
+   "refinery_payback_max_min": 3.2,
+   "expansion_payback_min": [
+    3.5,
+    6.0
+   ],
+   "standard_field_minutes_3_collectors": [
+    5.0,
+    9.0
+   ]
+  },
+  "structure_kill": {
+   "equal_cost_army_seconds": [
+    18,
+    35
+   ],
+   "note": "a T1 tank army costing as much as the building destroys it in this window"
+  },
+  "superweapon": {
+   "tight_base_value_credits": [
+    2000,
+    8000
+   ],
+   "tight_base_kills_min": 2,
+   "blob12_tanks_value_min_pct": 75,
+   "heavies_blob_value_min_pct": 50,
+   "tempest_unanswered_min_pct": 90,
+   "tempest_4aa_max_pct": 55,
+   "dragonfall_undefended_base_min_pct": 80,
+   "dragonfall_vs_8_tanks_max_pct": 60,
+   "note": "value = credit-weighted damage on the reference layouts at optimal aim without evasion; buildings count 100 % only when killed, else 25 %"
+  },
+  "pacing": {
+   "windows_s": {
+    "first_rifle": [
+     90,
+     105,
+     140
+    ],
+    "first_scout": [
+     120,
+     150,
+     180
+    ],
+    "first_tank": [
+     135,
+     215,
+     330
+    ],
+    "radar": [
+     130,
+     165,
+     240
+    ],
+    "first_aa": [
+     165,
+     350,
+     420
+    ],
+    "first_howitzer": [
+     175,
+     540,
+     560
+    ],
+    "laboratory": [
+     185,
+     300,
+     540
+    ],
+    "first_heavy": [
+     250,
+     740,
+     760
+    ],
+    "first_fighter": [
+     230,
+     440,
+     480
+    ],
+    "airfield": [
+     200,
+     260,
+     760
+    ],
+    "superweapon": [
+     275,
+     430,
+     700
+    ]
+   },
+   "windows_semantics": "[physical lower bound, latest allowed for the fastest plan, latest allowed for the balanced plan] in seconds from match start",
+   "first_superweapon_shot_s": [
+    755,
+    1090
+   ],
+   "typical_first_shot_s": [
+    1020,
+    1240
+   ],
+   "plans": {
+    "army_rush": {
+     "build": [
+      [
+       "generator",
+       0
+      ],
+      [
+       "refinery",
+       0
+      ],
+      [
+       "barracks",
+       0
+      ],
+      [
+       "factory",
+       0
+      ],
+      [
+       "generator",
+       0
+      ],
+      [
+       "radar",
+       200
+      ],
+      [
+       "refinery",
+       0
+      ],
+      [
+       "generator",
+       0
+      ],
+      [
+       "laboratory",
+       0
+      ],
+      [
+       "superweapon",
+       0
+      ]
+     ],
+     "train": [
+      [
+       40,
+       "rifle"
+      ],
+      [
+       60,
+       "rifle"
+      ],
+      [
+       85,
+       "scout"
+      ],
+      [
+       100,
+       "tank"
+      ],
+      [
+       130,
+       "tank"
+      ],
+      [
+       140,
+       "collector"
+      ],
+      [
+       170,
+       "tank"
+      ],
+      [
+       200,
+       "collector"
+      ],
+      [
+       230,
+       "tank"
+      ],
+      [
+       300,
+       "aa"
+      ],
+      [
+       330,
+       "howitzer"
+      ],
+      [
+       360,
+       "tank"
+      ],
+      [
+       420,
+       "tank"
+      ],
+      [
+       480,
+       "heavy"
+      ]
+     ]
+    },
+    "balanced": {
+     "build": [
+      [
+       "generator",
+       0
+      ],
+      [
+       "refinery",
+       0
+      ],
+      [
+       "barracks",
+       0
+      ],
+      [
+       "factory",
+       0
+      ],
+      [
+       "radar",
+       0
+      ],
+      [
+       "generator",
+       0
+      ],
+      [
+       "refinery",
+       180
+      ],
+      [
+       "laboratory",
+       0
+      ],
+      [
+       "generator",
+       0
+      ],
+      [
+       "generator",
+       0
+      ],
+      [
+       "superweapon",
+       0
+      ],
+      [
+       "airfield",
+       0
+      ]
+     ],
+     "train": [
+      [
+       70,
+       "rifle"
+      ],
+      [
+       95,
+       "collector"
+      ],
+      [
+       125,
+       "scout"
+      ],
+      [
+       150,
+       "at"
+      ],
+      [
+       160,
+       "tank"
+      ],
+      [
+       200,
+       "aa"
+      ],
+      [
+       205,
+       "collector"
+      ],
+      [
+       230,
+       "tank"
+      ],
+      [
+       270,
+       "howitzer"
+      ],
+      [
+       300,
+       "collector"
+      ],
+      [
+       330,
+       "tank"
+      ],
+      [
+       380,
+       "tank"
+      ],
+      [
+       480,
+       "tank"
+      ],
+      [
+       540,
+       "heavy"
+      ],
+      [
+       600,
+       "heavy"
+      ]
+     ]
+    },
+    "tech_rush": {
+     "build": [
+      [
+       "generator",
+       0
+      ],
+      [
+       "refinery",
+       0
+      ],
+      [
+       "factory",
+       0
+      ],
+      [
+       "radar",
+       0
+      ],
+      [
+       "generator",
+       0
+      ],
+      [
+       "laboratory",
+       0
+      ],
+      [
+       "generator",
+       0
+      ],
+      [
+       "superweapon",
+       0
+      ]
+     ],
+     "train": [
+      [
+       70,
+       "collector"
+      ],
+      [
+       100,
+       "collector"
+      ],
+      [
+       130,
+       "at"
+      ],
+      [
+       150,
+       "collector"
+      ],
+      [
+       200,
+       "at"
+      ],
+      [
+       240,
+       "scout"
+      ],
+      [
+       300,
+       "tank"
+      ],
+      [
+       420,
+       "aa"
+      ]
+     ]
+    },
+    "air_rush": {
+     "build": [
+      [
+       "generator",
+       0
+      ],
+      [
+       "refinery",
+       0
+      ],
+      [
+       "factory",
+       0
+      ],
+      [
+       "radar",
+       0
+      ],
+      [
+       "generator",
+       0
+      ],
+      [
+       "airfield",
+       0
+      ],
+      [
+       "laboratory",
+       0
+      ],
+      [
+       "generator",
+       0
+      ],
+      [
+       "superweapon",
+       0
+      ]
+     ],
+     "train": [
+      [
+       70,
+       "collector"
+      ],
+      [
+       110,
+       "scout"
+      ],
+      [
+       150,
+       "at"
+      ],
+      [
+       175,
+       "collector"
+      ],
+      [
+       215,
+       "aa"
+      ],
+      [
+       260,
+       "tank"
+      ],
+      [
+       330,
+       "fighter"
+      ]
+     ]
+    }
+   },
+   "notes": "Lower bounds are the pure production chain with unlimited credits (Gen 25 + Refinery 40 + Factory 40 + Radar 30 ...). Plans: balance_calc.py PLANS."
+  },
+  "power_first_shortage_after_s": 240
+ },
+ "modifier_compensation": {
+  "factor": 0.6,
+  "faction_clamp_pct": 4.0,
+  "unique_unit_clamp_pct": 12.0,
+  "skip_below_pct": 3.0,
+  "residual_band_pct": 6.0,
+  "policy": "Passive bible modifiers are NOT baked into base stats. The raw roster index (balance_calc.py modifiers) is compensated 60 % through a faction-wide power offset (HP and DPS, never cost or time) and, for subfactions, an extra offset on the two unique units.",
+  "valuation": {
+   "slot_weights": {
+    "inf_line": 0.1,
+    "inf_at": 0.08,
+    "inf_spec": 0.04,
+    "scout": 0.04,
+    "tank": 0.25,
+    "aa": 0.07,
+    "artillery": 0.1,
+    "siege": 0.1,
+    "fighter": 0.05,
+    "air_attack": 0.08,
+    "patrol": 0.02,
+    "escort": 0.04,
+    "capital": 0.04
+   },
+   "archetype_slot": {
+    "inf_line": "inf_line",
+    "inf_at": "inf_at",
+    "inf_support": "inf_spec",
+    "inf_combat_spec": "inf_spec",
+    "veh_scout": "scout",
+    "arty_light": "artillery",
+    "mbt_t1": "tank",
+    "mbt_t2": "tank",
+    "mbt_t2_rail": "tank",
+    "veh_aa": "aa",
+    "veh_aa_beam": "aa",
+    "veh_aa_flak": "aa",
+    "arty_howitzer": "artillery",
+    "arty_rocket": "artillery",
+    "arty_missile": "artillery",
+    "siege_ap": "siege",
+    "siege_he": "siege",
+    "siege_rail": "siege",
+    "siege_beam": "siege",
+    "siege_demo": "siege",
+    "veh_command": "siege",
+    "veh_assault_carrier": "siege",
+    "air_fighter": "fighter",
+    "air_gunship": "air_attack",
+    "air_bomber": "air_attack",
+    "air_drone": "air_attack",
+    "air_ew": "air_attack",
+    "ship_patrol": "patrol",
+    "ship_escort": "escort",
+    "ship_siege": "capital",
+    "ship_carrier": "capital",
+    "ship_sub": "capital"
+   },
+   "condition_weights": {
+    "The vehicle is on water.": 0.25,
+    "The infantry unit occupies a marked civilian garrison.": 0.15,
+    "The target is receiving paid land-vehicle repairs.": 0.04,
+    "default": 0.3
+   },
+   "structure_shares": {
+    "selector.defensive_structures": 0.08,
+    "selector.generators": 0.05,
+    "selector.refineries": 0.04,
+    "selector.airfields": 0.03,
+    "selector.structures": 0.35,
+    "selector.non_superweapon_structures": 0.3,
+    "default": 0.05
+   },
+   "elasticity": {
+    "build_time": 0.3,
+    "rearm_time": 0.4,
+    "projectile_flight_speed": 0.05,
+    "structure_health": 0.5,
+    "structure_build_time": 0.3,
+    "power_output": 0.8,
+    "repair_progress_rate": 0.05,
+    "repair_spend_share": 0.04,
+    "repair_cost_effect": 0.8,
+    "note": "value of a +1 % stat change in % of army power; stats not listed use the per-archetype power_exponents (hp, dps, range, speed, vision); cost enters as 1/cost"
+   },
+   "note": "Reference army = the roster's units in 13 role slots weighted by slot_weights (renormalised over the slots present); a stat change moves the index by weight x elasticity."
+  },
+  "recommended": {
+   "napc.vanilla": [
+    1.5,
+    0.0
+   ],
+   "napc.usa": [
+    1.5,
+    0.0
+   ],
+   "napc.canada": [
+    1.5,
+    0.0
+   ],
+   "napc.mexico": [
+    1.5,
+    0.0
+   ],
+   "nec.vanilla": [
+    3.0,
+    0.0
+   ],
+   "nec.nordics": [
+    3.0,
+    0.0
+   ],
+   "nec.eurocorps": [
+    3.0,
+    6.5
+   ],
+   "nec.alpine_brotherhood": [
+    3.0,
+    0.0
+   ],
+   "olm.vanilla": [
+    0.0,
+    0.0
+   ],
+   "olm.saudi_arabia": [
+    0.0,
+    0.0
+   ],
+   "olm.algeria": [
+    0.0,
+    0.0
+   ],
+   "olm.el_andalus": [
+    0.0,
+    0.0
+   ],
+   "def.vanilla": [
+    -4.0,
+    0.0
+   ],
+   "def.russia": [
+    -4.0,
+    0.0
+   ],
+   "def.kazakhstan": [
+    -4.0,
+    0.0
+   ],
+   "def.north_korea": [
+    -4.0,
+    -12.0
+   ],
+   "pd.vanilla": [
+    0.0,
+    0.0
+   ],
+   "pd.australia": [
+    0.0,
+    0.0
+   ],
+   "pd.indonesia": [
+    0.0,
+    0.0
+   ],
+   "pd.japan": [
+    0.0,
+    12.0
+   ],
+   "han.vanilla": [
+    -1.5,
+    0.0
+   ],
+   "han.china": [
+    -1.5,
+    0.0
+   ],
+   "han.vietnam": [
+    -1.5,
+    0.0
+   ],
+   "han.cambodia": [
+    -1.5,
+    -12.0
+   ],
+   "ae.vanilla": [
+    0.0,
+    0.0
+   ],
+   "ae.nigeria": [
+    0.0,
+    -12.0
+   ],
+   "ae.kongo": [
+    0.0,
+    0.0
+   ],
+   "ae.south_africa": [
+    0.0,
+    11.0
+   ],
+   "sap.vanilla": [
+    0.0,
+    0.0
+   ],
+   "sap.india": [
+    0.0,
+    0.0
+   ],
+   "sap.thailand": [
+    0.0,
+    0.0
+   ],
+   "sap.pakistan": [
+    0.0,
+    0.0
+   ]
+  }
+ }
+}

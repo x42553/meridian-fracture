@@ -1,0 +1,224 @@
+{
+ "schema": "meridian.audio.responses/1",
+ "gaps": {
+  "global_ms": 250,
+  "same_ms": 700,
+  "fatigue_count": 4,
+  "fatigue_window_s": 3.0
+ },
+ "default_mode": "synth",
+ "voice_mix_pct": 60,
+ "classes": {
+  "infantry": {
+   "register": "high",
+   "len_ms": [
+    150,
+    260
+   ]
+  },
+  "vehicle": {
+   "register": "mid",
+   "len_ms": [
+    200,
+    340
+   ]
+  },
+  "heavy": {
+   "register": "low",
+   "len_ms": [
+    280,
+    450
+   ]
+  },
+  "air": {
+   "register": "trill",
+   "len_ms": [
+    160,
+    300
+   ]
+  },
+  "naval": {
+   "register": "ping",
+   "len_ms": [
+    250,
+    420
+   ]
+  },
+  "support": {
+   "register": "soft",
+   "len_ms": [
+    180,
+    320
+   ]
+  },
+  "structure": {
+   "register": "click",
+   "len_ms": [
+    80,
+    160
+   ]
+  }
+ },
+ "types": {
+  "select": 3,
+  "move": 3,
+  "attack": 3,
+  "deny": 2,
+  "special": 2
+ },
+ "structure_types": {
+  "select": 3
+ },
+ "barks": {
+  "infantry": {
+   "select": [
+    "Yes, sir.",
+    "Ready.",
+    "Standing by."
+   ],
+   "move": [
+    "Moving out.",
+    "On my way.",
+    "Roger."
+   ],
+   "attack": [
+    "Engaging.",
+    "Open fire.",
+    "Attacking."
+   ],
+   "deny": [
+    "Negative.",
+    "Can't do that."
+   ],
+   "special": [
+    "Affirmative.",
+    "On it."
+   ]
+  },
+  "vehicle": {
+   "select": [
+    "Ready.",
+    "Awaiting orders.",
+    "Standing by."
+   ],
+   "move": [
+    "Moving.",
+    "En route.",
+    "Proceeding."
+   ],
+   "attack": [
+    "Engaging.",
+    "Firing.",
+    "Target acquired."
+   ],
+   "deny": [
+    "Negative.",
+    "Unable."
+   ],
+   "special": [
+    "Affirmative.",
+    "Executing."
+   ]
+  },
+  "heavy": {
+   "select": [
+    "Ready.",
+    "Heavy armor ready.",
+    "Awaiting orders."
+   ],
+   "move": [
+    "Rolling.",
+    "Moving out.",
+    "On the move."
+   ],
+   "attack": [
+    "Firing.",
+    "Engaging.",
+    "Fire mission."
+   ],
+   "deny": [
+    "Negative.",
+    "Unable."
+   ],
+   "special": [
+    "Affirmative.",
+    "Executing."
+   ]
+  },
+  "air": {
+   "select": [
+    "Airborne.",
+    "Ready.",
+    "Standing by."
+   ],
+   "move": [
+    "Vectoring.",
+    "On course.",
+    "Moving."
+   ],
+   "attack": [
+    "Engaging.",
+    "Attack run.",
+    "Weapons hot."
+   ],
+   "deny": [
+    "Negative.",
+    "Unable."
+   ],
+   "special": [
+    "Affirmative.",
+    "Executing."
+   ]
+  },
+  "naval": {
+   "select": [
+    "Aye.",
+    "Ready.",
+    "Standing by."
+   ],
+   "move": [
+    "Making way.",
+    "Underway.",
+    "Course set."
+   ],
+   "attack": [
+    "Firing.",
+    "Engaging.",
+    "Guns ready."
+   ],
+   "deny": [
+    "Negative.",
+    "Unable."
+   ],
+   "special": [
+    "Affirmative.",
+    "Executing."
+   ]
+  },
+  "support": {
+   "select": [
+    "Ready.",
+    "At your service.",
+    "Standing by."
+   ],
+   "move": [
+    "Moving.",
+    "On my way.",
+    "Roger."
+   ],
+   "attack": [
+    "Engaging.",
+    "On it.",
+    "Acknowledged."
+   ],
+   "deny": [
+    "Negative.",
+    "Can't do that."
+   ],
+   "special": [
+    "Affirmative.",
+    "On it."
+   ]
+  }
+ }
+}

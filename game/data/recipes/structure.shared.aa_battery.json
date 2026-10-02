@@ -1,0 +1,11 @@
+{
+  "schema": "meridian.recipe/1",
+  "id": "structure.shared.aa_battery",
+  "archetype": "str_aa_battery",
+  "style": "auto",
+  "meta": {
+    "stub": true,
+    "view_archetype": "str_aa_battery",
+    "rule": "override"
+  }
+}

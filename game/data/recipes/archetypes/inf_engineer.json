@@ -1,0 +1,69 @@
+{
+  "schema": "meridian.archetype/1",
+  "id": "inf_engineer",
+  "size_class": "inf",
+  "scale": 1.25,
+  "meta": {
+    "motion": "foot",
+    "doc": "Engineers (service.engineer): crew 1-2 with tool bags and accent hard-hats. Sockets muzzle0_0, muzzle1_0, top."
+  },
+  "defaults": {"crew": 2, "helmet": "cap"},
+  "slots": {"gear": []},
+  "ops": [
+    ["meta", "members", "crew"],
+    {
+      "for": "i",
+      "n": "crew",
+      "do": [
+        {
+          "let": {
+            "a0": "(crew) == 2 ? PI*0.5 : 0",
+            "fx": "((crew) == 1 ? 0 : sin(i*TAU/(crew) + a0)*0.32) + (rnd(i)-0.5)*0.05",
+            "fz": "((crew) == 1 ? 0 : -cos(i*TAU/(crew) + a0)*0.32) + (rnd(i+9)-0.5)*0.05",
+            "ph": "(i + 0.5)/(crew)"
+          }
+        },
+        {
+          "call": "soldier",
+          "args": {
+            "x": "fx",
+            "z": "fz",
+            "phase": "ph",
+            "member": "i",
+            "count": "crew",
+            "kit": "'tool'",
+            "helmet": "helmet",
+            "pack": "'large'"
+          }
+        },
+        {
+          "if": "1",
+          "then": [
+            ["member", "i", "crew"],
+            {
+              "part": {"kind": "body_bob", "pivot": [0, 0, 0], "param": "ph", "extra": 0},
+              "do": [
+                {
+                  "push": {"pos": ["fx", 0, "fz"]},
+                  "do": [
+                    ["brush", "acc"],
+                    ["dome", [0, 0.955, 0], [0, 1, 0], 0.145, 0.11, 10, 3],
+                    ["box", [0, 0.955, -0.15], [0.2, 0.02, 0.12], 0.0],
+                    ["box", [-0.22, 0.36, -0.06], [0.2, 0.16, 0.26], 0.015],
+                    ["brush", "dark"],
+                    ["box", [-0.22, 0.45, -0.06], [0.14, 0.02, 0.18], 0.0]
+                  ]
+                }
+              ]
+            },
+            ["member", 0, 0]
+          ]
+        }
+      ]
+    },
+    {"slot": "gear"},
+    ["socket", "muzzle0_0", [0.2, 0.64, -0.68], [0, 0, -1]],
+    ["socket", "muzzle1_0", [0.2, 0.64, -0.68], [0, 0, -1]],
+    ["socket", "top", [0, 1.35, 0], [0, 1, 0]]
+  ]
+}

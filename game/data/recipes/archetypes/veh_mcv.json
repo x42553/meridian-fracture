@@ -1,0 +1,199 @@
+{
+  "schema": "meridian.archetype/1",
+  "id": "veh_mcv",
+  "size_class": "medium",
+  "meta": {
+    "motion": "tracked",
+    "wreck": {"turret_yaw_deg": 0, "tilt_deg": [3, 0, -5]},
+    "doc": "MCV (service.mcv): tracked carrier with a folded HQ crate; deploy unfolds the side panels (DEPLOY_Z) and lifts the roof frame on posts (SLIDE_Y). Sockets door_exit, exhaust0, top."
+  },
+  "defaults": {"hull_len": 5.0, "hull_wid": 2.7, "deck_y": 1.3, "trk_x": 1.08, "trk_w": 0.6, "skirt": "modules", "roof": "cupola"},
+  "derive": {"hl": "hull_len*0.5", "hw": "hull_wid*0.5", "crate_z": "hl-1.55", "cy": "deck_y+0.05"},
+  "slots": {"skirt": []},
+  "ops": [
+    ["bevel", 0.045],
+    {
+      "mirror_x": [
+        ["brush", "rubber", "rubber"],
+        [
+          "track",
+          "trk_x",
+          "trk_w",
+          [["hl-0.5", "(0.36+0.06+0.07)", "(0.36+0.06)"], ["-hl+0.55", "(0.36+0.06+0.07)", "(0.36+0.06)"]],
+          0.07,
+          10
+        ],
+        ["wheel", ["trk_x", "(0.36+0.06+0.07)", "hl-0.5"], 0.36, "(trk_w)*0.78", "rubber", "metal", 0, 10],
+        ["wheel", ["trk_x", "(0.36+0.06+0.07)", "-hl+0.55"], 0.36, "(trk_w)*0.78", "rubber", "metal", 0, 10],
+        {
+          "for": "i",
+          "n": 6,
+          "do": [
+            [
+              "wheel",
+              ["trk_x", "0.27+0.07", "lerp((-hl+0.55)+0.36+0.22,(hl-0.5)-0.36-0.24,i/max((6)-1,1))"],
+              0.27,
+              "(trk_w)*0.8",
+              "rubber",
+              "metal",
+              0,
+              8
+            ]
+          ]
+        },
+        ["brush", "dark"],
+        [
+          "box",
+          ["trk_x", "2*0.36+0.205+0.07", "((hl-0.5)+(-hl+0.55))*0.5"],
+          ["(trk_w)+0.16", 0.045, "(hl-0.5)-(-hl+0.55)+0.56"],
+          0.015
+        ],
+        {
+          "switch": "skirt",
+          "cases": {
+            "modules": [
+              {
+                "for": "j",
+                "n": 5,
+                "do": [
+                  ["brush", "j % 2 == 0 ? 'base' : 'sec'"],
+                  [
+                    "box",
+                    ["trk_x+trk_w*0.5+0.07", 0.82, "-(hl)+0.25+(hull_len-0.6)/5*(j+0.5)"],
+                    [0.09, 0.44, "(hull_len-0.6)/5-0.07"],
+                    0.012
+                  ]
+                ]
+              },
+              ["brush", "acc"],
+              ["box", ["trk_x+trk_w*0.5+0.07", "0.82+0.44*0.5+0.02", 0], [0.1, 0.04, "5*(hull_len-0.6)/5-0.05"], 0.0]
+            ],
+            "none": []
+          },
+          "default": [{"call": "skirt", "args": {"kind": "skirt", "x": "trk_x+trk_w*0.5+0.07", "y": 0.82, "len": "2*(hl)", "h": 0.44}}]
+        },
+        {"slot": "skirt"}
+      ]
+    },
+    ["brush", "dark"],
+    ["ao", 0.7],
+    ["box", [0, 0.64, 0], ["(trk_x-trk_w*0.5-0.02)*2", 0.6, "hull_len-0.2"], 0.03],
+    ["ao", 1.0],
+    ["brush", "base"],
+    [
+      "extrude",
+      [["-hl", 0.9], ["-hl", "deck_y-0.1"], ["-hl+0.3", "deck_y"], ["hl-0.55", "deck_y"], ["hl", 0.98], ["hl", 0.9]],
+      "-hw",
+      "hw",
+      0.06
+    ],
+    ["brush", "sec"],
+    [
+      "extrude",
+      [
+        ["hl-1.25", "deck_y"],
+        ["hl-1.25", "deck_y+0.95"],
+        ["hl-0.6", "deck_y+0.95"],
+        ["hl-0.2", "deck_y+0.35"],
+        ["hl-0.2", "deck_y"]
+      ],
+      "-hw+0.3",
+      "hw-0.3",
+      0.05
+    ],
+    ["brush", "glass", "glass"],
+    {
+      "push": {"pos": [0, "deck_y+0.7", "-(hl-0.4)"], "euler": [-42, 0, 0]},
+      "do": [["box", [0, 0, 0], ["hull_wid-1.3", 0.03, 0.5], 0.0]]
+    },
+    {"for": "s", "n": 2, "do": [["box", ["(s*2-1)*(hw-0.295)", "deck_y+0.66", "-(hl-0.75)"], [0.03, 0.3, 0.6], 0.0]]},
+    {
+      "call": "light_pair",
+      "args": {"center": [0, "deck_y-0.2", "-hl-0.01"], "spacing": "(hw-0.3)*2", "size": [0.22, 0.1, 0.05], "col": "light"}
+    },
+    {
+      "call": "light_pair",
+      "args": {"center": [0, "deck_y-0.15", "hl+0.01"], "spacing": "(hw-0.3)*2", "size": [0.2, 0.09, 0.04], "col": "#ff140a"}
+    },
+    ["brush", "acc"],
+    ["box", [0, "deck_y+0.97", "-(hl-0.85)"], ["hull_wid-1.4", 0.05, 0.1], 0.0],
+    ["brush", "sec"],
+    ["box", [0, "deck_y+0.85", "crate_z+0.1"], [1.5, 1.6, 2.3], 0.05],
+    ["brush", "acc"],
+    {
+      "for": "s",
+      "n": 2,
+      "do": [
+        ["box", ["(s*2-1)*0.72", "deck_y+0.85", "crate_z+1.22"], [0.09, 1.7, 0.09], 0.0],
+        ["box", ["(s*2-1)*0.72", "deck_y+0.85", "crate_z-1.02"], [0.09, 1.7, 0.09], 0.0]
+      ]
+    },
+    ["brush", "metal", "metal"],
+    ["pocket", [0, "deck_y+1.66", "crate_z+0.1"], [1.3, 0.04, 2.1], [[0.08, 0.06, 0.4, 0.88], [0.52, 0.06, 0.4, 0.88]], 0.02],
+    {
+      "part": {"kind": "deploy_z", "pivot": [-0.75, "deck_y+0.08", "crate_z+0.1"], "param": 0.857},
+      "do": [
+        ["brush", "base"],
+        ["box", [-0.81, "deck_y+0.7", "crate_z+0.1"], [0.1, 1.25, 2.2], 0.03],
+        ["brush", "acc"],
+        ["box", [-0.87, "deck_y+1.3", "crate_z+0.1"], [0.04, 0.06, 2.1], 0.0],
+        ["brush", "glass", "glass"],
+        ["box", [-0.87, "deck_y+0.75", "crate_z+0.1"], [0.03, 0.4, 1.4], 0.0]
+      ]
+    },
+    {
+      "part": {"kind": "deploy_z", "pivot": [0.75, "deck_y+0.08", "crate_z+0.1"], "param": 0.143},
+      "do": [
+        ["brush", "base"],
+        ["box", [0.81, "deck_y+0.7", "crate_z+0.1"], [0.1, 1.25, 2.2], 0.03],
+        ["brush", "acc"],
+        ["box", [0.87, "deck_y+1.3", "crate_z+0.1"], [0.04, 0.06, 2.1], 0.0],
+        ["brush", "glass", "glass"],
+        ["box", [0.87, "deck_y+0.75", "crate_z+0.1"], [0.03, 0.4, 1.4], 0.0]
+      ]
+    },
+    {
+      "part": {"kind": "slide_y", "pivot": [0, "deck_y+1.7", "crate_z+0.1"], "extra": 0.9},
+      "do": [
+        ["brush", "base"],
+        ["box", [0, "deck_y+1.72", "crate_z+0.1"], [1.7, 0.12, 2.5], 0.04],
+        ["brush", "acc"],
+        ["box", [0, "deck_y+1.79", "crate_z+1.25"], [1.7, 0.04, 0.08], 0.0],
+        ["brush", "metal", "metal"],
+        {
+          "for": "k",
+          "n": 4,
+          "do": [["box", ["(k%2*2-1)*0.68", "deck_y+1.3", "crate_z+0.1+(floor(k/2)*2-1)*1.06"], [0.09, 0.9, 0.09], 0.0]]
+        },
+        ["brush", "metal", "metal"],
+        ["cyl", [0.5, "deck_y+1.78", "crate_z-0.6"], [0.5, "deck_y+2.6", "crate_z-0.6"], 0.03, 6, 0.0],
+        ["brush", "light", "emissive"],
+        ["box", [0.5, "deck_y+2.62", "crate_z-0.6"], [0.14, 0.06, 0.14], 0.0]
+      ]
+    },
+    {"call": "team_panel", "args": {"center": [0, "deck_y+1.79", "crate_z+0.1"], "size": [0.9, 0.02, 0.9]}},
+    ["tier", 1],
+    ["brush", "metal", "metal"],
+    ["greeble", [0, "deck_y+0.03", "crate_z+1.55"], [0, 1, 0], ["hw*0.7", 0, 0], [0, 0, 0.25], 4, 0.1, 0.2, 0.03, 0.08],
+    ["tier", 0],
+    {
+      "switch": "roof",
+      "cases": {},
+      "default": [
+        {
+          "call": "whip",
+          "args": {
+            "base": ["-hw+0.4", "deck_y+0.95", "-(hl-0.9)"],
+            "tip": ["-hw+0.42", "deck_y+2.1", "-(hl-0.95)"],
+            "r": 0.012,
+            "col": "metal"
+          }
+        }
+      ]
+    },
+    {"slot": "skirt"},
+    ["socket", "exhaust0", ["hw*0.6", "deck_y", "hl"], [0, 0, 1]],
+    ["socket", "door_exit", [0, "deck_y", "hl+0.4"], [0, 0, 1]],
+    ["socket", "top", [0, "deck_y+3.0", "crate_z"], [0, 1, 0]]
+  ]
+}

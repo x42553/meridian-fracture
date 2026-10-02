@@ -1,0 +1,11 @@
+{
+  "schema": "meridian.recipe/1",
+  "id": "unit.shared.engineer",
+  "archetype": "inf_engineer",
+  "style": "auto",
+  "meta": {
+    "stub": true,
+    "view_archetype": "inf_engineer",
+    "rule": "balance archetype service.engineer"
+  }
+}

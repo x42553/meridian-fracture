@@ -1,0 +1,151 @@
+{
+  "schema": "meridian.archetype/1",
+  "id": "ship_carrier",
+  "size_class": "ship",
+  "meta": {
+    "motion": "naval",
+    "death": {"kind": "sink", "ticks": 60},
+    "doc": "Carrier (ship_carrier): flight deck with lifts (SLIDE_Y), hangar hatches (SLIDE_Z), island with radar; deck drones|container."
+  },
+  "defaults": {"sc_len": 12.4, "sc_beam": 4.6, "deck": "drones", "bow": "sharp", "roof": "cupola"},
+  "derive": {"hl": "sc_len*0.5", "fb": "1.0"},
+  "ops": [
+    ["bevel", 0.035],
+    {
+      "call": "hull_ship",
+      "args": {
+        "len": "sc_len",
+        "beam": "sc_beam",
+        "draft": 0.6,
+        "bow": "bow",
+        "freeboard": "fb",
+        "col": "base",
+        "low": "dark",
+        "stripe": "acc",
+        "deck": "dark"
+      }
+    },
+    ["brush", "base"],
+    ["box", [0, "fb+0.02", "sc_len*0.17"], ["sc_beam+0.1", 0.56, "sc_len*0.66"], 0.05],
+    ["brush", "acc"],
+    ["box", [0, "fb-0.22", "sc_len*0.17"], ["sc_beam+0.13", 0.05, "sc_len*0.66+0.03"], 0.0],
+    ["brush", "base"],
+    ["tbox", [0, "fb+0.02", "-sc_len*0.3"], ["sc_beam*0.86", "sc_len*0.2"], ["sc_beam*0.5", "sc_len*0.14"], 0.56, [0, -0.5], 0.05],
+    {
+      "call": "flight_deck",
+      "args": {
+        "center": [0, "fb+0.3", 0.15],
+        "len": "sc_len-0.9",
+        "wid": "sc_beam+0.5",
+        "thick": 0.2,
+        "lifts": 2,
+        "col": "dark",
+        "mark": "sec"
+      }
+    },
+    ["brush", "acc"],
+    {"mirror_x": [["box", ["(sc_beam+0.5)*0.5+0.02", "fb+0.42", 0.15], [0.05, 0.05, "sc_len-1.0"], 0.0]]},
+    {
+      "call": "superstructure",
+      "args": {
+        "center": ["sc_beam*0.5-0.3", "fb+0.5", "-hl*0.05"],
+        "len": 2.3,
+        "wid": 1.05,
+        "tiers": 4,
+        "tier_h": 0.62,
+        "col": "sec",
+        "radar": 1,
+        "mast": 1
+      }
+    },
+    {"call": "team_panel", "args": {"center": [0, "fb+0.53", "hl*0.55"], "size": [1.5, 0.02, 3.0]}},
+    {"call": "team_panel", "args": {"center": ["sc_beam*0.5-0.3", "fb+3.06", "-hl*0.05"], "size": [0.5, 0.02, 0.6]}},
+    {
+      "switch": "deck",
+      "cases": {
+        "drones": [{"call": "deck_drones", "args": {"center": [-0.7, "fb+0.5", "hl*0.55-0.6"], "n": 6, "cols": 3, "pitch": 0.6}}],
+        "container": [{"call": "container", "args": {"center": [-0.6, "fb+0.8", "hl*0.55-0.6"], "size": [1.6, 0.5, 1.2], "col": "sec"}}]
+      }
+    },
+    {
+      "part": {"kind": "slide_z", "pivot": [0, "fb+0.5", "-hl+1.6"], "extra": 0.6},
+      "do": [
+        ["brush", "metal", "metal"],
+        ["box", [-0.9, "fb+0.53", "-hl+2.0"], [0.9, 0.04, 0.8], 0.0],
+        ["box", [0.5, "fb+0.53", "-hl+2.0"], [0.9, 0.04, 0.8], 0.0]
+      ]
+    },
+    ["tier", 1],
+    ["brush", "light", "emissive"],
+    {
+      "part": {"kind": "blink"},
+      "do": [
+        {
+          "mirror_x": [
+            ["box", ["(sc_beam+0.5)*0.5-0.1", "fb+0.45", "-hl+0.7"], [0.08, 0.05, 0.08], 0.0],
+            ["box", ["(sc_beam+0.5)*0.5-0.1", "fb+0.45", "hl-0.7"], [0.08, 0.05, 0.08], 0.0]
+          ]
+        }
+      ]
+    },
+    ["tier", 0],
+    {
+      "call": "light_pair",
+      "args": {"center": [0, "fb+0.3", "hl+0.02"], "spacing": 2.4, "size": [0.16, 0.09, 0.04], "col": "#ff140a"}
+    },
+    {
+      "mirror_x": [
+        ["tier", 2],
+        ["brush", "metal", "metal"],
+        {
+          "for": "k",
+          "n": 16,
+          "do": [
+            [
+              "cyl",
+              ["(sc_beam+0.5)*0.5-0.04", "fb+0.5", "lerp(-hl+1.0,hl-0.7,k/15)"],
+              ["(sc_beam+0.5)*0.5-0.04", "(fb+0.5)+0.26", "lerp(-hl+1.0,hl-0.7,k/15)"],
+              0.018,
+              5,
+              0.0
+            ]
+          ]
+        },
+        ["box", ["(sc_beam+0.5)*0.5-0.04", "(fb+0.5)+0.26", "((-hl+1.0)+(hl-0.7))*0.5"], [0.03, 0.03, "(hl-0.7)-(-hl+1.0)"], 0.0],
+        [
+          "box",
+          ["(sc_beam+0.5)*0.5-0.04", "(fb+0.5)+0.26*0.5", "((-hl+1.0)+(hl-0.7))*0.5"],
+          [0.02, 0.02, "(hl-0.7)-(-hl+1.0)"],
+          0.0
+        ],
+        ["tier", 0]
+      ]
+    },
+    ["brush", "dark", "metal"],
+    ["box", ["sc_beam*0.5-0.3", "fb+3.55", "-hl*0.05-0.2"], [0.5599999999999999, 0.32000000000000006, 0.06], 0.01],
+    ["brush", "metal", "metal"],
+    [
+      "cyl",
+      ["sc_beam*0.5-0.3", "(fb+3.55)-0.4*0.4", "-hl*0.05-0.2"],
+      ["sc_beam*0.5-0.3", "(fb+3.55)-0.4*0.4-0.35", "-hl*0.05-0.2"],
+      0.03,
+      6,
+      0.0
+    ],
+    ["brush", "light", "emissive"],
+    ["box", ["sc_beam*0.5-0.3", "(fb+3.55)+0.4*0.5+0.03", "-hl*0.05-0.2"], [0.1, 0.05, 0.05], 0.0],
+    ["brush", "sec"],
+    ["cyl", ["sc_beam*0.5-0.3", "fb+3.1", "-hl*0.05+0.6"], ["sc_beam*0.5-0.3", "fb+3.5", "-hl*0.05+0.6"], 0.1, 6, 0.0],
+    ["brush", "acc"],
+    {"mirror_x": [["box", ["sc_beam*0.5-1.6", "fb+0.52", "-hl+2.3"], [0.05, 0.03, 2.0], 0.0]]},
+    ["brush", "dark"],
+    ["box", [0, "fb+0.05", "-hl+0.4"], ["sc_beam*0.6", 0.1, 0.5], 0.02],
+    ["tier", 1],
+    ["brush", "metal", "metal"],
+    ["greeble", ["sc_beam*0.5-0.2", "fb+0.52", "hl*0.3"], [0, 1, 0], [0.4, 0, 0], [0, 0, 2.0], 6, 0.1, 0.24, 0.04, 0.14],
+    ["tier", 0],
+    ["socket", "launch", [0, "fb+0.5", "hl*0.2"], [0, 0, -1]],
+    ["socket", "top", [0, 5.0, 0], [0, 1, 0]],
+    ["socket", "exhaust0", ["sc_beam*0.5-0.3", "fb+2.6", "-hl*0.05+0.5"], [0, 1, 0]]
+  ]
+}

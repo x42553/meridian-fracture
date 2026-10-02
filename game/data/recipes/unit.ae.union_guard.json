@@ -1,0 +1,113 @@
+{
+  "schema": "meridian.recipe/1",
+  "id": "unit.ae.union_guard",
+  "archetype": "inf_rifle",
+  "style": "auto",
+  "params": {
+    "helmet": "angular"
+  },
+  "ops_after": [
+    {
+      "for": "i",
+      "n": "n",
+      "do": [
+        {
+          "let": {
+            "a0": "(n) == 2 ? PI*0.5 : 0",
+            "fx": "((n) == 1 ? 0 : sin(i*TAU/(n) + a0)*0.42) + (rnd(i)-0.5)*0.05",
+            "fz": "((n) == 1 ? 0 : -cos(i*TAU/(n) + a0)*0.42) + (rnd(i+9)-0.5)*0.05",
+            "ph": "(i + 0.5)/(n)"
+          }
+        },
+        [
+          "member",
+          "i",
+          "n"
+        ],
+        {
+          "part": {
+            "kind": "body_bob",
+            "pivot": [
+              0,
+              0,
+              0
+            ],
+            "param": "ph",
+            "extra": 0
+          },
+          "do": [
+            {
+              "push": {
+                "pos": [
+                  "fx",
+                  0,
+                  "fz"
+                ]
+              },
+              "do": [
+                [
+                  "tier",
+                  1
+                ],
+                [
+                  "brush",
+                  "sec"
+                ],
+                [
+                  "box",
+                  [
+                    0,
+                    0.7,
+                    -0.118
+                  ],
+                  [
+                    0.28,
+                    0.2,
+                    0.03
+                  ],
+                  0.0
+                ],
+                [
+                  "tier",
+                  0
+                ],
+                [
+                  "tier",
+                  2
+                ],
+                [
+                  "brush",
+                  "acc",
+                  "emissive"
+                ],
+                [
+                  "box",
+                  [
+                    0,
+                    0.505,
+                    -0.13
+                  ],
+                  [
+                    0.08,
+                    0.045,
+                    0.02
+                  ],
+                  0.0
+                ],
+                [
+                  "tier",
+                  0
+                ]
+              ]
+            }
+          ]
+        },
+        [
+          "member",
+          0,
+          0
+        ]
+      ]
+    }
+  ]
+}

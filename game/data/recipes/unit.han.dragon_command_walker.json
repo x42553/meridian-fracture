@@ -1,0 +1,19 @@
+{
+  "schema": "meridian.recipe/1",
+  "id": "unit.han.dragon_command_walker",
+  "archetype": "veh_walker",
+  "style": "auto",
+  "params": {"roof": "none"},
+  "ops_after": [
+    ["brush", "acc", "emissive"],
+    ["dome", ["-1*(hw-0.05)", "body_y+0.9", "-1*(hl-0.65)"], [0, 1, 0], 0.16, 0.152, 8, 2],
+    ["brush", "acc", "emissive"],
+    ["dome", ["-1*(hw-0.05)", "body_y+0.9", "1*(hl-0.65)"], [0, 1, 0], 0.16, 0.152, 8, 2],
+    ["brush", "acc", "emissive"],
+    ["dome", ["1*(hw-0.05)", "body_y+0.9", "-1*(hl-0.65)"], [0, 1, 0], 0.16, 0.152, 8, 2],
+    ["brush", "acc", "emissive"],
+    ["dome", ["1*(hw-0.05)", "body_y+0.9", "1*(hl-0.65)"], [0, 1, 0], 0.16, 0.152, 8, 2],
+    {"mirror_x": [{"call": "team_panel", "args": {"center": ["hw-0.5", "body_top+0.075", "hl*0.28"], "size": [0.5, 0.02, 0.6]}}]}
+  ],
+  "meta": {"han_gen": true}
+}

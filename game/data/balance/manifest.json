@@ -1,0 +1,11 @@
+{
+  "schema": "meridian.balance.manifest/1",
+  "format": 1,
+  "files": [
+    "ability_kinds.json", "faction_traits.json", "global.json", "map_gen.json", "neutral_structures.json", "power_actions.json",
+    "research_effects.json", "structures.json", "terrain.json",
+    "units_ae.json", "units_def.json", "units_han.json", "units_napc.json", "units_nec.json",
+    "units_olm.json", "units_pd.json", "units_sap.json", "units_shared.json", "zone_templates.json"
+  ],
+  "missions": ["demo_ambush.json", "op_ae.json", "op_def.json", "op_han.json", "op_napc.json", "op_nec.json", "op_olm.json", "op_pd.json", "op_sap.json", "tut_field_training.json"]
+}

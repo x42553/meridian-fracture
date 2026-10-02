@@ -1,0 +1,46 @@
+{
+  "schema": "meridian.archetype/1",
+  "id": "inf_rifle",
+  "size_class": "inf",
+  "scale": 1.25,
+  "meta": {
+    "motion": "foot",
+    "doc": "Line infantry squad (inf_line): n 1-4 (diamond), kit rifle|hmg|shield, helmet (style kit). Every vertex belongs to a member (hide-by-hp 75 / 50 / 25 percent). Sockets muzzle0_0, muzzle1_0, top."
+  },
+  "defaults": {"n": 4, "kit": "rifle", "helmet": "round", "pack": "small"},
+  "slots": {"gear": []},
+  "ops": [
+    ["meta", "members", "n"],
+    {
+      "for": "i",
+      "n": "n",
+      "do": [
+        {
+          "let": {
+            "a0": "(n) == 2 ? PI*0.5 : 0",
+            "fx": "((n) == 1 ? 0 : sin(i*TAU/(n) + a0)*0.42) + (rnd(i)-0.5)*0.05",
+            "fz": "((n) == 1 ? 0 : -cos(i*TAU/(n) + a0)*0.42) + (rnd(i+9)-0.5)*0.05",
+            "ph": "(i + 0.5)/(n)"
+          }
+        },
+        {
+          "call": "soldier",
+          "args": {
+            "x": "fx",
+            "z": "fz",
+            "phase": "ph",
+            "member": "i",
+            "count": "n",
+            "kit": "kit",
+            "helmet": "i == 0 ? 'cap' : helmet",
+            "pack": "'small'"
+          }
+        }
+      ]
+    },
+    {"slot": "gear"},
+    ["socket", "muzzle0_0", [0.2, 0.64, -0.68], [0, 0, -1]],
+    ["socket", "muzzle1_0", [0.2, 0.64, -0.68], [0, 0, -1]],
+    ["socket", "top", [0, 1.35, 0], [0, 1, 0]]
+  ]
+}

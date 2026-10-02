@@ -1,0 +1,94 @@
+{
+  "schema": 1,
+  "_doc": "PD doctrine patch: amphibious - a Dock is part of the plan whenever open water is close to the base (parallel and optional, never blocks the spine).",
+  "faction": "faction.pd",
+  "base": {
+    "opener_patch": {
+      "insert_after": {
+        "rad1": [
+          {
+            "id": "dock1",
+            "op": "build",
+            "struct": "dock",
+            "prio": 35,
+            "opt": true,
+            "parallel": true,
+            "when": {
+              "all": [
+                {
+                  "dock_placeable": true
+                },
+                {
+                  "map_trait": {
+                    "name": "water",
+                    "ge_pct": 8
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  },
+  "rosters": {
+    "roster.pd.vanilla": {
+      "composition_patch": {
+        "buildup": {
+          "ESCORT_SHIP": 4,
+          "BOAT_LIGHT": 2,
+          "AMPH_TRANSPORT": 4
+        },
+        "midgame": {
+          "ESCORT_SHIP": 8,
+          "BOAT_LIGHT": 2,
+          "SIEGE_SHIP": 4,
+          "AMPH_TRANSPORT": 6
+        },
+        "late": {
+          "ESCORT_SHIP": 8,
+          "SIEGE_SHIP": 6,
+          "AMPH_TRANSPORT": 4
+        }
+      }
+    },
+    "roster.pd.australia": {},
+    "roster.pd.indonesia": {
+      "composition_patch": {
+        "buildup": {
+          "ESCORT_SHIP": 4,
+          "BOAT_LIGHT": 2,
+          "AMPH_TRANSPORT": 4
+        },
+        "midgame": {
+          "ESCORT_SHIP": 8,
+          "BOAT_LIGHT": 2,
+          "SIEGE_SHIP": 4,
+          "AMPH_TRANSPORT": 6
+        },
+        "late": {
+          "ESCORT_SHIP": 8,
+          "SIEGE_SHIP": 6,
+          "AMPH_TRANSPORT": 4
+        }
+      }
+    },
+    "roster.pd.japan": {
+      "composition_patch": {
+        "buildup": {
+          "ESCORT_SHIP": 4,
+          "BOAT_LIGHT": 2
+        },
+        "midgame": {
+          "ESCORT_SHIP": 8,
+          "BOAT_LIGHT": 2,
+          "SIEGE_SHIP": 4
+        },
+        "late": {
+          "ESCORT_SHIP": 8,
+          "SIEGE_SHIP": 6
+        }
+      }
+    }
+  }
+}

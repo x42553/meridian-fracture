@@ -1,0 +1,11 @@
+{
+  "schema": "meridian.recipe/1",
+  "id": "summon.han.dragonfall_capsule",
+  "archetype": "sum_capsule",
+  "style": "auto",
+  "meta": {
+    "stub": true,
+    "view_archetype": "sum_capsule",
+    "rule": "override"
+  }
+}

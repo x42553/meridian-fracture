@@ -1,0 +1,109 @@
+{
+  "schema": "meridian.archetype/1",
+  "id": "inf_at",
+  "size_class": "inf",
+  "scale": 1.25,
+  "meta": {"motion": "foot", "doc": "Anti-tank team (inf_at): n 1-3, launcher tube|tripod|twin. Sockets muzzle0_0, muzzle1_0, top."},
+  "defaults": {"n": 3, "launcher": "tube", "helmet": "round"},
+  "slots": {"gear": []},
+  "ops": [
+    ["meta", "members", "n"],
+    {
+      "for": "i",
+      "n": "n",
+      "do": [
+        {
+          "let": {
+            "a0": "(n) == 2 ? PI*0.5 : 0",
+            "fx": "((n) == 1 ? 0 : sin(i*TAU/(n) + a0)*0.44) + (rnd(i)-0.5)*0.05",
+            "fz": "((n) == 1 ? 0 : -cos(i*TAU/(n) + a0)*0.44) + (rnd(i+9)-0.5)*0.05",
+            "ph": "(i + 0.5)/(n)"
+          }
+        },
+        {
+          "switch": "launcher",
+          "cases": {
+            "tripod": [
+              {
+                "call": "soldier",
+                "args": {
+                  "x": "fx",
+                  "z": "fz",
+                  "phase": "ph",
+                  "member": "i",
+                  "count": "n",
+                  "kit": "i == 0 ? 'tripod' : (i == 1 ? 'scope' : 'rifle')",
+                  "helmet": "i == 2 ? 'cap' : helmet",
+                  "pack": "'small'"
+                }
+              }
+            ]
+          },
+          "default": [
+            {
+              "call": "soldier",
+              "args": {
+                "x": "fx",
+                "z": "fz",
+                "phase": "ph",
+                "member": "i",
+                "count": "n",
+                "kit": "i == 2 ? 'scope' : 'launcher'",
+                "helmet": "i == 2 ? 'cap' : helmet",
+                "pack": "'small'"
+              }
+            }
+          ]
+        },
+        {
+          "if": "launcher == 'twin' and i < 2",
+          "then": [
+            ["member", "i", "n"],
+            {
+              "part": {"kind": "body_bob", "pivot": [0, 0, 0], "param": "ph", "extra": 0},
+              "do": [
+                {
+                  "push": {"pos": ["fx", 0, "fz"]},
+                  "do": [
+                    ["tier", 2],
+                    ["brush", "metal", "metal"],
+                    ["cyl", [-0.2, 0.72, 0.25], [-0.2, 0.72, -0.62], 0.06, 8, 0.0],
+                    ["brush", "acc"],
+                    ["cyl", [-0.2, 0.72, -0.62], [-0.2, 0.72, -0.68], 0.07, 8, 0.0],
+                    ["tier", 0]
+                  ]
+                }
+              ]
+            },
+            ["member", 0, 0]
+          ]
+        },
+        {
+          "if": "launcher == 'tripod' and i == 0",
+          "then": [
+            ["member", "i", "n"],
+            {
+              "part": {"kind": "body_bob", "pivot": [0, 0, 0], "param": "ph", "extra": 0},
+              "do": [
+                {
+                  "push": {"pos": ["fx", 0, "fz"]},
+                  "do": [
+                    ["brush", "dark"],
+                    ["box", [-0.3, 0.1, -0.15], [0.2, 0.2, 0.3], 0.01],
+                    ["brush", "acc"],
+                    ["box", [-0.3, 0.21, -0.15], [0.14, 0.02, 0.2], 0.0]
+                  ]
+                }
+              ]
+            },
+            ["member", 0, 0]
+          ]
+        }
+      ]
+    },
+    {"slot": "gear"},
+    ["socket", "muzzle0_0", [0.2, 0.64, -0.68], [0, 0, -1]],
+    ["socket", "muzzle1_0", [0.2, 0.64, -0.68], [0, 0, -1]],
+    ["socket", "top", [0, 1.35, 0], [0, 1, 0]]
+  ]
+}

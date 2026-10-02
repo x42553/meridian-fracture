@@ -1,0 +1,132 @@
+{
+  "schema": "meridian.archetype/1",
+  "id": "ship_escort",
+  "size_class": "ship",
+  "meta": {
+    "motion": "naval",
+    "death": {"kind": "sink", "ticks": 60},
+    "doc": "Escort / frigate (ship_escort): mounts 0 forward gun, 1 aft AA, 2 torpedo launchers; helipad true|false, vls_rows."
+  },
+  "defaults": {"se_len": 9.0, "se_beam": 2.9, "bow": "sharp", "helipad": true, "vls_rows": 3, "roof": "cupola", "deck": "none"},
+  "derive": {"hl": "se_len*0.5", "fb": "0.9"},
+  "ops": [
+    ["bevel", 0.03],
+    {
+      "call": "hull_ship",
+      "args": {
+        "len": "se_len",
+        "beam": "se_beam",
+        "draft": 0.5,
+        "bow": "bow",
+        "freeboard": "fb",
+        "col": "base",
+        "low": "dark",
+        "stripe": "acc",
+        "deck": "dark"
+      }
+    },
+    {
+      "call": "superstructure",
+      "args": {"center": [0, "fb", "-hl*0.12"], "len": 3.0, "wid": 1.85, "tiers": 3, "tier_h": 0.56, "col": "sec", "radar": 1, "mast": 1}
+    },
+    ["brush", "acc"],
+    ["box", [0, "fb+0.3", "-hl*0.12-1.55"], [1.9, 0.05, 0.08], 0.0],
+    {"call": "team_panel", "args": {"center": [0, "fb+1.72", "-hl*0.12+0.1"], "size": [0.7, 0.02, 0.6]}},
+    ["brush", "dark", "metal"],
+    ["cyl", [0, "fb+1.68", "-hl*0.12+0.9"], [0, "fb+2.1", "-hl*0.12+0.9"], 0.24, 10, 0.02],
+    {
+      "call": "ship_turret",
+      "args": {"pos": [0, "fb", "-hl+1.55"], "barrels": 1, "mount": 0, "r": 0.5, "len": 1.6, "br": 0.06, "col": "base"}
+    },
+    {
+      "call": "ship_turret",
+      "args": {"pos": [0, "fb", "hl-1.45"], "barrels": 2, "mount": 1, "r": 0.36, "len": 0.9, "br": 0.05, "col": "base"}
+    },
+    {
+      "call": "ship_turret",
+      "args": {"pos": [0, "fb", "hl*0.28"], "barrels": 2, "mount": 2, "r": 0.3, "len": 0.8, "br": 0.08, "col": "base"}
+    },
+    {"call": "vls", "args": {"center": [0, "fb+0.02", "-hl+2.75"], "rows": "vls_rows", "cols": 3}},
+    {
+      "if": "helipad",
+      "then": [
+        {
+          "call": "pad",
+          "args": {"center": [0, "fb", "hl-0.85"], "size": [1.7, 0.05, 1.5], "mark": "ring", "col": "acc", "base": "dark"}
+        }
+      ],
+      "else": [
+        ["brush", "dark"],
+        ["box", [0, "fb+0.03", "hl-0.85"], [1.5, 0.05, 1.3], 0.0],
+        {"call": "team_panel", "args": {"center": [0, "fb+0.07", "hl-0.85"], "size": [1.0, 0.02, 0.5]}}
+      ]
+    },
+    {
+      "mirror_x": [{"call": "team_panel", "args": {"center": ["se_beam*0.5-0.27", "fb+0.03", "-hl*0.12-0.2"], "size": [0.42, 0.02, 2.0]}}]
+    },
+    {
+      "call": "light_pair",
+      "args": {"center": [0, "fb+0.35", "hl+0.02"], "spacing": 1.4, "size": [0.14, 0.08, 0.04], "col": "#ff140a"}
+    },
+    {
+      "switch": "deck",
+      "cases": {
+        "container": [{"call": "container", "args": {"center": [0, "fb+0.28", "hl*0.28-1.0"], "size": [1.0, 0.44, 0.9], "col": "sec"}}]
+      }
+    },
+    {
+      "mirror_x": [
+        ["tier", 2],
+        ["brush", "metal", "metal"],
+        {
+          "for": "k",
+          "n": 14,
+          "do": [
+            [
+              "cyl",
+              ["se_beam*0.5-0.14", "fb", "lerp(-hl+0.9,hl-0.5,k/13)"],
+              ["se_beam*0.5-0.14", "(fb)+0.3", "lerp(-hl+0.9,hl-0.5,k/13)"],
+              0.018,
+              5,
+              0.0
+            ]
+          ]
+        },
+        ["box", ["se_beam*0.5-0.14", "(fb)+0.3", "((-hl+0.9)+(hl-0.5))*0.5"], [0.03, 0.03, "(hl-0.5)-(-hl+0.9)"], 0.0],
+        ["box", ["se_beam*0.5-0.14", "(fb)+0.3*0.5", "((-hl+0.9)+(hl-0.5))*0.5"], [0.02, 0.02, "(hl-0.5)-(-hl+0.9)"], 0.0],
+        ["tier", 0]
+      ]
+    },
+    ["brush", "dark", "metal"],
+    ["box", [0, "fb+3.05", "-hl*0.12-0.55"], [0.7200000000000001, 0.36000000000000004, 0.06], 0.01],
+    ["brush", "metal", "metal"],
+    ["cyl", [0, "(fb+3.05)-0.45*0.4", "-hl*0.12-0.55"], [0, "(fb+3.05)-0.45*0.4-0.35", "-hl*0.12-0.55"], 0.03, 6, 0.0],
+    ["brush", "light", "emissive"],
+    ["box", [0, "(fb+3.05)+0.45*0.5+0.03", "-hl*0.12-0.55"], [0.1, 0.05, 0.05], 0.0],
+    ["brush", "acc"],
+    ["box", ["se_beam*0.5-0.42", "(fb)+0.16", "hl*0.28-1.2"], [0.46, 0.2, 1.3], 0.06],
+    ["tbox", ["se_beam*0.5-0.42", "(fb)+0.16", "(hl*0.28-1.2)-1.3*0.5-0.12"], [0.44, 0.1], [0.14, 0.26], 0.2, [0, 0], 0.04],
+    ["brush", "dark"],
+    ["box", ["se_beam*0.5-0.42", "(fb)+0.28", "hl*0.28-1.2"], [0.34, 0.03, 1.04], 0.0],
+    ["brush", "acc"],
+    ["box", ["-(se_beam*0.5-0.42)", "(fb)+0.16", "hl*0.28-1.2"], [0.46, 0.2, 1.3], 0.06],
+    ["tbox", ["-(se_beam*0.5-0.42)", "(fb)+0.16", "(hl*0.28-1.2)-1.3*0.5-0.12"], [0.44, 0.1], [0.14, 0.26], 0.2, [0, 0], 0.04],
+    ["brush", "dark"],
+    ["box", ["-(se_beam*0.5-0.42)", "(fb)+0.28", "hl*0.28-1.2"], [0.34, 0.03, 1.04], 0.0],
+    ["brush", "dark"],
+    ["box", [0, "fb+0.28", "hl-2.2"], ["se_beam*0.62", 0.56, 1.2], 0.05],
+    ["brush", "metal", "metal"],
+    ["pocket", [0, "fb+0.575", "hl-2.2"], ["se_beam*0.56", 0.03, 1.0], [[0.1, 0.1, 0.8, 0.8]], 0.02],
+    ["brush", "acc"],
+    ["box", [0, "fb+0.0", "-hl+0.5"], ["se_beam*0.5", 0.03, 0.06], 0.0],
+    ["tier", 1],
+    ["brush", "metal", "metal"],
+    ["greeble", [0, "fb+0.05", "-hl*0.12+2.3"], [0, 1, 0], ["se_beam*0.3", 0, 0], [0, 0, 0.6], 5, 0.1, 0.22, 0.04, 0.12],
+    ["tier", 0],
+    ["brush", "sec"],
+    ["dome", [0, "fb+0.5", "hl-2.2"], [0, 1, 0], 0.22, 0.2, 10, 3],
+    ["socket", "muzzle0_0", [0, "fb+0.36*1.0", "-hl+1.55-0.5*0.6-1.6-0.05"], [0, 0, -1], "barrel"],
+    ["socket", "top", [0, 4.8, 0], [0, 1, 0]],
+    ["socket", "exhaust0", [0, "fb+2.1", "-hl*0.12+0.9"], [0, 1, 0]]
+  ]
+}

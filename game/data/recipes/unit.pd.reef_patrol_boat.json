@@ -1,0 +1,45 @@
+{
+ "schema": "meridian.recipe/1",
+ "id": "unit.pd.reef_patrol_boat",
+ "archetype": "ship_patrol",
+ "style": "auto",
+ "params": {
+  "bow": "sharp",
+  "cabin": "closed",
+  "gun": "mg"
+ },
+ "ops_after": [
+  {
+   "call": "team_panel",
+   "args": {
+    "center": [
+     0,
+     "fb+0.02",
+     -0.95
+    ],
+    "size": [
+     0.7,
+     0.02,
+     0.3
+    ]
+   }
+  },
+  {
+   "slot": "pat_ship_patrol"
+  },
+  {
+   "slot": "emb_ship_patrol"
+  },
+  {
+   "slot": "top_ship_patrol"
+  }
+ ],
+ "meta": {
+  "role": "patrol_boat",
+  "icon": {
+   "yaw": 150,
+   "pitch": 30,
+   "margin": 0.8
+  }
+ }
+}

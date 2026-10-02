@@ -1,0 +1,91 @@
+{
+ "schema": "meridian.recipe/1",
+ "id": "unit.nec.skerry_patrol_boat",
+ "archetype": "ship_patrol",
+ "style": "auto",
+ "params": {
+  "sp_len": 5.4,
+  "sp_beam": 1.7,
+  "bow": "sharp",
+  "cabin": "closed",
+  "gun": "auto"
+ },
+ "ops_after": [
+  [
+   "tier",
+   1
+  ],
+  [
+   "brush",
+   "sec"
+  ],
+  [
+   "box",
+   [
+    0,
+    "fb+0.012",
+    "hl*0.55"
+   ],
+   [
+    "sp_beam*0.55",
+    0.024,
+    1.0
+   ],
+   0.008
+  ],
+  [
+   "brush",
+   "acc"
+  ],
+  [
+   "box",
+   [
+    0,
+    "fb+0.02",
+    "hl*0.55-0.53"
+   ],
+   [
+    "sp_beam*0.55",
+    0.014,
+    0.03
+   ],
+   0.0
+  ],
+  [
+   "tier",
+   0
+  ],
+  [
+   "brush",
+   "light",
+   "emissive"
+  ],
+  {
+   "mirror_x": [
+    [
+     "box",
+     [
+      "sp_beam*0.2",
+      "fb+0.3",
+      "-hl+0.55"
+     ],
+     [
+      0.14,
+      0.02,
+      0.03
+     ],
+     0.0
+    ]
+   ]
+  }
+ ],
+ "meta": {
+  "role": "patrol_boat",
+  "size_card": "ship_patrol",
+  "icon": {
+   "yaw": 150,
+   "pitch": 30,
+   "margin": 0.78
+  }
+ }
+}

@@ -1,0 +1,40 @@
+{
+  "schema": 1,
+  "_doc": "DEF doctrine patch: heavy combined arms. Artillery and heavies carry more of the army. The vanilla roster keeps two fronts (second Factory right after the first, three tanks and four infantry), Russia adds anti-tank infantry and heavies (Bear), Kazakhstan raids with three fast scouts and a lean army, North Korea is the fortress roster (six infantry, watchtowers, AT turrets and advanced defense on a timetable).",
+  "faction": "faction.def",
+  "base": {
+    "composition_patch": {
+      "buildup": {"ARTILLERY": 13},
+      "midgame": {"ARTILLERY": 18},
+      "late": {"ARTILLERY": 18, "HEAVY": 22}
+    }
+  },
+  "rosters": {
+    "roster.def.vanilla": {
+      "opener_patch": {
+        "insert_after": {"fac1": [{"id": "fac1b", "op": "build", "struct": "factory", "prio": 34, "parallel": true, "when": {"all": [{"have": {"struct": "refinery", "n": 2}}, {"credits_ge": 1800}]}}]},
+        "replace": {"tank1": {"id": "tank1", "op": "train", "role": "TANK_MAIN", "n": 3, "parallel": true, "when": {"have": {"struct": "factory", "n": 1}}}}
+      }
+    },
+    "roster.def.russia": {
+      "opener_patch": {
+        "replace": {"inf1": {"id": "inf1", "op": "train", "role": "INFANTRY_BASIC", "n": 4, "parallel": true, "when": {"have": {"struct": "barracks", "n": 1}}}},
+        "insert_after": {"inf1": [{"id": "at1", "op": "train", "role": "INFANTRY_AT", "n": 2, "parallel": true, "when": {"have": {"struct": "barracks", "n": 1}}}]}
+      },
+      "composition_patch": {"midgame": {"HEAVY": 16}}
+    },
+    "roster.def.kazakhstan": {
+      "opener_patch": {"replace": {"scout1": {"id": "scout1", "op": "train", "role": "SCOUT_LIGHT", "n": 3, "parallel": true, "when": {"have": {"struct": "factory", "n": 1}}}}},
+      "composition_patch": {"opening": {"SCOUT_LIGHT": 26}, "buildup": {"SCOUT_LIGHT": 16}}
+    },
+    "roster.def.north_korea": {
+      "opener_patch": {"replace": {"inf1": {"id": "inf1", "op": "train", "role": "INFANTRY_BASIC", "n": 6, "parallel": true, "when": {"have": {"struct": "barracks", "n": 1}}}}},
+      "targets_patch": {"append": [
+        {"id": "t_wt1", "from_s": 200, "struct": "watchtower", "n": 2},
+        {"id": "t_at1", "from_s": 330, "struct": "at_turret", "n": 2},
+        {"id": "t_adv1", "from_s": 540, "struct": "adv_defense", "n": 1}
+      ]},
+      "composition_patch": {"buildup": {"INFANTRY_BASIC": 34}, "midgame": {"INFANTRY_BASIC": 24}}
+    }
+  }
+}

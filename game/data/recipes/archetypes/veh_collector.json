@@ -1,0 +1,96 @@
+{
+  "schema": "meridian.archetype/1",
+  "id": "veh_collector",
+  "size_class": "light",
+  "meta": {
+    "motion": "wheeled",
+    "wreck": {"turret_yaw_deg": 0, "tilt_deg": [2, 0, -5]},
+    "doc": "Collector truck (service.collector): hopper whose scrap heap rises with u_aux.y (SLIDE_Y), toothed scoop, beacon (BLINK). Sockets dock, exhaust0, top."
+  },
+  "defaults": {"col_len": 4.2, "col_wid": 2.3, "scoop": "teeth", "roof": "cupola", "skirt": "none"},
+  "derive": {"hl": "col_len*0.5", "hw": "col_wid*0.5", "rim": "2.05"},
+  "ops": [
+    ["bevel", 0.04],
+    {
+      "mirror_x": [
+        {
+          "for": "j",
+          "n": 3,
+          "do": [
+            ["wheel", ["hw-0.02", 0.42, "lerp(-hl+1.05,hl-0.55,j*0.5)"], 0.42, 0.4, "rubber", "metal", 1, 12],
+            ["brush", "dark"],
+            ["box", ["hw-0.04", 0.98, "lerp(-hl+1.05,hl-0.55,j*0.5)"], [0.46, 0.06, 1.15], 0.02]
+          ]
+        }
+      ]
+    },
+    ["brush", "dark"],
+    ["ao", 0.7],
+    ["box", [0, 0.72, 0], ["col_wid-0.5", 0.34, "col_len-0.2"], 0.03],
+    ["ao", 1.0],
+    ["brush", "base"],
+    [
+      "extrude",
+      [["hl-1.35", 0.9], ["hl-1.35", 2.2], ["hl-0.7", 2.2], ["hl-0.15", 1.5], ["hl-0.10", 0.9]],
+      "-hw+0.12",
+      "hw-0.12",
+      0.06
+    ],
+    ["brush", "glass", "glass"],
+    {"push": {"pos": [0, 1.9, "-(hl-0.5)"], "euler": [-38, 0, 0]}, "do": [["box", [0, 0, 0], ["col_wid-0.7", 0.03, 0.72], 0.0]]},
+    {"for": "s", "n": 2, "do": [["box", ["(s*2-1)*(hw-0.115)", 1.75, "-(hl-0.75)"], [0.03, 0.55, 0.62], 0.0]]},
+    ["brush", "acc"],
+    ["box", [0, 2.22, "-(hl-1.0)"], ["col_wid-0.8", 0.06, 0.1], 0.0],
+    ["brush", "light", "emissive"],
+    {"part": {"kind": "blink"}, "do": [["box", [0, 2.28, "-(hl-1.05)"], [0.4, 0.09, 0.09], 0.0]]},
+    {"call": "team_panel", "args": {"center": [0, 2.23, "-(hl-1.05)"], "size": [0.9, 0.02, 0.4]}},
+    ["brush", "base"],
+    ["box", [0, 1.0, "-hl+0.55"], ["col_wid-0.1", 0.3, 1.4], 0.04],
+    {"call": "team_panel", "args": {"center": [0, 1.16, "-hl+0.55"], "size": ["col_wid-0.6", 0.02, 0.5]}},
+    ["brush", "dark"],
+    ["box", [0, 0.86, "-hl+0.02"], ["col_wid-0.3", 0.24, 0.14], 0.03],
+    {
+      "call": "light_pair",
+      "args": {"center": [0, 1.02, "-hl-0.02"], "spacing": "(hw-0.28)*2", "size": [0.22, 0.1, 0.04], "col": "light"}
+    },
+    {
+      "call": "light_pair",
+      "args": {"center": [0, 1.0, "hl+0.01"], "spacing": "(hw-0.3)*2", "size": [0.18, 0.09, 0.04], "col": "#ff140a"}
+    },
+    ["brush", "base"],
+    ["tbox", [0, 1.45, "hl*0.28"], ["col_wid-0.2", 2.7], ["col_wid+0.05", 2.9], 1.1, [0, 0], 0.05],
+    ["brush", "dark", "metal"],
+    ["box", [0, "rim-0.06", "hl*0.28"], ["col_wid-0.3", 0.05, 2.5], 0.0],
+    ["brush", "acc"],
+    ["box", [0, "rim+0.03", "hl*0.28+1.44"], ["col_wid+0.07", 0.08, 0.1], 0.0],
+    ["box", [0, "rim+0.03", "hl*0.28-1.44"], ["col_wid+0.07", 0.08, 0.1], 0.0],
+    {"for": "s", "n": 2, "do": [["box", ["(s*2-1)*(hw+0.02)", "rim+0.03", "hl*0.28"], [0.1, 0.08, 2.9], 0.0]]},
+    ["brush", "metal", "metal"],
+    ["box", [0, 1.45, "hl*0.28+1.47"], ["col_wid-0.5", 0.9, 0.05], 0.0],
+    {"call": "team_panel", "args": {"center": [0, 1.2, "hl*0.28+1.5"], "size": [0.9, 0.5, 0.02]}},
+    {
+      "part": {"kind": "slide_y", "pivot": [0, "rim", "hl*0.28"], "extra": 0.62},
+      "do": [
+        ["brush", "#6a5a48"],
+        ["box", [0.0, "rim-0.55", "hl*0.28"], ["col_wid-0.5", 0.6, 2.3], 0.04],
+        ["brush", "#8a7b66"],
+        ["box", [-0.35, "rim-0.34", "hl*0.28-0.5"], [0.7, 0.32, 0.8], 0.06],
+        ["box", [0.42, "rim-0.30", "hl*0.28+0.35"], [0.8, 0.36, 0.9], 0.06],
+        ["brush", "#4b4e52", "metal"],
+        ["box", [0.1, "rim-0.24", "hl*0.28-0.05"], [0.5, 0.3, 0.6], 0.05],
+        ["box", [-0.45, "rim-0.20", "hl*0.28+0.7"], [0.5, 0.26, 0.5], 0.05]
+      ]
+    },
+    ["brush", "metal", "metal"],
+    {"for": "s", "n": 2, "do": [["box", ["(s*2-1)*(hw-0.25)", 0.62, "-hl-0.22"], [0.12, 0.14, 1.0], 0.02]]},
+    ["brush", "base"],
+    ["tbox", [0, 0.62, "-hl-0.62"], ["col_wid+0.05", 0.55], ["col_wid-0.05", 0.95], 0.6, [0, -0.06], 0.05],
+    ["brush", "dark"],
+    ["box", [0, 0.66, "-hl-0.28"], ["col_wid-0.3", 0.36, 0.12], 0.02],
+    ["brush", "acc"],
+    {"for": "i", "n": 7, "do": [["tbox", ["-0.95+0.317*i", 0.34, "-hl-1.18"], [0.16, 0.22], [0.08, 0.04], 0.1, [0, -0.06], 0.0]]},
+    ["socket", "dock", [0, 1.0, "hl+0.4"], [0, 0, 1]],
+    ["socket", "exhaust0", ["hw-0.3", 1.9, "-hl+1.5"], [0, 1, 0]],
+    ["socket", "top", [0, 2.7, 0], [0, 1, 0]]
+  ]
+}

@@ -1,0 +1,120 @@
+{
+  "schema": 1,
+  "_doc": "NAPC doctrine patch (ai.md 7.3, lean): vehicles are preserved (more healers), USA is air-supported (an Airfield from 7 minutes on, fighters and bombers next to the ground army: AIT measured 26 % win with the Airfield in the opener spine and a 22/12 air share, 38 % with this), Canada opens an amphibious Dock when there is water, Mexico is an infantry rush (second Barracks).",
+  "faction": "faction.napc",
+  "base": {
+    "composition_patch": {
+      "buildup": {
+        "HEALER": 6
+      },
+      "midgame": {
+        "HEALER": 6
+      },
+      "late": {
+        "HEALER": 5
+      }
+    }
+  },
+  "rosters": {
+    "roster.napc.vanilla": {},
+    "roster.napc.usa": {
+      "targets_patch": {
+        "replace": {
+          "t_air": {
+            "id": "t_air",
+            "from_s": 420,
+            "struct": "airfield",
+            "n": 1
+          }
+        }
+      },
+      "composition_patch": {
+        "midgame": {
+          "FIGHTER": 10,
+          "BOMBER": 8,
+          "HEAVY": null
+        },
+        "late": {
+          "FIGHTER": 12,
+          "BOMBER": 12,
+          "HEAVY": null
+        }
+      }
+    },
+    "roster.napc.canada": {
+      "opener_patch": {
+        "insert_after": {
+          "rad1": [
+            {
+              "id": "dock1",
+              "op": "build",
+              "struct": "dock",
+              "prio": 35,
+              "opt": true,
+              "parallel": true,
+              "when": {
+                "all": [
+                  {
+                    "dock_placeable": true
+                  },
+                  {
+                    "map_trait": {
+                      "name": "water",
+                      "ge_pct": 10
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "composition_patch": {
+        "buildup": {
+          "ESCORT_SHIP": 4,
+          "BOAT_LIGHT": 2,
+          "AMPH_TRANSPORT": 4
+        },
+        "midgame": {
+          "ESCORT_SHIP": 8,
+          "BOAT_LIGHT": 2,
+          "SIEGE_SHIP": 4,
+          "AMPH_TRANSPORT": 6
+        },
+        "late": {
+          "ESCORT_SHIP": 8,
+          "SIEGE_SHIP": 6,
+          "AMPH_TRANSPORT": 4
+        }
+      }
+    },
+    "roster.napc.mexico": {
+      "opener_patch": {
+        "insert_after": {
+          "rax1": [
+            {
+              "id": "rax2",
+              "op": "build",
+              "struct": "barracks"
+            }
+          ]
+        },
+        "replace": {
+          "inf1": {
+            "id": "inf1",
+            "op": "train",
+            "role": "INFANTRY_BASIC",
+            "n": 6,
+            "parallel": true,
+            "when": {
+              "have": {
+                "struct": "barracks",
+                "n": 1
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

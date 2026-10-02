@@ -1,0 +1,44 @@
+{
+  "schema": "meridian.quality/1",
+  "auto_render_scale_steps": [0.75, 0.65, 0.55],
+  "presets": {
+    "low": {
+      "render_scale": 0.75, "scaling_mode": "fsr1", "msaa": 0, "fxaa": false, "taa": false,
+      "shadow_mode": "blob", "ssao": "off", "ssil": false, "glow": false,
+      "terrain_shader": "low", "terrain_subdiv": 1, "water_shader": "low", "decor_density": 0.5, "decor_groups": 4,
+      "unit_shader_quality": 0, "mesh_lod_threshold": 2.0, "blob_contact_shadows": true, "cloud_shadows": false,
+      "fx_quality": "low", "fx_distort": false, "scorch_res": 512, "tread_marks": false, "proj_mesh_cap": 32, "unit_backend": "auto"
+    },
+    "medium": {
+      "render_scale": 1.0, "scaling_mode": "bilinear", "msaa": 0, "fxaa": true, "taa": false,
+      "shadow_mode": "cascades2", "shadow_atlas": 2048, "shadow_filter": "soft_low", "decor_casts_shadow": false,
+      "ssao": "low_half", "ssil": false, "glow": true,
+      "terrain_shader": "full", "terrain_subdiv": 2, "water_shader": "full", "decor_density": 0.8, "decor_groups": 5,
+      "unit_shader_quality": 1, "mesh_lod_threshold": 1.25, "blob_contact_shadows": false, "cloud_shadows": true,
+      "fx_quality": "medium", "fx_distort": false, "scorch_res": 1024, "tread_marks": true, "proj_mesh_cap": 64, "unit_backend": "auto"
+    },
+    "high": {
+      "render_scale": 1.0, "scaling_mode": "bilinear", "msaa": 2, "fxaa": false, "taa": false,
+      "shadow_mode": "cascades4", "shadow_atlas": 4096, "shadow_filter": "soft_high", "decor_casts_shadow": true,
+      "ssao": "medium_half", "ssil": false, "glow": true,
+      "terrain_shader": "full", "terrain_subdiv": 2, "water_shader": "full", "decor_density": 1.0, "decor_groups": 6,
+      "unit_shader_quality": 1, "mesh_lod_threshold": 1.0, "blob_contact_shadows": false, "cloud_shadows": true,
+      "fx_quality": "high", "fx_distort": true, "scorch_res": 1024, "tread_marks": true, "proj_mesh_cap": 64, "unit_backend": "auto"
+    },
+    "ultra": {
+      "render_scale": 1.0, "scaling_mode": "bilinear", "msaa": 3, "fxaa": false, "taa": false,
+      "shadow_mode": "cascades4", "shadow_atlas": 8192, "shadow_filter": "soft_ultra", "decor_casts_shadow": true,
+      "ssao": "high_full", "ssil": true, "glow": true,
+      "terrain_shader": "full", "terrain_subdiv": 2, "water_shader": "full", "decor_density": 1.0, "decor_groups": 6,
+      "unit_shader_quality": 1, "mesh_lod_threshold": 0.75, "blob_contact_shadows": false, "cloud_shadows": true,
+      "fx_quality": "ultra", "fx_distort": true, "scorch_res": 1024, "tread_marks": true, "proj_mesh_cap": 96, "unit_backend": "auto"
+    }
+  },
+  "renderer_clamps": {
+    "mobile": { "ssao": "off", "ssil": false, "unit_backend": "batch", "msaa_by_preset": [0, 1, 2, 2] },
+    "compatibility": {
+      "ssao": "off", "ssil": false, "fxaa": false, "taa": false, "scaling_mode": "bilinear", "unit_backend": "batch",
+      "fx_distort": false, "fx_compat_boost": 1.6, "msaa_by_preset": [0, 1, 2, 2]
+    }
+  }
+}

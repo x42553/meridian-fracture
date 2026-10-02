@@ -1,0 +1,158 @@
+{
+  "schema": "meridian.archetype/1",
+  "id": "str_factory",
+  "size_class": "structure",
+  "meta": {"motion": "static", "death": {"kind": "structure", "ticks": 7}, "doc": "Factory (3x3): olive hall with a roll-up door (10 DOOR slats) on the south face, skylight roof, gantry crane, extractor fan (RADAR part), stacks."},
+  "defaults": {},
+  "slots": {"roof": [], "front": [], "extra": []},
+  "derive": {
+    "pw": "fw*3-0.5",
+    "ph": "fh*3-0.5",
+    "hw": "pw*0.5",
+    "hh": "ph*0.5",
+    "ap": "fw*fh>1 ? 1.0 : 0.3",
+    "fz": "hh-ap",
+    "bk": "-hh+0.25",
+    "bd": "fz-bk",
+    "bz": "(fz+bk)*0.5",
+    "bw": "pw-0.5",
+    "k": "clamp(min(pw,ph)/8.5,0.8,1.25)",
+    "hcap": "(max(fw,fh)>=4 ? 12.5 : (max(fw,fh)>=3 ? 10 : 7))-0.35",
+    "hall_h": "3.7*k",
+    "door_w": "min(3.8*k,bw-2.0)",
+    "door_h": "min(2.9,hall_h-0.6)",
+    "dx": "clamp(door_cx,-(bw*0.5-door_w*0.5-0.9),bw*0.5-door_w*0.5-0.9)",
+    "stacks": "bw>6 ? 2 : 1",
+    "sr": "0.36*clamp(k,0.9,1.15)",
+    "fanx": "-bw*0.2",
+    "gx": "bw*0.5-1.3",
+    "gh": "min(2.4*k,hcap-hall_h)",
+    "ry": "hall_h+0.09",
+    "stk": "min(1.7*k+0.6,hcap-hall_h-0.3)"
+  },
+  "ops": [
+    ["bevel", 0.05],
+    {"call": "foundation", "args": {"fw": "fw", "fh": "fh", "depth": 1.2, "col": "concrete", "edge": "dark", "chevron": "fw*fh>1 ? 1 : 0", "acc": "acc"}},
+    {"call": "wall_block", "args": {"center": [0, "hall_h*0.5", "bz-0.25"], "size": ["bw", "hall_h", "bd-0.5"], "col": "base", "sec": "base", "dado": 0.0, "ribs": 1, "rib": "sec", "cap": "sec", "coping": 0}},
+    ["brush", "dark"],
+    ["ao", 0.75],
+    ["box", [0, 0.3, "bz-0.25"], ["bw+0.1", 0.3, "bd-0.4"], 0.02],
+    ["ao", 1.0],
+    {"call": "roller_door", "args": {"center": ["dx", 0, "fz"], "w": "door_w", "h": "door_h", "slats": 10, "wall_l": "dx+bw*0.5", "wall_r": "bw*0.5-dx", "wall_h": "hall_h+0.05", "thick": 0.5, "col": "base", "frame": "sec", "lintel": "acc"}},
+    ["brush", "mix(sec,dark,0.55)"],
+    ["box", [0, "(hall_h)+0.04", "bz-0.25"], ["(bw)+0.06", 0.08, "(bd-0.5)+0.06"], 0.01],
+    ["brush", "sec"],
+    ["box", [0, "(hall_h)+0.08+0.12", "(bz-0.25)+(bd-0.5)*0.5-0.075"], ["(bw)+0.16", 0.24, 0.15], 0.02],
+    ["box", [0, "(hall_h)+0.08+0.12", "(bz-0.25)-(bd-0.5)*0.5+0.075"], ["(bw)+0.16", 0.24, 0.15], 0.02],
+    ["box", ["0+(bw)*0.5-0.075", "(hall_h)+0.08+0.12", "bz-0.25"], [0.15, 0.24, "(bd-0.5)-0.3"], 0.02],
+    ["box", ["0-(bw)*0.5+0.075", "(hall_h)+0.08+0.12", "bz-0.25"], [0.15, 0.24, "(bd-0.5)-0.3"], 0.02],
+    ["brush", "sec"],
+    ["box", ["-bw*0.28", "(ry)+0.06", "bz-bd*0.12"], ["(bw*0.16)+0.18", 0.12, "1.0+0.18"], 0.02],
+    ["brush", "glass", "glass"],
+    ["box", ["-bw*0.28", "(ry)+0.13", "bz-bd*0.12"], ["bw*0.16", 0.06, 1.0], 0],
+    ["brush", "dark"],
+    ["box", ["-bw*0.28", "(ry)+0.17", "bz-bd*0.12"], [0.05, 0.03, 1.0], 0],
+    ["box", ["-bw*0.28", "(ry)+0.17", "bz-bd*0.12"], ["bw*0.16", 0.03, 0.05], 0],
+    ["brush", "sec"],
+    ["box", ["bw*0.02", "(ry)+0.06", "bz-bd*0.12"], ["(bw*0.16)+0.18", 0.12, "1.0+0.18"], 0.02],
+    ["brush", "glass", "glass"],
+    ["box", ["bw*0.02", "(ry)+0.13", "bz-bd*0.12"], ["bw*0.16", 0.06, 1.0], 0],
+    ["brush", "dark"],
+    ["box", ["bw*0.02", "(ry)+0.17", "bz-bd*0.12"], [0.05, 0.03, 1.0], 0],
+    ["box", ["bw*0.02", "(ry)+0.17", "bz-bd*0.12"], ["bw*0.16", 0.03, 0.05], 0],
+    {
+      "for": "i",
+      "n": "stacks",
+      "do": [
+        {"call": "stack", "args": {"center": ["(i-(stacks-1)*0.5)*bw*0.3", "ry", "bk+1.2"], "r": "sr", "h": "stk", "col": "metal", "band": "acc", "bands": 1}}
+      ]
+    },
+    ["brush", "dark", "metal"],
+    ["cyl", ["fanx", "ry", "bz+bd*0.12"], ["fanx", "ry+0.22", "bz+bd*0.12"], 0.8, 16, 0.03],
+    {
+      "part": {"kind": "radar", "pivot": ["fanx", "ry+0.23", "bz+bd*0.12"], "extra": 2.6},
+      "do": [
+        ["brush", "metal", "metal"],
+        {
+          "for": "f",
+          "n": 3,
+          "do": [
+            {
+              "push": {"pos": ["fanx", "ry+0.23", "bz+bd*0.12"], "euler": [0, "60*f", 0]},
+              "do": [
+                ["box", [0, 0, 0], [1.4, 0.03, 0.22], 0]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {"call": "crane", "args": {"center": ["gx", "ry", "bz-0.9"], "reach": "min(bd*0.5,3.2)", "h": "gh", "kind": "gantry", "col": "acc", "mast": "sec", "yaw": 90}},
+    ["brush", "mix(sec,metal,0.5)"],
+    ["box", ["bw*0.3", "(ry)+0.25", "bz+bd*0.22"], [1.2, 0.5, 0.9], 0.03],
+    {"call": "vent", "args": {"center": ["bw*0.3", "(ry)+0.51", "bz+bd*0.22"], "size": [0.864, 0.05, 0.63], "slats": 3}},
+    {"call": "pipe", "args": {"from": ["-bw*0.42", "ry+0.15", "bk+0.5"], "to": ["bw*0.1", "ry+0.15", "bk+0.5"], "r": 0.07, "col": "metal"}},
+    {"call": "roof_plate", "args": {"center": ["bw*0.18", "ry+0.05", "bz+bd*0.06"], "size": ["clamp(bw*0.3,1.6,2.6)", 0.03, "clamp(bd*0.2,1.0,1.5)"]}},
+    ["brush", "light", "emissive"],
+    ["box", ["dx", "hall_h+0.05", "fz+0.05"], ["door_w*0.62", 0.09, 0.03]],
+    {
+      "push": {"pos": ["dx-door_w*0.5-0.45", "door_h+0.3", "fz+0.03"], "euler": [0, 0, 0]},
+      "do": [
+        ["brush", "metal", "metal"],
+        ["box", [0, 0, 0.05], [0.22, 0.12, 0.12], 0.01],
+        ["brush", "light", "emissive"],
+        ["box", [0, -0.02, 0.12], [0.16, 0.06, 0.03]]
+      ]
+    },
+    {
+      "push": {"pos": ["dx+door_w*0.5+0.45", "door_h+0.3", "fz+0.03"], "euler": [0, 0, 0]},
+      "do": [
+        ["brush", "metal", "metal"],
+        ["box", [0, 0, 0.05], [0.22, 0.12, 0.12], 0.01],
+        ["brush", "light", "emissive"],
+        ["box", [0, -0.02, 0.12], [0.16, 0.06, 0.03]]
+      ]
+    },
+    {"call": "window_strip", "args": {"center": ["bw*0.5+0.02", "hall_h*0.62", "bz-0.25"], "n": 3, "size": [0.8, 0.55, 0.05], "dir": 90, "col": "mix(light,glass,0.5)"}},
+    {"call": "window_strip", "args": {"center": ["-bw*0.5-0.02", "hall_h*0.62", "bz-0.25"], "n": 3, "size": [0.8, 0.55, 0.05], "dir": -90, "col": "mix(light,glass,0.5)"}},
+    {"call": "pennant", "args": {"pos": ["-bw*0.5+0.4", "ry", "fz-0.8"], "h": 2.4}},
+    {"call": "beacon", "args": {"pos": ["-bw*0.3", "ry+stk+0.1", "bk+1.2"], "phase": 0}},
+    {
+      "if": "fw >= 3",
+      "then": [
+        {"call": "container", "args": {"center": ["bw*0.5-0.9", 0.16, "fz-0.3"], "size": [1.4, 0.55, 1.0], "col": "acc"}},
+        {"call": "container", "args": {"center": ["bw*0.5-0.9", 0.72, "fz-0.3"], "size": [1.4, 0.55, 1.0], "col": "sec"}}
+      ]
+    },
+    ["brush", "dark", "metal"],
+    ["cyl", ["-bw*0.5+0.6", 0.16, "fz-0.4"], ["-bw*0.5+0.6", "0.16+0.56", "fz-0.4"], 0.2, 10, 0.012],
+    ["brush", "acc"],
+    ["cyl", ["-bw*0.5+0.6", "0.16+0.336", "fz-0.4"], ["-bw*0.5+0.6", "0.16+0.392", "fz-0.4"], 0.20600000000000002, 10, 0],
+    ["brush", "acc", "metal"],
+    ["cyl", ["-bw*0.5+1.1", 0.16, "fz-0.4"], ["-bw*0.5+1.1", "0.16+0.56", "fz-0.4"], 0.2, 10, 0.012],
+    ["brush", "acc"],
+    ["cyl", ["-bw*0.5+1.1", "0.16+0.336", "fz-0.4"], ["-bw*0.5+1.1", "0.16+0.392", "fz-0.4"], 0.20600000000000002, 10, 0],
+    {
+      "push": {"pos": ["-bw*0.5+0.7", 0.16, "fz-1.2"], "euler": [0, -15, 0]},
+      "do": [
+        ["brush", "dark"],
+        ["box", [0, 0.16, 0], [0.5, 0.32, 0.4], 0.03],
+        ["brush", "acc"],
+        ["box", [0, 0.335, 0], [0.52, 0.03, 0.42], 0],
+        ["brush", "mix(base,dark,0.3)"],
+        ["box", [0.42, 0.11, 0.06], [0.34, 0.22, 0.3], 0.03],
+        ["box", [0.1, 0.44, 0.02], [0.36, 0.22, 0.3], 0.03]
+      ]
+    },
+    ["socket", "door_exit", ["door_cx", 0.16, "door_cz"], [0, 0, 1]],
+    ["socket", "weld0", [1.2, "hall_h+0.35", 0.8], [0, 1, 0]],
+    ["socket", "weld1", [-1.2, "hall_h+0.35", -0.8], [0, 1, 0]],
+    ["socket", "weld2", [0, "hall_h+0.35", 0.4], [0, 1, 0]],
+    ["socket", "top", ["(0-(stacks-1)*0.5)*bw*0.3", "ry+stk", "bk+1.2"], [0, 1, 0]],
+    ["socket", "steam0", ["(0-(stacks-1)*0.5)*bw*0.3", "ry+stk+0.15", "bk+1.2"], [0, 1, 0]],
+    {"slot": "roof"},
+    {"slot": "front"},
+    {"slot": "extra"},
+    ["meta", "footprint", ["fw", "fh"]]
+  ]
+}

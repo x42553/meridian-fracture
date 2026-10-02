@@ -1,0 +1,13 @@
+{
+  "schema": "meridian.recipe/1",
+  "id": "structure.ae.forge_cannon",
+  "archetype": "str_defense_adv",
+  "style": "auto",
+  "params": {
+    "kit": "forge_cannon"
+  },
+  "meta": {
+    "role": "advanced_defense",
+    "doc": "AE Forge Cannon: rapid-cycling armoured turret, ammo drum, cyan cooling collars; AE dialect (pipes, scrap, jib crane, caged core) comes from the ae style slots front / extra."
+  }
+}

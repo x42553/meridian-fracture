@@ -1,0 +1,102 @@
+{
+  "schema": "meridian.recipe/1",
+  "id": "unit.olm.wayfarer_guard",
+  "archetype": "inf_rifle",
+  "style": "auto",
+  "params": {
+    "n": 4,
+    "kit": "rifle"
+  },
+  "slots": {
+    "gear": [
+      {
+        "for": "i",
+        "n": "n",
+        "do": [
+          {
+            "let": {
+              "a0": "(n) == 2 ? PI*0.5 : 0",
+              "fx": "((n) == 1 ? 0 : sin(i*TAU/(n) + a0)*0.42) + (rnd(i)-0.5)*0.05",
+              "fz": "((n) == 1 ? 0 : -cos(i*TAU/(n) + a0)*0.42) + (rnd(i+9)-0.5)*0.05",
+              "ph": "(i + 0.5)/(n)"
+            }
+          },
+          [
+            "member",
+            "i",
+            "n"
+          ],
+          {
+            "part": {
+              "kind": "body_bob",
+              "pivot": [
+                0,
+                0,
+                0
+              ],
+              "param": "ph",
+              "extra": 0
+            },
+            "do": [
+              {
+                "push": {
+                  "pos": [
+                    "fx",
+                    0,
+                    "fz"
+                  ],
+                  "euler": [
+                    0,
+                    0,
+                    0
+                  ]
+                },
+                "do": [
+                  [
+                    "brush",
+                    "sec"
+                  ],
+                  [
+                    "tbox",
+                    [
+                      0,
+                      0.875,
+                      0.145
+                    ],
+                    [
+                      0.27,
+                      0.05
+                    ],
+                    [
+                      0.27,
+                      0.04
+                    ],
+                    0.12,
+                    [
+                      0,
+                      0.02
+                    ],
+                    0.0
+                  ]
+                ]
+              }
+            ]
+          },
+          [
+            "member",
+            0,
+            0
+          ]
+        ]
+      }
+    ]
+  },
+  "meta": {
+    "role": "rifle",
+    "icon": {
+      "yaw": 150,
+      "pitch": 24,
+      "margin": 0.78
+    }
+  }
+}

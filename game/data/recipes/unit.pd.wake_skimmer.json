@@ -1,0 +1,45 @@
+{
+ "schema": "meridian.recipe/1",
+ "id": "unit.pd.wake_skimmer",
+ "archetype": "veh_amphib",
+ "style": "auto",
+ "params": {
+  "float": "hover",
+  "roof": "sensors",
+  "deck": "none"
+ },
+ "ops_after": [
+  {
+   "call": "team_panel",
+   "args": {
+    "center": [
+     0,
+     "body_top+0.02",
+     -0.75
+    ],
+    "size": [
+     "hw*0.9",
+     0.02,
+     0.5
+    ]
+   }
+  },
+  {
+   "slot": "pat_veh_amphib"
+  },
+  {
+   "slot": "emb_veh_amphib"
+  },
+  {
+   "slot": "top_veh_amphib"
+  }
+ ],
+ "meta": {
+  "role": "scout_transport",
+  "icon": {
+   "yaw": 150,
+   "pitch": 24,
+   "margin": 0.78
+  }
+ }
+}

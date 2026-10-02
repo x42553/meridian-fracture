@@ -1,0 +1,632 @@
+{
+  "schema": "meridian.balance.units/1",
+  "faction": "faction.ae",
+  "units": [
+    {
+      "id": "unit.ae.anchor_escort",
+      "archetype": "ship_escort",
+      "cost_credits": 1700,
+      "build_time_s": 47.0,
+      "health": 2200,
+      "speed_cells_s": 2.4,
+      "vision_cells": 11.0,
+      "radius_cells": 1.0,
+      "weapons": [
+        "weapon.ae.anchor_gun",
+        "weapon.ae.anchor_aa",
+        "weapon.ae.anchor_torpedo"
+      ],
+      "abilities": [],
+      "tags": []
+    },
+    {
+      "id": "unit.ae.buffalo_tank",
+      "archetype": "mbt_t1",
+      "cost_credits": 850,
+      "build_time_s": 27.5,
+      "health": 931,
+      "speed_cells_s": 2.0,
+      "vision_cells": 9.0,
+      "radius_cells": 0.55,
+      "weapons": [
+        "weapon.ae.buffalo_cannon"
+      ],
+      "abilities": [],
+      "tags": []
+    },
+    {
+      "id": "unit.ae.civic_rifle_team",
+      "archetype": "inf_line",
+      "cost_credits": 260,
+      "build_time_s": 9.5,
+      "health": 373,
+      "speed_cells_s": 1.5,
+      "vision_cells": 7.0,
+      "radius_cells": 0.4,
+      "weapons": [
+        "weapon.ae.civic_rifle"
+      ],
+      "abilities": [
+        "sensor"
+      ],
+      "tags": []
+    },
+    {
+      "id": "unit.ae.delta_patrol_boat",
+      "archetype": "ship_patrol",
+      "cost_credits": 600,
+      "build_time_s": 16.5,
+      "health": 700,
+      "speed_cells_s": 3.2,
+      "vision_cells": 11.0,
+      "radius_cells": 0.6,
+      "weapons": [
+        "weapon.ae.delta_gun"
+      ],
+      "abilities": [],
+      "tags": []
+    },
+    {
+      "id": "unit.ae.forge_howitzer",
+      "archetype": "arty_howitzer",
+      "cost_credits": 1325,
+      "build_time_s": 39.0,
+      "health": 773,
+      "speed_cells_s": 1.5,
+      "vision_cells": 8.5,
+      "radius_cells": 0.6,
+      "weapons": [
+        "weapon.ae.forge_shell"
+      ],
+      "abilities": [
+        "deployable_mode"
+      ],
+      "ability_params": {
+        "deployable_mode": {
+          "deploy_s": 3,
+          "pack_s": 2
+        }
+      },
+      "tags": [
+        "sturdy",
+        "short_range"
+      ]
+    },
+    {
+      "id": "unit.ae.hammerhead_gunship",
+      "archetype": "air_gunship",
+      "cost_credits": 2100,
+      "build_time_s": 58.5,
+      "health": 1500,
+      "speed_cells_s": 4.5,
+      "vision_cells": 10.0,
+      "radius_cells": 0.6,
+      "rearm_s_full": 12,
+      "weapons": [
+        "weapon.ae.hammerhead_missile"
+      ],
+      "abilities": [],
+      "tags": []
+    },
+    {
+      "id": "unit.ae.kiln_assault_crawler",
+      "archetype": "siege_demo",
+      "cost_credits": 2400,
+      "build_time_s": 63.0,
+      "health": 3800,
+      "speed_cells_s": 1.2,
+      "vision_cells": 8.0,
+      "radius_cells": 0.85,
+      "weapons": [
+        "weapon.ae.kiln_cannon"
+      ],
+      "abilities": [],
+      "tags": []
+    },
+    {
+      "id": "unit.ae.lagos_drone_guard",
+      "archetype": "veh_aa",
+      "cost_credits": 1100,
+      "build_time_s": 32.5,
+      "health": 743,
+      "speed_cells_s": 2.2,
+      "vision_cells": 10.0,
+      "radius_cells": 0.55,
+      "params": {
+        "summon_attached_id": "summon.ae.repair_drone",
+        "summon_respawn_s": 90
+      },
+      "weapons": [
+        "weapon.ae.lagos_missile",
+        "weapon.ae.lagos_mg"
+      ],
+      "abilities": [
+        "drone_repair"
+      ],
+      "ability_params": {
+        "drone_repair": {
+          "rate_pct_per_s": 1,
+          "cost": "free",
+          "target_unit_tags": [
+            "infantry"
+          ],
+          "radius_cells": 3,
+          "one_target": true
+        }
+      },
+      "tags": []
+    },
+    {
+      "id": "unit.ae.mamba_apc",
+      "archetype": "veh_scout",
+      "cost_credits": 550,
+      "build_time_s": 17.5,
+      "health": 520,
+      "speed_cells_s": 3.2,
+      "vision_cells": 12.0,
+      "radius_cells": 0.45,
+      "weapons": [
+        "weapon.ae.mamba_mg"
+      ],
+      "abilities": [],
+      "tags": []
+    },
+    {
+      "id": "unit.ae.okapi_amphibious_carrier",
+      "archetype": "veh_scout",
+      "cost_credits": 560,
+      "build_time_s": 18.0,
+      "health": 442,
+      "speed_cells_s": 3.2,
+      "vision_cells": 12.0,
+      "radius_cells": 0.45,
+      "movement_class": "amphibious",
+      "weapons": [
+        "weapon.ae.okapi_mg"
+      ],
+      "abilities": [
+        "amphibious",
+        "transport_3"
+      ],
+      "tags": [
+        "fragile"
+      ]
+    },
+    {
+      "id": "unit.ae.pike_team",
+      "archetype": "inf_at",
+      "cost_credits": 330,
+      "build_time_s": 12.0,
+      "health": 310,
+      "speed_cells_s": 1.4,
+      "vision_cells": 7.5,
+      "radius_cells": 0.4,
+      "weapons": [
+        "weapon.ae.pike_missile"
+      ],
+      "abilities": [],
+      "tags": [
+        "short_range"
+      ]
+    },
+    {
+      "id": "unit.ae.protea_gun_carrier",
+      "archetype": "arty_howitzer",
+      "cost_credits": 1375,
+      "build_time_s": 40.5,
+      "health": 619,
+      "speed_cells_s": 1.5,
+      "vision_cells": 8.5,
+      "radius_cells": 0.6,
+      "weapons": [
+        "weapon.ae.protea_shell",
+        "weapon.ae.protea_canister"
+      ],
+      "abilities": [
+        "ability.mode_switch.default"
+      ],
+      "ability_params": {
+        "ability.mode_switch.default": {
+          "switch_s": 3,
+          "modes": [
+            {
+              "id": "siege_shell",
+              "slots_n": [
+                0
+              ]
+            },
+            {
+              "id": "canister",
+              "slots_n": [
+                1
+              ]
+            }
+          ]
+        }
+      },
+      "tags": []
+    },
+    {
+      "id": "unit.ae.reclaimer",
+      "archetype": "inf_combat_spec",
+      "cost_credits": 545,
+      "build_time_s": 19.5,
+      "health": 420,
+      "speed_cells_s": 1.4,
+      "vision_cells": 8.0,
+      "radius_cells": 0.4,
+      "weapons": [
+        "weapon.ae.reclaimer_carbine"
+      ],
+      "abilities": [
+        "repair_aura",
+        "salvage"
+      ],
+      "ability_params": {
+        "repair_aura": {
+          "rate_pct_per_s": 1,
+          "cost": "paid",
+          "target_unit_tags": [
+            "land_vehicle"
+          ],
+          "radius_cells": 1,
+          "one_target": true
+        },
+        "salvage": {
+          "action_s": 8,
+          "payout_pct": 20
+        }
+      },
+      "tags": []
+    },
+    {
+      "id": "unit.ae.rhino_rail_tank",
+      "archetype": "mbt_t2_rail",
+      "cost_credits": 1250,
+      "build_time_s": 37.0,
+      "health": 1502,
+      "speed_cells_s": 1.8,
+      "vision_cells": 9.5,
+      "radius_cells": 0.6,
+      "weapons": [
+        "weapon.ae.rhino_rail"
+      ],
+      "abilities": [],
+      "tags": []
+    },
+    {
+      "id": "unit.ae.river_warden",
+      "archetype": "inf_combat_spec",
+      "cost_credits": 570,
+      "build_time_s": 20.5,
+      "health": 420,
+      "speed_cells_s": 1.4,
+      "vision_cells": 8.0,
+      "radius_cells": 0.4,
+      "weapons": [
+        "weapon.ae.warden_carbine"
+      ],
+      "abilities": [
+        "camouflage",
+        "repair_aura",
+        "salvage"
+      ],
+      "ability_params": {
+        "repair_aura": {
+          "rate_pct_per_s": 1,
+          "cost": "paid",
+          "target_unit_tags": [
+            "land_vehicle"
+          ],
+          "radius_cells": 1,
+          "one_target": true
+        },
+        "salvage": {
+          "action_s": 8,
+          "payout_pct": 20
+        },
+        "camouflage": {
+          "delay_s": 6,
+          "needs_stationary": true,
+          "needs_no_attack": true,
+          "reveal_on_fire": true,
+          "keeps_abilities_active": false
+        }
+      },
+      "tags": []
+    },
+    {
+      "id": "unit.ae.sovereign_arsenal_ship",
+      "archetype": "ship_siege",
+      "cost_credits": 3150,
+      "build_time_s": 87.5,
+      "health": 4500,
+      "speed_cells_s": 1.41,
+      "vision_cells": 10.5,
+      "radius_cells": 1.3,
+      "weapons": [
+        "weapon.ae.sovereign_bombard"
+      ],
+      "abilities": [],
+      "tags": [
+        "slow"
+      ]
+    },
+    {
+      "id": "unit.ae.sunbird_interceptor",
+      "archetype": "air_fighter",
+      "cost_credits": 1100,
+      "build_time_s": 30.5,
+      "health": 700,
+      "speed_cells_s": 7.0,
+      "vision_cells": 11.0,
+      "radius_cells": 0.5,
+      "rearm_s_full": 8,
+      "weapons": [
+        "weapon.ae.sunbird_missile"
+      ],
+      "abilities": [],
+      "tags": []
+    },
+    {
+      "id": "unit.ae.union_guard",
+      "archetype": "inf_line",
+      "cost_credits": 250,
+      "build_time_s": 9.0,
+      "health": 428,
+      "speed_cells_s": 1.5,
+      "vision_cells": 7.0,
+      "radius_cells": 0.4,
+      "weapons": [
+        "weapon.ae.union_rifle"
+      ],
+      "abilities": [],
+      "tags": []
+    },
+    {
+      "id": "unit.ae.weaver_aa",
+      "archetype": "veh_aa",
+      "cost_credits": 1050,
+      "build_time_s": 31.0,
+      "health": 857,
+      "speed_cells_s": 2.2,
+      "vision_cells": 10.0,
+      "radius_cells": 0.55,
+      "weapons": [
+        "weapon.ae.weaver_missile",
+        "weapon.ae.weaver_mg"
+      ],
+      "abilities": [],
+      "tags": []
+    }
+  ],
+  "weapons": [
+    {
+      "id": "weapon.ae.anchor_aa",
+      "archetype": "aa_missile",
+      "damage": 60,
+      "hits_per_volley": 2,
+      "reload_s": 1.5,
+      "range_cells": 10.0
+    },
+    {
+      "id": "weapon.ae.anchor_gun",
+      "archetype": "naval_gun",
+      "damage": 180,
+      "reload_s": 2.0,
+      "range_cells": 9.0
+    },
+    {
+      "id": "weapon.ae.anchor_torpedo",
+      "archetype": "torpedo",
+      "damage": 250,
+      "reload_s": 6.0,
+      "range_cells": 7.0
+    },
+    {
+      "id": "weapon.ae.buffalo_cannon",
+      "archetype": "tank_cannon",
+      "damage": 145,
+      "reload_s": 1.2,
+      "range_cells": 7.0
+    },
+    {
+      "id": "weapon.ae.civic_rifle",
+      "archetype": "small_arms",
+      "damage": 25,
+      "hits_per_volley": 2,
+      "reload_s": 1.025,
+      "range_cells": 5.5
+    },
+    {
+      "id": "weapon.ae.delta_gun",
+      "archetype": "machine_gun",
+      "damage": 28,
+      "hits_per_volley": 2,
+      "reload_s": 1.0,
+      "range_cells": 6.5,
+      "notes": "Light cannon: archetype ship_patrol value"
+    },
+    {
+      "id": "weapon.ae.forge_shell",
+      "archetype": "artillery_shell",
+      "damage": 207,
+      "reload_s": 3.5,
+      "range_cells": 12.0,
+      "min_range_cells": 4.0,
+      "deploy_s": 3.0
+    },
+    {
+      "id": "weapon.ae.hammerhead_missile",
+      "archetype": "air_missile",
+      "damage": 90,
+      "hits_per_volley": 2,
+      "reload_s": 1.5,
+      "range_cells": 6.0,
+      "ammo_volleys": 7
+    },
+    {
+      "id": "weapon.ae.kiln_cannon",
+      "archetype": "demolition_cannon",
+      "damage": 1000,
+      "reload_s": 4.0,
+      "range_cells": 4.5
+    },
+    {
+      "id": "weapon.ae.lagos_mg",
+      "archetype": "machine_gun",
+      "damage": 25,
+      "reload_s": 1.0,
+      "range_cells": 6.0,
+      "notes": "Weak ground MG; 20% of AA dps rule"
+    },
+    {
+      "id": "weapon.ae.lagos_missile",
+      "archetype": "aa_missile",
+      "damage": 100,
+      "hits_per_volley": 2,
+      "reload_s": 1.6,
+      "range_cells": 10.0
+    },
+    {
+      "id": "weapon.ae.mamba_mg",
+      "archetype": "machine_gun",
+      "damage": 30,
+      "reload_s": 1.0,
+      "range_cells": 6.0,
+      "notes": "Light APC gun; archetype veh_scout value"
+    },
+    {
+      "id": "weapon.ae.okapi_mg",
+      "archetype": "machine_gun",
+      "damage": 30,
+      "reload_s": 1.0,
+      "range_cells": 6.0,
+      "notes": "Light carrier gun; archetype veh_scout value"
+    },
+    {
+      "id": "weapon.ae.pike_missile",
+      "archetype": "at_missile",
+      "damage": 279,
+      "reload_s": 4.5,
+      "range_cells": 6.0
+    },
+    {
+      "id": "weapon.ae.protea_canister",
+      "archetype": "canister",
+      "damage": 30,
+      "hits_per_volley": 4,
+      "reload_s": 2.0,
+      "range_cells": 3.5,
+      "modes": [
+        1
+      ],
+      "notes": "Defensive canister mode; 4 pellets"
+    },
+    {
+      "id": "weapon.ae.protea_shell",
+      "archetype": "artillery_shell",
+      "damage": 210,
+      "reload_s": 3.5,
+      "range_cells": 15.0,
+      "min_range_cells": 4.0,
+      "modes": [
+        0
+      ]
+    },
+    {
+      "id": "weapon.ae.reclaimer_carbine",
+      "archetype": "small_arms",
+      "damage": 36,
+      "reload_s": 1.0,
+      "range_cells": 5.0
+    },
+    {
+      "id": "weapon.ae.rhino_rail",
+      "archetype": "rail_gun",
+      "damage": 741,
+      "reload_s": 5.0,
+      "range_cells": 11.0
+    },
+    {
+      "id": "weapon.ae.sovereign_bombard",
+      "archetype": "naval_bombard",
+      "damage": 320,
+      "hits_per_volley": 3,
+      "reload_s": 8.0,
+      "range_cells": 20.0,
+      "min_range_cells": 6.0
+    },
+    {
+      "id": "weapon.ae.sunbird_missile",
+      "archetype": "aa_missile",
+      "damage": 100,
+      "reload_s": 1.0,
+      "range_cells": 8.0,
+      "ammo_volleys": 6
+    },
+    {
+      "id": "weapon.ae.union_rifle",
+      "archetype": "small_arms",
+      "damage": 26,
+      "hits_per_volley": 2,
+      "reload_s": 1.0,
+      "range_cells": 5.5
+    },
+    {
+      "id": "weapon.ae.warden_carbine",
+      "archetype": "small_arms",
+      "damage": 36,
+      "reload_s": 1.0,
+      "range_cells": 5.0
+    },
+    {
+      "id": "weapon.ae.weaver_mg",
+      "archetype": "machine_gun",
+      "damage": 25,
+      "reload_s": 1.0,
+      "range_cells": 6.0,
+      "notes": "Poor anti-armor secondary; 25 dps = 18.8% of AA dps (<=20% rule)"
+    },
+    {
+      "id": "weapon.ae.weaver_missile",
+      "archetype": "aa_missile",
+      "damage": 100,
+      "hits_per_volley": 2,
+      "reload_s": 1.5,
+      "range_cells": 10.0
+    }
+  ],
+  "summons": [
+    {
+      "id": "summon.ae.repair_drone",
+      "class": "drone",
+      "unit_tags": [
+        "combat",
+        "unmanned"
+      ],
+      "size_class": "air_medium",
+      "armor_class": "air_light",
+      "movement_class": "air_hover",
+      "layer": "air",
+      "health": 100,
+      "speed_cells_s": 3.5,
+      "vision_cells": 4.0,
+      "radius_cells": 0.3,
+      "cost_credits": 50,
+      "build_time_s": 90,
+      "pop_n": 0,
+      "flags": [
+        "no_combat_mods"
+      ],
+      "abilities": [
+        "ability.summon_orbit.default"
+      ],
+      "ability_params": {
+        "ability.summon_orbit.default": {
+          "orbit_radius_cells": 3
+        }
+      }
+    }
+  ]
+}

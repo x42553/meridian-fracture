@@ -1,0 +1,377 @@
+{
+  "schema": "meridian.archetype/1",
+  "id": "gen_neutral",
+  "size_class": "structure",
+  "meta": {
+    "motion": "static",
+    "doc": "Generic neutral structure used by generated stubs until neu_building exists: `kit` = garrison | substation | outpost | depot | hospital | harbor | deposit (`heaps` 1..4 for deposit). Footprint variables are injected by the builder."
+  },
+  "defaults": { "kit": "garrison", "heaps": 2 },
+  "derive": {
+    "pw": "fw*3-0.5",
+    "ph": "fh*3-0.5",
+    "hw": "pw*0.5",
+    "hh": "ph*0.5",
+    "fz": "hh-0.5",
+    "bk": "-hh+0.25",
+    "bz": "(fz+bk)*0.5",
+    "bd": "fz-bk"
+  },
+  "ops": [
+    ["bevel", 0.05],
+    {
+      "switch": "kit",
+      "cases": {
+        "garrison": [
+          ["brush", "concrete"],
+          ["box", [0, 0.08, 0], ["pw", 0.16, "ph"], 0.02],
+          {
+            "call": "wall_block",
+            "args": {
+              "center": [0, 4.0, "bz"],
+              "size": ["pw-1.6", 7.6, "ph-2.4"],
+              "col": "base",
+              "sec": "sec",
+              "dado": 1.2,
+              "rib": "base",
+              "coping": 1
+            }
+          },
+          ["brush", "dark"],
+          ["box", [0, 1.1, "bz+(ph-2.4)*0.5+0.02"], [1.6, 2.0, 0.06]],
+          ["brush", "acc"],
+          ["box", [0, 2.25, "bz+(ph-2.4)*0.5+0.06"], [2.1, 0.12, 0.14]],
+          {
+            "for": "r",
+            "n": 3,
+            "do": [
+              {
+                "call": "window_strip",
+                "args": {
+                  "center": [0, "3.4+r*1.7", "bz+(ph-2.4)*0.5+0.02"],
+                  "n": 3,
+                  "size": [0.9, 0.9, 0.05],
+                  "dir": 0
+                }
+              }
+            ]
+          },
+          {
+            "for": "r",
+            "n": 3,
+            "do": [
+              {
+                "call": "window_strip",
+                "args": {
+                  "center": ["(pw-1.6)*0.5+0.02", "3.4+r*1.7", "bz"],
+                  "n": 2,
+                  "size": [0.9, 0.9, 0.05],
+                  "dir": 90
+                }
+              }
+            ]
+          },
+          {
+            "for": "r",
+            "n": 3,
+            "do": [
+              {
+                "call": "window_strip",
+                "args": {
+                  "center": ["-(pw-1.6)*0.5-0.02", "3.4+r*1.7", "bz"],
+                  "n": 2,
+                  "size": [0.9, 0.9, 0.05],
+                  "dir": -90
+                }
+              }
+            ]
+          },
+          ["brush", "light", "emissive"],
+          {
+            "for": "i",
+            "n": 4,
+            "do": [["box", ["(i-1.5)*1.3", 0.95, "bz+(ph-2.4)*0.5+0.03"], [0.5, 0.12, 0.04]]]
+          },
+          {
+            "call": "silo",
+            "args": { "center": [-1.6, 7.9, "bz-0.6"], "r": 0.6, "h": 1.6, "col": "sec", "band": "acc" }
+          },
+          {
+            "call": "lattice",
+            "args": {
+              "center": [1.8, 7.9, "bz+0.4"],
+              "h": 3.2,
+              "w0": 0.5,
+              "w1": 0.2,
+              "bays": 3,
+              "col": "sec",
+              "brace": "metal"
+            }
+          },
+          {
+            "call": "vent",
+            "args": { "center": [0.3, 7.95, "bz-0.6"], "size": [1.8, 0.08, 1.0], "slats": 4 }
+          },
+          {
+            "call": "beacon",
+            "args": { "pos": [1.8, 11.1, "bz+0.4"], "phase": 0 }
+          }
+        ],
+        "substation": [
+          ["brush", "concrete"],
+          ["box", [0, 0.08, 0], ["pw", 0.16, "ph"], 0.02],
+          ["brush", "sec"],
+          ["box", [-0.9, 1.0, "bz-0.4"], [2.4, 1.7, 1.8], 0.06],
+          ["brush", "acc"],
+          ["box", [-0.9, 1.9, "bz-0.4"], [2.5, 0.12, 1.9], 0.02],
+          ["brush", "metal", "metal"],
+          {
+            "for": "k",
+            "n": 3,
+            "do": [["box", [1.3, 0.7, "bz-0.9+k*0.9"], [0.9, 1.1, 0.7], 0.05]]
+          },
+          ["brush", "#2f6fb0"],
+          ["box", [-0.9, 1.4, "bz+0.52"], [2.0, 0.2, 0.05]],
+          {
+            "call": "lattice",
+            "args": {
+              "center": [-1.9, 0.16, "bz+1.0"],
+              "h": 5.6,
+              "w0": 0.9,
+              "w1": 0.3,
+              "bays": 4,
+              "col": "sec",
+              "brace": "metal"
+            }
+          },
+          {
+            "call": "lattice",
+            "args": {
+              "center": [1.9, 0.16, "bz+1.0"],
+              "h": 5.6,
+              "w0": 0.9,
+              "w1": 0.3,
+              "bays": 4,
+              "col": "sec",
+              "brace": "metal"
+            }
+          },
+          ["brush", "metal", "metal"],
+          ["cyl", [-1.9, 5.5, "bz+1.0"], [1.9, 5.5, "bz+1.0"], 0.03, 5, 0, false],
+          ["brush", "light", "emissive"],
+          ["box", [-0.9, 1.0, "bz+0.52"], [0.5, 0.4, 0.04]],
+          {
+            "call": "beacon",
+            "args": { "pos": [-1.9, 5.9, "bz+1.0"], "phase": 0 }
+          }
+        ],
+        "outpost": [
+          ["brush", "concrete"],
+          ["box", [0, 0.08, 0], ["pw", 0.16, "ph"], 0.02],
+          {
+            "call": "lattice",
+            "args": {
+              "center": [0, 0.16, 0],
+              "h": 5.0,
+              "w0": 1.6,
+              "w1": 1.0,
+              "bays": 4,
+              "col": "sec",
+              "brace": "metal"
+            }
+          },
+          ["brush", "dark"],
+          ["box", [0, 5.5, 0], [1.9, 0.14, 1.9], 0.03],
+          ["brush", "base"],
+          ["box", [0, 6.25, 0], [1.6, 1.4, 1.6], 0.04],
+          ["brush", "glass", "glass"],
+          ["box", [0, 6.35, 0], [1.68, 0.7, 1.68], 0],
+          ["brush", "sec"],
+          ["box", [0, 7.05, 0], [2.0, 0.14, 2.0], 0.03],
+          ["brush", "acc"],
+          ["box", [0, 5.65, 0], [2.0, 0.12, 2.0], 0.02],
+          {
+            "call": "radar_dish",
+            "args": { "center": [0.5, 7.12, -0.4], "r": 0.4, "spin": 1 }
+          },
+          {
+            "call": "beacon",
+            "args": { "pos": [-0.6, 7.12, 0.5], "phase": 0 }
+          }
+        ],
+        "depot": [
+          ["brush", "concrete"],
+          ["box", [0, 0.08, 0], ["pw", 0.16, "ph"], 0.02],
+          {
+            "call": "wall_block",
+            "args": {
+              "center": [-1.6, 1.4, "bz-1.2"],
+              "size": [4.0, 2.8, 3.2],
+              "col": "base",
+              "sec": "base",
+              "dado": 0,
+              "coping": 1,
+              "rib": "acc"
+            }
+          },
+          ["brush", "acc"],
+          ["box", [-1.6, 2.5, "bz-1.2+1.62"], [3.4, 0.14, 0.05]],
+          ["brush", "#6b4a35"],
+          {
+            "for": "k",
+            "n": 3,
+            "do": [
+              [
+                "box",
+                ["1.5+k*0.6", "0.55+0.5*k", "bz-1.6+k*0.5"],
+                ["1.8-k*0.3", "0.9+0.5*k", "1.6-k*0.2"],
+                0.08
+              ]
+            ]
+          },
+          ["brush", "#7d5a40"],
+          {
+            "push": { "pos": [2.4, 0.16, "bz+1.6"], "euler": [0, 22, 0] },
+            "do": [["box", [0, 0.4, 0], [1.8, 0.8, 1.2], 0.06], ["box", [0.2, 1.05, 0], [1.2, 0.5, 0.9], 0.06]]
+          },
+          ["brush", "metal", "metal"],
+          {
+            "for": "k",
+            "n": 3,
+            "do": [["box", ["-3.0+k*0.7", 0.55, "bz+1.7"], [0.6, 0.8, 1.6], 0.03]]
+          },
+          {
+            "call": "container",
+            "args": { "center": [-2.6, 0.9, "bz+2.0"], "size": [2.4, 0.8, 1.0], "col": "acc" }
+          },
+          {
+            "call": "crane",
+            "args": {
+              "center": [0.4, 0.16, "bz+0.4"],
+              "reach": 4.6,
+              "h": 5.4,
+              "kind": "jib",
+              "yaw": 200,
+              "col": "acc",
+              "mast": "sec"
+            }
+          }
+        ],
+        "hospital": [
+          ["brush", "concrete"],
+          ["box", [0, 0.08, 0], ["pw", 0.16, "ph"], 0.02],
+          {
+            "call": "wall_block",
+            "args": {
+              "center": [0, 1.2, "bz"],
+              "size": ["pw-0.6", 2.4, "ph-1.6"],
+              "col": "sec",
+              "sec": "sec",
+              "dado": 0.6,
+              "ribs": 0,
+              "coping": 0
+            }
+          },
+          ["brush", "sec"],
+          ["tbox", [0, 3.3, "bz"], ["pw-0.5", "ph-1.5"], ["pw-2.2", "ph-3.2"], 1.7, [0, 0], 0.06],
+          ["brush", "#2f6fb0"],
+          ["box", [0, 2.3, "bz+(ph-1.6)*0.5+0.03"], ["pw-0.8", 0.28, 0.05]],
+          ["brush", "#2f6fb0"],
+          ["box", [0, 3.35, "bz+(ph-1.6)*0.5-0.35"], [0.28, 1.0, 0.05]],
+          ["box", [0, 3.35, "bz+(ph-1.6)*0.5-0.35"], [1.0, 0.28, 0.05]],
+          ["brush", "dark"],
+          ["box", [0, 0.95, "bz+(ph-1.6)*0.5+0.02"], [1.3, 1.6, 0.06]],
+          {
+            "call": "window_strip",
+            "args": { "center": [-1.2, 1.6, "bz+(ph-1.6)*0.5+0.02"], "n": 1, "size": [0.7, 0.6, 0.05], "dir": 0 }
+          },
+          {
+            "call": "window_strip",
+            "args": { "center": [1.2, 1.6, "bz+(ph-1.6)*0.5+0.02"], "n": 1, "size": [0.7, 0.6, 0.05], "dir": 0 }
+          },
+          {
+            "call": "beacon",
+            "args": { "pos": [-1.6, 4.3, "bz"], "phase": 0.0 }
+          },
+          {
+            "call": "beacon",
+            "args": { "pos": [1.6, 4.3, "bz"], "phase": 0.5 }
+          }
+        ],
+        "harbor": [
+          ["brush", "concrete"],
+          ["box", [0, 0.2, 0], ["pw", 0.4, "ph"], 0.03],
+          {
+            "call": "container",
+            "args": { "center": [-2.6, 0.75, "bk+1.2"], "size": [2.6, 0.7, 1.0], "col": "acc" }
+          },
+          {
+            "call": "container",
+            "args": { "center": [0.2, 0.75, "bk+1.2"], "size": [2.6, 0.7, 1.0], "col": "sec" }
+          },
+          {
+            "call": "container",
+            "args": { "center": [-1.2, 1.5, "bk+1.2"], "size": [2.6, 0.7, 1.0], "col": "base" }
+          },
+          {
+            "call": "container",
+            "args": { "center": [2.9, 0.75, "bk+1.2"], "size": [2.6, 0.7, 1.0], "col": "dark" }
+          },
+          {
+            "call": "container",
+            "args": { "center": [-2.6, 0.75, "bk+2.6"], "size": [2.6, 0.7, 1.0], "col": "base" }
+          },
+          {
+            "call": "container",
+            "args": { "center": [0.2, 0.75, "bk+2.6"], "size": [2.6, 0.7, 1.0], "col": "acc" }
+          },
+          {
+            "call": "crane",
+            "args": {
+              "center": [0, 0.4, "fz-2.6"],
+              "reach": 6.4,
+              "h": 6.6,
+              "kind": "gantry",
+              "col": "acc",
+              "mast": "sec",
+              "yaw": 0
+            }
+          },
+          ["brush", "dark", "metal"],
+          ["cyl", [-3.4, 0.4, "fz-0.3"], [-3.4, 0.85, "fz-0.3"], 0.14, 8, 0],
+          ["cyl", [0.0, 0.4, "fz-0.3"], [0.0, 0.85, "fz-0.3"], 0.14, 8, 0],
+          ["cyl", [3.4, 0.4, "fz-0.3"], [3.4, 0.85, "fz-0.3"], 0.14, 8, 0],
+          {
+            "call": "beacon",
+            "args": { "pos": [0, 7.3, "fz-2.6"], "phase": 0 }
+          }
+        ],
+        "deposit": [
+          {
+            "for": "k",
+            "n": "heaps",
+            "do": [
+              {
+                "push": {
+                  "pos": ["(k%2)*2.4-1.2+(floor(k/2)*0.6-0.3)", 0, "floor(k/2)*2.4-1.2+(k%2)*0.5-0.25"],
+                  "euler": [0, "40*k", 0]
+                },
+                "do": [
+                  ["brush", "#6b4a35"],
+                  ["tbox", [0, 0.6, 0], [1.9, 1.7], [0.5, 0.5], 1.2, [0.15, 0.1], 0.08],
+                  ["brush", "#7d5a40"],
+                  ["tbox", [0.5, 0.35, -0.3], [1.2, 1.0], [0.4, 0.4], 0.7, [-0.1, 0.1], 0.06],
+                  ["brush", "metal", "metal"],
+                  ["box", [-0.4, 0.95, 0.2], [0.9, 0.08, 0.14], 0.0]
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    ["meta", "footprint", ["fw", "fh"]],
+    ["socket", "door_exit", ["door_cx", 0.16, "door_cz"], [0, 0, 1]],
+    ["socket", "top", [0, 6, 0], [0, 1, 0]]
+  ]
+}

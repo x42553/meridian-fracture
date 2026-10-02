@@ -1,0 +1,15 @@
+{
+  "schema": "meridian.recipe/1",
+  "id": "neutral.salvage_field",
+  "archetype": "neu_building",
+  "style": "auto",
+  "params": {
+    "kit": "deposit",
+    "heaps": 2
+  },
+  "meta": {
+    "stub": true,
+    "view_archetype": "neu_building",
+    "rule": "override"
+  }
+}

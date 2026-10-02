@@ -1,0 +1,11 @@
+{
+  "schema": "meridian.recipe/1",
+  "id": "summon.napc.cargo_aircraft",
+  "archetype": "sum_cargo",
+  "style": "auto",
+  "meta": {
+    "stub": true,
+    "view_archetype": "sum_cargo",
+    "rule": "override"
+  }
+}

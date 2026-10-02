@@ -1,0 +1,11 @@
+{
+  "schema": "meridian.recipe/1",
+  "id": "summon.nec.survey_drone",
+  "archetype": "sum_drone_swarm",
+  "style": "auto",
+  "meta": {
+    "stub": true,
+    "view_archetype": "sum_drone_swarm",
+    "rule": "pattern summon.*drone*"
+  }
+}

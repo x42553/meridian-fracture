@@ -1,0 +1,135 @@
+{
+  "schema": 1,
+  "_doc": "NEC doctrine patch: networked artillery. A Relay follows the Radar (parallel, never blocks the spine), artillery carries a larger share from the build-up on. Nordics add a second scout (Fen mast), Eurocorps opens with more infantry and anti-tank and fields heavies, Alpine Brotherhood is the defensive roster (watchtowers, AT and advanced defense on a timetable, more infantry).",
+  "faction": "faction.nec",
+  "base": {
+    "opener_patch": {},
+    "composition_patch": {
+      "buildup": {
+        "ARTILLERY": 14
+      },
+      "midgame": {
+        "ARTILLERY": 20,
+        "TANK_MAIN": 26
+      },
+      "late": {
+        "ARTILLERY": 22
+      }
+    }
+  },
+  "rosters": {
+    "roster.nec.vanilla": {},
+    "roster.nec.nordics": {
+      "opener_patch": {
+        "replace": {
+          "scout1": {
+            "id": "scout1",
+            "op": "train",
+            "role": "SCOUT_LIGHT",
+            "n": 2,
+            "parallel": true,
+            "when": {
+              "have": {
+                "struct": "factory",
+                "n": 1
+              }
+            }
+          }
+        }
+      }
+    },
+    "roster.nec.eurocorps": {
+      "opener_patch": {
+        "replace": {
+          "inf1": {
+            "id": "inf1",
+            "op": "train",
+            "role": "INFANTRY_BASIC",
+            "n": 4,
+            "parallel": true,
+            "when": {
+              "have": {
+                "struct": "barracks",
+                "n": 1
+              }
+            }
+          }
+        },
+        "insert_after": {
+          "inf1": [
+            {
+              "id": "at1",
+              "op": "train",
+              "role": "INFANTRY_AT",
+              "n": 2,
+              "parallel": true,
+              "when": {
+                "have": {
+                  "struct": "barracks",
+                  "n": 1
+                }
+              }
+            }
+          ]
+        }
+      },
+      "composition_patch": {
+        "midgame": {
+          "HEAVY": 16
+        },
+        "late": {
+          "HEAVY": 24
+        }
+      }
+    },
+    "roster.nec.alpine_brotherhood": {
+      "opener_patch": {
+        "replace": {
+          "inf1": {
+            "id": "inf1",
+            "op": "train",
+            "role": "INFANTRY_BASIC",
+            "n": 4,
+            "parallel": true,
+            "when": {
+              "have": {
+                "struct": "barracks",
+                "n": 1
+              }
+            }
+          }
+        }
+      },
+      "targets_patch": {
+        "append": [
+          {
+            "id": "t_wt1",
+            "from_s": 200,
+            "struct": "watchtower",
+            "n": 2
+          },
+          {
+            "id": "t_at1",
+            "from_s": 330,
+            "struct": "at_turret",
+            "n": 1
+          },
+          {
+            "id": "t_adv1",
+            "from_s": 540,
+            "struct": "adv_defense",
+            "n": 1
+          }
+        ]
+      },
+      "composition_patch": {
+        "buildup": {
+          "INFANTRY_BASIC": 32
+        },
+        "midgame": {
+          "INFANTRY_BASIC": 22
+        }
+      }
+    }
+  }
+}

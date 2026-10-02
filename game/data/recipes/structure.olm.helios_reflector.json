@@ -1,0 +1,17 @@
+{
+  "schema": "meridian.recipe/1",
+  "id": "structure.olm.helios_reflector",
+  "archetype": "str_superweapon",
+  "style": "auto",
+  "params": {
+    "kit": "sunflower"
+  },
+  "meta": {
+    "role": "superweapon",
+    "icon": {
+      "yaw": 150,
+      "pitch": 30,
+      "margin": 0.8
+    }
+  }
+}

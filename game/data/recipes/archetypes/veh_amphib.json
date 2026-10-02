@@ -1,0 +1,294 @@
+{
+  "schema": "meridian.archetype/1",
+  "id": "veh_amphib",
+  "size_class": "light",
+  "meta": {
+    "motion": "amphibious",
+    "wreck": {"turret_yaw_deg": 15, "tilt_deg": [3, 0, -6]},
+    "doc": "Amphibious carrier (veh_scout + amphibious). float skirt|pontoon|hover, roof rws|radar|mast|crown|sensors, deck (style kit), skirt (style kit). Waterjets / fans spin (ROTOR). Sockets muzzle0_0, muzzle1_0, exhaust0, door_exit, top."
+  },
+  "defaults": {
+    "body_len": 3.7,
+    "body_w": 1.84,
+    "body_top": 1.5,
+    "tire_r": 0.34,
+    "float": "skirt",
+    "roof": "rws",
+    "deck": "none",
+    "skirt": "modules"
+  },
+  "derive": {"hl": "body_len*0.5", "hw": "body_w*0.5", "rws_y": "body_top+0.06", "rws_z": "0.3", "cab_z": "0.3"},
+  "slots": {"roof": [], "deck": []},
+  "ops": [
+    ["bevel", 0.035],
+    {
+      "push": {"pos": [0, 0.52, 0], "euler": [0, 0, 0]},
+      "do": [
+        {
+          "call": "hull_ship",
+          "args": {
+            "len": "body_len",
+            "beam": "body_w",
+            "draft": 0.32,
+            "bow": "blunt",
+            "freeboard": 0.62,
+            "col": "base",
+            "low": "dark",
+            "stripe": "acc",
+            "deck": "dark"
+          }
+        }
+      ]
+    },
+    {
+      "mirror_x": [
+        {
+          "for": "j",
+          "n": 3,
+          "do": [["wheel", ["hw-0.02", "tire_r", "lerp(-hl*0.55,hl*0.6,j*0.5)"], "tire_r", 0.28, "rubber", "metal", 1, 12]]
+        },
+        {
+          "switch": "float",
+          "cases": {
+            "pontoon": [
+              ["brush", "sec"],
+              ["cyl", ["hw+0.22", 0.95, "hl-0.15"], ["hw+0.22", 0.95, "-hl+0.55"], 0.24, 10, 0.02],
+              ["frustum", ["hw+0.22", 0.95, "-hl+0.55"], ["hw+0.22", 0.95, "-hl+0.15"], 0.24, 0.1, 10],
+              ["brush", "acc"],
+              ["box", ["hw+0.22", 0.95, "-hl*0.1"], [0.5, 0.06, 0.16], 0.0],
+              ["brush", "dark"],
+              ["box", ["hw+0.02", 0.95, "-hl*0.4"], [0.5, 0.06, 0.1], 0.0],
+              ["box", ["hw+0.02", 0.95, "hl*0.4"], [0.5, 0.06, 0.1], 0.0]
+            ],
+            "hover": [],
+            "skirt": [
+              ["brush", "rubber", "rubber"],
+              ["tbox", ["hw+0.06", 0.9, 0], [0.18, "body_len*0.9"], [0.14, "body_len*0.86"], 0.26, [0, 0], 0.05]
+            ]
+          }
+        }
+      ]
+    },
+    {"if": "float == 'hover'", "then": [{"call": "hover_skirt", "args": {"len": "body_len-0.2", "wid": "body_w+0.5", "h": 0.55}}]},
+    ["brush", "sec"],
+    [
+      "extrude",
+      [["-hl+0.05", 1.1], ["-hl+0.05", "body_top-0.05"], ["cab_z+0.25", "body_top-0.05"], ["cab_z+0.75", 1.28], ["cab_z+0.75", 1.1]],
+      "-hw+0.12",
+      "hw-0.12",
+      0.05
+    ],
+    ["brush", "base"],
+    [
+      "extrude",
+      [["-hl+0.05", "body_top-0.05"], ["-hl+0.05", "body_top"], ["cab_z+0.25", "body_top"], ["cab_z+0.25", "body_top-0.05"]],
+      "-hw+0.12",
+      "hw-0.12",
+      0.02
+    ],
+    ["brush", "dark"],
+    ["box", [0, 1.2, "-hl+0.4"], ["hw*1.5", 0.12, 0.6], 0.03],
+    ["brush", "glass", "glass"],
+    {
+      "push": {"pos": [0, "(body_top+1.28)*0.5", "-(cab_z+0.5)"], "euler": [-30, 0, 0]},
+      "do": [["box", [0, 0, 0], ["hw*1.4", 0.03, 0.48], 0.0]]
+    },
+    {"for": "s", "n": 2, "do": [["box", ["(s*2-1)*(hw-0.115)", "body_top-0.2", "-0.30"], [0.03, 0.3, 0.9], 0.0]]},
+    ["brush", "dark"],
+    ["box", [0, 1.02, "-hl+0.03"], ["hw*1.3", 0.2, 0.1], 0.02],
+    {
+      "call": "light_pair",
+      "args": {"center": [0, 1.2, "-hl-0.02"], "spacing": "(hw-0.3)*2", "size": [0.2, 0.1, 0.04], "col": "light"}
+    },
+    {
+      "call": "light_pair",
+      "args": {"center": [0, 1.08, "hl+0.01"], "spacing": "(hw-0.2)*2", "size": [0.16, 0.08, 0.04], "col": "#ff140a"}
+    },
+    ["brush", "metal", "metal"],
+    ["pocket", [0, "body_top+0.03", "hl*0.55"], ["hw*1.2", 0.05, 1.4], [[0.1, 0.1, 0.8, 0.2], [0.1, 0.45, 0.8, 0.2]], 0.02],
+    {"call": "team_panel", "args": {"center": [0, "body_top+0.02", "hl*0.5"], "size": ["hw*0.9", 0.03, 0.55]}},
+    {"call": "team_panel", "args": {"center": [0, 1.1, "hl-0.10"], "size": ["hw*1.0", 0.03, 0.3]}},
+    {
+      "switch": "float",
+      "cases": {
+        "hover": [
+          ["brush", "dark"],
+          {
+            "for": "s",
+            "n": 2,
+            "do": [
+              ["cyl", ["(s*2-1)*hw*0.5", 1.3, "hl-0.15"], ["(s*2-1)*hw*0.5", 1.72, "hl-0.15"], 0.36, 14, 0.01, false],
+              ["brush", "metal", "metal"],
+              {
+                "part": {"kind": "rotor", "pivot": ["(s*2-1)*hw*0.5", 1.55, "hl-0.15"]},
+                "do": [
+                  ["box", ["(s*2-1)*hw*0.5", 1.55, "hl-0.15"], [0.66, 0.025, 0.09], 0.0],
+                  ["box", ["(s*2-1)*hw*0.5", 1.55, "hl-0.15"], [0.09, 0.025, 0.66], 0.0]
+                ]
+              },
+              ["brush", "dark"]
+            ]
+          }
+        ]
+      },
+      "default": [
+        ["brush", "dark"],
+        {
+          "for": "s",
+          "n": 2,
+          "do": [["cyl", ["(s*2-1)*hw*0.45", 0.72, "hl+0.05"], ["(s*2-1)*hw*0.45", 0.72, "hl-0.35"], 0.16, 10, 0.0]]
+        },
+        ["brush", "metal", "metal"],
+        {
+          "for": "s",
+          "n": 2,
+          "do": [
+            {
+              "part": {"kind": "rotor", "pivot": ["(s*2-1)*hw*0.45", 0.72, "hl+0.05"]},
+              "do": [
+                ["box", ["(s*2-1)*hw*0.45", 0.72, "hl+0.06"], [0.26, 0.04, 0.02], 0.0],
+                ["box", ["(s*2-1)*hw*0.45", 0.72, "hl+0.06"], [0.04, 0.26, 0.02], 0.0]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    ["tier", 1],
+    ["brush", "metal", "metal"],
+    ["greeble", [0, "body_top+0.05", "hl*0.5"], [0, 1, 0], ["hw*0.5", 0, 0], [0, 0, 0.4], 4, 0.1, 0.2, 0.03, 0.08],
+    ["tier", 0],
+    {
+      "part": {"kind": "turret", "pivot": [0, "rws_y", "rws_z"]},
+      "do": [
+        ["brush", "metal", "metal"],
+        ["cyl", [0, "body_top-0.02", "rws_z"], [0, "rws_y", "rws_z"], 0.19, 10, 0.0],
+        ["brush", "dark"],
+        ["box", [0, "rws_y+0.14", "rws_z"], [0.4, 0.22, 0.5], 0.03],
+        ["brush", "sec"],
+        ["box", [0, "rws_y+0.27", "rws_z-0.02"], [0.3, 0.04, 0.34], 0.0],
+        ["brush", "glass", "glass"],
+        ["box", [0, "rws_y+0.18", "rws_z-0.26"], [0.2, 0.1, 0.03], 0.0]
+      ]
+    },
+    {
+      "part": {"kind": "barrel", "pivot": [0, "rws_y", "rws_z"], "param": 0.5, "extra": 0.1, "trunnion": ["rws_y+0.16", "rws_z-0.2"]},
+      "do": [
+        ["brush", "metal", "metal"],
+        ["cyl", [0, "rws_y+0.16", "rws_z-0.2"], [0, "rws_y+0.16", "rws_z-1.05"], 0.045, 8, 0.0],
+        ["cyl", [0, "rws_y+0.16", "rws_z-0.95"], [0, "rws_y+0.16", "rws_z-1.16"], 0.062, 8, 0.0]
+      ]
+    },
+    {
+      "switch": "roof",
+      "cases": {
+        "radar": [{"call": "radar_dish", "args": {"center": [0, "body_top+0.03", "hl*0.72"], "r": 0.34, "spin": 1}}],
+        "mast": [{"call": "sensor_mast", "args": {"base": ["-hw*0.5", "body_top", "hl*0.6"], "h": 1.6, "folded": 0.5}}],
+        "crown": [{"call": "sensor_crown", "args": {"center": [0, "body_top+0.03", "hl*0.65"], "n": 6, "r": 0.24}}],
+        "sensors": [{"call": "ball_sensor", "args": {"center": [0, "body_top+0.03", "hl*0.7"], "r": 0.26}}],
+        "dish": [{"call": "radar_dish", "args": {"center": [0, "body_top+0.03", "hl*0.72"], "r": 0.34, "spin": 1}}],
+        "snorkel": [
+          ["brush", "metal", "metal"],
+          ["cyl", ["hw*0.5", "body_top", "hl*0.7"], ["hw*0.5", "(body_top)+0.7", "hl*0.7"], 0.06, 8, 0.0],
+          ["box", ["hw*0.5", "(body_top)+0.72", "hl*0.7-0.08"], [0.16, 0.14, 0.24], 0.02]
+        ],
+        "rails": []
+      },
+      "default": [
+        {
+          "call": "whip",
+          "args": {"base": ["-hw*0.6", "body_top", "hl*0.8"], "tip": ["-hw*0.62", "body_top+1.0", "hl*0.84"], "r": 0.011, "col": "metal"}
+        }
+      ]
+    },
+    {
+      "switch": "deck",
+      "cases": {
+        "container": [{"call": "container", "args": {"center": [0, "(body_top)+0.26", "hl*0.62"], "size": ["hw*1.2", 0.46, 0.8], "col": "sec"}}],
+        "drone_rack": [
+          ["brush", "metal", "metal"],
+          ["box", [0, "(body_top)+0.05", "hl*0.62"], ["hw*1.2", 0.05, 0.8], 0.0],
+          {
+            "for": "i",
+            "n": 3,
+            "do": [
+              ["brush", "sec"],
+              ["box", ["(i-1)*(hw*1.2)*0.32", "(body_top)+0.14", "hl*0.62"], ["(hw*1.2)*0.26", 0.12, "(0.8)*0.85"], 0.0],
+              ["tier", 2],
+              ["brush", "acc"],
+              ["box", ["(i-1)*(hw*1.2)*0.32", "(body_top)+0.205", "(hl*0.62)-(0.8)*0.25"], ["(hw*1.2)*0.2", 0.02, 0.1], 0.0],
+              ["tier", 0]
+            ]
+          }
+        ],
+        "heat_shield": [
+          ["brush", "dark"],
+          ["box", [0, "(body_top)+0.04", "hl*0.62"], ["hw*1.2", 0.06, 0.8], 0.0],
+          ["brush", "acc"],
+          {
+            "for": "i",
+            "n": 5,
+            "do": [["box", ["(i-2)*(hw*1.2)*0.2", "(body_top)+0.34", "hl*0.62"], [0.045, 0.56, "(0.8)*0.9"], 0.0]]
+          }
+        ],
+        "drone_pad": [
+          ["brush", "dark"],
+          ["box", [0, "(body_top)+0.03", "hl*0.62"], ["hw*1.2", 0.05, 0.8], 0.01],
+          ["brush", "acc"],
+          ["cyl", [0, "(body_top)+0.056", "hl*0.62"], [0, "(body_top)+0.066", "hl*0.62"], "min(hw*1.2,0.8)*0.4", 16, 0.0],
+          ["brush", "dark"],
+          ["cyl", [0, "(body_top)+0.066", "hl*0.62"], [0, "(body_top)+0.07", "hl*0.62"], "min(hw*1.2,0.8)*0.3", 16, 0.0],
+          ["brush", "sec"],
+          ["box", [0, "(body_top)+0.12", "hl*0.62"], [0.3, 0.09, 0.3], 0.02],
+          ["brush", "light", "emissive"],
+          ["box", [0, "(body_top)+0.17", "hl*0.62"], [0.08, 0.02, 0.08], 0.0]
+        ],
+        "spares": [
+          ["brush", "rubber", "rubber"],
+          [
+            "cyl",
+            ["-(hw*1.2)*0.3", "(body_top)+0.30", "hl*0.62"],
+            ["-(hw*1.2)*0.3+0.24", "(body_top)+0.30", "hl*0.62"],
+            0.3,
+            12,
+            0.02
+          ],
+          ["brush", "metal", "metal"],
+          [
+            "cyl",
+            ["-(hw*1.2)*0.3+0.22", "(body_top)+0.30", "hl*0.62"],
+            ["-(hw*1.2)*0.3+0.26", "(body_top)+0.30", "hl*0.62"],
+            0.16,
+            10,
+            0.0
+          ],
+          ["brush", "acc"],
+          ["box", ["(hw*1.2)*0.15", "(body_top)+0.16", "(hl*0.62)-(0.8)*0.2"], [0.36, 0.28, 0.2], 0.02],
+          ["box", ["(hw*1.2)*0.15", "(body_top)+0.16", "(hl*0.62)+(0.8)*0.2"], [0.36, 0.28, 0.2], 0.02],
+          ["brush", "sec"],
+          ["box", ["(hw*1.2)*0.38", "(body_top)+0.18", "hl*0.62"], [0.22, 0.32, 0.28], 0.02]
+        ],
+        "braces": [
+          ["brush", "metal", "metal"],
+          {
+            "for": "s",
+            "n": 2,
+            "do": [
+              ["box", ["(s*2-1)*(hw*1.2)*0.36", "(body_top)+0.16", "hl*0.62"], [0.14, 0.14, "(0.8)*0.9"], 0.02],
+              ["brush", "acc"],
+              ["box", ["(s*2-1)*(hw*1.2)*0.36", "(body_top)+0.24", "(hl*0.62)-(0.8)*0.4"], [0.24, 0.05, 0.24], 0.01],
+              ["brush", "metal", "metal"]
+            ]
+          }
+        ]
+      }
+    },
+    {"slot": "roof"},
+    {"slot": "deck"},
+    ["socket", "exhaust0", ["hw*0.45", 0.75, "hl+0.05"], [0, 0, 1]],
+    ["socket", "door_exit", [0, 1.0, "hl+0.25"], [0, 0, 1]],
+    ["socket", "top", [0, "body_top+0.7", 0], [0, 1, 0]],
+    ["socket", "muzzle0_0", [0, "rws_y+0.16", "rws_z-1.2"], [0, 0, -1], "barrel"],
+    ["socket", "muzzle1_0", [0, "rws_y+0.16", "rws_z-1.2"], [0, 0, -1], "barrel"]
+  ]
+}

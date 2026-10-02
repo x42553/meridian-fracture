@@ -1,0 +1,33 @@
+{
+  "schema": "meridian.recipe/1",
+  "id": "unit.han.firefly_aa_drone",
+  "archetype": "veh_aa",
+  "style": "auto",
+  "params": {"payload": "missile", "roof": "crown", "skirt": "slab", "turret_n": 8, "turret_rot": 22.5, "tur_hw": 0.7, "tur_hl": 0.68},
+  "ops_after": [
+    ["brush", "base"],
+    ["cyl", ["-hw*0.45", "deck_y+0.11", "-hl+0.55"], ["-hw*0.45", "deck_y+0.2", "-hl+0.55"], 0.19, 6, 0],
+    {
+      "part": {"kind": "turret", "pivot": [0, "deck_y", "tur_z"]},
+      "do": [["brush", "mix(light,base,0.35)", "emissive"], ["box", [0, "ty0+0.16", "tur_z-tur_hl*0.96"], [0.3, 0.1, 0.03], 0]]
+    },
+    ["tier", 0],
+    ["brush", "metal", "metal"],
+    ["cyl", [0, "deck_y", "rz"], [0, "(deck_y)+0.14", "rz"], 0.06, 5, 0],
+    {
+      "part": {"kind": "radar", "pivot": [0, "(deck_y)+0.14", "rz"], "extra": 0.3},
+      "do": [
+        ["tier", 2],
+        ["brush", "sec"],
+        ["cyl", [0, "(deck_y)+0.14", "rz"], [0, "(deck_y)+0.17", "rz"], 0.2448, 10, 0],
+        ["brush", "acc"],
+        {"for": "k", "n": 6, "do": [["box", ["(0)+cos(k*TAU/6)*0.24", "(deck_y)+0.17+0.15", "(rz)+sin(k*TAU/6)*0.24"], [0.05, 0.3, 0.05], 0]]},
+        ["tier", 0],
+        ["brush", "mix(light,base,0.35)", "emissive"],
+        ["box", [0, "(deck_y)+0.21", "rz"], [0.1, 0.08, 0.1], 0]
+      ]
+    },
+    {"mirror_x": [{"call": "team_panel", "args": {"center": ["hw+0.1", 0.913, 0.2], "size": [0.18, 0.02, 1.4]}}]}
+  ],
+  "meta": {"han_gen": true}
+}

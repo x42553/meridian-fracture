@@ -1,0 +1,79 @@
+{
+  "schema": "meridian.archetype/1",
+  "id": "str_defense_adv",
+  "size_class": "structure",
+  "meta": {"motion": "static", "death": {"kind": "structure", "ticks": 7}, "doc": "Advanced defence (2x2): `kit` = bulwark_cannon | lance_rail | sunwall | citadel_mortar | sea_spear | dragon_tooth | forge_cannon | bastion_tower (native adv_* macros, muzzle0_0 on the weapon), floodlights and ammo stack. The weapon silhouette is fixed-size (2x2 plinth)."},
+  "defaults": {"kit": "bulwark_cannon"},
+  "slots": {"roof": [], "front": [], "extra": []},
+  "derive": {
+    "pw": "fw*3-0.5",
+    "ph": "fh*3-0.5",
+    "hw": "pw*0.5",
+    "hh": "ph*0.5",
+    "ap": "fw*fh>1 ? 1.0 : 0.3",
+    "fz": "hh-ap",
+    "bk": "-hh+0.25",
+    "bd": "fz-bk",
+    "bz": "(fz+bk)*0.5",
+    "bw": "pw-0.5",
+    "k": "clamp(min(pw,ph)/5.5,0.8,1.25)",
+    "hcap": "(max(fw,fh)>=4 ? 12.5 : (max(fw,fh)>=3 ? 10 : 7))-0.35",
+    "lx": "hw-0.35",
+    "lz": "-hh+0.35"
+  },
+  "ops": [
+    ["bevel", 0.05],
+    {"call": "foundation", "args": {"fw": "fw", "fh": "fh", "depth": 1.2, "col": "concrete", "edge": "dark", "chevron": "fw*fh>1 ? 1 : 0", "acc": "acc"}},
+    {
+      "switch": "kit",
+      "cases": {
+        "bulwark_cannon": [
+          {"call": "adv_bulwark_cannon", "args": {}}
+        ],
+        "lance_rail": [
+          {"call": "adv_lance_rail", "args": {}}
+        ],
+        "sunwall": [
+          {"call": "adv_sunwall", "args": {}}
+        ],
+        "citadel_mortar": [
+          {"call": "adv_citadel_mortar", "args": {}}
+        ],
+        "sea_spear": [
+          {"call": "adv_sea_spear", "args": {}}
+        ],
+        "dragon_tooth": [
+          {"call": "adv_dragon_tooth", "args": {}}
+        ],
+        "forge_cannon": [
+          {"call": "adv_forge_cannon", "args": {}}
+        ],
+        "bastion_tower": [
+          {"call": "adv_bastion_tower", "args": {}}
+        ]
+      }
+    },
+    {
+      "mirror_x": [
+        ["brush", "metal", "metal"],
+        ["cyl", ["lx", 0.16, "lz"], ["lx", 2.2, "lz"], 0.05, 6, 0],
+        ["brush", "light", "emissive"],
+        ["box", ["lx", 2.2600000000000002, "lz"], [0.22, 0.1, 0.22]]
+      ]
+    },
+    ["brush", "dark"],
+    ["box", ["-hw+0.9", 0.36, "-hh+0.9"], [0.7, 0.4, 0.5], 0.03],
+    ["box", ["-hw+0.9", 0.76, "-hh+0.9"], [0.5, 0.36, 0.4], 0.03],
+    ["brush", "acc"],
+    ["box", ["-hw+0.9", 0.56, "-hh+0.9+0.26"], [0.6, 0.04, 0.03]],
+    ["socket", "door_exit", ["door_cx", 0.16, "door_cz"], [0, 0, 1]],
+    ["socket", "weld0", [1.0, 1.4, 0.6], [0, 1, 0]],
+    ["socket", "weld1", [-1.0, 1.4, -0.6], [0, 1, 0]],
+    ["socket", "weld2", [0, 1.4, 0.3], [0, 1, 0]],
+    ["socket", "top", [0, 4.6, 0], [0, 1, 0]],
+    {"slot": "roof"},
+    {"slot": "front"},
+    {"slot": "extra"},
+    ["meta", "footprint", ["fw", "fh"]]
+  ]
+}

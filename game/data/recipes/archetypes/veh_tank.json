@@ -1,0 +1,434 @@
+{
+  "schema": "meridian.archetype/1",
+  "id": "veh_tank",
+  "size_class": "medium",
+  "meta": {"motion": "tracked", "wreck": {"turret_yaw_deg": 25, "tilt_deg": [3, 0, -6]}},
+  "defaults": {
+    "len": 3.5,
+    "hull_w": 1.92,
+    "hull_top": 1.16,
+    "glacis": 0.75,
+    "track_w": 0.46,
+    "track_x": 0.88,
+    "wheel_n": 5,
+    "wheel_r": 0.3,
+    "skirt": "modules",
+    "turret_n": 8,
+    "turret_rot": 22.5,
+    "turret_hw": 0.74,
+    "turret_hl": 0.96,
+    "turret_h": 0.42,
+    "turret_top": 0.72,
+    "turret_z": 0.18,
+    "turret_shift": 0.06,
+    "barrel_len": 2.0,
+    "barrel_r": 0.075,
+    "muzzle": "brake",
+    "roof": "cupola",
+    "deck": "none",
+    "float_skirt": false,
+    "heavy": false,
+    "second": "none",
+    "aps": false
+  },
+  "derive": {
+    "hl": "len*0.5",
+    "hw": "hull_w*0.5",
+    "tk": 0.07,
+    "ty0": "hull_top+0.07",
+    "gy": "ty0+turret_h*0.5",
+    "top_y": "ty0+turret_h",
+    "fz": "turret_z-turret_hl*(1+turret_top)*0.5+turret_shift*0.5"
+  },
+  "slots": {"skirt": [], "roof": [], "deck": []},
+  "ops": [
+    ["bevel", 0.04],
+    {
+      "mirror_x": [
+        ["brush", "rubber", "rubber"],
+        [
+          "track",
+          "track_x",
+          "track_w",
+          [["hl-0.42", "(0.34+0.06+tk)", "(0.34+0.06)"], ["-hl+0.44", "(0.34+0.06+tk)", "(0.34+0.06)"]],
+          "tk",
+          10
+        ],
+        ["wheel", ["track_x", "(0.34+0.06+tk)", "hl-0.42"], 0.34, "(track_w)*0.78", "rubber", "metal", 0, 12],
+        ["wheel", ["track_x", "(0.34+0.06+tk)", "-hl+0.44"], 0.34, "(track_w)*0.78", "rubber", "metal", 0, 12],
+        {
+          "for": "i",
+          "n": "wheel_n",
+          "do": [
+            [
+              "wheel",
+              ["track_x", "wheel_r+tk", "lerp((-hl+0.44)+0.34+0.22,(hl-0.42)-0.34-0.24,i/max((wheel_n)-1,1))"],
+              "wheel_r",
+              "(track_w)*0.8",
+              "rubber",
+              "metal",
+              0,
+              10
+            ]
+          ]
+        },
+        ["brush", "dark"],
+        [
+          "box",
+          ["track_x", "2*0.34+0.205+tk", "((hl-0.42)+(-hl+0.44))*0.5"],
+          ["(track_w)+0.16", 0.045, "(hl-0.42)-(-hl+0.44)+0.56"],
+          0.015
+        ],
+        {
+          "switch": "skirt",
+          "cases": {
+            "modules": [
+              {
+                "for": "j",
+                "n": 6,
+                "do": [
+                  ["brush", "j % 2 == 0 ? 'base' : 'sec'"],
+                  [
+                    "box",
+                    ["track_x+track_w*0.5+0.06", 0.7, "-(hl)+0.25+(len-0.5)/6*(j+0.5)"],
+                    [0.09, 0.4, "(len-0.5)/6-0.07"],
+                    0.012
+                  ]
+                ]
+              },
+              ["brush", "acc"],
+              ["box", ["track_x+track_w*0.5+0.06", "0.7+0.4*0.5+0.02", 0], [0.1, 0.04, "6*(len-0.5)/6-0.05"], 0.0]
+            ],
+            "none": []
+          },
+          "default": [{"call": "skirt", "args": {"kind": "skirt", "x": "track_x+track_w*0.5+0.06", "y": 0.7, "len": "2*(hl)", "h": 0.4}}]
+        },
+        {"slot": "skirt"}
+      ]
+    },
+    ["brush", "dark"],
+    ["ao", 0.7],
+    ["box", [0, 0.58, 0], ["(track_x-track_w*0.5-0.02)*2", 0.55, "len-0.15"], 0.03],
+    ["ao", 1.0],
+    ["brush", "base"],
+    [
+      "extrude",
+      [["-hl", 0.86], ["-hl", "hull_top-0.10"], ["-hl+0.5", "hull_top"], ["hl-glacis", "hull_top"], ["hl", 0.92], ["hl-0.05", 0.86]],
+      "-hw",
+      "hw",
+      0.05
+    ],
+    ["brush", "metal", "metal"],
+    [
+      "pocket",
+      [0, "hull_top+0.025", "hl*0.42"],
+      ["hw*1.25", 0.05, "hl*0.55"],
+      [[0.08, 0.1, 0.84, 0.22], [0.08, 0.4, 0.84, 0.22], [0.08, 0.7, 0.84, 0.2]],
+      0.03
+    ],
+    {"slot": "deck"},
+    {"call": "team_panel", "args": {"center": [0, "hull_top+0.014", "-(hl-glacis)*0.5-0.35"], "size": ["hw*1.2", 0.03, 0.34]}},
+    {
+      "call": "light_pair",
+      "args": {"center": [0, 0.97, "-hl+0.02"], "spacing": "(hw-0.28)*2", "size": [0.2, 0.09, 0.05], "col": "light"}
+    },
+    {
+      "call": "light_pair",
+      "args": {"center": [0, "hull_top-0.16", "hl+0.01"], "spacing": "(hw-0.22)*2", "size": [0.16, 0.07, 0.04], "col": "#ff140a"}
+    },
+    {
+      "part": {"kind": "turret", "pivot": [0, "hull_top", "turret_z"]},
+      "do": [
+        {
+          "call": "turret_ngon",
+          "args": {
+            "pivot": [0, "hull_top", "turret_z"],
+            "n": "turret_n",
+            "rot": "turret_rot",
+            "hw": "turret_hw",
+            "hl": "turret_hl",
+            "h": "turret_h",
+            "top": "turret_top",
+            "shift": "turret_shift",
+            "y0": "ty0"
+          }
+        },
+        {
+          "call": "hatch",
+          "args": {"c": ["turret_hw*0.36", "top_y", "turret_z+turret_hl*0.30"], "r": 0.15, "body": "sec", "ring": "acc"}
+        },
+        ["brush", "base"],
+        [
+          "cyl",
+          ["-turret_hw*0.38", "top_y", "turret_z+turret_hl*0.15"],
+          ["-turret_hw*0.38", "top_y+0.13", "turret_z+turret_hl*0.15"],
+          0.17,
+          12,
+          0.02
+        ],
+        ["brush", "glass", "glass"],
+        [
+          "cyl",
+          ["-turret_hw*0.38", "top_y+0.07", "turret_z+turret_hl*0.15"],
+          ["-turret_hw*0.38", "top_y+0.115", "turret_z+turret_hl*0.15"],
+          0.178,
+          12,
+          0
+        ],
+        ["tier", 2],
+        ["brush", "metal", "metal"],
+        {
+          "for": "s",
+          "n": 2,
+          "do": [
+            {
+              "for": "j",
+              "n": 3,
+              "do": [
+                [
+                  "cyl",
+                  ["(s*2-1)*turret_hw*0.80", "ty0+turret_h*0.66", "turret_z-0.20+0.10*j"],
+                  ["(s*2-1)*(turret_hw*0.80+0.13)", "ty0+turret_h*0.72", "turret_z-0.20+0.10*j"],
+                  0.032,
+                  8,
+                  0
+                ]
+              ]
+            }
+          ]
+        },
+        ["tier", 0],
+        {
+          "switch": "roof",
+          "cases": {
+            "crown": [{"call": "sensor_crown", "args": {"center": [0, "top_y", "turret_z+0.05"], "n": 6, "r": 0.16}}],
+            "cupola": [
+              {
+                "call": "whip",
+                "args": {
+                  "base": ["-turret_hw*0.6", "top_y", "turret_z+turret_hl*0.85"],
+                  "tip": ["-turret_hw*0.62", "top_y+0.5", "turret_z+turret_hl*0.9"],
+                  "r": 0.011,
+                  "col": "metal"
+                }
+              }
+            ]
+          }
+        },
+        {"slot": "roof"}
+      ]
+    },
+    {
+      "if": "roof == 'mast'",
+      "then": [{"call": "sensor_mast", "args": {"base": ["-hw*0.55", "hull_top", "hl*0.62"], "h": 1.15, "folded": 0.8}}]
+    },
+    {
+      "call": "gun",
+      "args": {
+        "mount": 0,
+        "pivot": [0, "hull_top", "turret_z"],
+        "y": "gy",
+        "z": "fz-0.14",
+        "len": "barrel_len",
+        "r": "barrel_r",
+        "muzzle": "muzzle",
+        "elev": 0.12
+      }
+    },
+    {
+      "switch": "deck",
+      "cases": {
+        "container": [
+          {
+            "call": "container",
+            "args": {"center": [0, "hull_top+0.32", "hl*0.55+0.30"], "size": ["hw*1.5", 0.55, 1.0], "col": "sec"}
+          }
+        ],
+        "drone_rack": [
+          ["brush", "metal", "metal"],
+          ["box", [0, "hull_top+0.05", "hl*0.55+0.25"], ["hw*1.3", 0.05, 0.78], 0],
+          {"for": "s", "n": 2, "do": [["box", ["(s*2-1)*hw*0.62", "hull_top+0.20", "hl*0.55+0.25"], [0.05, 0.3, 0.78], 0]]},
+          {
+            "for": "i",
+            "n": 4,
+            "do": [
+              ["brush", "sec"],
+              ["box", ["-0.36+0.24*i", "hull_top+0.11", "hl*0.55+0.25"], [0.14, 0.07, 0.42], 0],
+              ["brush", "acc"],
+              ["box", ["-0.36+0.24*i", "hull_top+0.15", "hl*0.55+0.10"], [0.14, 0.02, 0.07], 0]
+            ]
+          }
+        ],
+        "heat_shield": [
+          ["brush", "dark"],
+          ["box", [0, "(hull_top)+0.04", "hl*0.55+0.30"], ["hw*1.5", 0.06, 1.0], 0.0],
+          ["brush", "acc"],
+          {
+            "for": "i",
+            "n": 5,
+            "do": [["box", ["(i-2)*(hw*1.5)*0.2", "(hull_top)+0.34", "hl*0.55+0.30"], [0.045, 0.56, "(1.0)*0.9"], 0.0]]
+          }
+        ],
+        "drone_pad": [
+          ["brush", "dark"],
+          ["box", [0, "(hull_top)+0.03", "hl*0.55+0.30"], ["hw*1.5", 0.05, 1.0], 0.01],
+          ["brush", "acc"],
+          ["cyl", [0, "(hull_top)+0.056", "hl*0.55+0.30"], [0, "(hull_top)+0.066", "hl*0.55+0.30"], "min(hw*1.5,1.0)*0.4", 16, 0.0],
+          ["brush", "dark"],
+          ["cyl", [0, "(hull_top)+0.066", "hl*0.55+0.30"], [0, "(hull_top)+0.07", "hl*0.55+0.30"], "min(hw*1.5,1.0)*0.3", 16, 0.0],
+          ["brush", "sec"],
+          ["box", [0, "(hull_top)+0.12", "hl*0.55+0.30"], [0.3, 0.09, 0.3], 0.02],
+          ["brush", "light", "emissive"],
+          ["box", [0, "(hull_top)+0.17", "hl*0.55+0.30"], [0.08, 0.02, 0.08], 0.0]
+        ],
+        "spares": [
+          ["brush", "rubber", "rubber"],
+          [
+            "cyl",
+            ["-(hw*1.5)*0.3", "(hull_top)+0.30", "hl*0.55+0.30"],
+            ["-(hw*1.5)*0.3+0.24", "(hull_top)+0.30", "hl*0.55+0.30"],
+            0.3,
+            12,
+            0.02
+          ],
+          ["brush", "metal", "metal"],
+          [
+            "cyl",
+            ["-(hw*1.5)*0.3+0.22", "(hull_top)+0.30", "hl*0.55+0.30"],
+            ["-(hw*1.5)*0.3+0.26", "(hull_top)+0.30", "hl*0.55+0.30"],
+            0.16,
+            10,
+            0.0
+          ],
+          ["brush", "acc"],
+          ["box", ["(hw*1.5)*0.15", "(hull_top)+0.16", "(hl*0.55+0.30)-(1.0)*0.2"], [0.36, 0.28, 0.2], 0.02],
+          ["box", ["(hw*1.5)*0.15", "(hull_top)+0.16", "(hl*0.55+0.30)+(1.0)*0.2"], [0.36, 0.28, 0.2], 0.02],
+          ["brush", "sec"],
+          ["box", ["(hw*1.5)*0.38", "(hull_top)+0.18", "hl*0.55+0.30"], [0.22, 0.32, 0.28], 0.02]
+        ],
+        "braces": [
+          ["brush", "metal", "metal"],
+          {
+            "for": "s",
+            "n": 2,
+            "do": [
+              ["box", ["(s*2-1)*(hw*1.5)*0.36", "(hull_top)+0.16", "hl*0.55+0.30"], [0.14, 0.14, "(1.0)*0.9"], 0.02],
+              ["brush", "acc"],
+              ["box", ["(s*2-1)*(hw*1.5)*0.36", "(hull_top)+0.24", "(hl*0.55+0.30)-(1.0)*0.4"], [0.24, 0.05, 0.24], 0.01],
+              ["brush", "metal", "metal"]
+            ]
+          }
+        ]
+      }
+    },
+    {"if": "float_skirt", "then": [{"call": "hover_skirt", "args": {"len": "len", "wid": "hull_w+0.3", "h": 0.5}}]},
+    {
+      "if": "heavy",
+      "then": [
+        ["brush", "sec"],
+        ["tier", 1],
+        [
+          "extrude",
+          [
+            ["hl-glacis-0.05", "hull_top+0.01"],
+            ["hl-glacis-0.05", "hull_top+0.09"],
+            ["hl-0.35", "hull_top+0.09"],
+            ["hl-0.10", 1.02],
+            ["hl-0.10", 0.95]
+          ],
+          "-hw+0.25",
+          "hw-0.25",
+          0.02
+        ],
+        ["tier", 0],
+        ["brush", "metal", "metal"],
+        {
+          "for": "i",
+          "n": 4,
+          "do": [
+            [
+              "box",
+              ["-turret_hw*0.66+turret_hw*0.44*i", "ty0+turret_h*0.55", "turret_z-turret_hl*0.55"],
+              [0.16, "turret_h*0.7", 0.1],
+              0.0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "if": "aps",
+      "then": [
+        ["brush", "dark", "metal"],
+        {
+          "for": "s",
+          "n": 2,
+          "do": [
+            ["box", ["(s*2-1)*(turret_hw*0.85)", "ty0+turret_h+0.05", "turret_z+turret_hl*0.4"], [0.12, 0.12, 0.16], 0.02],
+            ["brush", "light", "emissive"],
+            ["box", ["(s*2-1)*(turret_hw*0.85)", "ty0+turret_h+0.12", "turret_z+turret_hl*0.4-0.07"], [0.06, 0.04, 0.03], 0.0],
+            ["brush", "dark", "metal"]
+          ]
+        }
+      ]
+    },
+    {
+      "switch": "second",
+      "cases": {
+        "rws": [{"call": "rws", "args": {"center": ["hw*0.5", "hull_top", "hl*0.62"], "mount": 1}}],
+        "rail": [
+          ["brush", "metal", "metal"],
+          ["cyl", ["hw*0.5", "hull_top", "hl*0.6"], ["hw*0.5", "hull_top+0.14", "hl*0.6"], 0.24, 12, 0.01],
+          {
+            "part": {"kind": "turret1", "pivot": ["hw*0.5", "hull_top+0.14", "hl*0.6"]},
+            "do": [
+              ["brush", "dark"],
+              ["box", ["hw*0.5", "hull_top+0.32", "hl*0.6"], [0.42, 0.26, 0.5], 0.04],
+              ["brush", "sec"],
+              ["box", ["hw*0.5", "hull_top+0.47", "hl*0.6"], [0.3, 0.04, 0.34], 0.0]
+            ]
+          },
+          {
+            "part": {
+              "kind": "barrel1",
+              "pivot": ["hw*0.5", "hull_top+0.14", "hl*0.6"],
+              "param": 0.6,
+              "extra": 0.25,
+              "trunnion": ["hull_top+0.34", "hl*0.6-0.2"]
+            },
+            "do": [
+              ["brush", "metal", "metal"],
+              ["cyl", ["hw*0.5", "hull_top+0.34", "hl*0.6-0.2"], ["hw*0.5", "hull_top+0.34", "hl*0.6-1.5"], 0.06, 8, 0.0],
+              ["brush", "light", "emissive"],
+              {
+                "for": "i",
+                "n": 3,
+                "do": [
+                  [
+                    "cyl",
+                    ["hw*0.5", "hull_top+0.34", "hl*0.6-0.6-0.25*i"],
+                    ["hw*0.5", "hull_top+0.34", "hl*0.6-0.66-0.25*i"],
+                    0.1,
+                    8,
+                    0.0
+                  ]
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    ["socket", "muzzle0_0", [0, "gy", "fz-0.14-barrel_len-0.3"], [0, 0, -1], "barrel"],
+    {
+      "switch": "second",
+      "cases": {
+        "rws": [["socket", "muzzle1_0", ["hw*0.5", "hull_top+0.24", "hl*0.62-0.9"], [0, 0, -1], "barrel1"]],
+        "rail": [["socket", "muzzle1_0", ["hw*0.5", "hull_top+0.34", "hl*0.6-1.55"], [0, 0, -1], "barrel1"]]
+      },
+      "default": [["socket", "muzzle1_0", [0, "gy", "fz-0.14-barrel_len-0.3"], [0, 0, -1], "barrel"]]
+    },
+    ["socket", "exhaust0", [0.5, 0.95, "hl"], [0, 1, 0]],
+    ["socket", "top", [0, "top_y+0.5", 0], [0, 1, 0]]
+  ]
+}

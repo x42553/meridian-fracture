@@ -1,0 +1,158 @@
+{
+ "schema": "meridian.audio.factions/1",
+ "factions": {
+  "napc": {
+   "music_set": "napc",
+   "announcer_pack": "napc",
+   "response_pack": "napc",
+   "weapon_flavour": "napc",
+   "flavour": {
+    "pitch_st": 0.0,
+    "bright": 1.0,
+    "tail": 1.0,
+    "drive": 1.0,
+    "layer": "breech_clack"
+   },
+   "radio": {
+    "style": "clean_digital",
+    "squelch_open_ms": 55,
+    "squelch_close_ms": 90,
+    "hiss_db": -44.0
+   }
+  },
+  "nec": {
+   "music_set": "nec",
+   "announcer_pack": "nec",
+   "response_pack": "nec",
+   "weapon_flavour": "nec",
+   "flavour": {
+    "pitch_st": 1.0,
+    "bright": 1.25,
+    "tail": 0.6,
+    "drive": 0.8,
+    "layer": "sensor_tick"
+   },
+   "radio": {
+    "style": "crisp_wide",
+    "squelch_open_ms": 45,
+    "squelch_close_ms": 70,
+    "hiss_db": -46.0
+   }
+  },
+  "olm": {
+   "music_set": "olm",
+   "announcer_pack": "olm",
+   "response_pack": "olm",
+   "weapon_flavour": "olm",
+   "flavour": {
+    "pitch_st": -0.5,
+    "bright": 0.9,
+    "tail": 1.5,
+    "drive": 0.9,
+    "layer": "energy_hum"
+   },
+   "radio": {
+    "style": "warm_analog",
+    "squelch_open_ms": 60,
+    "squelch_close_ms": 100,
+    "hiss_db": -40.0
+   }
+  },
+  "def": {
+   "music_set": "def",
+   "announcer_pack": "def",
+   "response_pack": "def",
+   "weapon_flavour": "def",
+   "flavour": {
+    "pitch_st": -2.0,
+    "bright": 0.75,
+    "tail": 1.3,
+    "drive": 1.4,
+    "layer": "low_brass_growl"
+   },
+   "radio": {
+    "style": "noisy_clipped",
+    "squelch_open_ms": 60,
+    "squelch_close_ms": 110,
+    "hiss_db": -38.0
+   }
+  },
+  "pd": {
+   "music_set": "pd",
+   "announcer_pack": "pd",
+   "response_pack": "pd",
+   "weapon_flavour": "pd",
+   "flavour": {
+    "pitch_st": 0.5,
+    "bright": 1.1,
+    "tail": 1.2,
+    "drive": 0.8,
+    "layer": "water_slap"
+   },
+   "radio": {
+    "style": "smooth_digital",
+    "squelch_open_ms": 50,
+    "squelch_close_ms": 80,
+    "hiss_db": -46.0
+   }
+  },
+  "han": {
+   "music_set": "han",
+   "announcer_pack": "han",
+   "response_pack": "han",
+   "weapon_flavour": "han",
+   "flavour": {
+    "pitch_st": 2.0,
+    "bright": 1.4,
+    "tail": 0.7,
+    "drive": 1.0,
+    "layer": "drone_buzz"
+   },
+   "radio": {
+    "style": "packet_chirp",
+    "squelch_open_ms": 40,
+    "squelch_close_ms": 60,
+    "hiss_db": -50.0
+   }
+  },
+  "ae": {
+   "music_set": "ae",
+   "announcer_pack": "ae",
+   "response_pack": "ae",
+   "weapon_flavour": "ae",
+   "flavour": {
+    "pitch_st": -0.5,
+    "bright": 1.0,
+    "tail": 0.9,
+    "drive": 1.2,
+    "layer": "metal_clank"
+   },
+   "radio": {
+    "style": "crackly_hf",
+    "squelch_open_ms": 55,
+    "squelch_close_ms": 90,
+    "hiss_db": -38.0
+   }
+  },
+  "sap": {
+   "music_set": "sap",
+   "announcer_pack": "sap",
+   "response_pack": "sap",
+   "weapon_flavour": "sap",
+   "flavour": {
+    "pitch_st": -1.0,
+    "bright": 0.95,
+    "tail": 1.1,
+    "drive": 1.1,
+    "layer": "shield_hum"
+   },
+   "radio": {
+    "style": "wobbly",
+    "squelch_open_ms": 50,
+    "squelch_close_ms": 90,
+    "hiss_db": -42.0
+   }
+  }
+ },
+ "roster_overrides": {}
+}

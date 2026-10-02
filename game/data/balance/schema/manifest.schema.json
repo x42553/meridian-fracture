@@ -1,0 +1,23 @@
+{
+  "_doc": "meridian.balance.manifest/1 -- spec data_balance 7.2. The file list itself (sorted, unique, exists, expected set) is checked by V-SCH-01 in balance_lib/rules_files.py.",
+  "type": "object",
+  "required": ["schema", "format", "files"],
+  "additionalProperties": false,
+  "properties": {
+    "schema": { "const": "meridian.balance.manifest/1", "x-rule": "V-SCH-01" },
+    "format": { "const": 1, "x-rule": "V-SCH-01" },
+    "files": {
+      "type": "array",
+      "uniqueItems": true,
+      "x-rule": "V-SCH-01",
+      "items": { "type": "string", "pattern": "^[a-z][a-z0-9_]*\\.json$", "x-rule": "V-SCH-01" }
+    },
+    "missions": {
+      "_doc": "MIS1: scripted missions under game/data/missions/<id>.json (schema meridian.mission/1), sorted, parsed by DefMissionCompiler; validate with tools/py/validate_missions.py.",
+      "type": "array",
+      "uniqueItems": true,
+      "x-rule": "V-SCH-01",
+      "items": { "type": "string", "pattern": "^[a-z][a-z0-9_]*\\.json$", "x-rule": "V-SCH-01" }
+    }
+  }
+}

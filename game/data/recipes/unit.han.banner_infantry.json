@@ -1,0 +1,32 @@
+{
+  "schema": "meridian.recipe/1",
+  "id": "unit.han.banner_infantry",
+  "archetype": "inf_rifle",
+  "style": "auto",
+  "params": {"helmet": "wrap"},
+  "slots": {
+    "gear": [
+      ["member", 2, 4],
+      {
+        "part": {"kind": "body_bob", "pivot": [0, 0, 0], "param": "0.625", "extra": 0},
+        "do": [
+          {
+            "push": {"pos": ["sin(2*TAU/4+0)*0.42", 0, "-cos(2*TAU/4+0)*0.42"]},
+            "do": [
+              ["tier", 1],
+              ["brush", "metal", "metal"],
+              ["box", [0, 0.97, 0.3], [0.022, 0.46, 0.022], 0],
+              ["brush", "acc"],
+              ["box", [0, 1.09, 0.45], [0.02, 0.2, 0.3], 0],
+              ["brush", "sec"],
+              ["box", [0, 1.21, 0.3], [0.05, 0.05, 0.05], 0],
+              ["tier", 0]
+            ]
+          }
+        ]
+      },
+      ["member", 0, 0]
+    ]
+  },
+  "meta": {"han_gen": true}
+}

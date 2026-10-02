@@ -1,0 +1,14 @@
+{
+  "schema": "meridian.recipe/1",
+  "id": "neutral.harbor_terminal",
+  "archetype": "neu_building",
+  "style": "auto",
+  "params": {
+    "kit": "harbor"
+  },
+  "meta": {
+    "stub": true,
+    "view_archetype": "neu_building",
+    "rule": "override"
+  }
+}

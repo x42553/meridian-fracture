@@ -1,0 +1,42 @@
+{
+  "schema": "meridian.recipe/1",
+  "id": "unit.han.link_operator",
+  "archetype": "inf_support",
+  "style": "auto",
+  "params": {"gadget": "radio", "helmet": "wrap"},
+  "slots": {
+    "gear": [
+      ["member", 0, 2],
+      {
+        "part": {"kind": "body_bob", "pivot": [0, 0, 0], "param": "0.25", "extra": 0},
+        "do": [
+          {
+            "push": {"pos": ["sin(0*TAU/2+PI*0.5)*0.36", 0, "-cos(0*TAU/2+PI*0.5)*0.36"]},
+            "do": [
+              ["tier", 0],
+              ["brush", "metal", "metal"],
+              ["cyl", [0.1, 0.84, 0.3], [0.1, "(0.84)+0.1", 0.3], 0.018, 5, 0],
+              {
+                "part": {"kind": "radar", "pivot": [0.1, "(0.84)+0.1", 0.3], "extra": 0.3},
+                "do": [
+                  ["brush", "sec"],
+                  ["cyl", [0.1, "(0.84)+0.1", 0.3], [0.1, "(0.84)+0.125", 0.3], 0.13, 8, 0],
+                  ["brush", "acc"],
+                  {
+                    "for": "k",
+                    "n": 4,
+                    "do": [["box", ["(0.1)+cos(k*TAU/4)*0.13", "(0.84)+0.21000000000000002", "(0.3)+sin(k*TAU/4)*0.13"], [0.035, 0.17, 0.035], 0]]
+                  },
+                  ["brush", "mix(light,base,0.35)", "emissive"],
+                  ["box", [0.1, "(0.84)+0.15", 0.3], [0.06, 0.05, 0.06], 0]
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      ["member", 0, 0]
+    ]
+  },
+  "meta": {"han_gen": true}
+}

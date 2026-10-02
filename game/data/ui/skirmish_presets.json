@@ -1,0 +1,14 @@
+{
+ "format": 1,
+ "presets": [
+  {"id": "duel", "name": "1v1 vs Medium AI", "family": 0, "size": 96,
+   "slots": [{"kind": "human"}, {"kind": "ai", "level": 1, "team": 0}]},
+  {"id": "two_v_two", "name": "2v2 vs Medium AI", "family": 0, "size": 128,
+   "slots": [{"kind": "human", "team": 1}, {"kind": "ai", "level": 1, "team": 1}, {"kind": "ai", "level": 1, "team": 2}, {"kind": "ai", "level": 1, "team": 2}]},
+  {"id": "ffa3", "name": "3 AI free-for-all", "family": 0, "size": 128,
+   "slots": [{"kind": "human"}, {"kind": "ai", "level": 1}, {"kind": "ai", "level": 1}, {"kind": "ai", "level": 1}]},
+  {"id": "four_v_four", "name": "4v4 vs Hard AI", "family": 2, "size": 256,
+   "slots": [{"kind": "human", "team": 1}, {"kind": "ai", "level": 2, "team": 1}, {"kind": "ai", "level": 2, "team": 1}, {"kind": "ai", "level": 2, "team": 1},
+             {"kind": "ai", "level": 2, "team": 2}, {"kind": "ai", "level": 2, "team": 2}, {"kind": "ai", "level": 2, "team": 2}, {"kind": "ai", "level": 2, "team": 2}]}
+ ]
+}

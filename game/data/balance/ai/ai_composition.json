@@ -1,0 +1,66 @@
+{
+  "schema": 1,
+  "_doc": "AI-04/05 shared doctrine (ai.md 5.5.2 / 5.5.5 / 7.4): the base opener, target table, composition and research gates every roster starts from, plus the global counter table. Faction files ai_faction_<code>.json patch this per faction / roster (opener_patch, targets_patch, composition_patch, research_patch). Multipliers are Q8 (256 = x1.0, 512 = x2.0). Steps: see AiBuildPlanner.",
+  "hysteresis_ticks": 6000,
+  "phase_ticks": [3000, 9000, 21600],
+  "counters": {
+    "air": {
+      "trigger": {"share_ge": 15, "or_seen": 3},
+      "mult": {"AA_MOBILE": 512, "FIGHTER": 410, "BOMBER": 179},
+      "strong": {"share_ge": 30, "mult": {"AA_MOBILE": 768, "FIGHTER": 563, "BOMBER": 154}},
+      "structs": [{"struct": "aa_battery", "per": "production_cluster", "max": 4}]
+    },
+    "armor": {
+      "trigger": {"share_ge": 35},
+      "mult": {"INFANTRY_AT": 461, "BOMBER": 333, "HEAVY": 333, "TANK_MAIN": 230},
+      "structs": [{"struct": "at_turret", "per": "approach", "max": 3}]
+    },
+    "infantry": {
+      "trigger": {"share_ge": 45},
+      "mult": {"INFANTRY_BASIC": 358, "ARTILLERY": 333, "INFANTRY_AT": 128},
+      "structs": [{"struct": "watchtower", "per": "refinery", "max": 3}]
+    },
+    "artillery": {
+      "trigger": {"share_ge": 20, "or_seen": 3},
+      "mult": {"SCOUT_LIGHT": 384, "BOMBER": 384, "FIGHTER": 333},
+      "structs": []
+    },
+    "naval": {
+      "trigger": {"share_ge": 25},
+      "mult": {"BOMBER": 358, "ESCORT_SHIP": 384, "INFANTRY_AT": 307},
+      "structs": []
+    },
+    "sub": {"trigger": {"seen": true}, "mult": {"ESCORT_SHIP": 512}, "structs": []},
+    "camo": {"trigger": {"seen": true}, "min_detector_pct": 10, "mult": {}, "structs": [{"struct": "watchtower", "per": "key_site", "max": 4}]},
+    "static": {"trigger": {"share_ge": 30}, "mult": {"ARTILLERY": 410, "HEAVY": 333, "SIEGE_SHIP": 333}, "structs": []},
+    "light": {"trigger": {"share_ge": 40}, "mult": {"AA_MOBILE": 307, "ARTILLERY": 307, "INFANTRY_BASIC": 307}, "structs": []}
+  },
+  "base": {
+    "opener": [
+      {"id": "gen1", "op": "build", "struct": "generator"},
+      {"id": "ref1", "op": "build", "struct": "refinery"},
+      {"id": "rax1", "op": "build", "struct": "barracks"},
+      {"id": "fac1", "op": "build", "struct": "factory"},
+      {"id": "ref2", "op": "build", "struct": "refinery"},
+      {"id": "rad1", "op": "build", "struct": "radar"},
+      {"id": "inf1", "op": "train", "role": "INFANTRY_BASIC", "n": 2, "parallel": true, "when": {"have": {"struct": "barracks", "n": 1}}},
+      {"id": "scout1", "op": "train", "role": "SCOUT_LIGHT", "n": 1, "parallel": true, "when": {"have": {"struct": "factory", "n": 1}}},
+      {"id": "tank1", "op": "train", "role": "TANK_MAIN", "n": 2, "parallel": true, "when": {"have": {"struct": "factory", "n": 1}}},
+      {"id": "gen2", "op": "build", "struct": "generator", "parallel": true, "when": {"power_margin_lt": 40}},
+      {"id": "exp1", "op": "expand", "kind": "mcv", "opt": true, "parallel": true, "when": {"tier_ge": 2}}
+    ],
+    "targets": [
+      {"id": "t_rax2", "from_s": 300, "struct": "barracks", "n": 2},
+      {"id": "t_fac2", "from_s": 360, "struct": "factory", "n": 2},
+      {"id": "t_air", "from_s": 480, "struct": "airfield", "n": 1, "when": {"any": [{"enemy_seen": "air"}, {"flag": "AIR_LOADOUT"}]}},
+      {"id": "t_ref3", "from_s": 540, "struct": "refinery", "n": 3}
+    ],
+    "composition": {
+      "opening": {"INFANTRY_BASIC": 40, "INFANTRY_AT": 20, "SCOUT_LIGHT": 10, "TANK_MAIN": 30},
+      "buildup": {"INFANTRY_BASIC": 25, "INFANTRY_AT": 15, "TANK_MAIN": 35, "AA_MOBILE": 8, "ARTILLERY": 10, "HEALER": 4},
+      "midgame": {"INFANTRY_BASIC": 15, "INFANTRY_AT": 12, "TANK_MAIN": 30, "AA_MOBILE": 8, "ARTILLERY": 15, "HEAVY": 12, "FIGHTER": 4, "HEALER": 4},
+      "late": {"INFANTRY_BASIC": 10, "INFANTRY_AT": 10, "TANK_MAIN": 25, "AA_MOBILE": 8, "ARTILLERY": 15, "HEAVY": 20, "FIGHTER": 6, "BOMBER": 6, "HEALER": 3}
+    },
+    "research": []
+  }
+}

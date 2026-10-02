@@ -1,0 +1,414 @@
+{
+  "schema": "meridian.balance.faction_traits/1",
+  "factions": {
+    "faction.ae": {
+      "pres": {
+        "palette": "palette.ae"
+      },
+      "traits": {
+        "trait.ae.artillery_range": {
+          "covers": [
+            2
+          ],
+          "encoding": "encoded_in",
+          "encoded_in": {
+            "modifier_ids": [
+              "modifier.ae.02"
+            ]
+          },
+          "bible_numbers": [
+            10
+          ]
+        },
+        "trait.ae.repair_discount": {
+          "covers": [
+            1
+          ],
+          "encoding": "encoded_in",
+          "encoded_in": {
+            "modifier_ids": [
+              "modifier.ae.01"
+            ]
+          },
+          "bible_numbers": [
+            25
+          ]
+        },
+        "trait.ae.salvage": {
+          "covers": [
+            0
+          ],
+          "encoding": "grant",
+          "selector": {
+            "unit_ids": [
+              "unit.shared.engineer"
+            ]
+          },
+          "ability": {
+            "ref": "ability.salvage.default",
+            "params": {
+              "action_s": 8,
+              "payout_pct": 20,
+              "wreck_life_s": 60
+            }
+          },
+          "natively_on_unit_ids": [
+            "unit.ae.reclaimer",
+            "unit.ae.river_warden"
+          ],
+          "bible_numbers": [
+            8,
+            20
+          ]
+        }
+      },
+      "player_params": {}
+    },
+    "faction.def": {
+      "pres": {
+        "palette": "palette.def"
+      },
+      "traits": {
+        "trait.def.no_free_units": {
+          "covers": [
+            1
+          ],
+          "encoding": "text_only",
+          "bible_numbers": []
+        },
+        "trait.def.strengths": {
+          "covers": [
+            2
+          ],
+          "encoding": "text_only",
+          "bible_numbers": []
+        },
+        "trait.def.vehicle_mass_production": {
+          "covers": [
+            0
+          ],
+          "encoding": "encoded_in",
+          "encoded_in": {
+            "modifier_ids": [
+              "modifier.def.01",
+              "modifier.def.02",
+              "modifier.def.03"
+            ]
+          },
+          "bible_numbers": [
+            10
+          ]
+        }
+      },
+      "player_params": {}
+    },
+    "faction.han": {
+      "pres": {
+        "palette": "palette.han"
+      },
+      "traits": {
+        "trait.han.command_field": {
+          "covers": [
+            2
+          ],
+          "encoding": "encoded_in",
+          "encoded_in": {
+            "unit_ids": [
+              "unit.han.dragon_command_walker",
+              "unit.han.link_operator"
+            ],
+            "ability": "command_field",
+            "ability_ref": "ability.command_field.default"
+          },
+          "bible_numbers": [
+            5,
+            10
+          ]
+        },
+        "trait.han.fragile_vehicles": {
+          "covers": [
+            1
+          ],
+          "encoding": "encoded_in",
+          "encoded_in": {
+            "modifier_ids": [
+              "modifier.han.03"
+            ]
+          },
+          "bible_numbers": [
+            10
+          ]
+        },
+        "trait.han.infantry_economy": {
+          "covers": [
+            0
+          ],
+          "encoding": "encoded_in",
+          "encoded_in": {
+            "modifier_ids": [
+              "modifier.han.01",
+              "modifier.han.02"
+            ]
+          },
+          "bible_numbers": [
+            15
+          ]
+        }
+      },
+      "player_params": {}
+    },
+    "faction.napc": {
+      "pres": {
+        "palette": "palette.napc"
+      },
+      "traits": {
+        "trait.napc.factory_apron": {
+          "covers": [
+            1
+          ],
+          "encoding": "grant",
+          "selector": {
+            "structure_ids": [
+              "structure.shared.factory"
+            ]
+          },
+          "ability": {
+            "ref": "ability.aura_regen.default",
+            "params": {
+              "radius_cells": 5,
+              "rate_pct_per_s": 1,
+              "cap_pct": 75,
+              "idle_s": 6,
+              "target_selector": "selector.land_combat_vehicles",
+              "stack_group": "factory_apron"
+            }
+          },
+          "bible_numbers": [
+            5,
+            1,
+            75,
+            6
+          ]
+        },
+        "trait.napc.strengths": {
+          "covers": [
+            2
+          ],
+          "encoding": "text_only",
+          "bible_numbers": []
+        },
+        "trait.napc.vehicle_package": {
+          "covers": [
+            0
+          ],
+          "encoding": "encoded_in",
+          "encoded_in": {
+            "modifier_ids": [
+              "modifier.napc.01",
+              "modifier.napc.02"
+            ]
+          },
+          "bible_numbers": [
+            10
+          ]
+        }
+      },
+      "player_params": {}
+    },
+    "faction.nec": {
+      "pres": {
+        "palette": "palette.nec"
+      },
+      "traits": {
+        "trait.nec.combat_unit_tax": {
+          "covers": [
+            1
+          ],
+          "encoding": "encoded_in",
+          "encoded_in": {
+            "modifier_ids": [
+              "modifier.nec.01"
+            ]
+          },
+          "bible_numbers": [
+            5
+          ]
+        },
+        "trait.nec.networked_fire": {
+          "covers": [
+            0
+          ],
+          "encoding": "encoded_in",
+          "encoded_in": {
+            "structure_id": "structure.nec.relay",
+            "ability": "relay_field",
+            "ability_ref": "ability.relay_field.default"
+          },
+          "bible_numbers": [
+            6,
+            10
+          ]
+        },
+        "trait.nec.strengths": {
+          "covers": [
+            2
+          ],
+          "encoding": "text_only",
+          "bible_numbers": []
+        }
+      },
+      "player_params": {}
+    },
+    "faction.olm": {
+      "pres": {
+        "palette": "palette.olm"
+      },
+      "traits": {
+        "trait.olm.desert_mobility": {
+          "covers": [
+            0
+          ],
+          "encoding": "encoded_in",
+          "encoded_in": {
+            "modifier_ids": [
+              "modifier.olm.01",
+              "modifier.olm.02",
+              "modifier.olm.03",
+              "modifier.olm.04"
+            ]
+          },
+          "bible_numbers": [
+            10
+          ]
+        },
+        "trait.olm.generator_output": {
+          "covers": [
+            1
+          ],
+          "encoding": "encoded_in",
+          "encoded_in": {
+            "modifier_ids": [
+              "modifier.olm.05"
+            ]
+          },
+          "bible_numbers": [
+            25
+          ]
+        },
+        "trait.olm.strengths": {
+          "covers": [
+            2
+          ],
+          "encoding": "text_only",
+          "bible_numbers": []
+        }
+      },
+      "player_params": {}
+    },
+    "faction.pd": {
+      "pres": {
+        "palette": "palette.pd"
+      },
+      "traits": {
+        "trait.pd.amphibious_collectors": {
+          "covers": [
+            0
+          ],
+          "encoding": "encoded_in",
+          "encoded_in": {
+            "unit_ids": [
+              "unit.shared.collector"
+            ],
+            "source": "bible.rosters.resolved.unit_overrides"
+          },
+          "bible_numbers": [
+            70
+          ]
+        },
+        "trait.pd.naval_speed": {
+          "covers": [
+            1
+          ],
+          "encoding": "encoded_in",
+          "encoded_in": {
+            "modifier_ids": [
+              "modifier.pd.01"
+            ]
+          },
+          "bible_numbers": [
+            15
+          ]
+        },
+        "trait.pd.weak_defenses": {
+          "covers": [
+            2
+          ],
+          "encoding": "encoded_in",
+          "encoded_in": {
+            "modifier_ids": [
+              "modifier.pd.02"
+            ]
+          },
+          "bible_numbers": [
+            15
+          ]
+        }
+      },
+      "player_params": {}
+    },
+    "faction.sap": {
+      "pres": {
+        "palette": "palette.sap"
+      },
+      "traits": {
+        "trait.sap.fortified_defenses": {
+          "covers": [
+            0
+          ],
+          "encoding": "encoded_in",
+          "encoded_in": {
+            "modifier_ids": [
+              "modifier.sap.01"
+            ]
+          },
+          "bible_numbers": [
+            15
+          ]
+        },
+        "trait.sap.power_reserve": {
+          "covers": [
+            1
+          ],
+          "encoding": "player",
+          "ability": {
+            "ref": "ability.defense_power_reserve.default",
+            "params": {
+              "reserve_s": 20,
+              "recharge_s": 60,
+              "continuous_power_s": 60
+            }
+          },
+          "bible_numbers": [
+            20,
+            60
+          ]
+        },
+        "trait.sap.slow_vehicles": {
+          "covers": [
+            2
+          ],
+          "encoding": "encoded_in",
+          "encoded_in": {
+            "modifier_ids": [
+              "modifier.sap.02"
+            ]
+          },
+          "bible_numbers": [
+            10
+          ]
+        }
+      },
+      "player_params": {}
+    }
+  }
+}

@@ -1,0 +1,464 @@
+{
+ "schema": "meridian.audio.announcer/1",
+ "defaults": {
+  "cooldown_ms": 6000,
+  "expire_ms": 8000,
+  "priority": 50,
+  "gap_ms": 250,
+  "preempt_margin": 20,
+  "max_queue": 4
+ },
+ "categories": {
+  "alert": {
+   "gap_ms": 2500
+  },
+  "prod": {
+   "gap_ms": 1500
+  },
+  "eco": {
+   "gap_ms": 2000
+  },
+  "sw": {
+   "gap_ms": 800
+  },
+  "match": {
+   "gap_ms": 500
+  }
+ },
+ "packs": {
+  "computer": {
+   "label": "Computer",
+   "engine": "kokoro",
+   "voice": "af_heart",
+   "chain": "computer"
+  },
+  "napc": {
+   "label": "North American Peace Corps",
+   "engine": "kokoro",
+   "voice": "am_michael",
+   "chain": "officer",
+   "motto": "Hold the line. Bring them home."
+  },
+  "nec": {
+   "label": "Northern European Concord",
+   "engine": "kokoro",
+   "voice": "bf_emma",
+   "chain": "officer",
+   "motto": "No city stands alone."
+  },
+  "olm": {
+   "label": "Oil Lands Monarchies",
+   "engine": "kokoro",
+   "voice": "am_fenrir",
+   "chain": "radio",
+   "motto": "Keep the wells. Keep the word."
+  },
+  "def": {
+   "label": "Defense Union",
+   "engine": "kokoro",
+   "voice": "bm_george",
+   "chain": "radio",
+   "motto": "A thousand districts. One supply line."
+  },
+  "pd": {
+   "label": "Pacific Dominion",
+   "engine": "kokoro",
+   "voice": "af_bella",
+   "chain": "officer",
+   "motto": "The sea connects us."
+  },
+  "han": {
+   "label": "Han Union",
+   "engine": "kokoro",
+   "voice": "af_nicole",
+   "chain": "radio",
+   "motto": "A common future requires a common plan."
+  },
+  "ae": {
+   "label": "African Emergence",
+   "engine": "kokoro",
+   "voice": "am_puck",
+   "chain": "radio",
+   "motto": "What survives belongs to the future."
+  },
+  "sap": {
+   "label": "South American Pact",
+   "engine": "kokoro",
+   "voice": "bf_isabella",
+   "chain": "officer",
+   "motto": "No refuge left undefended."
+  }
+ },
+ "lines": {
+  "construction_complete": {
+   "text": "Construction complete.",
+   "category": "prod",
+   "priority": 60,
+   "cooldown_ms": 3000,
+   "variants": 2
+  },
+  "unit_ready": {
+   "text": "Unit ready.",
+   "category": "prod",
+   "priority": 45,
+   "cooldown_ms": 5000,
+   "variants": 2
+  },
+  "new_construction_options": {
+   "text": "New construction options.",
+   "category": "prod",
+   "priority": 40,
+   "cooldown_ms": 20000,
+   "variants": 1
+  },
+  "research_complete": {
+   "text": "Research complete.",
+   "category": "prod",
+   "priority": 55,
+   "cooldown_ms": 3000,
+   "variants": 1
+  },
+  "on_hold": {
+   "text": "On hold.",
+   "category": "prod",
+   "priority": 40,
+   "cooldown_ms": 2000,
+   "variants": 1
+  },
+  "canceled": {
+   "text": "Canceled.",
+   "category": "prod",
+   "priority": 40,
+   "cooldown_ms": 2000,
+   "variants": 1
+  },
+  "cannot_deploy": {
+   "text": "Cannot deploy here.",
+   "category": "prod",
+   "priority": 60,
+   "cooldown_ms": 3000,
+   "variants": 1
+  },
+  "unable_to_comply": {
+   "text": "Unable to comply.",
+   "category": "prod",
+   "priority": 55,
+   "cooldown_ms": 2500,
+   "variants": 1
+  },
+  "power_ready": {
+   "text": "Support power ready.",
+   "category": "prod",
+   "priority": 68,
+   "cooldown_ms": 4000,
+   "variants": 1
+  },
+  "insufficient_funds": {
+   "text": "Insufficient funds.",
+   "category": "eco",
+   "priority": 70,
+   "cooldown_ms": 8000,
+   "variants": 2
+  },
+  "unit_cap_reached": {
+   "text": "Unit limit reached.",
+   "category": "eco",
+   "priority": 60,
+   "cooldown_ms": 15000,
+   "variants": 1
+  },
+  "low_power": {
+   "text": "Low power.",
+   "category": "eco",
+   "priority": 75,
+   "cooldown_ms": 45000,
+   "variants": 2
+  },
+  "power_restored": {
+   "text": "Power restored.",
+   "category": "eco",
+   "priority": 65,
+   "cooldown_ms": 10000,
+   "variants": 1
+  },
+  "defenses_offline": {
+   "text": "Defenses offline.",
+   "category": "eco",
+   "priority": 72,
+   "cooldown_ms": 30000,
+   "variants": 1
+  },
+  "structure_sold": {
+   "text": "Structure sold.",
+   "category": "eco",
+   "priority": 30,
+   "cooldown_ms": 1500,
+   "variants": 1
+  },
+  "base_under_attack": {
+   "text": "Base under attack.",
+   "category": "alert",
+   "priority": 92,
+   "cooldown_ms": 12000,
+   "variants": 2,
+   "expire_ms": 4000
+  },
+  "collector_under_attack": {
+   "text": "Collector under attack.",
+   "category": "alert",
+   "priority": 85,
+   "cooldown_ms": 12000,
+   "variants": 1,
+   "expire_ms": 4000
+  },
+  "unit_under_attack": {
+   "text": "Unit under attack.",
+   "category": "alert",
+   "priority": 60,
+   "cooldown_ms": 15000,
+   "variants": 1,
+   "expire_ms": 4000
+  },
+  "aircraft_under_attack": {
+   "text": "Aircraft under attack.",
+   "category": "alert",
+   "priority": 60,
+   "cooldown_ms": 15000,
+   "variants": 1,
+   "expire_ms": 4000
+  },
+  "ally_under_attack": {
+   "text": "Ally under attack.",
+   "category": "alert",
+   "priority": 70,
+   "cooldown_ms": 15000,
+   "variants": 1,
+   "expire_ms": 4000
+  },
+  "unit_lost": {
+   "text": "Unit lost.",
+   "category": "alert",
+   "priority": 50,
+   "cooldown_ms": 8000,
+   "variants": 2,
+   "expire_ms": 4000
+  },
+  "structure_lost": {
+   "text": "Structure lost.",
+   "category": "alert",
+   "priority": 80,
+   "cooldown_ms": 5000,
+   "variants": 1,
+   "expire_ms": 4000
+  },
+  "collector_lost": {
+   "text": "Collector lost.",
+   "category": "alert",
+   "priority": 82,
+   "cooldown_ms": 10000,
+   "variants": 1,
+   "expire_ms": 4000
+  },
+  "structure_captured": {
+   "text": "Structure captured by the enemy.",
+   "category": "alert",
+   "priority": 88,
+   "cooldown_ms": 6000,
+   "variants": 1,
+   "expire_ms": 4000
+  },
+  "building_captured": {
+   "text": "Building captured.",
+   "category": "alert",
+   "priority": 60,
+   "cooldown_ms": 4000,
+   "variants": 1
+  },
+  "systems_disabled": {
+   "text": "Systems disabled.",
+   "category": "alert",
+   "priority": 75,
+   "cooldown_ms": 15000,
+   "variants": 1,
+   "expire_ms": 4000
+  },
+  "superweapon_destroyed": {
+   "text": "Strategic weapon destroyed.",
+   "category": "alert",
+   "priority": 90,
+   "cooldown_ms": 10000,
+   "variants": 1,
+   "expire_ms": 4000
+  },
+  "sw_charging": {
+   "text": "Strategic weapon charging.",
+   "category": "sw",
+   "priority": 70,
+   "cooldown_ms": 30000,
+   "variants": 1
+  },
+  "sw_ready": {
+   "text": "Strategic weapon ready.",
+   "category": "sw",
+   "priority": 90,
+   "cooldown_ms": 10000,
+   "variants": 1
+  },
+  "sw_launched": {
+   "text": "Strategic weapon launched.",
+   "category": "sw",
+   "priority": 80,
+   "cooldown_ms": 10000,
+   "variants": 1
+  },
+  "sw_cancelled": {
+   "text": "Launch aborted.",
+   "category": "sw",
+   "priority": 85,
+   "cooldown_ms": 10000,
+   "variants": 1
+  },
+  "enemy_sw_charging": {
+   "text": "Enemy strategic weapon charging.",
+   "category": "sw",
+   "priority": 88,
+   "cooldown_ms": 60000,
+   "variants": 1
+  },
+  "sw_launch_detected": {
+   "text": "Strategic launch detected.",
+   "category": "sw",
+   "priority": 97,
+   "cooldown_ms": 3000,
+   "variants": 1,
+   "expire_ms": 4000
+  },
+  "sw_incoming_strike": {
+   "text": "Incoming strike.",
+   "category": "sw",
+   "priority": 93,
+   "cooldown_ms": 6000,
+   "variants": 1,
+   "expire_ms": 4000
+  },
+  "scan_detected": {
+   "text": "Enemy scan detected.",
+   "category": "sw",
+   "priority": 70,
+   "cooldown_ms": 20000,
+   "variants": 1
+  },
+  "match_start": {
+   "text": "Battle control online.",
+   "category": "match",
+   "priority": 90,
+   "cooldown_ms": 60000,
+   "variants": 1
+  },
+  "victory": {
+   "text": "Victory.",
+   "category": "match",
+   "priority": 100,
+   "cooldown_ms": 10000,
+   "variants": 1
+  },
+  "defeat": {
+   "text": "Defeat.",
+   "category": "match",
+   "priority": 100,
+   "cooldown_ms": 10000,
+   "variants": 1
+  },
+  "ally_defeated": {
+   "text": "Ally defeated.",
+   "category": "match",
+   "priority": 80,
+   "cooldown_ms": 3000,
+   "variants": 1
+  },
+  "enemy_defeated": {
+   "text": "Enemy defeated.",
+   "category": "match",
+   "priority": 80,
+   "cooldown_ms": 3000,
+   "variants": 1
+  },
+  "player_disconnected": {
+   "text": "Player disconnected.",
+   "category": "match",
+   "priority": 70,
+   "cooldown_ms": 3000,
+   "variants": 1
+  },
+  "game_paused": {
+   "text": "Game paused.",
+   "category": "match",
+   "priority": 50,
+   "cooldown_ms": 1000,
+   "variants": 1
+  },
+  "game_resumed": {
+   "text": "Game resumed.",
+   "category": "match",
+   "priority": 50,
+   "cooldown_ms": 1000,
+   "variants": 1
+  },
+  "match_start_napc": {
+   "text": "Hold the line. Bring them home.",
+   "category": "match",
+   "priority": 90,
+   "cooldown_ms": 60000,
+   "variants": 1
+  },
+  "match_start_nec": {
+   "text": "No city stands alone.",
+   "category": "match",
+   "priority": 90,
+   "cooldown_ms": 60000,
+   "variants": 1
+  },
+  "match_start_olm": {
+   "text": "Keep the wells. Keep the word.",
+   "category": "match",
+   "priority": 90,
+   "cooldown_ms": 60000,
+   "variants": 1
+  },
+  "match_start_def": {
+   "text": "A thousand districts. One supply line.",
+   "category": "match",
+   "priority": 90,
+   "cooldown_ms": 60000,
+   "variants": 1
+  },
+  "match_start_pd": {
+   "text": "The sea connects us.",
+   "category": "match",
+   "priority": 90,
+   "cooldown_ms": 60000,
+   "variants": 1
+  },
+  "match_start_han": {
+   "text": "A common future requires a common plan.",
+   "category": "match",
+   "priority": 90,
+   "cooldown_ms": 60000,
+   "variants": 1
+  },
+  "match_start_ae": {
+   "text": "What survives belongs to the future.",
+   "category": "match",
+   "priority": 90,
+   "cooldown_ms": 60000,
+   "variants": 1
+  },
+  "match_start_sap": {
+   "text": "No refuge left undefended.",
+   "category": "match",
+   "priority": 90,
+   "cooldown_ms": 60000,
+   "variants": 1
+  }
+ }
+}

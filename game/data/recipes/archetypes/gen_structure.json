@@ -1,0 +1,903 @@
+{
+  "schema": "meridian.archetype/1",
+  "id": "gen_structure",
+  "size_class": "structure",
+  "meta": {
+    "motion": "static",
+    "doc": "Generic shared-structure archetype used by generated stubs until the str_* archetypes of VIEW-M7 exist. `role` selects the building; footprint variables (fw, fh, door_cx, door_cz, pad_x0..) are injected by the builder."
+  },
+  "defaults": { "role": "factory", "hall_h": 3.6, "door_w": 3.4, "stacks": 2 },
+  "derive": {
+    "pw": "fw*3-0.5",
+    "ph": "fh*3-0.5",
+    "hw": "pw*0.5",
+    "hh": "ph*0.5",
+    "fz": "hh-(fw*fh>1 ? 1.0 : 0.3)",
+    "bk": "-hh+0.25",
+    "bd": "fz-bk",
+    "bz": "(fz+bk)*0.5",
+    "bw": "pw-0.5",
+    "dx": "clamp(door_cx, -(bw*0.5-door_w*0.5-0.3), bw*0.5-door_w*0.5-0.3)"
+  },
+  "ops": [
+    ["bevel", 0.05],
+    {
+      "call": "foundation",
+      "args": {
+        "fw": "fw",
+        "fh": "fh",
+        "depth": 1.2,
+        "col": "concrete",
+        "edge": "dark",
+        "chevron": "fw*fh>1 ? 1 : 0",
+        "acc": "acc"
+      }
+    },
+    {
+      "switch": "role",
+      "cases": {
+        "hq": [
+          {
+            "call": "wall_block",
+            "args": { "center": [0, 1.75, "bz"], "size": ["bw", 3.5, "bd"], "col": "base", "sec": "sec", "dado": 1.0 }
+          },
+          {
+            "call": "wall_block",
+            "args": {
+              "center": [0, "3.5+3.3", "bz-bd*0.2"],
+              "size": [3.8, 6.6, 3.8],
+              "col": "base",
+              "sec": "sec",
+              "dado": 1.4,
+              "ribs": 0
+            }
+          },
+          ["brush", "dark"],
+          ["box", [0, 1.3, "fz+0.02"], [3.2, 2.6, 0.06]],
+          ["brush", "sec"],
+          ["box", [-1.7, 1.3, "fz+0.08"], [0.24, 2.7, 0.22], 0.03],
+          ["box", [1.7, 1.3, "fz+0.08"], [0.24, 2.7, 0.22], 0.03],
+          ["box", [0, 2.72, "fz+0.5"], [4.0, 0.14, 1.2], 0.03],
+          ["brush", "acc"],
+          ["box", [0, 2.86, "fz+0.5"], [4.0, 0.07, 1.22]],
+          ["brush", "acc"],
+          ["box", [0, 3.05, "fz+0.02"], [2.4, 0.36, 0.05]],
+          ["brush", "light", "emissive"],
+          ["box", [0, 1.3, "fz-0.02"], [2.8, 0.06, 0.04]],
+          {
+            "call": "window_strip",
+            "args": { "center": [-3.0, 2.0, "fz+0.02"], "n": 1, "size": [1.4, 0.9, 0.05], "dir": 0 }
+          },
+          {
+            "call": "window_strip",
+            "args": { "center": [3.0, 2.0, "fz+0.02"], "n": 1, "size": [1.4, 0.9, 0.05], "dir": 0 }
+          },
+          {
+            "call": "window_strip",
+            "args": { "center": [0, "3.5+3.4", "bz-bd*0.2+1.92"], "n": 3, "size": [0.8, 1.7, 0.05], "dir": 0 }
+          },
+          {
+            "call": "window_strip",
+            "args": { "center": [0, "3.5+4.8", "bz-bd*0.2+1.92"], "n": 3, "size": [0.8, 0.6, 0.05], "dir": 0 }
+          },
+          {
+            "call": "roof_plate",
+            "args": { "center": [-2.1, 3.65, "bz+bd*0.28"], "size": [3.0, 0.03, 2.0] }
+          },
+          {
+            "call": "radar_dish",
+            "args": { "center": [1.9, 3.6, "bz-bd*0.15"], "r": 0.75, "spin": 1 }
+          },
+          {
+            "call": "whip",
+            "args": { "base": [0, 10.0, "bz-bd*0.2"], "tip": [0, 11.6, "bz-bd*0.2"], "r": 0.02, "col": "metal" }
+          },
+          {
+            "call": "beacon",
+            "args": { "pos": [0, 11.6, "bz-bd*0.2"], "phase": 0 }
+          },
+          {
+            "call": "pennant",
+            "args": { "pos": ["bw*0.5-0.5", 3.6, "fz-0.6"], "h": 2.6 }
+          },
+          ["socket", "door_exit", ["door_cx", 0.16, "door_cz"], [0, 0, 1]],
+          ["socket", "weld0", [1.2, 10.0, 0.8], [0, 1, 0]]
+        ],
+        "generator": [
+          {
+            "call": "wall_block",
+            "args": { "center": [0, 1.25, "bz"], "size": ["bw", 2.5, "bd"], "col": "base", "sec": "sec", "dado": 0.9 }
+          },
+          {
+            "call": "stack",
+            "args": {
+              "center": [-1.3, 2.6, "bz-bd*0.25"],
+              "r": 0.42,
+              "h": 4.6,
+              "col": "metal",
+              "band": "acc",
+              "bands": 2
+            }
+          },
+          {
+            "call": "stack",
+            "args": {
+              "center": [1.3, 2.6, "bz-bd*0.25"],
+              "r": 0.42,
+              "h": 4.0,
+              "col": "metal",
+              "band": "acc",
+              "bands": 2
+            }
+          },
+          {
+            "call": "vent",
+            "args": { "center": [0, 2.62, "bz+bd*0.2"], "size": [2.2, 0.08, 0.9], "slats": 5 }
+          },
+          {
+            "call": "roof_plate",
+            "args": { "center": [0, 2.66, "bz+bd*0.36"], "size": [1.8, 0.03, 0.7] }
+          },
+          {
+            "call": "window_strip",
+            "args": { "center": [0, 1.4, "fz+0.02"], "n": 3, "size": [0.9, 0.7, 0.05], "dir": 0 }
+          },
+          {
+            "call": "window_strip",
+            "args": { "center": ["bw*0.5+0.02", 1.4, "bz"], "n": 2, "size": [0.9, 0.7, 0.05], "dir": 90 }
+          },
+          {
+            "call": "window_strip",
+            "args": { "center": ["-bw*0.5-0.02", 1.4, "bz"], "n": 2, "size": [0.9, 0.7, 0.05], "dir": -90 }
+          },
+          {
+            "call": "beacon",
+            "args": { "pos": [-1.3, 7.3, "bz-bd*0.25"], "phase": 0 }
+          },
+          ["socket", "door_exit", ["door_cx", 0.16, "door_cz"], [0, 0, 1]],
+          ["socket", "weld0", [1.0, 2.6, 0.5], [0, 1, 0]]
+        ],
+        "refinery": [
+          {
+            "call": "wall_block",
+            "args": {
+              "center": [-1.7, 1.4, "bz-0.25"],
+              "size": [5.0, 2.8, "bd-0.5"],
+              "col": "base",
+              "sec": "base",
+              "dado": 0,
+              "coping": 0
+            }
+          },
+          ["brush", "sec"],
+          ["box", [-1.7, 2.9, "bz-0.25"], [5.3, 0.2, "bd-0.3"], 0.03],
+          {
+            "call": "roller_door",
+            "args": {
+              "center": [-2.9, 0, "fz"],
+              "w": 2.6,
+              "h": 2.3,
+              "slats": 8,
+              "wall_l": 1.35,
+              "wall_r": 3.7,
+              "wall_h": 2.9,
+              "thick": 0.5,
+              "col": "base",
+              "frame": "sec",
+              "lintel": "acc"
+            }
+          },
+          ["brush", "dark"],
+          ["box", [2.2, 0.3, "bz"], [3.6, 0.6, "bd-0.6"], 0.03],
+          {
+            "call": "silo_cluster",
+            "args": { "center": [2.2, 0.16, "bz-0.4"], "n": 3, "r": 0.7, "h": 5.5, "col": "sec", "band": "acc" }
+          },
+          {
+            "call": "funnel",
+            "args": { "center": [-3.2, 3.0, "bz+0.6"], "r": 0.9, "h": 0.8, "col": "sec" }
+          },
+          {
+            "call": "conveyor",
+            "args": {
+              "from": [-3.2, 3.5, "bz+0.6"],
+              "to": [2.4, 5.2, "bz+0.6"],
+              "w": 0.55,
+              "col": "dark",
+              "belt": "metal"
+            }
+          },
+          {
+            "call": "pipe",
+            "args": { "from": [-0.6, 2.95, "bz-1.6"], "to": [1.9, 2.4, "bz-1.6"], "r": 0.09, "col": "metal" }
+          },
+          {
+            "call": "window_strip",
+            "args": { "center": [-1.7, 2.0, "fz+0.02"], "n": 2, "size": [0.9, 0.5, 0.05], "dir": 0 }
+          },
+          {
+            "call": "roof_plate",
+            "args": { "center": [-1.7, 3.05, "bz-1.0"], "size": [2.4, 0.03, 1.6] }
+          },
+          {
+            "call": "beacon",
+            "args": { "pos": [2.2, 6.2, "bz-0.4"], "phase": 0 }
+          },
+          ["brush", "acc"],
+          ["box", [-2.9, 2.5, "fz+0.1"], [3.0, 0.1, 0.3]],
+          ["socket", "door_exit", ["door_cx", 0.16, "door_cz"], [0, 0, 1]],
+          ["socket", "dock", ["dock_cx", 0.16, "dock_cz"], [0, 0, 1]],
+          ["socket", "weld0", [1.0, 3.0, 0.5], [0, 1, 0]]
+        ],
+        "barracks": [
+          {
+            "call": "wall_block",
+            "args": {
+              "center": ["0", "2.6*0.5", "bz-0.5*0.5"],
+              "size": ["bw", 2.6, "bd-0.5"],
+              "col": "base",
+              "sec": "base",
+              "dado": 0,
+              "coping": 0
+            }
+          },
+          ["brush", "mix(sec,dark,0.4)"],
+          ["box", [0, "2.6+0.1", "bz-0.5*0.5"], ["bw+0.3", 0.2, "bd-0.5+0.2"], 0.03],
+          {
+            "call": "roller_door",
+            "args": {
+              "center": ["dx", 0, "fz"],
+              "w": 1.9,
+              "h": 2.0,
+              "slats": 6,
+              "wall_l": "dx+bw*0.5",
+              "wall_r": "bw*0.5-dx",
+              "wall_h": 2.65,
+              "thick": 0.5,
+              "col": "base",
+              "frame": "sec",
+              "lintel": "acc"
+            }
+          },
+          ["brush", "sec"],
+          ["box", [-1.6, 2.3, "bz-0.25"], [0.16, 0.3, "bd-0.7"], 0.0],
+          ["box", [1.6, 2.3, "bz-0.25"], [0.16, 0.3, "bd-0.7"], 0.0],
+          {
+            "call": "window_strip",
+            "args": { "center": ["bw*0.5+0.02", 1.5, "bz-0.25"], "n": 2, "size": [0.8, 0.6, 0.05], "dir": 90 }
+          },
+          {
+            "call": "window_strip",
+            "args": { "center": ["-bw*0.5-0.02", 1.5, "bz-0.25"], "n": 2, "size": [0.8, 0.6, 0.05], "dir": -90 }
+          },
+          {
+            "call": "roof_plate",
+            "args": { "center": [0.8, 2.72, "bz-0.4"], "size": [1.8, 0.03, 1.2] }
+          },
+          {
+            "call": "lattice",
+            "args": {
+              "center": [-1.6, 2.7, "bk+0.8"],
+              "h": 3.6,
+              "w0": 0.5,
+              "w1": 0.25,
+              "bays": 3,
+              "col": "sec",
+              "brace": "metal"
+            }
+          },
+          {
+            "call": "pennant",
+            "args": { "pos": [1.9, 2.7, "fz-0.6"], "h": 2.4 }
+          },
+          ["socket", "door_exit", ["door_cx", 0.16, "door_cz"], [0, 0, 1]],
+          ["socket", "weld0", [1.0, 2.7, 0.5], [0, 1, 0]]
+        ],
+        "factory": [
+          {
+            "call": "wall_block",
+            "args": {
+              "center": ["0", "hall_h*0.5", "bz-0.5*0.5"],
+              "size": ["bw", "hall_h", "bd-0.5"],
+              "col": "base",
+              "sec": "base",
+              "dado": 0,
+              "coping": 0,
+              "ribs": 1,
+              "rib": "sec"
+            }
+          },
+          {
+            "call": "roller_door",
+            "args": {
+              "center": ["dx", 0, "fz"],
+              "w": "door_w",
+              "h": 2.9,
+              "slats": 10,
+              "wall_l": "dx+bw*0.5",
+              "wall_r": "bw*0.5-dx",
+              "wall_h": "hall_h+0.05",
+              "thick": 0.5,
+              "col": "base",
+              "frame": "sec",
+              "lintel": "acc"
+            }
+          },
+          ["brush", "mix(sec,dark,0.4)"],
+          [
+            "pocket",
+            [0, "hall_h+0.12", "bz-0.5*0.5"],
+            ["bw+0.3", 0.24, "bd-0.5+0.2"],
+            [[0.1, 0.12, 0.24, 0.3], [0.38, 0.12, 0.24, 0.3], [0.66, 0.12, 0.24, 0.3], [0.1, 0.55, 0.8, 0.16]],
+            0.08
+          ],
+          {
+            "for": "i",
+            "n": "stacks",
+            "do": [
+              {
+                "call": "stack",
+                "args": {
+                  "center": ["(i-(stacks-1)*0.5)*2.7", "hall_h+0.22", "bk+1.2"],
+                  "r": 0.36,
+                  "h": 1.7,
+                  "col": "metal",
+                  "band": "acc",
+                  "bands": 1
+                }
+              }
+            ]
+          },
+          ["brush", "dark", "metal"],
+          ["cyl", [-1.9, "hall_h+0.2", "bz-0.3"], [-1.9, "hall_h+0.42", "bz-0.3"], 0.85, 16, 0.03],
+          {
+            "part": { "kind": "radar", "pivot": [-1.9, "hall_h+0.43", "bz-0.3"] },
+            "do": [
+              ["brush", "metal", "metal"],
+              {
+                "for": "k",
+                "n": 3,
+                "do": [
+                  {
+                    "push": { "pos": [-1.9, "hall_h+0.43", "bz-0.3"], "euler": [0, "60*k", 0] },
+                    "do": [["box", [0, 0, 0], [1.5, 0.03, 0.22], 0]]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "call": "crane",
+            "args": {
+              "center": ["bw*0.5-1.2", "hall_h+0.22", "bz-1.2"],
+              "reach": 2.4,
+              "h": 2.4,
+              "kind": "gantry",
+              "col": "acc",
+              "mast": "sec",
+              "yaw": 90
+            }
+          },
+          ["brush", "light", "emissive"],
+          ["box", ["dx", "hall_h+0.05", "fz+0.05"], [2.4, 0.09, 0.03]],
+          {
+            "call": "window_strip",
+            "args": {
+              "center": ["bw*0.5+0.02", "hall_h*0.62", "bz-0.25"],
+              "n": 3,
+              "size": [0.8, 0.55, 0.05],
+              "dir": 90
+            }
+          },
+          {
+            "call": "window_strip",
+            "args": {
+              "center": ["-bw*0.5-0.02", "hall_h*0.62", "bz-0.25"],
+              "n": 3,
+              "size": [0.8, 0.55, 0.05],
+              "dir": -90
+            }
+          },
+          {
+            "call": "roof_plate",
+            "args": { "center": [1.7, "hall_h+0.27", "bz+bd*0.05"], "size": [2.6, 0.03, 1.5] }
+          },
+          {
+            "call": "pennant",
+            "args": { "pos": ["-bw*0.5+0.4", "hall_h+0.2", "fz-0.8"], "h": 2.4 }
+          },
+          {
+            "call": "beacon",
+            "args": { "pos": [-2.7, "hall_h+2.0", "bk+1.2"], "phase": 0 }
+          },
+          ["socket", "door_exit", ["door_cx", 0.16, "door_cz"], [0, 0, 1]],
+          ["socket", "weld0", [1.2, "hall_h+0.3", 0.8], [0, 1, 0]]
+        ],
+        "dock": [
+          {
+            "call": "wall_block",
+            "args": { "center": [0, 1.5, "bk+2.0"], "size": ["bw", 3.0, 4.0], "col": "base", "sec": "sec", "dado": 1.0 }
+          },
+          ["brush", "concrete"],
+          ["box", [0, 0.32, "fz-1.0"], ["bw+0.2", 0.32, 3.0], 0.03],
+          ["brush", "rubber", "rubber"],
+          ["box", [-3.0, 0.3, "fz+0.6"], [0.7, 0.34, 0.16], 0.01],
+          ["box", [-1.0, 0.3, "fz+0.6"], [0.7, 0.34, 0.16], 0.01],
+          ["box", [1.0, 0.3, "fz+0.6"], [0.7, 0.34, 0.16], 0.01],
+          ["box", [3.0, 0.3, "fz+0.6"], [0.7, 0.34, 0.16], 0.01],
+          ["brush", "dark", "metal"],
+          ["cyl", [-3.6, 0.48, "fz-0.3"], [-3.6, 0.86, "fz-0.3"], 0.14, 8, 0],
+          ["cyl", [0.0, 0.48, "fz-0.3"], [0.0, 0.86, "fz-0.3"], 0.14, 8, 0],
+          ["cyl", [3.6, 0.48, "fz-0.3"], [3.6, 0.86, "fz-0.3"], 0.14, 8, 0],
+          {
+            "call": "crane",
+            "args": {
+              "center": ["bw*0.5-0.9", 0.48, "fz-1.6"],
+              "reach": 5.5,
+              "h": 6.2,
+              "kind": "jib",
+              "yaw": 90,
+              "col": "acc",
+              "mast": "sec"
+            }
+          },
+          {
+            "call": "window_strip",
+            "args": { "center": [-2.0, 1.9, "bk+4.02"], "n": 3, "size": [0.9, 0.6, 0.05], "dir": 0 }
+          },
+          {
+            "call": "roof_plate",
+            "args": { "center": [-1.5, 3.05, "bk+2.0"], "size": [3.0, 0.03, 1.8] }
+          },
+          {
+            "call": "pennant",
+            "args": { "pos": ["-bw*0.5+0.5", 3.1, "bk+3.2"], "h": 2.4 }
+          },
+          {
+            "call": "beacon",
+            "args": { "pos": ["bw*0.5-0.9", 7.6, "fz-1.6"], "phase": 0 }
+          },
+          ["socket", "door_exit", ["door_cx", 0.5, "door_cz"], [0, 0, 1]],
+          ["socket", "weld0", [1.2, 3.1, 0.5], [0, 1, 0]]
+        ],
+        "radar": [
+          {
+            "call": "wall_block",
+            "args": {
+              "center": [0, 1.0, "bz"],
+              "size": ["bw*0.7", 2.0, "bd*0.8"],
+              "col": "base",
+              "sec": "base",
+              "dado": 0,
+              "ribs": 0
+            }
+          },
+          {
+            "call": "lattice",
+            "args": {
+              "center": [0, 2.1, "bz"],
+              "h": 4.3,
+              "w0": 1.5,
+              "w1": 0.6,
+              "bays": 4,
+              "col": "sec",
+              "brace": "metal"
+            }
+          },
+          ["brush", "dark", "metal"],
+          ["cyl", [0, 6.4, "bz"], [0, 6.6, "bz"], 0.6, 12, 0.02],
+          {
+            "part": { "kind": "radar", "pivot": [0, 6.6, "bz"] },
+            "do": [
+              {
+                "call": "radar_dish",
+                "args": { "center": [0, 6.5, "bz"], "r": 1.6, "spin": 0 }
+              }
+            ]
+          },
+          {
+            "call": "roof_plate",
+            "args": { "center": [0, 2.05, "bz+bd*0.28"], "size": [1.6, 0.03, 0.9] }
+          },
+          {
+            "call": "beacon",
+            "args": { "pos": [0, 7.4, "bz"], "phase": 0 }
+          },
+          ["socket", "door_exit", ["door_cx", 0.16, "door_cz"], [0, 0, 1]],
+          ["socket", "weld0", [1.0, 2.1, 0.5], [0, 1, 0]]
+        ],
+        "airfield": [
+          {
+            "push": { "pos": [0, 0, "1.0"], "euler": [0, 90, 0] },
+            "do": [
+              {
+                "call": "pad",
+                "args": {
+                  "center": [0, 0.16, 0],
+                  "size": [3.0, 0.04, "pw-2.0"],
+                  "mark": "runway",
+                  "col": "sec",
+                  "base": "dark"
+                }
+              }
+            ]
+          },
+          {
+            "if": "pads_n > 0",
+            "then": [
+              {
+                "call": "pad",
+                "args": {
+                  "center": ["pad_x0", 0.16, "pad_z0-0.6"],
+                  "size": [2.6, 0.05, 2.6],
+                  "mark": "ring",
+                  "col": "sec",
+                  "base": "dark"
+                }
+              }
+            ]
+          },
+          {
+            "if": "pads_n > 1",
+            "then": [
+              {
+                "call": "pad",
+                "args": {
+                  "center": ["pad_x1", 0.16, "pad_z1-0.6"],
+                  "size": [2.6, 0.05, 2.6],
+                  "mark": "ring",
+                  "col": "sec",
+                  "base": "dark"
+                }
+              }
+            ]
+          },
+          {
+            "if": "pads_n > 2",
+            "then": [
+              {
+                "call": "pad",
+                "args": {
+                  "center": ["pad_x2", 0.16, "pad_z2-0.6"],
+                  "size": [2.6, 0.05, 2.6],
+                  "mark": "ring",
+                  "col": "sec",
+                  "base": "dark"
+                }
+              }
+            ]
+          },
+          {
+            "if": "pads_n > 3",
+            "then": [
+              {
+                "call": "pad",
+                "args": {
+                  "center": ["pad_x3", 0.16, "pad_z3-0.6"],
+                  "size": [2.6, 0.05, 2.6],
+                  "mark": "ring",
+                  "col": "sec",
+                  "base": "dark"
+                }
+              }
+            ]
+          },
+          {
+            "call": "wall_block",
+            "args": {
+              "center": ["-hw+2.6", 1.7, "bk+2.2"],
+              "size": [4.8, 3.4, 4.2],
+              "col": "base",
+              "sec": "sec",
+              "dado": 1.0,
+              "ribs": 0
+            }
+          },
+          {
+            "call": "roller_door",
+            "args": {
+              "center": ["-hw+2.6", 0, "bk+4.3"],
+              "w": 3.2,
+              "h": 2.6,
+              "slats": 8,
+              "wall_l": 2.4,
+              "wall_r": 2.4,
+              "wall_h": 3.4,
+              "thick": 0.4,
+              "col": "base",
+              "frame": "sec",
+              "lintel": "acc"
+            }
+          },
+          {
+            "call": "roof_plate",
+            "args": { "center": ["-hw+2.6", 3.55, "bk+2.0"], "size": [2.4, 0.03, 1.6] }
+          },
+          {
+            "call": "wall_block",
+            "args": {
+              "center": ["hw-1.8", 1.3, "bk+2.2"],
+              "size": [3.0, 2.6, 3.4],
+              "col": "base",
+              "sec": "sec",
+              "dado": 0.9,
+              "ribs": 0
+            }
+          },
+          ["brush", "sec"],
+          {
+            "call": "stack",
+            "args": {
+              "center": ["hw-1.8", 2.7, "bk+2.2"],
+              "r": 0.55,
+              "h": 3.9,
+              "col": "sec",
+              "band": "acc",
+              "bands": 1
+            }
+          },
+          ["brush", "glass", "glass"],
+          ["box", ["hw-1.8", 6.9, "bk+2.2"], [1.9, 1.0, 1.9], 0.04],
+          ["brush", "sec"],
+          ["box", ["hw-1.8", 7.5, "bk+2.2"], [2.3, 0.18, 2.3], 0.03],
+          {
+            "call": "beacon",
+            "args": { "pos": ["hw-1.8", 8.1, "bk+2.2"], "phase": 0 }
+          },
+          ["brush", "metal", "metal"],
+          ["cyl", ["hw-0.5", 0.16, "bk+0.6"], ["hw-0.5", 2.6, "bk+0.6"], 0.04, 6],
+          ["brush", "acc"],
+          ["box", ["hw-0.1", 2.4, "bk+0.6"], [0.9, 0.22, 0.22], 0.0],
+          {
+            "call": "pennant",
+            "args": { "pos": ["-hw+0.7", 3.5, "fz-0.5"], "h": 2.6 }
+          },
+          ["socket", "door_exit", ["door_cx", 0.16, "door_cz"], [0, 0, 1]],
+          ["socket", "weld0", [1.0, 3.5, 0.5], [0, 1, 0]]
+        ],
+        "laboratory": [
+          {
+            "call": "wall_block",
+            "args": {
+              "center": ["0", "3.4*0.5", "bz-0.5*0.5"],
+              "size": ["bw", 3.4, "bd-0.5"],
+              "col": "base",
+              "sec": "base",
+              "dado": 0,
+              "coping": 0
+            }
+          },
+          ["brush", "mix(sec,dark,0.4)"],
+          ["box", [0, "3.4+0.1", "bz-0.5*0.5"], ["bw+0.3", 0.2, "bd-0.5+0.2"], 0.03],
+          ["brush", "dark"],
+          ["box", ["dx", 1.2, "fz+0.02"], [2.0, 2.4, 0.06]],
+          ["brush", "sec"],
+          ["box", ["dx", 2.55, "fz+0.4"], [2.6, 0.12, 0.9], 0.02],
+          {
+            "call": "window_strip",
+            "args": { "center": ["bw*0.5+0.02", 1.9, "bz-0.25"], "n": 3, "size": [0.9, 0.9, 0.05], "dir": 90 }
+          },
+          {
+            "call": "window_strip",
+            "args": { "center": ["-bw*0.5-0.02", 1.9, "bz-0.25"], "n": 3, "size": [0.9, 0.9, 0.05], "dir": -90 }
+          },
+          {
+            "call": "dome_shell",
+            "args": { "center": [-1.8, 3.6, "bz-0.4"], "r": 1.7, "col": "sec", "band": "acc", "lens": 1 }
+          },
+          {
+            "call": "radar_dish",
+            "args": { "center": [2.3, 3.6, "bz-1.4"], "r": 0.7, "spin": 1 }
+          },
+          {
+            "call": "roof_plate",
+            "args": { "center": [2.0, 3.65, "bz+0.9"], "size": [2.6, 0.03, 1.4] }
+          },
+          {
+            "call": "pennant",
+            "args": { "pos": ["bw*0.5-0.5", 3.6, "fz-0.6"], "h": 2.4 }
+          },
+          {
+            "call": "beacon",
+            "args": { "pos": [2.3, 5.2, "bz-1.4"], "phase": 0 }
+          },
+          ["socket", "door_exit", ["door_cx", 0.16, "door_cz"], [0, 0, 1]],
+          ["socket", "weld0", [1.0, 3.6, 0.5], [0, 1, 0]]
+        ],
+        "watchtower": [
+          ["brush", "concrete"],
+          ["box", [0, 0.5, "bz"], [1.8, 0.7, 1.8], 0.04],
+          ["brush", "base"],
+          ["tbox", [0, 3.0, "bz"], [1.2, 1.2], [0.9, 0.9], 4.4, [0, 0], 0.04],
+          ["brush", "sec"],
+          ["box", [0, 5.35, "bz"], [1.9, 0.14, 1.9], 0.03],
+          ["brush", "dark"],
+          ["box", [0, 5.8, "bz"], [1.6, 0.9, 1.6], 0.03],
+          ["brush", "glass", "glass"],
+          ["box", [0, 5.85, "bz"], [1.68, 0.5, 1.68], 0.0],
+          ["brush", "sec"],
+          ["box", [0, 6.4, "bz"], [2.0, 0.16, 2.0], 0.03],
+          {
+            "call": "roof_plate",
+            "args": { "center": [0, 6.5, "bz"], "size": [1.0, 0.03, 0.8] }
+          },
+          {
+            "part": { "kind": "radar", "pivot": [0, 6.65, "bz"] },
+            "do": [
+              ["brush", "acc"],
+              ["box", [0, 6.65, "bz"], [0.9, 0.16, 0.16], 0.02],
+              ["brush", "light", "emissive"],
+              ["box", [0.5, 6.65, "bz"], [0.14, 0.12, 0.12], 0]
+            ]
+          },
+          {
+            "call": "whip",
+            "args": { "base": [0.6, 6.5, "bz+0.6"], "tip": [0.6, 7.8, "bz+0.6"], "r": 0.015, "col": "metal" }
+          },
+          {
+            "call": "beacon",
+            "args": { "pos": [0.6, 7.8, "bz+0.6"], "phase": 0 }
+          },
+          ["socket", "muzzle0_0", [0, 5.9, "bz+0.9"], [0, 0, 1]],
+          ["socket", "door_exit", ["door_cx", 0.16, "door_cz"], [0, 0, 1]],
+          ["socket", "weld0", [0.6, 6.5, 0.4], [0, 1, 0]]
+        ],
+        "at_turret": [
+          ["brush", "concrete"],
+          ["box", [0, 0.35, "bz"], [2.2, 0.6, 2.2], 0.05],
+          {
+            "call": "turret_base",
+            "args": { "center": [0, 0.5, "bz"], "r": 0.95, "h": 0.65, "col": "base", "ring": "acc" }
+          },
+          ["brush", "sec"],
+          {
+            "for": "k",
+            "n": 8,
+            "do": [
+              {
+                "push": {
+                  "pos": ["cos(k*TAU/8+0.39)*1.2", 0.3, "bz+sin(k*TAU/8+0.39)*1.2"],
+                  "euler": [0, "-k*45-22.5", 0]
+                },
+                "do": [["box", [0, 0.14, 0], [0.9, 0.3, 0.32], 0.06]]
+              }
+            ]
+          },
+          {
+            "part": { "kind": "turret", "pivot": [0, 1.15, "bz"] },
+            "do": [
+              {
+                "call": "turret_ngon",
+                "args": {
+                  "pivot": [0, 1.15, "bz"],
+                  "n": 6,
+                  "rot": 0,
+                  "hw": 0.62,
+                  "hl": 0.7,
+                  "h": 0.42,
+                  "top": 0.7,
+                  "shift": 0.05,
+                  "y0": 1.2
+                }
+              },
+              {
+                "call": "hatch",
+                "args": { "c": [0.2, 1.65, "bz+0.1"], "r": 0.13, "body": "sec", "ring": "acc" }
+              }
+            ]
+          },
+          {
+            "call": "gun",
+            "args": {
+              "mount": 0,
+              "pivot": [0, 1.15, "bz"],
+              "y": 1.4,
+              "z": "bz-0.3",
+              "len": 0.9,
+              "r": 0.055,
+              "muzzle": "brake"
+            }
+          },
+          ["socket", "muzzle0_0", [0, 1.4, "bz-0.3-0.9-0.3"], [0, 0, -1], "barrel"],
+          ["socket", "door_exit", ["door_cx", 0.16, "door_cz"], [0, 0, 1]],
+          ["socket", "weld0", [0.7, 1.7, 0], [0, 1, 0]],
+          ["socket", "top", [0, 2.2, 0], [0, 1, 0]]
+        ],
+        "aa_battery": [
+          {
+            "call": "wall_block",
+            "args": {
+              "center": [0, 0.9, "bz"],
+              "size": ["bw*0.9", 1.8, "bd*0.9"],
+              "col": "base",
+              "sec": "base",
+              "dado": 0,
+              "ribs": 0
+            }
+          },
+          {
+            "call": "turret_base",
+            "args": { "center": [0, 1.8, "bz-0.2"], "r": 1.0, "h": 0.4, "col": "base", "ring": "acc" }
+          },
+          {
+            "part": { "kind": "turret", "pivot": [0, 2.2, "bz-0.2"] },
+            "do": [
+              {
+                "call": "turret_ngon",
+                "args": {
+                  "pivot": [0, 2.2, "bz-0.2"],
+                  "n": 6,
+                  "rot": 0,
+                  "hw": 0.7,
+                  "hl": 0.6,
+                  "h": 0.4,
+                  "top": 0.8,
+                  "shift": 0,
+                  "y0": 2.25
+                }
+              },
+              {
+                "call": "missile_rack",
+                "args": { "center": [0, 2.75, "bz-0.3"], "cols": 2, "rows": 2, "elev": 40, "mount": 0 }
+              }
+            ]
+          },
+          {
+            "call": "radar_dish",
+            "args": { "center": ["bw*0.3", 1.85, "bz+0.9"], "r": 0.5, "spin": 1 }
+          },
+          {
+            "call": "roof_plate",
+            "args": { "center": [-1.2, 1.85, "bz+0.9"], "size": [1.2, 0.03, 0.8] }
+          },
+          ["socket", "muzzle0_0", [0, 3.0, "bz-1.0"], [0, 0.6, -1]],
+          ["socket", "door_exit", ["door_cx", 0.16, "door_cz"], [0, 0, 1]],
+          ["socket", "weld0", [0.7, 2.7, 0], [0, 1, 0]],
+          ["socket", "top", [0, 3.4, 0], [0, 1, 0]]
+        ],
+        "relay": [
+          ["brush", "concrete"],
+          ["box", [0, 0.4, "bz"], [1.6, 0.5, 1.6], 0.04],
+          ["brush", "base"],
+          ["cyl", [0, 0.6, "bz"], [0, 6.5, "bz"], 0.13, 8, 0.01],
+          ["brush", "sec"],
+          ["cyl", [0, 1.0, "bz"], [0, 1.2, "bz"], 0.28, 10, 0],
+          {
+            "part": { "kind": "radar", "pivot": [0, 5.6, "bz"] },
+            "do": [
+              {
+                "for": "k",
+                "n": 3,
+                "do": [
+                  {
+                    "push": { "pos": [0, 5.6, "bz"], "euler": [0, "120*k+15", 0] },
+                    "do": [
+                      ["brush", "sec"],
+                      ["box", [0.45, 0, 0], [0.9, 0.05, 0.1], 0.01],
+                      ["brush", "acc"],
+                      ["box", [0.9, 0.04, 0], [0.16, 0.05, 0.12], 0]
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          ["brush", "light", "emissive"],
+          ["box", [0, 6.6, "bz"], [0.14, 0.1, 0.14], 0],
+          {
+            "call": "roof_plate",
+            "args": { "center": [0, 0.68, "bz+0.5"], "size": [0.7, 0.03, 0.5] }
+          },
+          {
+            "call": "beacon",
+            "args": { "pos": [0, 6.75, "bz"], "phase": 0 }
+          },
+          ["socket", "door_exit", ["door_cx", 0.16, "door_cz"], [0, 0, 1]],
+          ["socket", "weld0", [0.5, 0.7, 0], [0, 1, 0]],
+          ["socket", "top", [0, 7.0, 0], [0, 1, 0]]
+        ]
+      }
+    },
+    ["meta", "footprint", ["fw", "fh"]]
+  ]
+}

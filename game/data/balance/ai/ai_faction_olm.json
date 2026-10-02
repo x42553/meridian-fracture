@@ -1,0 +1,131 @@
+{
+  "schema": 1,
+  "_doc": "OLM doctrine patch: mobile raiders on cheap power. Scout / raider units carry a larger share early (harass and collector raids), generators are added by the power-margin rule only. Saudi Arabia builds a heavier tech line (extra generator on a timetable), Algeria is the raid roster (three raiders first, one tank, artillery), El Andalus garrisons and defends (infantry first, watchtowers).",
+  "faction": "faction.olm",
+  "base": {
+    "composition_patch": {
+      "opening": {
+        "SCOUT_LIGHT": 16
+      },
+      "buildup": {
+        "SCOUT_LIGHT": 10
+      },
+      "midgame": {
+        "SCOUT_LIGHT": 6
+      }
+    }
+  },
+  "rosters": {
+    "roster.olm.vanilla": {},
+    "roster.olm.saudi_arabia": {
+      "targets_patch": {
+        "append": [
+          {
+            "id": "t_gen3",
+            "from_s": 420,
+            "struct": "generator",
+            "n": 3
+          }
+        ]
+      },
+      "composition_patch": {
+        "midgame": {
+          "HEAVY": 16
+        },
+        "late": {
+          "HEAVY": 24
+        }
+      }
+    },
+    "roster.olm.algeria": {
+      "opener_patch": {
+        "replace": {
+          "scout1": {
+            "id": "scout1",
+            "op": "train",
+            "role": "SCOUT_LIGHT",
+            "n": 3,
+            "parallel": true,
+            "when": {
+              "have": {
+                "struct": "factory",
+                "n": 1
+              }
+            }
+          },
+          "tank1": {
+            "id": "tank1",
+            "op": "train",
+            "role": "TANK_MAIN",
+            "n": 1,
+            "parallel": true,
+            "when": {
+              "have": {
+                "struct": "factory",
+                "n": 1
+              }
+            }
+          }
+        }
+      },
+      "composition_patch": {
+        "opening": {
+          "SCOUT_LIGHT": 34
+        },
+        "buildup": {
+          "SCOUT_LIGHT": 22,
+          "ARTILLERY": 16
+        },
+        "midgame": {
+          "SCOUT_LIGHT": 14,
+          "ARTILLERY": 20
+        }
+      }
+    },
+    "roster.olm.el_andalus": {
+      "opener_patch": {
+        "replace": {
+          "inf1": {
+            "id": "inf1",
+            "op": "train",
+            "role": "INFANTRY_BASIC",
+            "n": 4,
+            "parallel": true,
+            "when": {
+              "have": {
+                "struct": "barracks",
+                "n": 1
+              }
+            }
+          }
+        }
+      },
+      "targets_patch": {
+        "append": [
+          {
+            "id": "t_wt1",
+            "from_s": 300,
+            "struct": "watchtower",
+            "n": 2
+          }
+        ]
+      },
+      "composition_patch": {
+        "buildup": {
+          "INFANTRY_BASIC": 32,
+          "ESCORT_SHIP": 4,
+          "BOAT_LIGHT": 2
+        },
+        "midgame": {
+          "ESCORT_SHIP": 8,
+          "BOAT_LIGHT": 2,
+          "SIEGE_SHIP": 4
+        },
+        "late": {
+          "ESCORT_SHIP": 8,
+          "SIEGE_SHIP": 6
+        }
+      }
+    }
+  }
+}

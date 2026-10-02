@@ -1,0 +1,245 @@
+{
+ "schema": "meridian.recipe/1",
+ "id": "unit.napc.aegis_frigate",
+ "archetype": "ship_escort",
+ "style": "auto",
+ "params": {
+  "se_len": 9.0,
+  "se_beam": 2.9,
+  "bow": "sharp",
+  "helipad": true,
+  "vls_rows": 3
+ },
+ "ops_after": [
+  [
+   "brush",
+   "dark"
+  ],
+  [
+   "box",
+   [
+    0,
+    "fb+0.30",
+    "hl-0.25"
+   ],
+   [
+    "se_beam*0.5",
+    0.25,
+    0.45
+   ],
+   0.0
+  ],
+  [
+   "brush",
+   "acc"
+  ],
+  [
+   "box",
+   [
+    0,
+    "fb+0.44",
+    "hl-0.25"
+   ],
+   [
+    "se_beam*0.5",
+    0.03,
+    0.47
+   ],
+   0.0
+  ],
+  [
+   "brush",
+   "metal",
+   "metal"
+  ],
+  [
+   "cyl",
+   [
+    0,
+    "fb+0.42",
+    "hl-0.05"
+   ],
+   [
+    0,
+    "fb+0.42",
+    "hl+0.20"
+   ],
+   0.09,
+   6,
+   0.0
+  ],
+  {
+   "mirror_x": [
+    [
+     "brush",
+     "sec"
+    ],
+    [
+     "box",
+     [
+      "se_beam*0.5-0.08",
+      "fb+0.12",
+      "-hl*0.12-1.3"
+     ],
+     [
+      0.05,
+      0.22,
+      0.9
+     ],
+     0.0
+    ]
+   ]
+  },
+  {
+   "push": {
+    "pos": [
+     0,
+     "fb+0.62",
+     "hl-1.2"
+    ],
+    "euler": [
+     0,
+     0,
+     0
+    ]
+   },
+   "do": [
+    {
+     "let": {
+      "ld_len": 0.6
+     }
+    },
+    {
+     "slot": "kit_nav_light_bar"
+    }
+   ]
+  },
+  {
+   "mirror_x": [
+    {
+     "push": {
+      "pos": [
+       "se_beam*0.5+0.012",
+       "fb*0.55",
+       "-hl*0.45"
+      ],
+      "euler": [
+       0,
+       90,
+       0
+      ]
+     },
+     "do": [
+      {
+       "let": {
+        "ld_wid": 0.55
+       }
+      },
+      {
+       "slot": "kit_emblem"
+      }
+     ]
+    }
+   ]
+  },
+  [
+   "tier",
+   2
+  ],
+  [
+   "brush",
+   "dark"
+  ],
+  [
+   "box",
+   [
+    0,
+    "fb+0.10",
+    "-hl+0.85"
+   ],
+   [
+    0.55,
+    0.18,
+    0.4
+   ],
+   0.0
+  ],
+  [
+   "brush",
+   "acc"
+  ],
+  [
+   "box",
+   [
+    0,
+    "fb+0.21",
+    "-hl+0.85"
+   ],
+   [
+    0.4,
+    0.04,
+    0.14
+   ],
+   0.0
+  ],
+  [
+   "tier",
+   0
+  ],
+  {
+   "mirror_x": [
+    {
+     "call": "team_panel",
+     "args": {
+      "center": [
+       "se_beam*0.5-0.34",
+       "fb+0.075",
+       "-hl*0.12-0.2"
+      ],
+      "size": [
+       0.36,
+       0.02,
+       1.7
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "mirror_x": [
+    {
+     "push": {
+      "pos": [
+       "se_beam*0.5+0.02",
+       0.34,
+       0.2
+      ],
+      "euler": [
+       0,
+       0,
+       0
+      ]
+     },
+     "do": [
+      {
+       "let": {
+        "ld_len": "se_len*0.55"
+       }
+      },
+      {
+       "slot": "kit_waterline_band"
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "meta": {
+  "role": "frigate",
+  "icon": {
+   "yaw": 150,
+   "pitch": 24,
+   "margin": 0.8
+  }
+ }
+}

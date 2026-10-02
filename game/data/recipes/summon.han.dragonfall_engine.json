@@ -1,0 +1,11 @@
+{
+  "schema": "meridian.recipe/1",
+  "id": "summon.han.dragonfall_engine",
+  "archetype": "sum_engine",
+  "style": "auto",
+  "meta": {
+    "stub": true,
+    "view_archetype": "sum_engine",
+    "rule": "override"
+  }
+}

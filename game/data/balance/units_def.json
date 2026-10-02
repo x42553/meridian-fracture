@@ -1,0 +1,610 @@
+{
+  "schema": "meridian.balance.units/1",
+  "faction": "faction.def",
+  "units": [
+    {
+      "id": "unit.def.anvil_rocket_battery",
+      "archetype": "arty_rocket",
+      "cost_credits": 1250,
+      "build_time_s": 37.0,
+      "health": 565,
+      "speed_cells_s": 1.7,
+      "vision_cells": 8.5,
+      "radius_cells": 0.6,
+      "weapons": [
+        "weapon.def.anvil_barrage"
+      ],
+      "abilities": [],
+      "tags": [
+        "inaccurate"
+      ],
+      "dps_vs_primary": 54.0,
+      "range_cells": 13.0
+    },
+    {
+      "id": "unit.def.bear_siege_crawler",
+      "archetype": "siege_demo",
+      "cost_credits": 2425,
+      "build_time_s": 64.0,
+      "health": 3593,
+      "speed_cells_s": 1.06,
+      "vision_cells": 6.4,
+      "radius_cells": 0.85,
+      "weapons": [
+        "weapon.def.bear_demolition"
+      ],
+      "abilities": [
+        "frontal_armor"
+      ],
+      "tags": [
+        "slow",
+        "poor_sight"
+      ],
+      "dps_vs_primary": 236.5,
+      "range_cells": 4.5,
+      "ability_params": {
+        "frontal_armor": {
+          "front_arc_deg": 120,
+          "front_reduction_pct": 30,
+          "rear_increase_pct": 25
+        }
+      }
+    },
+    {
+      "id": "unit.def.boreal_missile_submarine",
+      "archetype": "ship_sub",
+      "cost_credits": 2600,
+      "build_time_s": 72.0,
+      "health": 1921,
+      "speed_cells_s": 1.8,
+      "vision_cells": 9.0,
+      "radius_cells": 0.9,
+      "weapons": [
+        "weapon.def.boreal_torpedo",
+        "weapon.def.boreal_cruise"
+      ],
+      "abilities": [],
+      "tags": [],
+      "dps_vs_primary": 60.0,
+      "range_cells": 22.0
+    },
+    {
+      "id": "unit.def.burya_bomber",
+      "archetype": "air_bomber",
+      "cost_credits": 1900,
+      "build_time_s": 53.0,
+      "health": 1056,
+      "speed_cells_s": 6.0,
+      "vision_cells": 10.0,
+      "radius_cells": 0.7,
+      "rearm_s_full": 20,
+      "weapons": [
+        "weapon.def.burya_bomb"
+      ],
+      "abilities": [],
+      "tags": [],
+      "dps_vs_primary": 34.3,
+      "range_cells": 1.5
+    },
+    {
+      "id": "unit.def.colossus_siege_tank",
+      "archetype": "siege_he",
+      "cost_credits": 2400,
+      "build_time_s": 63.0,
+      "health": 3456,
+      "speed_cells_s": 1.4,
+      "vision_cells": 8.5,
+      "radius_cells": 0.8,
+      "weapons": [
+        "weapon.def.colossus_gun"
+      ],
+      "abilities": [],
+      "tags": [],
+      "dps_vs_primary": 224.0,
+      "range_cells": 8.5
+    },
+    {
+      "id": "unit.def.echo_team",
+      "archetype": "inf_support",
+      "cost_credits": 480,
+      "build_time_s": 17.0,
+      "health": 276,
+      "speed_cells_s": 1.5,
+      "vision_cells": 9.0,
+      "radius_cells": 0.4,
+      "weapons": [],
+      "abilities": [
+        "ability.suppression_support.default",
+        "decoy"
+      ],
+      "tags": [
+        "no_gun"
+      ],
+      "dps_vs_primary": 0.0,
+      "range_cells": 0.0,
+      "ability_params": {
+        "ability.suppression_support.default": {
+          "recovery_bonus_pct": 50,
+          "radius_cells": 5
+        },
+        "decoy": {
+          "cooldown_s": 40
+        }
+      }
+    },
+    {
+      "id": "unit.def.fortress_guard",
+      "archetype": "inf_line",
+      "cost_credits": 260,
+      "build_time_s": 9.5,
+      "health": 353,
+      "speed_cells_s": 1.5,
+      "vision_cells": 7.0,
+      "radius_cells": 0.4,
+      "weapons": [
+        "weapon.def.fortress_rifle",
+        "weapon.def.fortress_suppressor"
+      ],
+      "abilities": [
+        "suppressive_deploy"
+      ],
+      "tags": [],
+      "dps_vs_primary": 55.6,
+      "range_cells": 6.0,
+      "ability_params": {
+        "suppressive_deploy": {
+          "deploy_s": 3,
+          "pack_s": 3,
+          "deployed_slots_n": [
+            1
+          ]
+        }
+      }
+    },
+    {
+      "id": "unit.def.hammer_tank",
+      "archetype": "mbt_t1",
+      "cost_credits": 840,
+      "build_time_s": 27.0,
+      "health": 864,
+      "speed_cells_s": 2.0,
+      "vision_cells": 7.2,
+      "radius_cells": 0.55,
+      "weapons": [
+        "weapon.def.hammer_gun"
+      ],
+      "abilities": [],
+      "tags": [
+        "poor_sight"
+      ],
+      "dps_vs_primary": 111.7,
+      "range_cells": 7.0
+    },
+    {
+      "id": "unit.def.kite_interceptor",
+      "archetype": "air_fighter",
+      "cost_credits": 1025,
+      "build_time_s": 28.5,
+      "health": 672,
+      "speed_cells_s": 7.0,
+      "vision_cells": 11.0,
+      "radius_cells": 0.5,
+      "rearm_s_full": 8,
+      "weapons": [
+        "weapon.def.kite_aam"
+      ],
+      "abilities": [],
+      "tags": [
+        "weaker_gun"
+      ],
+      "dps_vs_primary": 25.0,
+      "range_cells": 8.0
+    },
+    {
+      "id": "unit.def.line_conscript",
+      "archetype": "inf_line",
+      "cost_credits": 230,
+      "build_time_s": 8.0,
+      "health": 320,
+      "speed_cells_s": 1.5,
+      "vision_cells": 7.0,
+      "radius_cells": 0.4,
+      "weapons": [
+        "weapon.def.conscript_rifle"
+      ],
+      "abilities": [],
+      "tags": [
+        "fragile"
+      ],
+      "dps_vs_primary": 50.0,
+      "range_cells": 5.5
+    },
+    {
+      "id": "unit.def.mule_apc",
+      "archetype": "veh_scout",
+      "cost_credits": 590,
+      "build_time_s": 19.0,
+      "health": 612,
+      "speed_cells_s": 2.82,
+      "vision_cells": 12.0,
+      "radius_cells": 0.45,
+      "weapons": [
+        "weapon.def.mule_mg"
+      ],
+      "abilities": [],
+      "tags": [
+        "robust",
+        "slow"
+      ],
+      "dps_vs_primary": 30.0,
+      "range_cells": 6.0
+    },
+    {
+      "id": "unit.def.picket_boat",
+      "archetype": "ship_patrol",
+      "cost_credits": 645,
+      "build_time_s": 18.0,
+      "health": 659,
+      "speed_cells_s": 3.2,
+      "vision_cells": 11.0,
+      "radius_cells": 0.6,
+      "weapons": [
+        "weapon.def.picket_hmg"
+      ],
+      "abilities": [],
+      "tags": [
+        "strong_gun"
+      ],
+      "dps_vs_primary": 54.4,
+      "range_cells": 6.5
+    },
+    {
+      "id": "unit.def.porcupine_aa",
+      "archetype": "veh_aa_flak",
+      "cost_credits": 1050,
+      "build_time_s": 31.0,
+      "health": 753,
+      "speed_cells_s": 2.2,
+      "vision_cells": 10.0,
+      "radius_cells": 0.55,
+      "weapons": [
+        "weapon.def.porcupine_flak"
+      ],
+      "abilities": [],
+      "tags": [],
+      "dps_vs_primary": 61.2,
+      "range_cells": 8.0
+    },
+    {
+      "id": "unit.def.rampart_escort",
+      "archetype": "ship_escort",
+      "cost_credits": 1700,
+      "build_time_s": 47.0,
+      "health": 2071,
+      "speed_cells_s": 2.4,
+      "vision_cells": 11.0,
+      "radius_cells": 1.0,
+      "weapons": [
+        "weapon.def.rampart_gun",
+        "weapon.def.rampart_flak_missile",
+        "weapon.def.rampart_torpedo"
+      ],
+      "abilities": [],
+      "tags": [],
+      "dps_vs_primary": 88.0,
+      "range_cells": 10.0
+    },
+    {
+      "id": "unit.def.recoil_team",
+      "archetype": "inf_at",
+      "cost_credits": 355,
+      "build_time_s": 12.5,
+      "health": 288,
+      "speed_cells_s": 1.4,
+      "vision_cells": 7.5,
+      "radius_cells": 0.4,
+      "weapons": [
+        "weapon.def.recoil_rocket"
+      ],
+      "abilities": [],
+      "tags": [
+        "short_range",
+        "strong_gun"
+      ],
+      "dps_vs_primary": 66.2,
+      "range_cells": 6.0
+    },
+    {
+      "id": "unit.def.saker_missile_truck",
+      "archetype": "arty_missile",
+      "cost_credits": 1450,
+      "build_time_s": 42.5,
+      "health": 539,
+      "speed_cells_s": 1.7,
+      "vision_cells": 8.5,
+      "radius_cells": 0.6,
+      "weapons": [
+        "weapon.def.saker_missile"
+      ],
+      "abilities": [
+        "deployable_mode"
+      ],
+      "tags": [
+        "precise"
+      ],
+      "dps_vs_primary": 58.2,
+      "range_cells": 17.0,
+      "ability_params": {
+        "deployable_mode": {
+          "deploy_s": 1,
+          "pack_s": 1,
+          "deployed_slots_n": [
+            0
+          ]
+        }
+      }
+    },
+    {
+      "id": "unit.def.signal_officer",
+      "archetype": "inf_support",
+      "cost_credits": 470,
+      "build_time_s": 17.0,
+      "health": 294,
+      "speed_cells_s": 1.5,
+      "vision_cells": 9.0,
+      "radius_cells": 0.4,
+      "weapons": [],
+      "abilities": [
+        "ability.suppression_support.default"
+      ],
+      "tags": [
+        "no_gun"
+      ],
+      "dps_vs_primary": 0.0,
+      "range_cells": 0.0,
+      "ability_params": {
+        "ability.suppression_support.default": {
+          "recovery_bonus_pct": 50,
+          "radius_cells": 5
+        }
+      }
+    },
+    {
+      "id": "unit.def.steppe_recon_carrier",
+      "archetype": "veh_scout",
+      "cost_credits": 580,
+      "build_time_s": 18.5,
+      "health": 380,
+      "speed_cells_s": 4.0,
+      "vision_cells": 15.0,
+      "radius_cells": 0.45,
+      "weapons": [
+        "weapon.def.steppe_mg"
+      ],
+      "abilities": [],
+      "tags": [
+        "fast",
+        "good_sight",
+        "fragile"
+      ],
+      "dps_vs_primary": 30.0,
+      "range_cells": 6.0
+    },
+    {
+      "id": "unit.def.ural_assault_tank",
+      "archetype": "mbt_t2",
+      "cost_credits": 1425,
+      "build_time_s": 42.0,
+      "health": 1722,
+      "speed_cells_s": 1.8,
+      "vision_cells": 9.5,
+      "radius_cells": 0.6,
+      "weapons": [
+        "weapon.def.ural_cannon"
+      ],
+      "abilities": [
+        "aps_interception"
+      ],
+      "tags": [
+        "sturdy"
+      ],
+      "dps_vs_primary": 149.6,
+      "range_cells": 7.5,
+      "ability_params": {
+        "aps_interception": {
+          "cooldown_s": 12
+        }
+      }
+    }
+  ],
+  "weapons": [
+    {
+      "id": "weapon.def.anvil_barrage",
+      "archetype": "rocket_barrage",
+      "damage": 54,
+      "hits_per_volley": 6,
+      "reload_s": 6.0,
+      "range_cells": 13.0,
+      "min_range_cells": 3.5,
+      "splash_cells": 1.5,
+      "scatter_cells": 2.2
+    },
+    {
+      "id": "weapon.def.bear_demolition",
+      "archetype": "demolition_cannon",
+      "damage": 946,
+      "hits_per_volley": 1,
+      "reload_s": 4.0,
+      "range_cells": 4.5,
+      "turret_deg_s": 24
+    },
+    {
+      "id": "weapon.def.boreal_cruise",
+      "archetype": "cruise_missile",
+      "damage": 576,
+      "hits_per_volley": 1,
+      "reload_s": 12.0,
+      "range_cells": 22.0,
+      "requires_surface_s": 8
+    },
+    {
+      "id": "weapon.def.boreal_torpedo",
+      "archetype": "torpedo",
+      "damage": 480,
+      "hits_per_volley": 1,
+      "reload_s": 8.0,
+      "range_cells": 8.0
+    },
+    {
+      "id": "weapon.def.burya_bomb",
+      "archetype": "bomb",
+      "damage": 672,
+      "hits_per_volley": 1,
+      "reload_s": 1.2,
+      "range_cells": 1.5,
+      "ammo_volleys": 2
+    },
+    {
+      "id": "weapon.def.colossus_gun",
+      "archetype": "siege_gun",
+      "damage": 672,
+      "hits_per_volley": 1,
+      "reload_s": 3.0,
+      "range_cells": 8.5,
+      "splash_cells": 1.5,
+      "turret_deg_s": 32
+    },
+    {
+      "id": "weapon.def.conscript_rifle",
+      "archetype": "small_arms",
+      "damage": 25,
+      "hits_per_volley": 2,
+      "reload_s": 1.0,
+      "range_cells": 5.5
+    },
+    {
+      "id": "weapon.def.fortress_rifle",
+      "archetype": "small_arms",
+      "damage": 25,
+      "hits_per_volley": 2,
+      "reload_s": 1.05,
+      "range_cells": 5.5
+    },
+    {
+      "id": "weapon.def.fortress_suppressor",
+      "archetype": "small_arms",
+      "damage": 25,
+      "hits_per_volley": 2,
+      "reload_s": 0.9,
+      "range_cells": 6.0,
+      "suppressive": true,
+      "notes": "deployed-mode strong suppressive fire (deployed_slots_n [1])"
+    },
+    {
+      "id": "weapon.def.hammer_gun",
+      "archetype": "tank_cannon",
+      "damage": 134,
+      "hits_per_volley": 1,
+      "reload_s": 1.2,
+      "range_cells": 7.0
+    },
+    {
+      "id": "weapon.def.kite_aam",
+      "archetype": "aa_missile",
+      "damage": 81,
+      "hits_per_volley": 1,
+      "reload_s": 1.0,
+      "range_cells": 8.0,
+      "ammo_volleys": 6
+    },
+    {
+      "id": "weapon.def.mule_mg",
+      "archetype": "machine_gun",
+      "damage": 30,
+      "hits_per_volley": 1,
+      "reload_s": 1.0,
+      "range_cells": 6.0
+    },
+    {
+      "id": "weapon.def.picket_hmg",
+      "archetype": "machine_gun",
+      "damage": 32,
+      "hits_per_volley": 2,
+      "reload_s": 1.0,
+      "range_cells": 6.5
+    },
+    {
+      "id": "weapon.def.porcupine_flak",
+      "archetype": "flak",
+      "damage": 51,
+      "hits_per_volley": 2,
+      "reload_s": 1.0,
+      "range_cells": 8.0,
+      "targets_override": [
+        "air",
+        "ground"
+      ]
+    },
+    {
+      "id": "weapon.def.rampart_flak_missile",
+      "archetype": "aa_missile",
+      "damage": 59,
+      "hits_per_volley": 2,
+      "reload_s": 1.5,
+      "range_cells": 10.0
+    },
+    {
+      "id": "weapon.def.rampart_gun",
+      "archetype": "naval_gun",
+      "damage": 176,
+      "hits_per_volley": 1,
+      "reload_s": 2.0,
+      "range_cells": 9.0
+    },
+    {
+      "id": "weapon.def.rampart_torpedo",
+      "archetype": "torpedo",
+      "damage": 245,
+      "hits_per_volley": 1,
+      "reload_s": 6.0,
+      "range_cells": 7.0
+    },
+    {
+      "id": "weapon.def.recoil_rocket",
+      "archetype": "at_missile",
+      "damage": 298,
+      "hits_per_volley": 1,
+      "reload_s": 4.5,
+      "range_cells": 6.0
+    },
+    {
+      "id": "weapon.def.saker_missile",
+      "archetype": "missile_artillery",
+      "damage": 378,
+      "hits_per_volley": 1,
+      "reload_s": 6.5,
+      "range_cells": 17.0,
+      "min_range_cells": 4.0,
+      "deploy_s": 1.0,
+      "splash_cells": 0.5,
+      "scatter_cells": 0.25
+    },
+    {
+      "id": "weapon.def.steppe_mg",
+      "archetype": "machine_gun",
+      "damage": 30,
+      "hits_per_volley": 1,
+      "reload_s": 1.0,
+      "range_cells": 6.0
+    },
+    {
+      "id": "weapon.def.ural_cannon",
+      "archetype": "tank_cannon",
+      "damage": 187,
+      "hits_per_volley": 1,
+      "reload_s": 1.25,
+      "range_cells": 7.5
+    }
+  ],
+  "summons": []
+}

@@ -1,0 +1,11 @@
+{
+  "schema": "meridian.recipe/1",
+  "id": "structure.shared.headquarters",
+  "archetype": "str_headquarters",
+  "style": "auto",
+  "meta": {
+    "stub": true,
+    "view_archetype": "str_headquarters",
+    "rule": "override"
+  }
+}

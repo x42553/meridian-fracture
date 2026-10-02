@@ -1,0 +1,617 @@
+{
+  "schema": "meridian.balance.units/1",
+  "faction": "faction.sap",
+  "units": [
+    {
+      "id": "unit.sap.arjun_assault_tank",
+      "archetype": "mbt_t2",
+      "cost_credits": 1350,
+      "build_time_s": 39.5,
+      "health": 1505,
+      "speed_cells_s": 1.8,
+      "vision_cells": 9.5,
+      "radius_cells": 0.6,
+      "weapons": [
+        "weapon.sap.arjun_assault_tank"
+      ],
+      "abilities": [
+        "aps_interception"
+      ],
+      "ability_params": {
+        "aps_interception": {
+          "cooldown_s": 15
+        }
+      },
+      "tags": [],
+      "dps_vs_primary": 150.4,
+      "range_cells": 7.5
+    },
+    {
+      "id": "unit.sap.bulwark_tank",
+      "archetype": "mbt_t1",
+      "cost_credits": 830,
+      "build_time_s": 27.0,
+      "health": 900,
+      "speed_cells_s": 1.76,
+      "vision_cells": 9.0,
+      "radius_cells": 0.55,
+      "weapons": [
+        "weapon.sap.bulwark_tank"
+      ],
+      "abilities": [],
+      "tags": [
+        "slow"
+      ],
+      "dps_vs_primary": 116.7,
+      "range_cells": 7.0
+    },
+    {
+      "id": "unit.sap.citadel_monitor",
+      "archetype": "ship_siege",
+      "cost_credits": 3400,
+      "build_time_s": 94.5,
+      "health": 5175,
+      "speed_cells_s": 1.41,
+      "vision_cells": 10.5,
+      "radius_cells": 1.3,
+      "weapons": [
+        "weapon.sap.citadel_monitor"
+      ],
+      "abilities": [],
+      "tags": [
+        "slow",
+        "sturdy"
+      ],
+      "dps_vs_primary": 120.0,
+      "range_cells": 20.0
+    },
+    {
+      "id": "unit.sap.combat_pioneer",
+      "archetype": "inf_combat_spec",
+      "cost_credits": 550,
+      "build_time_s": 19.5,
+      "health": 420,
+      "speed_cells_s": 1.4,
+      "vision_cells": 8.0,
+      "radius_cells": 0.4,
+      "weapons": [
+        "weapon.sap.combat_pioneer"
+      ],
+      "abilities": [
+        "cover_builder",
+        "repair_aura"
+      ],
+      "ability_params": {
+        "repair_aura": {
+          "rate_pct_per_s": 1,
+          "cost": "paid",
+          "target_structure_tags": [
+            "defense"
+          ],
+          "radius_cells": 1
+        }
+      },
+      "tags": [],
+      "dps_vs_primary": 36.0,
+      "range_cells": 5.0
+    },
+    {
+      "id": "unit.sap.elephant_siege_tank",
+      "archetype": "siege_he",
+      "cost_credits": 2400,
+      "build_time_s": 63.0,
+      "health": 3600,
+      "speed_cells_s": 1.4,
+      "vision_cells": 8.5,
+      "radius_cells": 0.8,
+      "weapons": [
+        "weapon.sap.elephant_siege_tank"
+      ],
+      "abilities": [],
+      "tags": [],
+      "dps_vs_primary": 233.3,
+      "range_cells": 8.5
+    },
+    {
+      "id": "unit.sap.estuary_patrol_boat",
+      "archetype": "ship_patrol",
+      "cost_credits": 600,
+      "build_time_s": 16.5,
+      "health": 700,
+      "speed_cells_s": 3.2,
+      "vision_cells": 11.0,
+      "radius_cells": 0.6,
+      "weapons": [
+        "weapon.sap.estuary_patrol_boat"
+      ],
+      "abilities": [],
+      "tags": [],
+      "dps_vs_primary": 47.6,
+      "range_cells": 6.5
+    },
+    {
+      "id": "unit.sap.gaj_siege_platform",
+      "archetype": "siege_he",
+      "cost_credits": 2525,
+      "build_time_s": 66.5,
+      "health": 3439,
+      "speed_cells_s": 1.4,
+      "vision_cells": 8.5,
+      "radius_cells": 0.8,
+      "weapons": [
+        "weapon.sap.gaj_siege_platform"
+      ],
+      "abilities": [
+        "deployable_mode"
+      ],
+      "ability_params": {
+        "deployable_mode": {
+          "deploy_s": 4,
+          "pack_s": 4,
+          "range_bonus_pct": 20
+        }
+      },
+      "tags": [],
+      "dps_vs_primary": 223.0,
+      "range_cells": 8.5
+    },
+    {
+      "id": "unit.sap.garuda_interceptor",
+      "archetype": "air_fighter",
+      "cost_credits": 1275,
+      "build_time_s": 35.5,
+      "health": 700,
+      "speed_cells_s": 7.0,
+      "vision_cells": 11.0,
+      "radius_cells": 0.5,
+      "rearm_s_full": 8.0,
+      "weapons": [
+        "weapon.sap.garuda_interceptor"
+      ],
+      "abilities": [],
+      "tags": [
+        "endurance"
+      ],
+      "dps_vs_primary": 40.0,
+      "range_cells": 8.0
+    },
+    {
+      "id": "unit.sap.jackal_apc",
+      "archetype": "veh_scout",
+      "cost_credits": 590,
+      "build_time_s": 19.0,
+      "health": 598,
+      "speed_cells_s": 3.2,
+      "vision_cells": 12.0,
+      "radius_cells": 0.45,
+      "weapons": [
+        "weapon.sap.jackal_apc"
+      ],
+      "abilities": [],
+      "tags": [
+        "sturdy"
+      ],
+      "dps_vs_primary": 30.0,
+      "range_cells": 6.0
+    },
+    {
+      "id": "unit.sap.kavach_team",
+      "archetype": "inf_at",
+      "cost_credits": 350,
+      "build_time_s": 12.5,
+      "health": 300,
+      "speed_cells_s": 1.4,
+      "vision_cells": 7.5,
+      "radius_cells": 0.4,
+      "weapons": [
+        "weapon.sap.kavach_team"
+      ],
+      "abilities": [],
+      "flags": [
+        "fire_stationary"
+      ],
+      "tags": [],
+      "dps_vs_primary": 60.0,
+      "range_cells": 7.5
+    },
+    {
+      "id": "unit.sap.monsoon_howitzer",
+      "archetype": "arty_howitzer",
+      "cost_credits": 1375,
+      "build_time_s": 40.5,
+      "health": 650,
+      "speed_cells_s": 1.5,
+      "vision_cells": 8.5,
+      "radius_cells": 0.6,
+      "weapons": [
+        "weapon.sap.monsoon_howitzer"
+      ],
+      "abilities": [
+        "deployable_mode"
+      ],
+      "ability_params": {
+        "deployable_mode": {
+          "deploy_s": 3,
+          "pack_s": 3
+        }
+      },
+      "tags": [],
+      "dps_vs_primary": 57.1,
+      "range_cells": 15.0
+    },
+    {
+      "id": "unit.sap.naga_amphibious_carrier",
+      "archetype": "veh_scout",
+      "cost_credits": 600,
+      "build_time_s": 19.5,
+      "health": 504,
+      "speed_cells_s": 3.2,
+      "vision_cells": 12.0,
+      "radius_cells": 0.45,
+      "weapons": [
+        "weapon.sap.naga_amphibious_carrier"
+      ],
+      "abilities": [
+        "amphibious",
+        "smoke"
+      ],
+      "movement_class": "amphibious",
+      "tags": [],
+      "dps_vs_primary": 30.0,
+      "range_cells": 6.0
+    },
+    {
+      "id": "unit.sap.river_marine",
+      "archetype": "inf_line",
+      "cost_credits": 250,
+      "build_time_s": 9.0,
+      "health": 365,
+      "speed_cells_s": 1.5,
+      "vision_cells": 7.0,
+      "radius_cells": 0.4,
+      "weapons": [
+        "weapon.sap.river_marine"
+      ],
+      "abilities": [
+        "ability.disembark_buff.default"
+      ],
+      "ability_params": {
+        "ability.disembark_buff.default": {
+          "duration_s": 6,
+          "damage_taken_reduction_pct": 20,
+          "refresh_on_reboard": false
+        }
+      },
+      "tags": [],
+      "dps_vs_primary": 56.0,
+      "range_cells": 5.5
+    },
+    {
+      "id": "unit.sap.sarus_gunship",
+      "archetype": "air_gunship",
+      "cost_credits": 1975,
+      "build_time_s": 55.0,
+      "health": 1500,
+      "speed_cells_s": 4.5,
+      "vision_cells": 10.0,
+      "radius_cells": 0.6,
+      "rearm_s_full": 12.0,
+      "weapons": [
+        "weapon.sap.sarus_gunship"
+      ],
+      "abilities": [],
+      "tags": [
+        "short_range"
+      ],
+      "dps_vs_primary": 37.1,
+      "range_cells": 4.8
+    },
+    {
+      "id": "unit.sap.shaheen_missile_battery",
+      "archetype": "arty_missile",
+      "cost_credits": 1450,
+      "build_time_s": 42.5,
+      "health": 609,
+      "speed_cells_s": 1.7,
+      "vision_cells": 8.5,
+      "radius_cells": 0.6,
+      "weapons": [
+        "weapon.sap.shaheen_missile_battery"
+      ],
+      "abilities": [
+        "deployable_mode"
+      ],
+      "ability_params": {
+        "deployable_mode": {
+          "deploy_s": 3,
+          "pack_s": 3
+        }
+      },
+      "tags": [
+        "precise"
+      ],
+      "dps_vs_primary": 65.5,
+      "range_cells": 17.0
+    },
+    {
+      "id": "unit.sap.shield_escort",
+      "archetype": "ship_escort",
+      "cost_credits": 1700,
+      "build_time_s": 47.0,
+      "health": 2200,
+      "speed_cells_s": 2.4,
+      "vision_cells": 11.0,
+      "radius_cells": 1.0,
+      "weapons": [
+        "weapon.sap.shield_escort_gun",
+        "weapon.sap.shield_escort_aa",
+        "weapon.sap.shield_escort_torpedo"
+      ],
+      "abilities": [],
+      "tags": [],
+      "dps_vs_primary": 90.0,
+      "range_cells": 10.0
+    },
+    {
+      "id": "unit.sap.shield_rifle_squad",
+      "archetype": "inf_line",
+      "cost_credits": 270,
+      "build_time_s": 9.5,
+      "health": 460,
+      "speed_cells_s": 1.5,
+      "vision_cells": 7.0,
+      "radius_cells": 0.4,
+      "weapons": [
+        "weapon.sap.shield_rifle_squad"
+      ],
+      "abilities": [],
+      "tags": [
+        "sturdy"
+      ],
+      "dps_vs_primary": 52.0,
+      "range_cells": 5.5
+    },
+    {
+      "id": "unit.sap.vajra_aa",
+      "archetype": "veh_aa",
+      "cost_credits": 1050,
+      "build_time_s": 31.0,
+      "health": 800,
+      "speed_cells_s": 2.2,
+      "vision_cells": 10.0,
+      "radius_cells": 0.55,
+      "weapons": [
+        "weapon.sap.vajra_aa"
+      ],
+      "abilities": [],
+      "tags": [],
+      "dps_vs_primary": 133.3,
+      "range_cells": 10.0
+    },
+    {
+      "id": "unit.sap.watchpost_recon_team",
+      "archetype": "inf_support",
+      "cost_credits": 525,
+      "build_time_s": 19.0,
+      "health": 309,
+      "speed_cells_s": 1.5,
+      "vision_cells": 11.2,
+      "radius_cells": 0.4,
+      "weapons": [],
+      "abilities": [
+        "camouflage",
+        "spotter"
+      ],
+      "ability_params": {
+        "spotter": {
+          "radius_cells": 6
+        }
+      },
+      "tags": [
+        "no_gun",
+        "good_sight"
+      ]
+    }
+  ],
+  "weapons": [
+    {
+      "id": "weapon.sap.arjun_assault_tank",
+      "archetype": "tank_cannon",
+      "damage": 188,
+      "hits_per_volley": 1,
+      "reload_s": 1.25,
+      "range_cells": 7.5
+    },
+    {
+      "id": "weapon.sap.bulwark_tank",
+      "archetype": "tank_cannon",
+      "damage": 140,
+      "hits_per_volley": 1,
+      "reload_s": 1.2,
+      "range_cells": 7.0
+    },
+    {
+      "id": "weapon.sap.citadel_monitor",
+      "archetype": "naval_bombard",
+      "damage": 320,
+      "hits_per_volley": 3,
+      "reload_s": 8.0,
+      "range_cells": 20.0,
+      "min_range_cells": 6.0
+    },
+    {
+      "id": "weapon.sap.combat_pioneer",
+      "archetype": "small_arms",
+      "damage": 36,
+      "hits_per_volley": 1,
+      "reload_s": 1.0,
+      "range_cells": 5.0
+    },
+    {
+      "id": "weapon.sap.elephant_siege_tank",
+      "archetype": "siege_gun",
+      "damage": 700,
+      "hits_per_volley": 1,
+      "reload_s": 3.0,
+      "range_cells": 8.5,
+      "turret_deg_s": 35
+    },
+    {
+      "id": "weapon.sap.estuary_patrol_boat",
+      "archetype": "machine_gun",
+      "damage": 28,
+      "hits_per_volley": 2,
+      "reload_s": 1.0,
+      "range_cells": 6.5
+    },
+    {
+      "id": "weapon.sap.gaj_siege_platform",
+      "archetype": "siege_gun",
+      "damage": 669,
+      "hits_per_volley": 1,
+      "reload_s": 3.0,
+      "range_cells": 8.5
+    },
+    {
+      "id": "weapon.sap.garuda_interceptor",
+      "archetype": "aa_missile",
+      "damage": 100,
+      "hits_per_volley": 1,
+      "reload_s": 1.0,
+      "range_cells": 8.0,
+      "ammo_volleys": 8
+    },
+    {
+      "id": "weapon.sap.jackal_apc",
+      "archetype": "machine_gun",
+      "damage": 30,
+      "hits_per_volley": 1,
+      "reload_s": 1.0,
+      "range_cells": 6.0
+    },
+    {
+      "id": "weapon.sap.kavach_team",
+      "archetype": "at_missile",
+      "damage": 270,
+      "hits_per_volley": 1,
+      "reload_s": 4.5,
+      "range_cells": 7.5
+    },
+    {
+      "id": "weapon.sap.monsoon_howitzer",
+      "archetype": "artillery_shell",
+      "damage": 200,
+      "hits_per_volley": 1,
+      "reload_s": 3.5,
+      "range_cells": 15.0,
+      "min_range_cells": 4.0,
+      "deploy_s": 3.0
+    },
+    {
+      "id": "weapon.sap.naga_amphibious_carrier",
+      "archetype": "machine_gun",
+      "damage": 30,
+      "hits_per_volley": 1,
+      "reload_s": 1.0,
+      "range_cells": 6.0
+    },
+    {
+      "id": "weapon.sap.river_marine",
+      "archetype": "small_arms",
+      "damage": 28,
+      "hits_per_volley": 2,
+      "reload_s": 1.0,
+      "range_cells": 5.5
+    },
+    {
+      "id": "weapon.sap.sarus_gunship",
+      "archetype": "air_missile",
+      "damage": 90,
+      "hits_per_volley": 2,
+      "reload_s": 1.5,
+      "range_cells": 4.8,
+      "ammo_volleys": 7
+    },
+    {
+      "id": "weapon.sap.shaheen_missile_battery",
+      "archetype": "missile_artillery",
+      "damage": 426,
+      "hits_per_volley": 1,
+      "reload_s": 6.5,
+      "range_cells": 17.0,
+      "min_range_cells": 4.0,
+      "deploy_s": 3.0
+    },
+    {
+      "id": "weapon.sap.shield_escort_aa",
+      "archetype": "aa_missile",
+      "damage": 60,
+      "hits_per_volley": 2,
+      "reload_s": 1.5,
+      "range_cells": 10.0
+    },
+    {
+      "id": "weapon.sap.shield_escort_gun",
+      "archetype": "naval_gun",
+      "damage": 180,
+      "hits_per_volley": 1,
+      "reload_s": 2.0,
+      "range_cells": 9.0
+    },
+    {
+      "id": "weapon.sap.shield_escort_torpedo",
+      "archetype": "torpedo",
+      "damage": 250,
+      "hits_per_volley": 1,
+      "reload_s": 6.0,
+      "range_cells": 7.0
+    },
+    {
+      "id": "weapon.sap.shield_rifle_squad",
+      "archetype": "small_arms",
+      "damage": 26,
+      "hits_per_volley": 2,
+      "reload_s": 1.0,
+      "range_cells": 5.5
+    },
+    {
+      "id": "weapon.sap.vajra_aa",
+      "archetype": "aa_missile",
+      "damage": 100,
+      "hits_per_volley": 2,
+      "reload_s": 1.5,
+      "range_cells": 10.0
+    }
+  ],
+  "summons": [
+    {
+      "id": "summon.sap.recon_balloon",
+      "class": "summon",
+      "unit_tags": [
+        "summoned"
+      ],
+      "size_class": "air_medium",
+      "armor_class": "air_light",
+      "movement_class": "static",
+      "layer": "air",
+      "health": 120,
+      "speed_cells_s": 0,
+      "vision_cells": 6.0,
+      "radius_cells": 0.6,
+      "lifetime_s": 20,
+      "pop_n": 0,
+      "flags": [
+        "no_combat_mods",
+        "harmless"
+      ],
+      "abilities": [
+        "detector"
+      ],
+      "ability_params": {
+        "detector": {
+          "radius_cells": 6
+        }
+      }
+    }
+  ]
+}

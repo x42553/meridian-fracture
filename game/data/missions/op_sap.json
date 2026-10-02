@@ -1,0 +1,82 @@
+{
+  "schema": "meridian.mission/1",
+  "id": "op_sap",
+  "title": "Operation Slow Tide",
+  "group": "operation",
+  "order": 8,
+  "briefing": [
+    {"heading": "Situation", "text": "The strait road is the last land route along which the Protectorate can move evacuation convoys. Three weeks ago the Dominion's Inspection Fleet declared a customs post at the mouth of the road, 'to inspect cargo for the safety of every flag'. Nothing has passed it since. The Protectorate and the Dominion share a history of evacuation work and a growing argument about who may inspect whose cargo and where foreign bases may stand.", "lore": "faction.sap"},
+    {"heading": "The Inspection Post", "text": "The Dominion's customs post is real, armed and artillery-supported. Its howitzers can reach the road from two ridges. The Council does not want a war: it wants the road open before the evacuation window closes. It is not willing to send armour down a road covered by guns, so the advance will be slow, protected and layered.", "lore": "faction.pd"},
+    {"heading": "Orders", "text": "Advance in three lines. Line Bravo, Line Charlie, then the customs post itself. At each line your army holds under fire until the line is quiet: use the Trident Interception Array to blanket the army when the guns open, Protected Advance and the Emergency Fortification for the infantry screen, and keep the base behind you layered with turrets and towers: the Dominion will land marines behind your line once it realises what you are doing. The post is yours when its Inspection Hall is rubble."}
+  ],
+  "map": {"family": "coast", "size": 128, "seed": 5, "params": {"water_pct": 20, "start_near_water": 1}},
+  "sim_seed": 8101,
+  "rules": {"start_credits": 9000, "fog": 1},
+  "players": [
+    {"slot": 0, "kind": "human", "name": "Strait Column", "roster": "roster.sap.vanilla", "team": 1, "credits": 9000, "start": {"mode": "hq", "units": [{"def": "unit.sap.bulwark_tank", "count": 4, "dx": -6, "dy": -3}, {"def": "unit.sap.shield_rifle_squad", "count": 4, "dx": -4, "dy": 5}, {"def": "unit.sap.kavach_team", "count": 2, "dx": -8, "dy": 1}, {"def": "unit.sap.monsoon_howitzer", "count": 2, "dx": -3, "dy": 8}, {"def": "unit.sap.vajra_aa", "count": 1, "dx": -2, "dy": -7}], "structures": [{"def": "structure.shared.generator", "dx": 5, "dy": 4}, {"def": "structure.shared.generator", "dx": 5, "dy": -5}, {"def": "structure.shared.generator", "dx": 9, "dy": 0}, {"def": "structure.shared.refinery", "dx": 6, "dy": -9}, {"def": "structure.shared.refinery", "dx": 8, "dy": 5}, {"def": "structure.shared.barracks", "dx": -2, "dy": 9}, {"def": "structure.shared.factory", "dx": 2, "dy": -10}, {"def": "structure.shared.radar", "dx": 9, "dy": 8}, {"def": "structure.shared.anti_tank_turret", "dx": -11, "dy": -4}, {"def": "structure.shared.aa_battery", "dx": -10, "dy": 4}, {"def": "structure.sap.trident_interception_array", "dx": -8, "dy": 9, "id": "trident"}]}},
+    {"slot": 1, "kind": "ai", "name": "Inspection Fleet", "roster": "roster.pd.vanilla", "team": 2, "start_slot": 3, "ai": {"level": 0, "style": 0, "active": false}, "start": {"mode": "hq"}}
+  ],
+  "areas": [
+    {"id": "a_base", "shape": "circle", "anchor": "start:0", "x": 0, "y": 0, "r": 12},
+    {"id": "a_lb", "shape": "circle", "anchor": "start:0", "x": -4, "y": -24, "r": 6},
+    {"id": "a_lc", "shape": "circle", "anchor": "start:0", "x": -4, "y": -38, "r": 6},
+    {"id": "a_post", "shape": "circle", "anchor": "start:0", "x": -6, "y": -58, "r": 7},
+    {"id": "a_ridge_w", "shape": "circle", "anchor": "start:0", "x": -13, "y": -29, "r": 3},
+    {"id": "a_ridge_e", "shape": "circle", "anchor": "start:0", "x": 5, "y": -31, "r": 3},
+    {"id": "a_beach", "shape": "circle", "anchor": "start:0", "x": 14, "y": 6, "r": 5},
+    {"id": "a_flank", "shape": "circle", "anchor": "start:0", "x": -26, "y": 4, "r": 5},
+    {"id": "a_front", "shape": "circle", "anchor": "start:0", "x": -4, "y": -12, "r": 6}
+  ],
+  "messages": [
+    {"id": "intro", "text": "Strait Column, Protectorate Council. The road is open as far as Line Bravo. Advance in order, under the Trident, and do not outrun your own guns.", "speaker": "Protectorate Council", "announcer": "match_start_sap"},
+    {"id": "hint_trident", "text": "The Trident Array in your base takes about six minutes to charge. Aim it at the army when the Dominion guns open: for twenty-five seconds every shell that crosses the ring is destroyed.", "speaker": "Protectorate Council", "announcer": "sw_charging"},
+    {"id": "lb_in", "text": "Line Bravo reached. Hold it until the guns have found you, then we move.", "speaker": "Protectorate Council"},
+    {"id": "lb_done", "text": "Line Bravo is quiet. On to Line Charlie.", "speaker": "Protectorate Council", "announcer": "building_captured"},
+    {"id": "guns", "text": "Dominion howitzers have opened from the ridges! Interception now, or take cover!", "speaker": "Protectorate Council", "announcer": "base_under_attack"},
+    {"id": "guns_out", "text": "The ridge guns are silent. Line Bravo is quiet.", "speaker": "Protectorate Council"},
+    {"id": "lc_in", "text": "Line Charlie reached. The customs post is in sight.", "speaker": "Protectorate Council"},
+    {"id": "lc_done", "text": "Line Charlie is held. The Inspection Hall is the last objective.", "speaker": "Protectorate Council", "announcer": "building_captured"},
+    {"id": "landing", "text": "Dominion marines are coming ashore behind the column! Your base is the next target. Turn and defend the road!", "speaker": "Protectorate Council", "announcer": "base_under_attack"},
+    {"id": "pd_voice", "text": "Protectorate column: the customs post is neutral ground. Turn back and the Fleet will guarantee safe passage by sea.", "speaker": "Inspection Fleet"},
+    {"id": "tower_lost", "text": "The interception array is down. The guns will find the column.", "speaker": "Protectorate Council", "announcer": "structure_lost"},
+    {"id": "lose_hq", "text": "The base has fallen behind the column. There is no road to hold.", "speaker": "Protectorate Council", "announcer": "defeat"},
+    {"id": "lose_time", "text": "The evacuation window has closed. The Council recalls the column.", "speaker": "Protectorate Council", "announcer": "defeat"},
+    {"id": "win", "text": "The Inspection Hall is rubble and the road is open. The evacuees are moving.", "speaker": "Protectorate Council", "announcer": "victory"},
+    {"id": "debrief_win", "text": "DEBRIEF: the strait road is open and the first evacuation convoy moved within the hour. The Dominion calls the action a breach of the customs charter; the Council calls it a rescue. Reformers in the Council point out that the Protectorate's guards were not asked to leave when the emergency ended either, and that this is what both sides have in common.", "speaker": "Debrief"},
+    {"id": "debrief_lose", "text": "DEBRIEF: the advance failed. The post stays, the guns stay, and the evacuees stay on the wrong side of both.", "speaker": "Debrief"}
+  ],
+  "objectives": [
+    {"id": "advance", "kind": "primary", "text": "Advance in order: Line Bravo (silence the ridge guns, hold), then Line Charlie (hold)"},
+    {"id": "lb", "kind": "hidden", "text": "Line Bravo"},
+    {"id": "lc", "kind": "hidden", "text": "Line Charlie", "initial": "hidden"},
+    {"id": "post", "kind": "primary", "text": "Destroy the Inspection Hall at the customs post", "initial": "hidden"},
+    {"id": "base", "kind": "primary", "text": "Do not lose the base"},
+    {"id": "guns", "kind": "hidden", "text": "Dominion guns firing on Line Bravo", "initial": "hidden"},
+    {"id": "trident", "kind": "secondary", "text": "Keep the Trident Interception Array alive"},
+    {"id": "layers", "kind": "secondary", "text": "Layer the base: build at least four defensive structures"}
+  ],
+  "timers": [
+    {"id": "hold_b", "seconds": 120, "label": "Hold Line Bravo"},
+    {"id": "hold_c", "seconds": 90, "label": "Hold Line Charlie"}
+  ],
+  "triggers": [
+    {"id": "t00_start", "when": {"kind": "time", "cmp": ">=", "ticks": 0}, "then": [{"do": "show_message", "message": "intro"}, {"do": "set_objective", "objective": "lb", "state": "active"}, {"do": "music_state", "state": "calm"}, {"do": "spawn_structure", "owner": 1, "def": "structure.shared.laboratory", "area": "a_post", "id": "hall"}, {"do": "spawn_structure", "owner": 1, "def": "structure.shared.anti_tank_turret", "area": "a_post", "id": "pt1"}, {"do": "spawn_structure", "owner": 1, "def": "structure.shared.aa_battery", "area": "a_post", "id": "paa"}, {"do": "spawn_structure", "owner": 1, "def": "structure.shared.watchtower", "area": "a_post", "id": "pwt"}, {"do": "spawn_units", "owner": 1, "def": "unit.pd.ranger_marine", "count": 3, "area": "a_post", "wave": "post_g", "order": {"kind": "guard", "area": "a_post"}}, {"do": "spawn_units", "owner": 1, "def": "unit.pd.harpoon_team", "count": 2, "area": "a_post", "wave": "post_g", "order": {"kind": "guard", "area": "a_post"}}, {"do": "spawn_units", "owner": 1, "def": "unit.pd.tide_tank", "count": 1, "area": "a_post", "wave": "post_g", "order": {"kind": "guard", "area": "a_post"}}]},
+    {"id": "t01_ai_on", "when": {"kind": "time", "cmp": ">=", "seconds": 360}, "then": [{"do": "change_ai", "owner": 1, "active": true}]},
+    {"id": "t02_hint", "when": {"kind": "time", "cmp": ">=", "seconds": 60}, "then": [{"do": "show_message", "message": "hint_trident"}]},
+    {"id": "t03_pd_voice", "when": {"kind": "time", "cmp": ">=", "seconds": 480}, "then": [{"do": "show_message", "message": "pd_voice"}]},
+    {"id": "t05_reveal_lb", "once": false, "cooldown_s": 90, "when": {"kind": "objective", "objective": "lb", "state": "active"}, "then": [{"do": "reveal_area", "owner": 0, "area": "a_lb", "seconds": 6}]},
+    {"id": "t10_lb_in", "when": {"all": [{"kind": "objective", "objective": "lb", "state": "active"}, {"kind": "count", "owner": 0, "tag": "combat", "area": "a_lb", "value": 6}, {"kind": "time", "cmp": ">=", "seconds": 340}]}, "then": [{"do": "set_objective", "objective": "guns", "state": "active"}, {"do": "show_message", "message": "lb_in"}, {"do": "show_message", "message": "guns"}, {"do": "spawn_units", "owner": 1, "def": "unit.pd.breaker_howitzer", "count": 3, "area": "a_ridge_w", "wave": "guns_w", "order": {"kind": "hold"}}, {"do": "spawn_units", "owner": 1, "def": "unit.pd.storm_aa", "count": 1, "area": "a_ridge_w", "wave": "guns_w", "order": {"kind": "guard", "area": "a_ridge_w"}}, {"do": "spawn_units", "owner": 1, "def": "unit.pd.breaker_howitzer", "count": 2, "area": "a_ridge_e", "wave": "guns_e", "order": {"kind": "hold"}}, {"do": "spawn_units", "owner": 1, "def": "unit.pd.ranger_marine", "count": 2, "area": "a_ridge_e", "wave": "guns_e", "order": {"kind": "guard", "area": "a_ridge_e"}}, {"do": "timer_start", "timer": "hold_b"}, {"do": "music_state", "state": "combat"}]},
+    {"id": "t11_lb_done", "when": {"all": [{"kind": "objective", "objective": "lb", "state": "active"}, {"kind": "timer", "timer": "hold_b"}, {"kind": "count", "owner": 0, "tag": "combat", "area": "a_lb", "value": 6}, {"kind": "wave", "wave": "guns_w", "state": "cleared"}, {"kind": "wave", "wave": "guns_e", "state": "cleared"}]}, "then": [{"do": "set_objective", "objective": "lb", "state": "completed"}, {"do": "set_objective", "objective": "guns", "state": "completed"}, {"do": "show_message", "message": "lb_done"}, {"do": "show_message", "message": "guns_out"}, {"do": "music_state", "state": "tense"}]},
+    {"id": "t11b_open_c", "when": {"all": [{"kind": "objective", "objective": "lb", "state": "completed"}, {"kind": "time", "cmp": ">=", "seconds": 420}]}, "then": [{"do": "set_objective", "objective": "lc", "state": "active"}]},
+    {"id": "t12_lc_in", "when": {"all": [{"kind": "objective", "objective": "lc", "state": "active"}, {"kind": "count", "owner": 0, "tag": "combat", "area": "a_lc", "value": 6}]}, "then": [{"do": "show_message", "message": "lc_in"}, {"do": "spawn_units", "owner": 1, "def": "unit.pd.ranger_marine", "count": 3, "area": "a_flank", "wave": "marines", "order": {"kind": "attack_move", "area": "a_base"}}, {"do": "spawn_units", "owner": 1, "def": "unit.pd.tide_tank", "count": 1, "area": "a_beach", "wave": "marines", "order": {"kind": "attack_move", "area": "a_base"}}, {"do": "spawn_units", "owner": 1, "def": "unit.pd.wake_skimmer", "count": 1, "area": "a_beach", "wave": "marines", "order": {"kind": "attack_move", "area": "a_base"}}, {"do": "show_message", "message": "landing"}, {"do": "timer_start", "timer": "hold_c"}, {"do": "camera_hint", "area": "a_base", "seconds": 4}, {"do": "music_state", "state": "combat"}]},
+    {"id": "t12b_lc_done", "when": {"all": [{"kind": "objective", "objective": "lc", "state": "active"}, {"kind": "timer", "timer": "hold_c"}, {"kind": "count", "owner": 0, "tag": "combat", "area": "a_lc", "value": 6}]}, "then": [{"do": "set_objective", "objective": "lc", "state": "completed"}, {"do": "set_objective", "objective": "advance", "state": "completed"}, {"do": "show_message", "message": "lc_done"}, {"do": "music_state", "state": "tense"}]},
+    {"id": "t12c_open_post", "when": {"all": [{"kind": "objective", "objective": "lc", "state": "completed"}, {"kind": "time", "cmp": ">=", "seconds": 660}]}, "then": [{"do": "set_objective", "objective": "post", "state": "active"}]},
+    {"id": "t13_post_down", "when": {"all": [{"kind": "objective", "objective": "post", "state": "active"}, {"kind": "structure", "state": "destroyed", "placed": "hall"}]}, "then": [{"do": "set_objective", "objective": "post", "state": "completed"}]},
+    {"id": "t14_more_marines", "when": {"kind": "time", "cmp": ">=", "seconds": 900}, "then": [{"do": "spawn_units", "owner": 1, "def": "unit.pd.ranger_marine", "count": 3, "area": "a_flank", "wave": "marines2", "order": {"kind": "attack_move", "area": "a_base"}}, {"do": "spawn_units", "owner": 1, "def": "unit.pd.tide_tank", "count": 2, "area": "a_beach", "wave": "marines2", "order": {"kind": "attack_move", "area": "a_base"}}]},
+    {"id": "t20_tower", "when": {"all": [{"kind": "objective", "objective": "trident", "state": "active"}, {"kind": "structure", "state": "destroyed", "placed": "trident"}]}, "then": [{"do": "set_objective", "objective": "trident", "state": "failed"}, {"do": "show_message", "message": "tower_lost"}]},
+    {"id": "t21_layers", "when": {"all": [{"kind": "objective", "objective": "layers", "state": "active"}, {"kind": "count", "owner": 0, "of": "structure", "tag": "defense", "value": 4}]}, "then": [{"do": "set_objective", "objective": "layers", "state": "completed"}]},
+    {"id": "t90_win", "when": {"all": [{"kind": "objective", "objective": "lb", "state": "completed"}, {"kind": "objective", "objective": "lc", "state": "completed"}, {"kind": "objective", "objective": "post", "state": "completed"}]}, "then": [{"do": "set_objective", "objective": "base", "state": "completed"}, {"do": "show_message", "message": "win"}, {"do": "show_message", "message": "debrief_win"}, {"do": "win", "owner": 0}, {"do": "music_state", "state": "victory"}]},
+    {"id": "t91_lose_hq", "when": {"kind": "count", "owner": 0, "def": "structure.shared.headquarters", "cmp": "<=", "value": 0}, "then": [{"do": "set_objective", "objective": "base", "state": "failed"}, {"do": "show_message", "message": "lose_hq"}, {"do": "show_message", "message": "debrief_lose"}, {"do": "lose", "owner": 0}, {"do": "music_state", "state": "defeat"}]},
+    {"id": "t92_lose_time", "when": {"kind": "time", "cmp": ">=", "seconds": 1320}, "then": [{"do": "show_message", "message": "lose_time"}, {"do": "show_message", "message": "debrief_lose"}, {"do": "lose", "owner": 0}, {"do": "music_state", "state": "defeat"}]}
+  ]
+}

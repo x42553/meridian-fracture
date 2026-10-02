@@ -1,0 +1,37 @@
+{
+  "schema": "meridian.balance.map_gen/1",
+  "gen_version": 2,
+  "layout": {"rim_w": 6, "start_r": 13, "start_r_step": 2, "gate_w": 5, "gate_w_step": 2, "route_amp2": 24,
+             "moat_r_pct": 26, "moat_deep_half2": 6, "moat_bank_half2": 10, "marsh_reach": 3, "marsh_f6_min": 120,
+             "exit_ring_r": 20, "min_buildable_start": 450, "start_buildable_r": 14, "max_attempts": 2,
+             "field_clear_r": 7, "field_edge_margin": 14, "field_spacing": 10, "neutral_edge_margin": 10,
+             "neutral_start_dist": 18, "neutral_field_dist": 6},
+  "bay": {"pocket_cells": [9, 7], "near_edge_cells": 6, "canal_deep": 7, "canal_bank": 2},
+  "families": {
+    "open":  {"water_pct": 0,  "density": 50, "terraces": true,  "min_route_pct": 45},
+    "urban": {"water_pct": 0,  "density": 50, "terraces": false, "min_route_pct": 30, "street_w": 4, "avenue_w": 6, "pitch_base": 16},
+    "coast": {"water_pct": 22, "density": 40, "terraces": true,  "min_route_pct": 35, "moat": true, "marsh": true}
+  },
+  "deposit": {"standard": {"cells": 24, "per_cell": 600, "klass": 0}, "rich": {"cells": 16, "per_cell": 1200, "klass": 1}, "budget_min": 75000},
+  "fields": [
+    {"kind": "start",        "class": "standard", "per_slot": 2, "dist_cells": 11, "dir": "tangent_both"},
+    {"kind": "natural",      "class": "standard", "per_slot": 1, "dist_pct_size": 16, "dir": "toward_plus_450"},
+    {"kind": "natural_rich", "class": "rich",     "per_slot": 1, "dist_pct_size": 16, "dir": "toward_plus_100"},
+    {"kind": "further",      "class": "standard", "per_slot": 2, "dist_pct_size": [22, 20], "dir": ["toward_minus_450", "nearest_start"]},
+    {"kind": "contested",    "class": "rich",     "shared": true, "anchor": "pair_midpoint_65"}
+  ],
+  "neutrals": [
+    {"id": "neutral.civilian_garrison", "count": {"open": "2", "urban": "6+size/64", "coast": "2"}, "anchor": "natural", "ring": [6, 14]},
+    {"id": "neutral.substation",        "count": {"open": "1", "urban": "1", "coast": "1"}, "anchor": "contested", "ring": [7, 12]},
+    {"id": "neutral.field_hospital",    "count": {"open": "1", "urban": "1", "coast": "1"}, "anchor": "natural", "ring": [7, 14]},
+    {"id": "neutral.observation_tower", "count": {"open": "1", "urban": "1", "coast": "1"}, "anchor": "further", "ring": [5, 10]},
+    {"id": "neutral.salvage_depot",     "count": {"open": "map1", "urban": "map1", "coast": "map1"}, "anchor": "center", "ring": [0, 8]},
+    {"id": "neutral.harbor_terminal",   "count": {"open": "0", "urban": "0", "coast": "1"}, "anchor": "start_30", "ring": [0, 16], "shore": true}
+  ],
+  "biomes": [
+    {"key": "temperate", "base": "grass", "sand_permille": 0},
+    {"key": "arid",      "base": "dirt",  "sand_permille": 180},
+    {"key": "arctic",    "base": "grass", "sand_permille": 0}
+  ],
+  "progress": {"height": [0, 60], "classify": [60, 64], "layout": [64, 70], "finalize": [70, 92], "validate": [92, 100]}
+}

@@ -1,0 +1,11 @@
+{
+  "schema": "meridian.recipe/1",
+  "id": "proj.missile",
+  "archetype": "proj_missile",
+  "style": "auto",
+  "meta": {
+    "stub": true,
+    "view_archetype": "proj_missile",
+    "rule": "override"
+  }
+}

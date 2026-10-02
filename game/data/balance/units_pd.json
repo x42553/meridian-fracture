@@ -1,0 +1,823 @@
+{
+  "schema": "meridian.balance.units/1",
+  "faction": "faction.pd",
+  "units": [
+    {
+      "id": "unit.pd.breaker_howitzer",
+      "archetype": "arty_howitzer",
+      "cost_credits": 1375,
+      "build_time_s": 40.5,
+      "health": 670,
+      "speed_cells_s": 1.5,
+      "vision_cells": 8.5,
+      "radius_cells": 0.6,
+      "weapons": [
+        "weapon.pd.breaker_shell"
+      ],
+      "abilities": [
+        "deployable_mode"
+      ],
+      "ability_params": {
+        "deployable_mode": {
+          "deploy_s": 3,
+          "pack_s": 2
+        }
+      },
+      "tags": [
+        "sustained"
+      ],
+      "dps_vs_primary": 58.9,
+      "range_cells": 15.0
+    },
+    {
+      "id": "unit.pd.harpoon_team",
+      "archetype": "inf_at",
+      "cost_credits": 350,
+      "build_time_s": 12.5,
+      "health": 318,
+      "speed_cells_s": 1.4,
+      "vision_cells": 7.5,
+      "radius_cells": 0.4,
+      "weapons": [
+        "weapon.pd.harpoon_missile"
+      ],
+      "abilities": [],
+      "tags": [],
+      "dps_vs_primary": 63.6,
+      "range_cells": 7.5
+    },
+    {
+      "id": "unit.pd.island_raider",
+      "archetype": "inf_line",
+      "cost_credits": 250,
+      "build_time_s": 9.0,
+      "health": 403,
+      "speed_cells_s": 1.6,
+      "vision_cells": 7.0,
+      "radius_cells": 0.4,
+      "weapons": [
+        "weapon.pd.raider_rifle"
+      ],
+      "abilities": [
+        "ability.disembark_buff.default"
+      ],
+      "ability_params": {
+        "ability.disembark_buff.default": {
+          "duration_s": 6,
+          "damage_bonus_pct": 20,
+          "refresh_on_reboard": false
+        }
+      },
+      "notes": "Mobile rifle infantry: +6% speed, -5% health versus Ranger Marine; buff numbers from the bible.",
+      "tags": [],
+      "dps_vs_primary": 52.0,
+      "range_cells": 5.5
+    },
+    {
+      "id": "unit.pd.kancil_landing_skimmer",
+      "archetype": "veh_scout",
+      "cost_credits": 490,
+      "build_time_s": 16.0,
+      "health": 552,
+      "speed_cells_s": 4.0,
+      "vision_cells": 12.0,
+      "radius_cells": 0.45,
+      "weapons": [
+        "weapon.pd.kancil_mg"
+      ],
+      "abilities": [
+        "amphibious",
+        "ability.transport.squads2"
+      ],
+      "ability_params": {
+        "ability.transport.squads2": {
+          "capacity_squads_n": 2,
+          "unload_speed_pct": 150
+        }
+      },
+      "tags": [
+        "fast",
+        "weak_gun"
+      ],
+      "movement_class": "amphibious",
+      "dps_vs_primary": 19.2,
+      "range_cells": 6.0
+    },
+    {
+      "id": "unit.pd.leviathan_assault_carrier",
+      "archetype": "veh_assault_carrier",
+      "cost_credits": 2900,
+      "build_time_s": 76.5,
+      "health": 4121,
+      "speed_cells_s": 1.5,
+      "vision_cells": 8.5,
+      "radius_cells": 1.0,
+      "weapons": [
+        "weapon.pd.leviathan_siege_cannon"
+      ],
+      "abilities": [],
+      "tags": [],
+      "dps_vs_primary": 170.6,
+      "range_cells": 5.5
+    },
+    {
+      "id": "unit.pd.osprey_strike_tiltrotor",
+      "archetype": "air_gunship",
+      "cost_credits": 2100,
+      "build_time_s": 58.5,
+      "health": 1545,
+      "speed_cells_s": 4.5,
+      "vision_cells": 10.0,
+      "radius_cells": 0.6,
+      "weapons": [
+        "weapon.pd.osprey_missiles"
+      ],
+      "abilities": [],
+      "rearm_s_full": 12.0,
+      "flags": [
+        "hover_fire"
+      ],
+      "tags": [],
+      "sortie_avg_dps_vs_primary": 38.3,
+      "range_cells": 6.0
+    },
+    {
+      "id": "unit.pd.outrider_howitzer",
+      "archetype": "arty_howitzer",
+      "cost_credits": 1375,
+      "build_time_s": 40.5,
+      "health": 710,
+      "speed_cells_s": 1.5,
+      "vision_cells": 8.5,
+      "radius_cells": 0.6,
+      "weapons": [
+        "weapon.pd.outrider_shell"
+      ],
+      "abilities": [
+        "deployable_mode"
+      ],
+      "ability_params": {
+        "deployable_mode": {
+          "deploy_s": 3,
+          "pack_s": 3
+        }
+      },
+      "notes": "Narrow firing arc (arc_deg 40) and 6-cell minimum range: weak at close range.",
+      "tags": [
+        "long_range",
+        "weaker_gun"
+      ],
+      "dps_vs_primary": 53.1,
+      "range_cells": 18.0
+    },
+    {
+      "id": "unit.pd.petrel_fighter",
+      "archetype": "air_fighter",
+      "cost_credits": 1275,
+      "build_time_s": 35.5,
+      "health": 721,
+      "speed_cells_s": 7.0,
+      "vision_cells": 11.0,
+      "radius_cells": 0.5,
+      "weapons": [
+        "weapon.pd.petrel_aam"
+      ],
+      "abilities": [],
+      "rearm_s_full": 8.0,
+      "tags": [
+        "endurance"
+      ],
+      "sortie_avg_dps_vs_primary": 41.2,
+      "range_cells": 8.0
+    },
+    {
+      "id": "unit.pd.ranger_marine",
+      "archetype": "inf_line",
+      "cost_credits": 250,
+      "build_time_s": 9.0,
+      "health": 450,
+      "speed_cells_s": 1.5,
+      "vision_cells": 7.0,
+      "radius_cells": 0.4,
+      "weapons": [
+        "weapon.pd.ranger_rifle"
+      ],
+      "abilities": [],
+      "notes": "Bible: 'optimized after transport deployment' has no number (abilities_catalog section 6 CUSTOM flavor). Not encoded; the catalog's optional DISEMBARK_BUFF (+10% 4s) stays off.",
+      "tags": [],
+      "dps_vs_primary": 52.0,
+      "range_cells": 5.5
+    },
+    {
+      "id": "unit.pd.reef_patrol_boat",
+      "archetype": "ship_patrol",
+      "cost_credits": 615,
+      "build_time_s": 17.0,
+      "health": 743,
+      "speed_cells_s": 4.0,
+      "vision_cells": 11.0,
+      "radius_cells": 0.6,
+      "weapons": [
+        "weapon.pd.patrol_mg"
+      ],
+      "abilities": [],
+      "tags": [
+        "fast"
+      ],
+      "dps_vs_primary": 47.6,
+      "range_cells": 6.5
+    },
+    {
+      "id": "unit.pd.reef_technician",
+      "archetype": "inf_support",
+      "cost_credits": 475,
+      "build_time_s": 17.0,
+      "health": 300,
+      "speed_cells_s": 1.5,
+      "vision_cells": 9.0,
+      "radius_cells": 0.4,
+      "abilities": [
+        "repair_aura"
+      ],
+      "ability_params": {
+        "repair_aura": {
+          "rate_pct_per_s": 1,
+          "cost": "paid",
+          "target_unit_tags": [
+            "land_vehicle",
+            "ship"
+          ],
+          "radius_cells": 3,
+          "one_target": true,
+          "can_self": false
+        }
+      },
+      "tags": [
+        "no_gun"
+      ]
+    },
+    {
+      "id": "unit.pd.shinano_adaptive_tank",
+      "archetype": "mbt_t1",
+      "cost_credits": 1060,
+      "build_time_s": 33.0,
+      "health": 1000,
+      "speed_cells_s": 2.0,
+      "vision_cells": 9.0,
+      "radius_cells": 0.55,
+      "weapons": [
+        "weapon.pd.shinano_cannon",
+        "weapon.pd.shinano_siege_rail"
+      ],
+      "abilities": [
+        "amphibious",
+        "ability.mode_switch.default"
+      ],
+      "tier": 2,
+      "ability_params": {
+        "ability.mode_switch.default": {
+          "switch_s": 3,
+          "modes": [
+            {
+              "id": "mobile_direct",
+              "slots_n": [
+                0
+              ]
+            },
+            {
+              "id": "siege",
+              "slots_n": [
+                1
+              ]
+            }
+          ]
+        }
+      },
+      "notes": "Mode 0 mobile direct fire (tank cannon, full anti-infantry); mode 1 stationary siege (rail gun, 20% vs infantry armour, fires only while stationary).",
+      "tags": [],
+      "movement_class": "amphibious",
+      "dps_vs_primary": 129.2,
+      "range_cells": 11.0
+    },
+    {
+      "id": "unit.pd.shogun_drone_carrier",
+      "archetype": "ship_carrier",
+      "cost_credits": 3950,
+      "build_time_s": 109.5,
+      "health": 5451,
+      "speed_cells_s": 1.5,
+      "vision_cells": 11.0,
+      "radius_cells": 1.5,
+      "weapons": [],
+      "abilities": [
+        "multirole"
+      ],
+      "ability_params": {
+        "multirole": {
+          "switch_s": 5,
+          "switch_at_structure_id": "",
+          "modes": [
+            {
+              "id": "strike",
+              "slots_n": []
+            },
+            {
+              "id": "interceptor",
+              "slots_n": []
+            }
+          ]
+        },
+        "ability.carrier.default": {
+          "wings": [
+            {
+              "id": "strike",
+              "drone_id": "summon.pd.surface_strike_drone",
+              "wing_size_n": 6
+            },
+            {
+              "id": "interceptor",
+              "drone_id": "summon.pd.interceptor_drone",
+              "wing_size_n": 6
+            }
+          ],
+          "replace_s": 14,
+          "launch_range_cells": 14
+        }
+      },
+      "notes": "One wing type may operate at a time (mode_switch, 5 s wing change).",
+      "tags": []
+    },
+    {
+      "id": "unit.pd.storm_aa",
+      "archetype": "veh_aa",
+      "cost_credits": 1050,
+      "build_time_s": 31.0,
+      "health": 840,
+      "speed_cells_s": 2.2,
+      "vision_cells": 10.0,
+      "radius_cells": 0.55,
+      "weapons": [
+        "weapon.pd.storm_aa_missile"
+      ],
+      "abilities": [],
+      "tags": [],
+      "dps_vs_primary": 140.0,
+      "range_cells": 10.0
+    },
+    {
+      "id": "unit.pd.tempest_carrier",
+      "archetype": "ship_carrier",
+      "cost_credits": 3800,
+      "build_time_s": 105.5,
+      "health": 5000,
+      "speed_cells_s": 1.5,
+      "vision_cells": 11.0,
+      "radius_cells": 1.5,
+      "weapons": [],
+      "abilities": [],
+      "ability_params": {
+        "ability.carrier.default": {
+          "wings": [
+            {
+              "id": "strike",
+              "drone_id": "summon.pd.surface_strike_drone",
+              "wing_size_n": 6
+            }
+          ],
+          "replace_s": 14,
+          "launch_range_cells": 14
+        }
+      },
+      "tags": []
+    },
+    {
+      "id": "unit.pd.tide_tank",
+      "archetype": "mbt_t1",
+      "cost_credits": 900,
+      "build_time_s": 29.0,
+      "health": 955,
+      "speed_cells_s": 2.0,
+      "vision_cells": 9.0,
+      "radius_cells": 0.55,
+      "weapons": [
+        "weapon.pd.tide_cannon"
+      ],
+      "abilities": [
+        "amphibious"
+      ],
+      "deep_speed_pct": 60,
+      "movement_class": "amphibious",
+      "tags": [],
+      "dps_vs_primary": 123.3,
+      "range_cells": 7.0
+    },
+    {
+      "id": "unit.pd.trident_escort",
+      "archetype": "ship_escort",
+      "cost_credits": 1700,
+      "build_time_s": 47.0,
+      "health": 2266,
+      "speed_cells_s": 2.4,
+      "vision_cells": 11.0,
+      "radius_cells": 1.0,
+      "weapons": [
+        "weapon.pd.escort_gun",
+        "weapon.pd.escort_aam",
+        "weapon.pd.escort_torpedo"
+      ],
+      "abilities": [],
+      "tags": [],
+      "dps_vs_primary": 92.5,
+      "range_cells": 10.0
+    },
+    {
+      "id": "unit.pd.wake_skimmer",
+      "archetype": "veh_scout",
+      "cost_credits": 585,
+      "build_time_s": 19.0,
+      "health": 552,
+      "speed_cells_s": 3.2,
+      "vision_cells": 12.0,
+      "radius_cells": 0.45,
+      "weapons": [
+        "weapon.pd.skimmer_mg"
+      ],
+      "abilities": [
+        "amphibious"
+      ],
+      "movement_class": "amphibious",
+      "tags": [],
+      "dps_vs_primary": 30.0,
+      "range_cells": 6.0
+    },
+    {
+      "id": "unit.pd.wedge_recon_fighter",
+      "archetype": "air_fighter",
+      "cost_credits": 1025,
+      "build_time_s": 28.5,
+      "health": 753,
+      "speed_cells_s": 7.0,
+      "vision_cells": 13.8,
+      "radius_cells": 0.5,
+      "weapons": [
+        "weapon.pd.wedge_aam"
+      ],
+      "abilities": [],
+      "rearm_s_full": 8.0,
+      "params": {
+        "spot_wedge_radius_cells": 6
+      },
+      "notes": "SPOT_WEDGE aura (6 cells, friendly artillery targets) feeds Forward Fire Control only; carried as params.spot_wedge_radius_cells (no registry kind).",
+      "tags": [
+        "weaker_gun",
+        "good_sight"
+      ],
+      "sortie_avg_dps_vs_primary": 27.3,
+      "range_cells": 8.0
+    }
+  ],
+  "weapons": [
+    {
+      "id": "weapon.pd.breaker_shell",
+      "archetype": "artillery_shell",
+      "damage": 165,
+      "hits_per_volley": 1,
+      "reload_s": 2.8,
+      "range_cells": 15.0,
+      "min_range_cells": 4.0,
+      "deploy_s": 3.0
+    },
+    {
+      "id": "weapon.pd.escort_aam",
+      "archetype": "aa_missile",
+      "damage": 62,
+      "hits_per_volley": 2,
+      "reload_s": 1.5,
+      "range_cells": 10.0
+    },
+    {
+      "id": "weapon.pd.escort_gun",
+      "archetype": "naval_gun",
+      "damage": 185,
+      "hits_per_volley": 1,
+      "reload_s": 2.0,
+      "range_cells": 9.0
+    },
+    {
+      "id": "weapon.pd.escort_torpedo",
+      "archetype": "torpedo",
+      "damage": 258,
+      "hits_per_volley": 1,
+      "reload_s": 6.0,
+      "range_cells": 7.0
+    },
+    {
+      "id": "weapon.pd.harpoon_missile",
+      "archetype": "at_missile",
+      "damage": 286,
+      "reload_s": 4.5,
+      "range_cells": 7.5,
+      "notes": "Bible: may target surface ships, never aircraft; archetype targets are ground+surface_water only."
+    },
+    {
+      "id": "weapon.pd.interceptor_drone_missile",
+      "archetype": "aa_missile",
+      "damage": 45,
+      "hits_per_volley": 2,
+      "reload_s": 2.0,
+      "range_cells": 8.0
+    },
+    {
+      "id": "weapon.pd.kancil_mg",
+      "archetype": "machine_gun",
+      "damage": 25,
+      "reload_s": 1.3,
+      "range_cells": 6.0
+    },
+    {
+      "id": "weapon.pd.leviathan_siege_cannon",
+      "archetype": "demolition_cannon",
+      "damage": 597,
+      "hits_per_volley": 1,
+      "reload_s": 3.5,
+      "range_cells": 5.5
+    },
+    {
+      "id": "weapon.pd.osprey_missiles",
+      "archetype": "air_missile",
+      "damage": 93,
+      "hits_per_volley": 2,
+      "reload_s": 1.5,
+      "range_cells": 6.0,
+      "ammo_volleys": 7
+    },
+    {
+      "id": "weapon.pd.outrider_shell",
+      "archetype": "artillery_shell",
+      "damage": 186,
+      "hits_per_volley": 1,
+      "reload_s": 3.5,
+      "range_cells": 18.0,
+      "min_range_cells": 6.0,
+      "arc_deg": 40,
+      "deploy_s": 3.0
+    },
+    {
+      "id": "weapon.pd.patrol_mg",
+      "archetype": "machine_gun",
+      "damage": 28,
+      "hits_per_volley": 2,
+      "reload_s": 1.0,
+      "range_cells": 6.5
+    },
+    {
+      "id": "weapon.pd.petrel_aam",
+      "archetype": "aa_missile",
+      "damage": 103,
+      "hits_per_volley": 1,
+      "reload_s": 1.0,
+      "range_cells": 8.0,
+      "ammo_volleys": 8
+    },
+    {
+      "id": "weapon.pd.raider_rifle",
+      "archetype": "small_arms",
+      "damage": 26,
+      "hits_per_volley": 2,
+      "reload_s": 1.0,
+      "range_cells": 5.5
+    },
+    {
+      "id": "weapon.pd.ranger_rifle",
+      "archetype": "small_arms",
+      "damage": 26,
+      "hits_per_volley": 2,
+      "reload_s": 1.0,
+      "range_cells": 5.5
+    },
+    {
+      "id": "weapon.pd.shinano_cannon",
+      "archetype": "tank_cannon",
+      "damage": 155,
+      "hits_per_volley": 1,
+      "reload_s": 1.2,
+      "range_cells": 7.0,
+      "modes": [
+        0
+      ]
+    },
+    {
+      "id": "weapon.pd.shinano_siege_rail",
+      "archetype": "rail_gun",
+      "damage": 399,
+      "hits_per_volley": 1,
+      "reload_s": 4.5,
+      "range_cells": 11.0,
+      "flags": [
+        "stationary_fire"
+      ],
+      "modes": [
+        1
+      ]
+    },
+    {
+      "id": "weapon.pd.skimmer_mg",
+      "archetype": "machine_gun",
+      "damage": 30,
+      "reload_s": 1.0,
+      "range_cells": 6.0
+    },
+    {
+      "id": "weapon.pd.storm_aa_missile",
+      "archetype": "aa_missile",
+      "damage": 105,
+      "hits_per_volley": 2,
+      "reload_s": 1.5,
+      "range_cells": 10.0
+    },
+    {
+      "id": "weapon.pd.strike_drone_missile",
+      "archetype": "drone_missile",
+      "damage": 60,
+      "hits_per_volley": 2,
+      "reload_s": 2.0,
+      "range_cells": 5.0
+    },
+    {
+      "id": "weapon.pd.tempest_drone_missile",
+      "archetype": "drone_missile",
+      "damage": 60,
+      "hits_per_volley": 2,
+      "reload_s": 2.0,
+      "range_cells": 4.5
+    },
+    {
+      "id": "weapon.pd.tide_cannon",
+      "archetype": "tank_cannon",
+      "damage": 148,
+      "hits_per_volley": 1,
+      "reload_s": 1.2,
+      "range_cells": 7.0
+    },
+    {
+      "id": "weapon.pd.wedge_aam",
+      "archetype": "aa_missile",
+      "damage": 91,
+      "hits_per_volley": 1,
+      "reload_s": 1.0,
+      "range_cells": 8.0,
+      "ammo_volleys": 6
+    }
+  ],
+  "summons": [
+    {
+      "id": "summon.pd.decoy_transport",
+      "class": "summon",
+      "unit_tags": [
+        "summoned",
+        "decoy"
+      ],
+      "size_class": "light",
+      "armor_class": "light_vehicle",
+      "movement_class": "amphibious",
+      "layer": "ground",
+      "health": 200,
+      "speed_cells_s": 3.2,
+      "vision_cells": 6.0,
+      "radius_cells": 0.45,
+      "pop_n": 0,
+      "lifetime_s": 25,
+      "flags": [
+        "harmless",
+        "non_blocking",
+        "no_combat_mods",
+        "no_repair",
+        "no_capture",
+        "no_salvage"
+      ],
+      "notes": "Feint Landing decoy: cannot carry units, identified by detectors."
+    },
+    {
+      "id": "summon.pd.interceptor_drone",
+      "class": "drone",
+      "unit_tags": [
+        "aircraft",
+        "combat",
+        "unmanned"
+      ],
+      "size_class": "air_medium",
+      "armor_class": "air_light",
+      "movement_class": "air_hover",
+      "layer": "air",
+      "health": 150,
+      "speed_cells_s": 6.0,
+      "vision_cells": 8.0,
+      "radius_cells": 0.3,
+      "pop_n": 0,
+      "weapons": [
+        "weapon.pd.interceptor_drone_missile"
+      ],
+      "cost_credits": 120,
+      "build_time_s": 14
+    },
+    {
+      "id": "summon.pd.patrol_aircraft",
+      "class": "summon",
+      "unit_tags": [
+        "aircraft",
+        "summoned"
+      ],
+      "size_class": "air_medium",
+      "armor_class": "air_light",
+      "movement_class": "air_fixed",
+      "layer": "air",
+      "health": 300,
+      "speed_cells_s": 8.0,
+      "vision_cells": 10.0,
+      "radius_cells": 0.5,
+      "pop_n": 0,
+      "lifetime_s": 12,
+      "flags": [
+        "no_combat_mods",
+        "no_repair",
+        "no_capture",
+        "no_salvage"
+      ]
+    },
+    {
+      "id": "summon.pd.surface_strike_drone",
+      "class": "drone",
+      "unit_tags": [
+        "aircraft",
+        "combat",
+        "unmanned"
+      ],
+      "size_class": "air_medium",
+      "armor_class": "air_light",
+      "movement_class": "air_hover",
+      "layer": "air",
+      "health": 150,
+      "speed_cells_s": 6.0,
+      "vision_cells": 7.0,
+      "radius_cells": 0.3,
+      "pop_n": 0,
+      "weapons": [
+        "weapon.pd.strike_drone_missile"
+      ],
+      "cost_credits": 120,
+      "build_time_s": 14
+    },
+    {
+      "id": "summon.pd.tempest_strike_drone",
+      "class": "summon",
+      "unit_tags": [
+        "aircraft",
+        "summoned",
+        "unmanned"
+      ],
+      "size_class": "air_medium",
+      "armor_class": "air_light",
+      "movement_class": "air_hover",
+      "layer": "air",
+      "health": 90,
+      "speed_cells_s": 8.0,
+      "vision_cells": 6.0,
+      "radius_cells": 0.3,
+      "pop_n": 0,
+      "weapons": [
+        "weapon.pd.tempest_drone_missile"
+      ],
+      "lifetime_s": 20,
+      "flags": [
+        "no_combat_mods",
+        "no_repair",
+        "no_capture",
+        "no_salvage"
+      ]
+    },
+    {
+      "id": "summon.pd.workshop_aircraft",
+      "class": "summon",
+      "unit_tags": [
+        "aircraft",
+        "summoned"
+      ],
+      "size_class": "air_medium",
+      "armor_class": "air_heavy",
+      "movement_class": "air_fixed",
+      "layer": "air",
+      "health": 400,
+      "speed_cells_s": 6.0,
+      "vision_cells": 8.0,
+      "radius_cells": 0.6,
+      "pop_n": 0,
+      "lifetime_s": 6,
+      "flags": [
+        "no_combat_mods",
+        "no_repair",
+        "no_capture",
+        "no_salvage"
+      ]
+    }
+  ]
+}

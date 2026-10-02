@@ -1,0 +1,50 @@
+{
+  "schema": 1,
+  "_doc": "One profile per difficulty (ai.md 5.14.1 / 7.1). ONLY Brutal may set info_omniscient or handicap_pct != 100 (validator V10): Brutal's cheats are labelled (label_cheats is a text key, cheats_text its English default). handicap_pct is the lobby default of the AI slot; the sim's players[].handicap stays authoritative.",
+  "profiles": {
+    "easy": {
+      "id": 0, "label": "Easy", "label_cheats": "", "cheats_text": "",
+      "think_period_ticks": 30, "micro_period_ticks": 0, "apm_cap": 40, "cmd_burst": 4,
+      "reaction_delay_ticks": 60, "idle_tolerance_ticks": 200, "queue_depth": 1, "place_latency_ticks": 100,
+      "opt_step_keep_pct": 50, "info_omniscient": false, "scout_level": 0, "expansions_max": 0,
+      "collector_k_x10": 10, "tech_delay_x100": 160, "first_attack_min_s": 900, "wave_interval_s": 300,
+      "launch_ratio_x100": 130, "est_noise_pct": 40, "micro_retreat": true, "micro_focus": false, "micro_kite": false,
+      "dodge_pct": 0, "powers_level": 1, "eager_pct": 150, "sw_min_time_s": 1800, "unit_cap_pct": 60,
+      "wu_per_tick": 220, "call_cap_wu": 1500, "jitter_pct": 30, "handicap_pct": 100,
+      "prongs_max": 1, "harass_ops_max": 0, "enemy_prior": 0
+    },
+    "medium": {
+      "id": 1, "label": "Medium", "label_cheats": "", "cheats_text": "",
+      "think_period_ticks": 20, "micro_period_ticks": 10, "apm_cap": 90, "cmd_burst": 8,
+      "reaction_delay_ticks": 30, "idle_tolerance_ticks": 80, "queue_depth": 2, "place_latency_ticks": 40,
+      "opt_step_keep_pct": 80, "info_omniscient": false, "scout_level": 1, "expansions_max": 1,
+      "collector_k_x10": 15, "tech_delay_x100": 125, "first_attack_min_s": 600, "wave_interval_s": 180,
+      "launch_ratio_x100": 130, "est_noise_pct": 25, "micro_retreat": true, "micro_focus": true, "micro_kite": false,
+      "dodge_pct": 50, "powers_level": 2, "eager_pct": 125, "sw_min_time_s": 960, "unit_cap_pct": 85,
+      "wu_per_tick": 350, "call_cap_wu": 2400, "jitter_pct": 25, "handicap_pct": 100,
+      "prongs_max": 2, "harass_ops_max": 1, "enemy_prior": 1
+    },
+    "hard": {
+      "id": 2, "label": "Hard", "label_cheats": "", "cheats_text": "",
+      "think_period_ticks": 10, "micro_period_ticks": 4, "apm_cap": 180, "cmd_burst": 16,
+      "reaction_delay_ticks": 12, "idle_tolerance_ticks": 20, "queue_depth": 3, "place_latency_ticks": 10,
+      "opt_step_keep_pct": 100, "info_omniscient": false, "scout_level": 2, "expansions_max": 2,
+      "collector_k_x10": 20, "tech_delay_x100": 100, "first_attack_min_s": 420, "wave_interval_s": 120,
+      "launch_ratio_x100": 130, "est_noise_pct": 10, "micro_retreat": true, "micro_focus": true, "micro_kite": true,
+      "dodge_pct": 100, "powers_level": 3, "eager_pct": 100, "sw_min_time_s": 660, "unit_cap_pct": 100,
+      "wu_per_tick": 500, "call_cap_wu": 3000, "jitter_pct": 15, "handicap_pct": 100,
+      "prongs_max": 3, "harass_ops_max": 2, "enemy_prior": 2
+    },
+    "brutal": {
+      "id": 3, "label": "Brutal", "label_cheats": "ai.cheats.brutal", "cheats_text": "Cheats: +20 % credits and income, sees through fog",
+      "think_period_ticks": 6, "micro_period_ticks": 2, "apm_cap": 320, "cmd_burst": 28,
+      "reaction_delay_ticks": 4, "idle_tolerance_ticks": 4, "queue_depth": 3, "place_latency_ticks": 2,
+      "opt_step_keep_pct": 100, "info_omniscient": true, "scout_level": 3, "expansions_max": 3,
+      "collector_k_x10": 22, "tech_delay_x100": 85, "first_attack_min_s": 330, "wave_interval_s": 90,
+      "launch_ratio_x100": 120, "est_noise_pct": 4, "micro_retreat": true, "micro_focus": true, "micro_kite": true,
+      "dodge_pct": 100, "powers_level": 4, "eager_pct": 85, "sw_min_time_s": 540, "unit_cap_pct": 100,
+      "wu_per_tick": 600, "call_cap_wu": 3000, "jitter_pct": 10, "handicap_pct": 120,
+      "prongs_max": 4, "harass_ops_max": 3, "enemy_prior": 2
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "schema": "meridian.recipe/1",
+  "id": "neutral.civilian_garrison",
+  "archetype": "neu_building",
+  "style": "auto",
+  "params": {
+    "kit": "garrison"
+  },
+  "meta": {
+    "stub": true,
+    "view_archetype": "neu_building",
+    "rule": "override"
+  }
+}

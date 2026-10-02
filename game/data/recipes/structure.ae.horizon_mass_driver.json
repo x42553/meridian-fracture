@@ -1,0 +1,13 @@
+{
+  "schema": "meridian.recipe/1",
+  "id": "structure.ae.horizon_mass_driver",
+  "archetype": "str_superweapon",
+  "style": "auto",
+  "params": {
+    "kit": "long_barrel"
+  },
+  "meta": {
+    "role": "superweapon",
+    "doc": "AE Horizon Mass Driver: 14 m rail barrel at 25 deg on a charcoal mount, six cyan capacitor rings, slews to the target azimuth."
+  }
+}

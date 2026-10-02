@@ -1,0 +1,1585 @@
+{
+  "schema": "meridian.balance.power_actions/1",
+  "powers": {
+    "power.ae.civil_defense_net": {
+      "bible_numbers": [
+        6,
+        25,
+        15
+      ],
+      "target": {
+        "mode": "point",
+        "vision": "current",
+        "radius_cells": 6
+      },
+      "actions": [
+        {
+          "op": "zone",
+          "inline": {
+            "kind": "buff",
+            "shape": "circle",
+            "radius_cells": 6,
+            "duration_s": 15,
+            "affects": "friendly",
+            "effects": [
+              {
+                "op": "stat_mod",
+                "stat": "sight_cells",
+                "delta_pct": 25,
+                "selector": "selector.combat_infantry"
+              },
+              {
+                "op": "immunity",
+                "kind": "suppression",
+                "selector": "selector.combat_infantry",
+                "duration_s": 15
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "power.ae.concealed_crossing": {
+      "bible_numbers": [
+        16,
+        4,
+        12
+      ],
+      "target": {
+        "mode": "line",
+        "vision": "current",
+        "length_cells": 16,
+        "width_cells": 4
+      },
+      "actions": [
+        {
+          "op": "zone",
+          "zone": "zone.smoke_dust_screen",
+          "shape": "line",
+          "length_cells": 16,
+          "width_cells": 4,
+          "duration_s": 12
+        }
+      ]
+    },
+    "power.ae.counterbattery_solution": {
+      "bible_numbers": [
+        8,
+        9,
+        12,
+        15
+      ],
+      "target": {
+        "mode": "point",
+        "vision": "any",
+        "radius_cells": 9
+      },
+      "actions": [
+        {
+          "op": "mark",
+          "find_radius_cells": 9,
+          "find_selector": "selector.land_artillery",
+          "lookback_s": 8,
+          "reveal": true,
+          "mark_s": 12,
+          "damage_bonus_pct": 15,
+          "bonus_from_selector": "selector.ground_combat_units"
+        }
+      ]
+    },
+    "power.ae.field_refurbishment": {
+      "bible_numbers": [
+        6,
+        3,
+        10
+      ],
+      "target": {
+        "mode": "point",
+        "vision": "current",
+        "radius_cells": 6
+      },
+      "actions": [
+        {
+          "op": "zone",
+          "inline": {
+            "kind": "repair",
+            "shape": "circle",
+            "radius_cells": 6,
+            "duration_s": 10,
+            "affects": "friendly",
+            "effects": [
+              {
+                "op": "heal",
+                "rate_pct_per_s": 3,
+                "cost": "free",
+                "cannot_fire": true,
+                "ends_on_move": true,
+                "selector": "selector.balance.land_vehicles"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "power.ae.recovery_priority": {
+      "bible_numbers": [
+        20,
+        25,
+        3
+      ],
+      "target": {
+        "mode": "none",
+        "vision": "current"
+      },
+      "actions": [
+        {
+          "op": "global_effect",
+          "duration_s": 20,
+          "effects": [
+            {
+              "op": "stat_mod",
+              "stat": "movement_speed",
+              "delta_pct": 25,
+              "selector": {
+                "unit_ids": [
+                  "unit.ae.reclaimer",
+                  "unit.ae.river_warden",
+                  "unit.shared.engineer"
+                ]
+              }
+            },
+            {
+              "op": "param_mod",
+              "scope": "ability",
+              "ability": "salvage",
+              "key": "action_s",
+              "set": 3,
+              "selector": {
+                "unit_ids": [
+                  "unit.ae.reclaimer",
+                  "unit.ae.river_warden",
+                  "unit.shared.engineer"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "power.ae.survey_network": {
+      "bible_numbers": [
+        7,
+        12
+      ],
+      "target": {
+        "mode": "point",
+        "vision": "any",
+        "radius_cells": 7
+      },
+      "actions": [
+        {
+          "op": "zone",
+          "inline": {
+            "kind": "reveal",
+            "shape": "circle",
+            "radius_cells": 7,
+            "duration_s": 12,
+            "affects": "friendly",
+            "params": {
+              "highlight_salvageable_wrecks": true
+            },
+            "effects": [
+              {
+                "op": "reveal",
+                "detect": false
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "power.def.false_front": {
+      "bible_numbers": [
+        30,
+        3,
+        6
+      ],
+      "target": {
+        "mode": "point",
+        "vision": "explored",
+        "radius_cells": 6
+      },
+      "actions": [
+        {
+          "op": "zone",
+          "zone": "zone.decoy_radar",
+          "count_n": 1,
+          "duration_s": 30,
+          "cluster_radius_cells": 6
+        },
+        {
+          "op": "zone",
+          "zone": "zone.decoy_tank",
+          "count_n": 3,
+          "duration_s": 30,
+          "cluster_radius_cells": 6
+        }
+      ]
+    },
+    "power.def.mobilization_order": {
+      "bible_numbers": [
+        20,
+        25
+      ],
+      "target": {
+        "mode": "none",
+        "vision": "current"
+      },
+      "actions": [
+        {
+          "op": "global_effect",
+          "duration_s": 20,
+          "effects": [
+            {
+              "op": "stat_mod",
+              "stat": "production_rate",
+              "delta_pct": 25,
+              "selector": {
+                "structure_ids": [
+                  "structure.shared.barracks",
+                  "structure.shared.factory"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "power.def.redundant_orders": {
+      "bible_numbers": [
+        6,
+        10
+      ],
+      "target": {
+        "mode": "point",
+        "vision": "current",
+        "radius_cells": 6
+      },
+      "actions": [
+        {
+          "op": "zone",
+          "inline": {
+            "kind": "buff",
+            "shape": "circle",
+            "radius_cells": 6,
+            "duration_s": 10,
+            "affects": "friendly",
+            "params": {
+              "clears_existing_emp_weapons_off": true
+            },
+            "effects": [
+              {
+                "op": "immunity",
+                "kind": "emp",
+                "selector": "selector.balance.land_vehicles",
+                "duration_s": 10
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "power.def.steel_advance": {
+      "bible_numbers": [
+        6,
+        20,
+        12
+      ],
+      "target": {
+        "mode": "point",
+        "vision": "current",
+        "radius_cells": 6
+      },
+      "actions": [
+        {
+          "op": "zone",
+          "inline": {
+            "kind": "buff",
+            "shape": "circle",
+            "radius_cells": 6,
+            "duration_s": 12,
+            "affects": "friendly",
+            "effects": [
+              {
+                "op": "resist_mod",
+                "pct": 20,
+                "selector": "selector.balance.land_vehicles"
+              },
+              {
+                "op": "stat_mod",
+                "stat": "movement_speed",
+                "delta_pct": -20,
+                "selector": "selector.balance.land_vehicles"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "power.def.transit_priority": {
+      "bible_numbers": [
+        7,
+        35,
+        15
+      ],
+      "target": {
+        "mode": "point",
+        "vision": "current",
+        "radius_cells": 7
+      },
+      "actions": [
+        {
+          "op": "zone",
+          "inline": {
+            "kind": "buff",
+            "shape": "circle",
+            "radius_cells": 7,
+            "duration_s": 15,
+            "affects": "friendly",
+            "effects": [
+              {
+                "op": "stat_mod",
+                "stat": "movement_speed",
+                "delta_pct": 35,
+                "selector": [
+                  "selector.balance.collectors",
+                  "selector.balance.ground_transports"
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "power.def.tremor_barrage": {
+      "bible_numbers": [
+        6,
+        4,
+        5,
+        8
+      ],
+      "warning_s": 6,
+      "target": {
+        "mode": "point",
+        "vision": "current",
+        "radius_cells": 5
+      },
+      "actions": [
+        {
+          "op": "strike",
+          "pattern": "random_in_radius",
+          "damage_ref": "tremor_barrage"
+        }
+      ]
+    },
+    "power.han.broken_contact": {
+      "bible_numbers": [
+        6,
+        20,
+        10
+      ],
+      "target": {
+        "mode": "point",
+        "vision": "current",
+        "radius_cells": 6
+      },
+      "actions": [
+        {
+          "op": "zone",
+          "inline": {
+            "kind": "buff",
+            "shape": "circle",
+            "radius_cells": 6,
+            "duration_s": 10,
+            "affects": "friendly",
+            "effects": [
+              {
+                "op": "stat_mod",
+                "stat": "movement_speed",
+                "delta_pct": 20,
+                "selector": "selector.ground_combat_units"
+              },
+              {
+                "op": "spawn_zone",
+                "zone": "zone.smoke_dust_screen",
+                "at": "initial_positions",
+                "duration_s": 6
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "power.han.central_priority": {
+      "bible_numbers": [
+        15,
+        20,
+        10
+      ],
+      "target": {
+        "mode": "none",
+        "vision": "current"
+      },
+      "actions": [
+        {
+          "op": "global_effect",
+          "duration_s": 15,
+          "effects": [
+            {
+              "op": "param_mod",
+              "scope": "ability",
+              "ability": "command_field",
+              "key": "damage_bonus_pct",
+              "set": 20,
+              "selector": {
+                "unit_ids": [
+                  "unit.han.dragon_command_walker",
+                  "unit.han.link_operator"
+                ],
+                "include_replacements": true
+              },
+              "stack_group": "command_field"
+            }
+          ]
+        }
+      ]
+    },
+    "power.han.repair_swarm": {
+      "bible_numbers": [
+        5,
+        2,
+        10
+      ],
+      "target": {
+        "mode": "point",
+        "vision": "current",
+        "radius_cells": 5
+      },
+      "actions": [
+        {
+          "op": "zone",
+          "inline": {
+            "kind": "repair",
+            "shape": "circle",
+            "radius_cells": 5,
+            "duration_s": 10,
+            "affects": "friendly",
+            "effects": [
+              {
+                "op": "heal",
+                "rate_pct_per_s": 2,
+                "cost": "free",
+                "stack_group": "repair_station",
+                "selector": [
+                  "selector.balance.unmanned_land_units",
+                  "selector.structures"
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "power.han.reserve_bandwidth": {
+      "bible_numbers": [
+        20,
+        3,
+        10
+      ],
+      "target": {
+        "mode": "none",
+        "vision": "current"
+      },
+      "actions": [
+        {
+          "op": "global_effect",
+          "duration_s": 20,
+          "effects": [
+            {
+              "op": "param_mod",
+              "scope": "ability",
+              "ability": "command_field",
+              "key": "radius_cells",
+              "add": 3,
+              "selector": {
+                "unit_ids": [
+                  "unit.han.dragon_command_walker",
+                  "unit.han.link_operator"
+                ],
+                "include_replacements": true
+              },
+              "stack_group": "command_field"
+            }
+          ]
+        }
+      ]
+    },
+    "power.han.software_surge": {
+      "bible_numbers": [
+        6,
+        25,
+        12,
+        3
+      ],
+      "target": {
+        "mode": "point",
+        "vision": "current",
+        "radius_cells": 6
+      },
+      "actions": [
+        {
+          "op": "zone",
+          "inline": {
+            "kind": "buff",
+            "shape": "circle",
+            "radius_cells": 6,
+            "duration_s": 12,
+            "affects": "friendly",
+            "effects": [
+              {
+                "op": "stat_mod",
+                "stat": "reload_interval_seconds",
+                "delta_pct": -25,
+                "selector": "selector.unmanned_combat_units"
+              },
+              {
+                "op": "disable",
+                "what": "weapons",
+                "duration_s": 3,
+                "selector": "selector.unmanned_combat_units",
+                "on_expire": true
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "power.han.wideband_scan": {
+      "bible_numbers": [
+        7,
+        6,
+        2
+      ],
+      "warning_s": 2,
+      "target": {
+        "mode": "point",
+        "vision": "any",
+        "radius_cells": 7
+      },
+      "actions": [
+        {
+          "op": "zone",
+          "inline": {
+            "kind": "reveal",
+            "shape": "circle",
+            "radius_cells": 7,
+            "duration_s": 6,
+            "affects": "friendly",
+            "effects": [
+              {
+                "op": "reveal",
+                "detect": true
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "power.napc.combined_arms_window": {
+      "bible_numbers": [
+        15,
+        6,
+        10
+      ],
+      "target": {
+        "mode": "point",
+        "vision": "current",
+        "radius_cells": 6
+      },
+      "actions": [
+        {
+          "op": "zone",
+          "inline": {
+            "kind": "buff",
+            "shape": "circle",
+            "radius_cells": 6,
+            "duration_s": 15,
+            "affects": "friendly",
+            "effects": [
+              {
+                "op": "stat_mod",
+                "stat": "weapon_damage",
+                "delta_pct": 10,
+                "selector": [
+                  "selector.combat_infantry",
+                  "selector.land_combat_vehicles",
+                  "selector.aircraft"
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "power.napc.coordinated_advance": {
+      "bible_numbers": [
+        6,
+        25,
+        12
+      ],
+      "target": {
+        "mode": "point",
+        "vision": "current",
+        "radius_cells": 6
+      },
+      "actions": [
+        {
+          "op": "zone",
+          "inline": {
+            "kind": "buff",
+            "shape": "circle",
+            "radius_cells": 6,
+            "duration_s": 12,
+            "affects": "friendly",
+            "params": {
+              "clears_existing_suppression": true
+            },
+            "effects": [
+              {
+                "op": "stat_mod",
+                "stat": "movement_speed",
+                "delta_pct": 25,
+                "selector": "selector.balance.infantry"
+              },
+              {
+                "op": "immunity",
+                "kind": "suppression",
+                "selector": "selector.balance.infantry",
+                "duration_s": 12
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "power.napc.field_repair_drop": {
+      "bible_numbers": [
+        5,
+        2,
+        10
+      ],
+      "target": {
+        "mode": "point",
+        "vision": "current",
+        "radius_cells": 5
+      },
+      "actions": [
+        {
+          "op": "summon",
+          "summon_id": "summon.napc.cargo_aircraft",
+          "at": "target"
+        },
+        {
+          "op": "zone",
+          "zone": "zone.repair_station",
+          "radius_cells": 5,
+          "duration_s": 10,
+          "delay_s": 5,
+          "fizzle_if_summon_lost": true
+        }
+      ],
+      "designer_params": [
+        "delay_s"
+      ]
+    },
+    "power.napc.floating_workshop": {
+      "bible_numbers": [
+        20,
+        5,
+        1.5
+      ],
+      "target": {
+        "mode": "point",
+        "vision": "current",
+        "radius_cells": 5
+      },
+      "actions": [
+        {
+          "op": "summon",
+          "summon_id": "summon.napc.pontoon",
+          "at": "target",
+          "lifetime_s": 20
+        },
+        {
+          "op": "zone",
+          "inline": {
+            "kind": "repair",
+            "shape": "circle",
+            "radius_cells": 5,
+            "duration_s": 20,
+            "affects": "friendly",
+            "follow_source": true,
+            "params": {
+              "terrain": "land_or_water"
+            },
+            "effects": [
+              {
+                "op": "heal",
+                "rate_pct_per_s": 1.5,
+                "cost": "free",
+                "stack_group": "repair_station",
+                "selector": "selector.balance.vehicles_and_ships"
+              }
+            ]
+          },
+          "fizzle_if_summon_lost": true
+        }
+      ]
+    },
+    "power.napc.rapid_turnaround": {
+      "bible_numbers": [
+        1,
+        50,
+        20
+      ],
+      "target": {
+        "mode": "own_structure",
+        "vision": "current",
+        "structure_ids": [
+          "structure.shared.airfield"
+        ],
+        "powered_required": true
+      },
+      "actions": [
+        {
+          "op": "global_effect",
+          "duration_s": 20,
+          "scope": "chosen_target",
+          "effects": [
+            {
+              "op": "stat_mod",
+              "stat": "rearm_rate",
+              "delta_pct": 50,
+              "selector": {
+                "structure_ids": [
+                  "structure.shared.airfield"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "power.napc.uav_sweep": {
+      "bible_numbers": [
+        7,
+        12
+      ],
+      "target": {
+        "mode": "point",
+        "vision": "any",
+        "radius_cells": 7
+      },
+      "actions": [
+        {
+          "op": "summon",
+          "summon_id": "summon.napc.uav",
+          "at": "target",
+          "lifetime_s": 12
+        }
+      ]
+    },
+    "power.nec.armored_overwatch": {
+      "bible_numbers": [
+        15,
+        6,
+        10
+      ],
+      "target": {
+        "mode": "point",
+        "vision": "current",
+        "radius_cells": 6
+      },
+      "actions": [
+        {
+          "op": "zone",
+          "inline": {
+            "kind": "buff",
+            "shape": "circle",
+            "radius_cells": 6,
+            "duration_s": 15,
+            "affects": "friendly",
+            "effects": [
+              {
+                "op": "stat_mod",
+                "stat": "weapon_range_cells",
+                "delta_pct": 10,
+                "selector": "selector.tanks",
+                "cond": [
+                  {
+                    "code": "stationary",
+                    "for_s": 0
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "designer_params": [
+        "for_s"
+      ]
+    },
+    "power.nec.counterbattery_mission": {
+      "bible_numbers": [
+        5,
+        6,
+        4
+      ],
+      "warning_s": 5,
+      "target": {
+        "mode": "point",
+        "vision": "current",
+        "radius_cells": 4
+      },
+      "actions": [
+        {
+          "op": "strike",
+          "pattern": "random_in_radius",
+          "damage_ref": "counterbattery_mission"
+        }
+      ]
+    },
+    "power.nec.emergency_earthworks": {
+      "bible_numbers": [
+        5,
+        20,
+        15
+      ],
+      "target": {
+        "mode": "point",
+        "vision": "current",
+        "radius_cells": 5
+      },
+      "actions": [
+        {
+          "op": "zone",
+          "inline": {
+            "kind": "buff",
+            "shape": "circle",
+            "radius_cells": 5,
+            "duration_s": 15,
+            "affects": "friendly",
+            "effects": [
+              {
+                "op": "resist_mod",
+                "pct": 20,
+                "groups": [
+                  "explosive"
+                ],
+                "selector": [
+                  "selector.combat_infantry",
+                  "selector.defensive_structures"
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "power.nec.silent_watch": {
+      "bible_numbers": [
+        6,
+        15
+      ],
+      "target": {
+        "mode": "point",
+        "vision": "current",
+        "radius_cells": 6
+      },
+      "actions": [
+        {
+          "op": "zone",
+          "inline": {
+            "kind": "buff",
+            "shape": "circle",
+            "radius_cells": 6,
+            "duration_s": 15,
+            "affects": "friendly",
+            "effects": [
+              {
+                "op": "camouflage",
+                "max_s": 15,
+                "breaks_on": [
+                  "move",
+                  "fire",
+                  "detect"
+                ],
+                "selector": "selector.balance.ground_units",
+                "cond": [
+                  {
+                    "code": "stationary",
+                    "for_s": 0
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "designer_params": [
+        "for_s"
+      ]
+    },
+    "power.nec.survey_drone": {
+      "bible_numbers": [
+        6,
+        15
+      ],
+      "target": {
+        "mode": "point",
+        "vision": "any",
+        "radius_cells": 6
+      },
+      "actions": [
+        {
+          "op": "summon",
+          "summon_id": "summon.nec.survey_drone",
+          "at": "target",
+          "lifetime_s": 15
+        }
+      ]
+    },
+    "power.nec.treaty_coordination": {
+      "bible_numbers": [
+        20,
+        15,
+        10
+      ],
+      "target": {
+        "mode": "none",
+        "vision": "current"
+      },
+      "actions": [
+        {
+          "op": "global_effect",
+          "duration_s": 20,
+          "effects": [
+            {
+              "op": "param_mod",
+              "scope": "ability",
+              "ability": "relay_field",
+              "key": "damage_bonus_pct",
+              "set": 15,
+              "selector": {
+                "unit_ids": [
+                  "unit.nec.fen_recon_carrier"
+                ],
+                "structure_ids": [
+                  "structure.nec.relay"
+                ]
+              },
+              "stack_group": "relay_field"
+            }
+          ]
+        }
+      ]
+    },
+    "power.olm.capacitor_discharge": {
+      "bible_numbers": [
+        6,
+        20,
+        10,
+        4
+      ],
+      "target": {
+        "mode": "point",
+        "vision": "current",
+        "radius_cells": 6
+      },
+      "actions": [
+        {
+          "op": "zone",
+          "inline": {
+            "kind": "buff",
+            "shape": "circle",
+            "radius_cells": 6,
+            "duration_s": 10,
+            "affects": "friendly",
+            "effects": [
+              {
+                "op": "stat_mod",
+                "stat": "weapon_damage",
+                "delta_pct": 20,
+                "selector": {
+                  "kinds": [
+                    "unit",
+                    "structure"
+                  ],
+                  "has_weapon_tags": [
+                    "thermal_beam"
+                  ]
+                }
+              },
+              {
+                "op": "disable",
+                "what": "weapons",
+                "duration_s": 4,
+                "selector": {
+                  "kinds": [
+                    "unit",
+                    "structure"
+                  ],
+                  "has_weapon_tags": [
+                    "thermal_beam"
+                  ]
+                },
+                "on_expire": true
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "power.olm.dust_screen": {
+      "bible_numbers": [
+        6,
+        12,
+        30
+      ],
+      "target": {
+        "mode": "point",
+        "vision": "current",
+        "radius_cells": 6
+      },
+      "actions": [
+        {
+          "op": "zone",
+          "zone": "zone.smoke_dust_screen",
+          "radius_cells": 6,
+          "duration_s": 12
+        }
+      ]
+    },
+    "power.olm.false_convoy": {
+      "bible_numbers": [
+        4,
+        25,
+        1
+      ],
+      "target": {
+        "mode": "point",
+        "vision": "explored"
+      },
+      "actions": [
+        {
+          "op": "zone",
+          "zone": "zone.decoy_light_vehicle",
+          "count_n": 4,
+          "duration_s": 25
+        }
+      ]
+    },
+    "power.olm.mobile_workshop": {
+      "bible_numbers": [
+        5,
+        2,
+        15
+      ],
+      "target": {
+        "mode": "point",
+        "vision": "current",
+        "radius_cells": 5
+      },
+      "actions": [
+        {
+          "op": "zone",
+          "inline": {
+            "kind": "repair",
+            "shape": "circle",
+            "radius_cells": 5,
+            "duration_s": 15,
+            "affects": "friendly",
+            "hp": 600,
+            "params": {
+              "body": "repair_drone_station",
+              "terrain": "land"
+            },
+            "effects": [
+              {
+                "op": "heal",
+                "rate_pct_per_s": 2,
+                "cost": "free",
+                "stack_group": "repair_station",
+                "selector": "selector.balance.land_vehicles"
+              }
+            ]
+          }
+        }
+      ],
+      "designer_params": [
+        "hp"
+      ]
+    },
+    "power.olm.open_corridor": {
+      "bible_numbers": [
+        6,
+        25,
+        12
+      ],
+      "target": {
+        "mode": "point",
+        "vision": "current",
+        "radius_cells": 6
+      },
+      "actions": [
+        {
+          "op": "zone",
+          "inline": {
+            "kind": "buff",
+            "shape": "circle",
+            "radius_cells": 6,
+            "duration_s": 12,
+            "affects": "friendly",
+            "effects": [
+              {
+                "op": "stat_mod",
+                "stat": "movement_speed",
+                "delta_pct": 25,
+                "selector": "selector.land_combat_vehicles",
+                "membership": "latched"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "power.olm.straits_crossfire": {
+      "bible_numbers": [
+        6,
+        10,
+        20,
+        15
+      ],
+      "target": {
+        "mode": "point",
+        "vision": "current",
+        "radius_cells": 6
+      },
+      "actions": [
+        {
+          "op": "zone",
+          "inline": {
+            "kind": "buff",
+            "shape": "circle",
+            "radius_cells": 6,
+            "duration_s": 15,
+            "affects": "friendly",
+            "effects": [
+              {
+                "op": "stat_mod",
+                "stat": "weapon_range_cells",
+                "delta_pct": 10,
+                "selector": [
+                  "selector.combat_infantry",
+                  "selector.ships"
+                ]
+              },
+              {
+                "op": "stat_mod",
+                "stat": "sight_cells",
+                "delta_pct": 20,
+                "selector": [
+                  "selector.combat_infantry",
+                  "selector.ships"
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "power.pd.expeditionary_workshop": {
+      "bible_numbers": [
+        20,
+        5,
+        1.5
+      ],
+      "target": {
+        "mode": "point",
+        "vision": "current",
+        "radius_cells": 5
+      },
+      "actions": [
+        {
+          "op": "summon",
+          "summon_id": "summon.pd.workshop_aircraft",
+          "at": "target"
+        },
+        {
+          "op": "zone",
+          "inline": {
+            "kind": "repair",
+            "shape": "circle",
+            "radius_cells": 5,
+            "duration_s": 20,
+            "affects": "friendly",
+            "params": {
+              "terrain": "land_or_water"
+            },
+            "effects": [
+              {
+                "op": "heal",
+                "rate_pct_per_s": 1.5,
+                "cost": "free",
+                "stack_group": "repair_station",
+                "selector": "selector.balance.vehicles_and_ships"
+              }
+            ]
+          },
+          "delay_s": 5,
+          "fizzle_if_summon_lost": true
+        }
+      ],
+      "designer_params": [
+        "delay_s"
+      ]
+    },
+    "power.pd.feint_landing": {
+      "bible_numbers": [
+        3,
+        25
+      ],
+      "target": {
+        "mode": "point",
+        "vision": "explored"
+      },
+      "actions": [
+        {
+          "op": "zone",
+          "zone": "zone.decoy_transport",
+          "count_n": 3,
+          "duration_s": 25
+        }
+      ]
+    },
+    "power.pd.joint_landing": {
+      "bible_numbers": [
+        15,
+        20,
+        6
+      ],
+      "target": {
+        "mode": "none",
+        "vision": "current"
+      },
+      "actions": [
+        {
+          "op": "global_effect",
+          "duration_s": 15,
+          "params": {
+            "refresh_on_reboard": false
+          },
+          "effects": [
+            {
+              "op": "resist_mod",
+              "pct": 20,
+              "selector": "selector.balance.ground_units",
+              "cond": [
+                {
+                  "code": "recently_disembarked",
+                  "within_s": 6
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "power.pd.long_watch": {
+      "bible_numbers": [
+        7,
+        18
+      ],
+      "target": {
+        "mode": "point",
+        "vision": "any",
+        "radius_cells": 7
+      },
+      "actions": [
+        {
+          "op": "zone",
+          "inline": {
+            "kind": "reveal",
+            "shape": "circle",
+            "radius_cells": 7,
+            "duration_s": 18,
+            "affects": "friendly",
+            "effects": [
+              {
+                "op": "reveal",
+                "detect": false
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "power.pd.maritime_patrol": {
+      "bible_numbers": [
+        20,
+        6,
+        12
+      ],
+      "target": {
+        "mode": "line",
+        "vision": "any",
+        "length_cells": 20,
+        "width_cells": 6
+      },
+      "actions": [
+        {
+          "op": "summon",
+          "summon_id": "summon.pd.patrol_aircraft",
+          "at": "target",
+          "lifetime_s": 12
+        }
+      ]
+    },
+    "power.pd.precision_window": {
+      "bible_numbers": [
+        6,
+        20,
+        10
+      ],
+      "target": {
+        "mode": "point",
+        "vision": "current",
+        "radius_cells": 6
+      },
+      "actions": [
+        {
+          "op": "zone",
+          "inline": {
+            "kind": "buff",
+            "shape": "circle",
+            "radius_cells": 6,
+            "duration_s": 10,
+            "affects": "friendly",
+            "effects": [
+              {
+                "op": "stat_mod",
+                "stat": "weapon_damage",
+                "delta_pct": 20,
+                "selector": [
+                  "selector.aircraft",
+                  "selector.ships"
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "power.sap.assault_coordination": {
+      "bible_numbers": [
+        6,
+        15,
+        12
+      ],
+      "target": {
+        "mode": "point",
+        "vision": "current",
+        "radius_cells": 6
+      },
+      "actions": [
+        {
+          "op": "zone",
+          "inline": {
+            "kind": "buff",
+            "shape": "circle",
+            "radius_cells": 6,
+            "duration_s": 12,
+            "affects": "friendly",
+            "effects": [
+              {
+                "op": "stat_mod",
+                "stat": "reload_interval_seconds",
+                "delta_pct": -15,
+                "selector": "selector.tanks"
+              },
+              {
+                "op": "stat_mod",
+                "stat": "sight_cells",
+                "delta_pct": 15,
+                "selector": "selector.tanks"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "power.sap.counterlaunch_plot": {
+      "bible_numbers": [
+        8,
+        5
+      ],
+      "warning_s": 5,
+      "target": {
+        "mode": "point",
+        "vision": "current",
+        "radius_cells": 8
+      },
+      "actions": [
+        {
+          "op": "mark",
+          "find_radius_cells": 8,
+          "find_selector": "selector.land_artillery",
+          "lookback_s": 8,
+          "then_strike": {
+            "damage_ref": "counterlaunch_plot",
+            "pattern": "fixed",
+            "at": "marked_positions"
+          }
+        }
+      ]
+    },
+    "power.sap.emergency_fortification": {
+      "bible_numbers": [
+        6,
+        25,
+        15
+      ],
+      "target": {
+        "mode": "point",
+        "vision": "current",
+        "radius_cells": 6
+      },
+      "actions": [
+        {
+          "op": "zone",
+          "inline": {
+            "kind": "buff",
+            "shape": "circle",
+            "radius_cells": 6,
+            "duration_s": 15,
+            "affects": "friendly",
+            "effects": [
+              {
+                "op": "resist_mod",
+                "pct": 25,
+                "selector": [
+                  "selector.defensive_structures",
+                  "selector.balance.production_structures"
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "power.sap.mobile_reserve": {
+      "bible_numbers": [
+        7,
+        30,
+        15
+      ],
+      "target": {
+        "mode": "point",
+        "vision": "current",
+        "radius_cells": 7
+      },
+      "actions": [
+        {
+          "op": "zone",
+          "inline": {
+            "kind": "buff",
+            "shape": "circle",
+            "radius_cells": 7,
+            "duration_s": 15,
+            "affects": "friendly",
+            "effects": [
+              {
+                "op": "stat_mod",
+                "stat": "movement_speed",
+                "delta_pct": 30,
+                "selector": "selector.balance.ground_transports"
+              },
+              {
+                "op": "param_mod",
+                "scope": "ability",
+                "ability": "transport",
+                "key": "unload_moving_speed_pct",
+                "set": 50,
+                "selector": "selector.balance.ground_transports"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "power.sap.protected_advance": {
+      "bible_numbers": [
+        12,
+        6,
+        15
+      ],
+      "target": {
+        "mode": "point",
+        "vision": "current",
+        "radius_cells": 6
+      },
+      "actions": [
+        {
+          "op": "zone",
+          "inline": {
+            "kind": "buff",
+            "shape": "circle",
+            "radius_cells": 6,
+            "duration_s": 12,
+            "affects": "friendly",
+            "effects": [
+              {
+                "op": "resist_mod",
+                "pct": 15,
+                "selector": [
+                  "selector.combat_infantry",
+                  "selector.land_combat_vehicles"
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "power.sap.recon_balloon": {
+      "bible_numbers": [
+        20,
+        6
+      ],
+      "target": {
+        "mode": "point",
+        "vision": "any",
+        "radius_cells": 6
+      },
+      "actions": [
+        {
+          "op": "summon",
+          "summon_id": "summon.sap.recon_balloon",
+          "at": "target",
+          "lifetime_s": 20
+        }
+      ]
+    }
+  }
+}

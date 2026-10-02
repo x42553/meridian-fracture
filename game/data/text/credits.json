@@ -1,0 +1,67 @@
+{
+ "format": 1,
+ "title": "Meridian Fracture",
+ "sections": [
+  {
+   "heading": "Design and Engineering",
+   "lines": [
+    "The Meridian Fracture team"
+   ]
+  },
+  {
+   "heading": "Game Engine",
+   "lines": [
+    "Godot Engine 4.7",
+    "Copyright (c) 2014-present Godot Engine contributors",
+    "Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur",
+    "Released under the MIT License",
+    "godotengine.org"
+   ]
+  },
+  {
+   "heading": "Typefaces",
+   "lines": [
+    "Rajdhani, Indian Type Foundry (SIL Open Font License 1.1)",
+    "Orbitron, The Orbitron Project Authors (SIL Open Font License 1.1)",
+    "Share Tech Mono, Carrois Type Design, Ralph du Carrois (SIL Open Font License 1.1)",
+    "The full licence texts ship beside the font files"
+   ]
+  },
+  {
+   "heading": "Audio",
+   "lines": [
+    "All sound effects, ambience and music are synthesised by the game's own tools",
+    "Announcer and unit speech is generated with the Kokoro-82M text-to-speech model (Apache-2.0)",
+    "No third-party recordings or samples are used"
+   ]
+  },
+  {
+   "heading": "The Eight Powers",
+   "lines": [
+    "North American Peace Corps",
+    "New European Confederation",
+    "Order of the Levant and Mediterranean",
+    "Democratic Eurasian Federation",
+    "Pacific Dominion",
+    "Han Empire",
+    "African Empire",
+    "South Asian Protectorate"
+   ]
+  },
+  {
+   "heading": "Open Source Notices",
+   "lines": [
+    "Godot Engine is distributed under the MIT License:",
+    "Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files, to deal in the software without restriction, including the rights to use, copy, modify, merge, publish, distribute, sublicense and sell copies, subject to the copyright notice and this permission notice being included in all copies or substantial portions.",
+    "THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND.",
+    "The fonts are licensed under the SIL Open Font License, Version 1.1: they may be used, studied, copied, merged, embedded, modified, redistributed and sold, but not sold by themselves, and their Reserved Font Names may not be used for modified versions."
+   ]
+  },
+  {
+   "heading": "Thanks",
+   "lines": [
+    "To everyone who played early builds on a home network and told us where it broke."
+   ]
+  }
+ ]
+}

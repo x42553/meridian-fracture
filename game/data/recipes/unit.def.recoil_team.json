@@ -1,0 +1,124 @@
+{
+  "schema": "meridian.recipe/1",
+  "id": "unit.def.recoil_team",
+  "archetype": "inf_at",
+  "style": "auto",
+  "params": {
+    "n": 3,
+    "launcher": "tube",
+    "helmet": "cap"
+  },
+  "ops_after": [
+    {
+      "for": "i",
+      "n": "n",
+      "do": [
+        {
+          "let": {
+            "a0": "(n) == 2 ? PI*0.5 : 0",
+            "fx": "((n) == 1 ? 0 : sin(i*TAU/(n) + a0)*0.44) + (rnd(i)-0.5)*0.05",
+            "fz": "((n) == 1 ? 0 : -cos(i*TAU/(n) + a0)*0.44) + (rnd(i+9)-0.5)*0.05",
+            "ph": "(i + 0.5)/(n)"
+          }
+        },
+        {
+          "if": "i != 2",
+          "then": [
+            [
+              "member",
+              "i",
+              "n"
+            ],
+            {
+              "part": {
+                "kind": "body_bob",
+                "pivot": [
+                  0,
+                  0,
+                  0
+                ],
+                "param": "ph",
+                "extra": 0
+              },
+              "do": [
+                {
+                  "push": {
+                    "pos": [
+                      "fx",
+                      0,
+                      "fz"
+                    ]
+                  },
+                  "do": [
+                    [
+                      "tier",
+                      2
+                    ],
+                    [
+                      "brush",
+                      "sec"
+                    ],
+                    [
+                      "cyl",
+                      [
+                        0.2,
+                        0.72,
+                        0.16
+                      ],
+                      [
+                        0.2,
+                        0.72,
+                        -0.34
+                      ],
+                      0.105,
+                      6,
+                      0.0
+                    ],
+                    [
+                      "brush",
+                      "dark"
+                    ],
+                    [
+                      "frustum",
+                      [
+                        0.2,
+                        0.72,
+                        0.16
+                      ],
+                      [
+                        0.2,
+                        0.72,
+                        0.34
+                      ],
+                      0.105,
+                      0.17,
+                      6,
+                      false
+                    ],
+                    [
+                      "tier",
+                      0
+                    ]
+                  ]
+                }
+              ]
+            },
+            [
+              "member",
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "meta": {
+    "role": "anti_tank_infantry",
+    "icon": {
+      "yaw": 150,
+      "pitch": 24,
+      "margin": 0.8
+    }
+  }
+}

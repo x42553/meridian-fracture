@@ -1,0 +1,74 @@
+{
+  "schema": "meridian.archetype/1",
+  "id": "gen_defense",
+  "size_class": "structure",
+  "meta": {
+    "motion": "static",
+    "doc": "Generic advanced-defence archetype (2x2) used by generated stubs until str_defense_adv exists: `kit` selects one of the eight faction silhouettes of art_direction 5.9.4 (native macros adv_*)."
+  },
+  "defaults": { "kit": "bulwark_cannon" },
+  "ops": [
+    ["bevel", 0.05],
+    {
+      "call": "foundation",
+      "args": { "fw": "fw", "fh": "fh", "depth": 1.2, "col": "concrete", "edge": "dark", "chevron": 1, "acc": "acc" }
+    },
+    {
+      "switch": "kit",
+      "cases": {
+        "bulwark_cannon": [
+          {
+            "call": "adv_bulwark_cannon",
+            "args": {  }
+          }
+        ],
+        "lance_rail": [
+          {
+            "call": "adv_lance_rail",
+            "args": {  }
+          }
+        ],
+        "sunwall": [
+          {
+            "call": "adv_sunwall",
+            "args": {  }
+          }
+        ],
+        "citadel_mortar": [
+          {
+            "call": "adv_citadel_mortar",
+            "args": {  }
+          }
+        ],
+        "sea_spear": [
+          {
+            "call": "adv_sea_spear",
+            "args": {  }
+          }
+        ],
+        "dragon_tooth": [
+          {
+            "call": "adv_dragon_tooth",
+            "args": {  }
+          }
+        ],
+        "forge_cannon": [
+          {
+            "call": "adv_forge_cannon",
+            "args": {  }
+          }
+        ],
+        "bastion_tower": [
+          {
+            "call": "adv_bastion_tower",
+            "args": {  }
+          }
+        ]
+      }
+    },
+    ["meta", "footprint", ["fw", "fh"]],
+    ["socket", "door_exit", ["door_cx", 0.16, "door_cz"], [0, 0, 1]],
+    ["socket", "weld0", [0.8, 1.2, 0.5], [0, 1, 0]],
+    ["socket", "top", [0, 4.2, 0], [0, 1, 0]]
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "schema": 1,
+  "_doc": "SAP doctrine patch: defensive expansion - the second Refinery comes early and a Watchtower / AT turret pair guards it; the army share stays healthy through the shared floor.",
+  "faction": "faction.sap",
+  "base": {
+    "targets_patch": {
+      "append": [
+        {
+          "id": "t_wt1",
+          "from_s": 240,
+          "struct": "watchtower",
+          "n": 1
+        },
+        {
+          "id": "t_wt2",
+          "from_s": 420,
+          "struct": "watchtower",
+          "n": 2
+        },
+        {
+          "id": "t_at1",
+          "from_s": 420,
+          "struct": "at_turret",
+          "n": 1
+        }
+      ]
+    }
+  },
+  "rosters": {
+    "roster.sap.vanilla": {},
+    "roster.sap.india": {},
+    "roster.sap.pakistan": {},
+    "roster.sap.thailand": {
+      "composition_patch": {
+        "buildup": {
+          "AMPH_TRANSPORT": 4
+        },
+        "midgame": {
+          "AMPH_TRANSPORT": 6
+        },
+        "late": {
+          "AMPH_TRANSPORT": 4
+        }
+      }
+    }
+  }
+}

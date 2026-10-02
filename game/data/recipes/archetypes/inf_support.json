@@ -1,0 +1,208 @@
+{
+  "schema": "meridian.archetype/1",
+  "id": "inf_support",
+  "size_class": "inf",
+  "scale": 1.25,
+  "meta": {
+    "motion": "foot",
+    "doc": "Support specialists (inf_support): n 1-2, gadget medic|radio|scope|tool|echo|shield. Sockets muzzle0_0, muzzle1_0, top."
+  },
+  "defaults": {"n": 2, "gadget": "medic", "helmet": "round"},
+  "slots": {"gear": []},
+  "ops": [
+    ["meta", "members", "n"],
+    {
+      "for": "i",
+      "n": "n",
+      "do": [
+        {
+          "let": {
+            "a0": "(n) == 2 ? PI*0.5 : 0",
+            "fx": "((n) == 1 ? 0 : sin(i*TAU/(n) + a0)*0.36) + (rnd(i)-0.5)*0.05",
+            "fz": "((n) == 1 ? 0 : -cos(i*TAU/(n) + a0)*0.36) + (rnd(i+9)-0.5)*0.05",
+            "ph": "(i + 0.5)/(n)"
+          }
+        },
+        {
+          "switch": "gadget",
+          "cases": {
+            "medic": [
+              {
+                "call": "soldier",
+                "args": {
+                  "x": "fx",
+                  "z": "fz",
+                  "phase": "ph",
+                  "member": "i",
+                  "count": "n",
+                  "kit": "'medic'",
+                  "helmet": "helmet",
+                  "pack": "'large'"
+                }
+              }
+            ],
+            "radio": [
+              {
+                "call": "soldier",
+                "args": {
+                  "x": "fx",
+                  "z": "fz",
+                  "phase": "ph",
+                  "member": "i",
+                  "count": "n",
+                  "kit": "i == 0 ? 'rifle' : 'scope'",
+                  "helmet": "helmet",
+                  "pack": "'small'"
+                }
+              }
+            ],
+            "scope": [
+              {
+                "call": "soldier",
+                "args": {
+                  "x": "fx",
+                  "z": "fz",
+                  "phase": "ph",
+                  "member": "i",
+                  "count": "n",
+                  "kit": "i == 0 ? 'scope' : 'rifle'",
+                  "helmet": "helmet",
+                  "pack": "'small'"
+                }
+              }
+            ],
+            "tool": [
+              {
+                "call": "soldier",
+                "args": {
+                  "x": "fx",
+                  "z": "fz",
+                  "phase": "ph",
+                  "member": "i",
+                  "count": "n",
+                  "kit": "'tool'",
+                  "helmet": "'cap'",
+                  "pack": "'large'"
+                }
+              }
+            ],
+            "shield": [
+              {
+                "call": "soldier",
+                "args": {
+                  "x": "fx",
+                  "z": "fz",
+                  "phase": "ph",
+                  "member": "i",
+                  "count": "n",
+                  "kit": "i == 0 ? 'shield' : 'rifle'",
+                  "helmet": "helmet",
+                  "pack": "'small'"
+                }
+              }
+            ],
+            "echo": [
+              {
+                "call": "soldier",
+                "args": {
+                  "x": "fx",
+                  "z": "fz",
+                  "phase": "ph",
+                  "member": "i",
+                  "count": "n",
+                  "kit": "'scope'",
+                  "helmet": "helmet",
+                  "pack": "'small'"
+                }
+              }
+            ]
+          },
+          "default": [
+            {
+              "call": "soldier",
+              "args": {
+                "x": "fx",
+                "z": "fz",
+                "phase": "ph",
+                "member": "i",
+                "count": "n",
+                "kit": "i == 0 ? 'rifle' : 'scope'",
+                "helmet": "helmet",
+                "pack": "'small'"
+              }
+            }
+          ]
+        },
+        {
+          "if": "(gadget == 'radio' or gadget == 'scope') and i == 0",
+          "then": [
+            ["member", "i", "n"],
+            {
+              "part": {"kind": "body_bob", "pivot": [0, 0, 0], "param": "ph", "extra": 0},
+              "do": [
+                {
+                  "push": {"pos": ["fx", 0, "fz"]},
+                  "do": [
+                    ["brush", "dark"],
+                    ["box", [0.0, 0.72, 0.27], [0.22, 0.28, 0.12], 0.01],
+                    ["brush", "metal", "metal"],
+                    ["cyl", [0.08, 0.86, 0.28], [0.1, 1.16, 0.3], 0.008, 4, 0.0, false]
+                  ]
+                }
+              ]
+            },
+            ["member", 0, 0]
+          ]
+        },
+        {
+          "if": "gadget == 'medic'",
+          "then": [
+            ["member", "i", "n"],
+            {
+              "part": {"kind": "body_bob", "pivot": [0, 0, 0], "param": "ph", "extra": 0},
+              "do": [
+                {
+                  "push": {"pos": ["fx", 0, "fz"]},
+                  "do": [
+                    ["brush", "sec"],
+                    ["box", [0.0, 0.62, 0.34], [0.34, 0.3, 0.16], 0.02],
+                    ["brush", "acc"],
+                    ["box", [0.0, 0.62, 0.43], [0.3, 0.06, 0.02], 0.0]
+                  ]
+                }
+              ]
+            },
+            ["member", 0, 0]
+          ]
+        },
+        {
+          "if": "gadget == 'echo'",
+          "then": [
+            ["member", "i", "n"],
+            {
+              "part": {"kind": "body_bob", "pivot": [0, 0, 0], "param": "ph", "extra": 0},
+              "do": [
+                {
+                  "push": {"pos": ["fx", 0, "fz"]},
+                  "do": [
+                    ["brush", "metal", "metal"],
+                    ["cyl", [-0.06, 0.8, 0.3], [-0.14, 1.14, 0.36], 0.008, 4, 0.0, false],
+                    ["cyl", [0.1, 0.8, 0.3], [0.2, 1.08, 0.34], 0.008, 4, 0.0, false],
+                    ["brush", "light", "emissive"],
+                    ["box", [-0.14, 1.15, 0.36], [0.04, 0.04, 0.04], 0.0],
+                    ["box", [0.2, 1.09, 0.34], [0.04, 0.04, 0.04], 0.0]
+                  ]
+                }
+              ]
+            },
+            ["member", 0, 0]
+          ]
+        }
+      ]
+    },
+    {"slot": "gear"},
+    ["socket", "muzzle0_0", [0.2, 0.64, -0.68], [0, 0, -1]],
+    ["socket", "muzzle1_0", [0.2, 0.64, -0.68], [0, 0, -1]],
+    ["socket", "top", [0, 1.35, 0], [0, 1, 0]]
+  ]
+}

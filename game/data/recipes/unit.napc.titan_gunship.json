@@ -1,0 +1,110 @@
+{
+ "schema": "meridian.recipe/1",
+ "id": "unit.napc.titan_gunship",
+ "archetype": "air_heli",
+ "style": "auto",
+ "params": {
+  "rotors": "main",
+  "stubs": "pods"
+ },
+ "ops_after": [
+  [
+   "brush",
+   "sec"
+  ],
+  {
+   "mirror_x": [
+    [
+     "box",
+     [
+      0.42,
+      0.72,
+      0.0
+     ],
+     [
+      0.05,
+      0.28,
+      1.2
+     ],
+     0.0
+    ]
+   ]
+  },
+  {
+   "mirror_x": [
+    {
+     "call": "team_panel",
+     "args": {
+      "center": [
+       1.05,
+       1.035,
+       0.1
+      ],
+      "size": [
+       0.55,
+       0.02,
+       0.42
+      ]
+     }
+    }
+   ]
+  },
+  [
+   "tier",
+   2
+  ],
+  {
+   "call": "beacon",
+   "args": {
+    "pos": [
+     0,
+     1.55,
+     0.6
+    ],
+    "r": 0.08,
+    "col": "acc",
+    "phase": 0.0
+   }
+  },
+  [
+   "tier",
+   0
+  ],
+  {
+   "mirror_x": [
+    {
+     "push": {
+      "pos": [
+       0.045,
+       1.66,
+       3.5
+      ],
+      "euler": [
+       0,
+       90,
+       0
+      ]
+     },
+     "do": [
+      {
+       "let": {
+        "ld_wid": 0.42
+       }
+      },
+      {
+       "slot": "kit_emblem"
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "meta": {
+  "role": "gunship",
+  "icon": {
+   "yaw": 150,
+   "pitch": 24,
+   "margin": 0.85
+  }
+ }
+}

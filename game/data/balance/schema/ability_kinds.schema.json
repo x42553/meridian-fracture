@@ -1,0 +1,72 @@
+{
+  "_doc": "meridian.balance.ability_kinds/1 -- ability kind registry (spec data_balance 7.4). Type strings: unit suffix names (cells cells_s s smt n x crps pcts x100 pct bp deg deg_s credits hp), bool, str, enum:a|b, unit_id, unit_ids, structure_id, structure_ids, zone_id, summon_id, or a list '[<scalar>]' / '[{}]' (with 'items' = sub-spec). For lists min/max bound the length.",
+  "type": "object",
+  "required": ["schema", "kinds", "templates", "aliases", "implicit", "def_params"],
+  "additionalProperties": false,
+  "properties": {
+    "schema": { "const": "meridian.balance.ability_kinds/1", "x-rule": "V-SCH-01" },
+    "kinds": { "type": "object", "additionalProperties": { "$ref": "#/definitions/kind" } },
+    "templates": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["kind"],
+        "additionalProperties": false,
+        "properties": { "kind": { "type": "string" }, "params": { "type": "object" }, "doc": { "type": "string" }, "external": { "type": "string" } }
+      }
+    },
+    "aliases": { "type": "object", "additionalProperties": { "type": ["string", "null"] } },
+    "implicit": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["when", "templates"],
+        "additionalProperties": false,
+        "properties": {
+          "when": { "type": "string", "pattern": "^(tag|family|archetype):[a-z0-9_.]+$" },
+          "templates": { "type": "array", "minItems": 1, "items": { "type": "string" } }
+        }
+      }
+    },
+    "def_params": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["type", "def", "scopes"],
+        "additionalProperties": false,
+        "properties": {
+          "type": { "type": "string" },
+          "def": {},
+          "scopes": { "type": "array", "items": { "type": "string", "enum": ["unit", "structure", "player"] } }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "param": {
+      "type": "object",
+      "required": ["type"],
+      "additionalProperties": false,
+      "properties": {
+        "type": { "type": "string" },
+        "req": { "type": "boolean" },
+        "def": {},
+        "min": { "type": "number" },
+        "max": { "type": "number" },
+        "doc": { "type": "string" },
+        "items": { "type": "object", "additionalProperties": { "$ref": "#/definitions/param" } }
+      }
+    },
+    "kind": {
+      "type": "object",
+      "required": ["id", "scopes", "params"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "integer", "minimum": 1 },
+        "scopes": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string", "enum": ["unit", "structure", "player"] } },
+        "params": { "type": "object", "additionalProperties": { "$ref": "#/definitions/param" } },
+        "doc": { "type": "string" }
+      }
+    }
+  }
+}

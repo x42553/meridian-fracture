@@ -1,0 +1,48 @@
+{
+  "schema": "meridian.archetype/1",
+  "id": "sum_balloon",
+  "size_class": "air",
+  "meta": {"motion": "air_hover", "death": {"kind": "air_explode", "ticks": 1}, "doc": "Recon balloon (summon): striped envelope with tail fins, gondola with camera and rigging; float 12 m."},
+  "defaults": {},
+  "ops": [
+    ["bevel", 0.02],
+    ["brush", "sec"],
+    ["lathe", [0, 2.3, 1.9], [0, 2.3, -1.9], [[0, 0, 0], [0.5, 0.15, 0], [0.95, 0.5, 0], [1.3, 1.1, 0], [1.45, 1.9, 0], [1.3, 2.7, 0], [0.95, 3.3, 0], [0.5, 3.65, 0], [0, 3.8, 0]], 16, 38],
+    ["brush", "acc"],
+    ["cyl", [0, 2.3, 0.8], [0, 2.3, 0.68], 1.4, 16, 0],
+    ["cyl", [0, 2.3, -0.2], [0, 2.3, -0.32], 1.47, 16, 0],
+    ["cyl", [0, 2.3, -1.15], [0, 2.3, -1.27], 1.2, 16, 0],
+    {"call": "team_panel", "args": {"center": [0, 3.74, 0.2], "size": [1.0, 0.04, 1.6], "col": "base"}},
+    ["brush", "dark"],
+    {
+      "for": "f",
+      "n": 3,
+      "do": [
+        {
+          "push": {"pos": [0, 2.3, 1.55], "euler": [0, 0, "120*f"]},
+          "do": [
+            ["box", [0, 0.85, 0], [0.05, 1.0, 0.9], 0.01]
+          ]
+        }
+      ]
+    },
+    ["brush", "dark"],
+    ["box", [0, 0.55, 0.0], [0.9, 0.55, 1.4], 0.05],
+    ["brush", "glass", "glass"],
+    ["box", [0, 0.62, -0.72], [0.7, 0.32, 0.05]],
+    ["brush", "sec"],
+    ["box", [0, 0.86, 0.0], [1.0, 0.08, 1.5], 0.02],
+    ["brush", "metal", "metal"],
+    {
+      "mirror_x": [
+        ["cyl", [0.4, 0.86, 0.6], [0.9, 2.2, 0.5], 0.02, 4, 0, false],
+        ["cyl", [0.4, 0.86, -0.6], [0.9, 2.2, -0.5], 0.02, 4, 0, false]
+      ]
+    },
+    ["brush", "dark", "glass"],
+    ["dome", [0, 0.28, -0.1], [0, -1, 0], 0.2, 0.2, 10, 3],
+    {"call": "beacon", "args": {"pos": [0, 3.9, -0.9], "r": 0.07, "col": "#ff3b1a", "phase": 0}},
+    ["socket", "top", [0, 4.0, 0], [0, 1, 0]],
+    ["meta", "hover", 12.0]
+  ]
+}

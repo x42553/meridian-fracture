@@ -1,0 +1,48 @@
+{
+  "schema": "meridian.recipe/1",
+  "id": "structure.def.perun_missile_complex",
+  "archetype": "str_superweapon",
+  "style": "auto",
+  "params": {
+    "kit": "gantry_silo"
+  },
+  "ops_after": [
+    {
+      "call": "hazard_stripes",
+      "args": {
+        "center": [
+          0,
+          0.55,
+          "fh*1.5-0.25-1.0+0.03"
+        ],
+        "size": [
+          "fw*3-3.5",
+          0.34,
+          0.05
+        ],
+        "n": 16
+      }
+    },
+    [
+      "brush",
+      "acc"
+    ],
+    [
+      "box",
+      [
+        0,
+        2.2,
+        "fh*1.5-0.25-1.0+0.04"
+      ],
+      [
+        "fw*3-3.5",
+        0.16,
+        0.06
+      ],
+      0.0
+    ]
+  ],
+  "meta": {
+    "role": "superweapon"
+  }
+}

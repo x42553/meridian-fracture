@@ -1,0 +1,21 @@
+{
+  "schema": "meridian.archetype/1",
+  "id": "inf_squad",
+  "size_class": "inf",
+  "scale": 1.25,
+  "meta": { "motion": "foot" },
+  "defaults": { "n": 4, "kit": "rifle", "helmet": "round", "spread": 0.5, "pack": "small" },
+  "slots": { "gear": [] },
+  "ops": [
+    ["meta", "members", "n"],
+    { "for": "i", "n": "n", "do": [
+      { "call": "soldier", "args": {
+        "x": "cos(i*TAU/n + 0.6)*spread*(0.6 + 0.4*rnd(i))",
+        "z": "sin(i*TAU/n + 0.6)*spread*(0.6 + 0.4*rnd(i+9))",
+        "phase": "(i + 0.5)/n", "member": "i", "count": "n", "kit": "kit", "helmet": "helmet", "pack": "pack" } }
+    ] },
+    { "slot": "gear" },
+    ["socket", "muzzle0_0", [0.20, 0.64, -0.62], [0, 0, -1]],
+    ["socket", "top", [0, 1.35, 0], [0, 1, 0]]
+  ]
+}

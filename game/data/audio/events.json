@@ -1,0 +1,6530 @@
+{
+ "schema": "meridian.audio.events/2",
+ "groups": {
+  "explosions": {
+   "max_voices": 6
+  },
+  "heavy": {
+   "max_voices": 8
+  },
+  "impacts": {
+   "max_voices": 8
+  },
+  "loops": {
+   "max_voices": 16
+  },
+  "power": {
+   "max_voices": 4
+  },
+  "small_arms": {
+   "max_voices": 10
+  },
+  "strategic": {
+   "max_voices": 4
+  },
+  "struct": {
+   "max_voices": 6
+  },
+  "ui": {
+   "max_voices": 6
+  }
+ },
+ "events": {
+  "snd.air.crash_fall": {
+   "category": "air",
+   "bus": "Sfx",
+   "priority": 60,
+   "variants": [
+    {
+     "group": "sfx/air/crash_fall"
+    }
+   ],
+   "volume_db": -1.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 45,
+    "max_distance_m": 340,
+    "attenuation": "inverse",
+    "lowpass_hz": 9000,
+    "fog": "muffled"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "explosions",
+    "min_interval_ms": 200
+   }
+  },
+  "snd.air.landing": {
+   "category": "air",
+   "bus": "Sfx",
+   "priority": 45,
+   "variants": [
+    {
+     "group": "sfx/air/landing"
+    }
+   ],
+   "volume_db": -2.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 40,
+    "max_distance_m": 300,
+    "attenuation": "inverse",
+    "lowpass_hz": 9000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "impacts",
+    "min_interval_ms": 400
+   }
+  },
+  "snd.air.takeoff": {
+   "category": "air",
+   "bus": "Sfx",
+   "priority": 45,
+   "variants": [
+    {
+     "group": "sfx/air/takeoff"
+    }
+   ],
+   "volume_db": -2.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 40,
+    "max_distance_m": 300,
+    "attenuation": "inverse",
+    "lowpass_hz": 9000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "impacts",
+    "min_interval_ms": 400
+   }
+  },
+  "snd.alarm.base_attack": {
+   "category": "alarm",
+   "bus": "Ui",
+   "priority": 95,
+   "variants": [
+    {
+     "group": "alarm/base_attack"
+    }
+   ],
+   "volume_db": -3.0,
+   "spatial": {
+    "mode": "global"
+   },
+   "limit": {
+    "max_instances": 1,
+    "steal": "oldest",
+    "group": "ui",
+    "min_interval_ms": 3000
+   }
+  },
+  "snd.alarm.countdown_final": {
+   "category": "alarm",
+   "bus": "Ui",
+   "priority": 97,
+   "variants": [
+    {
+     "group": "alarm/countdown_final"
+    }
+   ],
+   "volume_db": -2.0,
+   "spatial": {
+    "mode": "global"
+   },
+   "limit": {
+    "max_instances": 1,
+    "steal": "oldest",
+    "group": "ui"
+   }
+  },
+  "snd.alarm.countdown_tick": {
+   "category": "alarm",
+   "bus": "Ui",
+   "priority": 96,
+   "variants": [
+    {
+     "group": "alarm/countdown_tick"
+    }
+   ],
+   "volume_db": -3.0,
+   "spatial": {
+    "mode": "global"
+   },
+   "limit": {
+    "max_instances": 2,
+    "steal": "oldest",
+    "group": "ui"
+   }
+  },
+  "snd.alarm.incoming": {
+   "category": "alarm",
+   "bus": "Ui",
+   "priority": 96,
+   "variants": [
+    {
+     "group": "alarm/incoming"
+    }
+   ],
+   "volume_db": -3.0,
+   "spatial": {
+    "mode": "global"
+   },
+   "limit": {
+    "max_instances": 1,
+    "steal": "oldest",
+    "group": "ui",
+    "min_interval_ms": 3000
+   }
+  },
+  "snd.alarm.low_power": {
+   "category": "alarm",
+   "bus": "Ui",
+   "priority": 93,
+   "variants": [
+    {
+     "group": "alarm/low_power"
+    }
+   ],
+   "volume_db": -3.0,
+   "spatial": {
+    "mode": "global"
+   },
+   "limit": {
+    "max_instances": 1,
+    "steal": "oldest",
+    "group": "ui",
+    "min_interval_ms": 3000
+   }
+  },
+  "snd.alarm.sw_siren": {
+   "category": "alarm",
+   "bus": "Ui",
+   "priority": 97,
+   "variants": [
+    {
+     "group": "alarm/sw_siren"
+    }
+   ],
+   "volume_db": -3.0,
+   "spatial": {
+    "mode": "global"
+   },
+   "limit": {
+    "max_instances": 2,
+    "steal": "oldest",
+    "group": "strategic"
+   },
+   "loop": true,
+   "fade_in_ms": 300,
+   "fade_out_ms": 300
+  },
+  "snd.amb.battle_far": {
+   "category": "ambience",
+   "bus": "Ambience",
+   "priority": 5,
+   "variants": [
+    {
+     "group": "amb/battle_far"
+    }
+   ],
+   "volume_db": 0.0,
+   "spatial": {
+    "mode": "ui"
+   },
+   "limit": {
+    "max_instances": 1,
+    "steal": "oldest"
+   },
+   "loop": true,
+   "fade_in_ms": 1500,
+   "fade_out_ms": 2500
+  },
+  "snd.amb.city_hum": {
+   "category": "ambience",
+   "bus": "Ambience",
+   "priority": 5,
+   "variants": [
+    {
+     "group": "amb/city_hum"
+    }
+   ],
+   "volume_db": 0.0,
+   "spatial": {
+    "mode": "ui"
+   },
+   "limit": {
+    "max_instances": 1,
+    "steal": "oldest"
+   },
+   "loop": true,
+   "fade_in_ms": 1500,
+   "fade_out_ms": 2500
+  },
+  "snd.amb.coast_waves": {
+   "category": "ambience",
+   "bus": "Ambience",
+   "priority": 5,
+   "variants": [
+    {
+     "group": "amb/coast_waves"
+    }
+   ],
+   "volume_db": 0.0,
+   "spatial": {
+    "mode": "ui"
+   },
+   "limit": {
+    "max_instances": 1,
+    "steal": "oldest"
+   },
+   "loop": true,
+   "fade_in_ms": 1500,
+   "fade_out_ms": 2500
+  },
+  "snd.amb.forest": {
+   "category": "ambience",
+   "bus": "Ambience",
+   "priority": 5,
+   "variants": [
+    {
+     "group": "amb/forest"
+    }
+   ],
+   "volume_db": 0.0,
+   "spatial": {
+    "mode": "ui"
+   },
+   "limit": {
+    "max_instances": 1,
+    "steal": "oldest"
+   },
+   "loop": true,
+   "fade_in_ms": 1500,
+   "fade_out_ms": 2500
+  },
+  "snd.amb.river_flow": {
+   "category": "ambience",
+   "bus": "Ambience",
+   "priority": 5,
+   "variants": [
+    {
+     "group": "amb/river_flow"
+    }
+   ],
+   "volume_db": 0.0,
+   "spatial": {
+    "mode": "ui"
+   },
+   "limit": {
+    "max_instances": 1,
+    "steal": "oldest"
+   },
+   "loop": true,
+   "fade_in_ms": 1500,
+   "fade_out_ms": 2500
+  },
+  "snd.amb.wind_open": {
+   "category": "ambience",
+   "bus": "Ambience",
+   "priority": 5,
+   "variants": [
+    {
+     "group": "amb/wind_open"
+    }
+   ],
+   "volume_db": 0.0,
+   "spatial": {
+    "mode": "ui"
+   },
+   "limit": {
+    "max_instances": 1,
+    "steal": "oldest"
+   },
+   "loop": true,
+   "fade_in_ms": 1500,
+   "fade_out_ms": 2500
+  },
+  "snd.collapse.s1": {
+   "category": "collapse",
+   "bus": "Sfx",
+   "priority": 50,
+   "variants": [
+    {
+     "group": "sfx/collapse/s1"
+    }
+   ],
+   "volume_db": -2.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 30,
+    "max_distance_m": 240,
+    "attenuation": "inverse",
+    "lowpass_hz": 11000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 2,
+    "steal": "oldest",
+    "group": "explosions",
+    "min_interval_ms": 100
+   }
+  },
+  "snd.collapse.s2": {
+   "category": "collapse",
+   "bus": "Sfx",
+   "priority": 60,
+   "variants": [
+    {
+     "group": "sfx/collapse/s2"
+    }
+   ],
+   "volume_db": -2.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 40,
+    "max_distance_m": 320,
+    "attenuation": "inverse",
+    "lowpass_hz": 11000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 2,
+    "steal": "oldest",
+    "group": "explosions",
+    "min_interval_ms": 100
+   }
+  },
+  "snd.collapse.s3": {
+   "category": "collapse",
+   "bus": "SfxHeavy",
+   "priority": 88,
+   "variants": [
+    {
+     "group": "sfx/collapse/s3"
+    }
+   ],
+   "volume_db": 0.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 60,
+    "max_distance_m": 450,
+    "attenuation": "inverse",
+    "lowpass_hz": 11000,
+    "propagation": true,
+    "fog": "muffled"
+   },
+   "limit": {
+    "max_instances": 2,
+    "steal": "oldest",
+    "group": "explosions",
+    "min_interval_ms": 100
+   }
+  },
+  "snd.collapse.s4": {
+   "category": "collapse",
+   "bus": "SfxHeavy",
+   "priority": 90,
+   "variants": [
+    {
+     "group": "sfx/collapse/s4"
+    }
+   ],
+   "volume_db": 0.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 80,
+    "max_distance_m": 600,
+    "attenuation": "inverse",
+    "lowpass_hz": 11000,
+    "propagation": true,
+    "fog": "muffled"
+   },
+   "limit": {
+    "max_instances": 2,
+    "steal": "oldest",
+    "group": "explosions",
+    "min_interval_ms": 100
+   }
+  },
+  "snd.death.decoy": {
+   "category": "death",
+   "bus": "Sfx",
+   "priority": 30,
+   "variants": [
+    {
+     "group": "sfx/death/decoy"
+    }
+   ],
+   "volume_db": -3.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 20,
+    "max_distance_m": 160,
+    "attenuation": "inverse",
+    "lowpass_hz": 10000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 2,
+    "steal": "oldest",
+    "group": "impacts",
+    "min_interval_ms": 100
+   }
+  },
+  "snd.death.drone": {
+   "category": "death",
+   "bus": "Sfx",
+   "priority": 30,
+   "variants": [
+    {
+     "group": "sfx/death/drone"
+    }
+   ],
+   "volume_db": -4.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 18,
+    "max_distance_m": 140,
+    "attenuation": "inverse",
+    "lowpass_hz": 10000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "impacts",
+    "min_interval_ms": 80
+   }
+  },
+  "snd.death.infantry": {
+   "category": "death",
+   "bus": "Sfx",
+   "priority": 22,
+   "variants": [
+    {
+     "group": "sfx/death/infantry"
+    }
+   ],
+   "volume_db": -5.0,
+   "volume_jitter_db": 1.5,
+   "pitch_jitter_semitones": 1.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 14,
+    "max_distance_m": 110,
+    "attenuation": "inverse",
+    "lowpass_hz": 9000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 4,
+    "steal": "oldest",
+    "group": "impacts",
+    "min_interval_ms": 50
+   }
+  },
+  "snd.death.ship": {
+   "category": "death",
+   "bus": "Sfx",
+   "priority": 64,
+   "variants": [
+    {
+     "group": "sfx/death/ship"
+    }
+   ],
+   "volume_db": -1.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 50,
+    "max_distance_m": 380,
+    "attenuation": "inverse",
+    "lowpass_hz": 9000,
+    "fog": "muffled"
+   },
+   "limit": {
+    "max_instances": 2,
+    "steal": "oldest",
+    "group": "explosions",
+    "min_interval_ms": 200
+   }
+  },
+  "snd.death.sub": {
+   "category": "death",
+   "bus": "Sfx",
+   "priority": 60,
+   "variants": [
+    {
+     "group": "sfx/death/sub"
+    }
+   ],
+   "volume_db": -1.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 45,
+    "max_distance_m": 340,
+    "attenuation": "inverse",
+    "lowpass_hz": 8000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 2,
+    "steal": "oldest",
+    "group": "explosions",
+    "min_interval_ms": 200
+   }
+  },
+  "snd.eco.cash": {
+   "category": "eco",
+   "bus": "Sfx",
+   "priority": 35,
+   "variants": [
+    {
+     "group": "sfx/eco/cash"
+    }
+   ],
+   "volume_db": -4.0,
+   "volume_jitter_db": 1.0,
+   "pitch_jitter_semitones": 0.5,
+   "spatial": {
+    "mode": "global"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "ui",
+    "min_interval_ms": 120
+   }
+  },
+  "snd.eco.cash_big": {
+   "category": "eco",
+   "bus": "Sfx",
+   "priority": 90,
+   "variants": [
+    {
+     "group": "sfx/eco/cash_big"
+    }
+   ],
+   "volume_db": -3.0,
+   "spatial": {
+    "mode": "global"
+   },
+   "limit": {
+    "max_instances": 2,
+    "steal": "oldest",
+    "group": "ui",
+    "min_interval_ms": 300
+   }
+  },
+  "snd.emp.hit": {
+   "category": "intercept",
+   "bus": "Sfx",
+   "priority": 50,
+   "variants": [
+    {
+     "group": "sfx/impact/emp"
+    }
+   ],
+   "volume_db": -2.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 35,
+    "max_distance_m": 260,
+    "attenuation": "inverse",
+    "lowpass_hz": 11000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 2,
+    "steal": "oldest",
+    "group": "impacts",
+    "min_interval_ms": 250
+   }
+  },
+  "snd.explosion.huge": {
+   "category": "explosion",
+   "bus": "SfxHeavy",
+   "priority": 85,
+   "variants": [
+    {
+     "group": "sfx/explosion/huge"
+    }
+   ],
+   "volume_db": 0.0,
+   "cull_below_db": -50.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 90,
+    "max_distance_m": 650,
+    "attenuation": "inverse",
+    "lowpass_hz": 12000,
+    "propagation": true,
+    "fog": "muffled"
+   },
+   "limit": {
+    "max_instances": 2,
+    "steal": "oldest",
+    "group": "explosions",
+    "min_interval_ms": 200
+   }
+  },
+  "snd.explosion.large": {
+   "category": "explosion",
+   "bus": "SfxHeavy",
+   "priority": 80,
+   "variants": [
+    {
+     "group": "sfx/explosion/large"
+    }
+   ],
+   "volume_db": 0.0,
+   "cull_below_db": -46.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 60,
+    "max_distance_m": 440,
+    "attenuation": "inverse",
+    "lowpass_hz": 12000,
+    "propagation": true,
+    "fog": "muffled"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "explosions",
+    "min_interval_ms": 120
+   }
+  },
+  "snd.explosion.medium": {
+   "category": "explosion",
+   "bus": "Sfx",
+   "priority": 60,
+   "variants": [
+    {
+     "group": "sfx/explosion/medium"
+    }
+   ],
+   "volume_db": -1.0,
+   "volume_jitter_db": 1.0,
+   "pitch_jitter_semitones": 0.6,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 42,
+    "max_distance_m": 320,
+    "attenuation": "inverse",
+    "lowpass_hz": 12000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "explosions",
+    "min_interval_ms": 80
+   }
+  },
+  "snd.explosion.small": {
+   "category": "explosion",
+   "bus": "Sfx",
+   "priority": 50,
+   "variants": [
+    {
+     "group": "sfx/explosion/small"
+    }
+   ],
+   "volume_db": -3.0,
+   "volume_jitter_db": 1.0,
+   "pitch_jitter_semitones": 0.8,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 30,
+    "max_distance_m": 240,
+    "attenuation": "inverse",
+    "lowpass_hz": 11000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 4,
+    "steal": "oldest",
+    "group": "explosions",
+    "min_interval_ms": 60
+   }
+  },
+  "snd.explosion.water.large": {
+   "category": "explosion",
+   "bus": "SfxHeavy",
+   "priority": 70,
+   "variants": [
+    {
+     "group": "sfx/explosion/water_large"
+    }
+   ],
+   "volume_db": 0.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 55,
+    "max_distance_m": 420,
+    "attenuation": "inverse",
+    "lowpass_hz": 9000,
+    "fog": "muffled"
+   },
+   "limit": {
+    "max_instances": 2,
+    "steal": "oldest",
+    "group": "explosions",
+    "min_interval_ms": 150
+   }
+  },
+  "snd.explosion.water.medium": {
+   "category": "explosion",
+   "bus": "Sfx",
+   "priority": 56,
+   "variants": [
+    {
+     "group": "sfx/explosion/water_medium"
+    }
+   ],
+   "volume_db": -2.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 40,
+    "max_distance_m": 300,
+    "attenuation": "inverse",
+    "lowpass_hz": 9000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "explosions",
+    "min_interval_ms": 100
+   }
+  },
+  "snd.explosion.water.small": {
+   "category": "explosion",
+   "bus": "Sfx",
+   "priority": 46,
+   "variants": [
+    {
+     "group": "sfx/explosion/water_small"
+    }
+   ],
+   "volume_db": -3.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 28,
+    "max_distance_m": 220,
+    "attenuation": "inverse",
+    "lowpass_hz": 9000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "explosions",
+    "min_interval_ms": 80
+   }
+  },
+  "snd.impact.bullet.concrete": {
+   "category": "impact",
+   "bus": "Sfx",
+   "priority": 28,
+   "variants": [
+    {
+     "group": "sfx/impact/bullet_concrete"
+    }
+   ],
+   "volume_db": -6.0,
+   "volume_jitter_db": 1.5,
+   "pitch_jitter_semitones": 1.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 12,
+    "max_distance_m": 100,
+    "attenuation": "inverse",
+    "lowpass_hz": 9000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 4,
+    "steal": "oldest",
+    "group": "impacts",
+    "min_interval_ms": 60
+   }
+  },
+  "snd.impact.bullet.dirt": {
+   "category": "impact",
+   "bus": "Sfx",
+   "priority": 24,
+   "variants": [
+    {
+     "group": "sfx/impact/bullet_dirt"
+    }
+   ],
+   "volume_db": -6.0,
+   "volume_jitter_db": 1.5,
+   "pitch_jitter_semitones": 1.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 12,
+    "max_distance_m": 100,
+    "attenuation": "inverse",
+    "lowpass_hz": 9000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 4,
+    "steal": "oldest",
+    "group": "impacts",
+    "min_interval_ms": 60
+   }
+  },
+  "snd.impact.bullet.flesh": {
+   "category": "impact",
+   "bus": "Sfx",
+   "priority": 26,
+   "variants": [
+    {
+     "group": "sfx/impact/bullet_flesh"
+    }
+   ],
+   "volume_db": -6.0,
+   "volume_jitter_db": 1.5,
+   "pitch_jitter_semitones": 1.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 12,
+    "max_distance_m": 100,
+    "attenuation": "inverse",
+    "lowpass_hz": 9000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 4,
+    "steal": "oldest",
+    "group": "impacts",
+    "min_interval_ms": 60
+   }
+  },
+  "snd.impact.bullet.metal": {
+   "category": "impact",
+   "bus": "Sfx",
+   "priority": 30,
+   "variants": [
+    {
+     "group": "sfx/impact/bullet_metal"
+    }
+   ],
+   "volume_db": -6.0,
+   "volume_jitter_db": 1.5,
+   "pitch_jitter_semitones": 1.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 12,
+    "max_distance_m": 100,
+    "attenuation": "inverse",
+    "lowpass_hz": 9000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 4,
+    "steal": "oldest",
+    "group": "impacts",
+    "min_interval_ms": 60
+   }
+  },
+  "snd.impact.bullet.water": {
+   "category": "impact",
+   "bus": "Sfx",
+   "priority": 24,
+   "variants": [
+    {
+     "group": "sfx/impact/bullet_water"
+    }
+   ],
+   "volume_db": -6.0,
+   "volume_jitter_db": 1.5,
+   "pitch_jitter_semitones": 1.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 12,
+    "max_distance_m": 100,
+    "attenuation": "inverse",
+    "lowpass_hz": 9000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 4,
+    "steal": "oldest",
+    "group": "impacts",
+    "min_interval_ms": 60
+   }
+  },
+  "snd.impact.bullet.wood": {
+   "category": "impact",
+   "bus": "Sfx",
+   "priority": 26,
+   "variants": [
+    {
+     "group": "sfx/impact/bullet_wood"
+    }
+   ],
+   "volume_db": -6.0,
+   "volume_jitter_db": 1.5,
+   "pitch_jitter_semitones": 1.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 12,
+    "max_distance_m": 100,
+    "attenuation": "inverse",
+    "lowpass_hz": 9000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 4,
+    "steal": "oldest",
+    "group": "impacts",
+    "min_interval_ms": 60
+   }
+  },
+  "snd.impact.emp": {
+   "category": "impact",
+   "bus": "Sfx",
+   "priority": 50,
+   "variants": [
+    {
+     "group": "sfx/impact/emp"
+    }
+   ],
+   "volume_db": -3.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 35,
+    "max_distance_m": 260,
+    "attenuation": "inverse",
+    "lowpass_hz": 11000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 2,
+    "steal": "oldest",
+    "group": "impacts",
+    "min_interval_ms": 250
+   }
+  },
+  "snd.impact.energy.large": {
+   "category": "impact",
+   "bus": "Sfx",
+   "priority": 40,
+   "variants": [
+    {
+     "group": "sfx/impact/energy_large"
+    }
+   ],
+   "volume_db": -3.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 25,
+    "max_distance_m": 200,
+    "attenuation": "inverse",
+    "lowpass_hz": 10000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "impacts",
+    "min_interval_ms": 120
+   }
+  },
+  "snd.impact.energy.small": {
+   "category": "impact",
+   "bus": "Sfx",
+   "priority": 34,
+   "variants": [
+    {
+     "group": "sfx/impact/energy_small"
+    }
+   ],
+   "volume_db": -5.0,
+   "volume_jitter_db": 1.0,
+   "pitch_jitter_semitones": 0.6,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 14,
+    "max_distance_m": 120,
+    "attenuation": "inverse",
+    "lowpass_hz": 10000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 4,
+    "steal": "oldest",
+    "group": "impacts",
+    "min_interval_ms": 100
+   }
+  },
+  "snd.impact.kinetic": {
+   "category": "impact",
+   "bus": "SfxHeavy",
+   "priority": 60,
+   "variants": [
+    {
+     "group": "sfx/impact/kinetic"
+    }
+   ],
+   "volume_db": -1.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 45,
+    "max_distance_m": 350,
+    "attenuation": "inverse",
+    "lowpass_hz": 12000,
+    "fog": "muffled"
+   },
+   "limit": {
+    "max_instances": 2,
+    "steal": "oldest",
+    "group": "impacts",
+    "min_interval_ms": 250
+   }
+  },
+  "snd.impact.rail": {
+   "category": "impact",
+   "bus": "Sfx",
+   "priority": 44,
+   "variants": [
+    {
+     "group": "sfx/impact/rail"
+    }
+   ],
+   "volume_db": -3.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 30,
+    "max_distance_m": 240,
+    "attenuation": "inverse",
+    "lowpass_hz": 12000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "impacts",
+    "min_interval_ms": 150
+   }
+  },
+  "snd.intercept.aps": {
+   "category": "intercept",
+   "bus": "Sfx",
+   "priority": 55,
+   "variants": [
+    {
+     "group": "sfx/intercept/aps"
+    }
+   ],
+   "volume_db": -2.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 25,
+    "max_distance_m": 200,
+    "attenuation": "inverse",
+    "lowpass_hz": 11000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "impacts",
+    "min_interval_ms": 100
+   }
+  },
+  "snd.intercept.zone": {
+   "category": "intercept",
+   "bus": "Sfx",
+   "priority": 55,
+   "variants": [
+    {
+     "group": "sfx/intercept/zone"
+    }
+   ],
+   "volume_db": -2.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 30,
+    "max_distance_m": 240,
+    "attenuation": "inverse",
+    "lowpass_hz": 11000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "impacts",
+    "min_interval_ms": 100
+   }
+  },
+  "snd.loop.air.drone": {
+   "category": "loop",
+   "bus": "Sfx",
+   "priority": 16,
+   "variants": [
+    {
+     "group": "sfx/loop/air_drone"
+    }
+   ],
+   "volume_db": -3.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 18,
+    "max_distance_m": 110,
+    "attenuation": "inverse",
+    "lowpass_hz": 8000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 8,
+    "steal": "oldest",
+    "group": "loops"
+   },
+   "loop": true,
+   "fade_in_ms": 120,
+   "fade_out_ms": 200
+  },
+  "snd.loop.air.jet": {
+   "category": "loop",
+   "bus": "Sfx",
+   "priority": 18,
+   "variants": [
+    {
+     "group": "sfx/loop/air_jet"
+    }
+   ],
+   "volume_db": -1.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 40,
+    "max_distance_m": 300,
+    "attenuation": "inverse",
+    "lowpass_hz": 8000,
+    "doppler": true,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 6,
+    "steal": "oldest",
+    "group": "loops"
+   },
+   "loop": true,
+   "fade_in_ms": 120,
+   "fade_out_ms": 200
+  },
+  "snd.loop.air.rotor": {
+   "category": "loop",
+   "bus": "Sfx",
+   "priority": 18,
+   "variants": [
+    {
+     "group": "sfx/loop/air_rotor"
+    }
+   ],
+   "volume_db": -1.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 35,
+    "max_distance_m": 260,
+    "attenuation": "inverse",
+    "lowpass_hz": 8000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 6,
+    "steal": "oldest",
+    "group": "loops"
+   },
+   "loop": true,
+   "fade_in_ms": 120,
+   "fade_out_ms": 200
+  },
+  "snd.loop.engine.amphibious": {
+   "category": "loop",
+   "bus": "Sfx",
+   "priority": 15,
+   "variants": [
+    {
+     "group": "sfx/loop/engine_amphibious"
+    }
+   ],
+   "volume_db": -1.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 18,
+    "max_distance_m": 120,
+    "attenuation": "inverse",
+    "lowpass_hz": 6000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 12,
+    "steal": "oldest",
+    "group": "loops"
+   },
+   "loop": true,
+   "fade_in_ms": 120,
+   "fade_out_ms": 200
+  },
+  "snd.loop.engine.boat_large": {
+   "category": "loop",
+   "bus": "Sfx",
+   "priority": 16,
+   "variants": [
+    {
+     "group": "sfx/loop/engine_boat_large"
+    }
+   ],
+   "volume_db": 0.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 30,
+    "max_distance_m": 200,
+    "attenuation": "inverse",
+    "lowpass_hz": 6000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 12,
+    "steal": "oldest",
+    "group": "loops"
+   },
+   "loop": true,
+   "fade_in_ms": 120,
+   "fade_out_ms": 200
+  },
+  "snd.loop.engine.boat_small": {
+   "category": "loop",
+   "bus": "Sfx",
+   "priority": 15,
+   "variants": [
+    {
+     "group": "sfx/loop/engine_boat_small"
+    }
+   ],
+   "volume_db": -1.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 20,
+    "max_distance_m": 130,
+    "attenuation": "inverse",
+    "lowpass_hz": 6000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 12,
+    "steal": "oldest",
+    "group": "loops"
+   },
+   "loop": true,
+   "fade_in_ms": 120,
+   "fade_out_ms": 200
+  },
+  "snd.loop.engine.sub": {
+   "category": "loop",
+   "bus": "Sfx",
+   "priority": 14,
+   "variants": [
+    {
+     "group": "sfx/loop/engine_sub"
+    }
+   ],
+   "volume_db": -2.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 18,
+    "max_distance_m": 110,
+    "attenuation": "inverse",
+    "lowpass_hz": 6000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 12,
+    "steal": "oldest",
+    "group": "loops"
+   },
+   "loop": true,
+   "fade_in_ms": 120,
+   "fade_out_ms": 200
+  },
+  "snd.loop.engine.tracked": {
+   "category": "loop",
+   "bus": "Sfx",
+   "priority": 16,
+   "variants": [
+    {
+     "group": "sfx/loop/engine_tracked"
+    }
+   ],
+   "volume_db": -1.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 18,
+    "max_distance_m": 120,
+    "attenuation": "inverse",
+    "lowpass_hz": 6000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 12,
+    "steal": "oldest",
+    "group": "loops"
+   },
+   "loop": true,
+   "fade_in_ms": 120,
+   "fade_out_ms": 200
+  },
+  "snd.loop.engine.tracked_heavy": {
+   "category": "loop",
+   "bus": "Sfx",
+   "priority": 17,
+   "variants": [
+    {
+     "group": "sfx/loop/engine_tracked_heavy"
+    }
+   ],
+   "volume_db": 0.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 22,
+    "max_distance_m": 140,
+    "attenuation": "inverse",
+    "lowpass_hz": 6000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 12,
+    "steal": "oldest",
+    "group": "loops"
+   },
+   "loop": true,
+   "fade_in_ms": 120,
+   "fade_out_ms": 200
+  },
+  "snd.loop.engine.wheeled": {
+   "category": "loop",
+   "bus": "Sfx",
+   "priority": 15,
+   "variants": [
+    {
+     "group": "sfx/loop/engine_wheeled"
+    }
+   ],
+   "volume_db": -1.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 16,
+    "max_distance_m": 110,
+    "attenuation": "inverse",
+    "lowpass_hz": 6000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 12,
+    "steal": "oldest",
+    "group": "loops"
+   },
+   "loop": true,
+   "fade_in_ms": 120,
+   "fade_out_ms": 200
+  },
+  "snd.loop.step.foot": {
+   "category": "loop",
+   "bus": "Sfx",
+   "priority": 12,
+   "variants": [
+    {
+     "group": "sfx/loop/step_foot"
+    }
+   ],
+   "volume_db": -2.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 10,
+    "max_distance_m": 70,
+    "attenuation": "inverse",
+    "lowpass_hz": 6000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 10,
+    "steal": "oldest",
+    "group": "loops"
+   },
+   "loop": true,
+   "fade_in_ms": 120,
+   "fade_out_ms": 200
+  },
+  "snd.power.barrage.activate": {
+   "category": "power",
+   "bus": "Sfx",
+   "priority": 62,
+   "variants": [
+    {
+     "group": "sfx/power/barrage_activate"
+    }
+   ],
+   "volume_db": -2.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 60,
+    "max_distance_m": 400,
+    "attenuation": "inverse",
+    "lowpass_hz": 12000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "power",
+    "min_interval_ms": 300
+   }
+  },
+  "snd.power.barrage.end": {
+   "category": "power",
+   "bus": "Sfx",
+   "priority": 45,
+   "variants": [
+    {
+     "group": "sfx/power/barrage_end"
+    }
+   ],
+   "volume_db": -3.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 45,
+    "max_distance_m": 300,
+    "attenuation": "inverse",
+    "lowpass_hz": 11000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "power",
+    "min_interval_ms": 300
+   }
+  },
+  "snd.power.barrage.impact": {
+   "category": "power",
+   "bus": "Sfx",
+   "priority": 62,
+   "variants": [
+    {
+     "group": "sfx/power/barrage_impact"
+    }
+   ],
+   "volume_db": 0.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 60,
+    "max_distance_m": 420,
+    "attenuation": "inverse",
+    "lowpass_hz": 12000,
+    "propagation": true,
+    "fog": "muffled"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "power",
+    "min_interval_ms": 120
+   }
+  },
+  "snd.power.barrage.loop": {
+   "category": "power",
+   "bus": "Sfx",
+   "priority": 30,
+   "variants": [
+    {
+     "group": "sfx/power/barrage_loop"
+    }
+   ],
+   "volume_db": -6.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 40,
+    "max_distance_m": 250,
+    "attenuation": "inverse",
+    "lowpass_hz": 9000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "power"
+   },
+   "loop": true,
+   "fade_in_ms": 120,
+   "fade_out_ms": 200
+  },
+  "snd.power.barrage.warning": {
+   "category": "power",
+   "bus": "Sfx",
+   "priority": 90,
+   "variants": [
+    {
+     "group": "sfx/power/barrage_warning"
+    }
+   ],
+   "volume_db": -2.0,
+   "spatial": {
+    "mode": "global"
+   },
+   "limit": {
+    "max_instances": 1,
+    "steal": "oldest",
+    "group": "power",
+    "min_interval_ms": 1000
+   }
+  },
+  "snd.power.buff.activate": {
+   "category": "power",
+   "bus": "Sfx",
+   "priority": 62,
+   "variants": [
+    {
+     "group": "sfx/power/buff_activate"
+    }
+   ],
+   "volume_db": -2.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 60,
+    "max_distance_m": 400,
+    "attenuation": "inverse",
+    "lowpass_hz": 12000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "power",
+    "min_interval_ms": 300
+   }
+  },
+  "snd.power.buff.end": {
+   "category": "power",
+   "bus": "Sfx",
+   "priority": 45,
+   "variants": [
+    {
+     "group": "sfx/power/buff_end"
+    }
+   ],
+   "volume_db": -3.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 45,
+    "max_distance_m": 300,
+    "attenuation": "inverse",
+    "lowpass_hz": 11000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "power",
+    "min_interval_ms": 300
+   }
+  },
+  "snd.power.buff.loop": {
+   "category": "power",
+   "bus": "Sfx",
+   "priority": 30,
+   "variants": [
+    {
+     "group": "sfx/power/buff_loop"
+    }
+   ],
+   "volume_db": -6.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 40,
+    "max_distance_m": 250,
+    "attenuation": "inverse",
+    "lowpass_hz": 9000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "power"
+   },
+   "loop": true,
+   "fade_in_ms": 120,
+   "fade_out_ms": 200
+  },
+  "snd.power.cloak.activate": {
+   "category": "power",
+   "bus": "Sfx",
+   "priority": 62,
+   "variants": [
+    {
+     "group": "sfx/power/cloak_activate"
+    }
+   ],
+   "volume_db": -2.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 60,
+    "max_distance_m": 400,
+    "attenuation": "inverse",
+    "lowpass_hz": 12000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "power",
+    "min_interval_ms": 300
+   }
+  },
+  "snd.power.cloak.end": {
+   "category": "power",
+   "bus": "Sfx",
+   "priority": 45,
+   "variants": [
+    {
+     "group": "sfx/power/cloak_end"
+    }
+   ],
+   "volume_db": -3.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 45,
+    "max_distance_m": 300,
+    "attenuation": "inverse",
+    "lowpass_hz": 11000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "power",
+    "min_interval_ms": 300
+   }
+  },
+  "snd.power.cloak.loop": {
+   "category": "power",
+   "bus": "Sfx",
+   "priority": 30,
+   "variants": [
+    {
+     "group": "sfx/power/cloak_loop"
+    }
+   ],
+   "volume_db": -6.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 40,
+    "max_distance_m": 250,
+    "attenuation": "inverse",
+    "lowpass_hz": 9000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "power"
+   },
+   "loop": true,
+   "fade_in_ms": 120,
+   "fade_out_ms": 200
+  },
+  "snd.power.generic.activate": {
+   "category": "power",
+   "bus": "Sfx",
+   "priority": 62,
+   "variants": [
+    {
+     "group": "sfx/power/generic_activate"
+    }
+   ],
+   "volume_db": -2.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 60,
+    "max_distance_m": 400,
+    "attenuation": "inverse",
+    "lowpass_hz": 12000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "power",
+    "min_interval_ms": 300
+   }
+  },
+  "snd.power.generic.end": {
+   "category": "power",
+   "bus": "Sfx",
+   "priority": 45,
+   "variants": [
+    {
+     "group": "sfx/power/generic_end"
+    }
+   ],
+   "volume_db": -3.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 45,
+    "max_distance_m": 300,
+    "attenuation": "inverse",
+    "lowpass_hz": 11000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "power",
+    "min_interval_ms": 300
+   }
+  },
+  "snd.power.generic.loop": {
+   "category": "power",
+   "bus": "Sfx",
+   "priority": 30,
+   "variants": [
+    {
+     "group": "sfx/power/generic_loop"
+    }
+   ],
+   "volume_db": -6.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 40,
+    "max_distance_m": 250,
+    "attenuation": "inverse",
+    "lowpass_hz": 9000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "power"
+   },
+   "loop": true,
+   "fade_in_ms": 120,
+   "fade_out_ms": 200
+  },
+  "snd.power.recon.activate": {
+   "category": "power",
+   "bus": "Sfx",
+   "priority": 62,
+   "variants": [
+    {
+     "group": "sfx/power/recon_activate"
+    }
+   ],
+   "volume_db": -2.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 60,
+    "max_distance_m": 400,
+    "attenuation": "inverse",
+    "lowpass_hz": 12000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "power",
+    "min_interval_ms": 300
+   }
+  },
+  "snd.power.recon.end": {
+   "category": "power",
+   "bus": "Sfx",
+   "priority": 45,
+   "variants": [
+    {
+     "group": "sfx/power/recon_end"
+    }
+   ],
+   "volume_db": -3.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 45,
+    "max_distance_m": 300,
+    "attenuation": "inverse",
+    "lowpass_hz": 11000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "power",
+    "min_interval_ms": 300
+   }
+  },
+  "snd.power.recon.loop": {
+   "category": "power",
+   "bus": "Sfx",
+   "priority": 30,
+   "variants": [
+    {
+     "group": "sfx/power/recon_loop"
+    }
+   ],
+   "volume_db": -6.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 40,
+    "max_distance_m": 250,
+    "attenuation": "inverse",
+    "lowpass_hz": 9000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "power"
+   },
+   "loop": true,
+   "fade_in_ms": 120,
+   "fade_out_ms": 200
+  },
+  "snd.power.repair.activate": {
+   "category": "power",
+   "bus": "Sfx",
+   "priority": 62,
+   "variants": [
+    {
+     "group": "sfx/power/repair_activate"
+    }
+   ],
+   "volume_db": -2.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 60,
+    "max_distance_m": 400,
+    "attenuation": "inverse",
+    "lowpass_hz": 12000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "power",
+    "min_interval_ms": 300
+   }
+  },
+  "snd.power.repair.end": {
+   "category": "power",
+   "bus": "Sfx",
+   "priority": 45,
+   "variants": [
+    {
+     "group": "sfx/power/repair_end"
+    }
+   ],
+   "volume_db": -3.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 45,
+    "max_distance_m": 300,
+    "attenuation": "inverse",
+    "lowpass_hz": 11000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "power",
+    "min_interval_ms": 300
+   }
+  },
+  "snd.power.repair.loop": {
+   "category": "power",
+   "bus": "Sfx",
+   "priority": 30,
+   "variants": [
+    {
+     "group": "sfx/power/repair_loop"
+    }
+   ],
+   "volume_db": -6.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 40,
+    "max_distance_m": 250,
+    "attenuation": "inverse",
+    "lowpass_hz": 9000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "power"
+   },
+   "loop": true,
+   "fade_in_ms": 120,
+   "fade_out_ms": 200
+  },
+  "snd.power.shield.activate": {
+   "category": "power",
+   "bus": "Sfx",
+   "priority": 62,
+   "variants": [
+    {
+     "group": "sfx/power/shield_activate"
+    }
+   ],
+   "volume_db": -2.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 60,
+    "max_distance_m": 400,
+    "attenuation": "inverse",
+    "lowpass_hz": 12000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "power",
+    "min_interval_ms": 300
+   }
+  },
+  "snd.power.shield.end": {
+   "category": "power",
+   "bus": "Sfx",
+   "priority": 45,
+   "variants": [
+    {
+     "group": "sfx/power/shield_end"
+    }
+   ],
+   "volume_db": -3.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 45,
+    "max_distance_m": 300,
+    "attenuation": "inverse",
+    "lowpass_hz": 11000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "power",
+    "min_interval_ms": 300
+   }
+  },
+  "snd.power.shield.loop": {
+   "category": "power",
+   "bus": "Sfx",
+   "priority": 30,
+   "variants": [
+    {
+     "group": "sfx/power/shield_loop"
+    }
+   ],
+   "volume_db": -6.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 40,
+    "max_distance_m": 250,
+    "attenuation": "inverse",
+    "lowpass_hz": 9000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "power"
+   },
+   "loop": true,
+   "fade_in_ms": 120,
+   "fade_out_ms": 200
+  },
+  "snd.power.smoke.activate": {
+   "category": "power",
+   "bus": "Sfx",
+   "priority": 62,
+   "variants": [
+    {
+     "group": "sfx/power/smoke_activate"
+    }
+   ],
+   "volume_db": -2.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 60,
+    "max_distance_m": 400,
+    "attenuation": "inverse",
+    "lowpass_hz": 12000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "power",
+    "min_interval_ms": 300
+   }
+  },
+  "snd.power.smoke.end": {
+   "category": "power",
+   "bus": "Sfx",
+   "priority": 45,
+   "variants": [
+    {
+     "group": "sfx/power/smoke_end"
+    }
+   ],
+   "volume_db": -3.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 45,
+    "max_distance_m": 300,
+    "attenuation": "inverse",
+    "lowpass_hz": 11000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "power",
+    "min_interval_ms": 300
+   }
+  },
+  "snd.power.smoke.loop": {
+   "category": "power",
+   "bus": "Sfx",
+   "priority": 30,
+   "variants": [
+    {
+     "group": "sfx/power/smoke_loop"
+    }
+   ],
+   "volume_db": -6.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 40,
+    "max_distance_m": 250,
+    "attenuation": "inverse",
+    "lowpass_hz": 9000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "power"
+   },
+   "loop": true,
+   "fade_in_ms": 120,
+   "fade_out_ms": 200
+  },
+  "snd.proj.bomb_whistle": {
+   "category": "proj",
+   "bus": "Sfx",
+   "priority": 44,
+   "variants": [
+    {
+     "group": "sfx/proj/bomb_whistle"
+    }
+   ],
+   "volume_db": -3.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 40,
+    "max_distance_m": 260,
+    "attenuation": "inverse",
+    "lowpass_hz": 10000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "impacts",
+    "min_interval_ms": 150
+   }
+  },
+  "snd.proj.missile": {
+   "category": "proj",
+   "bus": "Sfx",
+   "priority": 20,
+   "variants": [
+    {
+     "group": "sfx/proj/missile"
+    }
+   ],
+   "volume_db": -4.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 25,
+    "max_distance_m": 200,
+    "attenuation": "inverse",
+    "lowpass_hz": 8000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 6,
+    "steal": "oldest",
+    "group": "loops"
+   },
+   "loop": true,
+   "fade_in_ms": 60,
+   "fade_out_ms": 60
+  },
+  "snd.proj.shell_whistle": {
+   "category": "proj",
+   "bus": "Sfx",
+   "priority": 44,
+   "variants": [
+    {
+     "group": "sfx/proj/shell_whistle"
+    }
+   ],
+   "volume_db": -3.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 40,
+    "max_distance_m": 260,
+    "attenuation": "inverse",
+    "lowpass_hz": 10000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "impacts",
+    "min_interval_ms": 150
+   }
+  },
+  "snd.proj.torpedo": {
+   "category": "proj",
+   "bus": "Sfx",
+   "priority": 20,
+   "variants": [
+    {
+     "group": "sfx/proj/torpedo"
+    }
+   ],
+   "volume_db": -4.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 25,
+    "max_distance_m": 200,
+    "attenuation": "inverse",
+    "lowpass_hz": 6000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 4,
+    "steal": "oldest",
+    "group": "loops"
+   },
+   "loop": true,
+   "fade_in_ms": 60,
+   "fade_out_ms": 60
+  },
+  "snd.struct.captured": {
+   "category": "struct",
+   "bus": "Sfx",
+   "priority": 65,
+   "variants": [
+    {
+     "group": "sfx/struct/captured"
+    }
+   ],
+   "volume_db": -2.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 35,
+    "max_distance_m": 260,
+    "attenuation": "inverse",
+    "lowpass_hz": 11000,
+    "fog": "audible"
+   },
+   "limit": {
+    "max_instances": 2,
+    "steal": "oldest",
+    "group": "struct",
+    "min_interval_ms": 500
+   }
+  },
+  "snd.struct.defense_offline": {
+   "category": "struct",
+   "bus": "Sfx",
+   "priority": 55,
+   "variants": [
+    {
+     "group": "sfx/struct/defense_offline"
+    }
+   ],
+   "volume_db": -3.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 30,
+    "max_distance_m": 220,
+    "attenuation": "inverse",
+    "lowpass_hz": 10000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "struct",
+    "min_interval_ms": 500
+   }
+  },
+  "snd.struct.hq_deploy": {
+   "category": "struct",
+   "bus": "Sfx",
+   "priority": 60,
+   "variants": [
+    {
+     "group": "sfx/struct/hq_deploy"
+    }
+   ],
+   "volume_db": -2.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 35,
+    "max_distance_m": 260,
+    "attenuation": "inverse",
+    "lowpass_hz": 11000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 2,
+    "steal": "oldest",
+    "group": "struct",
+    "min_interval_ms": 500
+   }
+  },
+  "snd.struct.hum.airfield": {
+   "category": "loop",
+   "bus": "Sfx",
+   "priority": 11,
+   "variants": [
+    {
+     "group": "sfx/struct/hum_airfield"
+    }
+   ],
+   "volume_db": -4.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 14,
+    "max_distance_m": 100,
+    "attenuation": "inverse",
+    "lowpass_hz": 6000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 8,
+    "steal": "oldest",
+    "group": "loops"
+   },
+   "loop": true,
+   "fade_in_ms": 120,
+   "fade_out_ms": 200
+  },
+  "snd.struct.hum.generator": {
+   "category": "loop",
+   "bus": "Sfx",
+   "priority": 11,
+   "variants": [
+    {
+     "group": "sfx/struct/hum_generator"
+    }
+   ],
+   "volume_db": -4.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 14,
+    "max_distance_m": 100,
+    "attenuation": "inverse",
+    "lowpass_hz": 6000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 8,
+    "steal": "oldest",
+    "group": "loops"
+   },
+   "loop": true,
+   "fade_in_ms": 120,
+   "fade_out_ms": 200
+  },
+  "snd.struct.hum.lab": {
+   "category": "loop",
+   "bus": "Sfx",
+   "priority": 11,
+   "variants": [
+    {
+     "group": "sfx/struct/hum_lab"
+    }
+   ],
+   "volume_db": -4.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 14,
+    "max_distance_m": 100,
+    "attenuation": "inverse",
+    "lowpass_hz": 6000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 8,
+    "steal": "oldest",
+    "group": "loops"
+   },
+   "loop": true,
+   "fade_in_ms": 120,
+   "fade_out_ms": 200
+  },
+  "snd.struct.hum.radar": {
+   "category": "loop",
+   "bus": "Sfx",
+   "priority": 11,
+   "variants": [
+    {
+     "group": "sfx/struct/hum_radar"
+    }
+   ],
+   "volume_db": -4.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 14,
+    "max_distance_m": 100,
+    "attenuation": "inverse",
+    "lowpass_hz": 6000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 8,
+    "steal": "oldest",
+    "group": "loops"
+   },
+   "loop": true,
+   "fade_in_ms": 120,
+   "fade_out_ms": 200
+  },
+  "snd.struct.hum.refinery": {
+   "category": "loop",
+   "bus": "Sfx",
+   "priority": 11,
+   "variants": [
+    {
+     "group": "sfx/struct/hum_refinery"
+    }
+   ],
+   "volume_db": -4.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 14,
+    "max_distance_m": 100,
+    "attenuation": "inverse",
+    "lowpass_hz": 6000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 8,
+    "steal": "oldest",
+    "group": "loops"
+   },
+   "loop": true,
+   "fade_in_ms": 120,
+   "fade_out_ms": 200
+  },
+  "snd.struct.online.aa_battery": {
+   "category": "struct",
+   "bus": "Sfx",
+   "priority": 45,
+   "variants": [
+    {
+     "group": "sfx/struct/online_aa_battery"
+    }
+   ],
+   "volume_db": -3.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 30,
+    "max_distance_m": 220,
+    "attenuation": "inverse",
+    "lowpass_hz": 11000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "struct",
+    "min_interval_ms": 300
+   }
+  },
+  "snd.struct.online.adv_defense": {
+   "category": "struct",
+   "bus": "Sfx",
+   "priority": 45,
+   "variants": [
+    {
+     "group": "sfx/struct/online_adv_defense"
+    }
+   ],
+   "volume_db": -3.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 30,
+    "max_distance_m": 220,
+    "attenuation": "inverse",
+    "lowpass_hz": 11000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "struct",
+    "min_interval_ms": 300
+   }
+  },
+  "snd.struct.online.airfield": {
+   "category": "struct",
+   "bus": "Sfx",
+   "priority": 45,
+   "variants": [
+    {
+     "group": "sfx/struct/online_airfield"
+    }
+   ],
+   "volume_db": -3.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 30,
+    "max_distance_m": 220,
+    "attenuation": "inverse",
+    "lowpass_hz": 11000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "struct",
+    "min_interval_ms": 300
+   }
+  },
+  "snd.struct.online.barracks": {
+   "category": "struct",
+   "bus": "Sfx",
+   "priority": 45,
+   "variants": [
+    {
+     "group": "sfx/struct/online_barracks"
+    }
+   ],
+   "volume_db": -3.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 30,
+    "max_distance_m": 220,
+    "attenuation": "inverse",
+    "lowpass_hz": 11000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "struct",
+    "min_interval_ms": 300
+   }
+  },
+  "snd.struct.online.dock": {
+   "category": "struct",
+   "bus": "Sfx",
+   "priority": 45,
+   "variants": [
+    {
+     "group": "sfx/struct/online_dock"
+    }
+   ],
+   "volume_db": -3.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 30,
+    "max_distance_m": 220,
+    "attenuation": "inverse",
+    "lowpass_hz": 11000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "struct",
+    "min_interval_ms": 300
+   }
+  },
+  "snd.struct.online.factory": {
+   "category": "struct",
+   "bus": "Sfx",
+   "priority": 45,
+   "variants": [
+    {
+     "group": "sfx/struct/online_factory"
+    }
+   ],
+   "volume_db": -3.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 30,
+    "max_distance_m": 220,
+    "attenuation": "inverse",
+    "lowpass_hz": 11000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "struct",
+    "min_interval_ms": 300
+   }
+  },
+  "snd.struct.online.generator": {
+   "category": "struct",
+   "bus": "Sfx",
+   "priority": 45,
+   "variants": [
+    {
+     "group": "sfx/struct/online_generator"
+    }
+   ],
+   "volume_db": -3.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 30,
+    "max_distance_m": 220,
+    "attenuation": "inverse",
+    "lowpass_hz": 11000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "struct",
+    "min_interval_ms": 300
+   }
+  },
+  "snd.struct.online.hq": {
+   "category": "struct",
+   "bus": "Sfx",
+   "priority": 45,
+   "variants": [
+    {
+     "group": "sfx/struct/online_hq"
+    }
+   ],
+   "volume_db": -3.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 30,
+    "max_distance_m": 220,
+    "attenuation": "inverse",
+    "lowpass_hz": 11000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "struct",
+    "min_interval_ms": 300
+   }
+  },
+  "snd.struct.online.laboratory": {
+   "category": "struct",
+   "bus": "Sfx",
+   "priority": 45,
+   "variants": [
+    {
+     "group": "sfx/struct/online_laboratory"
+    }
+   ],
+   "volume_db": -3.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 30,
+    "max_distance_m": 220,
+    "attenuation": "inverse",
+    "lowpass_hz": 11000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "struct",
+    "min_interval_ms": 300
+   }
+  },
+  "snd.struct.online.radar": {
+   "category": "struct",
+   "bus": "Sfx",
+   "priority": 45,
+   "variants": [
+    {
+     "group": "sfx/struct/online_radar"
+    }
+   ],
+   "volume_db": -3.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 30,
+    "max_distance_m": 220,
+    "attenuation": "inverse",
+    "lowpass_hz": 11000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "struct",
+    "min_interval_ms": 300
+   }
+  },
+  "snd.struct.online.refinery": {
+   "category": "struct",
+   "bus": "Sfx",
+   "priority": 45,
+   "variants": [
+    {
+     "group": "sfx/struct/online_refinery"
+    }
+   ],
+   "volume_db": -3.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 30,
+    "max_distance_m": 220,
+    "attenuation": "inverse",
+    "lowpass_hz": 11000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "struct",
+    "min_interval_ms": 300
+   }
+  },
+  "snd.struct.online.relay": {
+   "category": "struct",
+   "bus": "Sfx",
+   "priority": 45,
+   "variants": [
+    {
+     "group": "sfx/struct/online_relay"
+    }
+   ],
+   "volume_db": -3.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 30,
+    "max_distance_m": 220,
+    "attenuation": "inverse",
+    "lowpass_hz": 11000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "struct",
+    "min_interval_ms": 300
+   }
+  },
+  "snd.struct.online.superweapon": {
+   "category": "struct",
+   "bus": "Sfx",
+   "priority": 45,
+   "variants": [
+    {
+     "group": "sfx/struct/online_superweapon"
+    }
+   ],
+   "volume_db": -3.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 30,
+    "max_distance_m": 220,
+    "attenuation": "inverse",
+    "lowpass_hz": 11000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "struct",
+    "min_interval_ms": 300
+   }
+  },
+  "snd.struct.online.turret": {
+   "category": "struct",
+   "bus": "Sfx",
+   "priority": 45,
+   "variants": [
+    {
+     "group": "sfx/struct/online_turret"
+    }
+   ],
+   "volume_db": -3.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 30,
+    "max_distance_m": 220,
+    "attenuation": "inverse",
+    "lowpass_hz": 11000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "struct",
+    "min_interval_ms": 300
+   }
+  },
+  "snd.struct.online.watchtower": {
+   "category": "struct",
+   "bus": "Sfx",
+   "priority": 45,
+   "variants": [
+    {
+     "group": "sfx/struct/online_watchtower"
+    }
+   ],
+   "volume_db": -3.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 30,
+    "max_distance_m": 220,
+    "attenuation": "inverse",
+    "lowpass_hz": 11000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "struct",
+    "min_interval_ms": 300
+   }
+  },
+  "snd.struct.power_down": {
+   "category": "struct",
+   "bus": "Sfx",
+   "priority": 92,
+   "variants": [
+    {
+     "group": "sfx/struct/power_down"
+    }
+   ],
+   "volume_db": -2.0,
+   "spatial": {
+    "mode": "global"
+   },
+   "limit": {
+    "max_instances": 1,
+    "steal": "oldest",
+    "group": "struct",
+    "min_interval_ms": 1500
+   }
+  },
+  "snd.struct.power_up": {
+   "category": "struct",
+   "bus": "Sfx",
+   "priority": 90,
+   "variants": [
+    {
+     "group": "sfx/struct/power_up"
+    }
+   ],
+   "volume_db": -2.0,
+   "spatial": {
+    "mode": "global"
+   },
+   "limit": {
+    "max_instances": 1,
+    "steal": "oldest",
+    "group": "struct",
+    "min_interval_ms": 1500
+   }
+  },
+  "snd.struct.repair": {
+   "category": "struct",
+   "bus": "Sfx",
+   "priority": 14,
+   "variants": [
+    {
+     "group": "sfx/struct/repair"
+    }
+   ],
+   "volume_db": -4.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 16,
+    "max_distance_m": 100,
+    "attenuation": "inverse",
+    "lowpass_hz": 8000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 6,
+    "steal": "oldest",
+    "group": "loops"
+   },
+   "loop": true,
+   "fade_in_ms": 120,
+   "fade_out_ms": 200
+  },
+  "snd.struct.salvage": {
+   "category": "struct",
+   "bus": "Sfx",
+   "priority": 14,
+   "variants": [
+    {
+     "group": "sfx/struct/salvage"
+    }
+   ],
+   "volume_db": -4.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 20,
+    "max_distance_m": 130,
+    "attenuation": "inverse",
+    "lowpass_hz": 8000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 4,
+    "steal": "oldest",
+    "group": "loops"
+   },
+   "loop": true,
+   "fade_in_ms": 120,
+   "fade_out_ms": 200
+  },
+  "snd.struct.sell": {
+   "category": "struct",
+   "bus": "Sfx",
+   "priority": 42,
+   "variants": [
+    {
+     "group": "sfx/struct/sell"
+    }
+   ],
+   "volume_db": -3.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 28,
+    "max_distance_m": 200,
+    "attenuation": "inverse",
+    "lowpass_hz": 11000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "struct",
+    "min_interval_ms": 250
+   }
+  },
+  "snd.struct.unit_out.aircraft": {
+   "category": "struct",
+   "bus": "Sfx",
+   "priority": 40,
+   "variants": [
+    {
+     "group": "sfx/struct/unit_out_aircraft"
+    }
+   ],
+   "volume_db": -4.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 25,
+    "max_distance_m": 180,
+    "attenuation": "inverse",
+    "lowpass_hz": 10000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 2,
+    "steal": "oldest",
+    "group": "struct",
+    "min_interval_ms": 250
+   }
+  },
+  "snd.struct.unit_out.infantry": {
+   "category": "struct",
+   "bus": "Sfx",
+   "priority": 40,
+   "variants": [
+    {
+     "group": "sfx/struct/unit_out_infantry"
+    }
+   ],
+   "volume_db": -4.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 25,
+    "max_distance_m": 180,
+    "attenuation": "inverse",
+    "lowpass_hz": 10000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 2,
+    "steal": "oldest",
+    "group": "struct",
+    "min_interval_ms": 250
+   }
+  },
+  "snd.struct.unit_out.ship": {
+   "category": "struct",
+   "bus": "Sfx",
+   "priority": 40,
+   "variants": [
+    {
+     "group": "sfx/struct/unit_out_ship"
+    }
+   ],
+   "volume_db": -4.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 25,
+    "max_distance_m": 180,
+    "attenuation": "inverse",
+    "lowpass_hz": 10000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 2,
+    "steal": "oldest",
+    "group": "struct",
+    "min_interval_ms": 250
+   }
+  },
+  "snd.struct.unit_out.vehicle": {
+   "category": "struct",
+   "bus": "Sfx",
+   "priority": 40,
+   "variants": [
+    {
+     "group": "sfx/struct/unit_out_vehicle"
+    }
+   ],
+   "volume_db": -4.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 25,
+    "max_distance_m": 180,
+    "attenuation": "inverse",
+    "lowpass_hz": 10000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 2,
+    "steal": "oldest",
+    "group": "struct",
+    "min_interval_ms": 250
+   }
+  },
+  "snd.sw.atlas.impact": {
+   "category": "power",
+   "bus": "SfxHeavy",
+   "priority": 90,
+   "variants": [
+    {
+     "group": "sfx/sw/atlas_impact"
+    }
+   ],
+   "volume_db": 0.0,
+   "cull_below_db": -50.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 100,
+    "max_distance_m": 900,
+    "attenuation": "inverse",
+    "lowpass_hz": 12000,
+    "propagation": true,
+    "fog": "audible"
+   },
+   "limit": {
+    "max_instances": 4,
+    "steal": "oldest",
+    "group": "strategic",
+    "min_interval_ms": 100
+   }
+  },
+  "snd.sw.atlas.launch": {
+   "category": "power",
+   "bus": "Sfx",
+   "priority": 92,
+   "variants": [
+    {
+     "group": "sfx/sw/atlas_launch"
+    }
+   ],
+   "volume_db": -1.0,
+   "spatial": {
+    "mode": "global"
+   },
+   "limit": {
+    "max_instances": 2,
+    "steal": "oldest",
+    "group": "strategic"
+   }
+  },
+  "snd.sw.aurora.charge": {
+   "category": "power",
+   "bus": "Sfx",
+   "priority": 30,
+   "variants": [
+    {
+     "group": "sfx/sw/aurora_charge"
+    }
+   ],
+   "volume_db": -6.0,
+   "spatial": {
+    "mode": "global"
+   },
+   "limit": {
+    "max_instances": 1,
+    "steal": "oldest",
+    "group": "strategic"
+   },
+   "loop": true,
+   "fade_in_ms": 400,
+   "fade_out_ms": 400
+  },
+  "snd.sw.aurora.end": {
+   "category": "power",
+   "bus": "Sfx",
+   "priority": 60,
+   "variants": [
+    {
+     "group": "sfx/sw/aurora_end"
+    }
+   ],
+   "volume_db": -2.0,
+   "spatial": {
+    "mode": "global"
+   },
+   "limit": {
+    "max_instances": 2,
+    "steal": "oldest",
+    "group": "strategic"
+   }
+  },
+  "snd.sw.aurora.impact": {
+   "category": "power",
+   "bus": "SfxHeavy",
+   "priority": 90,
+   "variants": [
+    {
+     "group": "sfx/sw/aurora_impact"
+    }
+   ],
+   "volume_db": -1.0,
+   "spatial": {
+    "mode": "global"
+   },
+   "limit": {
+    "max_instances": 2,
+    "steal": "oldest",
+    "group": "strategic"
+   }
+  },
+  "snd.sw.aurora.launch": {
+   "category": "power",
+   "bus": "Sfx",
+   "priority": 92,
+   "variants": [
+    {
+     "group": "sfx/sw/aurora_launch"
+    }
+   ],
+   "volume_db": -1.0,
+   "spatial": {
+    "mode": "global"
+   },
+   "limit": {
+    "max_instances": 2,
+    "steal": "oldest",
+    "group": "strategic"
+   }
+  },
+  "snd.sw.aurora.loop": {
+   "category": "power",
+   "bus": "Sfx",
+   "priority": 45,
+   "variants": [
+    {
+     "group": "sfx/sw/aurora_loop"
+    }
+   ],
+   "volume_db": -3.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 80,
+    "max_distance_m": 800,
+    "attenuation": "inverse",
+    "lowpass_hz": 11000,
+    "fog": "audible"
+   },
+   "limit": {
+    "max_instances": 2,
+    "steal": "oldest",
+    "group": "strategic"
+   },
+   "loop": true,
+   "fade_in_ms": 300,
+   "fade_out_ms": 500
+  },
+  "snd.sw.dragonfall.end": {
+   "category": "power",
+   "bus": "Sfx",
+   "priority": 60,
+   "variants": [
+    {
+     "group": "sfx/sw/dragonfall_end"
+    }
+   ],
+   "volume_db": -2.0,
+   "spatial": {
+    "mode": "global"
+   },
+   "limit": {
+    "max_instances": 2,
+    "steal": "oldest",
+    "group": "strategic"
+   }
+  },
+  "snd.sw.dragonfall.impact": {
+   "category": "power",
+   "bus": "SfxHeavy",
+   "priority": 90,
+   "variants": [
+    {
+     "group": "sfx/sw/dragonfall_impact"
+    }
+   ],
+   "volume_db": 0.0,
+   "cull_below_db": -50.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 100,
+    "max_distance_m": 900,
+    "attenuation": "inverse",
+    "lowpass_hz": 12000,
+    "propagation": true,
+    "fog": "audible"
+   },
+   "limit": {
+    "max_instances": 4,
+    "steal": "oldest",
+    "group": "strategic",
+    "min_interval_ms": 100
+   }
+  },
+  "snd.sw.dragonfall.launch": {
+   "category": "power",
+   "bus": "Sfx",
+   "priority": 92,
+   "variants": [
+    {
+     "group": "sfx/sw/dragonfall_launch"
+    }
+   ],
+   "volume_db": -1.0,
+   "spatial": {
+    "mode": "global"
+   },
+   "limit": {
+    "max_instances": 2,
+    "steal": "oldest",
+    "group": "strategic"
+   }
+  },
+  "snd.sw.dragonfall.loop": {
+   "category": "power",
+   "bus": "Sfx",
+   "priority": 45,
+   "variants": [
+    {
+     "group": "sfx/sw/dragonfall_loop"
+    }
+   ],
+   "volume_db": -3.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 80,
+    "max_distance_m": 800,
+    "attenuation": "inverse",
+    "lowpass_hz": 11000,
+    "fog": "audible"
+   },
+   "limit": {
+    "max_instances": 2,
+    "steal": "oldest",
+    "group": "strategic"
+   },
+   "loop": true,
+   "fade_in_ms": 300,
+   "fade_out_ms": 500
+  },
+  "snd.sw.helios.charge": {
+   "category": "power",
+   "bus": "Sfx",
+   "priority": 30,
+   "variants": [
+    {
+     "group": "sfx/sw/helios_charge"
+    }
+   ],
+   "volume_db": -6.0,
+   "spatial": {
+    "mode": "global"
+   },
+   "limit": {
+    "max_instances": 1,
+    "steal": "oldest",
+    "group": "strategic"
+   },
+   "loop": true,
+   "fade_in_ms": 400,
+   "fade_out_ms": 400
+  },
+  "snd.sw.helios.end": {
+   "category": "power",
+   "bus": "Sfx",
+   "priority": 60,
+   "variants": [
+    {
+     "group": "sfx/sw/helios_end"
+    }
+   ],
+   "volume_db": -2.0,
+   "spatial": {
+    "mode": "global"
+   },
+   "limit": {
+    "max_instances": 2,
+    "steal": "oldest",
+    "group": "strategic"
+   }
+  },
+  "snd.sw.helios.launch": {
+   "category": "power",
+   "bus": "Sfx",
+   "priority": 92,
+   "variants": [
+    {
+     "group": "sfx/sw/helios_launch"
+    }
+   ],
+   "volume_db": -1.0,
+   "spatial": {
+    "mode": "global"
+   },
+   "limit": {
+    "max_instances": 2,
+    "steal": "oldest",
+    "group": "strategic"
+   }
+  },
+  "snd.sw.helios.loop": {
+   "category": "power",
+   "bus": "Sfx",
+   "priority": 45,
+   "variants": [
+    {
+     "group": "sfx/sw/helios_loop"
+    }
+   ],
+   "volume_db": -3.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 80,
+    "max_distance_m": 800,
+    "attenuation": "inverse",
+    "lowpass_hz": 11000,
+    "fog": "audible"
+   },
+   "limit": {
+    "max_instances": 2,
+    "steal": "oldest",
+    "group": "strategic"
+   },
+   "loop": true,
+   "fade_in_ms": 300,
+   "fade_out_ms": 500
+  },
+  "snd.sw.horizon.charge": {
+   "category": "power",
+   "bus": "Sfx",
+   "priority": 30,
+   "variants": [
+    {
+     "group": "sfx/sw/horizon_charge"
+    }
+   ],
+   "volume_db": -6.0,
+   "spatial": {
+    "mode": "global"
+   },
+   "limit": {
+    "max_instances": 1,
+    "steal": "oldest",
+    "group": "strategic"
+   },
+   "loop": true,
+   "fade_in_ms": 400,
+   "fade_out_ms": 400
+  },
+  "snd.sw.horizon.impact": {
+   "category": "power",
+   "bus": "SfxHeavy",
+   "priority": 90,
+   "variants": [
+    {
+     "group": "sfx/sw/horizon_impact"
+    }
+   ],
+   "volume_db": 0.0,
+   "cull_below_db": -50.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 100,
+    "max_distance_m": 900,
+    "attenuation": "inverse",
+    "lowpass_hz": 12000,
+    "propagation": true,
+    "fog": "audible"
+   },
+   "limit": {
+    "max_instances": 4,
+    "steal": "oldest",
+    "group": "strategic",
+    "min_interval_ms": 100
+   }
+  },
+  "snd.sw.horizon.launch": {
+   "category": "power",
+   "bus": "SfxHeavy",
+   "priority": 92,
+   "variants": [
+    {
+     "group": "sfx/sw/horizon_launch"
+    }
+   ],
+   "volume_db": 0.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 90,
+    "max_distance_m": 800,
+    "attenuation": "inverse",
+    "lowpass_hz": 12000,
+    "fog": "audible"
+   },
+   "limit": {
+    "max_instances": 2,
+    "steal": "oldest",
+    "group": "strategic"
+   }
+  },
+  "snd.sw.perun.impact": {
+   "category": "power",
+   "bus": "SfxHeavy",
+   "priority": 90,
+   "variants": [
+    {
+     "group": "sfx/sw/perun_impact"
+    }
+   ],
+   "volume_db": 0.0,
+   "cull_below_db": -50.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 100,
+    "max_distance_m": 900,
+    "attenuation": "inverse",
+    "lowpass_hz": 12000,
+    "propagation": true,
+    "fog": "audible"
+   },
+   "limit": {
+    "max_instances": 4,
+    "steal": "oldest",
+    "group": "strategic",
+    "min_interval_ms": 100
+   }
+  },
+  "snd.sw.perun.launch": {
+   "category": "power",
+   "bus": "SfxHeavy",
+   "priority": 92,
+   "variants": [
+    {
+     "group": "sfx/sw/perun_launch"
+    }
+   ],
+   "volume_db": 0.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 90,
+    "max_distance_m": 800,
+    "attenuation": "inverse",
+    "lowpass_hz": 12000,
+    "fog": "audible"
+   },
+   "limit": {
+    "max_instances": 2,
+    "steal": "oldest",
+    "group": "strategic"
+   }
+  },
+  "snd.sw.tempest.end": {
+   "category": "power",
+   "bus": "Sfx",
+   "priority": 60,
+   "variants": [
+    {
+     "group": "sfx/sw/tempest_end"
+    }
+   ],
+   "volume_db": -2.0,
+   "spatial": {
+    "mode": "global"
+   },
+   "limit": {
+    "max_instances": 2,
+    "steal": "oldest",
+    "group": "strategic"
+   }
+  },
+  "snd.sw.tempest.launch": {
+   "category": "power",
+   "bus": "SfxHeavy",
+   "priority": 92,
+   "variants": [
+    {
+     "group": "sfx/sw/tempest_launch"
+    }
+   ],
+   "volume_db": 0.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 90,
+    "max_distance_m": 800,
+    "attenuation": "inverse",
+    "lowpass_hz": 12000,
+    "fog": "audible"
+   },
+   "limit": {
+    "max_instances": 2,
+    "steal": "oldest",
+    "group": "strategic"
+   }
+  },
+  "snd.sw.tempest.loop": {
+   "category": "power",
+   "bus": "Sfx",
+   "priority": 45,
+   "variants": [
+    {
+     "group": "sfx/sw/tempest_loop"
+    }
+   ],
+   "volume_db": -3.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 80,
+    "max_distance_m": 800,
+    "attenuation": "inverse",
+    "lowpass_hz": 11000,
+    "fog": "audible"
+   },
+   "limit": {
+    "max_instances": 2,
+    "steal": "oldest",
+    "group": "strategic"
+   },
+   "loop": true,
+   "fade_in_ms": 300,
+   "fade_out_ms": 500
+  },
+  "snd.sw.trident.end": {
+   "category": "power",
+   "bus": "Sfx",
+   "priority": 60,
+   "variants": [
+    {
+     "group": "sfx/sw/trident_end"
+    }
+   ],
+   "volume_db": -2.0,
+   "spatial": {
+    "mode": "global"
+   },
+   "limit": {
+    "max_instances": 2,
+    "steal": "oldest",
+    "group": "strategic"
+   }
+  },
+  "snd.sw.trident.launch": {
+   "category": "power",
+   "bus": "Sfx",
+   "priority": 92,
+   "variants": [
+    {
+     "group": "sfx/sw/trident_launch"
+    }
+   ],
+   "volume_db": -1.0,
+   "spatial": {
+    "mode": "global"
+   },
+   "limit": {
+    "max_instances": 2,
+    "steal": "oldest",
+    "group": "strategic"
+   }
+  },
+  "snd.sw.trident.loop": {
+   "category": "power",
+   "bus": "Sfx",
+   "priority": 45,
+   "variants": [
+    {
+     "group": "sfx/sw/trident_loop"
+    }
+   ],
+   "volume_db": -3.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 80,
+    "max_distance_m": 800,
+    "attenuation": "inverse",
+    "lowpass_hz": 11000,
+    "fog": "audible"
+   },
+   "limit": {
+    "max_instances": 2,
+    "steal": "oldest",
+    "group": "strategic"
+   },
+   "loop": true,
+   "fade_in_ms": 300,
+   "fade_out_ms": 500
+  },
+  "snd.ui.alert": {
+   "category": "ui",
+   "bus": "Ui",
+   "priority": 95,
+   "variants": [
+    {
+     "group": "ui/alert"
+    }
+   ],
+   "volume_db": 0.0,
+   "pitch_jitter_semitones": 0.2,
+   "spatial": {
+    "mode": "ui"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "ui",
+    "min_interval_ms": 30
+   }
+  },
+  "snd.ui.back": {
+   "category": "ui",
+   "bus": "Ui",
+   "priority": 95,
+   "variants": [
+    {
+     "group": "ui/back"
+    }
+   ],
+   "volume_db": 0.0,
+   "pitch_jitter_semitones": 0.2,
+   "spatial": {
+    "mode": "ui"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "ui",
+    "min_interval_ms": 30
+   }
+  },
+  "snd.ui.build_ready": {
+   "category": "ui",
+   "bus": "Ui",
+   "priority": 95,
+   "variants": [
+    {
+     "group": "ui/build_ready"
+    }
+   ],
+   "volume_db": 0.0,
+   "pitch_jitter_semitones": 0.2,
+   "spatial": {
+    "mode": "ui"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "ui",
+    "min_interval_ms": 30
+   }
+  },
+  "snd.ui.chat": {
+   "category": "ui",
+   "bus": "Ui",
+   "priority": 95,
+   "variants": [
+    {
+     "group": "ui/chat"
+    }
+   ],
+   "volume_db": 0.0,
+   "pitch_jitter_semitones": 0.2,
+   "spatial": {
+    "mode": "ui"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "ui",
+    "min_interval_ms": 30
+   }
+  },
+  "snd.ui.click": {
+   "category": "ui",
+   "bus": "Ui",
+   "priority": 95,
+   "variants": [
+    {
+     "group": "ui/click"
+    }
+   ],
+   "volume_db": 0.0,
+   "pitch_jitter_semitones": 0.2,
+   "spatial": {
+    "mode": "ui"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "ui",
+    "min_interval_ms": 30
+   }
+  },
+  "snd.ui.confirm": {
+   "category": "ui",
+   "bus": "Ui",
+   "priority": 95,
+   "variants": [
+    {
+     "group": "ui/confirm"
+    }
+   ],
+   "volume_db": 0.0,
+   "pitch_jitter_semitones": 0.2,
+   "spatial": {
+    "mode": "ui"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "ui",
+    "min_interval_ms": 30
+   }
+  },
+  "snd.ui.error": {
+   "category": "ui",
+   "bus": "Ui",
+   "priority": 95,
+   "variants": [
+    {
+     "group": "ui/error"
+    }
+   ],
+   "volume_db": 0.0,
+   "pitch_jitter_semitones": 0.2,
+   "spatial": {
+    "mode": "ui"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "ui",
+    "min_interval_ms": 30
+   }
+  },
+  "snd.ui.group_recall": {
+   "category": "ui",
+   "bus": "Ui",
+   "priority": 95,
+   "variants": [
+    {
+     "group": "ui/group_recall"
+    }
+   ],
+   "volume_db": 0.0,
+   "pitch_jitter_semitones": 0.2,
+   "spatial": {
+    "mode": "ui"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "ui",
+    "min_interval_ms": 30
+   }
+  },
+  "snd.ui.group_set": {
+   "category": "ui",
+   "bus": "Ui",
+   "priority": 95,
+   "variants": [
+    {
+     "group": "ui/group_set"
+    }
+   ],
+   "volume_db": 0.0,
+   "pitch_jitter_semitones": 0.2,
+   "spatial": {
+    "mode": "ui"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "ui",
+    "min_interval_ms": 30
+   }
+  },
+  "snd.ui.hover": {
+   "category": "ui",
+   "bus": "Ui",
+   "priority": 95,
+   "variants": [
+    {
+     "group": "ui/hover"
+    }
+   ],
+   "volume_db": 0.0,
+   "pitch_jitter_semitones": 0.2,
+   "spatial": {
+    "mode": "ui"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "ui",
+    "min_interval_ms": 30
+   }
+  },
+  "snd.ui.lobby_countdown_tick": {
+   "category": "ui",
+   "bus": "Ui",
+   "priority": 95,
+   "variants": [
+    {
+     "group": "ui/lobby_countdown_tick"
+    }
+   ],
+   "volume_db": 0.0,
+   "pitch_jitter_semitones": 0.2,
+   "spatial": {
+    "mode": "ui"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "ui",
+    "min_interval_ms": 30
+   }
+  },
+  "snd.ui.lobby_join": {
+   "category": "ui",
+   "bus": "Ui",
+   "priority": 95,
+   "variants": [
+    {
+     "group": "ui/lobby_join"
+    }
+   ],
+   "volume_db": 0.0,
+   "pitch_jitter_semitones": 0.2,
+   "spatial": {
+    "mode": "ui"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "ui",
+    "min_interval_ms": 30
+   }
+  },
+  "snd.ui.lobby_leave": {
+   "category": "ui",
+   "bus": "Ui",
+   "priority": 95,
+   "variants": [
+    {
+     "group": "ui/lobby_leave"
+    }
+   ],
+   "volume_db": 0.0,
+   "pitch_jitter_semitones": 0.2,
+   "spatial": {
+    "mode": "ui"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "ui",
+    "min_interval_ms": 30
+   }
+  },
+  "snd.ui.lobby_ready": {
+   "category": "ui",
+   "bus": "Ui",
+   "priority": 95,
+   "variants": [
+    {
+     "group": "ui/lobby_ready"
+    }
+   ],
+   "volume_db": 0.0,
+   "pitch_jitter_semitones": 0.2,
+   "spatial": {
+    "mode": "ui"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "ui",
+    "min_interval_ms": 30
+   }
+  },
+  "snd.ui.lobby_start": {
+   "category": "ui",
+   "bus": "Ui",
+   "priority": 95,
+   "variants": [
+    {
+     "group": "ui/lobby_start"
+    }
+   ],
+   "volume_db": 0.0,
+   "pitch_jitter_semitones": 0.2,
+   "spatial": {
+    "mode": "ui"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "ui",
+    "min_interval_ms": 30
+   }
+  },
+  "snd.ui.menu_transition": {
+   "category": "ui",
+   "bus": "Ui",
+   "priority": 95,
+   "variants": [
+    {
+     "group": "ui/menu_transition"
+    }
+   ],
+   "volume_db": 0.0,
+   "pitch_jitter_semitones": 0.2,
+   "spatial": {
+    "mode": "ui"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "ui",
+    "min_interval_ms": 30
+   }
+  },
+  "snd.ui.minimap_click": {
+   "category": "ui",
+   "bus": "Ui",
+   "priority": 95,
+   "variants": [
+    {
+     "group": "ui/minimap_click"
+    }
+   ],
+   "volume_db": 0.0,
+   "pitch_jitter_semitones": 0.2,
+   "spatial": {
+    "mode": "ui"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "ui",
+    "min_interval_ms": 30
+   }
+  },
+  "snd.ui.minimap_ping": {
+   "category": "ui",
+   "bus": "Ui",
+   "priority": 95,
+   "variants": [
+    {
+     "group": "ui/minimap_ping"
+    }
+   ],
+   "volume_db": 0.0,
+   "pitch_jitter_semitones": 0.2,
+   "spatial": {
+    "mode": "ui"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "ui",
+    "min_interval_ms": 30
+   }
+  },
+  "snd.ui.notify": {
+   "category": "ui",
+   "bus": "Ui",
+   "priority": 95,
+   "variants": [
+    {
+     "group": "ui/notify"
+    }
+   ],
+   "volume_db": 0.0,
+   "pitch_jitter_semitones": 0.2,
+   "spatial": {
+    "mode": "ui"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "ui",
+    "min_interval_ms": 30
+   }
+  },
+  "snd.ui.place_fail": {
+   "category": "ui",
+   "bus": "Ui",
+   "priority": 95,
+   "variants": [
+    {
+     "group": "ui/place_fail"
+    }
+   ],
+   "volume_db": 0.0,
+   "pitch_jitter_semitones": 0.2,
+   "spatial": {
+    "mode": "ui"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "ui",
+    "min_interval_ms": 30
+   }
+  },
+  "snd.ui.place_ok": {
+   "category": "ui",
+   "bus": "Ui",
+   "priority": 95,
+   "variants": [
+    {
+     "group": "ui/place_ok"
+    }
+   ],
+   "volume_db": 0.0,
+   "pitch_jitter_semitones": 0.2,
+   "spatial": {
+    "mode": "ui"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "ui",
+    "min_interval_ms": 30
+   }
+  },
+  "snd.ui.queue_add": {
+   "category": "ui",
+   "bus": "Ui",
+   "priority": 95,
+   "variants": [
+    {
+     "group": "ui/queue_add"
+    }
+   ],
+   "volume_db": 0.0,
+   "pitch_jitter_semitones": 0.2,
+   "spatial": {
+    "mode": "ui"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "ui",
+    "min_interval_ms": 30
+   }
+  },
+  "snd.ui.queue_cancel": {
+   "category": "ui",
+   "bus": "Ui",
+   "priority": 95,
+   "variants": [
+    {
+     "group": "ui/queue_cancel"
+    }
+   ],
+   "volume_db": 0.0,
+   "pitch_jitter_semitones": 0.2,
+   "spatial": {
+    "mode": "ui"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "ui",
+    "min_interval_ms": 30
+   }
+  },
+  "snd.ui.queue_hold": {
+   "category": "ui",
+   "bus": "Ui",
+   "priority": 95,
+   "variants": [
+    {
+     "group": "ui/queue_hold"
+    }
+   ],
+   "volume_db": 0.0,
+   "pitch_jitter_semitones": 0.2,
+   "spatial": {
+    "mode": "ui"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "ui",
+    "min_interval_ms": 30
+   }
+  },
+  "snd.ui.rally_set": {
+   "category": "ui",
+   "bus": "Ui",
+   "priority": 95,
+   "variants": [
+    {
+     "group": "ui/rally_set"
+    }
+   ],
+   "volume_db": 0.0,
+   "pitch_jitter_semitones": 0.2,
+   "spatial": {
+    "mode": "ui"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "ui",
+    "min_interval_ms": 30
+   }
+  },
+  "snd.ui.repair_mode": {
+   "category": "ui",
+   "bus": "Ui",
+   "priority": 95,
+   "variants": [
+    {
+     "group": "ui/repair_mode"
+    }
+   ],
+   "volume_db": 0.0,
+   "pitch_jitter_semitones": 0.2,
+   "spatial": {
+    "mode": "ui"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "ui",
+    "min_interval_ms": 30
+   }
+  },
+  "snd.ui.sell_mode": {
+   "category": "ui",
+   "bus": "Ui",
+   "priority": 95,
+   "variants": [
+    {
+     "group": "ui/sell_mode"
+    }
+   ],
+   "volume_db": 0.0,
+   "pitch_jitter_semitones": 0.2,
+   "spatial": {
+    "mode": "ui"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "ui",
+    "min_interval_ms": 30
+   }
+  },
+  "snd.ui.slider_tick": {
+   "category": "ui",
+   "bus": "Ui",
+   "priority": 95,
+   "variants": [
+    {
+     "group": "ui/slider_tick"
+    }
+   ],
+   "volume_db": 0.0,
+   "pitch_jitter_semitones": 0.2,
+   "spatial": {
+    "mode": "ui"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "ui",
+    "min_interval_ms": 30
+   }
+  },
+  "snd.ui.tab": {
+   "category": "ui",
+   "bus": "Ui",
+   "priority": 95,
+   "variants": [
+    {
+     "group": "ui/tab"
+    }
+   ],
+   "volume_db": 0.0,
+   "pitch_jitter_semitones": 0.2,
+   "spatial": {
+    "mode": "ui"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "ui",
+    "min_interval_ms": 30
+   }
+  },
+  "snd.ui.toggle_off": {
+   "category": "ui",
+   "bus": "Ui",
+   "priority": 95,
+   "variants": [
+    {
+     "group": "ui/toggle_off"
+    }
+   ],
+   "volume_db": 0.0,
+   "pitch_jitter_semitones": 0.2,
+   "spatial": {
+    "mode": "ui"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "ui",
+    "min_interval_ms": 30
+   }
+  },
+  "snd.ui.toggle_on": {
+   "category": "ui",
+   "bus": "Ui",
+   "priority": 95,
+   "variants": [
+    {
+     "group": "ui/toggle_on"
+    }
+   ],
+   "volume_db": 0.0,
+   "pitch_jitter_semitones": 0.2,
+   "spatial": {
+    "mode": "ui"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "ui",
+    "min_interval_ms": 30
+   }
+  },
+  "snd.ui.waypoint": {
+   "category": "ui",
+   "bus": "Ui",
+   "priority": 95,
+   "variants": [
+    {
+     "group": "ui/waypoint"
+    }
+   ],
+   "volume_db": 0.0,
+   "pitch_jitter_semitones": 0.2,
+   "spatial": {
+    "mode": "ui"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "ui",
+    "min_interval_ms": 30
+   }
+  },
+  "snd.weapon.aa_missile": {
+   "category": "weapon",
+   "bus": "Sfx",
+   "priority": 46,
+   "variants": [
+    {
+     "group": "sfx/weapon/aa_missile"
+    }
+   ],
+   "volume_db": -1.0,
+   "volume_jitter_db": 1.0,
+   "pitch_jitter_semitones": 0.6,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 34,
+    "max_distance_m": 260,
+    "attenuation": "inverse",
+    "lowpass_hz": 10000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 4,
+    "steal": "oldest",
+    "group": "heavy",
+    "min_interval_ms": 80
+   }
+  },
+  "snd.weapon.air_missile": {
+   "category": "weapon",
+   "bus": "Sfx",
+   "priority": 46,
+   "variants": [
+    {
+     "group": "sfx/weapon/air_missile"
+    }
+   ],
+   "volume_db": -1.0,
+   "volume_jitter_db": 1.0,
+   "pitch_jitter_semitones": 0.6,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 34,
+    "max_distance_m": 260,
+    "attenuation": "inverse",
+    "lowpass_hz": 10000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 4,
+    "steal": "oldest",
+    "group": "heavy",
+    "min_interval_ms": 90
+   }
+  },
+  "snd.weapon.artillery_shell": {
+   "category": "weapon",
+   "bus": "SfxHeavy",
+   "priority": 66,
+   "variants": [
+    {
+     "group": "sfx/weapon/artillery_shell"
+    }
+   ],
+   "flavours": {
+    "napc": [
+     {
+      "group": "sfx/weapon_fx/napc/artillery_shell"
+     }
+    ],
+    "nec": [
+     {
+      "group": "sfx/weapon_fx/nec/artillery_shell"
+     }
+    ],
+    "olm": [
+     {
+      "group": "sfx/weapon_fx/olm/artillery_shell"
+     }
+    ],
+    "def": [
+     {
+      "group": "sfx/weapon_fx/def/artillery_shell"
+     }
+    ],
+    "pd": [
+     {
+      "group": "sfx/weapon_fx/pd/artillery_shell"
+     }
+    ],
+    "han": [
+     {
+      "group": "sfx/weapon_fx/han/artillery_shell"
+     }
+    ],
+    "ae": [
+     {
+      "group": "sfx/weapon_fx/ae/artillery_shell"
+     }
+    ],
+    "sap": [
+     {
+      "group": "sfx/weapon_fx/sap/artillery_shell"
+     }
+    ]
+   },
+   "volume_db": 0.0,
+   "volume_jitter_db": 1.0,
+   "pitch_jitter_semitones": 0.6,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 70,
+    "max_distance_m": 450,
+    "attenuation": "inverse",
+    "lowpass_hz": 12000,
+    "propagation": true,
+    "fog": "muffled"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "heavy",
+    "min_interval_ms": 200
+   }
+  },
+  "snd.weapon.at_missile": {
+   "category": "weapon",
+   "bus": "Sfx",
+   "priority": 46,
+   "variants": [
+    {
+     "group": "sfx/weapon/at_missile"
+    }
+   ],
+   "flavours": {
+    "napc": [
+     {
+      "group": "sfx/weapon_fx/napc/at_missile"
+     }
+    ],
+    "nec": [
+     {
+      "group": "sfx/weapon_fx/nec/at_missile"
+     }
+    ],
+    "olm": [
+     {
+      "group": "sfx/weapon_fx/olm/at_missile"
+     }
+    ],
+    "def": [
+     {
+      "group": "sfx/weapon_fx/def/at_missile"
+     }
+    ],
+    "pd": [
+     {
+      "group": "sfx/weapon_fx/pd/at_missile"
+     }
+    ],
+    "han": [
+     {
+      "group": "sfx/weapon_fx/han/at_missile"
+     }
+    ],
+    "ae": [
+     {
+      "group": "sfx/weapon_fx/ae/at_missile"
+     }
+    ],
+    "sap": [
+     {
+      "group": "sfx/weapon_fx/sap/at_missile"
+     }
+    ]
+   },
+   "volume_db": -1.0,
+   "volume_jitter_db": 1.0,
+   "pitch_jitter_semitones": 0.6,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 34,
+    "max_distance_m": 260,
+    "attenuation": "inverse",
+    "lowpass_hz": 10000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 4,
+    "steal": "oldest",
+    "group": "heavy",
+    "min_interval_ms": 100
+   }
+  },
+  "snd.weapon.autocannon": {
+   "category": "weapon",
+   "bus": "Sfx",
+   "priority": 38,
+   "variants": [
+    {
+     "group": "sfx/weapon/autocannon"
+    }
+   ],
+   "flavours": {
+    "napc": [
+     {
+      "group": "sfx/weapon_fx/napc/autocannon"
+     }
+    ],
+    "nec": [
+     {
+      "group": "sfx/weapon_fx/nec/autocannon"
+     }
+    ],
+    "olm": [
+     {
+      "group": "sfx/weapon_fx/olm/autocannon"
+     }
+    ],
+    "def": [
+     {
+      "group": "sfx/weapon_fx/def/autocannon"
+     }
+    ],
+    "pd": [
+     {
+      "group": "sfx/weapon_fx/pd/autocannon"
+     }
+    ],
+    "han": [
+     {
+      "group": "sfx/weapon_fx/han/autocannon"
+     }
+    ],
+    "ae": [
+     {
+      "group": "sfx/weapon_fx/ae/autocannon"
+     }
+    ],
+    "sap": [
+     {
+      "group": "sfx/weapon_fx/sap/autocannon"
+     }
+    ]
+   },
+   "volume_db": -2.0,
+   "volume_jitter_db": 1.5,
+   "pitch_jitter_semitones": 0.8,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 28,
+    "max_distance_m": 200,
+    "attenuation": "inverse",
+    "lowpass_hz": 9500,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 4,
+    "steal": "oldest",
+    "group": "small_arms",
+    "min_interval_ms": 60
+   }
+  },
+  "snd.weapon.beam_thermal": {
+   "category": "weapon",
+   "bus": "Sfx",
+   "priority": 52,
+   "variants": [
+    {
+     "group": "sfx/weapon/beam_thermal"
+    }
+   ],
+   "flavours": {
+    "napc": [
+     {
+      "group": "sfx/weapon_fx/napc/beam_thermal"
+     }
+    ],
+    "nec": [
+     {
+      "group": "sfx/weapon_fx/nec/beam_thermal"
+     }
+    ],
+    "olm": [
+     {
+      "group": "sfx/weapon_fx/olm/beam_thermal"
+     }
+    ],
+    "def": [
+     {
+      "group": "sfx/weapon_fx/def/beam_thermal"
+     }
+    ],
+    "pd": [
+     {
+      "group": "sfx/weapon_fx/pd/beam_thermal"
+     }
+    ],
+    "han": [
+     {
+      "group": "sfx/weapon_fx/han/beam_thermal"
+     }
+    ],
+    "ae": [
+     {
+      "group": "sfx/weapon_fx/ae/beam_thermal"
+     }
+    ],
+    "sap": [
+     {
+      "group": "sfx/weapon_fx/sap/beam_thermal"
+     }
+    ]
+   },
+   "volume_db": 0.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 40,
+    "max_distance_m": 300,
+    "attenuation": "inverse",
+    "lowpass_hz": 10000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 6,
+    "steal": "oldest",
+    "group": "loops",
+    "min_interval_ms": 200
+   },
+   "link": {
+    "loop": "snd.weapon.beam_thermal.loop",
+    "end": "snd.weapon.beam_thermal.end"
+   }
+  },
+  "snd.weapon.beam_thermal.end": {
+   "category": "weapon",
+   "bus": "Sfx",
+   "priority": 40,
+   "variants": [
+    {
+     "group": "sfx/weapon/beam_thermal_end"
+    }
+   ],
+   "volume_db": 0.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 30,
+    "max_distance_m": 220,
+    "attenuation": "inverse",
+    "lowpass_hz": 9000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 6,
+    "steal": "oldest",
+    "group": "loops"
+   }
+  },
+  "snd.weapon.beam_thermal.loop": {
+   "category": "weapon",
+   "bus": "Sfx",
+   "priority": 20,
+   "variants": [
+    {
+     "group": "sfx/weapon/beam_thermal_loop"
+    }
+   ],
+   "volume_db": -2.0,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 30,
+    "max_distance_m": 220,
+    "attenuation": "inverse",
+    "lowpass_hz": 8000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 6,
+    "steal": "oldest",
+    "group": "loops"
+   },
+   "loop": true,
+   "fade_in_ms": 150,
+   "fade_out_ms": 200
+  },
+  "snd.weapon.bomb": {
+   "category": "weapon",
+   "bus": "Sfx",
+   "priority": 50,
+   "variants": [
+    {
+     "group": "sfx/weapon/bomb"
+    }
+   ],
+   "volume_db": -1.0,
+   "volume_jitter_db": 1.0,
+   "pitch_jitter_semitones": 0.6,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 34,
+    "max_distance_m": 260,
+    "attenuation": "inverse",
+    "lowpass_hz": 10000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 4,
+    "steal": "oldest",
+    "group": "heavy",
+    "min_interval_ms": 100
+   }
+  },
+  "snd.weapon.breach_charge": {
+   "category": "weapon",
+   "bus": "Sfx",
+   "priority": 56,
+   "variants": [
+    {
+     "group": "sfx/weapon/breach_charge"
+    }
+   ],
+   "volume_db": 0.0,
+   "volume_jitter_db": 1.0,
+   "pitch_jitter_semitones": 0.6,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 26,
+    "max_distance_m": 190,
+    "attenuation": "inverse",
+    "lowpass_hz": 11000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "heavy",
+    "min_interval_ms": 300
+   }
+  },
+  "snd.weapon.canister": {
+   "category": "weapon",
+   "bus": "Sfx",
+   "priority": 46,
+   "variants": [
+    {
+     "group": "sfx/weapon/canister"
+    }
+   ],
+   "volume_db": -1.0,
+   "volume_jitter_db": 1.0,
+   "pitch_jitter_semitones": 0.6,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 30,
+    "max_distance_m": 220,
+    "attenuation": "inverse",
+    "lowpass_hz": 10000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 4,
+    "steal": "oldest",
+    "group": "heavy",
+    "min_interval_ms": 100
+   }
+  },
+  "snd.weapon.cruise_missile": {
+   "category": "weapon",
+   "bus": "Sfx",
+   "priority": 62,
+   "variants": [
+    {
+     "group": "sfx/weapon/cruise_missile"
+    }
+   ],
+   "volume_db": 0.0,
+   "volume_jitter_db": 1.0,
+   "pitch_jitter_semitones": 0.6,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 60,
+    "max_distance_m": 420,
+    "attenuation": "inverse",
+    "lowpass_hz": 11000,
+    "fog": "muffled"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "heavy",
+    "min_interval_ms": 300
+   }
+  },
+  "snd.weapon.demolition_cannon": {
+   "category": "weapon",
+   "bus": "Sfx",
+   "priority": 66,
+   "variants": [
+    {
+     "group": "sfx/weapon/demolition_cannon"
+    }
+   ],
+   "volume_db": 0.0,
+   "volume_jitter_db": 1.0,
+   "pitch_jitter_semitones": 0.6,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 55,
+    "max_distance_m": 380,
+    "attenuation": "inverse",
+    "lowpass_hz": 12000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 2,
+    "steal": "oldest",
+    "group": "heavy",
+    "min_interval_ms": 250
+   }
+  },
+  "snd.weapon.depth_charge": {
+   "category": "weapon",
+   "bus": "Sfx",
+   "priority": 52,
+   "variants": [
+    {
+     "group": "sfx/weapon/depth_charge"
+    }
+   ],
+   "volume_db": -1.0,
+   "volume_jitter_db": 1.0,
+   "pitch_jitter_semitones": 0.6,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 34,
+    "max_distance_m": 260,
+    "attenuation": "inverse",
+    "lowpass_hz": 9000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "heavy",
+    "min_interval_ms": 300
+   }
+  },
+  "snd.weapon.drone_missile": {
+   "category": "weapon",
+   "bus": "Sfx",
+   "priority": 42,
+   "variants": [
+    {
+     "group": "sfx/weapon/drone_missile"
+    }
+   ],
+   "volume_db": -2.0,
+   "volume_jitter_db": 1.5,
+   "pitch_jitter_semitones": 0.8,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 30,
+    "max_distance_m": 220,
+    "attenuation": "inverse",
+    "lowpass_hz": 9500,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 4,
+    "steal": "oldest",
+    "group": "small_arms",
+    "min_interval_ms": 80
+   }
+  },
+  "snd.weapon.emp_pulse": {
+   "category": "weapon",
+   "bus": "Sfx",
+   "priority": 62,
+   "variants": [
+    {
+     "group": "sfx/weapon/emp_pulse"
+    }
+   ],
+   "volume_db": 0.0,
+   "volume_jitter_db": 1.0,
+   "pitch_jitter_semitones": 0.6,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 45,
+    "max_distance_m": 350,
+    "attenuation": "inverse",
+    "lowpass_hz": 12000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "heavy",
+    "min_interval_ms": 250
+   }
+  },
+  "snd.weapon.flak": {
+   "category": "weapon",
+   "bus": "Sfx",
+   "priority": 40,
+   "variants": [
+    {
+     "group": "sfx/weapon/flak"
+    }
+   ],
+   "volume_db": -2.0,
+   "volume_jitter_db": 1.5,
+   "pitch_jitter_semitones": 0.8,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 30,
+    "max_distance_m": 220,
+    "attenuation": "inverse",
+    "lowpass_hz": 9500,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 4,
+    "steal": "oldest",
+    "group": "small_arms",
+    "min_interval_ms": 60
+   }
+  },
+  "snd.weapon.grenade_launcher": {
+   "category": "weapon",
+   "bus": "Sfx",
+   "priority": 40,
+   "variants": [
+    {
+     "group": "sfx/weapon/grenade_launcher"
+    }
+   ],
+   "volume_db": -2.0,
+   "volume_jitter_db": 1.5,
+   "pitch_jitter_semitones": 0.8,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 24,
+    "max_distance_m": 180,
+    "attenuation": "inverse",
+    "lowpass_hz": 9500,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 4,
+    "steal": "oldest",
+    "group": "small_arms",
+    "min_interval_ms": 100
+   }
+  },
+  "snd.weapon.machine_gun": {
+   "category": "weapon",
+   "bus": "Sfx",
+   "priority": 30,
+   "variants": [
+    {
+     "group": "sfx/weapon/machine_gun"
+    }
+   ],
+   "flavours": {
+    "napc": [
+     {
+      "group": "sfx/weapon_fx/napc/machine_gun"
+     }
+    ],
+    "nec": [
+     {
+      "group": "sfx/weapon_fx/nec/machine_gun"
+     }
+    ],
+    "olm": [
+     {
+      "group": "sfx/weapon_fx/olm/machine_gun"
+     }
+    ],
+    "def": [
+     {
+      "group": "sfx/weapon_fx/def/machine_gun"
+     }
+    ],
+    "pd": [
+     {
+      "group": "sfx/weapon_fx/pd/machine_gun"
+     }
+    ],
+    "han": [
+     {
+      "group": "sfx/weapon_fx/han/machine_gun"
+     }
+    ],
+    "ae": [
+     {
+      "group": "sfx/weapon_fx/ae/machine_gun"
+     }
+    ],
+    "sap": [
+     {
+      "group": "sfx/weapon_fx/sap/machine_gun"
+     }
+    ]
+   },
+   "volume_db": -3.0,
+   "volume_jitter_db": 1.5,
+   "pitch_jitter_semitones": 0.8,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 22,
+    "max_distance_m": 170,
+    "attenuation": "inverse",
+    "lowpass_hz": 9000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 5,
+    "steal": "oldest",
+    "group": "small_arms",
+    "min_interval_ms": 45
+   }
+  },
+  "snd.weapon.missile_artillery": {
+   "category": "weapon",
+   "bus": "Sfx",
+   "priority": 62,
+   "variants": [
+    {
+     "group": "sfx/weapon/missile_artillery"
+    }
+   ],
+   "volume_db": 0.0,
+   "volume_jitter_db": 1.0,
+   "pitch_jitter_semitones": 0.6,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 60,
+    "max_distance_m": 420,
+    "attenuation": "inverse",
+    "lowpass_hz": 11000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "heavy",
+    "min_interval_ms": 200
+   }
+  },
+  "snd.weapon.mortar": {
+   "category": "weapon",
+   "bus": "Sfx",
+   "priority": 50,
+   "variants": [
+    {
+     "group": "sfx/weapon/mortar"
+    }
+   ],
+   "volume_db": -1.0,
+   "volume_jitter_db": 1.0,
+   "pitch_jitter_semitones": 0.6,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 34,
+    "max_distance_m": 260,
+    "attenuation": "inverse",
+    "lowpass_hz": 10000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "heavy",
+    "min_interval_ms": 150
+   }
+  },
+  "snd.weapon.naval_bombard": {
+   "category": "weapon",
+   "bus": "SfxHeavy",
+   "priority": 68,
+   "variants": [
+    {
+     "group": "sfx/weapon/naval_bombard"
+    }
+   ],
+   "volume_db": 0.0,
+   "volume_jitter_db": 1.0,
+   "pitch_jitter_semitones": 0.6,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 70,
+    "max_distance_m": 460,
+    "attenuation": "inverse",
+    "lowpass_hz": 12000,
+    "propagation": true,
+    "fog": "muffled"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "heavy",
+    "min_interval_ms": 300
+   }
+  },
+  "snd.weapon.naval_gun": {
+   "category": "weapon",
+   "bus": "Sfx",
+   "priority": 58,
+   "variants": [
+    {
+     "group": "sfx/weapon/naval_gun"
+    }
+   ],
+   "volume_db": 0.0,
+   "volume_jitter_db": 1.0,
+   "pitch_jitter_semitones": 0.6,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 55,
+    "max_distance_m": 380,
+    "attenuation": "inverse",
+    "lowpass_hz": 11000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "heavy",
+    "min_interval_ms": 200
+   }
+  },
+  "snd.weapon.rail_gun": {
+   "category": "weapon",
+   "bus": "SfxHeavy",
+   "priority": 62,
+   "variants": [
+    {
+     "group": "sfx/weapon/rail_gun"
+    }
+   ],
+   "flavours": {
+    "napc": [
+     {
+      "group": "sfx/weapon_fx/napc/rail_gun"
+     }
+    ],
+    "nec": [
+     {
+      "group": "sfx/weapon_fx/nec/rail_gun"
+     }
+    ],
+    "olm": [
+     {
+      "group": "sfx/weapon_fx/olm/rail_gun"
+     }
+    ],
+    "def": [
+     {
+      "group": "sfx/weapon_fx/def/rail_gun"
+     }
+    ],
+    "pd": [
+     {
+      "group": "sfx/weapon_fx/pd/rail_gun"
+     }
+    ],
+    "han": [
+     {
+      "group": "sfx/weapon_fx/han/rail_gun"
+     }
+    ],
+    "ae": [
+     {
+      "group": "sfx/weapon_fx/ae/rail_gun"
+     }
+    ],
+    "sap": [
+     {
+      "group": "sfx/weapon_fx/sap/rail_gun"
+     }
+    ]
+   },
+   "volume_db": 0.0,
+   "volume_jitter_db": 1.0,
+   "pitch_jitter_semitones": 0.6,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 60,
+    "max_distance_m": 420,
+    "attenuation": "inverse",
+    "lowpass_hz": 12000,
+    "fog": "muffled"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "heavy",
+    "min_interval_ms": 250
+   }
+  },
+  "snd.weapon.rocket_barrage": {
+   "category": "weapon",
+   "bus": "Sfx",
+   "priority": 54,
+   "variants": [
+    {
+     "group": "sfx/weapon/rocket_barrage"
+    }
+   ],
+   "volume_db": -1.0,
+   "volume_jitter_db": 1.0,
+   "pitch_jitter_semitones": 0.6,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 45,
+    "max_distance_m": 320,
+    "attenuation": "inverse",
+    "lowpass_hz": 10000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 4,
+    "steal": "oldest",
+    "group": "heavy",
+    "min_interval_ms": 60
+   }
+  },
+  "snd.weapon.siege_gun": {
+   "category": "weapon",
+   "bus": "Sfx",
+   "priority": 62,
+   "variants": [
+    {
+     "group": "sfx/weapon/siege_gun"
+    }
+   ],
+   "flavours": {
+    "napc": [
+     {
+      "group": "sfx/weapon_fx/napc/siege_gun"
+     }
+    ],
+    "nec": [
+     {
+      "group": "sfx/weapon_fx/nec/siege_gun"
+     }
+    ],
+    "olm": [
+     {
+      "group": "sfx/weapon_fx/olm/siege_gun"
+     }
+    ],
+    "def": [
+     {
+      "group": "sfx/weapon_fx/def/siege_gun"
+     }
+    ],
+    "pd": [
+     {
+      "group": "sfx/weapon_fx/pd/siege_gun"
+     }
+    ],
+    "han": [
+     {
+      "group": "sfx/weapon_fx/han/siege_gun"
+     }
+    ],
+    "ae": [
+     {
+      "group": "sfx/weapon_fx/ae/siege_gun"
+     }
+    ],
+    "sap": [
+     {
+      "group": "sfx/weapon_fx/sap/siege_gun"
+     }
+    ]
+   },
+   "volume_db": 0.0,
+   "volume_jitter_db": 1.0,
+   "pitch_jitter_semitones": 0.6,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 55,
+    "max_distance_m": 380,
+    "attenuation": "inverse",
+    "lowpass_hz": 12000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "heavy",
+    "min_interval_ms": 150
+   }
+  },
+  "snd.weapon.small_arms": {
+   "category": "weapon",
+   "bus": "Sfx",
+   "priority": 28,
+   "variants": [
+    {
+     "group": "sfx/weapon/small_arms"
+    }
+   ],
+   "flavours": {
+    "napc": [
+     {
+      "group": "sfx/weapon_fx/napc/small_arms"
+     }
+    ],
+    "nec": [
+     {
+      "group": "sfx/weapon_fx/nec/small_arms"
+     }
+    ],
+    "olm": [
+     {
+      "group": "sfx/weapon_fx/olm/small_arms"
+     }
+    ],
+    "def": [
+     {
+      "group": "sfx/weapon_fx/def/small_arms"
+     }
+    ],
+    "pd": [
+     {
+      "group": "sfx/weapon_fx/pd/small_arms"
+     }
+    ],
+    "han": [
+     {
+      "group": "sfx/weapon_fx/han/small_arms"
+     }
+    ],
+    "ae": [
+     {
+      "group": "sfx/weapon_fx/ae/small_arms"
+     }
+    ],
+    "sap": [
+     {
+      "group": "sfx/weapon_fx/sap/small_arms"
+     }
+    ]
+   },
+   "volume_db": -3.0,
+   "volume_jitter_db": 1.5,
+   "pitch_jitter_semitones": 0.8,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 22,
+    "max_distance_m": 170,
+    "attenuation": "inverse",
+    "lowpass_hz": 9000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 6,
+    "steal": "oldest",
+    "group": "small_arms",
+    "min_interval_ms": 35
+   }
+  },
+  "snd.weapon.tank_cannon_heavy": {
+   "category": "weapon",
+   "bus": "Sfx",
+   "priority": 64,
+   "variants": [
+    {
+     "group": "sfx/weapon/tank_cannon_heavy"
+    }
+   ],
+   "flavours": {
+    "napc": [
+     {
+      "group": "sfx/weapon_fx/napc/tank_cannon_heavy"
+     }
+    ],
+    "nec": [
+     {
+      "group": "sfx/weapon_fx/nec/tank_cannon_heavy"
+     }
+    ],
+    "olm": [
+     {
+      "group": "sfx/weapon_fx/olm/tank_cannon_heavy"
+     }
+    ],
+    "def": [
+     {
+      "group": "sfx/weapon_fx/def/tank_cannon_heavy"
+     }
+    ],
+    "pd": [
+     {
+      "group": "sfx/weapon_fx/pd/tank_cannon_heavy"
+     }
+    ],
+    "han": [
+     {
+      "group": "sfx/weapon_fx/han/tank_cannon_heavy"
+     }
+    ],
+    "ae": [
+     {
+      "group": "sfx/weapon_fx/ae/tank_cannon_heavy"
+     }
+    ],
+    "sap": [
+     {
+      "group": "sfx/weapon_fx/sap/tank_cannon_heavy"
+     }
+    ]
+   },
+   "volume_db": 0.0,
+   "volume_jitter_db": 1.0,
+   "pitch_jitter_semitones": 0.6,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 50,
+    "max_distance_m": 340,
+    "attenuation": "inverse",
+    "lowpass_hz": 12000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "heavy",
+    "min_interval_ms": 120
+   }
+  },
+  "snd.weapon.tank_cannon_light": {
+   "category": "weapon",
+   "bus": "Sfx",
+   "priority": 52,
+   "variants": [
+    {
+     "group": "sfx/weapon/tank_cannon_light"
+    }
+   ],
+   "volume_db": -1.0,
+   "volume_jitter_db": 1.0,
+   "pitch_jitter_semitones": 0.6,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 34,
+    "max_distance_m": 260,
+    "attenuation": "inverse",
+    "lowpass_hz": 11000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 4,
+    "steal": "oldest",
+    "group": "heavy",
+    "min_interval_ms": 90
+   }
+  },
+  "snd.weapon.tank_cannon_medium": {
+   "category": "weapon",
+   "bus": "Sfx",
+   "priority": 58,
+   "variants": [
+    {
+     "group": "sfx/weapon/tank_cannon_medium"
+    }
+   ],
+   "flavours": {
+    "napc": [
+     {
+      "group": "sfx/weapon_fx/napc/tank_cannon_medium"
+     }
+    ],
+    "nec": [
+     {
+      "group": "sfx/weapon_fx/nec/tank_cannon_medium"
+     }
+    ],
+    "olm": [
+     {
+      "group": "sfx/weapon_fx/olm/tank_cannon_medium"
+     }
+    ],
+    "def": [
+     {
+      "group": "sfx/weapon_fx/def/tank_cannon_medium"
+     }
+    ],
+    "pd": [
+     {
+      "group": "sfx/weapon_fx/pd/tank_cannon_medium"
+     }
+    ],
+    "han": [
+     {
+      "group": "sfx/weapon_fx/han/tank_cannon_medium"
+     }
+    ],
+    "ae": [
+     {
+      "group": "sfx/weapon_fx/ae/tank_cannon_medium"
+     }
+    ],
+    "sap": [
+     {
+      "group": "sfx/weapon_fx/sap/tank_cannon_medium"
+     }
+    ]
+   },
+   "volume_db": 0.0,
+   "volume_jitter_db": 1.0,
+   "pitch_jitter_semitones": 0.6,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 40,
+    "max_distance_m": 300,
+    "attenuation": "inverse",
+    "lowpass_hz": 12000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 4,
+    "steal": "oldest",
+    "group": "heavy",
+    "min_interval_ms": 90
+   }
+  },
+  "snd.weapon.torpedo": {
+   "category": "weapon",
+   "bus": "Sfx",
+   "priority": 48,
+   "variants": [
+    {
+     "group": "sfx/weapon/torpedo"
+    }
+   ],
+   "volume_db": -1.0,
+   "volume_jitter_db": 1.0,
+   "pitch_jitter_semitones": 0.6,
+   "spatial": {
+    "mode": "3d",
+    "unit_size_m": 34,
+    "max_distance_m": 260,
+    "attenuation": "inverse",
+    "lowpass_hz": 9000,
+    "fog": "hidden"
+   },
+   "limit": {
+    "max_instances": 3,
+    "steal": "oldest",
+    "group": "heavy",
+    "min_interval_ms": 300
+   }
+  }
+ },
+ "profiles": {
+  "snd.profile.air_bomber": {
+   "voice_class": "air",
+   "loops": [
+    {
+     "event": "snd.loop.air.jet",
+     "when": "airborne",
+     "gain_db": 0.0,
+     "pitch_speed": true
+    }
+   ]
+  },
+  "snd.profile.air_drone": {
+   "voice_class": "air",
+   "loops": [
+    {
+     "event": "snd.loop.air.drone",
+     "when": "airborne",
+     "gain_db": 0.0,
+     "pitch_speed": true
+    }
+   ]
+  },
+  "snd.profile.air_ew": {
+   "voice_class": "air",
+   "loops": [
+    {
+     "event": "snd.loop.air.jet",
+     "when": "airborne",
+     "gain_db": 0.0,
+     "pitch_speed": true
+    }
+   ]
+  },
+  "snd.profile.air_fighter": {
+   "voice_class": "air",
+   "loops": [
+    {
+     "event": "snd.loop.air.jet",
+     "when": "airborne",
+     "gain_db": 0.0,
+     "pitch_speed": true
+    }
+   ]
+  },
+  "snd.profile.air_gunship": {
+   "voice_class": "air",
+   "loops": [
+    {
+     "event": "snd.loop.air.rotor",
+     "when": "airborne",
+     "gain_db": 0.0,
+     "pitch_speed": true
+    }
+   ]
+  },
+  "snd.profile.arty_howitzer": {
+   "voice_class": "vehicle",
+   "loops": [
+    {
+     "event": "snd.loop.engine.tracked",
+     "when": "moving",
+     "gain_db": 0.0,
+     "pitch_speed": true
+    }
+   ]
+  },
+  "snd.profile.arty_light": {
+   "voice_class": "vehicle",
+   "loops": [
+    {
+     "event": "snd.loop.engine.wheeled",
+     "when": "moving",
+     "gain_db": 0.0,
+     "pitch_speed": true
+    }
+   ]
+  },
+  "snd.profile.arty_missile": {
+   "voice_class": "vehicle",
+   "loops": [
+    {
+     "event": "snd.loop.engine.wheeled",
+     "when": "moving",
+     "gain_db": 0.0,
+     "pitch_speed": true
+    }
+   ]
+  },
+  "snd.profile.arty_rocket": {
+   "voice_class": "vehicle",
+   "loops": [
+    {
+     "event": "snd.loop.engine.wheeled",
+     "when": "moving",
+     "gain_db": 0.0,
+     "pitch_speed": true
+    }
+   ]
+  },
+  "snd.profile.decoy": {
+   "voice_class": "vehicle",
+   "loops": [
+    {
+     "event": "snd.loop.engine.wheeled",
+     "when": "moving",
+     "gain_db": 0.0,
+     "pitch_speed": true
+    }
+   ]
+  },
+  "snd.profile.generic.air_fixed": {
+   "voice_class": "air",
+   "loops": [
+    {
+     "event": "snd.loop.air.jet",
+     "when": "airborne",
+     "gain_db": 0.0,
+     "pitch_speed": true
+    }
+   ]
+  },
+  "snd.profile.generic.air_hover": {
+   "voice_class": "air",
+   "loops": [
+    {
+     "event": "snd.loop.air.rotor",
+     "when": "airborne",
+     "gain_db": 0.0,
+     "pitch_speed": true
+    }
+   ]
+  },
+  "snd.profile.generic.amphibious": {
+   "voice_class": "vehicle",
+   "loops": [
+    {
+     "event": "snd.loop.engine.amphibious",
+     "when": "moving",
+     "gain_db": 0.0,
+     "pitch_speed": true
+    }
+   ]
+  },
+  "snd.profile.generic.foot": {
+   "voice_class": "infantry",
+   "loops": [
+    {
+     "event": "snd.loop.step.foot",
+     "when": "moving",
+     "gain_db": 0.0,
+     "pitch_speed": true
+    }
+   ]
+  },
+  "snd.profile.generic.naval": {
+   "voice_class": "naval",
+   "loops": [
+    {
+     "event": "snd.loop.engine.boat_small",
+     "when": "moving",
+     "gain_db": 0.0,
+     "pitch_speed": true
+    }
+   ]
+  },
+  "snd.profile.generic.static": {
+   "voice_class": "structure",
+   "loops": []
+  },
+  "snd.profile.generic.submerged": {
+   "voice_class": "naval",
+   "loops": [
+    {
+     "event": "snd.loop.engine.sub",
+     "when": "moving",
+     "gain_db": 0.0,
+     "pitch_speed": true
+    }
+   ]
+  },
+  "snd.profile.generic.tracked": {
+   "voice_class": "vehicle",
+   "loops": [
+    {
+     "event": "snd.loop.engine.tracked",
+     "when": "moving",
+     "gain_db": 0.0,
+     "pitch_speed": true
+    }
+   ]
+  },
+  "snd.profile.generic.wheeled": {
+   "voice_class": "vehicle",
+   "loops": [
+    {
+     "event": "snd.loop.engine.wheeled",
+     "when": "moving",
+     "gain_db": 0.0,
+     "pitch_speed": true
+    }
+   ]
+  },
+  "snd.profile.inf_at": {
+   "voice_class": "infantry",
+   "loops": [
+    {
+     "event": "snd.loop.step.foot",
+     "when": "moving",
+     "gain_db": 0.0,
+     "pitch_speed": true
+    }
+   ]
+  },
+  "snd.profile.inf_combat_spec": {
+   "voice_class": "infantry",
+   "loops": [
+    {
+     "event": "snd.loop.step.foot",
+     "when": "moving",
+     "gain_db": 0.0,
+     "pitch_speed": true
+    }
+   ]
+  },
+  "snd.profile.inf_line": {
+   "voice_class": "infantry",
+   "loops": [
+    {
+     "event": "snd.loop.step.foot",
+     "when": "moving",
+     "gain_db": 0.0,
+     "pitch_speed": true
+    }
+   ]
+  },
+  "snd.profile.inf_support": {
+   "voice_class": "support",
+   "loops": [
+    {
+     "event": "snd.loop.step.foot",
+     "when": "moving",
+     "gain_db": 0.0,
+     "pitch_speed": true
+    }
+   ]
+  },
+  "snd.profile.mbt_t1": {
+   "voice_class": "vehicle",
+   "loops": [
+    {
+     "event": "snd.loop.engine.tracked",
+     "when": "moving",
+     "gain_db": 0.0,
+     "pitch_speed": true
+    }
+   ],
+   "weapon_variant": {
+    "tank_cannon": "light"
+   }
+  },
+  "snd.profile.mbt_t2": {
+   "voice_class": "vehicle",
+   "loops": [
+    {
+     "event": "snd.loop.engine.tracked",
+     "when": "moving",
+     "gain_db": 0.0,
+     "pitch_speed": true
+    }
+   ],
+   "weapon_variant": {
+    "tank_cannon": "medium"
+   }
+  },
+  "snd.profile.mbt_t2_rail": {
+   "voice_class": "vehicle",
+   "loops": [
+    {
+     "event": "snd.loop.engine.tracked",
+     "when": "moving",
+     "gain_db": 0.0,
+     "pitch_speed": true
+    }
+   ],
+   "weapon_variant": {
+    "tank_cannon": "medium"
+   }
+  },
+  "snd.profile.ship_carrier": {
+   "voice_class": "naval",
+   "loops": [
+    {
+     "event": "snd.loop.engine.boat_large",
+     "when": "moving",
+     "gain_db": 0.0,
+     "pitch_speed": true
+    }
+   ]
+  },
+  "snd.profile.ship_escort": {
+   "voice_class": "naval",
+   "loops": [
+    {
+     "event": "snd.loop.engine.boat_small",
+     "when": "moving",
+     "gain_db": 0.0,
+     "pitch_speed": true
+    }
+   ]
+  },
+  "snd.profile.ship_patrol": {
+   "voice_class": "naval",
+   "loops": [
+    {
+     "event": "snd.loop.engine.boat_small",
+     "when": "moving",
+     "gain_db": 0.0,
+     "pitch_speed": true
+    }
+   ]
+  },
+  "snd.profile.ship_siege": {
+   "voice_class": "naval",
+   "loops": [
+    {
+     "event": "snd.loop.engine.boat_large",
+     "when": "moving",
+     "gain_db": 0.0,
+     "pitch_speed": true
+    }
+   ]
+  },
+  "snd.profile.ship_sub": {
+   "voice_class": "naval",
+   "loops": [
+    {
+     "event": "snd.loop.engine.sub",
+     "when": "moving",
+     "gain_db": 0.0,
+     "pitch_speed": true
+    }
+   ]
+  },
+  "snd.profile.siege_ap": {
+   "voice_class": "heavy",
+   "loops": [
+    {
+     "event": "snd.loop.engine.tracked_heavy",
+     "when": "moving",
+     "gain_db": 0.0,
+     "pitch_speed": true
+    }
+   ],
+   "weapon_variant": {
+    "tank_cannon": "heavy"
+   }
+  },
+  "snd.profile.siege_beam": {
+   "voice_class": "heavy",
+   "loops": [
+    {
+     "event": "snd.loop.engine.tracked_heavy",
+     "when": "moving",
+     "gain_db": 0.0,
+     "pitch_speed": true
+    }
+   ]
+  },
+  "snd.profile.siege_demo": {
+   "voice_class": "heavy",
+   "loops": [
+    {
+     "event": "snd.loop.engine.tracked_heavy",
+     "when": "moving",
+     "gain_db": 0.0,
+     "pitch_speed": true
+    }
+   ]
+  },
+  "snd.profile.siege_he": {
+   "voice_class": "heavy",
+   "loops": [
+    {
+     "event": "snd.loop.engine.tracked_heavy",
+     "when": "moving",
+     "gain_db": 0.0,
+     "pitch_speed": true
+    }
+   ]
+  },
+  "snd.profile.siege_rail": {
+   "voice_class": "heavy",
+   "loops": [
+    {
+     "event": "snd.loop.engine.tracked_heavy",
+     "when": "moving",
+     "gain_db": 0.0,
+     "pitch_speed": true
+    }
+   ]
+  },
+  "snd.profile.struct.aa_battery": {
+   "voice_class": "structure",
+   "loops": []
+  },
+  "snd.profile.struct.adv_ae": {
+   "voice_class": "structure",
+   "loops": []
+  },
+  "snd.profile.struct.adv_def": {
+   "voice_class": "structure",
+   "loops": []
+  },
+  "snd.profile.struct.adv_han": {
+   "voice_class": "structure",
+   "loops": []
+  },
+  "snd.profile.struct.adv_napc": {
+   "voice_class": "structure",
+   "loops": []
+  },
+  "snd.profile.struct.adv_nec": {
+   "voice_class": "structure",
+   "loops": []
+  },
+  "snd.profile.struct.adv_olm": {
+   "voice_class": "structure",
+   "loops": []
+  },
+  "snd.profile.struct.adv_pd": {
+   "voice_class": "structure",
+   "loops": []
+  },
+  "snd.profile.struct.adv_sap": {
+   "voice_class": "structure",
+   "loops": []
+  },
+  "snd.profile.struct.airfield": {
+   "voice_class": "structure",
+   "loops": [
+    {
+     "event": "snd.struct.hum.airfield",
+     "when": "structure_active",
+     "gain_db": 0.0,
+     "pitch_speed": false
+    }
+   ]
+  },
+  "snd.profile.struct.barracks": {
+   "voice_class": "structure",
+   "loops": []
+  },
+  "snd.profile.struct.dock": {
+   "voice_class": "structure",
+   "loops": []
+  },
+  "snd.profile.struct.factory": {
+   "voice_class": "structure",
+   "loops": []
+  },
+  "snd.profile.struct.generator": {
+   "voice_class": "structure",
+   "loops": [
+    {
+     "event": "snd.struct.hum.generator",
+     "when": "structure_active",
+     "gain_db": 0.0,
+     "pitch_speed": false
+    }
+   ]
+  },
+  "snd.profile.struct.hq": {
+   "voice_class": "structure",
+   "loops": []
+  },
+  "snd.profile.struct.laboratory": {
+   "voice_class": "structure",
+   "loops": [
+    {
+     "event": "snd.struct.hum.lab",
+     "when": "structure_active",
+     "gain_db": 0.0,
+     "pitch_speed": false
+    }
+   ]
+  },
+  "snd.profile.struct.radar": {
+   "voice_class": "structure",
+   "loops": [
+    {
+     "event": "snd.struct.hum.radar",
+     "when": "structure_active",
+     "gain_db": 0.0,
+     "pitch_speed": false
+    }
+   ]
+  },
+  "snd.profile.struct.refinery": {
+   "voice_class": "structure",
+   "loops": [
+    {
+     "event": "snd.struct.hum.refinery",
+     "when": "structure_active",
+     "gain_db": 0.0,
+     "pitch_speed": false
+    }
+   ]
+  },
+  "snd.profile.struct.relay": {
+   "voice_class": "structure",
+   "loops": []
+  },
+  "snd.profile.struct.sw_ae": {
+   "voice_class": "structure",
+   "loops": []
+  },
+  "snd.profile.struct.sw_def": {
+   "voice_class": "structure",
+   "loops": []
+  },
+  "snd.profile.struct.sw_han": {
+   "voice_class": "structure",
+   "loops": []
+  },
+  "snd.profile.struct.sw_napc": {
+   "voice_class": "structure",
+   "loops": []
+  },
+  "snd.profile.struct.sw_nec": {
+   "voice_class": "structure",
+   "loops": []
+  },
+  "snd.profile.struct.sw_olm": {
+   "voice_class": "structure",
+   "loops": []
+  },
+  "snd.profile.struct.sw_pd": {
+   "voice_class": "structure",
+   "loops": []
+  },
+  "snd.profile.struct.sw_sap": {
+   "voice_class": "structure",
+   "loops": []
+  },
+  "snd.profile.struct.turret": {
+   "voice_class": "structure",
+   "loops": []
+  },
+  "snd.profile.struct.watchtower": {
+   "voice_class": "structure",
+   "loops": []
+  },
+  "snd.profile.summon_capsule": {
+   "voice_class": "support",
+   "loops": []
+  },
+  "snd.profile.summon_drone": {
+   "voice_class": "air",
+   "loops": [
+    {
+     "event": "snd.loop.air.drone",
+     "when": "airborne",
+     "gain_db": 0.0,
+     "pitch_speed": true
+    }
+   ]
+  },
+  "snd.profile.svc_collector": {
+   "voice_class": "support",
+   "loops": [
+    {
+     "event": "snd.loop.engine.tracked_heavy",
+     "when": "moving",
+     "gain_db": 0.0,
+     "pitch_speed": true
+    }
+   ]
+  },
+  "snd.profile.svc_engineer": {
+   "voice_class": "support",
+   "loops": [
+    {
+     "event": "snd.loop.step.foot",
+     "when": "moving",
+     "gain_db": 0.0,
+     "pitch_speed": true
+    }
+   ]
+  },
+  "snd.profile.svc_landing_transport": {
+   "voice_class": "support",
+   "loops": [
+    {
+     "event": "snd.loop.engine.amphibious",
+     "when": "moving",
+     "gain_db": 0.0,
+     "pitch_speed": true
+    }
+   ]
+  },
+  "snd.profile.svc_mcv": {
+   "voice_class": "support",
+   "loops": [
+    {
+     "event": "snd.loop.engine.tracked_heavy",
+     "when": "moving",
+     "gain_db": 0.0,
+     "pitch_speed": true
+    }
+   ]
+  },
+  "snd.profile.veh_aa": {
+   "voice_class": "vehicle",
+   "loops": [
+    {
+     "event": "snd.loop.engine.wheeled",
+     "when": "moving",
+     "gain_db": 0.0,
+     "pitch_speed": true
+    }
+   ]
+  },
+  "snd.profile.veh_aa_beam": {
+   "voice_class": "vehicle",
+   "loops": [
+    {
+     "event": "snd.loop.engine.wheeled",
+     "when": "moving",
+     "gain_db": 0.0,
+     "pitch_speed": true
+    }
+   ]
+  },
+  "snd.profile.veh_aa_flak": {
+   "voice_class": "vehicle",
+   "loops": [
+    {
+     "event": "snd.loop.engine.wheeled",
+     "when": "moving",
+     "gain_db": 0.0,
+     "pitch_speed": true
+    }
+   ]
+  },
+  "snd.profile.veh_assault_carrier": {
+   "voice_class": "heavy",
+   "loops": [
+    {
+     "event": "snd.loop.engine.tracked_heavy",
+     "when": "moving",
+     "gain_db": 0.0,
+     "pitch_speed": true
+    }
+   ]
+  },
+  "snd.profile.veh_command": {
+   "voice_class": "heavy",
+   "loops": [
+    {
+     "event": "snd.loop.engine.tracked",
+     "when": "moving",
+     "gain_db": 0.0,
+     "pitch_speed": true
+    }
+   ],
+   "weapon_variant": {
+    "tank_cannon": "medium"
+   }
+  },
+  "snd.profile.veh_scout": {
+   "voice_class": "vehicle",
+   "loops": [
+    {
+     "event": "snd.loop.engine.wheeled",
+     "when": "moving",
+     "gain_db": 0.0,
+     "pitch_speed": true
+    }
+   ]
+  }
+ },
+ "power_cues": {
+  "power.napc.uav_sweep": "recon",
+  "power.napc.field_repair_drop": "repair",
+  "power.napc.combined_arms_window": "buff",
+  "power.napc.rapid_turnaround": "buff",
+  "power.napc.floating_workshop": "repair",
+  "power.napc.coordinated_advance": "buff",
+  "power.nec.survey_drone": "recon",
+  "power.nec.counterbattery_mission": "barrage",
+  "power.nec.treaty_coordination": "buff",
+  "power.nec.silent_watch": "cloak",
+  "power.nec.armored_overwatch": "buff",
+  "power.nec.emergency_earthworks": "shield",
+  "power.olm.dust_screen": "smoke",
+  "power.olm.mobile_workshop": "repair",
+  "power.olm.open_corridor": "buff",
+  "power.olm.capacitor_discharge": "buff",
+  "power.olm.false_convoy": "cloak",
+  "power.olm.straits_crossfire": "buff",
+  "power.def.mobilization_order": "buff",
+  "power.def.tremor_barrage": "barrage",
+  "power.def.redundant_orders": "shield",
+  "power.def.steel_advance": "shield",
+  "power.def.transit_priority": "buff",
+  "power.def.false_front": "cloak",
+  "power.pd.maritime_patrol": "recon",
+  "power.pd.expeditionary_workshop": "repair",
+  "power.pd.joint_landing": "shield",
+  "power.pd.long_watch": "recon",
+  "power.pd.feint_landing": "cloak",
+  "power.pd.precision_window": "buff",
+  "power.han.wideband_scan": "recon",
+  "power.han.software_surge": "buff",
+  "power.han.reserve_bandwidth": "buff",
+  "power.han.central_priority": "buff",
+  "power.han.broken_contact": "smoke",
+  "power.han.repair_swarm": "repair",
+  "power.ae.survey_network": "recon",
+  "power.ae.field_refurbishment": "repair",
+  "power.ae.recovery_priority": "buff",
+  "power.ae.civil_defense_net": "buff",
+  "power.ae.concealed_crossing": "smoke",
+  "power.ae.counterbattery_solution": "recon",
+  "power.sap.recon_balloon": "recon",
+  "power.sap.emergency_fortification": "shield",
+  "power.sap.protected_advance": "shield",
+  "power.sap.assault_coordination": "buff",
+  "power.sap.mobile_reserve": "buff",
+  "power.sap.counterlaunch_plot": "barrage"
+ },
+ "sw_cues": {
+  "superweapon.napc.atlas_kinetic_array": "atlas",
+  "superweapon.nec.aurora_microwave_array": "aurora",
+  "superweapon.olm.helios_reflector": "helios",
+  "superweapon.def.perun_missile_complex": "perun",
+  "superweapon.pd.tempest_swarm_hub": "tempest",
+  "superweapon.han.dragonfall_field_foundry": "dragonfall",
+  "superweapon.ae.horizon_mass_driver": "horizon",
+  "superweapon.sap.trident_interception_array": "trident"
+ },
+ "sim_map": {
+  "weapon_fire": {
+   "pattern": "snd.weapon.{archetype}",
+   "fallback": "snd.weapon.small_arms"
+  },
+  "explosion": {
+   "pattern": "snd.explosion.{size}",
+   "fallback": "snd.explosion.small"
+  },
+  "impact_bullet": {
+   "pattern": "snd.impact.bullet.{material}",
+   "fallback": "snd.impact.bullet.dirt"
+  },
+  "collapse": {
+   "pattern": "snd.collapse.{area}",
+   "fallback": "snd.collapse.s1"
+  },
+  "profile": {
+   "pattern": "snd.profile.{archetype}",
+   "fallback": "snd.profile.generic.tracked"
+  },
+  "weapon_override": {},
+  "unit_profile": {
+   "summon.ae.repair_drone": "snd.profile.summon_drone",
+   "summon.han.dragonfall_capsule": "snd.profile.summon_capsule",
+   "summon.han.dragonfall_engine": "snd.profile.generic.tracked",
+   "summon.han.emperor_strike_drone": "snd.profile.summon_drone",
+   "summon.napc.cargo_aircraft": "snd.profile.generic.air_fixed",
+   "summon.napc.pontoon": "snd.profile.summon_capsule",
+   "summon.napc.uav": "snd.profile.generic.air_hover",
+   "summon.nec.survey_drone": "snd.profile.generic.air_hover",
+   "summon.pd.decoy_transport": "snd.profile.decoy",
+   "summon.pd.interceptor_drone": "snd.profile.summon_drone",
+   "summon.pd.patrol_aircraft": "snd.profile.generic.air_fixed",
+   "summon.pd.surface_strike_drone": "snd.profile.summon_drone",
+   "summon.pd.tempest_strike_drone": "snd.profile.generic.air_hover",
+   "summon.pd.workshop_aircraft": "snd.profile.generic.air_fixed",
+   "summon.sap.recon_balloon": "snd.profile.summon_capsule",
+   "unit.ae.anchor_escort": "snd.profile.ship_escort",
+   "unit.ae.buffalo_tank": "snd.profile.mbt_t1",
+   "unit.ae.civic_rifle_team": "snd.profile.inf_line",
+   "unit.ae.delta_patrol_boat": "snd.profile.ship_patrol",
+   "unit.ae.forge_howitzer": "snd.profile.arty_howitzer",
+   "unit.ae.hammerhead_gunship": "snd.profile.air_gunship",
+   "unit.ae.kiln_assault_crawler": "snd.profile.siege_demo",
+   "unit.ae.lagos_drone_guard": "snd.profile.veh_aa",
+   "unit.ae.mamba_apc": "snd.profile.veh_scout",
+   "unit.ae.okapi_amphibious_carrier": "snd.profile.veh_scout",
+   "unit.ae.pike_team": "snd.profile.inf_at",
+   "unit.ae.protea_gun_carrier": "snd.profile.arty_howitzer",
+   "unit.ae.reclaimer": "snd.profile.inf_combat_spec",
+   "unit.ae.rhino_rail_tank": "snd.profile.mbt_t2_rail",
+   "unit.ae.river_warden": "snd.profile.inf_combat_spec",
+   "unit.ae.sovereign_arsenal_ship": "snd.profile.ship_siege",
+   "unit.ae.sunbird_interceptor": "snd.profile.air_fighter",
+   "unit.ae.union_guard": "snd.profile.inf_line",
+   "unit.ae.weaver_aa": "snd.profile.veh_aa",
+   "unit.def.anvil_rocket_battery": "snd.profile.arty_rocket",
+   "unit.def.bear_siege_crawler": "snd.profile.siege_demo",
+   "unit.def.boreal_missile_submarine": "snd.profile.ship_sub",
+   "unit.def.burya_bomber": "snd.profile.air_bomber",
+   "unit.def.colossus_siege_tank": "snd.profile.siege_he",
+   "unit.def.echo_team": "snd.profile.inf_support",
+   "unit.def.fortress_guard": "snd.profile.inf_line",
+   "unit.def.hammer_tank": "snd.profile.mbt_t1",
+   "unit.def.kite_interceptor": "snd.profile.air_fighter",
+   "unit.def.line_conscript": "snd.profile.inf_line",
+   "unit.def.mule_apc": "snd.profile.veh_scout",
+   "unit.def.picket_boat": "snd.profile.ship_patrol",
+   "unit.def.porcupine_aa": "snd.profile.veh_aa_flak",
+   "unit.def.rampart_escort": "snd.profile.ship_escort",
+   "unit.def.recoil_team": "snd.profile.inf_at",
+   "unit.def.saker_missile_truck": "snd.profile.arty_missile",
+   "unit.def.signal_officer": "snd.profile.inf_support",
+   "unit.def.steppe_recon_carrier": "snd.profile.veh_scout",
+   "unit.def.ural_assault_tank": "snd.profile.mbt_t2",
+   "unit.han.banner_infantry": "snd.profile.inf_line",
+   "unit.han.canal_patrol_boat": "snd.profile.ship_patrol",
+   "unit.han.canopy_ranger": "snd.profile.inf_line",
+   "unit.han.dragon_command_walker": "snd.profile.veh_command",
+   "unit.han.emperor_drone_ship": "snd.profile.ship_carrier",
+   "unit.han.firefly_aa_drone": "snd.profile.veh_aa",
+   "unit.han.imperial_guard_tank": "snd.profile.mbt_t2",
+   "unit.han.jade_carrier": "snd.profile.veh_scout",
+   "unit.han.jade_escort": "snd.profile.ship_escort",
+   "unit.han.lance_team": "snd.profile.inf_at",
+   "unit.han.link_operator": "snd.profile.inf_support",
+   "unit.han.long_command_walker": "snd.profile.veh_command",
+   "unit.han.lotus_drone_tender": "snd.profile.veh_scout",
+   "unit.han.mekong_field_engineer": "snd.profile.inf_support",
+   "unit.han.nest_rocket_drone": "snd.profile.arty_rocket",
+   "unit.han.ox_tank": "snd.profile.mbt_t1",
+   "unit.han.reed_rocket_skimmer": "snd.profile.arty_light",
+   "unit.han.silkwing_drone_bomber": "snd.profile.air_bomber",
+   "unit.han.swallow_interceptor": "snd.profile.air_fighter",
+   "unit.napc.aegis_frigate": "snd.profile.ship_escort",
+   "unit.napc.aguila_breach_team": "snd.profile.inf_combat_spec",
+   "unit.napc.bastion_heavy_tank": "snd.profile.siege_ap",
+   "unit.napc.beaver_amphibious_apc": "snd.profile.veh_scout",
+   "unit.napc.combat_medic": "snd.profile.inf_support",
+   "unit.napc.condor_stealth_bomber": "snd.profile.air_bomber",
+   "unit.napc.falcon_interceptor": "snd.profile.air_fighter",
+   "unit.napc.guardian_tank": "snd.profile.mbt_t1",
+   "unit.napc.javelin_team": "snd.profile.inf_at",
+   "unit.napc.liberty_arsenal_ship": "snd.profile.ship_siege",
+   "unit.napc.narwhal_amphibious_tank": "snd.profile.mbt_t1",
+   "unit.napc.paladin_howitzer": "snd.profile.arty_howitzer",
+   "unit.napc.pathfinder_apc": "snd.profile.veh_scout",
+   "unit.napc.raptor_multirole_fighter": "snd.profile.air_fighter",
+   "unit.napc.rifle_squad": "snd.profile.inf_line",
+   "unit.napc.riverwatch_patrol_boat": "snd.profile.ship_patrol",
+   "unit.napc.sentinel_aa": "snd.profile.veh_aa",
+   "unit.napc.titan_gunship": "snd.profile.air_gunship",
+   "unit.napc.vanguard_rifle_squad": "snd.profile.inf_line",
+   "unit.nec.alpine_pioneer": "snd.profile.inf_combat_spec",
+   "unit.nec.archer_spg": "snd.profile.arty_howitzer",
+   "unit.nec.argent_rail_tank": "snd.profile.siege_rail",
+   "unit.nec.aster_ew_aircraft": "snd.profile.air_ew",
+   "unit.nec.charlemagne_siege_tank": "snd.profile.siege_rail",
+   "unit.nec.concord_monitor": "snd.profile.ship_siege",
+   "unit.nec.fen_recon_carrier": "snd.profile.veh_scout",
+   "unit.nec.fjord_missile_carrier": "snd.profile.arty_missile",
+   "unit.nec.horizon_escort": "snd.profile.ship_escort",
+   "unit.nec.ibex_crawler_gun": "snd.profile.arty_howitzer",
+   "unit.nec.jager_squad": "snd.profile.inf_line",
+   "unit.nec.kestrel_interceptor": "snd.profile.air_fighter",
+   "unit.nec.leopard_tank": "snd.profile.mbt_t1",
+   "unit.nec.marte_heavy_mbt": "snd.profile.mbt_t2",
+   "unit.nec.rapier_aa": "snd.profile.veh_aa",
+   "unit.nec.sapper": "snd.profile.inf_combat_spec",
+   "unit.nec.skerry_patrol_boat": "snd.profile.ship_patrol",
+   "unit.nec.spike_team": "snd.profile.inf_at",
+   "unit.nec.surveyor_apc": "snd.profile.veh_scout",
+   "unit.olm.beacon_missile_ship": "snd.profile.ship_siege",
+   "unit.olm.caravan_apc": "snd.profile.veh_scout",
+   "unit.olm.corsair_patrol_boat": "snd.profile.ship_patrol",
+   "unit.olm.crescent_aa": "snd.profile.veh_aa",
+   "unit.olm.dawn_laser_aa": "snd.profile.veh_aa_beam",
+   "unit.olm.dune_rover": "snd.profile.veh_scout",
+   "unit.olm.gate_guard": "snd.profile.inf_line",
+   "unit.olm.ifrit_prism_tank": "snd.profile.siege_beam",
+   "unit.olm.lantern_escort": "snd.profile.ship_escort",
+   "unit.olm.mirage_observer": "snd.profile.inf_support",
+   "unit.olm.needle_team": "snd.profile.inf_at",
+   "unit.olm.nightjar_strike_drone": "snd.profile.air_drone",
+   "unit.olm.sandglass_mortar": "snd.profile.arty_light",
+   "unit.olm.scorpion_rocket_buggy": "snd.profile.arty_light",
+   "unit.olm.shrike_interceptor": "snd.profile.air_fighter",
+   "unit.olm.sirocco_tank": "snd.profile.mbt_t1",
+   "unit.olm.strait_frigate": "snd.profile.ship_escort",
+   "unit.olm.sunlance_beam_tank": "snd.profile.siege_beam",
+   "unit.olm.wayfarer_guard": "snd.profile.inf_line",
+   "unit.pd.breaker_howitzer": "snd.profile.arty_howitzer",
+   "unit.pd.harpoon_team": "snd.profile.inf_at",
+   "unit.pd.island_raider": "snd.profile.inf_line",
+   "unit.pd.kancil_landing_skimmer": "snd.profile.veh_scout",
+   "unit.pd.leviathan_assault_carrier": "snd.profile.veh_assault_carrier",
+   "unit.pd.osprey_strike_tiltrotor": "snd.profile.air_gunship",
+   "unit.pd.outrider_howitzer": "snd.profile.arty_howitzer",
+   "unit.pd.petrel_fighter": "snd.profile.air_fighter",
+   "unit.pd.ranger_marine": "snd.profile.inf_line",
+   "unit.pd.reef_patrol_boat": "snd.profile.ship_patrol",
+   "unit.pd.reef_technician": "snd.profile.inf_support",
+   "unit.pd.shinano_adaptive_tank": "snd.profile.mbt_t1",
+   "unit.pd.shogun_drone_carrier": "snd.profile.ship_carrier",
+   "unit.pd.storm_aa": "snd.profile.veh_aa",
+   "unit.pd.tempest_carrier": "snd.profile.ship_carrier",
+   "unit.pd.tide_tank": "snd.profile.mbt_t1",
+   "unit.pd.trident_escort": "snd.profile.ship_escort",
+   "unit.pd.wake_skimmer": "snd.profile.veh_scout",
+   "unit.pd.wedge_recon_fighter": "snd.profile.air_fighter",
+   "unit.sap.arjun_assault_tank": "snd.profile.mbt_t2",
+   "unit.sap.bulwark_tank": "snd.profile.mbt_t1",
+   "unit.sap.citadel_monitor": "snd.profile.ship_siege",
+   "unit.sap.combat_pioneer": "snd.profile.inf_combat_spec",
+   "unit.sap.elephant_siege_tank": "snd.profile.siege_he",
+   "unit.sap.estuary_patrol_boat": "snd.profile.ship_patrol",
+   "unit.sap.gaj_siege_platform": "snd.profile.siege_he",
+   "unit.sap.garuda_interceptor": "snd.profile.air_fighter",
+   "unit.sap.jackal_apc": "snd.profile.veh_scout",
+   "unit.sap.kavach_team": "snd.profile.inf_at",
+   "unit.sap.monsoon_howitzer": "snd.profile.arty_howitzer",
+   "unit.sap.naga_amphibious_carrier": "snd.profile.veh_scout",
+   "unit.sap.river_marine": "snd.profile.inf_line",
+   "unit.sap.sarus_gunship": "snd.profile.air_gunship",
+   "unit.sap.shaheen_missile_battery": "snd.profile.arty_missile",
+   "unit.sap.shield_escort": "snd.profile.ship_escort",
+   "unit.sap.shield_rifle_squad": "snd.profile.inf_line",
+   "unit.sap.vajra_aa": "snd.profile.veh_aa",
+   "unit.sap.watchpost_recon_team": "snd.profile.inf_support",
+   "unit.shared.collector": "snd.profile.svc_collector",
+   "unit.shared.engineer": "snd.profile.svc_engineer",
+   "unit.shared.landing_transport": "snd.profile.svc_landing_transport",
+   "unit.shared.mobile_construction_vehicle": "snd.profile.svc_mcv"
+  },
+  "structure_profile": {
+   "structure.ae.forge_cannon": "snd.profile.struct.adv_ae",
+   "structure.ae.horizon_mass_driver": "snd.profile.struct.sw_ae",
+   "structure.def.citadel_mortar": "snd.profile.struct.adv_def",
+   "structure.def.perun_missile_complex": "snd.profile.struct.sw_def",
+   "structure.han.dragon_tooth_launcher": "snd.profile.struct.adv_han",
+   "structure.han.dragonfall_field_foundry": "snd.profile.struct.sw_han",
+   "structure.napc.atlas_kinetic_array": "snd.profile.struct.sw_napc",
+   "structure.napc.bulwark_cannon": "snd.profile.struct.adv_napc",
+   "structure.nec.aurora_microwave_array": "snd.profile.struct.sw_nec",
+   "structure.nec.lance_rail_emplacement": "snd.profile.struct.adv_nec",
+   "structure.nec.relay": "snd.profile.struct.relay",
+   "structure.olm.helios_reflector": "snd.profile.struct.sw_olm",
+   "structure.olm.sunwall_projector": "snd.profile.struct.adv_olm",
+   "structure.pd.sea_spear_battery": "snd.profile.struct.adv_pd",
+   "structure.pd.tempest_swarm_hub": "snd.profile.struct.sw_pd",
+   "structure.sap.bastion_missile_tower": "snd.profile.struct.adv_sap",
+   "structure.sap.trident_interception_array": "snd.profile.struct.sw_sap",
+   "structure.shared.aa_battery": "snd.profile.struct.aa_battery",
+   "structure.shared.airfield": "snd.profile.struct.airfield",
+   "structure.shared.anti_tank_turret": "snd.profile.struct.turret",
+   "structure.shared.barracks": "snd.profile.struct.barracks",
+   "structure.shared.dock": "snd.profile.struct.dock",
+   "structure.shared.factory": "snd.profile.struct.factory",
+   "structure.shared.generator": "snd.profile.struct.generator",
+   "structure.shared.headquarters": "snd.profile.struct.hq",
+   "structure.shared.laboratory": "snd.profile.struct.laboratory",
+   "structure.shared.radar": "snd.profile.struct.radar",
+   "structure.shared.refinery": "snd.profile.struct.refinery",
+   "structure.shared.watchtower": "snd.profile.struct.watchtower"
+  }
+ }
+}

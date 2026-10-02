@@ -1,0 +1,21 @@
+{
+ "format": 1,
+ "tips": [
+  "Power is everything. A base running short of electricity builds and fires slowly; keep a generator ahead of demand.",
+  "Collectors are your economy. Escort them, and build a second refinery before the first field runs dry.",
+  "Hold Shift while ordering to queue waypoints. Press W to latch queueing on for a whole sequence.",
+  "Ctrl+number assigns a control group; double-tap the number to centre the camera on it.",
+  "Scattering infantry with X dodges splash damage from artillery and air strikes.",
+  "Rosters are atomic: a subfaction replaces specific units and shifts stats. Read the briefing before you commit.",
+  "Double-click a unit to select every unit of the same type on screen.",
+  "Fog of war hides everything outside your sight. Scouts and radar pay for themselves.",
+  "Selling a structure returns part of its cost instantly, a last resort when a base is about to fall.",
+  "Set a rally point by right-clicking on the ground with a producer selected in rally mode.",
+  "Repair mode restores structures for credits over time. Toggle it with R and click the damaged building.",
+  "Press Space or click the alert ribbon to jump the camera to the last alert, for example a base under attack.",
+  "Superweapons announce themselves to every player. A countdown on the ribbon means you have minutes, not seconds.",
+  "Aircraft need pads to rearm. Losing an airfield strands its fleet in the air.",
+  "Team games share victory: the match ends when only one team has assets left.",
+  "Middle mouse button drags to orbit the camera; Q and E rotate; Page Up and Page Down tilt."
+ ]
+}

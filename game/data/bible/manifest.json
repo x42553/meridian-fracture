@@ -1,0 +1,16 @@
+{
+  "files": {
+    "meridian_factions.json": {
+      "bytes": 640698,
+      "sha256": "d8d0a2777e45d4e2679c6d22e030d2607936c26b9c7889a19336758ff5a311f2",
+      "source_sha256": "d8d0a2777e45d4e2679c6d22e030d2607936c26b9c7889a19336758ff5a311f2"
+    },
+    "meridian_factions.schema.json": {
+      "bytes": 24088,
+      "sha256": "69646e9e9f0e11fd8556beecbe29790f170a1252e35db6ca7a3681930bc2456d",
+      "source_sha256": "69646e9e9f0e11fd8556beecbe29790f170a1252e35db6ca7a3681930bc2456d"
+    }
+  },
+  "generated_by": "tools/py/sync_bible.py",
+  "source": "Input/meridian_agent_reference"
+}

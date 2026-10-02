@@ -1,0 +1,27 @@
+{
+  "schema": "meridian.archetype/1",
+  "id": "sum_drone_swarm",
+  "size_class": "air",
+  "meta": {"motion": "air_hover", "death": {"kind": "drone", "ticks": 1}, "doc": "Strike / interceptor drone wing (summon): three quad-rotor drones in a wedge, team-marked; muzzle0_0 at the lead drone."},
+  "defaults": {},
+  "ops": [
+    ["bevel", 0.02],
+    {
+      "for": "i",
+      "n": 3,
+      "do": [
+        {
+          "push": {"pos": ["(i-1)*1.5", 0, "abs(i-1)*0.7"]},
+          "do": [
+            {"call": "drone_body", "args": {"center": [0, 0.7, 0], "r": 0.3, "arms": 4}}
+          ]
+        }
+      ]
+    },
+    ["brush", "light", "emissive"],
+    ["box", [0, 0.7, -0.5], [0.1, 0.06, 0.12]],
+    ["socket", "muzzle0_0", [0, 0.7, -0.6], [0, 0, -1]],
+    ["socket", "top", [0, 1.2, 0], [0, 1, 0]],
+    ["meta", "hover", 9.0]
+  ]
+}

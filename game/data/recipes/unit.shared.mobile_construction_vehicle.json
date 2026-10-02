@@ -1,0 +1,11 @@
+{
+  "schema": "meridian.recipe/1",
+  "id": "unit.shared.mobile_construction_vehicle",
+  "archetype": "veh_mcv",
+  "style": "auto",
+  "meta": {
+    "stub": true,
+    "view_archetype": "veh_mcv",
+    "rule": "balance archetype service.mcv"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "schema": "meridian.recipe/1",
+  "id": "structure.shared.laboratory",
+  "archetype": "str_laboratory",
+  "style": "auto",
+  "meta": {
+    "stub": true,
+    "view_archetype": "str_laboratory",
+    "rule": "override"
+  }
+}

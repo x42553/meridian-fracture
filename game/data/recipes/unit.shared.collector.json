@@ -1,0 +1,11 @@
+{
+  "schema": "meridian.recipe/1",
+  "id": "unit.shared.collector",
+  "archetype": "veh_collector",
+  "style": "auto",
+  "meta": {
+    "stub": true,
+    "view_archetype": "veh_collector",
+    "rule": "balance archetype service.collector"
+  }
+}

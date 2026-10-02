@@ -1,0 +1,68 @@
+{
+  "schema": "meridian.archetype/1",
+  "id": "sum_station",
+  "size_class": "light",
+  "meta": {"motion": "static", "death": {"kind": "vehicle", "ticks": 2}, "doc": "Repair station (summon): landing pad ring with hazard marks, console with team plate and rotating dish, two repair arms (DEPLOY_Z)."},
+  "defaults": {},
+  "ops": [
+    ["bevel", 0.03],
+    ["brush", "concrete"],
+    ["cyl", [0, 0, 0], [0, 0.14, 0], 1.9, 24, 0.02],
+    ["brush", "acc"],
+    {
+      "for": "i",
+      "n": 12,
+      "do": [
+        {
+          "push": {"pos": [0, 0.145, 0], "euler": [0, "30*i", 0]},
+          "do": [
+            ["box", [1.68, 0, 0], [0.34, 0.01, 0.16], 0]
+          ]
+        }
+      ]
+    },
+    ["brush", "dark"],
+    ["cyl", [0, 0.14, 0], [0, 0.16, 0], 1.3, 24, 0],
+    {"call": "pad", "args": {"center": [0, 0.16, 0.2], "size": [2.0, 0.02, 2.0], "mark": "x", "col": "sec", "base": "dark"}},
+    ["brush", "sec"],
+    ["box", [0, 0.75, -1.05], [1.6, 1.2, 0.8], 0.06],
+    ["brush", "dark"],
+    ["ao", 0.75],
+    ["box", [0, 0.3, -1.05], [1.66, 0.3, 0.86], 0.02],
+    ["ao", 1.0],
+    ["brush", "acc"],
+    ["box", [0, 1.4, -1.05], [1.7, 0.1, 0.9], 0.02],
+    ["brush", "light", "emissive"],
+    ["box", [0, 0.85, -0.64], [1.0, 0.16, 0.03]],
+    ["box", [-0.55, 0.5, -0.64], [0.14, 0.14, 0.03]],
+    ["box", [0.55, 0.5, -0.64], [0.14, 0.14, 0.03]],
+    {"call": "team_panel", "args": {"center": [0.42, 1.46, -1.05], "size": [0.55, 0.03, 0.5], "col": "base"}},
+    {"call": "radar_dish", "args": {"center": [-0.5, 1.46, -1.05], "r": 0.42, "spin": 1}},
+    {
+      "mirror_x": [
+        ["brush", "metal", "metal"],
+        ["cyl", [1.15, 0.16, -0.3], [1.15, 1.9, -0.3], 0.08, 8, 0.01],
+        ["brush", "acc"],
+        ["cyl", [1.15, 1.0, -0.3], [1.15, 1.1, -0.3], 0.11, 8, 0],
+        {
+          "part": {"kind": "deploy_z", "pivot": [1.15, 1.85, -0.3], "param": 1.0},
+          "do": [
+            ["brush", "acc"],
+            {
+              "push": {"pos": [1.15, 1.85, -0.3], "euler": [0, 0, -8]},
+              "do": [
+                ["box", [-0.7, 0, 0], [1.4, 0.1, 0.16], 0.02],
+                ["brush", "metal", "metal"],
+                ["box", [-1.42, -0.12, 0], [0.1, 0.3, 0.1], 0.01],
+                ["brush", "light", "emissive"],
+                ["box", [-1.42, -0.3, 0], [0.16, 0.08, 0.16]]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {"call": "beacon", "args": {"pos": [0, 1.5, -1.5], "r": 0.08, "col": "#2f9fff", "phase": 0}},
+    ["socket", "top", [0, 2.4, 0], [0, 1, 0]]
+  ]
+}

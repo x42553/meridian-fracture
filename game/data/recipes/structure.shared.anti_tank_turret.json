@@ -1,0 +1,11 @@
+{
+  "schema": "meridian.recipe/1",
+  "id": "structure.shared.anti_tank_turret",
+  "archetype": "str_at_turret",
+  "style": "auto",
+  "meta": {
+    "stub": true,
+    "view_archetype": "str_at_turret",
+    "rule": "override"
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "schema": "meridian.mission/1",
+  "id": "op_ae",
+  "title": "Operation Second Harvest",
+  "group": "operation",
+  "order": 7,
+  "briefing": [
+    {"heading": "Situation", "text": "The Battle of Kasai Ford ended at dawn. Nobody won it: two columns met on the old causeway, burned each other's armour and withdrew behind their own lines. What they left behind is a field of wrecks and a ruined Union Works that was supposed to be the Empire's forward yard. The Steward has ordered it rebuilt before the rains.", "lore": "faction.ae"},
+    {"heading": "The Protectorate Claim", "text": "The Protectorate's Claims Board has filed a notice that every wreck on the causeway belongs to the 'ownership of the dead': to whoever buried them. The Empire says whoever pulls a hull out of the mud owns it. Both sides have engineers on the way. The Empire and the Protectorate share an interest in independent reconstruction technology and quarrel over contracts and eastern shipping lanes. Today that quarrel has a causeway.", "lore": "faction.sap"},
+    {"heading": "Orders", "text": "Salvage first, then build: your engineers and the Reclaimer can strip a freshly destroyed enemy vehicle for a fifth of its price, but a wreck lasts only a minute, so hold the field while they work. Rebuild a second Refinery, a Factory and a Radar, field fourteen combat units, and hold the Works for fourteen minutes. The Steward will levy a share of your treasury when the accounts are audited; spend it before then."}
+  ],
+  "map": {"family": "open", "size": 128, "seed": 41, "params": {"biome": 1, "resources": 60}},
+  "sim_seed": 7101,
+  "rules": {"start_credits": 2200, "fog": 1},
+  "players": [
+    {"slot": 0, "kind": "human", "name": "Union Works", "roster": "roster.ae.vanilla", "team": 1, "credits": 2200, "start": {"mode": "hq", "units": [{"def": "unit.shared.engineer", "count": 3, "dx": -5, "dy": 0}, {"def": "unit.ae.reclaimer", "count": 1, "dx": -4, "dy": 3}, {"def": "unit.ae.buffalo_tank", "count": 2, "dx": -7, "dy": -3}, {"def": "unit.ae.union_guard", "count": 3, "dx": -6, "dy": 4}, {"def": "unit.ae.pike_team", "count": 2, "dx": -8, "dy": 1}], "structures": [{"def": "structure.shared.generator", "dx": 5, "dy": 3}, {"def": "structure.shared.barracks", "dx": -2, "dy": 8}, {"def": "structure.shared.refinery", "dx": 6, "dy": -3}]}},
+    {"slot": 1, "kind": "ai", "name": "Fallen Column", "roster": "roster.ae.vanilla", "team": 1, "start_slot": 1, "ai": {"level": 0, "style": 0, "active": false}, "start": {"mode": "none"}},
+    {"slot": 2, "kind": "ai", "name": "Protectorate Claims", "roster": "roster.sap.vanilla", "team": 2, "start_slot": 2, "ai": {"level": 0, "style": 0, "active": false}, "start": {"mode": "hq"}}
+  ],
+  "areas": [
+    {"id": "a_works", "shape": "circle", "anchor": "start:0", "x": 0, "y": 0, "r": 12},
+    {"id": "a_clash", "shape": "circle", "anchor": "start:0", "x": -22, "y": -10, "r": 5},
+    {"id": "a_ae_start", "shape": "circle", "anchor": "start:0", "x": -14, "y": -2, "r": 4},
+    {"id": "a_sap_start", "shape": "circle", "anchor": "start:0", "x": -32, "y": -18, "r": 4},
+    {"id": "a_n", "shape": "circle", "anchor": "start:0", "x": -20, "y": -40, "r": 6},
+    {"id": "a_w", "shape": "circle", "anchor": "start:0", "x": -48, "y": -6, "r": 6},
+    {"id": "a_front", "shape": "circle", "anchor": "start:0", "x": -12, "y": -7, "r": 6}
+  ],
+  "messages": [
+    {"id": "intro", "text": "Union Works, Steward's Office. The causeway is yours if you can hold it. Dawn is breaking. Salvage the hulls before they sink.", "speaker": "Steward's Office", "announcer": "match_start_ae"},
+    {"id": "hint_salvage", "text": "Select an Engineer or the Reclaimer and right-click a wreck to strip it. A wreck pays one fifth of the vehicle's price and lasts about a minute, so work while your tanks cover the field.", "speaker": "Steward's Office"},
+    {"id": "hint_build", "text": "A second Refinery, a Factory and a Radar. Salvage pays for the first, the rest should follow from your Collectors.", "speaker": "Steward's Office"},
+    {"id": "w1", "text": "Protectorate vanguard on the causeway. They want the wrecks.", "speaker": "Steward's Office", "announcer": "base_under_attack"},
+    {"id": "w2", "text": "A second Protectorate group, with howitzers. They are laying the field under fire.", "speaker": "Steward's Office", "announcer": "base_under_attack"},
+    {"id": "w3", "text": "Claims force from the west: armour, shield squads and a reclamation column. They intend to take the field by force.", "speaker": "Steward's Office", "announcer": "base_under_attack"},
+    {"id": "w4", "text": "Everything the Claims Board has is on the causeway.", "speaker": "Steward's Office", "announcer": "base_under_attack"},
+    {"id": "pr_notice", "text": "Notice to the Empire's yard: all salvage on the causeway is held in trust for the next of kin. Cease and desist. A Claims officer will visit to inventory it.", "speaker": "Protectorate Claims Board"},
+    {"id": "levy", "text": "AUDIT: the Steward's Office has levied a quarter of the Works' treasury for the capital. You were warned. The yard's workers have noted who signed the order.", "speaker": "Steward's Office", "announcer": "insufficient_funds"},
+    {"id": "recovered", "text": "The Fallen Column's command vehicle is back inside the Works. The crew is alive.", "speaker": "Steward's Office"},
+    {"id": "convoy", "text": "The Steward's supply convoy is on the road and will reach the Works shortly. Hold on!", "speaker": "Steward's Office", "announcer": "ally_under_attack"},
+    {"id": "lose_hq", "text": "The Works' headquarters has fallen. The yard is lost.", "speaker": "Steward's Office", "announcer": "defeat"},
+    {"id": "win", "text": "The convoy is through and the Works are running. Fourteen minutes: a yard rebuilt out of the enemy's wrecks.", "speaker": "Steward's Office", "announcer": "victory"},
+    {"id": "debrief_win", "text": "DEBRIEF: the Union Works is running again and half its first output was built from Protectorate hulls. The Claims Board will protest at the next corridor conference; the Steward's levy will be a bigger scandal in the yard than the battle was.", "speaker": "Debrief"},
+    {"id": "debrief_lose", "text": "DEBRIEF: the Works fell. The Protectorate holds the causeway and the wrecks, and the Steward's Office is looking for someone to explain why the levy was collected.", "speaker": "Debrief"}
+  ],
+  "objectives": [
+    {"id": "rebuild", "kind": "primary", "text": "Rebuild the Works: a second Refinery, a Factory and a Radar"},
+    {"id": "army", "kind": "primary", "text": "Field at least 14 combat units"},
+    {"id": "hold", "kind": "primary", "text": "Hold the Union Works until the convoy arrives (14:00)"},
+    {"id": "engineers", "kind": "secondary", "text": "Keep all three Engineers alive"},
+    {"id": "recover", "kind": "secondary", "text": "Tow the Fallen Column's command vehicle into the Works", "initial": "hidden"}
+  ],
+  "timers": [
+    {"id": "conv_t", "seconds": 840, "label": "Supply convoy"}
+  ],
+  "triggers": [
+    {"id": "t00_start", "when": {"kind": "time", "cmp": ">=", "ticks": 0}, "then": [{"do": "show_message", "message": "intro"}, {"do": "timer_start", "timer": "conv_t"}, {"do": "music_state", "state": "tense"}, {"do": "spawn_units", "owner": 1, "def": "unit.ae.buffalo_tank", "count": 6, "area": "a_ae_start", "wave": "ae_col", "order": {"kind": "attack_move", "area": "a_clash"}}, {"do": "spawn_units", "owner": 1, "def": "unit.ae.union_guard", "count": 4, "area": "a_ae_start", "wave": "ae_col", "order": {"kind": "attack_move", "area": "a_clash"}}, {"do": "spawn_units", "owner": 2, "def": "unit.sap.bulwark_tank", "count": 6, "area": "a_sap_start", "wave": "sap_col", "order": {"kind": "attack_move", "area": "a_clash"}}, {"do": "spawn_units", "owner": 2, "def": "unit.sap.shield_rifle_squad", "count": 4, "area": "a_sap_start", "wave": "sap_col", "order": {"kind": "attack_move", "area": "a_clash"}}]},
+    {"id": "t01_hint", "when": {"kind": "time", "cmp": ">=", "seconds": 25}, "then": [{"do": "show_message", "message": "hint_salvage"}]},
+    {"id": "t02_hint2", "when": {"kind": "time", "cmp": ">=", "seconds": 90}, "then": [{"do": "show_message", "message": "hint_build"}]},
+    {"id": "t03_cmd", "when": {"kind": "time", "cmp": ">=", "seconds": 35}, "then": [{"do": "spawn_units", "owner": 0, "def": "unit.ae.mamba_apc", "count": 1, "area": "a_clash", "order": {"kind": "hold"}}, {"do": "set_objective", "objective": "recover", "state": "active"}]},
+    {"id": "t04_recovered", "when": {"all": [{"kind": "objective", "objective": "recover", "state": "active"}, {"kind": "count", "owner": 0, "def": "unit.ae.mamba_apc", "area": "a_works", "value": 1}]}, "then": [{"do": "set_objective", "objective": "recover", "state": "completed"}, {"do": "show_message", "message": "recovered"}]},
+    {"id": "t05_ai_on", "when": {"kind": "time", "cmp": ">=", "seconds": 300}, "then": [{"do": "change_ai", "owner": 2, "active": true}]},
+    {"id": "t06_notice", "when": {"kind": "time", "cmp": ">=", "seconds": 200}, "then": [{"do": "show_message", "message": "pr_notice"}]},
+    {"id": "t10_wave", "when": {"kind": "time", "cmp": ">=", "seconds": 290}, "then": [{"do": "spawn_units", "owner": 2, "def": "unit.sap.bulwark_tank", "count": 2, "area": "a_n", "wave": "wave1", "order": {"kind": "attack_move", "area": "a_works"}}, {"do": "spawn_units", "owner": 2, "def": "unit.sap.shield_rifle_squad", "count": 2, "area": "a_n", "wave": "wave1", "order": {"kind": "attack_move", "area": "a_works"}}, {"do": "show_message", "message": "w1"}, {"do": "music_state", "state": "combat"}]},
+    {"id": "t11_wave", "when": {"kind": "time", "cmp": ">=", "seconds": 440}, "then": [{"do": "spawn_units", "owner": 2, "def": "unit.sap.monsoon_howitzer", "count": 1, "area": "a_n", "wave": "wave2", "order": {"kind": "attack_move", "area": "a_works"}}, {"do": "spawn_units", "owner": 2, "def": "unit.sap.bulwark_tank", "count": 2, "area": "a_w", "wave": "wave2", "order": {"kind": "attack_move", "area": "a_works"}}, {"do": "spawn_units", "owner": 2, "def": "unit.sap.kavach_team", "count": 1, "area": "a_w", "wave": "wave2", "order": {"kind": "attack_move", "area": "a_works"}}, {"do": "show_message", "message": "w2"}, {"do": "music_state", "state": "combat"}]},
+    {"id": "t12_wave", "when": {"kind": "time", "cmp": ">=", "seconds": 600}, "then": [{"do": "spawn_units", "owner": 2, "def": "unit.sap.arjun_assault_tank", "count": 1, "area": "a_w", "wave": "wave3", "order": {"kind": "attack_move", "area": "a_works"}}, {"do": "spawn_units", "owner": 2, "def": "unit.sap.bulwark_tank", "count": 2, "area": "a_w", "wave": "wave3", "order": {"kind": "attack_move", "area": "a_works"}}, {"do": "spawn_units", "owner": 2, "def": "unit.sap.shield_rifle_squad", "count": 2, "area": "a_n", "wave": "wave3", "order": {"kind": "attack_move", "area": "a_works"}}, {"do": "show_message", "message": "w3"}, {"do": "music_state", "state": "combat"}]},
+    {"id": "t13_wave", "when": {"kind": "time", "cmp": ">=", "seconds": 760}, "then": [{"do": "spawn_units", "owner": 2, "def": "unit.sap.arjun_assault_tank", "count": 2, "area": "a_n", "wave": "wave4", "order": {"kind": "attack_move", "area": "a_works"}}, {"do": "spawn_units", "owner": 2, "def": "unit.sap.bulwark_tank", "count": 3, "area": "a_w", "wave": "wave4", "order": {"kind": "attack_move", "area": "a_works"}}, {"do": "spawn_units", "owner": 2, "def": "unit.sap.monsoon_howitzer", "count": 1, "area": "a_w", "wave": "wave4", "order": {"kind": "attack_move", "area": "a_works"}}, {"do": "spawn_units", "owner": 2, "def": "unit.sap.shield_rifle_squad", "count": 2, "area": "a_n", "wave": "wave4", "order": {"kind": "attack_move", "area": "a_works"}}, {"do": "show_message", "message": "w4"}, {"do": "music_state", "state": "combat"}]},
+    {"id": "t20_levy", "when": {"kind": "time", "cmp": ">=", "seconds": 540}, "then": [{"do": "give_credits", "owner": 0, "amount": -1500}, {"do": "show_message", "message": "levy"}, {"do": "music_state", "state": "tense"}]},
+    {"id": "t30_rebuild", "when": {"all": [{"kind": "objective", "objective": "rebuild", "state": "active"}, {"kind": "count", "owner": 0, "def": "structure.shared.refinery", "value": 2}, {"kind": "structure", "state": "exists", "owner": 0, "def": "structure.shared.factory"}, {"kind": "structure", "state": "exists", "owner": 0, "def": "structure.shared.radar"}]}, "then": [{"do": "set_objective", "objective": "rebuild", "state": "completed"}]},
+    {"id": "t31_army", "when": {"all": [{"kind": "objective", "objective": "army", "state": "active"}, {"kind": "count", "owner": 0, "tag": "combat", "value": 14}]}, "then": [{"do": "set_objective", "objective": "army", "state": "completed"}]},
+    {"id": "t32_eng", "when": {"all": [{"kind": "objective", "objective": "engineers", "state": "active"}, {"kind": "count", "owner": 0, "def": "unit.shared.engineer", "cmp": "<", "value": 3}]}, "then": [{"do": "set_objective", "objective": "engineers", "state": "failed"}]},
+    {"id": "t33_convoy", "when": {"kind": "time", "cmp": ">=", "seconds": 780}, "then": [{"do": "show_message", "message": "convoy"}]},
+    {"id": "t90_win", "when": {"all": [{"kind": "timer", "timer": "conv_t"}, {"kind": "objective", "objective": "rebuild", "state": "completed"}, {"kind": "objective", "objective": "army", "state": "completed"}, {"kind": "count", "owner": 0, "def": "structure.shared.headquarters", "value": 1}]}, "then": [{"do": "set_objective", "objective": "hold", "state": "completed"}, {"do": "show_message", "message": "win"}, {"do": "show_message", "message": "debrief_win"}, {"do": "win", "owner": 0}, {"do": "music_state", "state": "victory"}]},
+    {"id": "t91_lose_hq", "when": {"kind": "count", "owner": 0, "def": "structure.shared.headquarters", "cmp": "<=", "value": 0}, "then": [{"do": "set_objective", "objective": "hold", "state": "failed"}, {"do": "show_message", "message": "lose_hq"}, {"do": "show_message", "message": "debrief_lose"}, {"do": "lose", "owner": 0}, {"do": "music_state", "state": "defeat"}]},
+    {"id": "t92_lose_time", "when": {"all": [{"kind": "time", "cmp": ">=", "seconds": 1260}]}, "then": [{"do": "set_objective", "objective": "hold", "state": "failed"}, {"do": "show_message", "message": "debrief_lose"}, {"do": "lose", "owner": 0}, {"do": "music_state", "state": "defeat"}]}
+  ]
+}

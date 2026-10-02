@@ -1,0 +1,185 @@
+{
+  "schema": "meridian.styles/1",
+  "styles": {
+    "han": {
+      "emblem": "diamond",
+      "kit": {
+        "barrel_len": 1.75,
+        "barrel_r": 0.068,
+        "deck": "drone_rack",
+        "glacis": 0.85,
+        "helmet": "wrap",
+        "hull_top": 1.06,
+        "hull_w": 1.72,
+        "len": 3,
+        "muzzle": "sleeve",
+        "roof": "crown",
+        "skirt": "modules",
+        "track_w": 0.4,
+        "track_x": 0.8,
+        "turret_h": 0.36,
+        "turret_hl": 0.7,
+        "turret_hw": 0.7,
+        "turret_n": 12,
+        "turret_rot": 15,
+        "turret_shift": 0,
+        "turret_top": 0.78,
+        "turret_z": 0.1,
+        "wheel_n": 4,
+        "wheel_r": 0.27
+      },
+      "material": {"dirt": 0.2, "dirt_color": "#24322c", "emissive": 2.6, "panel": 0.9, "wear": 0.25, "wear_color": "#efebdd"},
+      "palette": {
+        "acc": "#ab1d2c",
+        "base": "#2d8862",
+        "concrete": "#858a80",
+        "dark": "#16483a",
+        "glass": "#153b38",
+        "light": "#f2fff6",
+        "metal": "#3a403e",
+        "plate": "#0f1614",
+        "rubber": "#151515",
+        "sec": "#ece7d9"
+      },
+      "slots": {
+        "extra": [
+          {"let": {"hxx": "fw*1.5-0.25", "hyy": "fh*1.5-0.25"}},
+          {
+            "if": "fw*fh > 4",
+            "then": [
+              {
+                "mirror_x": [
+                  {
+                    "push": {"pos": ["hxx-0.24", 0.16, "hyy*0.5"]},
+                    "do": [
+                      ["brush", "sec"],
+                      ["box", [0, 1.4, 0], [0.16, 2.8, 0.16], 0],
+                      ["brush", "acc"],
+                      ["box", [0, 0.5, 0], [0.2, 0.14, 0.2], 0],
+                      ["box", [0, 1.7, 0], [0.19, 0.08, 0.19], 0],
+                      ["tier", 0],
+                      ["brush", "metal", "metal"],
+                      ["cyl", [0, 2.8, 0], [0, "(2.8)+0.14", 0], 0.06, 5, 0],
+                      {
+                        "part": {"kind": "radar", "pivot": [0, "(2.8)+0.14", 0], "extra": 0.3},
+                        "do": [
+                          ["tier", 1],
+                          ["brush", "sec"],
+                          ["cyl", [0, "(2.8)+0.14", 0], [0, "(2.8)+0.17", 0], 0.204, 10, 0],
+                          ["brush", "acc"],
+                          {
+                            "for": "k",
+                            "n": 6,
+                            "do": [["box", ["(0)+cos(k*TAU/6)*0.2", "(2.8)+0.17+0.17", "(0)+sin(k*TAU/6)*0.2"], [0.05, 0.34, 0.05], 0]]
+                          },
+                          ["tier", 0],
+                          ["brush", "mix(light,base,0.35)", "emissive"],
+                          ["box", [0, "(2.8)+0.21", 0], [0.1, 0.08, 0.1], 0]
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "else": [
+              {
+                "if": "fw*fh > 1",
+                "then": [
+                  {
+                    "mirror_x": [
+                      {
+                        "push": {"pos": ["hxx-0.135", 0.16, "hyy*0.5"]},
+                        "do": [
+                          ["brush", "sec"],
+                          ["box", [0, 1.15, 0], [0.16, 2.3, 0.16], 0],
+                          ["brush", "acc"],
+                          ["box", [0, 0.45, 0], [0.2, 0.12, 0.2], 0],
+                          ["brush", "acc", "emissive"],
+                          ["dome", [0, 2.3, 0], [0, 1, 0], 0.13, 0.1235, 8, 2]
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "team_plate": "band"
+    },
+    "han.cambodia": {
+      "extends": "han",
+      "emblem": "ring",
+      "palette": {"acc": "#ab360a"},
+      "slots": {
+        "deck": [
+          {
+            "mirror_x": [
+              ["brush", "dark", "metal"],
+              ["cyl", ["hw-0.2", 1.2, "hl-0.9"], ["hw-0.2", 1.2, "hl-0.35"], 0.14, 8, 0],
+              ["brush", "acc"],
+              ["cyl", ["hw-0.2", 1.2, "hl-0.72"], ["hw-0.2", 1.2, "hl-0.66"], 0.15, 8, 0],
+              ["brush", "dark", "metal"],
+              ["cyl", ["hw+0.09", 0.98, -0.5], ["hw+0.09", 0.98, 0.1], 0.1, 8, 0],
+              ["brush", "acc"],
+              ["cyl", ["hw+0.09", 0.98, -0.28], ["hw+0.09", 0.98, -0.22], 0.11, 8, 0]
+            ]
+          }
+        ]
+      }
+    },
+    "han.china": {
+      "extends": "han",
+      "emblem": "hex_notch",
+      "kit": {"skirt": "layered"},
+      "palette": {"acc": "#de4649"},
+      "slots": {
+        "deck": [
+          {
+            "mirror_x": [
+              ["brush", "sec"],
+              ["box", ["hw-0.2", 1.17, "hl-0.55"], [0.03, 0.2, 0.3], 0],
+              ["box", ["hw-0.2", 1.17, "hl-1.0"], [0.03, 0.2, 0.3], 0],
+              ["brush", "acc"],
+              ["box", ["hw-0.2", 1.29, "hl-0.775"], [0.035, 0.03, 0.75], 0],
+              ["brush", "sec"],
+              ["box", ["hw+0.025", 0.96, -0.3], [0.03, 0.2, 0.3], 0],
+              ["box", ["hw+0.025", 0.96, 0.3], [0.03, 0.2, 0.3], 0]
+            ]
+          }
+        ]
+      }
+    },
+    "han.vietnam": {
+      "extends": "han",
+      "emblem": "triple_bar",
+      "kit": {"skirt": "fabric"},
+      "palette": {"acc": "#bc044e"},
+      "slots": {
+        "deck": [
+          {
+            "mirror_x": [
+              {
+                "for": "j",
+                "n": 3,
+                "do": [
+                  ["brush", "j % 2 == 0 ? 'base' : 'mix(acc,dark,0.55)'"],
+                  {
+                    "push": {"pos": ["hw-0.1", 1.12, "-hl*0.5+j*hl*0.45"], "euler": [0, 0, "j % 2 == 0 ? 25 : -25"]},
+                    "do": [["box", [0, 0, 0], [0.09, 0.03, 0.22], 0]]
+                  },
+                  {
+                    "push": {"pos": ["hw+0.03", 0.98, "-hl*0.4+j*hl*0.4"], "euler": [0, 0, "j % 2 == 0 ? 20 : -20"]},
+                    "do": [["box", [0, 0, 0], [0.03, 0.09, 0.22], 0]]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

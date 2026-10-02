@@ -1,0 +1,568 @@
+{
+ "schema": "meridian.moods/1",
+ "biome_to_mood": {
+  "0": "temperate_day",
+  "1": "arid_dusk",
+  "2": "arctic_day",
+  "3": "tropical_day"
+ },
+ "family_override": {
+  "1": {
+   "when_biome": [
+    0,
+    3
+   ],
+   "mood": "urban_night",
+   "needs": "night_allowed",
+   "else": "temperate_day"
+  }
+ },
+ "moods": {
+  "temperate_day": {
+   "sun_elevation_deg": 40.0,
+   "sun_azimuth_deg": 222.0,
+   "sun_color": "#fff0d1",
+   "sun_energy": 1.55,
+   "sky_top": "#2b61c7",
+   "sky_horizon": "#a8c7eb",
+   "ground_horizon": "#94a3a3",
+   "ground_bottom": "#3d4542",
+   "ambient_energy": 0.78,
+   "fog_color": "#a3c2e6",
+   "fog_density": 0.0011,
+   "fog_sun_scatter": 0.25,
+   "fog_aerial": 0.35,
+   "exposure": 1.18,
+   "white_point": 5.0,
+   "saturation": 1.12,
+   "contrast": 1.06,
+   "brightness": 1.0,
+   "lift": [
+    0.012,
+    0.018,
+    0.03
+   ],
+   "gamma": [
+    1.0,
+    1.0,
+    1.02
+   ],
+   "gain": [
+    1.03,
+    1.0,
+    0.95
+   ],
+   "glow_intensity": 0.45,
+   "glow_threshold": 1.15,
+   "ssao_intensity": 1.5,
+   "dryness": 0.0,
+   "cloud_strength": 0.12,
+   "water_shallow": "#29949e",
+   "water_deep": "#082e57",
+   "water_absorb": 0.42,
+   "foliage_a": "#29571a",
+   "foliage_b": "#578024",
+   "night": 0.0,
+   "wet": 0.0,
+   "decor_kit": "broadleaf",
+   "compat_grade": {
+    "lift": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "gamma": [
+     0.92,
+     0.92,
+     0.95
+    ],
+    "gain": [
+     0.95,
+     0.95,
+     0.93
+    ]
+   },
+   "palette": {
+    "grass_a": "#3d6b1f",
+    "grass_b": "#6b9933",
+    "dry_a": "#7a6b38",
+    "dry_b": "#9e8c4c",
+    "dirt_a": "#4a3826",
+    "dirt_b": "#735940",
+    "rock_a": "#454240",
+    "rock_b": "#756e66",
+    "sand_a": "#b8a675",
+    "sand_b": "#dbc996",
+    "snow_c": "#edf5ff"
+   }
+  },
+  "arid_dusk": {
+   "sun_elevation_deg": 17.0,
+   "sun_azimuth_deg": 250.0,
+   "sun_color": "#ffb875",
+   "sun_energy": 2.1,
+   "sky_top": "#33458c",
+   "sky_horizon": "#f59e66",
+   "ground_horizon": "#996b57",
+   "ground_bottom": "#2e211f",
+   "ambient_energy": 1.0,
+   "fog_color": "#cc947a",
+   "fog_density": 0.0011,
+   "fog_sun_scatter": 0.5,
+   "fog_aerial": 0.4,
+   "exposure": 1.25,
+   "white_point": 4.5,
+   "saturation": 1.0,
+   "contrast": 1.08,
+   "brightness": 1.0,
+   "lift": [
+    0.035,
+    0.03,
+    0.06
+   ],
+   "gamma": [
+    1.0,
+    1.0,
+    1.02
+   ],
+   "gain": [
+    1.03,
+    0.98,
+    0.92
+   ],
+   "glow_intensity": 0.6,
+   "glow_threshold": 1.0,
+   "ssao_intensity": 1.8,
+   "dryness": 1.0,
+   "cloud_strength": 0.18,
+   "water_shallow": "#478c8c",
+   "water_deep": "#0d2142",
+   "water_absorb": 0.5,
+   "foliage_a": "#666626",
+   "foliage_b": "#9e8533",
+   "night": 0.0,
+   "wet": 0.0,
+   "decor_kit": "broadleaf",
+   "compat_grade": {
+    "lift": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "gamma": [
+     0.92,
+     0.92,
+     0.95
+    ],
+    "gain": [
+     0.95,
+     0.95,
+     0.93
+    ]
+   },
+   "palette": {
+    "grass_a": "#3d661f",
+    "grass_b": "#668f30",
+    "dry_a": "#8f7547",
+    "dry_b": "#b89961",
+    "dirt_a": "#5c4230",
+    "dirt_b": "#85664a",
+    "rock_a": "#5c4f4a",
+    "rock_b": "#998573",
+    "sand_a": "#bd9e70",
+    "sand_b": "#e6c794",
+    "snow_c": "#e6e0eb"
+   }
+  },
+  "arctic_day": {
+   "sun_elevation_deg": 30.0,
+   "sun_azimuth_deg": 200.0,
+   "sun_color": "#d9e6ff",
+   "sun_energy": 1.7,
+   "sky_top": "#5285db",
+   "sky_horizon": "#cce0f5",
+   "ground_horizon": "#bfccdb",
+   "ground_bottom": "#8c99a8",
+   "ambient_energy": 1.25,
+   "fog_color": "#c7dbf2",
+   "fog_density": 0.0016,
+   "fog_sun_scatter": 0.25,
+   "fog_aerial": 0.4,
+   "exposure": 1.2,
+   "white_point": 5.0,
+   "saturation": 1.0,
+   "contrast": 1.05,
+   "brightness": 1.0,
+   "lift": [
+    0.02,
+    0.03,
+    0.05
+   ],
+   "gamma": [
+    1.0,
+    1.0,
+    1.03
+   ],
+   "gain": [
+    0.97,
+    1.0,
+    1.04
+   ],
+   "glow_intensity": 0.5,
+   "glow_threshold": 1.05,
+   "ssao_intensity": 1.3,
+   "dryness": 0.0,
+   "cloud_strength": 0.1,
+   "water_shallow": "#4c9ead",
+   "water_deep": "#0d335c",
+   "water_absorb": 0.55,
+   "foliage_a": "#1a4229",
+   "foliage_b": "#33613d",
+   "night": 0.0,
+   "wet": 0.1,
+   "decor_kit": "conifer",
+   "compat_grade": {
+    "lift": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "gamma": [
+     0.92,
+     0.92,
+     0.95
+    ],
+    "gain": [
+     0.95,
+     0.95,
+     0.93
+    ]
+   },
+   "palette": {
+    "grass_a": "#6b8566",
+    "grass_b": "#8fa97e",
+    "dry_a": "#80806a",
+    "dry_b": "#a6a68a",
+    "dirt_a": "#5c5248",
+    "dirt_b": "#7e7366",
+    "rock_a": "#69707c",
+    "rock_b": "#a3a9b6",
+    "sand_a": "#b2ad9e",
+    "sand_b": "#d6d1c2",
+    "snow_c": "#f0f7ff"
+   }
+  },
+  "tropical_day": {
+   "sun_elevation_deg": 58.0,
+   "sun_azimuth_deg": 215.0,
+   "sun_color": "#fff0d1",
+   "sun_energy": 1.65,
+   "sky_top": "#2470db",
+   "sky_horizon": "#b8def2",
+   "ground_horizon": "#8cad9e",
+   "ground_bottom": "#33473d",
+   "ambient_energy": 0.85,
+   "fog_color": "#b2dbe6",
+   "fog_density": 0.0014,
+   "fog_sun_scatter": 0.3,
+   "fog_aerial": 0.45,
+   "exposure": 1.12,
+   "white_point": 5.0,
+   "saturation": 1.12,
+   "contrast": 1.05,
+   "brightness": 1.0,
+   "lift": [
+    0.008,
+    0.02,
+    0.02
+   ],
+   "gamma": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "gain": [
+    1.03,
+    1.0,
+    0.94
+   ],
+   "glow_intensity": 0.45,
+   "glow_threshold": 1.15,
+   "ssao_intensity": 1.5,
+   "dryness": 0.0,
+   "cloud_strength": 0.22,
+   "water_shallow": "#1abdb2",
+   "water_deep": "#053d70",
+   "water_absorb": 0.34,
+   "foliage_a": "#1a661a",
+   "foliage_b": "#429429",
+   "night": 0.0,
+   "wet": 0.25,
+   "decor_kit": "palm",
+   "compat_grade": {
+    "lift": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "gamma": [
+     0.92,
+     0.92,
+     0.95
+    ],
+    "gain": [
+     0.95,
+     0.95,
+     0.93
+    ]
+   },
+   "palette": {
+    "grass_a": "#24701f",
+    "grass_b": "#47a333",
+    "dry_a": "#66752e",
+    "dry_b": "#8f9942",
+    "dirt_a": "#6b4c2e",
+    "dirt_b": "#997047",
+    "rock_a": "#6b6661",
+    "rock_b": "#9e998f",
+    "sand_a": "#dbc794",
+    "sand_b": "#f2e6b8",
+    "snow_c": "#edf5ff"
+   }
+  },
+  "urban_night": {
+   "sun_elevation_deg": 35.0,
+   "sun_azimuth_deg": 40.0,
+   "sun_color": "#a8bdff",
+   "sun_energy": 1.3,
+   "sky_top": "#080d21",
+   "sky_horizon": "#2c3560",
+   "ground_horizon": "#262b40",
+   "ground_bottom": "#0a0a12",
+   "ambient_energy": 1.9,
+   "fog_color": "#1a2140",
+   "fog_density": 0.0022,
+   "fog_sun_scatter": 0.05,
+   "fog_aerial": 0.5,
+   "exposure": 1.45,
+   "white_point": 4.0,
+   "saturation": 0.92,
+   "contrast": 1.08,
+   "brightness": 1.28,
+   "lift": [
+    0.02,
+    0.03,
+    0.06
+   ],
+   "gamma": [
+    1.0,
+    1.0,
+    1.02
+   ],
+   "gain": [
+    0.95,
+    0.98,
+    1.05
+   ],
+   "glow_intensity": 0.9,
+   "glow_threshold": 0.85,
+   "ssao_intensity": 1.8,
+   "dryness": 0.0,
+   "cloud_strength": 0.05,
+   "water_shallow": "#0d2e42",
+   "water_deep": "#030a1a",
+   "water_absorb": 0.6,
+   "foliage_a": "#0f2414",
+   "foliage_b": "#1f381f",
+   "night": 1.0,
+   "wet": 0.6,
+   "decor_kit": "broadleaf",
+   "compat_grade": {
+    "lift": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "gamma": [
+     0.92,
+     0.92,
+     0.95
+    ],
+    "gain": [
+     0.95,
+     0.95,
+     0.93
+    ]
+   },
+   "palette": {
+    "grass_a": "#4a6a3c",
+    "grass_b": "#587a48",
+    "dry_a": "#3d3d29",
+    "dry_b": "#525238",
+    "dirt_a": "#4a3d33",
+    "dirt_b": "#5a4a3c",
+    "rock_a": "#4a4a55",
+    "rock_b": "#7a7a88",
+    "sand_a": "#575247",
+    "sand_b": "#757066",
+    "snow_c": "#99a3b8"
+   }
+  },
+  "temperate_golden": {
+   "sun_elevation_deg": 24.0,
+   "sun_azimuth_deg": 236.0,
+   "sun_color": "#ffd9a3",
+   "sun_energy": 1.85,
+   "sky_top": "#3b66b8",
+   "sky_horizon": "#f2c9a0",
+   "ground_horizon": "#94a3a3",
+   "ground_bottom": "#3d4542",
+   "ambient_energy": 0.78,
+   "fog_color": "#d9bfa0",
+   "fog_density": 0.0011,
+   "fog_sun_scatter": 0.45,
+   "fog_aerial": 0.35,
+   "exposure": 1.2,
+   "white_point": 5.0,
+   "saturation": 1.1,
+   "contrast": 1.06,
+   "brightness": 1.0,
+   "lift": [
+    0.012,
+    0.018,
+    0.03
+   ],
+   "gamma": [
+    1.0,
+    1.0,
+    1.02
+   ],
+   "gain": [
+    1.05,
+    0.99,
+    0.9
+   ],
+   "glow_intensity": 0.55,
+   "glow_threshold": 1.15,
+   "ssao_intensity": 1.5,
+   "dryness": 0.0,
+   "cloud_strength": 0.12,
+   "water_shallow": "#29949e",
+   "water_deep": "#082e57",
+   "water_absorb": 0.42,
+   "foliage_a": "#29571a",
+   "foliage_b": "#578024",
+   "night": 0.0,
+   "wet": 0.0,
+   "decor_kit": "broadleaf",
+   "compat_grade": {
+    "lift": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "gamma": [
+     0.92,
+     0.92,
+     0.95
+    ],
+    "gain": [
+     0.95,
+     0.95,
+     0.93
+    ]
+   },
+   "palette": {
+    "grass_a": "#3d6b1f",
+    "grass_b": "#6b9933",
+    "dry_a": "#7a6b38",
+    "dry_b": "#9e8c4c",
+    "dirt_a": "#4a3826",
+    "dirt_b": "#735940",
+    "rock_a": "#454240",
+    "rock_b": "#756e66",
+    "sand_a": "#b8a675",
+    "sand_b": "#dbc996",
+    "snow_c": "#edf5ff"
+   }
+  },
+  "temperate_overcast": {
+   "sun_elevation_deg": 52.0,
+   "sun_azimuth_deg": 222.0,
+   "sun_color": "#e6edf5",
+   "sun_energy": 0.95,
+   "sky_top": "#7c93b3",
+   "sky_horizon": "#c3ced9",
+   "ground_horizon": "#94a3a3",
+   "ground_bottom": "#3d4542",
+   "ambient_energy": 1.25,
+   "fog_color": "#b9c6d3",
+   "fog_density": 0.0016,
+   "fog_sun_scatter": 0.25,
+   "fog_aerial": 0.5,
+   "exposure": 1.22,
+   "white_point": 5.0,
+   "saturation": 0.98,
+   "contrast": 1.06,
+   "brightness": 1.0,
+   "lift": [
+    0.012,
+    0.018,
+    0.03
+   ],
+   "gamma": [
+    1.0,
+    1.0,
+    1.02
+   ],
+   "gain": [
+    0.99,
+    1.0,
+    1.01
+   ],
+   "glow_intensity": 0.45,
+   "glow_threshold": 1.15,
+   "ssao_intensity": 1.2,
+   "dryness": 0.0,
+   "cloud_strength": 0.45,
+   "water_shallow": "#29949e",
+   "water_deep": "#082e57",
+   "water_absorb": 0.42,
+   "foliage_a": "#29571a",
+   "foliage_b": "#578024",
+   "night": 0.0,
+   "wet": 0.0,
+   "decor_kit": "broadleaf",
+   "compat_grade": {
+    "lift": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "gamma": [
+     0.92,
+     0.92,
+     0.95
+    ],
+    "gain": [
+     0.95,
+     0.95,
+     0.93
+    ]
+   },
+   "palette": {
+    "grass_a": "#3d6b1f",
+    "grass_b": "#6b9933",
+    "dry_a": "#7a6b38",
+    "dry_b": "#9e8c4c",
+    "dirt_a": "#4a3826",
+    "dirt_b": "#735940",
+    "rock_a": "#454240",
+    "rock_b": "#756e66",
+    "sand_a": "#b8a675",
+    "sand_b": "#dbc996",
+    "snow_c": "#edf5ff"
+   }
+  }
+ }
+}

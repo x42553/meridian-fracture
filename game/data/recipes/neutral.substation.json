@@ -1,0 +1,14 @@
+{
+  "schema": "meridian.recipe/1",
+  "id": "neutral.substation",
+  "archetype": "neu_building",
+  "style": "auto",
+  "params": {
+    "kit": "substation"
+  },
+  "meta": {
+    "stub": true,
+    "view_archetype": "neu_building",
+    "rule": "override"
+  }
+}

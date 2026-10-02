@@ -1,0 +1,272 @@
+{
+  "schema": "meridian.archetype/1",
+  "id": "veh_howitzer",
+  "size_class": "medium",
+  "meta": {
+    "motion": "tracked",
+    "wreck": {"turret_yaw_deg": 30, "tilt_deg": [3, 0, -6]},
+    "doc": "Self-propelled howitzer (arty_howitzer). Casemate turret at the rear, gun_len, muzzle, deck (style kit), rear spades (DEPLOY) drop and the barrel elevates on deploy. Sockets muzzle0_0, muzzle1_0, exhaust0, top."
+  },
+  "defaults": {
+    "hull_len": 4.0,
+    "hull_wid": 2.04,
+    "deck_y": 1.14,
+    "trk_x": 0.9,
+    "trk_w": 0.5,
+    "gun_len": 3.4,
+    "gun_r": 0.1,
+    "muzzle": "brake",
+    "skirt": "modules",
+    "turret_n": 6,
+    "turret_rot": 30.0,
+    "deck": "none",
+    "carrier": false,
+    "crawler": false
+  },
+  "derive": {"hl": "hull_len*0.5", "hw": "hull_wid*0.5", "tz": "0.62", "cy": "deck_y+0.66", "gy": "deck_y+0.72", "gz": "-0.22"},
+  "slots": {"skirt": []},
+  "ops": [
+    ["bevel", 0.04],
+    {
+      "mirror_x": [
+        ["brush", "rubber", "rubber"],
+        [
+          "track",
+          "trk_x",
+          "trk_w",
+          [["hl-0.42", "(0.32+0.06+0.07)", "(0.32+0.06)"], ["-hl+0.44", "(0.32+0.06+0.07)", "(0.32+0.06)"]],
+          0.07,
+          10
+        ],
+        ["wheel", ["trk_x", "(0.32+0.06+0.07)", "hl-0.42"], 0.32, "(trk_w)*0.78", "rubber", "metal", 0, 10],
+        ["wheel", ["trk_x", "(0.32+0.06+0.07)", "-hl+0.44"], 0.32, "(trk_w)*0.78", "rubber", "metal", 0, 10],
+        {
+          "for": "i",
+          "n": 4,
+          "do": [
+            [
+              "wheel",
+              ["trk_x", "0.28+0.07", "lerp((-hl+0.44)+0.32+0.22,(hl-0.42)-0.32-0.24,i/max((4)-1,1))"],
+              0.28,
+              "(trk_w)*0.8",
+              "rubber",
+              "metal",
+              0,
+              8
+            ]
+          ]
+        },
+        ["brush", "dark"],
+        [
+          "box",
+          ["trk_x", "2*0.32+0.205+0.07", "((hl-0.42)+(-hl+0.44))*0.5"],
+          ["(trk_w)+0.16", 0.045, "(hl-0.42)-(-hl+0.44)+0.56"],
+          0.015
+        ],
+        {
+          "switch": "skirt",
+          "cases": {
+            "modules": [
+              {
+                "for": "j",
+                "n": 5,
+                "do": [
+                  ["brush", "j % 2 == 0 ? 'base' : 'sec'"],
+                  [
+                    "box",
+                    ["trk_x+trk_w*0.5+0.07", 0.72, "-(hl)+0.25+(hull_len-0.5)/5*(j+0.5)"],
+                    [0.09, 0.4, "(hull_len-0.5)/5-0.07"],
+                    0.012
+                  ]
+                ]
+              },
+              ["brush", "acc"],
+              ["box", ["trk_x+trk_w*0.5+0.07", "0.72+0.4*0.5+0.02", 0], [0.1, 0.04, "5*(hull_len-0.5)/5-0.05"], 0.0]
+            ],
+            "none": []
+          },
+          "default": [{"call": "skirt", "args": {"kind": "skirt", "x": "trk_x+trk_w*0.5+0.07", "y": 0.72, "len": "2*(hl)", "h": 0.4}}]
+        },
+        {"slot": "skirt"}
+      ]
+    },
+    ["brush", "dark"],
+    ["ao", 0.7],
+    ["box", [0, 0.58, 0], ["(trk_x-trk_w*0.5-0.02)*2", 0.55, "hull_len-0.15"], 0.03],
+    ["ao", 1.0],
+    ["brush", "base"],
+    [
+      "extrude",
+      [["-hl", 0.84], ["-hl", "deck_y-0.08"], ["-hl+0.3", "deck_y"], ["hl-0.62", "deck_y"], ["hl", 0.92], ["hl", 0.84]],
+      "-hw",
+      "hw",
+      0.05
+    ],
+    ["brush", "metal", "metal"],
+    [
+      "pocket",
+      [0, "deck_y+0.025", "-hl*0.5-0.05"],
+      ["hw*1.2", 0.05, 0.9],
+      [[0.08, 0.1, 0.84, 0.25], [0.08, 0.45, 0.84, 0.25]],
+      0.03
+    ],
+    ["tier", 1],
+    ["brush", "metal", "metal"],
+    ["greeble", [0, "deck_y+0.03", "-hl*0.55"], [0, 1, 0], ["hw*0.6", 0, 0], [0, 0, 0.3], 4, 0.1, 0.2, 0.03, 0.09],
+    ["tier", 0],
+    ["brush", "sec"],
+    ["cyl", ["hw*0.4", "deck_y", "-hl*0.62"], ["hw*0.4", "deck_y+0.08", "-hl*0.62"], 0.16, 10, 0.0],
+    ["brush", "acc"],
+    ["cyl", ["hw*0.4", "deck_y+0.08", "-hl*0.62"], ["hw*0.4", "deck_y+0.11", "-hl*0.62"], 0.12, 10, 0.0],
+    ["brush", "glass", "glass"],
+    ["box", ["hw*0.4-0.0", "deck_y+0.13", "-hl*0.62-0.13"], [0.14, 0.05, 0.04], 0.0],
+    {"call": "team_panel", "args": {"center": [0, "deck_y+0.02", "-hl*0.28"], "size": ["hw*1.1", 0.02, 0.5]}},
+    {
+      "call": "light_pair",
+      "args": {"center": [0, "deck_y-0.18", "-hl-0.01"], "spacing": "(hw-0.24)*2", "size": [0.18, 0.08, 0.05], "col": "light"}
+    },
+    {
+      "call": "light_pair",
+      "args": {"center": [0, "deck_y-0.16", "hl+0.01"], "spacing": "(hw-0.24)*2", "size": [0.16, 0.07, 0.04], "col": "#ff140a"}
+    },
+    ["brush", "base"],
+    ["box", [0, "deck_y+0.06", "hl-0.35"], ["hw*1.5", 0.12, 0.55], 0.03],
+    ["brush", "metal", "metal"],
+    ["pocket", [0, "deck_y+0.125", "hl-0.35"], ["hw*1.3", 0.03, 0.45], [[0.1, 0.15, 0.8, 0.2], [0.1, 0.55, 0.8, 0.2]], 0.02],
+    {
+      "part": {"kind": "turret", "pivot": [0, "deck_y", "tz"]},
+      "do": [
+        ["brush", "dark", "metal"],
+        ["cyl", [0, "deck_y-0.02", "tz"], [0, "deck_y+0.06", "tz"], "hw*0.85", 18, 0.01],
+        ["brush", "base"],
+        [
+          "prism",
+          ["ngon", [0, "deck_y+0.06", "tz"], "hw*1.02/cos(PI/turret_n)", "1.02/cos(PI/turret_n)", "turret_n", "turret_rot"],
+          ["ngon", [0, "deck_y+1.02", "tz+0.12"], "hw*0.84/cos(PI/turret_n)", "0.72/cos(PI/turret_n)", "turret_n", "turret_rot"],
+          0.04
+        ],
+        ["tbox", [0, "deck_y+0.56", "tz-0.98"], [1.3, 0.34], [1.06, 0.22], 0.84, [0, 0], 0.03],
+        ["brush", "dark"],
+        ["box", [0, "gy", "gz+0.08"], [0.7, 0.62, 0.3], 0.04],
+        ["brush", "metal", "metal"],
+        ["box", [0, "gy", "gz-0.08"], [0.86, 0.14, 0.12], 0.0],
+        ["brush", "glass", "glass"],
+        ["box", ["hw*0.52", "deck_y+0.64", "tz-0.32"], [0.34, 0.16, 0.03], 0.0],
+        {"call": "hatch", "args": {"c": ["-hw*0.36", "deck_y+1.03", "tz+0.22"], "r": 0.17, "body": "sec", "ring": "acc"}},
+        {"call": "hatch", "args": {"c": ["hw*0.36", "deck_y+1.03", "tz+0.30"], "r": 0.14, "body": "sec", "ring": "acc"}},
+        ["tier", 1],
+        ["brush", "metal", "metal"],
+        ["greeble", [0, "deck_y+1.03", "tz+0.14"], [0, 1, 0], ["hw*0.4", 0, 0], [0, 0, 0.3], 3, 0.1, 0.2, 0.03, 0.08],
+        ["tier", 0]
+      ]
+    },
+    {"call": "team_panel", "args": {"center": [0, "deck_y+1.04", "tz+0.10"], "size": ["hw*0.66", 0.03, 0.46]}},
+    {
+      "call": "gun",
+      "args": {
+        "mount": 0,
+        "pivot": [0, "deck_y", "tz"],
+        "y": "gy",
+        "z": "gz",
+        "len": "gun_len",
+        "r": "gun_r",
+        "muzzle": "muzzle",
+        "elev": 0.37,
+        "recoil": 0.6
+      }
+    },
+    {"call": "spade_pair", "args": {"z": "hl-0.10", "x": 0.62}},
+    {
+      "switch": "deck",
+      "cases": {
+        "container": [
+          {
+            "call": "container",
+            "args": {"center": [0, "(deck_y+0.12)+0.26", "hl-0.35"], "size": ["hw*1.3", 0.46, 0.5], "col": "sec"}
+          }
+        ],
+        "drone_rack": [
+          ["brush", "metal", "metal"],
+          ["box", [0, "(deck_y+0.12)+0.05", "hl-0.35"], ["hw*1.3", 0.05, 0.5], 0.0],
+          {
+            "for": "i",
+            "n": 3,
+            "do": [
+              ["brush", "sec"],
+              ["box", ["(i-1)*(hw*1.3)*0.32", "(deck_y+0.12)+0.14", "hl-0.35"], ["(hw*1.3)*0.26", 0.12, "(0.5)*0.85"], 0.0],
+              ["tier", 2],
+              ["brush", "acc"],
+              ["box", ["(i-1)*(hw*1.3)*0.32", "(deck_y+0.12)+0.205", "(hl-0.35)-(0.5)*0.25"], ["(hw*1.3)*0.2", 0.02, 0.1], 0.0],
+              ["tier", 0]
+            ]
+          }
+        ],
+        "heat_shield": [
+          ["brush", "dark"],
+          ["box", [0, "(deck_y+0.12)+0.04", "hl-0.35"], ["hw*1.3", 0.06, 0.5], 0.0],
+          ["brush", "acc"],
+          {
+            "for": "i",
+            "n": 5,
+            "do": [["box", ["(i-2)*(hw*1.3)*0.2", "(deck_y+0.12)+0.34", "hl-0.35"], [0.045, 0.56, "(0.5)*0.9"], 0.0]]
+          }
+        ],
+        "drone_pad": [
+          ["brush", "dark"],
+          ["box", [0, "(deck_y+0.12)+0.03", "hl-0.35"], ["hw*1.3", 0.05, 0.5], 0.01],
+          ["brush", "acc"],
+          ["cyl", [0, "(deck_y+0.12)+0.056", "hl-0.35"], [0, "(deck_y+0.12)+0.066", "hl-0.35"], "min(hw*1.3,0.5)*0.4", 16, 0.0],
+          ["brush", "dark"],
+          ["cyl", [0, "(deck_y+0.12)+0.066", "hl-0.35"], [0, "(deck_y+0.12)+0.07", "hl-0.35"], "min(hw*1.3,0.5)*0.3", 16, 0.0],
+          ["brush", "sec"],
+          ["box", [0, "(deck_y+0.12)+0.12", "hl-0.35"], [0.3, 0.09, 0.3], 0.02],
+          ["brush", "light", "emissive"],
+          ["box", [0, "(deck_y+0.12)+0.17", "hl-0.35"], [0.08, 0.02, 0.08], 0.0]
+        ],
+        "spares": [
+          ["brush", "rubber", "rubber"],
+          [
+            "cyl",
+            ["-(hw*1.3)*0.3", "(deck_y+0.12)+0.30", "hl-0.35"],
+            ["-(hw*1.3)*0.3+0.24", "(deck_y+0.12)+0.30", "hl-0.35"],
+            0.3,
+            12,
+            0.02
+          ],
+          ["brush", "metal", "metal"],
+          [
+            "cyl",
+            ["-(hw*1.3)*0.3+0.22", "(deck_y+0.12)+0.30", "hl-0.35"],
+            ["-(hw*1.3)*0.3+0.26", "(deck_y+0.12)+0.30", "hl-0.35"],
+            0.16,
+            10,
+            0.0
+          ],
+          ["brush", "acc"],
+          ["box", ["(hw*1.3)*0.15", "(deck_y+0.12)+0.16", "(hl-0.35)-(0.5)*0.2"], [0.36, 0.28, 0.2], 0.02],
+          ["box", ["(hw*1.3)*0.15", "(deck_y+0.12)+0.16", "(hl-0.35)+(0.5)*0.2"], [0.36, 0.28, 0.2], 0.02],
+          ["brush", "sec"],
+          ["box", ["(hw*1.3)*0.38", "(deck_y+0.12)+0.18", "hl-0.35"], [0.22, 0.32, 0.28], 0.02]
+        ],
+        "braces": [
+          ["brush", "metal", "metal"],
+          {
+            "for": "s",
+            "n": 2,
+            "do": [
+              ["box", ["(s*2-1)*(hw*1.3)*0.36", "(deck_y+0.12)+0.16", "hl-0.35"], [0.14, 0.14, "(0.5)*0.9"], 0.02],
+              ["brush", "acc"],
+              ["box", ["(s*2-1)*(hw*1.3)*0.36", "(deck_y+0.12)+0.24", "(hl-0.35)-(0.5)*0.4"], [0.24, 0.05, 0.24], 0.01],
+              ["brush", "metal", "metal"]
+            ]
+          }
+        ]
+      }
+    },
+    {"slot": "skirt"},
+    ["socket", "muzzle0_0", [0, "gy", "gz-0.14-gun_len-0.25"], [0, 0, -1], "barrel"],
+    ["socket", "muzzle1_0", [0, "gy", "gz-0.14-gun_len-0.25"], [0, 0, -1], "barrel"],
+    ["socket", "exhaust0", ["hw*0.6", "deck_y", "hl"], [0, 0, 1]],
+    ["socket", "top", [0, "deck_y+1.6", "tz"], [0, 1, 0]]
+  ]
+}

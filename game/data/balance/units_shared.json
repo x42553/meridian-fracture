@@ -1,0 +1,13 @@
+{
+  "schema": "meridian.balance.units/1",
+  "_doc": "Shared service units. cost_credits is omitted on purpose: the bible fixes it (500/1400/3000/900) and repeating it is optional (V-CNF-02).",
+  "faction": null,
+  "units": [
+    {"id": "unit.shared.collector", "archetype": "service.collector", "size_class": "light", "armor_class": "light_vehicle", "movement_class": "wheeled", "layer": "ground", "build_time_s": 30.5, "health": 900, "speed_cells_s": 2.0, "vision_cells": 8.0, "radius_cells": 0.6, "pop_n": 0, "weapons": []},
+    {"id": "unit.shared.engineer", "archetype": "service.engineer", "size_class": "inf", "armor_class": "infantry", "movement_class": "foot", "layer": "ground", "build_time_s": 18, "health": 260, "speed_cells_s": 1.5, "vision_cells": 7.0, "radius_cells": 0.4, "weapons": []},
+    {"id": "unit.shared.landing_transport", "archetype": "service.landing_transport", "size_class": "medium", "armor_class": "light_vehicle", "movement_class": "amphibious", "layer": "ground", "build_time_s": 25, "health": 1400, "speed_cells_s": 2.6, "vision_cells": 9.0, "radius_cells": 0.8, "weapons": []},
+    {"id": "unit.shared.mobile_construction_vehicle", "archetype": "service.mcv", "size_class": "medium", "armor_class": "medium_armor", "movement_class": "tracked", "layer": "ground", "build_time_s": 67, "health": 2000, "speed_cells_s": 1.2, "vision_cells": 8.0, "radius_cells": 0.8, "pop_n": 0, "weapons": []}
+  ],
+  "weapons": [],
+  "summons": []
+}

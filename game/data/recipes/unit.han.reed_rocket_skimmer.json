@@ -1,0 +1,15 @@
+{
+  "schema": "meridian.recipe/1",
+  "id": "unit.han.reed_rocket_skimmer",
+  "archetype": "veh_lightarty",
+  "style": "auto",
+  "params": {"chassis": "skimmer", "payload": "rocket_pod", "roof": "none"},
+  "ops_after": [
+    ["brush", "mix(base,sec,0.4)"],
+    {"for": "j", "n": 9, "do": [{"mirror_x": [["box", ["hw+0.06", 0.62, "-hl+0.45+j*(lb_len-0.9)/8"], [0.05, 0.42, "(lb_len-0.9)/8-0.05"], 0.005]]}]},
+    ["brush", "sec"],
+    {"mirror_x": [["cyl", ["hw+0.03", 0.36, "-hl+0.3"], ["hw+0.03", 0.36, "hl-0.3"], 0.13, 8, 0.01]]},
+    {"call": "team_panel", "args": {"center": [0, 1.045, "-hl+1.45"], "size": [0.9, 0.02, 0.5]}}
+  ],
+  "meta": {"han_gen": true}
+}

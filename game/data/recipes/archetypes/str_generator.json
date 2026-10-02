@@ -1,0 +1,141 @@
+{
+  "schema": "meridian.archetype/1",
+  "id": "str_generator",
+  "size_class": "structure",
+  "meta": {"motion": "static", "death": {"kind": "structure", "ticks": 7}, "doc": "Generator (2x2): shed with twin banded stacks (steam0/steam1 sockets), fan cooler (RADAR part = spinning fan), pulsing capacitor coils (BLINK)."},
+  "defaults": {},
+  "slots": {"roof": [], "front": [], "extra": []},
+  "derive": {
+    "pw": "fw*3-0.5",
+    "ph": "fh*3-0.5",
+    "hw": "pw*0.5",
+    "hh": "ph*0.5",
+    "ap": "fw*fh>1 ? 1.0 : 0.3",
+    "fz": "hh-ap",
+    "bk": "-hh+0.25",
+    "bd": "fz-bk",
+    "bz": "(fz+bk)*0.5",
+    "bw": "pw-0.5",
+    "k": "clamp(min(pw,ph)/5.5,0.8,1.25)",
+    "hcap": "(max(fw,fh)>=4 ? 12.5 : (max(fw,fh)>=3 ? 10 : 7))-0.35",
+    "gh": "2.6*k",
+    "sx": "bw*0.24",
+    "sh": "min(4.6*k+gh,hcap-0.3)-gh",
+    "sr": "0.42*clamp(k,0.9,1.2)",
+    "cz": "bz-bd*0.24",
+    "cn": "bw>9.5 ? 3 : 2",
+    "ry": "gh+0.09",
+    "fr": "0.62*clamp(k,0.9,1.1)"
+  },
+  "ops": [
+    ["bevel", 0.05],
+    {"call": "foundation", "args": {"fw": "fw", "fh": "fh", "depth": 1.2, "col": "concrete", "edge": "dark", "chevron": "fw*fh>1 ? 1 : 0", "acc": "acc"}},
+    {"call": "wall_block", "args": {"center": [0, "gh*0.5", "bz"], "size": ["bw*0.94", "gh", "bd*0.92"], "col": "base", "sec": "base", "dado": 0.0, "ribs": 1, "rib": "sec", "cap": "sec", "coping": 0}},
+    ["brush", "dark"],
+    ["ao", 0.75],
+    ["box", [0, 0.3, "bz"], ["bw*0.94+0.1", 0.3, "bd*0.92+0.1"], 0.02],
+    ["ao", 1.0],
+    ["brush", "acc"],
+    ["box", [0, "gh-0.42", "bz"], ["bw*0.94+0.12", 0.1, "bd*0.92+0.12"], 0.02],
+    ["brush", "mix(sec,dark,0.55)"],
+    ["box", [0, "(gh)+0.04", "bz"], ["(bw*0.94)+0.06", 0.08, "(bd*0.92)+0.06"], 0.01],
+    ["brush", "sec"],
+    ["box", [0, "(gh)+0.08+0.12", "(bz)+(bd*0.92)*0.5-0.075"], ["(bw*0.94)+0.16", 0.24, 0.15], 0.02],
+    ["box", [0, "(gh)+0.08+0.12", "(bz)-(bd*0.92)*0.5+0.075"], ["(bw*0.94)+0.16", 0.24, 0.15], 0.02],
+    ["box", ["0+(bw*0.94)*0.5-0.075", "(gh)+0.08+0.12", "bz"], [0.15, 0.24, "(bd*0.92)-0.3"], 0.02],
+    ["box", ["0-(bw*0.94)*0.5+0.075", "(gh)+0.08+0.12", "bz"], [0.15, 0.24, "(bd*0.92)-0.3"], 0.02],
+    {"call": "stack", "args": {"center": ["-sx", "ry", "cz"], "r": "sr", "h": "sh", "col": "metal", "band": "acc", "bands": 2}},
+    {"call": "stack", "args": {"center": ["sx", "ry", "cz"], "r": "sr", "h": "sh*0.86", "col": "metal", "band": "acc", "bands": 2}},
+    {"call": "beacon", "args": {"pos": ["-sx", "ry+sh+0.1", "cz"], "phase": 0}},
+    ["brush", "dark", "metal"],
+    ["cyl", ["-sx", "ry", "bz+bd*0.2"], ["-sx", "ry+0.3", "bz+bd*0.2"], "fr", 10, 0.02],
+    {
+      "part": {"kind": "radar", "pivot": ["-sx", "ry+0.32", "bz+bd*0.2"], "extra": 2.2},
+      "do": [
+        ["brush", "metal", "metal"],
+        {
+          "for": "f",
+          "n": 3,
+          "do": [
+            {
+              "push": {"pos": ["-sx", "ry+0.32", "bz+bd*0.2"], "euler": [0, "60*f", 0]},
+              "do": [
+                ["box", [0, 0, 0], ["fr*1.6", 0.03, 0.2], 0]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    ["brush", "dark", "metal"],
+    ["cyl", ["sx", "ry", "bz+bd*0.2"], ["sx", "ry+0.3", "bz+bd*0.2"], "fr", 10, 0.02],
+    ["brush", "metal", "metal"],
+    {
+      "for": "f",
+      "n": 4,
+      "do": [
+        ["box", ["sx+cos(f*TAU/4)*fr*0.5", "ry+0.31", "bz+bd*0.2+sin(f*TAU/4)*fr*0.5"], [0.06, 0.02, 0.06], 0]
+      ]
+    },
+    {"call": "roof_plate", "args": {"center": [0, "ry+0.05", "bz+bd*0.02"], "size": ["clamp(bw*0.26,1.2,1.8)", 0.03, "clamp(bd*0.16,0.7,1.1)"]}},
+    {"call": "pipe", "args": {"from": ["-sx", "gh-0.3", "cz+0.6"], "to": ["-sx", "gh-0.3", "bz+bd*0.2-0.7"], "r": 0.08, "col": "metal"}},
+    {"call": "pipe", "args": {"from": ["-sx", "ry+0.1", "cz+0.5"], "to": ["sx", "ry+0.1", "cz+0.5"], "r": 0.07, "col": "metal"}},
+    {
+      "for": "c",
+      "n": "cn",
+      "do": [
+        ["brush", "dark", "metal"],
+        ["cyl", ["bw*0.5+0.02", 0.16, "bz-bd*0.3+c*bd*0.28"], ["bw*0.5+0.02", 1.0, "bz-bd*0.3+c*bd*0.28"], 0.26, 8, 0.02],
+        ["brush", "acc"],
+        ["cyl", ["bw*0.5+0.02", 0.75, "bz-bd*0.3+c*bd*0.28"], ["bw*0.5+0.02", 0.9, "bz-bd*0.3+c*bd*0.28"], 0.28, 8, 0]
+      ]
+    },
+    {
+      "for": "c",
+      "n": "cn",
+      "do": [
+        {
+          "part": {"kind": "blink", "param": 0.33},
+          "do": [
+            ["brush", "light", "emissive"],
+            ["cyl", ["bw*0.5+0.02", 1.0, "bz-bd*0.3+c*bd*0.28"], ["bw*0.5+0.02", 1.1, "bz-bd*0.3+c*bd*0.28"], 0.18, 10, 0]
+          ]
+        }
+      ]
+    },
+    {"call": "window_strip", "args": {"center": [0, "gh*0.55", "fz+0.02"], "n": "bw>4.5 ? 3 : 2", "size": [0.9, 0.7, 0.05], "dir": 0, "col": "mix(light,glass,0.5)"}},
+    {"call": "window_strip", "args": {"center": ["-bw*0.47-0.02", "gh*0.55", "bz"], "n": 2, "size": [0.9, 0.7, 0.05], "dir": -90, "col": "mix(light,glass,0.5)"}},
+    ["brush", "dark"],
+    ["ao", 0.8],
+    ["box", ["bw*0.3", 0.9, "fz+0.02"], ["clamp(bw*0.2,0.9,1.4)", 1.7, 0.06], 0.02],
+    ["ao", 1.0],
+    {
+      "push": {"pos": ["bw*0.3", 2.0, "fz+0.02"], "euler": [0, 0, 0]},
+      "do": [
+        ["brush", "metal", "metal"],
+        ["box", [0, 0, 0.05], [0.22, 0.12, 0.12], 0.01],
+        ["brush", "light", "emissive"],
+        ["box", [0, -0.02, 0.12], [0.16, 0.06, 0.03]]
+      ]
+    },
+    ["brush", "dark", "metal"],
+    ["cyl", ["-bw*0.36", 0.16, "fz-0.35"], ["-bw*0.36", "0.16+0.56", "fz-0.35"], 0.2, 10, 0.012],
+    ["brush", "acc"],
+    ["cyl", ["-bw*0.36", "0.16+0.336", "fz-0.35"], ["-bw*0.36", "0.16+0.392", "fz-0.35"], 0.20600000000000002, 10, 0],
+    ["brush", "acc", "metal"],
+    ["cyl", ["-bw*0.36+0.5", 0.16, "fz-0.3"], ["-bw*0.36+0.5", "0.16+0.56", "fz-0.3"], 0.2, 10, 0.012],
+    ["brush", "acc"],
+    ["cyl", ["-bw*0.36+0.5", "0.16+0.336", "fz-0.3"], ["-bw*0.36+0.5", "0.16+0.392", "fz-0.3"], 0.20600000000000002, 10, 0],
+    ["socket", "door_exit", ["door_cx", 0.16, "door_cz"], [0, 0, 1]],
+    ["socket", "weld0", [1.0, "gh+0.2", 0.5], [0, 1, 0]],
+    ["socket", "weld1", [-1.0, "gh+0.2", -0.5], [0, 1, 0]],
+    ["socket", "weld2", [0, "gh+0.2", 0.25], [0, 1, 0]],
+    ["socket", "top", ["-sx", "ry+sh", "cz"], [0, 1, 0]],
+    ["socket", "steam0", ["-sx", "ry+sh+0.15", "cz"], [0, 1, 0]],
+    ["socket", "steam1", ["sx", "ry+sh*0.86+0.15", "cz"], [0, 1, 0]],
+    {"slot": "roof"},
+    {"slot": "front"},
+    {"slot": "extra"},
+    ["meta", "footprint", ["fw", "fh"]]
+  ]
+}

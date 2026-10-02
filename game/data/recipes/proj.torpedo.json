@@ -1,0 +1,11 @@
+{
+  "schema": "meridian.recipe/1",
+  "id": "proj.torpedo",
+  "archetype": "proj_torpedo",
+  "style": "auto",
+  "meta": {
+    "stub": true,
+    "view_archetype": "proj_torpedo",
+    "rule": "override"
+  }
+}

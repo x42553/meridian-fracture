@@ -1,0 +1,52 @@
+{
+  "schema": "meridian.archetype/1",
+  "id": "sum_cover",
+  "size_class": "medium",
+  "meta": {"motion": "static", "death": {"kind": "vehicle", "ticks": 2}, "doc": "Repair pontoon / cover (summon): floating deck on twin pontoons with rails, hazard edge, repair mast with swinging arm (DEPLOY) and a dish."},
+  "defaults": {},
+  "ops": [
+    ["bevel", 0.03],
+    {
+      "mirror_x": [
+        ["brush", "dark", "metal"],
+        ["cyl", [1.55, 0.0, 1.8], [1.55, 0.0, -1.8], 0.42, 12, 0.03],
+        ["brush", "acc"],
+        ["cyl", [1.55, 0.0, 1.8], [1.55, 0.0, 1.7], 0.43, 12, 0],
+        ["cyl", [1.55, 0.0, -1.8], [1.55, 0.0, -1.7], 0.43, 12, 0]
+      ]
+    },
+    ["brush", "sec"],
+    ["box", [0, 0.42, 0], [3.7, 0.16, 3.4], 0.03],
+    ["brush", "dark"],
+    ["box", [0, 0.35, 0], [3.4, 0.14, 3.1], 0.02],
+    {"call": "hazard_stripes", "args": {"center": [0, 0.52, 1.55], "size": [3.4, 0.02, 0.25], "n": 10}},
+    ["brush", "metal", "metal"],
+    {
+      "mirror_x": [
+        ["cyl", [1.7, 0.5, 1.6], [1.7, 1.15, 1.6], 0.03, 5, 0],
+        ["cyl", [1.7, 0.5, -1.6], [1.7, 1.15, -1.6], 0.03, 5, 0],
+        ["box", [1.7, 1.12, 0], [0.04, 0.04, 3.2], 0]
+      ]
+    },
+    ["brush", "acc"],
+    ["cyl", [-0.7, 0.5, -0.6], [-0.7, 2.2, -0.6], 0.09, 8, 0.01],
+    {
+      "part": {"kind": "deploy", "pivot": [-0.7, 2.1, -0.6], "param": 0.6},
+      "do": [
+        ["brush", "sec"],
+        {
+          "push": {"pos": [-0.7, 2.1, -0.6], "euler": [0, 0, 0]},
+          "do": [
+            ["box", [0.0, 0, 0.8], [0.12, 0.12, 1.6], 0.02],
+            ["brush", "light", "emissive"],
+            ["box", [0, -0.08, 1.62], [0.24, 0.1, 0.18]]
+          ]
+        }
+      ]
+    },
+    {"call": "team_panel", "args": {"center": [0.8, 0.52, -0.2], "size": [1.1, 0.03, 0.9], "col": "base"}},
+    {"call": "radar_dish", "args": {"center": [-0.7, 2.2, -0.6], "r": 0.35, "spin": 1}},
+    {"call": "beacon", "args": {"pos": [-0.7, 2.55, -0.6], "r": 0.08, "col": "#ffb02e", "phase": 0}},
+    ["socket", "top", [0, 2.8, 0], [0, 1, 0]]
+  ]
+}

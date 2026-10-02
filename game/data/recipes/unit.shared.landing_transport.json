@@ -1,0 +1,11 @@
+{
+  "schema": "meridian.recipe/1",
+  "id": "unit.shared.landing_transport",
+  "archetype": "veh_landing",
+  "style": "auto",
+  "meta": {
+    "stub": true,
+    "view_archetype": "veh_landing",
+    "rule": "balance archetype service.landing_transport"
+  }
+}

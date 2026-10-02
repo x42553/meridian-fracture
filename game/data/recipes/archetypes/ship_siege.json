@@ -1,0 +1,166 @@
+{
+  "schema": "meridian.archetype/1",
+  "id": "ship_siege",
+  "size_class": "ship",
+  "meta": {
+    "motion": "naval",
+    "death": {"kind": "sink", "ticks": 60},
+    "doc": "Arsenal ship (ship_siege): battery guns (four barrels, mount 0) | missile_cells (VLS blocks)."
+  },
+  "defaults": {"ss_len": 12.2, "ss_beam": 4.4, "battery": "guns", "bow": "blunt", "roof": "cupola", "deck": "none"},
+  "derive": {"hl": "ss_len*0.5", "fb": "1.0"},
+  "ops": [
+    ["bevel", 0.035],
+    {
+      "call": "hull_ship",
+      "args": {
+        "len": "ss_len",
+        "beam": "ss_beam",
+        "draft": 0.6,
+        "bow": "bow",
+        "freeboard": "fb",
+        "col": "base",
+        "low": "dark",
+        "stripe": "acc",
+        "deck": "dark"
+      }
+    },
+    {
+      "call": "superstructure",
+      "args": {"center": [0, "fb", "hl*0.08"], "len": 3.2, "wid": 2.4, "tiers": 3, "tier_h": 0.6, "col": "sec", "radar": 1, "mast": 1}
+    },
+    {"call": "team_panel", "args": {"center": [0, "fb+1.82", "hl*0.08+0.2"], "size": [0.9, 0.02, 0.7]}},
+    ["brush", "acc"],
+    ["box", [0, "fb+0.3", "hl*0.08-1.62"], [2.5, 0.05, 0.08], 0.0],
+    {
+      "switch": "battery",
+      "cases": {
+        "missile_cells": [
+          {"call": "vls", "args": {"center": [0, "fb+0.02", "-hl+2.3"], "rows": 5, "cols": 4, "pitch": 0.4}},
+          {"call": "vls", "args": {"center": [0, "fb+0.02", "-hl+4.6"], "rows": 4, "cols": 4, "pitch": 0.4}}
+        ]
+      },
+      "default": [
+        {
+          "call": "ship_turret",
+          "args": {"pos": [0, "fb", "-hl+1.9"], "barrels": 2, "mount": 0, "r": 0.72, "len": 2.2, "br": 0.08, "col": "base"}
+        },
+        {
+          "call": "ship_turret",
+          "args": {"pos": [0, "fb", "-hl+4.1"], "barrels": 2, "mount": 0, "r": 0.72, "len": 2.2, "br": 0.08, "col": "base"}
+        }
+      ]
+    },
+    ["brush", "dark"],
+    ["box", [0, "fb+0.3", "hl-1.7"], [2.4, 0.6, 2.2], 0.05],
+    ["brush", "metal", "metal"],
+    [
+      "pocket",
+      [0, "fb+0.62", "hl-1.7"],
+      [2.2, 0.04, 2.0],
+      [[0.06, 0.06, 0.42, 0.42], [0.52, 0.06, 0.42, 0.42], [0.06, 0.52, 0.42, 0.42], [0.52, 0.52, 0.42, 0.42]],
+      0.03
+    ],
+    ["brush", "acc"],
+    ["box", [0, "fb+0.64", "hl-0.65"], [2.4, 0.03, 0.08], 0.0],
+    {
+      "mirror_x": [{"call": "team_panel", "args": {"center": ["ss_beam*0.5-0.5", "fb+0.03", "hl*0.08-0.3"], "size": [0.7, 0.02, 2.4]}}]
+    },
+    {
+      "call": "light_pair",
+      "args": {"center": [0, "fb+0.4", "hl+0.02"], "spacing": 2.2, "size": [0.16, 0.09, 0.04], "col": "#ff140a"}
+    },
+    {
+      "switch": "deck",
+      "cases": {
+        "container": [{"call": "container", "args": {"center": [0, "fb+0.3", "hl*0.08+2.2"], "size": [1.6, 0.5, 1.0], "col": "sec"}}]
+      }
+    },
+    {
+      "mirror_x": [
+        ["tier", 2],
+        ["brush", "metal", "metal"],
+        {
+          "for": "k",
+          "n": 18,
+          "do": [
+            [
+              "cyl",
+              ["ss_beam*0.5-0.14", "fb", "lerp(-hl+0.8,hl-0.4,k/17)"],
+              ["ss_beam*0.5-0.14", "(fb)+0.3", "lerp(-hl+0.8,hl-0.4,k/17)"],
+              0.018,
+              5,
+              0.0
+            ]
+          ]
+        },
+        ["box", ["ss_beam*0.5-0.14", "(fb)+0.3", "((-hl+0.8)+(hl-0.4))*0.5"], [0.03, 0.03, "(hl-0.4)-(-hl+0.8)"], 0.0],
+        ["box", ["ss_beam*0.5-0.14", "(fb)+0.3*0.5", "((-hl+0.8)+(hl-0.4))*0.5"], [0.02, 0.02, "(hl-0.4)-(-hl+0.8)"], 0.0],
+        ["tier", 0]
+      ]
+    },
+    ["brush", "dark", "metal"],
+    ["cyl", [-0.7, "fb+1.75", "hl*0.08+1.1"], [-0.7, "(fb+1.75)+0.5", "hl*0.08+1.1"], 0.3, 10, 0.02],
+    ["brush", "acc"],
+    ["cyl", [-0.7, "(fb+1.75)+0.5-0.12", "hl*0.08+1.1"], [-0.7, "(fb+1.75)+0.5-0.04", "hl*0.08+1.1"], 0.312, 10, 0.0],
+    ["brush", "metal", "metal"],
+    ["cyl", [-0.7, "(fb+1.75)+0.5", "hl*0.08+1.1"], [-0.7, "(fb+1.75)+0.5+0.02", "hl*0.08+1.1"], 0.24, 10, 0.0],
+    ["brush", "dark", "metal"],
+    ["cyl", [0.7, "fb+1.75", "hl*0.08+1.1"], [0.7, "(fb+1.75)+0.5", "hl*0.08+1.1"], 0.3, 10, 0.02],
+    ["brush", "acc"],
+    ["cyl", [0.7, "(fb+1.75)+0.5-0.12", "hl*0.08+1.1"], [0.7, "(fb+1.75)+0.5-0.04", "hl*0.08+1.1"], 0.312, 10, 0.0],
+    ["brush", "metal", "metal"],
+    ["cyl", [0.7, "(fb+1.75)+0.5", "hl*0.08+1.1"], [0.7, "(fb+1.75)+0.5+0.02", "hl*0.08+1.1"], 0.24, 10, 0.0],
+    ["brush", "dark", "metal"],
+    ["box", [0, "fb+3.4", "hl*0.08-0.9"], [0.96, 0.44000000000000006, 0.06], 0.01],
+    ["brush", "metal", "metal"],
+    ["cyl", [0, "(fb+3.4)-0.55*0.4", "hl*0.08-0.9"], [0, "(fb+3.4)-0.55*0.4-0.35", "hl*0.08-0.9"], 0.03, 6, 0.0],
+    ["brush", "light", "emissive"],
+    ["box", [0, "(fb+3.4)+0.55*0.5+0.03", "hl*0.08-0.9"], [0.1, 0.05, 0.05], 0.0],
+    ["brush", "dark"],
+    {"mirror_x": [["box", ["ss_beam*0.5-0.75", "fb+0.18", "hl*0.35"], [0.9, 0.36, 2.2], 0.04]]},
+    ["brush", "sec"],
+    {
+      "mirror_x": [["cyl", ["ss_beam*0.5-0.75", "fb+0.36", "hl*0.35-0.7"], ["ss_beam*0.5-0.75", "fb+0.36", "hl*0.35+0.7"], 0.2, 10, 0.01]]
+    },
+    ["brush", "acc"],
+    {"mirror_x": [["box", ["ss_beam*0.5-0.75", "fb+0.02", "-hl+0.7"], [1.0, 0.04, 0.5], 0.0]]},
+    ["tier", 1],
+    ["brush", "metal", "metal"],
+    ["greeble", [0, "fb+0.05", "hl*0.08+2.7"], [0, 1, 0], ["ss_beam*0.3", 0, 0], [0, 0, 0.7], 6, 0.1, 0.24, 0.04, 0.14],
+    ["tier", 0],
+    {
+      "switch": "battery",
+      "cases": {
+        "missile_cells": [
+          ["socket", "muzzle0_0", [-0.6, "fb+0.15", "-hl+2.3"], [0, 1, 0]],
+          ["socket", "muzzle0_1", [0.6, "fb+0.15", "-hl+2.3"], [0, 1, 0]],
+          ["socket", "muzzle0_2", [-0.6, "fb+0.15", "-hl+4.6"], [0, 1, 0]],
+          ["socket", "muzzle0_3", [0.6, "fb+0.15", "-hl+4.6"], [0, 1, 0]]
+        ]
+      },
+      "default": [
+        [
+          "socket",
+          "muzzle0_0",
+          [-0.116, "fb+0.36*1.72", "-hl+1.9-0.72*0.6-2.2-0.05"],
+          [0, 0, -1],
+          "barrel",
+          [0, "fb+0.14*1.71", "-hl+4.1"]
+        ],
+        [
+          "socket",
+          "muzzle0_1",
+          [0.116, "fb+0.36*1.72", "-hl+1.9-0.72*0.6-2.2-0.05"],
+          [0, 0, -1],
+          "barrel",
+          [0, "fb+0.14*1.71", "-hl+4.1"]
+        ],
+        ["socket", "muzzle0_2", [-0.116, "fb+0.36*1.72", "-hl+4.1-0.72*0.6-2.2-0.05"], [0, 0, -1], "barrel"],
+        ["socket", "muzzle0_3", [0.116, "fb+0.36*1.72", "-hl+4.1-0.72*0.6-2.2-0.05"], [0, 0, -1], "barrel"]
+      ]
+    },
+    ["socket", "top", [0, 4.4, 0], [0, 1, 0]],
+    ["socket", "exhaust0", [0, "fb+1.9", "hl*0.08+1.0"], [0, 1, 0]]
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "schema": "meridian.archetype/1",
+  "id": "str_superweapon",
+  "size_class": "structure",
+  "meta": {"motion": "static", "death": {"kind": "structure", "ticks": 7}, "doc": "Superweapon (4x4): `kit` = halo_tower | billboard | sunflower | gantry_silo | hive_tower | assembly_hall | long_barrel | three_masts (native sw_* macros with the BLINK charge display), corner floodlight masts. The landmark is fixed-size for the 4x4 plinth."},
+  "defaults": {"kit": "halo_tower"},
+  "slots": {"roof": [], "front": [], "extra": []},
+  "derive": {
+    "pw": "fw*3-0.5",
+    "ph": "fh*3-0.5",
+    "hw": "pw*0.5",
+    "hh": "ph*0.5",
+    "ap": "fw*fh>1 ? 1.0 : 0.3",
+    "fz": "hh-ap",
+    "bk": "-hh+0.25",
+    "bd": "fz-bk",
+    "bz": "(fz+bk)*0.5",
+    "bw": "pw-0.5",
+    "k": "clamp(min(pw,ph)/11.5,0.8,1.25)",
+    "hcap": "(max(fw,fh)>=4 ? 12.5 : (max(fw,fh)>=3 ? 10 : 7))-0.35",
+    "lx": "hw-0.45",
+    "lz": "hh-0.45"
+  },
+  "ops": [
+    ["bevel", 0.05],
+    {"call": "foundation", "args": {"fw": "fw", "fh": "fh", "depth": 1.2, "col": "concrete", "edge": "dark", "chevron": "fw*fh>1 ? 1 : 0", "acc": "acc"}},
+    {
+      "switch": "kit",
+      "cases": {
+        "halo_tower": [
+          {"call": "sw_halo_tower", "args": {}}
+        ],
+        "billboard": [
+          {"call": "sw_billboard", "args": {}}
+        ],
+        "sunflower": [
+          {"call": "sw_sunflower", "args": {}}
+        ],
+        "gantry_silo": [
+          {"call": "sw_gantry_silo", "args": {}}
+        ],
+        "hive_tower": [
+          {"call": "sw_hive_tower", "args": {}}
+        ],
+        "assembly_hall": [
+          {"call": "sw_assembly_hall", "args": {}}
+        ],
+        "long_barrel": [
+          {"call": "sw_long_barrel", "args": {}}
+        ],
+        "three_masts": [
+          {"call": "sw_three_masts", "args": {}}
+        ]
+      }
+    },
+    {
+      "mirror_x": [
+        ["brush", "metal", "metal"],
+        ["cyl", ["lx", 0.16, "lz"], ["lx", 3.4, "lz"], 0.07, 6, 0],
+        ["brush", "dark", "metal"],
+        ["box", ["lx", 3.5, "lz"], [0.5, 0.22, 0.4], 0.02],
+        ["brush", "light", "emissive"],
+        ["box", ["lx", 3.5, "lz+0.2"], [0.4, 0.12, 0.04]]
+      ]
+    },
+    {
+      "mirror_x": [
+        ["brush", "metal", "metal"],
+        ["cyl", ["lx", 0.16, "-lz"], ["lx", 3.4, "-lz"], 0.07, 6, 0],
+        ["brush", "dark", "metal"],
+        ["box", ["lx", 3.5, "-lz"], [0.5, 0.22, 0.4], 0.02],
+        ["brush", "light", "emissive"],
+        ["box", ["lx", 3.5, "-lz-0.2"], [0.4, 0.12, 0.04]]
+      ]
+    },
+    ["brush", "dark"],
+    ["box", [0, 0.17, "hh-1.6"], ["pw-1.4", 0.03, 0.3]],
+    ["socket", "door_exit", ["door_cx", 0.16, "door_cz"], [0, 0, 1]],
+    ["socket", "weld0", [2.0, 3.0, 1.0], [0, 1, 0]],
+    ["socket", "weld1", [-2.0, 3.0, -1.0], [0, 1, 0]],
+    ["socket", "weld2", [0, 3.0, 0.5], [0, 1, 0]],
+    {"slot": "roof"},
+    {"slot": "front"},
+    {"slot": "extra"},
+    ["meta", "footprint", ["fw", "fh"]]
+  ]
+}

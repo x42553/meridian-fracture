@@ -1,0 +1,22 @@
+{
+  "schema": "meridian.balance.terrain/1",
+  "weight": {"scale": 1600, "min": 10, "max": 40},
+  "types": [
+    {"id": 0, "key": "deep_water", "kind": "deep", "flags": ["water"], "buildable": "none", "minimap": "0d2f6b"},
+    {"id": 1, "key": "shallow", "kind": "shallow", "flags": ["water"], "buildable": "none", "minimap": "2f6fb0"},
+    {"id": 2, "key": "ford", "kind": "shallow", "flags": ["water", "crossing"], "buildable": "none", "minimap": "8fa8cc"},
+    {"id": 3, "key": "beach", "kind": "open", "flags": ["land", "build_shore"], "buildable": "shore", "minimap": "d9cc8c"},
+    {"id": 4, "key": "grass", "kind": "open", "flags": ["land", "build"], "buildable": "std", "minimap": "5a9e47"},
+    {"id": 5, "key": "dirt", "kind": "open", "flags": ["land", "build"], "buildable": "std", "minimap": "8c7350"},
+    {"id": 6, "key": "sand", "kind": "open", "flags": ["land", "build"], "buildable": "std", "minimap": "cbb273"},
+    {"id": 7, "key": "rock", "kind": "rough", "flags": ["land"], "buildable": "none", "minimap": "8c8c8c"},
+    {"id": 8, "key": "forest", "kind": "forest", "flags": ["land"], "buildable": "none", "minimap": "145219"},
+    {"id": 9, "key": "road", "kind": "road", "flags": ["land"], "buildable": "none", "minimap": "595961"},
+    {"id": 10, "key": "pavement", "kind": "road", "flags": ["land", "build"], "buildable": "std", "minimap": "9a9aa0"},
+    {"id": 11, "key": "rubble", "kind": "rough", "flags": ["land"], "buildable": "none", "minimap": "806666"},
+    {"id": 12, "key": "urban_block", "kind": "cliff", "flags": ["land"], "buildable": "none", "minimap": "803f33"},
+    {"id": 13, "key": "cliff", "kind": "cliff", "flags": ["land"], "buildable": "none", "minimap": "33261a"},
+    {"id": 14, "key": "mountain", "kind": "cliff", "flags": ["land"], "buildable": "none", "minimap": "0d0d0d"},
+    {"id": 15, "key": "marsh", "kind": "marsh", "flags": ["land"], "buildable": "none", "minimap": "3f6650"}
+  ]
+}

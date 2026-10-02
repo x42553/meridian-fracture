@@ -1,0 +1,669 @@
+{
+  "schema": "meridian.balance.units/1",
+  "faction": "faction.napc",
+  "units": [
+    {
+      "id": "unit.napc.aegis_frigate",
+      "archetype": "ship_escort",
+      "cost_credits": 1700,
+      "build_time_s": 47.0,
+      "health": 2260,
+      "speed_cells_s": 2.4,
+      "vision_cells": 11.0,
+      "radius_cells": 1.0,
+      "weapons": [
+        "weapon.napc.aegis_gun",
+        "weapon.napc.aegis_aa_missile",
+        "weapon.napc.aegis_torpedo"
+      ],
+      "abilities": [],
+      "tags": [],
+      "dps_vs_primary": 92.5,
+      "range_cells": 10.0
+    },
+    {
+      "id": "unit.napc.aguila_breach_team",
+      "archetype": "inf_combat_spec",
+      "cost_credits": 510,
+      "build_time_s": 18.0,
+      "health": 545,
+      "speed_cells_s": 1.4,
+      "vision_cells": 8.0,
+      "radius_cells": 0.4,
+      "weapons": [
+        "weapon.napc.aguila_grenade",
+        "weapon.napc.aguila_breach_charge"
+      ],
+      "abilities": [
+        "breach_charge"
+      ],
+      "tags": [
+        "armored",
+        "very_short_range"
+      ],
+      "dps_vs_primary": 36.2,
+      "range_cells": 2.75
+    },
+    {
+      "id": "unit.napc.bastion_heavy_tank",
+      "archetype": "siege_ap",
+      "cost_credits": 2375,
+      "build_time_s": 62.5,
+      "health": 3700,
+      "speed_cells_s": 1.23,
+      "vision_cells": 8.5,
+      "radius_cells": 0.8,
+      "weapons": [
+        "weapon.napc.bastion_twin_cannon"
+      ],
+      "abilities": [],
+      "tags": [
+        "slow"
+      ],
+      "dps_vs_primary": 262.4,
+      "range_cells": 8.5
+    },
+    {
+      "id": "unit.napc.beaver_amphibious_apc",
+      "archetype": "veh_scout",
+      "cost_credits": 485,
+      "build_time_s": 15.5,
+      "health": 607,
+      "speed_cells_s": 3.2,
+      "vision_cells": 12.0,
+      "radius_cells": 0.45,
+      "weapons": [
+        "weapon.napc.beaver_mg"
+      ],
+      "abilities": [
+        "amphibious",
+        "ability.transport.squads2"
+      ],
+      "ability_params": {
+        "ability.transport.squads2": {
+          "passenger_damage_reduction_pct": 20
+        }
+      },
+      "tags": [
+        "weak_gun",
+        "sturdy"
+      ],
+      "dps_vs_primary": 19.2,
+      "range_cells": 6.0,
+      "movement_class": "amphibious"
+    },
+    {
+      "id": "unit.napc.combat_medic",
+      "archetype": "inf_support",
+      "cost_credits": 485,
+      "build_time_s": 17.5,
+      "health": 302,
+      "speed_cells_s": 1.5,
+      "vision_cells": 9.0,
+      "radius_cells": 0.4,
+      "abilities": [
+        "heal_aura"
+      ],
+      "ability_params": {
+        "heal_aura": {
+          "rate_pct_per_s": 3,
+          "radius_cells": 4
+        }
+      },
+      "tags": [
+        "no_gun"
+      ],
+      "dps_vs_primary": 0.0,
+      "range_cells": 0.0
+    },
+    {
+      "id": "unit.napc.condor_stealth_bomber",
+      "archetype": "air_bomber",
+      "cost_credits": 1925,
+      "build_time_s": 53.5,
+      "health": 1130,
+      "speed_cells_s": 6.0,
+      "vision_cells": 10.0,
+      "radius_cells": 0.7,
+      "rearm_s_full": 28.0,
+      "weapons": [
+        "weapon.napc.condor_bomb"
+      ],
+      "abilities": [
+        "stealth"
+      ],
+      "tags": [
+        "heavy_bomb",
+        "slow_rearm"
+      ],
+      "dps_vs_primary": 32.3,
+      "range_cells": 1.5
+    },
+    {
+      "id": "unit.napc.falcon_interceptor",
+      "archetype": "air_fighter",
+      "cost_credits": 1100,
+      "build_time_s": 30.5,
+      "health": 719,
+      "speed_cells_s": 7.0,
+      "vision_cells": 11.0,
+      "radius_cells": 0.5,
+      "rearm_s_full": 8.0,
+      "weapons": [
+        "weapon.napc.falcon_aam"
+      ],
+      "abilities": [],
+      "tags": [],
+      "dps_vs_primary": 30.2,
+      "range_cells": 8.0
+    },
+    {
+      "id": "unit.napc.guardian_tank",
+      "archetype": "mbt_t1",
+      "cost_credits": 850,
+      "build_time_s": 27.5,
+      "health": 906,
+      "speed_cells_s": 2.0,
+      "vision_cells": 9.0,
+      "radius_cells": 0.55,
+      "weapons": [
+        "weapon.napc.guardian_cannon"
+      ],
+      "abilities": [],
+      "tags": [],
+      "dps_vs_primary": 117.5,
+      "range_cells": 7.0
+    },
+    {
+      "id": "unit.napc.javelin_team",
+      "archetype": "inf_at",
+      "cost_credits": 350,
+      "build_time_s": 12.5,
+      "health": 302,
+      "speed_cells_s": 1.4,
+      "vision_cells": 7.5,
+      "radius_cells": 0.4,
+      "weapons": [
+        "weapon.napc.javelin_missile"
+      ],
+      "abilities": [],
+      "tags": [],
+      "dps_vs_primary": 60.2,
+      "range_cells": 7.5,
+      "flags": [
+        "fire_stationary"
+      ]
+    },
+    {
+      "id": "unit.napc.liberty_arsenal_ship",
+      "archetype": "ship_siege",
+      "cost_credits": 3400,
+      "build_time_s": 94.5,
+      "health": 4625,
+      "speed_cells_s": 1.6,
+      "vision_cells": 10.5,
+      "radius_cells": 1.3,
+      "weapons": [
+        "weapon.napc.liberty_bombard"
+      ],
+      "abilities": [],
+      "tags": [
+        "long_range"
+      ],
+      "dps_vs_primary": 123.0,
+      "range_cells": 24.0
+    },
+    {
+      "id": "unit.napc.narwhal_amphibious_tank",
+      "archetype": "mbt_t1",
+      "cost_credits": 860,
+      "build_time_s": 28.0,
+      "health": 911,
+      "speed_cells_s": 1.76,
+      "vision_cells": 9.0,
+      "radius_cells": 0.55,
+      "weapons": [
+        "weapon.napc.narwhal_cannon"
+      ],
+      "abilities": [
+        "amphibious"
+      ],
+      "tags": [
+        "slow",
+        "weaker_gun"
+      ],
+      "dps_vs_primary": 100.0,
+      "range_cells": 7.0,
+      "movement_class": "amphibious"
+    },
+    {
+      "id": "unit.napc.paladin_howitzer",
+      "archetype": "arty_howitzer",
+      "cost_credits": 1375,
+      "build_time_s": 40.5,
+      "health": 668,
+      "speed_cells_s": 1.5,
+      "vision_cells": 8.5,
+      "radius_cells": 0.6,
+      "weapons": [
+        "weapon.napc.paladin_shell"
+      ],
+      "abilities": [
+        "deployable_mode"
+      ],
+      "ability_params": {
+        "deployable_mode": {
+          "deploy_s": 3
+        }
+      },
+      "tags": [],
+      "dps_vs_primary": 58.6,
+      "range_cells": 15.0
+    },
+    {
+      "id": "unit.napc.pathfinder_apc",
+      "archetype": "veh_scout",
+      "cost_credits": 550,
+      "build_time_s": 17.5,
+      "health": 545,
+      "speed_cells_s": 3.2,
+      "vision_cells": 12.0,
+      "radius_cells": 0.45,
+      "weapons": [
+        "weapon.napc.pathfinder_mg"
+      ],
+      "abilities": [],
+      "tags": [],
+      "dps_vs_primary": 30.0,
+      "range_cells": 6.0
+    },
+    {
+      "id": "unit.napc.raptor_multirole_fighter",
+      "archetype": "air_fighter",
+      "cost_credits": 1050,
+      "build_time_s": 29.0,
+      "health": 719,
+      "speed_cells_s": 7.0,
+      "vision_cells": 11.0,
+      "radius_cells": 0.5,
+      "rearm_s_full": 8.0,
+      "weapons": [
+        "weapon.napc.raptor_aam",
+        "weapon.napc.raptor_agm"
+      ],
+      "abilities": [
+        "multirole"
+      ],
+      "tags": [
+        "weaker_gun"
+      ],
+      "dps_vs_primary": 25.7,
+      "range_cells": 8.0
+    },
+    {
+      "id": "unit.napc.rifle_squad",
+      "archetype": "inf_line",
+      "cost_credits": 250,
+      "build_time_s": 9.0,
+      "health": 402,
+      "speed_cells_s": 1.5,
+      "vision_cells": 7.0,
+      "radius_cells": 0.4,
+      "weapons": [
+        "weapon.napc.rifle"
+      ],
+      "abilities": [],
+      "tags": [],
+      "dps_vs_primary": 52.0,
+      "range_cells": 5.5
+    },
+    {
+      "id": "unit.napc.riverwatch_patrol_boat",
+      "archetype": "ship_patrol",
+      "cost_credits": 600,
+      "build_time_s": 16.5,
+      "health": 733,
+      "speed_cells_s": 3.2,
+      "vision_cells": 11.0,
+      "radius_cells": 0.6,
+      "weapons": [
+        "weapon.napc.riverwatch_mg"
+      ],
+      "abilities": [],
+      "tags": [],
+      "dps_vs_primary": 47.6,
+      "range_cells": 6.5
+    },
+    {
+      "id": "unit.napc.sentinel_aa",
+      "archetype": "veh_aa",
+      "cost_credits": 1050,
+      "build_time_s": 31.0,
+      "health": 839,
+      "speed_cells_s": 2.2,
+      "vision_cells": 10.0,
+      "radius_cells": 0.55,
+      "weapons": [
+        "weapon.napc.sentinel_aa_missile",
+        "weapon.napc.sentinel_mg"
+      ],
+      "abilities": [],
+      "tags": [],
+      "dps_vs_primary": 134.7,
+      "range_cells": 10.0
+    },
+    {
+      "id": "unit.napc.titan_gunship",
+      "archetype": "air_gunship",
+      "cost_credits": 2250,
+      "build_time_s": 62.5,
+      "health": 1773,
+      "speed_cells_s": 4.5,
+      "vision_cells": 10.0,
+      "radius_cells": 0.6,
+      "rearm_s_full": 12.0,
+      "weapons": [
+        "weapon.napc.titan_missiles"
+      ],
+      "abilities": [],
+      "tags": [
+        "sturdy"
+      ],
+      "dps_vs_primary": 37.3,
+      "range_cells": 6.0
+    },
+    {
+      "id": "unit.napc.vanguard_rifle_squad",
+      "archetype": "inf_line",
+      "cost_credits": 260,
+      "build_time_s": 9.5,
+      "health": 419,
+      "speed_cells_s": 1.5,
+      "vision_cells": 7.0,
+      "radius_cells": 0.4,
+      "weapons": [
+        "weapon.napc.rifle"
+      ],
+      "abilities": [
+        "cover_builder"
+      ],
+      "ability_params": {
+        "cover_builder": {
+          "build_s": 4,
+          "pack_s": 2,
+          "lifetime_s": 45,
+          "resist_pct": 20
+        }
+      },
+      "tags": [],
+      "dps_vs_primary": 52.0,
+      "range_cells": 5.5
+    }
+  ],
+  "weapons": [
+    {
+      "id": "weapon.napc.aegis_aa_missile",
+      "archetype": "aa_missile",
+      "damage": 61,
+      "hits_per_volley": 2,
+      "reload_s": 1.5,
+      "range_cells": 10.0
+    },
+    {
+      "id": "weapon.napc.aegis_gun",
+      "archetype": "naval_gun",
+      "damage": 185,
+      "reload_s": 2.0,
+      "range_cells": 9.0
+    },
+    {
+      "id": "weapon.napc.aegis_torpedo",
+      "archetype": "torpedo",
+      "damage": 257,
+      "reload_s": 6.0,
+      "range_cells": 7.0
+    },
+    {
+      "id": "weapon.napc.aguila_breach_charge",
+      "archetype": "breach_charge",
+      "damage": 290,
+      "reload_s": 8.0,
+      "range_cells": 1.0,
+      "notes": "anti-building charge"
+    },
+    {
+      "id": "weapon.napc.aguila_grenade",
+      "archetype": "grenade_launcher",
+      "damage": 58,
+      "reload_s": 1.6,
+      "range_cells": 2.75
+    },
+    {
+      "id": "weapon.napc.bastion_twin_cannon",
+      "archetype": "tank_cannon",
+      "damage": 164,
+      "hits_per_volley": 2,
+      "reload_s": 1.25,
+      "range_cells": 8.5,
+      "splash_cells": 0.6
+    },
+    {
+      "id": "weapon.napc.beaver_mg",
+      "archetype": "machine_gun",
+      "damage": 25,
+      "reload_s": 1.3,
+      "range_cells": 6.0,
+      "notes": "weak gun"
+    },
+    {
+      "id": "weapon.napc.condor_bomb",
+      "archetype": "bomb",
+      "damage": 1583,
+      "reload_s": 1.2,
+      "range_cells": 1.5,
+      "ammo_volleys": 1,
+      "notes": "heavy anti-structure bomb; single-hit bomb exception"
+    },
+    {
+      "id": "weapon.napc.falcon_aam",
+      "archetype": "aa_missile",
+      "damage": 103,
+      "reload_s": 1.0,
+      "range_cells": 8.0,
+      "ammo_volleys": 6
+    },
+    {
+      "id": "weapon.napc.guardian_cannon",
+      "archetype": "tank_cannon",
+      "damage": 141,
+      "reload_s": 1.2,
+      "range_cells": 7.0
+    },
+    {
+      "id": "weapon.napc.javelin_missile",
+      "archetype": "at_missile",
+      "damage": 271,
+      "reload_s": 4.5,
+      "range_cells": 7.5,
+      "flags": [
+        "stationary_fire"
+      ]
+    },
+    {
+      "id": "weapon.napc.liberty_bombard",
+      "archetype": "naval_bombard",
+      "damage": 328,
+      "hits_per_volley": 3,
+      "reload_s": 8.0,
+      "range_cells": 24.0,
+      "min_range_cells": 6.0
+    },
+    {
+      "id": "weapon.napc.narwhal_cannon",
+      "archetype": "tank_cannon",
+      "damage": 120,
+      "reload_s": 1.2,
+      "range_cells": 7.0
+    },
+    {
+      "id": "weapon.napc.paladin_shell",
+      "archetype": "artillery_shell",
+      "damage": 205,
+      "reload_s": 3.5,
+      "range_cells": 15.0,
+      "min_range_cells": 4.0,
+      "deploy_s": 3.0
+    },
+    {
+      "id": "weapon.napc.pathfinder_mg",
+      "archetype": "machine_gun",
+      "damage": 30,
+      "reload_s": 1.0,
+      "range_cells": 6.0
+    },
+    {
+      "id": "weapon.napc.raptor_aam",
+      "archetype": "aa_missile",
+      "damage": 88,
+      "reload_s": 1.0,
+      "range_cells": 8.0,
+      "ammo_volleys": 6,
+      "modes": [
+        0
+      ]
+    },
+    {
+      "id": "weapon.napc.raptor_agm",
+      "archetype": "air_missile",
+      "damage": 71,
+      "reload_s": 1.5,
+      "range_cells": 6.0,
+      "ammo_volleys": 4,
+      "modes": [
+        1
+      ]
+    },
+    {
+      "id": "weapon.napc.rifle",
+      "archetype": "small_arms",
+      "damage": 26,
+      "hits_per_volley": 2,
+      "reload_s": 1.0,
+      "range_cells": 5.5
+    },
+    {
+      "id": "weapon.napc.riverwatch_mg",
+      "archetype": "machine_gun",
+      "damage": 28,
+      "hits_per_volley": 2,
+      "reload_s": 1.0,
+      "range_cells": 6.5
+    },
+    {
+      "id": "weapon.napc.sentinel_aa_missile",
+      "archetype": "aa_missile",
+      "damage": 101,
+      "hits_per_volley": 2,
+      "reload_s": 1.5,
+      "range_cells": 10.0
+    },
+    {
+      "id": "weapon.napc.sentinel_mg",
+      "archetype": "machine_gun",
+      "damage": 25,
+      "reload_s": 1.2,
+      "range_cells": 6.0,
+      "notes": "poor ground weapon"
+    },
+    {
+      "id": "weapon.napc.titan_missiles",
+      "archetype": "air_missile",
+      "damage": 93,
+      "hits_per_volley": 2,
+      "reload_s": 1.5,
+      "range_cells": 6.0,
+      "ammo_volleys": 7
+    }
+  ],
+  "summons": [
+    {
+      "id": "summon.napc.cargo_aircraft",
+      "class": "summon",
+      "unit_tags": [
+        "aircraft",
+        "summoned"
+      ],
+      "size_class": "air_large",
+      "armor_class": "air_heavy",
+      "movement_class": "air_fixed",
+      "layer": "air",
+      "health": 600,
+      "speed_cells_s": 8.0,
+      "vision_cells": 8.0,
+      "radius_cells": 0.8,
+      "lifetime_s": 15,
+      "pop_n": 0,
+      "flags": [
+        "no_combat_mods",
+        "harmless"
+      ],
+      "abilities": []
+    },
+    {
+      "id": "summon.napc.pontoon",
+      "class": "summon",
+      "unit_tags": [
+        "summoned"
+      ],
+      "size_class": "medium",
+      "armor_class": "building_light",
+      "movement_class": "static",
+      "layer": "ground",
+      "health": 600,
+      "speed_cells_s": 0,
+      "vision_cells": 6.0,
+      "radius_cells": 1.0,
+      "lifetime_s": 20,
+      "pop_n": 0,
+      "flags": [
+        "no_combat_mods",
+        "harmless"
+      ],
+      "abilities": []
+    },
+    {
+      "id": "summon.napc.uav",
+      "class": "summon",
+      "unit_tags": [
+        "aircraft",
+        "summoned"
+      ],
+      "size_class": "air_medium",
+      "armor_class": "air_light",
+      "movement_class": "air_hover",
+      "layer": "air",
+      "health": 60,
+      "speed_cells_s": 6.0,
+      "vision_cells": 7.0,
+      "radius_cells": 0.5,
+      "lifetime_s": 12,
+      "pop_n": 0,
+      "flags": [
+        "no_combat_mods",
+        "harmless"
+      ],
+      "abilities": [
+        "ability.summon_orbit.default",
+        "detector"
+      ],
+      "ability_params": {
+        "ability.summon_orbit.default": {
+          "orbit_radius_cells": 7
+        },
+        "detector": {
+          "radius_cells": 7
+        }
+      }
+    }
+  ]
+}

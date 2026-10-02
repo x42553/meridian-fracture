@@ -1,0 +1,51 @@
+{
+  "schema": 1,
+  "_doc": "Role rules (ai.md 5.5.1 / 7.2). all/none = unit tag names; tier_max limits the tier; pick lowest_tier keeps only the lowest tier among the matches; ids = explicit unit ids. Role names are AiTypes.ROLE_NAMES. unit_roles = explicit per-role unit lists, unit_handlers = handler names (AiTypes.HANDLER_NAMES) per unit id.",
+  "roles": {
+    "INFANTRY_BASIC": {"all": ["infantry", "combat"], "none": ["anti_tank", "specialist", "detector"]},
+    "INFANTRY_AT": {"all": ["infantry", "anti_tank"]},
+    "INFANTRY_SUPPORT": {"all": ["infantry", "specialist"]},
+    "SCOUT_LIGHT": {"all": ["scout", "land_vehicle", "combat"], "tier_max": 1},
+    "TANK_MAIN": {"all": ["tank", "land_vehicle"], "none": ["siege"], "pick": "lowest_tier"},
+    "AA_MOBILE": {"all": ["anti_air", "land_vehicle"]},
+    "ARTILLERY": {"all": ["artillery", "land_vehicle"], "pick": "lowest_tier"},
+    "HEAVY": {"all": ["tank", "siege"]},
+    "COMMAND_WALKER": {"all": ["command", "land_vehicle"]},
+    "FIGHTER": {"all": ["aircraft", "anti_air"]},
+    "BOMBER": {"all": ["aircraft", "ground_attack"]},
+    "EW_AIR": {"all": ["aircraft", "electronic_warfare"]},
+    "BOAT_LIGHT": {"all": ["ship", "scout"]},
+    "ESCORT_SHIP": {"all": ["ship", "anti_air", "anti_submarine"]},
+    "SIEGE_SHIP": {"all": ["ship", "siege"], "none": ["submarine", "carrier"]},
+    "CARRIER": {"all": ["carrier"]},
+    "SUBMARINE": {"all": ["submarine"]},
+    "AMPH_TRANSPORT": {"all": ["amphibious", "transport"]},
+    "ENGINEER": {"ids": ["unit.shared.engineer"]},
+    "COLLECTOR": {"all": ["collector"]},
+    "MCV": {"ids": ["unit.shared.mobile_construction_vehicle"]},
+    "LANDING_TRANSPORT": {"ids": ["unit.shared.landing_transport"]},
+    "DETECTOR": {"all": ["detector"]},
+    "AMPHIBIOUS": {"all": ["amphibious"]},
+    "UNMANNED": {"all": ["unmanned"]},
+    "COMBAT": {"all": ["combat"]}
+  },
+  "unit_roles": {
+    "HEALER": ["unit.napc.combat_medic"],
+    "REPAIRER": ["unit.pd.reef_technician", "unit.han.lotus_drone_tender", "unit.nec.alpine_pioneer", "unit.sap.combat_pioneer"],
+    "COMMAND_PROVIDER": ["unit.han.link_operator", "unit.han.dragon_command_walker", "unit.han.long_command_walker", "unit.han.mekong_field_engineer"],
+    "SPOTTER": ["unit.olm.mirage_observer", "unit.sap.watchpost_recon_team", "unit.pd.wedge_recon_fighter"],
+    "SALVAGER": ["unit.shared.engineer", "unit.ae.reclaimer", "unit.ae.river_warden"],
+    "STATIONARY_FIRE": ["unit.napc.javelin_team", "unit.nec.spike_team", "unit.sap.kavach_team"],
+    "KITER": []
+  },
+  "unit_handlers": {
+    "unit.han.link_operator": ["ESCORT_PROVIDER"],
+    "unit.pd.shinano_adaptive_tank": ["MODE_SWITCH"],
+    "unit.sap.shaheen_missile_battery": ["DEPLOY_SIEGE", "SHOOT_SCOOT"],
+    "unit.olm.gate_guard": ["GARRISON_PREF"],
+    "unit.nec.fjord_missile_carrier": ["SHOOT_SCOOT"],
+    "unit.def.saker_missile_truck": ["SHOOT_SCOOT"],
+    "unit.olm.scorpion_rocket_buggy": ["SHOOT_SCOOT"],
+    "unit.han.reed_rocket_skimmer": ["SHOOT_SCOOT"]
+  }
+}

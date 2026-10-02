@@ -1,0 +1,307 @@
+{
+  "schema": "meridian.archetype/1",
+  "id": "veh_aa",
+  "size_class": "medium",
+  "meta": {
+    "motion": "tracked",
+    "wreck": {"turret_yaw_deg": 40, "tilt_deg": [3, 0, -7]},
+    "doc": "Anti-air tracked vehicle (veh_aa / _beam / _flak). payload missile|flak|laser|drone_bay, roof radar|mast|crown. Mount 0 = elevating launcher / guns / lens on the turret, mount 1 = hull RWS (TURRET1 + BARREL1). Sockets muzzle0_0..3, muzzle1_0, exhaust0, top."
+  },
+  "defaults": {
+    "hull_len": 3.7,
+    "hull_wid": 1.96,
+    "deck_y": 1.08,
+    "trk_x": 0.88,
+    "trk_w": 0.44,
+    "payload": "missile",
+    "skirt": "modules",
+    "turret_n": 6,
+    "turret_rot": 30.0,
+    "roof": "radar",
+    "tur_hw": 0.66,
+    "tur_hl": 0.74,
+    "tur_h": 0.44,
+    "tur_z": -0.35
+  },
+  "derive": {"hl": "hull_len*0.5", "hw": "hull_wid*0.5", "ty0": "deck_y+0.07", "top_y": "ty0+tur_h", "py": "top_y+0.42", "rz": "hl-0.55"},
+  "slots": {"skirt": []},
+  "ops": [
+    ["bevel", 0.035],
+    {
+      "mirror_x": [
+        ["brush", "rubber", "rubber"],
+        [
+          "track",
+          "trk_x",
+          "trk_w",
+          [["hl-0.4", "(0.3+0.06+0.07)", "(0.3+0.06)"], ["-hl+0.44", "(0.3+0.06+0.07)", "(0.3+0.06)"]],
+          0.07,
+          10
+        ],
+        ["wheel", ["trk_x", "(0.3+0.06+0.07)", "hl-0.4"], 0.3, "(trk_w)*0.78", "rubber", "metal", 0, 10],
+        ["wheel", ["trk_x", "(0.3+0.06+0.07)", "-hl+0.44"], 0.3, "(trk_w)*0.78", "rubber", "metal", 0, 10],
+        {
+          "for": "i",
+          "n": 5,
+          "do": [
+            [
+              "wheel",
+              ["trk_x", "0.25+0.07", "lerp((-hl+0.44)+0.3+0.22,(hl-0.4)-0.3-0.24,i/max((5)-1,1))"],
+              0.25,
+              "(trk_w)*0.8",
+              "rubber",
+              "metal",
+              0,
+              8
+            ]
+          ]
+        },
+        ["brush", "dark"],
+        [
+          "box",
+          ["trk_x", "2*0.3+0.205+0.07", "((hl-0.4)+(-hl+0.44))*0.5"],
+          ["(trk_w)+0.16", 0.045, "(hl-0.4)-(-hl+0.44)+0.56"],
+          0.015
+        ],
+        {
+          "switch": "skirt",
+          "cases": {
+            "modules": [
+              {
+                "for": "j",
+                "n": 4,
+                "do": [
+                  ["brush", "j % 2 == 0 ? 'base' : 'sec'"],
+                  [
+                    "box",
+                    ["trk_x+trk_w*0.5+0.06", 0.68, "-(hl)+0.25+(hull_len-0.5)/4*(j+0.5)"],
+                    [0.09, 0.36, "(hull_len-0.5)/4-0.07"],
+                    0.012
+                  ]
+                ]
+              },
+              ["brush", "acc"],
+              ["box", ["trk_x+trk_w*0.5+0.06", "0.68+0.36*0.5+0.02", 0], [0.1, 0.04, "4*(hull_len-0.5)/4-0.05"], 0.0]
+            ],
+            "none": []
+          },
+          "default": [{"call": "skirt", "args": {"kind": "skirt", "x": "trk_x+trk_w*0.5+0.06", "y": 0.68, "len": "2*(hl)", "h": 0.36}}]
+        },
+        {"slot": "skirt"}
+      ]
+    },
+    ["brush", "dark"],
+    ["ao", 0.7],
+    ["box", [0, 0.56, 0], ["(trk_x-trk_w*0.5-0.02)*2", 0.5, "hull_len-0.15"], 0.03],
+    ["ao", 1.0],
+    ["brush", "base"],
+    [
+      "extrude",
+      [["-hl", 0.82], ["-hl", "deck_y-0.08"], ["-hl+0.4", "deck_y"], ["hl-0.7", "deck_y"], ["hl", 0.9], ["hl", 0.82]],
+      "-hw",
+      "hw",
+      0.05
+    ],
+    ["brush", "metal", "metal"],
+    [
+      "pocket",
+      [0, "deck_y+0.025", "hl*0.28"],
+      ["hw*1.2", 0.05, 1.0],
+      [[0.08, 0.1, 0.84, 0.22], [0.08, 0.4, 0.84, 0.22], [0.08, 0.7, 0.84, 0.22]],
+      0.03
+    ],
+    {
+      "call": "light_pair",
+      "args": {"center": [0, "deck_y-0.16", "-hl-0.01"], "spacing": "(hw-0.24)*2", "size": [0.18, 0.08, 0.05], "col": "light"}
+    },
+    {
+      "call": "light_pair",
+      "args": {"center": [0, "deck_y-0.14", "hl+0.01"], "spacing": "(hw-0.24)*2", "size": [0.16, 0.07, 0.04], "col": "#ff140a"}
+    },
+    ["tier", 1],
+    ["brush", "metal", "metal"],
+    ["greeble", [0, "deck_y+0.03", "hl*0.35"], [0, 1, 0], ["hw*0.6", 0, 0], [0, 0, 0.35], 4, 0.1, 0.2, 0.03, 0.08],
+    ["tier", 0],
+    ["brush", "sec"],
+    ["cyl", ["-hw*0.45", "deck_y", "-hl+0.55"], ["-hw*0.45", "deck_y+0.08", "-hl+0.55"], 0.16, 10, 0.0],
+    ["brush", "acc"],
+    ["cyl", ["-hw*0.45", "deck_y+0.08", "-hl+0.55"], ["-hw*0.45", "deck_y+0.11", "-hl+0.55"], 0.12, 10, 0.0],
+    {
+      "part": {"kind": "turret", "pivot": [0, "deck_y", "tur_z"]},
+      "do": [
+        ["brush", "dark", "metal"],
+        ["cyl", [0, "deck_y-0.02", "tur_z"], [0, "ty0", "tur_z"], 0.62, 16, 0.01],
+        ["brush", "base"],
+        [
+          "prism",
+          ["ngon", [0, "ty0", "tur_z"], "tur_hw/cos(PI/turret_n)", "tur_hl/cos(PI/turret_n)", "turret_n", "turret_rot"],
+          [
+            "ngon",
+            [0, "top_y", "tur_z+0.04"],
+            "tur_hw*0.76/cos(PI/turret_n)",
+            "tur_hl*0.76/cos(PI/turret_n)",
+            "turret_n",
+            "turret_rot"
+          ],
+          0.04
+        ],
+        ["brush", "dark"],
+        ["box", [0, "top_y+0.06", "tur_z"], ["tur_hw*1.3", 0.12, "tur_hl*1.0"], 0.03],
+        {
+          "switch": "payload",
+          "cases": {
+            "missile": [
+              ["brush", "base"],
+              {"for": "s", "n": 2, "do": [["box", ["(s*2-1)*0.5", "py", "tur_z"], [0.1, 0.62, 0.55], 0.03]]},
+              ["brush", "metal", "metal"],
+              ["cyl", [-0.55, "py", "tur_z"], [0.55, "py", "tur_z"], 0.05, 8, 0.0]
+            ],
+            "flak": [
+              ["brush", "base"],
+              {"for": "s", "n": 2, "do": [["box", ["(s*2-1)*0.42", "top_y+0.42", "tur_z+0.05"], [0.1, 0.74, 0.62], 0.03]]},
+              ["brush", "sec"],
+              ["box", [0, "top_y+0.2", "tur_z+0.36"], [1.0, 0.36, 0.14], 0.03]
+            ],
+            "laser": [
+              ["brush", "metal", "metal"],
+              ["cyl", [0, "top_y", "tur_z"], [0, "top_y+0.34", "tur_z"], 0.36, 12, 0.02],
+              ["brush", "base"],
+              ["tbox", [0, "top_y+0.55", "tur_z"], [0.9, 1.0], [0.72, 0.76], 0.36, [0, 0], 0.04]
+            ],
+            "drone_bay": [
+              ["brush", "sec"],
+              ["box", [0, "top_y+0.34", "tur_z+0.05"], [1.0, 0.5, 0.95], 0.05],
+              ["brush", "dark"],
+              ["box", [0, "top_y+0.62", "tur_z+0.05"], [0.86, 0.06, 0.82], 0.02]
+            ]
+          }
+        },
+        {"call": "hatch", "args": {"c": ["tur_hw*0.5", "top_y+0.12", "tur_z+tur_hl*0.5"], "r": 0.14, "body": "sec", "ring": "acc"}}
+      ]
+    },
+    {"call": "team_panel", "args": {"center": [0, "top_y+0.13", "tur_z+tur_hl*0.55"], "size": ["tur_hw*0.8", 0.02, 0.2]}},
+    {"call": "team_panel", "args": {"center": [0, "deck_y+0.02", "hl*0.30"], "size": ["hw*1.1", 0.02, 0.5]}},
+    {
+      "switch": "payload",
+      "cases": {
+        "missile": [
+          {
+            "part": {"kind": "barrel", "pivot": [0, "deck_y", "tur_z"], "param": 0.5, "extra": 0.12, "trunnion": ["py", "tur_z"]},
+            "do": [
+              {
+                "push": {"pos": [0, "py", "tur_z"], "euler": [22, 0, 0]},
+                "do": [
+                  ["brush", "dark"],
+                  ["box", [0, 0, 0.0], ["2*0.27+0.12", "2*0.27+0.12", 1.4], 0.03],
+                  ["brush", "metal", "metal"],
+                  ["box", [0, 0, 0.3], ["2*0.27+0.2", "2*0.27+0.2", 0.16], 0.02],
+                  ["brush", "sec"],
+                  ["cyl", ["(0-0.5)*0.27", "(0-0.5)*0.27", -0.575], ["(0-0.5)*0.27", "(0-0.5)*0.27", -0.825], 0.105, 8, 0.0],
+                  ["brush", "acc"],
+                  ["cyl", ["(0-0.5)*0.27", "(0-0.5)*0.27", -0.815], ["(0-0.5)*0.27", "(0-0.5)*0.27", -0.865], 0.075, 8, 0.0],
+                  ["brush", "sec"],
+                  ["cyl", ["(0-0.5)*0.27", "(1-0.5)*0.27", -0.575], ["(0-0.5)*0.27", "(1-0.5)*0.27", -0.825], 0.105, 8, 0.0],
+                  ["brush", "acc"],
+                  ["cyl", ["(0-0.5)*0.27", "(1-0.5)*0.27", -0.815], ["(0-0.5)*0.27", "(1-0.5)*0.27", -0.865], 0.075, 8, 0.0],
+                  ["brush", "sec"],
+                  ["cyl", ["(1-0.5)*0.27", "(0-0.5)*0.27", -0.575], ["(1-0.5)*0.27", "(0-0.5)*0.27", -0.825], 0.105, 8, 0.0],
+                  ["brush", "acc"],
+                  ["cyl", ["(1-0.5)*0.27", "(0-0.5)*0.27", -0.815], ["(1-0.5)*0.27", "(0-0.5)*0.27", -0.865], 0.075, 8, 0.0],
+                  ["brush", "sec"],
+                  ["cyl", ["(1-0.5)*0.27", "(1-0.5)*0.27", -0.575], ["(1-0.5)*0.27", "(1-0.5)*0.27", -0.825], 0.105, 8, 0.0],
+                  ["brush", "acc"],
+                  ["cyl", ["(1-0.5)*0.27", "(1-0.5)*0.27", -0.815], ["(1-0.5)*0.27", "(1-0.5)*0.27", -0.865], 0.075, 8, 0.0]
+                ]
+              }
+            ]
+          }
+        ],
+        "flak": [
+          {
+            "part": {"kind": "barrel", "pivot": [0, "deck_y", "tur_z"], "param": 0.6, "extra": 0.25, "trunnion": ["top_y+0.42", "tur_z"]},
+            "do": [
+              {
+                "push": {"pos": [0, "top_y+0.42", "tur_z"], "euler": [15, 0, 0]},
+                "do": [
+                  ["brush", "dark"],
+                  ["box", [0, 0, 0.0], [0.86, 0.34, 0.9], 0.03],
+                  ["brush", "metal", "metal"],
+                  {
+                    "for": "s",
+                    "n": 2,
+                    "do": [
+                      ["cyl", ["(s*2-1)*0.24", 0, -0.35], ["(s*2-1)*0.24", 0, -2.1], 0.062, 8, 0.0],
+                      ["cyl", ["(s*2-1)*0.24", 0, -1.85], ["(s*2-1)*0.24", 0, -2.2], 0.09, 8, 0.0]
+                    ]
+                  },
+                  ["brush", "acc"],
+                  {"for": "s", "n": 2, "do": [["cyl", ["(s*2-1)*0.24", 0, -1.2], ["(s*2-1)*0.24", 0, -1.28], 0.075, 8, 0.0]]}
+                ]
+              }
+            ]
+          }
+        ],
+        "laser": [
+          {
+            "part": {"kind": "barrel", "pivot": [0, "deck_y", "tur_z"], "param": 0.5, "extra": 0.05, "trunnion": ["top_y+0.55", "tur_z"]},
+            "do": [
+              {
+                "push": {"pos": [0, "top_y+0.55", "tur_z"], "euler": [20, 0, 0]},
+                "do": [
+                  ["brush", "dark", "metal"],
+                  ["cyl", [0, 0, 0.2], [0, 0, -0.9], 0.24, 12, 0.02],
+                  ["brush", "metal", "metal"],
+                  ["frustum", [0, 0, -0.9], [0, 0, -1.25], 0.26, 0.36, 12],
+                  ["brush", "light", "emissive"],
+                  ["cyl", [0, 0, -1.25], [0, 0, -1.29], 0.31, 12, 0.0]
+                ]
+              }
+            ]
+          }
+        ],
+        "drone_bay": [
+          {
+            "part": {"kind": "deploy", "pivot": [0, "top_y+0.66", "tur_z-0.42"], "param": 0.857},
+            "do": [["brush", "acc"], ["box", [0, "top_y+0.69", "tur_z+0.05"], [0.9, 0.04, 0.9], 0.01]]
+          },
+          ["brush", "metal", "metal"],
+          {
+            "for": "i",
+            "n": 2,
+            "do": [["brush", "light", "emissive"], ["box", ["-0.25+0.5*i", "top_y+0.58", "tur_z+0.05"], [0.22, 0.03, 0.4], 0.0]]
+          }
+        ]
+      }
+    },
+    {"call": "rws", "args": {"center": ["hw*0.55", "deck_y", "-hl+0.85"], "mount": 1}},
+    {
+      "switch": "roof",
+      "cases": {
+        "mast": [{"call": "sensor_mast", "args": {"base": ["-hw*0.5", "deck_y", "rz"], "h": 1.5, "folded": 0.5}}],
+        "crown": [{"call": "sensor_crown", "args": {"center": [0, "deck_y", "rz"], "n": 6, "r": 0.28}}]
+      },
+      "default": [{"call": "radar_dish", "args": {"center": [0, "deck_y+0.02", "rz"], "r": 0.46, "spin": 1}}]
+    },
+    {"slot": "skirt"},
+    {
+      "switch": "payload",
+      "cases": {
+        "missile": [
+          ["socket", "muzzle0_0", [-0.135, "py+0.135+0.5*0.0", "tur_z-1.05"], [0, 0, -1], "barrel"],
+          ["socket", "muzzle0_1", [0.135, "py+0.135", "tur_z-1.05"], [0, 0, -1], "barrel"],
+          ["socket", "muzzle0_2", [-0.135, "py-0.135", "tur_z-1.05"], [0, 0, -1], "barrel"],
+          ["socket", "muzzle0_3", [0.135, "py-0.135", "tur_z-1.05"], [0, 0, -1], "barrel"]
+        ],
+        "flak": [
+          ["socket", "muzzle0_0", [-0.24, "top_y+0.42", "tur_z-2.3"], [0, 0, -1], "barrel"],
+          ["socket", "muzzle0_1", [0.24, "top_y+0.42", "tur_z-2.3"], [0, 0, -1], "barrel"]
+        ],
+        "laser": [["socket", "muzzle0_0", [0, "top_y+0.55", "tur_z-1.4"], [0, 0, -1], "barrel"]],
+        "drone_bay": [["socket", "muzzle0_0", [0, "top_y+0.8", "tur_z"], [0, 1, 0]]]
+      }
+    },
+    ["socket", "muzzle1_0", ["hw*0.55", "deck_y+0.24", "-hl+0.85-0.9"], [0, 0, -1], "barrel1"],
+    ["socket", "exhaust0", ["hw*0.6", "deck_y", "hl"], [0, 0, 1]],
+    ["socket", "top", [0, "top_y+1.3", "tur_z"], [0, 1, 0]]
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "schema": "meridian.recipe/1",
+  "id": "summon.sap.recon_balloon",
+  "archetype": "sum_balloon",
+  "style": "auto",
+  "meta": {
+    "stub": true,
+    "view_archetype": "sum_balloon",
+    "rule": "pattern summon.*balloon*"
+  }
+}

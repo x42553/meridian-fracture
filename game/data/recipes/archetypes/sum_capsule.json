@@ -1,0 +1,89 @@
+{
+  "schema": "meridian.archetype/1",
+  "id": "sum_capsule",
+  "size_class": "heavy",
+  "meta": {"motion": "static", "death": {"kind": "vehicle", "ticks": 2}, "doc": "Dragonfall assembly capsule (summon): armoured pod on four legs; four petals (DEPLOY / DEPLOY_Z, u_aux.y) unfold over the 5 s assembly, revealing a glowing core."},
+  "defaults": {},
+  "ops": [
+    ["bevel", 0.03],
+    ["brush", "dark", "metal"],
+    ["lathe", [0, 0.5, 0], [0, 3.3, 0], [[0, 0, 0], [0.7, 0.02, 0], [0.9, 0.3, 0], [0.95, 0.8, 0], [0.9, 1.6, 0], [0.65, 2.3, 0], [0.3, 2.65, 0], [0, 2.8, 0]], 16, 38],
+    ["brush", "light", "emissive"],
+    ["cyl", [0, 0.7, 0], [0, 2.0, 0], 0.5, 12, 0.02],
+    {
+      "part": {"kind": "deploy", "pivot": [0.0, 0.55, 0.98], "param": 1.0},
+      "do": [
+        {
+          "push": {"pos": [0.0, 1.5, 0.98], "euler": [0, 0, 0]},
+          "do": [
+            ["brush", "base"],
+            ["box", [0, 0, 0], [1.0, 1.9, 0.09], 0.03],
+            ["brush", "acc"],
+            ["box", [0, 0.7, 0.06], [1.02, 0.2, 0.05], 0]
+          ]
+        }
+      ]
+    },
+    {
+      "part": {"kind": "deploy", "pivot": [0.0, 0.55, -0.98], "param": 0.0},
+      "do": [
+        {
+          "push": {"pos": [0.0, 1.5, -0.98], "euler": [0, 0, 0]},
+          "do": [
+            ["brush", "base"],
+            ["box", [0, 0, 0], [1.0, 1.9, 0.09], 0.03],
+            ["brush", "acc"],
+            ["box", [0, 0.7, 0.06], [1.02, 0.2, 0.05], 0]
+          ]
+        }
+      ]
+    },
+    {
+      "part": {"kind": "deploy_z", "pivot": [0.98, 0.55, 0.0], "param": 0.0},
+      "do": [
+        {
+          "push": {"pos": [0.98, 1.5, 0.0], "euler": [0, 90, 0]},
+          "do": [
+            ["brush", "base"],
+            ["box", [0, 0, 0], [1.0, 1.9, 0.09], 0.03],
+            ["brush", "acc"],
+            ["box", [0, 0.7, 0.06], [1.02, 0.2, 0.05], 0]
+          ]
+        }
+      ]
+    },
+    {
+      "part": {"kind": "deploy_z", "pivot": [-0.98, 0.55, 0.0], "param": 1.0},
+      "do": [
+        {
+          "push": {"pos": [-0.98, 1.5, 0.0], "euler": [0, 90, 0]},
+          "do": [
+            ["brush", "base"],
+            ["box", [0, 0, 0], [1.0, 1.9, 0.09], 0.03],
+            ["brush", "acc"],
+            ["box", [0, 0.7, 0.06], [1.02, 0.2, 0.05], 0]
+          ]
+        }
+      ]
+    },
+    ["brush", "metal", "metal"],
+    {
+      "for": "l",
+      "n": 4,
+      "do": [
+        {
+          "push": {"pos": [0, 0.2, 0], "euler": [0, "90*l+45", 0]},
+          "do": [
+            ["cyl", [0.9, 0, 0], [1.45, 0.02, 0], 0.07, 6, 0],
+            ["box", [1.5, 0.05, 0], [0.4, 0.08, 0.4], 0.03]
+          ]
+        }
+      ]
+    },
+    ["brush", "acc"],
+    ["cyl", [0, 2.5, 0], [0, 2.6, 0], 0.5, 14, 0],
+    {"call": "team_panel", "args": {"center": [0, 3.28, 0], "size": [0.5, 0.04, 0.5], "col": "base"}},
+    {"call": "beacon", "args": {"pos": [0, 3.4, 0.3], "r": 0.07, "col": "#ffb02e", "phase": 0}},
+    ["socket", "top", [0, 3.6, 0], [0, 1, 0]]
+  ]
+}

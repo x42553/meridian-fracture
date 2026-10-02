@@ -1,0 +1,11 @@
+{
+  "schema": "meridian.recipe/1",
+  "id": "structure.shared.generator",
+  "archetype": "str_generator",
+  "style": "auto",
+  "meta": {
+    "stub": true,
+    "view_archetype": "str_generator",
+    "rule": "override"
+  }
+}

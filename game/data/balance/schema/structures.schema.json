@@ -1,0 +1,48 @@
+{
+  "_doc": "meridian.balance.structures/1 -- structure overlay (spec data_balance 7.8). Numbers of global.json structures/defenses may only be repeated identically (V-CNF-09).",
+  "type": "object",
+  "required": ["schema", "structures"],
+  "additionalProperties": false,
+  "properties": {
+    "schema": { "const": "meridian.balance.structures/1", "x-rule": "V-SCH-01" },
+    "structures": { "type": "array", "items": { "$ref": "#/definitions/structure" } }
+  },
+  "definitions": {
+    "structure": {
+      "type": "object",
+      "required": ["id"],
+      "additionalProperties": false,
+      "x-forbidden": {
+        "cost_credits": "V-CNF-04", "power_delta": "V-CNF-04", "power_supply_delta": "V-CNF-04", "requires": "V-CNF-04", "requires_all_structure_ids": "V-CNF-04",
+        "prerequisites": "V-CNF-04", "tags": "V-CNF-04", "deployment_unit_id": "V-CNF-04", "can_start_deployed": "V-CNF-04", "max_per_player": "V-CNF-04",
+        "faction_id": "V-CNF-04"
+      },
+      "properties": {
+        "id": { "type": "string", "pattern": "^structure\\.[a-z][a-z0-9_]*\\.[a-z0-9_]+$", "x-rule": "V-SCH-03" },
+        "exit": {
+          "type": "object",
+          "required": ["dx", "dy"],
+          "additionalProperties": false,
+          "properties": { "dx": { "type": "integer", "minimum": -8, "maximum": 8 }, "dy": { "type": "integer", "minimum": -8, "maximum": 8 } }
+        },
+        "footprint_mask": { "type": "array", "minItems": 1, "items": { "type": "string", "pattern": "^[X.]+$", "x-rule": "V-SCH-10" } },
+        "queues_n": { "type": "integer", "minimum": 1, "maximum": 4 },
+        "flags": { "type": "array", "uniqueItems": true, "items": { "type": "string", "enum": ["powered_defense", "sellable", "repairable", "capture_immune", "relay", "production"] } },
+        "sell_pct": { "type": "number", "minimum": 0, "maximum": 100 },
+        "repair_rate_pct": { "type": "number", "minimum": 0, "maximum": 100 },
+        "abilities": { "type": "array", "uniqueItems": true, "items": { "type": "string" } },
+        "ability_params": { "type": "object", "additionalProperties": { "type": "object" } },
+        "tags_add": { "type": "array", "uniqueItems": true, "items": { "type": "string", "pattern": "^[a-z][a-z0-9_]*$", "x-rule": "V-SCH-08" } },
+        "health": { "type": "integer" },
+        "armor_class": { "type": "string" },
+        "footprint": { "type": "array", "items": { "type": "integer" } },
+        "radius_cells": { "type": "number" },
+        "vision_cells": { "type": "number" },
+        "build_time_s": { "type": ["number", "null"] },
+        "pres": { "type": "object" },
+        "params": { "type": "object" },
+        "notes": { "type": "string" }
+      }
+    }
+  }
+}

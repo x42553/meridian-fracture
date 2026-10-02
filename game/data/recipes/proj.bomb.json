@@ -1,0 +1,11 @@
+{
+  "schema": "meridian.recipe/1",
+  "id": "proj.bomb",
+  "archetype": "proj_bomb",
+  "style": "auto",
+  "meta": {
+    "stub": true,
+    "view_archetype": "proj_bomb",
+    "rule": "override"
+  }
+}

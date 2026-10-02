@@ -1,0 +1,11 @@
+{
+  "schema": "meridian.recipe/1",
+  "id": "structure.shared.barracks",
+  "archetype": "str_barracks",
+  "style": "auto",
+  "meta": {
+    "stub": true,
+    "view_archetype": "str_barracks",
+    "rule": "override"
+  }
+}

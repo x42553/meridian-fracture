@@ -1,0 +1,69 @@
+{
+  "schema": "meridian.archetype/1",
+  "id": "str_at_turret",
+  "size_class": "structure",
+  "meta": {"motion": "static", "death": {"kind": "structure", "ticks": 7}, "doc": "Anti-tank turret (1x1 economy / 2x2 balance): armoured casemate, traversing hex turret with a braked gun (TURRET + BARREL, muzzle0_0), sandbag ring."},
+  "defaults": {},
+  "slots": {"roof": [], "front": [], "extra": []},
+  "derive": {
+    "pw": "fw*3-0.5",
+    "ph": "fh*3-0.5",
+    "hw": "pw*0.5",
+    "hh": "ph*0.5",
+    "ap": "fw*fh>1 ? 1.0 : 0.3",
+    "fz": "hh-ap",
+    "bk": "-hh+0.25",
+    "bd": "fz-bk",
+    "bz": "(fz+bk)*0.5",
+    "bw": "pw-0.5",
+    "k": "clamp(min(pw,ph)/2.5,1.0,2.2)",
+    "hcap": "(max(fw,fh)>=4 ? 12.5 : (max(fw,fh)>=3 ? 10 : 7))-0.35",
+    "bs": "min(pw,ph)-0.3",
+    "cz": "bz",
+    "rr": "min(bs*0.5-0.22,1.4)",
+    "ty": "1.15"
+  },
+  "ops": [
+    ["bevel", 0.04],
+    {"call": "foundation", "args": {"fw": "fw", "fh": "fh", "depth": 1.2, "col": "concrete", "edge": "dark", "chevron": "fw*fh>1 ? 1 : 0", "acc": "acc"}},
+    ["brush", "concrete"],
+    ["box", [0, 0.35, "cz"], ["min(2.2*k,bs)", 0.6, "min(2.2*k,bs)"], 0.05],
+    {"call": "turret_base", "args": {"center": [0, 0.5, "cz"], "r": "0.95*clamp(k,1.0,1.3)", "h": 0.65, "col": "base", "ring": "acc"}},
+    ["brush", "mix(sec,base,0.5)"],
+    {
+      "for": "sb",
+      "n": 10,
+      "do": [
+        {
+          "push": {"pos": ["cos(sb*TAU/10+0.3)*rr", 0.16, "cz+sin(sb*TAU/10+0.3)*rr"], "euler": [0, "-sb*36-17", 0]},
+          "do": [
+            ["box", [0, 0.14, 0], [0.62, 0.3, 0.3], 0.08]
+          ]
+        }
+      ]
+    },
+    ["brush", "dark"],
+    ["box", ["-rr*0.6", 0.28, "cz+rr*0.55"], [0.4, 0.24, 0.3], 0.03],
+    ["box", ["-rr*0.6+0.42", 0.24, "cz+rr*0.55+0.05"], [0.3, 0.16, 0.26], 0.03],
+    ["brush", "acc"],
+    ["box", ["-rr*0.6", 0.41, "cz+rr*0.55"], [0.42, 0.03, 0.32], 0],
+    {
+      "part": {"kind": "turret", "pivot": [0, "ty", "cz"]},
+      "do": [
+        {"call": "turret_ngon", "args": {"pivot": [0, "ty", "cz"], "n": 6, "rot": 0, "hw": "0.62*clamp(k,1.0,1.25)", "hl": "0.7*clamp(k,1.0,1.25)", "h": 0.42, "top": 0.7, "shift": 0.05, "y0": "ty+0.05"}},
+        {"call": "hatch", "args": {"c": [0.2, "ty+0.5", "cz+0.1"], "r": 0.13, "body": "sec", "ring": "acc"}},
+        {"call": "gun", "args": {"mount": 0, "pivot": [0, "ty", "cz"], "y": "ty+0.25", "z": "cz-0.3", "len": "0.55*clamp(k,1.0,2.2)", "r": 0.055, "muzzle": "brake"}}
+      ]
+    },
+    ["socket", "muzzle0_0", [0, "ty+0.25", "cz-0.3-0.55*clamp(k,1.0,2.2)-0.3"], [0, 0, -1], "barrel"],
+    ["socket", "door_exit", ["door_cx", 0.16, "door_cz"], [0, 0, 1]],
+    ["socket", "weld0", [0.7, "ty+0.6", 0.2], [0, 1, 0]],
+    ["socket", "weld1", [-0.7, "ty+0.6", -0.2], [0, 1, 0]],
+    ["socket", "weld2", [0, "ty+0.6", 0.1], [0, 1, 0]],
+    ["socket", "top", [0, "ty+1.1", "cz"], [0, 1, 0]],
+    {"slot": "roof"},
+    {"slot": "front"},
+    {"slot": "extra"},
+    ["meta", "footprint", ["fw", "fh"]]
+  ]
+}

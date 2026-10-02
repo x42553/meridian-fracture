@@ -1,0 +1,73 @@
+{
+  "schema": "meridian.archetype/1",
+  "id": "gen_superweapon",
+  "size_class": "structure",
+  "meta": {
+    "motion": "static",
+    "doc": "Generic superweapon archetype (4x4) used by generated stubs until str_superweapon exists: `kit` selects one of the eight landmark silhouettes of art_direction 5.9.4 (native macros sw_*)."
+  },
+  "defaults": { "kit": "halo_tower" },
+  "ops": [
+    ["bevel", 0.05],
+    {
+      "call": "foundation",
+      "args": { "fw": "fw", "fh": "fh", "depth": 1.2, "col": "concrete", "edge": "dark", "chevron": 1, "acc": "acc" }
+    },
+    {
+      "switch": "kit",
+      "cases": {
+        "halo_tower": [
+          {
+            "call": "sw_halo_tower",
+            "args": {  }
+          }
+        ],
+        "billboard": [
+          {
+            "call": "sw_billboard",
+            "args": {  }
+          }
+        ],
+        "sunflower": [
+          {
+            "call": "sw_sunflower",
+            "args": {  }
+          }
+        ],
+        "gantry_silo": [
+          {
+            "call": "sw_gantry_silo",
+            "args": {  }
+          }
+        ],
+        "hive_tower": [
+          {
+            "call": "sw_hive_tower",
+            "args": {  }
+          }
+        ],
+        "assembly_hall": [
+          {
+            "call": "sw_assembly_hall",
+            "args": {  }
+          }
+        ],
+        "long_barrel": [
+          {
+            "call": "sw_long_barrel",
+            "args": {  }
+          }
+        ],
+        "three_masts": [
+          {
+            "call": "sw_three_masts",
+            "args": {  }
+          }
+        ]
+      }
+    },
+    ["meta", "footprint", ["fw", "fh"]],
+    ["socket", "door_exit", ["door_cx", 0.16, "door_cz"], [0, 0, 1]],
+    ["socket", "weld0", [1.5, 3.0, 1.0], [0, 1, 0]]
+  ]
+}

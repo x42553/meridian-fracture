@@ -1,0 +1,12 @@
+{
+ "schema": "meridian.audio.manifest/1",
+ "format": 1,
+ "files": [
+  "announcer.json",
+  "events.json",
+  "factions.json",
+  "mix.json",
+  "music.json",
+  "responses.json"
+ ]
+}

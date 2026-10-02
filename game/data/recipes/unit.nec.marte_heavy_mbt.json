@@ -1,0 +1,178 @@
+{
+ "schema": "meridian.recipe/1",
+ "id": "unit.nec.marte_heavy_mbt",
+ "archetype": "veh_tank",
+ "style": "auto",
+ "scale": 1.12,
+ "params": {
+  "roof": "none",
+  "heavy": true,
+  "hull_top": 1.02,
+  "turret_hw": 0.7,
+  "turret_hl": 1.28,
+  "turret_h": 0.36,
+  "turret_top": 0.62,
+  "barrel_len": 2.7,
+  "barrel_r": 0.066,
+  "skirt": "layered"
+ },
+ "ops_after": [
+  [
+   "brush",
+   "light",
+   "emissive"
+  ],
+  {
+   "mirror_x": [
+    [
+     "box",
+     [
+      0.5,
+      "hull_top-0.048",
+      "-hl+0.2"
+     ],
+     [
+      0.5,
+      0.02,
+      0.028
+     ],
+     0.0
+    ]
+   ]
+  },
+  [
+   "brush",
+   "mix(base,sec,0.42)"
+  ],
+  [
+   "tier",
+   1
+  ],
+  [
+   "tbox",
+   [
+    0,
+    "hull_top+0.08",
+    "-hl+0.8"
+   ],
+   [
+    1.3,
+    0.5
+   ],
+   [
+    1.05,
+    0.3
+   ],
+   0.2,
+   [
+    0,
+    -0.08
+   ],
+   0.02
+  ],
+  [
+   "brush",
+   "acc"
+  ],
+  [
+   "box",
+   [
+    0,
+    "hull_top+0.185",
+    "-hl+0.74"
+   ],
+   [
+    0.9,
+    0.012,
+    0.03
+   ],
+   0.0
+  ],
+  [
+   "brush",
+   "mix(base,sec,0.42)"
+  ],
+  {
+   "mirror_x": [
+    [
+     "box",
+     [
+      "hw-0.05",
+      "hull_top-0.02",
+      "-hl*0.05"
+     ],
+     [
+      0.1,
+      0.3,
+      1.6
+     ],
+     0.01
+    ]
+   ]
+  },
+  [
+   "tier",
+   0
+  ],
+  {
+   "mirror_x": [
+    {
+     "call": "sensor_mast",
+     "args": {
+      "base": [
+       "hw*0.62",
+       "hull_top",
+       "hl*0.72"
+      ],
+      "h": 0.95,
+      "folded": 0.6
+     }
+    }
+   ]
+  },
+  {
+   "part": {
+    "kind": "turret",
+    "pivot": [
+     0,
+     "hull_top",
+     "turret_z"
+    ]
+   },
+   "do": [
+    [
+     "brush",
+     "light",
+     "emissive"
+    ],
+    {
+     "mirror_x": [
+      [
+       "box",
+       [
+        0.36,
+        "ty0+turret_h*0.62",
+        "turret_z-turret_hl*0.56"
+       ],
+       [
+        0.24,
+        0.03,
+        0.03
+       ],
+       0.0
+      ]
+     ]
+    }
+   ]
+  }
+ ],
+ "meta": {
+  "role": "heavy_tank",
+  "size_card": "mbt_t2",
+  "icon": {
+   "yaw": 150,
+   "pitch": 24,
+   "margin": 0.78
+  }
+ }
+}

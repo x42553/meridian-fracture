@@ -1,0 +1,522 @@
+{
+  "schema": "meridian.balance.ability_kinds/1",
+  "_doc": "Ability kind registry v1 (spec data_balance 7.4). aliases: null = framework name that produces NO ability (movement class / weapon archetype / unit tag). Registry param types win over key suffixes (rate_pct_per_s is 'pcts'). Sorted by name.",
+  "kinds": {
+    "aura_regen": {
+      "id": 32,
+      "scopes": ["structure"],
+      "params": {
+        "radius_cells": { "type": "cells", "req": true, "min": 1, "max": 30 },
+        "rate_pct_per_s": { "type": "pcts", "req": true, "min": 0, "max": 20 },
+        "cap_pct": { "type": "pct", "req": true, "min": 1, "max": 100 },
+        "idle_s": { "type": "s", "req": true, "min": 0, "max": 120 },
+        "target_selector": { "type": "str", "req": true },
+        "stack_group": { "type": "str", "req": true }
+      },
+      "doc": "Structure aura regeneration (trait grant)."
+    },
+    "camouflage": {
+      "id": 2,
+      "scopes": ["unit"],
+      "params": {
+        "delay_s": { "type": "s", "req": true, "min": 0, "max": 60 },
+        "needs_stationary": { "type": "bool", "def": false },
+        "needs_no_attack": { "type": "bool", "def": true },
+        "moving_ok": { "type": "bool", "def": false },
+        "reveal_on_fire": { "type": "bool", "def": true },
+        "reveal_on_damage": { "type": "bool", "def": true },
+        "reveal_s": { "type": "s", "def": 0, "min": 0, "max": 60 },
+        "keeps_abilities_active": { "type": "bool", "def": false }
+      },
+      "doc": "Becomes invisible to non-detectors after delay_s."
+    },
+    "capture": {
+      "id": 21,
+      "scopes": ["unit"],
+      "params": { "capture_s": { "type": "s", "req": true, "min": 1, "max": 120 } },
+      "doc": "Captures neutral tech structures (Engineer)."
+    },
+    "carrier": {
+      "id": 19,
+      "scopes": ["unit"],
+      "params": {
+        "wings": {
+          "type": "[{}]",
+          "req": true,
+          "min": 1,
+          "max": 6,
+          "items": {
+            "id": { "type": "str", "req": true },
+            "drone_id": { "type": "summon_id", "req": true },
+            "wing_size_n": { "type": "n", "req": true }
+          }
+        },
+        "replace_s": { "type": "s", "req": true, "min": 1, "max": 120 },
+        "launch_range_cells": { "type": "cells", "req": true, "min": 1, "max": 60 }
+      },
+      "doc": "Launches drone wings. drone_id must be a drone summon."
+    },
+    "command_field": {
+      "id": 8,
+      "scopes": ["unit"],
+      "params": {
+        "radius_cells": { "type": "cells", "req": true, "min": 1, "max": 30 },
+        "damage_bonus_pct": { "type": "pct", "req": true, "min": 0, "max": 100 },
+        "deploy_s": { "type": "s", "def": 0, "min": 0, "max": 30 },
+        "stack_group": { "type": "str", "req": true },
+        "eligible_unit_ids": { "type": "unit_ids", "def": [] }
+      },
+      "doc": "Damage-bonus field for unmanned units."
+    },
+    "decoy_spawn": {
+      "id": 11,
+      "scopes": ["unit"],
+      "params": {
+        "zone_id": { "type": "zone_id", "req": true },
+        "cooldown_s": { "type": "s", "req": true, "min": 1, "max": 300 },
+        "max_active_n": { "type": "n", "def": 1, "min": 1, "max": 10 }
+      },
+      "doc": "Places a decoy zone/entity."
+    },
+    "defense_power_reserve": {
+      "id": 33,
+      "scopes": ["player"],
+      "params": {
+        "reserve_s": { "type": "s", "req": true, "min": 1, "max": 300 },
+        "recharge_s": { "type": "s", "req": true, "min": 1, "max": 600 },
+        "continuous_power_s": { "type": "s", "req": true, "min": 1, "max": 300 }
+      },
+      "doc": "Defence power reserve (SAP trait)."
+    },
+    "deploy": {
+      "id": 3,
+      "scopes": ["unit"],
+      "params": {
+        "deploy_s": { "type": "s", "req": true, "min": 0, "max": 30 },
+        "pack_s": { "type": "s", "def": 0, "min": 0, "max": 30 },
+        "immobile": { "type": "bool", "def": true },
+        "turn_locked": { "type": "bool", "def": false },
+        "range_bonus_pct": { "type": "pct", "def": 0, "min": -50, "max": 200 },
+        "damage_bonus_pct": { "type": "pct", "def": 0, "min": -50, "max": 200 },
+        "deployed_slots_n": { "type": "[n]", "def": [] },
+        "command_radius_bonus_cells": { "type": "cells", "def": 0, "min": 0, "max": 10 }
+      },
+      "doc": "Deploy/pack into a stationary firing mode."
+    },
+    "deploy_structure": {
+      "id": 23,
+      "scopes": ["unit"],
+      "params": {
+        "structure_id": { "type": "structure_id", "req": true },
+        "deploy_s": { "type": "s", "req": true, "min": 0, "max": 30 }
+      },
+      "doc": "Deploys into a structure (MCV -> HQ)."
+    },
+    "detector": {
+      "id": 1,
+      "scopes": ["unit", "structure"],
+      "params": { "radius_cells": { "type": "cells", "req": true, "min": 1, "max": 30 } },
+      "doc": "Reveals camouflaged enemies within radius. 42 units; Watchtower 4, AA Battery 5; default 5."
+    },
+    "directional_armor": {
+      "id": 28,
+      "scopes": ["unit"],
+      "params": {
+        "front_arc_deg": { "type": "deg", "req": true, "min": 10, "max": 360 },
+        "front_reduction_pct": { "type": "pct", "req": true, "min": 0, "max": 100 },
+        "rear_increase_pct": { "type": "pct", "def": 0, "min": 0, "max": 100 }
+      },
+      "doc": "Frontal protection."
+    },
+    "disembark_buff": {
+      "id": 15,
+      "scopes": ["unit"],
+      "params": {
+        "duration_s": { "type": "s", "req": true, "min": 1, "max": 60 },
+        "damage_bonus_pct": { "type": "pct", "def": 0, "min": 0, "max": 100 },
+        "damage_taken_reduction_pct": { "type": "pct", "def": 0, "min": 0, "max": 50 },
+        "refresh_on_reboard": { "type": "bool", "def": false }
+      },
+      "doc": "Temporary buff after unloading."
+    },
+    "ew_jammer": {
+      "id": 14,
+      "scopes": ["unit"],
+      "params": {
+        "radius_cells": { "type": "cells", "req": true, "min": 0.5, "max": 30 },
+        "sight_penalty_pct": { "type": "pct", "req": true, "min": 0, "max": 90 }
+      },
+      "doc": "Reduces enemy sight in radius."
+    },
+    "frontal_shield": {
+      "id": 18,
+      "scopes": ["unit"],
+      "params": {
+        "arc_deg": { "type": "deg", "req": true, "min": 10, "max": 360 },
+        "reduction_pct": { "type": "pct", "req": true, "min": 0, "max": 50 },
+        "resist_groups": { "type": "[enum:bullet|explosive|beam|thermal|rail|kinetic|emp]", "def": ["bullet"] }
+      },
+      "doc": "Frontal damage reduction (Gate Guard)."
+    },
+    "harvest": {
+      "id": 22,
+      "scopes": ["unit"],
+      "params": { "capacity_credits": { "type": "credits", "req": true, "min": 1, "max": 5000 } },
+      "doc": "Collector harvesting capacity."
+    },
+    "heal": {
+      "id": 6,
+      "scopes": ["unit"],
+      "params": {
+        "rate_pct_per_s": { "type": "pcts", "req": true, "min": 0, "max": 20 },
+        "radius_cells": { "type": "cells", "req": true, "min": 0.5, "max": 30 },
+        "target_unit_tags": { "type": "[str]", "def": ["infantry"] },
+        "needs_out_of_combat_s": { "type": "s", "def": 0, "min": 0, "max": 60 }
+      },
+      "doc": "Aura healing. NOTE rate_pct_per_s is type pcts (registry type wins over key suffix)."
+    },
+    "interceptor": {
+      "id": 9,
+      "scopes": ["unit"],
+      "params": {
+        "cooldown_s": { "type": "s", "req": true, "min": 1, "max": 120 },
+        "charges_n": { "type": "n", "def": 1, "min": 1, "max": 10 },
+        "range_cells": { "type": "cells", "req": true, "min": 0.5, "max": 30 }
+      },
+      "doc": "Point defence against ordinary missiles."
+    },
+    "mode_switch": {
+      "id": 4,
+      "scopes": ["unit"],
+      "params": {
+        "switch_s": { "type": "s", "req": true, "min": 0, "max": 30 },
+        "modes": {
+          "type": "[{}]",
+          "req": true,
+          "min": 2,
+          "max": 6,
+          "items": { "id": { "type": "str", "req": true }, "slots_n": { "type": "[n]", "req": true } }
+        },
+        "switch_at_structure_id": { "type": "structure_id", "def": "" }
+      },
+      "doc": "Switches between weapon-slot sets (modes). modes needs >= 2 entries."
+    },
+    "portable_cover": {
+      "id": 16,
+      "scopes": ["unit"],
+      "params": {
+        "build_s": { "type": "s", "req": true, "min": 0.5, "max": 30 },
+        "pack_s": { "type": "s", "def": 0, "min": 0, "max": 30 },
+        "lifetime_s": { "type": "s", "req": true, "min": 1, "max": 300 },
+        "resist_pct": { "type": "pct", "req": true, "min": 0, "max": 50 },
+        "resist_groups": { "type": "[enum:bullet|explosive|beam|thermal|rail|kinetic|emp]", "def": ["bullet"] },
+        "pieces_per_builder_n": { "type": "n", "def": 1, "min": 1, "max": 10 },
+        "zone_id": { "type": "zone_id", "req": true },
+        "stationary_only": { "type": "bool", "def": true }
+      },
+      "doc": "Builds portable cover (zone)."
+    },
+    "refinery": {
+      "id": 31,
+      "scopes": ["structure"],
+      "params": {
+        "free_collector_id": { "type": "unit_id", "req": true },
+        "unload_slots_n": { "type": "n", "def": 1, "min": 1, "max": 4 }
+      },
+      "doc": "Refinery unload slots + free Collector."
+    },
+    "regen": {
+      "id": 27,
+      "scopes": ["unit"],
+      "params": {
+        "rate_pct_per_s": { "type": "pcts", "req": true, "min": 0, "max": 20 },
+        "idle_s": { "type": "s", "req": true, "min": 0, "max": 120 },
+        "cap_pct": { "type": "pct", "def": 100, "min": 1, "max": 100 },
+        "target": { "type": "enum:self|passengers", "def": "self" },
+        "source_structure_ids": { "type": "structure_ids", "def": [] },
+        "source_radius_cells": { "type": "cells", "def": 0, "min": 0, "max": 30 },
+        "source_powered": { "type": "bool", "def": false }
+      },
+      "doc": "Idle regeneration (granted by research)."
+    },
+    "relay_field": {
+      "id": 29,
+      "scopes": ["structure", "unit"],
+      "params": {
+        "radius_cells": { "type": "cells", "req": true, "min": 1, "max": 30 },
+        "damage_bonus_pct": { "type": "pct", "req": true, "min": 0, "max": 100 },
+        "powered_required": { "type": "bool", "def": true },
+        "retain_after_power_loss_s": { "type": "s", "def": 0, "min": 0, "max": 60 },
+        "requires_deployed": { "type": "bool", "def": false },
+        "radius_upgradeable": { "type": "bool", "def": true },
+        "stack_group": { "type": "str", "req": true }
+      },
+      "doc": "Networked-fire damage field (Relay)."
+    },
+    "repair": {
+      "id": 7,
+      "scopes": ["unit"],
+      "params": {
+        "rate_pct_per_s": { "type": "pcts", "req": true, "min": 0, "max": 20 },
+        "cost": { "type": "enum:paid|free", "def": "paid" },
+        "target_unit_tags": { "type": "[str]", "def": [] },
+        "target_structure_tags": { "type": "[str]", "def": [] },
+        "radius_cells": { "type": "cells", "def": 0, "min": 0, "max": 30 },
+        "one_target": { "type": "bool", "def": true },
+        "can_self": { "type": "bool", "def": false },
+        "can_repair_transport_riding": { "type": "bool", "def": false }
+      },
+      "doc": "Repairs a target (paid = 0.5 percent of price per second)."
+    },
+    "salvage": {
+      "id": 17,
+      "scopes": ["unit"],
+      "params": {
+        "action_s": { "type": "s", "req": true, "min": 0.5, "max": 60 },
+        "payout_pct": { "type": "pct", "req": true, "min": 0, "max": 100 },
+        "wreck_life_s": { "type": "s", "def": 60, "min": 1, "max": 600 }
+      },
+      "doc": "Salvages wrecks for credits."
+    },
+    "sensor_mast": {
+      "id": 20,
+      "scopes": ["unit"],
+      "params": {
+        "deploy_s": { "type": "s", "req": true, "min": 0, "max": 30 },
+        "reveal_radius_cells": { "type": "cells", "req": true, "min": 1, "max": 30 },
+        "immobile": { "type": "bool", "def": true }
+      },
+      "doc": "Deployed sensor mast (Fen)."
+    },
+    "sensor_puck": {
+      "id": 12,
+      "scopes": ["unit"],
+      "params": {
+        "zone_id": { "type": "zone_id", "req": true },
+        "cooldown_s": { "type": "s", "req": true, "min": 1, "max": 300 }
+      },
+      "doc": "Places a sensor zone."
+    },
+    "service_pads": {
+      "id": 30,
+      "scopes": ["structure"],
+      "params": {
+        "pads_n": { "type": "n", "req": true, "min": 1, "max": 12 },
+        "service_rate_pct": { "type": "pct", "def": 100, "min": 10, "max": 300 }
+      },
+      "doc": "Aircraft rearm pads (Airfield)."
+    },
+    "smoke_launcher": {
+      "id": 13,
+      "scopes": ["unit"],
+      "params": {
+        "zone_id": { "type": "zone_id", "req": true },
+        "radius_cells": { "type": "cells", "req": true, "min": 0.5, "max": 20 },
+        "duration_s": { "type": "s", "req": true, "min": 1, "max": 60 },
+        "cooldown_s": { "type": "s", "req": true, "min": 1, "max": 300 }
+      },
+      "doc": "Launches a smoke zone."
+    },
+    "sortie": {
+      "id": 25,
+      "scopes": ["unit"],
+      "params": {
+        "endurance_s": { "type": "s", "def": 0, "min": 0, "max": 600 },
+        "hover_when_firing": { "type": "bool", "def": false }
+      },
+      "doc": "Aircraft sortie behaviour (ammo = weapon ammo_volleys)."
+    },
+    "spotter": {
+      "id": 26,
+      "scopes": ["unit"],
+      "params": {
+        "radius_cells": { "type": "cells", "req": true, "min": 1, "max": 30 },
+        "artillery_range_bonus_pct": { "type": "pct", "def": 0, "min": 0, "max": 100 }
+      },
+      "doc": "Artillery observer."
+    },
+    "submerge": {
+      "id": 24,
+      "scopes": ["unit"],
+      "params": { "surface_s": { "type": "s", "req": true, "min": 0, "max": 60 } },
+      "doc": "Submarine surfacing time."
+    },
+    "summon_orbit": {
+      "id": 34,
+      "scopes": ["unit"],
+      "params": { "orbit_radius_cells": { "type": "cells", "req": true, "min": 1, "max": 30 } },
+      "doc": "Summon orbit behaviour (UAV, drones)."
+    },
+    "suppression_support": {
+      "id": 10,
+      "scopes": ["unit"],
+      "params": {
+        "recovery_bonus_pct": { "type": "pct", "req": true, "min": 0, "max": 300 },
+        "radius_cells": { "type": "cells", "req": true, "min": 0.5, "max": 30 }
+      },
+      "doc": "Faster suppression recovery for nearby friends."
+    },
+    "transport": {
+      "id": 5,
+      "scopes": ["unit"],
+      "params": {
+        "capacity_squads_n": { "type": "n", "req": true, "min": 0, "max": 8 },
+        "capacity_vehicles_n": { "type": "n", "def": 0, "min": 0, "max": 4 },
+        "load_s": { "type": "s", "def": 1, "min": 0, "max": 30 },
+        "unload_s": { "type": "s", "def": 1, "min": 0, "max": 30 },
+        "unload_speed_pct": { "type": "pct", "def": 100, "min": 10, "max": 300 },
+        "passenger_damage_reduction_pct": { "type": "pct", "def": 0, "min": 0, "max": 50 },
+        "passengers_fire": { "type": "bool", "def": false },
+        "excluded_unit_tags": { "type": "[str]", "def": [] },
+        "unload_moving_speed_pct": { "type": "pct", "def": 0, "min": 0, "max": 100 }
+      },
+      "doc": "Carries infantry squads / vehicles."
+    }
+  },
+  "templates": {
+    "ability.aura_regen.default": { "kind": "aura_regen", "external": "faction_traits.json", "doc": "All params per grant." },
+    "ability.camouflage.default": { "kind": "camouflage", "params": { "delay_s": 6, "needs_stationary": true, "needs_no_attack": true } },
+    "ability.camouflage.moving": { "kind": "camouflage", "params": { "delay_s": 6, "moving_ok": true, "needs_no_attack": true } },
+    "ability.capture.default": { "kind": "capture", "params": { "capture_s": 10 } },
+    "ability.carrier.default": {
+      "kind": "carrier",
+      "params": { "wings": [], "replace_s": 14, "launch_range_cells": 14 },
+      "doc": "wings are given per unit via ability_params (drone_id must be a drone summon)."
+    },
+    "ability.command_field.default": {
+      "kind": "command_field",
+      "params": { "radius_cells": 5, "damage_bonus_pct": 10, "stack_group": "command_field" }
+    },
+    "ability.decoy_spawn.default": { "kind": "decoy_spawn", "params": { "zone_id": "zone.decoy_tank", "cooldown_s": 40 } },
+    "ability.defense_power_reserve.default": { "kind": "defense_power_reserve", "external": "faction_traits.json", "doc": "All params per grant." },
+    "ability.deploy.default": { "kind": "deploy", "params": { "deploy_s": 3, "pack_s": 2 } },
+    "ability.deploy.suppressive": {
+      "kind": "deploy",
+      "params": { "deploy_s": 3 },
+      "doc": "Fortress Guard; the deployed suppressive slot is given via deployed_slots_n."
+    },
+    "ability.deploy_structure.hq": { "kind": "deploy_structure", "params": { "structure_id": "structure.shared.headquarters", "deploy_s": 3 } },
+    "ability.detector.default": { "kind": "detector", "params": { "radius_cells": 5 } },
+    "ability.directional_armor.default": {
+      "kind": "directional_armor",
+      "params": { "front_arc_deg": 120 },
+      "doc": "front_reduction_pct comes from the bible prose of the unit (ability_params)."
+    },
+    "ability.disembark_buff.default": { "kind": "disembark_buff", "params": { "duration_s": 6 } },
+    "ability.ew_jammer.default": { "kind": "ew_jammer", "params": { "radius_cells": 5, "sight_penalty_pct": 25 } },
+    "ability.frontal_shield.default": { "kind": "frontal_shield", "params": { "arc_deg": 180, "reduction_pct": 25, "resist_groups": ["bullet"] } },
+    "ability.harvest.default": { "kind": "harvest", "params": { "capacity_credits": 600 } },
+    "ability.heal.default": { "kind": "heal", "params": { "rate_pct_per_s": 2, "radius_cells": 4 } },
+    "ability.interceptor.default": { "kind": "interceptor", "params": { "cooldown_s": 12, "charges_n": 1, "range_cells": 3 } },
+    "ability.mode_switch.default": { "kind": "mode_switch", "params": { "switch_s": 3 }, "doc": "modes are given per unit via ability_params." },
+    "ability.mode_switch.multirole": {
+      "kind": "mode_switch",
+      "params": {
+        "switch_s": 0,
+        "switch_at_structure_id": "structure.shared.airfield",
+        "modes": [{ "id": "air", "slots_n": [0] }, { "id": "ground", "slots_n": [1] }]
+      }
+    },
+    "ability.portable_cover.default": {
+      "kind": "portable_cover",
+      "params": {
+        "build_s": 4,
+        "lifetime_s": 45,
+        "resist_pct": 20,
+        "pieces_per_builder_n": 1,
+        "zone_id": "zone.portable_cover"
+      }
+    },
+    "ability.refinery.default": {
+      "kind": "refinery",
+      "external": "global.json",
+      "params": { "free_collector_id": "unit.shared.collector", "unload_slots_n": 1 },
+      "doc": "Derived for the Refinery structure block of global.json."
+    },
+    "ability.regen.default": { "kind": "regen", "external": "research_effects.json", "doc": "Granted by research; all params per grant." },
+    "ability.relay_field.default": { "kind": "relay_field", "params": { "radius_cells": 6, "damage_bonus_pct": 10, "stack_group": "relay_field" } },
+    "ability.repair.default": { "kind": "repair", "params": { "rate_pct_per_s": 1, "cost": "paid" } },
+    "ability.repair.engineer": {
+      "kind": "repair",
+      "params": {
+        "rate_pct_per_s": 1,
+        "cost": "paid",
+        "target_unit_tags": ["land_vehicle"],
+        "target_structure_tags": ["structure"],
+        "one_target": true
+      }
+    },
+    "ability.salvage.default": { "kind": "salvage", "params": { "action_s": 8, "payout_pct": 20, "wreck_life_s": 60 } },
+    "ability.sensor_mast.default": {
+      "kind": "sensor_mast",
+      "params": { "reveal_radius_cells": 6 },
+      "doc": "deploy_s comes from the unit sheet (ability_params)."
+    },
+    "ability.sensor_puck.default": { "kind": "sensor_puck", "params": { "zone_id": "zone.sensor_puck", "cooldown_s": 30 } },
+    "ability.service_pads.default": {
+      "kind": "service_pads",
+      "external": "global.json",
+      "params": { "pads_n": 4 },
+      "doc": "Derived for the Airfield structure block of global.json."
+    },
+    "ability.smoke_launcher.default": {
+      "kind": "smoke_launcher",
+      "params": { "zone_id": "zone.smoke_dust_screen", "radius_cells": 4, "duration_s": 6, "cooldown_s": 40 }
+    },
+    "ability.sortie.default": { "kind": "sortie" },
+    "ability.spotter.default": { "kind": "spotter", "params": { "radius_cells": 12 } },
+    "ability.submerge.default": { "kind": "submerge", "params": { "surface_s": 8 } },
+    "ability.summon_orbit.default": { "kind": "summon_orbit", "doc": "orbit_radius_cells per summon." },
+    "ability.suppression_support.default": { "kind": "suppression_support", "params": { "recovery_bonus_pct": 50, "radius_cells": 5 } },
+    "ability.transport.landing": { "kind": "transport", "params": { "capacity_squads_n": 4, "capacity_vehicles_n": 2 } },
+    "ability.transport.squads2": { "kind": "transport", "params": { "capacity_squads_n": 2 } },
+    "ability.transport.squads3": { "kind": "transport", "params": { "capacity_squads_n": 3 } },
+    "ability.transport.squads4": { "kind": "transport", "params": { "capacity_squads_n": 4 } }
+  },
+  "aliases": {
+    "amphibious": null,
+    "aps_interception": "ability.interceptor.default",
+    "breach_charge": null,
+    "camouflage": "ability.camouflage.default",
+    "command_field": "ability.command_field.default",
+    "cover_builder": "ability.portable_cover.default",
+    "decoy": "ability.decoy_spawn.default",
+    "deployable_mode": "ability.deploy.default",
+    "detector": "ability.detector.default",
+    "drone_repair": "ability.repair.default",
+    "dual_purpose": null,
+    "frontal_armor": "ability.directional_armor.default",
+    "heal_aura": "ability.heal.default",
+    "jammer": "ability.ew_jammer.default",
+    "multirole": "ability.mode_switch.multirole",
+    "repair_aura": "ability.repair.default",
+    "salvage": "ability.salvage.default",
+    "sensor": "ability.sensor_puck.default",
+    "shield_front": "ability.frontal_shield.default",
+    "smoke": "ability.smoke_launcher.default",
+    "spotter": "ability.spotter.default",
+    "stealth": "ability.camouflage.moving",
+    "suppressive_deploy": "ability.deploy.suppressive",
+    "transport_3": "ability.transport.squads3",
+    "transport_4": "ability.transport.squads4",
+    "unmanned": null
+  },
+  "implicit": [
+    { "when": "archetype:air_ew", "templates": ["ability.ew_jammer.default"] },
+    { "when": "archetype:service.collector", "templates": ["ability.harvest.default"] },
+    { "when": "archetype:service.engineer", "templates": ["ability.repair.engineer", "ability.capture.default"] },
+    { "when": "archetype:service.landing_transport", "templates": ["ability.transport.landing"] },
+    { "when": "archetype:service.mcv", "templates": ["ability.deploy_structure.hq"] },
+    { "when": "archetype:ship_carrier", "templates": ["ability.carrier.default"] },
+    { "when": "archetype:ship_sub", "templates": ["ability.submerge.default"] },
+    { "when": "archetype:veh_assault_carrier", "templates": ["ability.transport.squads4"] },
+    { "when": "archetype:veh_command", "templates": ["ability.command_field.default"] },
+    { "when": "archetype:veh_scout", "templates": ["ability.transport.squads2"] },
+    { "when": "family:aircraft", "templates": ["ability.sortie.default"] },
+    { "when": "tag:detector", "templates": ["ability.detector.default"] }
+  ],
+  "def_params": {
+    "command_field_eligible": { "type": "bool", "def": false, "scopes": ["unit"] },
+    "emp_recovery_pct": { "type": "pct", "def": 100, "scopes": ["unit", "structure"] }
+  }
+}

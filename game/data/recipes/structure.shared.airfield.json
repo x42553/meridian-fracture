@@ -1,0 +1,11 @@
+{
+  "schema": "meridian.recipe/1",
+  "id": "structure.shared.airfield",
+  "archetype": "str_airfield",
+  "style": "auto",
+  "meta": {
+    "stub": true,
+    "view_archetype": "str_airfield",
+    "rule": "override"
+  }
+}

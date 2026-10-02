@@ -1,0 +1,11 @@
+{
+  "schema": "meridian.recipe/1",
+  "id": "summon.napc.pontoon",
+  "archetype": "sum_cover",
+  "style": "auto",
+  "meta": {
+    "stub": true,
+    "view_archetype": "sum_cover",
+    "rule": "override"
+  }
+}

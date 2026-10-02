@@ -1,0 +1,11 @@
+{
+  "schema": "meridian.recipe/1",
+  "id": "structure.shared.refinery",
+  "archetype": "str_refinery",
+  "style": "auto",
+  "meta": {
+    "stub": true,
+    "view_archetype": "str_refinery",
+    "rule": "override"
+  }
+}

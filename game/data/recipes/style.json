@@ -1,0 +1,6300 @@
+{
+ "schema": "meridian.style/1",
+ "version": 1,
+ "notes": [
+  "Authoritative visual data for Meridian Fracture. Owner: art direction (docs/spec/art_direction.md). Presentation-only: excluded from every sim/data hash.",
+  "All colours are sRGB hex authoring values (albedo). Measured render fidelity rules are in art_direction.md section 5.2.",
+  "Colour ids and keys in player_colors match docs/spec/net.md lobby colour ids (0..11); the hex values here are authoritative (net.md values for ids 0..7 are placeholders). Faction order (bible order): napc, nec, olm, def, pd, han, ae, sap."
+ ],
+ "faction_order": [
+  "napc",
+  "nec",
+  "olm",
+  "def",
+  "pd",
+  "han",
+  "ae",
+  "sap"
+ ],
+ "palettes": {
+  "palette.napc": {
+   "id": "palette.napc",
+   "faction": "faction.napc",
+   "code": "NAPC",
+   "name": "North American Peace Corps",
+   "dna": "Broad, tall-ish stacked hulls; modular bolt-on armour tiles; glazed crew cabins; rescue-orange hazard trim.",
+   "primary": "#465229",
+   "secondary": "#DBCFA6",
+   "accent": "#F0621A",
+   "dark": "#262E19",
+   "emissive": "#FFB55A",
+   "emissive_alt": "#FF7A1A",
+   "metal": "#4A4F4B",
+   "glass": "#22404A",
+   "rubber": "#151515",
+   "light": "#FFE6B0",
+   "team_key": "#C6C6C6",
+   "area_mix": {
+    "primary": 0.52,
+    "secondary": 0.16,
+    "dark": 0.2,
+    "accent": 0.05,
+    "team": 0.07
+   },
+   "shader": {
+    "wear": 0.45,
+    "dirt": 0.45,
+    "panel": 0.65,
+    "wear_color": "#C9C3A8",
+    "dirt_color": "#3A3020",
+    "emissive": 2.5
+   },
+   "panel_m": 0.9,
+   "bevel_m": 0.045,
+   "greeble_per_m2": 0.35,
+   "chamfer": "45deg-medium",
+   "ui": {
+    "accent": "#F07F2C",
+    "accent2": "#C9D27A",
+    "tint": "#2A2F16"
+   },
+   "lch": {
+    "primary": [
+     32.9,
+     25.6,
+     118.9
+    ],
+    "secondary": [
+     83.1,
+     22.0,
+     95.9
+    ],
+    "accent": [
+     59.3,
+     81.2,
+     50.5
+    ],
+    "dark": [
+     17.6,
+     14.8,
+     122.9
+    ]
+   }
+  },
+  "palette.nec": {
+   "id": "palette.nec",
+   "faction": "faction.nec",
+   "code": "NEC",
+   "name": "New European Confederation",
+   "dna": "Long, low, faceted wedges; angular turrets; fold-out sensor masts; crisp fine panel seams; amber sensor slits.",
+   "primary": "#4A5D7C",
+   "secondary": "#E9EEF3",
+   "accent": "#F5A623",
+   "dark": "#232D40",
+   "emissive": "#FFC24A",
+   "emissive_alt": "#DFF3FF",
+   "metal": "#30343B",
+   "glass": "#1B3A52",
+   "rubber": "#151515",
+   "light": "#FFE9B0",
+   "team_key": "#C6C6C6",
+   "area_mix": {
+    "primary": 0.5,
+    "secondary": 0.14,
+    "dark": 0.24,
+    "accent": 0.04,
+    "team": 0.08
+   },
+   "shader": {
+    "wear": 0.25,
+    "dirt": 0.2,
+    "panel": 0.8,
+    "wear_color": "#D6DCE4",
+    "dirt_color": "#2C3038",
+    "emissive": 2.5
+   },
+   "panel_m": 0.6,
+   "bevel_m": 0.03,
+   "greeble_per_m2": 0.15,
+   "chamfer": "30deg-sharp",
+   "ui": {
+    "accent": "#5B93E0",
+    "accent2": "#FFB733",
+    "tint": "#14243D"
+   },
+   "lch": {
+    "primary": [
+     39.1,
+     19.8,
+     273.8
+    ],
+    "secondary": [
+     93.9,
+     3.1,
+     255.9
+    ],
+    "accent": [
+     74.1,
+     74.5,
+     74.7
+    ],
+    "dark": [
+     18.4,
+     13.5,
+     276.9
+    ]
+   }
+  },
+  "palette.olm": {
+   "id": "palette.olm",
+   "faction": "faction.olm",
+   "code": "OLM",
+   "name": "Order of the Levant and Mediterranean",
+   "dna": "Light, leggy, ivory hulls; draped teal fabric screens; copper heat shields; articulated swing-arm wheels.",
+   "primary": "#DAD5C0",
+   "secondary": "#1F7F80",
+   "accent": "#C77A3A",
+   "dark": "#0F4B4E",
+   "emissive": "#FFC060",
+   "emissive_alt": "#37E0C8",
+   "metal": "#3E4245",
+   "glass": "#123B3F",
+   "rubber": "#151515",
+   "light": "#FFF0C8",
+   "team_key": "#C6C6C6",
+   "area_mix": {
+    "primary": 0.42,
+    "secondary": 0.22,
+    "dark": 0.18,
+    "accent": 0.1,
+    "team": 0.08
+   },
+   "shader": {
+    "wear": 0.3,
+    "dirt": 0.35,
+    "panel": 0.55,
+    "wear_color": "#EDE6D2",
+    "dirt_color": "#8A7A5C",
+    "emissive": 2.5
+   },
+   "panel_m": 0.8,
+   "bevel_m": 0.05,
+   "greeble_per_m2": 0.25,
+   "chamfer": "rounded",
+   "ui": {
+    "accent": "#2FC9BB",
+    "accent2": "#D9803F",
+    "tint": "#0F2B2C"
+   },
+   "lch": {
+    "primary": [
+     85.1,
+     11.1,
+     99.5
+    ],
+    "secondary": [
+     48.3,
+     27.3,
+     197.9
+    ],
+    "accent": [
+     58.4,
+     52.6,
+     62.1
+    ],
+    "dark": [
+     28.6,
+     18.5,
+     202.8
+    ]
+   }
+  },
+  "palette.def": {
+   "id": "palette.def",
+   "faction": "faction.def",
+   "code": "DEF",
+   "name": "Democratic Eurasian Federation",
+   "dna": "Boxy slab armour; exposed running gear; standard containers; big welded plates; heavy wear.",
+   "primary": "#7C3325",
+   "secondary": "#6E7175",
+   "accent": "#E4D48A",
+   "dark": "#2F3134",
+   "emissive": "#FFE9A0",
+   "emissive_alt": "#FFB020",
+   "metal": "#3A3B3D",
+   "glass": "#2A3A3C",
+   "rubber": "#121212",
+   "light": "#FFE9A0",
+   "team_key": "#C6C6C6",
+   "area_mix": {
+    "primary": 0.44,
+    "secondary": 0.24,
+    "dark": 0.18,
+    "accent": 0.06,
+    "team": 0.08
+   },
+   "shader": {
+    "wear": 0.7,
+    "dirt": 0.65,
+    "panel": 0.5,
+    "wear_color": "#B8ADA0",
+    "dirt_color": "#3B2A20",
+    "emissive": 2.2
+   },
+   "panel_m": 1.3,
+   "bevel_m": 0.02,
+   "greeble_per_m2": 0.3,
+   "chamfer": "hard-weld",
+   "ui": {
+    "accent": "#E0503A",
+    "accent2": "#F0DC8C",
+    "tint": "#341612"
+   },
+   "lch": {
+    "primary": [
+     31.3,
+     39.3,
+     38.5
+    ],
+    "secondary": [
+     47.5,
+     2.6,
+     263.5
+    ],
+    "accent": [
+     84.7,
+     38.9,
+     97.1
+    ],
+    "dark": [
+     20.2,
+     2.2,
+     266.5
+    ]
+   }
+  },
+  "palette.pd": {
+   "id": "palette.pd",
+   "faction": "faction.pd",
+   "code": "PD",
+   "name": "Pacific Dominion",
+   "dna": "Smooth sealed hulls with rounded chines; flotation collars; folding flight surfaces; deck-mounted drone pads.",
+   "primary": "#1791BE",
+   "secondary": "#F1F4F6",
+   "accent": "#FF6F5B",
+   "dark": "#0F3A63",
+   "emissive": "#CFF6FF",
+   "emissive_alt": "#FF6F5B",
+   "metal": "#3E4548",
+   "glass": "#173A56",
+   "rubber": "#151515",
+   "light": "#F4FBFF",
+   "team_key": "#C6C6C6",
+   "area_mix": {
+    "primary": 0.46,
+    "secondary": 0.26,
+    "dark": 0.12,
+    "accent": 0.08,
+    "team": 0.08
+   },
+   "shader": {
+    "wear": 0.3,
+    "dirt": 0.2,
+    "panel": 0.6,
+    "wear_color": "#E4EEF4",
+    "dirt_color": "#2C3A44",
+    "emissive": 2.5
+   },
+   "panel_m": 1.1,
+   "bevel_m": 0.06,
+   "greeble_per_m2": 0.15,
+   "chamfer": "rounded-long",
+   "ui": {
+    "accent": "#33A0EC",
+    "accent2": "#FF7F5C",
+    "tint": "#0F2740"
+   },
+   "lch": {
+    "primary": [
+     56.2,
+     35.5,
+     244.8
+    ],
+    "secondary": [
+     96.0,
+     1.5,
+     244.1
+    ],
+    "accent": [
+     64.5,
+     65.9,
+     35.6
+    ],
+    "dark": [
+     23.8,
+     28.4,
+     274.0
+    ]
+   }
+  },
+  "palette.han": {
+   "id": "palette.han",
+   "faction": "faction.han",
+   "code": "HAN",
+   "name": "Han Empire",
+   "dna": "Compact hulls built from identical modules; round turrets; sensor crowns; standard drone racks; porcelain caps.",
+   "primary": "#2D8862",
+   "secondary": "#ECE7D9",
+   "accent": "#B81F2E",
+   "dark": "#16483A",
+   "emissive": "#7CFFC8",
+   "emissive_alt": "#FF3B4A",
+   "metal": "#3A403E",
+   "glass": "#153B38",
+   "rubber": "#151515",
+   "light": "#F2FFF6",
+   "team_key": "#C6C6C6",
+   "area_mix": {
+    "primary": 0.5,
+    "secondary": 0.2,
+    "dark": 0.14,
+    "accent": 0.08,
+    "team": 0.08
+   },
+   "shader": {
+    "wear": 0.25,
+    "dirt": 0.2,
+    "panel": 0.9,
+    "wear_color": "#EFEBDD",
+    "dirt_color": "#24322C",
+    "emissive": 2.6
+   },
+   "panel_m": 0.5,
+   "bevel_m": 0.04,
+   "greeble_per_m2": 0.2,
+   "chamfer": "rounded-module",
+   "ui": {
+    "accent": "#33C98A",
+    "accent2": "#E0424F",
+    "tint": "#0F2F22"
+   },
+   "lch": {
+    "primary": [
+     50.7,
+     38.4,
+     160.6
+    ],
+    "secondary": [
+     91.7,
+     7.4,
+     95.4
+    ],
+    "accent": [
+     40.2,
+     67.1,
+     28.7
+    ],
+    "dark": [
+     27.0,
+     20.9,
+     170.3
+    ]
+   }
+  },
+  "palette.ae": {
+   "id": "palette.ae",
+   "faction": "faction.ae",
+   "code": "AE",
+   "name": "African Empire",
+   "dna": "Chunky utilitarian hulls; mismatched bolt-on repair panels; oversized reinforced wheels; swappable weapon modules with cyan lock collars.",
+   "primary": "#8F6524",
+   "secondary": "#4B4E53",
+   "accent": "#12D6F2",
+   "dark": "#2B2D30",
+   "emissive": "#3DE7FF",
+   "emissive_alt": "#FFB020",
+   "metal": "#34373A",
+   "glass": "#12363E",
+   "rubber": "#101010",
+   "light": "#FFF0C0",
+   "team_key": "#C6C6C6",
+   "area_mix": {
+    "primary": 0.44,
+    "secondary": 0.22,
+    "dark": 0.18,
+    "accent": 0.08,
+    "team": 0.08
+   },
+   "shader": {
+    "wear": 0.6,
+    "dirt": 0.6,
+    "panel": 0.75,
+    "wear_color": "#C8B48A",
+    "dirt_color": "#3A2C1A",
+    "emissive": 2.8
+   },
+   "panel_m": 0.7,
+   "bevel_m": 0.035,
+   "greeble_per_m2": 0.45,
+   "chamfer": "patchwork",
+   "ui": {
+    "accent": "#26D6E8",
+    "accent2": "#E0AA3C",
+    "tint": "#11292D"
+   },
+   "lch": {
+    "primary": [
+     46.0,
+     43.1,
+     75.9
+    ],
+    "secondary": [
+     33.1,
+     3.4,
+     268.8
+    ],
+    "accent": [
+     78.8,
+     42.0,
+     218.0
+    ],
+    "dark": [
+     18.4,
+     2.2,
+     266.6
+    ]
+   }
+  },
+  "palette.sap": {
+   "id": "palette.sap",
+   "faction": "faction.sap",
+   "code": "SAP",
+   "name": "South Asian Protectorate",
+   "dna": "Stepped, laminated armour (sand over indigo); outrigger braces; big interception sensor panels with saffron rims.",
+   "primary": "#CDB37A",
+   "secondary": "#4B50A8",
+   "accent": "#F4A521",
+   "dark": "#2F3480",
+   "emissive": "#FFB428",
+   "emissive_alt": "#B8B4FF",
+   "metal": "#3C3E48",
+   "glass": "#1B2350",
+   "rubber": "#141414",
+   "light": "#FFF2CC",
+   "team_key": "#C6C6C6",
+   "area_mix": {
+    "primary": 0.34,
+    "secondary": 0.3,
+    "dark": 0.18,
+    "accent": 0.1,
+    "team": 0.08
+   },
+   "shader": {
+    "wear": 0.45,
+    "dirt": 0.5,
+    "panel": 0.7,
+    "wear_color": "#E6DCC0",
+    "dirt_color": "#4A3F2C",
+    "emissive": 2.6
+   },
+   "panel_m": 0.8,
+   "bevel_m": 0.04,
+   "greeble_per_m2": 0.3,
+   "chamfer": "stepped",
+   "ui": {
+    "accent": "#F3A622",
+    "accent2": "#7A72E6",
+    "tint": "#2C2412"
+   },
+   "lch": {
+    "primary": [
+     74.0,
+     32.6,
+     87.5
+    ],
+    "secondary": [
+     37.9,
+     53.8,
+     296.5
+    ],
+    "accent": [
+     73.7,
+     74.7,
+     74.7
+    ],
+    "dark": [
+     25.6,
+     49.4,
+     297.6
+    ]
+   }
+  },
+  "palette.napc.usa": {
+   "id": "palette.napc.usa",
+   "parent": "palette.napc",
+   "accent": "#C54600",
+   "sub_index": 1,
+   "band": "checker",
+   "glyph": "napc.usa",
+   "kit": [
+    "lift_ring",
+    "nav_light_bar",
+    "winglet_tips"
+   ]
+  },
+  "palette.napc.canada": {
+   "id": "palette.napc.canada",
+   "parent": "palette.napc",
+   "accent": "#FF504A",
+   "sub_index": 2,
+   "band": "waterline",
+   "glyph": "napc.canada",
+   "kit": [
+    "waterline_band",
+    "snorkel_stack",
+    "float_sponson",
+    "wave_breaker"
+   ]
+  },
+  "palette.napc.mexico": {
+   "id": "palette.napc.mexico",
+   "parent": "palette.napc",
+   "accent": "#CF7B00",
+   "sub_index": 3,
+   "band": "chevron",
+   "glyph": "napc.mexico",
+   "kit": [
+    "slat_cage",
+    "sandbag_roll",
+    "riot_shield_rack"
+   ]
+  },
+  "palette.nec.nordics": {
+   "id": "palette.nec.nordics",
+   "parent": "palette.nec",
+   "accent": "#CE8700",
+   "sub_index": 1,
+   "band": "pinstripe",
+   "glyph": "nec.nordics",
+   "kit": [
+    "fold_mast_double",
+    "float_collar"
+   ]
+  },
+  "palette.nec.eurocorps": {
+   "id": "palette.nec.eurocorps",
+   "parent": "palette.nec",
+   "accent": "#FF9F63",
+   "sub_index": 2,
+   "band": "block",
+   "glyph": "nec.eurocorps",
+   "kit": [
+    "applique_wedge",
+    "heavy_skirt"
+   ]
+  },
+  "palette.nec.alpine_brotherhood": {
+   "id": "palette.nec.alpine_brotherhood",
+   "parent": "palette.nec",
+   "accent": "#D2B50F",
+   "sub_index": 3,
+   "band": "diag",
+   "glyph": "nec.alpine_brotherhood",
+   "kit": [
+    "rock_guard",
+    "roof_lamp_pair",
+    "shelter_roll"
+   ]
+  },
+  "palette.olm.saudi_arabia": {
+   "id": "palette.olm.saudi_arabia",
+   "parent": "palette.olm",
+   "accent": "#A35C1C",
+   "sub_index": 1,
+   "band": "wave",
+   "glyph": "olm.saudi_arabia",
+   "kit": [
+    "solar_fin",
+    "mirror_cap"
+   ]
+  },
+  "palette.olm.algeria": {
+   "id": "palette.olm.algeria",
+   "parent": "palette.olm",
+   "accent": "#D76F4E",
+   "sub_index": 2,
+   "band": "dash",
+   "glyph": "olm.algeria",
+   "kit": [
+    "sand_fender",
+    "jerry_rack",
+    "whip_pair"
+   ]
+  },
+  "palette.olm.el_andalus": {
+   "id": "palette.olm.el_andalus",
+   "parent": "palette.olm",
+   "accent": "#B2852C",
+   "sub_index": 3,
+   "band": "checker",
+   "glyph": "olm.el_andalus",
+   "kit": [
+    "arched_screen",
+    "harbour_bollards"
+   ]
+  },
+  "palette.def.russia": {
+   "id": "palette.def.russia",
+   "parent": "palette.def",
+   "accent": "#C2B36B",
+   "sub_index": 1,
+   "band": "block",
+   "glyph": "def.russia",
+   "kit": [
+    "slab_addon",
+    "unit_numeral"
+   ]
+  },
+  "palette.def.kazakhstan": {
+   "id": "palette.def.kazakhstan",
+   "parent": "palette.def",
+   "accent": "#F9CD8C",
+   "sub_index": 2,
+   "band": "dash",
+   "glyph": "def.kazakhstan",
+   "kit": [
+    "jerry_rack",
+    "whip_pair",
+    "dust_mesh_skirt"
+   ]
+  },
+  "palette.def.north_korea": {
+   "id": "palette.def.north_korea",
+   "parent": "palette.def",
+   "accent": "#CDDB90",
+   "sub_index": 3,
+   "band": "pinstripe",
+   "glyph": "def.north_korea",
+   "kit": [
+    "camo_net",
+    "decoy_frame",
+    "fortress_visor"
+   ]
+  },
+  "palette.pd.australia": {
+   "id": "palette.pd.australia",
+   "parent": "palette.pd",
+   "accent": "#D94E3E",
+   "sub_index": 1,
+   "band": "wave",
+   "glyph": "pd.australia",
+   "kit": [
+    "recon_pod",
+    "long_barrel_sleeve"
+   ]
+  },
+  "palette.pd.indonesia": {
+   "id": "palette.pd.indonesia",
+   "parent": "palette.pd",
+   "accent": "#FF6C7F",
+   "sub_index": 2,
+   "band": "diag",
+   "glyph": "pd.indonesia",
+   "kit": [
+    "landing_ramp",
+    "grab_rails",
+    "outrigger_float"
+   ]
+  },
+  "palette.pd.japan": {
+   "id": "palette.pd.japan",
+   "parent": "palette.pd",
+   "accent": "#EF7D3D",
+   "sub_index": 3,
+   "band": "pinstripe",
+   "glyph": "pd.japan",
+   "kit": [
+    "sensor_ball",
+    "modular_hardpoint",
+    "drone_bay_hatch"
+   ]
+  },
+  "palette.han.china": {
+   "id": "palette.han.china",
+   "parent": "palette.han",
+   "accent": "#DE4649",
+   "sub_index": 1,
+   "band": "block",
+   "glyph": "han.china",
+   "kit": [
+    "numbered_module_plate",
+    "heavy_crown"
+   ]
+  },
+  "palette.han.vietnam": {
+   "id": "palette.han.vietnam",
+   "parent": "palette.han",
+   "accent": "#BC044E",
+   "sub_index": 2,
+   "band": "dash",
+   "glyph": "han.vietnam",
+   "kit": [
+    "leaf_clip",
+    "reed_skirt"
+   ]
+  },
+  "palette.han.cambodia": {
+   "id": "palette.han.cambodia",
+   "parent": "palette.han",
+   "accent": "#AB360A",
+   "sub_index": 3,
+   "band": "wave",
+   "glyph": "han.cambodia",
+   "kit": [
+    "repair_arm",
+    "tender_cradle",
+    "pipe_rack"
+   ]
+  },
+  "palette.ae.nigeria": {
+   "id": "palette.ae.nigeria",
+   "parent": "palette.ae",
+   "accent": "#03B3CB",
+   "sub_index": 1,
+   "band": "checker",
+   "glyph": "ae.nigeria",
+   "kit": [
+    "comm_mast",
+    "drone_guard_cradle",
+    "civic_beacon"
+   ]
+  },
+  "palette.ae.kongo": {
+   "id": "palette.ae.kongo",
+   "parent": "palette.ae",
+   "accent": "#26D8DD",
+   "sub_index": 2,
+   "band": "wave",
+   "glyph": "ae.kongo",
+   "kit": [
+    "float_collar",
+    "reed_screen",
+    "snorkel_stack"
+   ]
+  },
+  "palette.ae.south_africa": {
+   "id": "palette.ae.south_africa",
+   "parent": "palette.ae",
+   "accent": "#4CD2FF",
+   "sub_index": 3,
+   "band": "block",
+   "glyph": "ae.south_africa",
+   "kit": [
+    "rangefinder_box",
+    "long_recoil_sleeve"
+   ]
+  },
+  "palette.sap.india": {
+   "id": "palette.sap.india",
+   "parent": "palette.sap",
+   "accent": "#CC8600",
+   "sub_index": 1,
+   "band": "block",
+   "glyph": "sap.india",
+   "kit": [
+    "layer_plate",
+    "command_pennant"
+   ]
+  },
+  "palette.sap.thailand": {
+   "id": "palette.sap.thailand",
+   "parent": "palette.sap",
+   "accent": "#FF9D60",
+   "sub_index": 2,
+   "band": "wave",
+   "glyph": "sap.thailand",
+   "kit": [
+    "float_collar",
+    "smoke_bank",
+    "mooring_hook"
+   ]
+  },
+  "palette.sap.pakistan": {
+   "id": "palette.sap.pakistan",
+   "parent": "palette.sap",
+   "accent": "#D1B40B",
+   "sub_index": 3,
+   "band": "dash",
+   "glyph": "sap.pakistan",
+   "kit": [
+    "periscope_mast",
+    "missile_rail_cover"
+   ]
+  }
+ },
+ "neutral_palette": {
+  "name": "Neutral / civilian / resource props",
+  "primary": "#8A8E90",
+  "secondary": "#C9CCCF",
+  "accent": "#2E6AA8",
+  "dark": "#4A4C50",
+  "emissive": "#FFE9B0",
+  "rust": "#8C4E2F",
+  "gunmetal": "#6C7784",
+  "glint": "#FFE9A8",
+  "roof_terracotta": "#8F5A48",
+  "roof_slate": "#4A4F57",
+  "note": "Civic grey concrete with civic-blue/white signage; no team plate, no faction accent. Salvage props are gunmetal + rust with a warm glint. Never uses faction accents or player colours."
+ },
+ "shared_colors": {
+  "tail_light": "#FF1A0A",
+  "hazard_black": "#1B1B1A",
+  "wreck_plate": "#3A3A3A",
+  "plinth_concrete": "#8A8E90",
+  "note": "Colours shared by all factions and props; never faction-tinted."
+ },
+ "sub_accent_rule": {
+  "text": "sub_index 1: lightness moved away from mid-grey by 12 L*; sub_index 2: hue -18 deg; sub_index 3: hue +18 deg (CIE LCh, chroma preserved, gamut-clamped)",
+  "rule": {
+   "1": [
+    0.0,
+    12.0
+   ],
+   "2": [
+    -18.0,
+    0.0
+   ],
+   "3": [
+    18.0,
+    0.0
+   ]
+  }
+ },
+ "kit_parts": {
+  "lift_ring": "Four rescue-orange airlift eyes (0.25 m rings) on the hull corners / fuselage hardpoints.",
+  "nav_light_bar": "Roof bar with two blinking navigation lights (BLINK part), 0.5 m.",
+  "winglet_tips": "0.4 m canted winglets in the sub accent on aircraft wing tips.",
+  "waterline_band": "Cream stripe 0.14 m high along the lower hull, above the tracks/keel.",
+  "snorkel_stack": "Vertical intake pipe (0.09 m radius, 0.7-1.0 m tall) with a capped top on the rear deck.",
+  "float_sponson": "Lengthwise cylinders (0.3 m radius) along both flanks, sub-accent band ring; folded flat as a box when stowed.",
+  "wave_breaker": "Hinged bow vane 0.9 x 0.4 m on the glacis (DEPLOY hinge part).",
+  "slat_cage": "Slat/cage armour: 0.05 m bars every 0.14 m, 0.35 m stand-off, around turret and hull sides.",
+  "sandbag_roll": "Two tan bolster rolls (0.25 m radius) across the front deck.",
+  "riot_shield_rack": "Infantry: 0.5 x 0.7 m shield plate on the back in faction dark with accent edge.",
+  "fold_mast_double": "Two fold-out masts (5-6 m when deployed, 1.4 m stowed) with amber heads.",
+  "float_collar": "Inflatable-looking ring collar (0.22 m tube) around the lower hull; white with accent band.",
+  "applique_wedge": "Extra wedge armour block on the glacis (0.9 x 0.35 x 0.3 m), secondary colour with accent pin-stripe.",
+  "heavy_skirt": "Thicker side skirt (0.10 m) with three vertical ribs.",
+  "rock_guard": "Chunky front fenders / cowcatcher in dark grey, 0.4 m deep.",
+  "roof_lamp_pair": "Two roof floodlights (0.18 m) on stalks, warm-white emissive.",
+  "shelter_roll": "Grey-white rolled shelter (0.22 m dia, 0.6 m) on infantry backs / vehicle decks.",
+  "solar_fin": "Three raised reflective fins (gold) around the weapon mount or turret rim.",
+  "mirror_cap": "Gold faceted reflector cap (0.5 m) on the turret roof.",
+  "sand_fender": "Oversized wheel fenders (0.5 m wider) in accent copper.",
+  "jerry_rack": "Rack of 4 fuel cans (0.3 m) at the rear deck, pale-yellow / copper.",
+  "whip_pair": "Two 2.0-2.4 m antenna whips, one with a tiny pennant.",
+  "arched_screen": "Arched (semi-circular) fabric screen on each flank, teal with copper edging.",
+  "harbour_bollards": "Two mooring bollards on ships/boats and quay-side props on structures.",
+  "slab_addon": "Extra 0.12 m slab plates bolted over glacis and turret front.",
+  "unit_numeral": "Stencilled 3-digit numeral 0.5 m tall, pale yellow, on turret side / hull front.",
+  "aps_pods": "Two flat round pods (0.35 m dia) on the turret cheeks, dark with accent lens.",
+  "dust_mesh_skirt": "Fine mesh skirt (translucent look via alternating slats) in secondary.",
+  "camo_net": "Drab netting drape (angular cloth panel) over turret rear / deck; on infantry a cloak panel over the shoulders; olive-grey.",
+  "decoy_frame": "Folded flat decoy tank frame (0.9 x 0.5 m) strapped to infantry backs or vehicle sides.",
+  "fortress_visor": "Slit visor plate on helmets / cupola.",
+  "recon_pod": "Under-wing / hull sensor pod 0.6 m with a coral lens.",
+  "long_barrel_sleeve": "Barrel sleeve +25% length with a coral end ring.",
+  "landing_ramp": "Hinged bow ramp 1.4 x 0.9 m (DEPLOY hinge part), coral hinge line.",
+  "grab_rails": "Perimeter rails 0.05 m tube in coral.",
+  "outrigger_float": "Small outrigger float arm each side (0.8 m), white with coral tip.",
+  "sensor_ball": "White 0.45 m sphere on a short mast with an emissive slit.",
+  "modular_hardpoint": "Standard 0.3 x 0.3 m mounting plate with 4 bolts on hull sides.",
+  "drone_bay_hatch": "Square roof hatch (0.7 m) with an accent perimeter light.",
+  "numbered_module_plate": "Standardised 0.3 x 0.2 m ID plates (porcelain) on each hull module (vehicles) or wall module (structures).",
+  "heavy_crown": "Sensor crown with 8 tines instead of 6 (0.7 m tall).",
+  "leaf_clip": "Leaf-shaped camouflage clips (0.2 m, jade/brown) along the hull edges; on infantry on tunic and helmet.",
+  "reed_skirt": "Vertical reed-green slats along the lower hull.",
+  "repair_arm": "Small folding manipulator arm (1.0 m) on the roof, dark with accent joints.",
+  "tender_cradle": "Lotus-petal drone dock ring (4 folding petals) on the roof.",
+  "pipe_rack": "Coiled hose / pipe rack on the flank (0.6 m).",
+  "comm_mast": "3 m radio mast with two guy wires and a cyan beacon.",
+  "drone_guard_cradle": "Small drone cradle (0.5 m) on the roof with cyan lights.",
+  "civic_beacon": "Roof beacon (cyan) pulsing 1 Hz while the vehicle is idle or the structure is powered.",
+  "reed_screen": "Reed-slat screen (0.04 m slats) along flank, ochre.",
+  "rangefinder_box": "Roof rangefinder box 0.6 x 0.3 x 0.3 m with two lenses.",
+  "long_recoil_sleeve": "Extended recoil cylinder alongside the barrel (0.9 m).",
+  "layer_plate": "Third stepped armour layer (indigo, 0.08 m) on glacis and turret.",
+  "command_pennant": "Saffron pennant on a 1.5 m whip (team-coloured mask on the flag).",
+  "smoke_bank": "Bank of six smoke tubes (0.08 m) at the rear deck.",
+  "mooring_hook": "Bow mooring hook / tow eye in accent.",
+  "periscope_mast": "Telescoping periscope mast (2 m) with a small lens head.",
+  "missile_rail_cover": "Rail cover panel on missile launchers, saffron end caps.",
+  "dry_bag": "Infantry: bright coral dry bag (0.22 m dia, 0.45 m) on the back, snorkel mask pushed up on the helmet.",
+  "breach_pack": "Infantry: rectangular rescue-orange charge pack (0.35 x 0.25 x 0.15 m) on the back and a short launcher (0.5 m) slung across the chest.",
+  "puck_belt": "Infantry: belt of six sensor pucks (cyan discs, 0.12 m) worn as a bandolier.",
+  "reed_wrap": "Infantry: reed-green cloth wrap (angular panels, SWAY part 25) over shoulders and torso, cutting-torch nozzle (0.4 m) on the right arm.",
+  "boom_antenna": "Infantry: folding boom antenna (1.2 m, small dish) on the back; unfolds with the deploy state."
+ },
+ "kit_applies": {
+  "lift_ring": [
+   "veh",
+   "air"
+  ],
+  "nav_light_bar": [
+   "veh",
+   "air",
+   "ship"
+  ],
+  "winglet_tips": [
+   "air"
+  ],
+  "waterline_band": [
+   "veh",
+   "ship"
+  ],
+  "snorkel_stack": [
+   "veh"
+  ],
+  "float_sponson": [
+   "veh"
+  ],
+  "wave_breaker": [
+   "veh"
+  ],
+  "slat_cage": [
+   "veh"
+  ],
+  "sandbag_roll": [
+   "veh"
+  ],
+  "riot_shield_rack": [
+   "inf"
+  ],
+  "fold_mast_double": [
+   "veh"
+  ],
+  "float_collar": [
+   "veh"
+  ],
+  "applique_wedge": [
+   "veh"
+  ],
+  "heavy_skirt": [
+   "veh"
+  ],
+  "rock_guard": [
+   "veh"
+  ],
+  "roof_lamp_pair": [
+   "veh"
+  ],
+  "shelter_roll": [
+   "inf",
+   "veh"
+  ],
+  "solar_fin": [
+   "veh"
+  ],
+  "mirror_cap": [
+   "veh"
+  ],
+  "sand_fender": [
+   "veh"
+  ],
+  "jerry_rack": [
+   "veh"
+  ],
+  "whip_pair": [
+   "veh",
+   "ship"
+  ],
+  "arched_screen": [
+   "veh"
+  ],
+  "harbour_bollards": [
+   "ship",
+   "struct"
+  ],
+  "slab_addon": [
+   "veh"
+  ],
+  "unit_numeral": [
+   "veh"
+  ],
+  "aps_pods": [
+   "veh"
+  ],
+  "dust_mesh_skirt": [
+   "veh"
+  ],
+  "camo_net": [
+   "veh",
+   "inf"
+  ],
+  "decoy_frame": [
+   "veh",
+   "inf"
+  ],
+  "fortress_visor": [
+   "veh",
+   "inf"
+  ],
+  "recon_pod": [
+   "veh",
+   "air"
+  ],
+  "long_barrel_sleeve": [
+   "veh",
+   "ship"
+  ],
+  "landing_ramp": [
+   "veh"
+  ],
+  "grab_rails": [
+   "veh",
+   "ship"
+  ],
+  "outrigger_float": [
+   "veh"
+  ],
+  "sensor_ball": [
+   "veh",
+   "ship"
+  ],
+  "modular_hardpoint": [
+   "veh"
+  ],
+  "drone_bay_hatch": [
+   "veh",
+   "ship"
+  ],
+  "numbered_module_plate": [
+   "veh",
+   "struct"
+  ],
+  "heavy_crown": [
+   "veh"
+  ],
+  "leaf_clip": [
+   "veh",
+   "inf"
+  ],
+  "reed_skirt": [
+   "veh"
+  ],
+  "repair_arm": [
+   "veh"
+  ],
+  "tender_cradle": [
+   "veh"
+  ],
+  "pipe_rack": [
+   "veh"
+  ],
+  "comm_mast": [
+   "veh"
+  ],
+  "drone_guard_cradle": [
+   "veh"
+  ],
+  "civic_beacon": [
+   "veh",
+   "struct"
+  ],
+  "reed_screen": [
+   "veh"
+  ],
+  "rangefinder_box": [
+   "veh"
+  ],
+  "long_recoil_sleeve": [
+   "veh"
+  ],
+  "layer_plate": [
+   "veh"
+  ],
+  "command_pennant": [
+   "veh",
+   "ship"
+  ],
+  "smoke_bank": [
+   "veh"
+  ],
+  "mooring_hook": [
+   "veh",
+   "ship"
+  ],
+  "periscope_mast": [
+   "veh",
+   "ship"
+  ],
+  "missile_rail_cover": [
+   "veh"
+  ],
+  "dry_bag": [
+   "inf"
+  ],
+  "breach_pack": [
+   "inf"
+  ],
+  "puck_belt": [
+   "inf"
+  ],
+  "reed_wrap": [
+   "inf"
+  ],
+  "boom_antenna": [
+   "inf"
+  ]
+ },
+ "unique_units": {
+  "unit.napc.raptor_multirole_fighter": {
+   "replaces": "Falcon Interceptor",
+   "archetype": "air_fighter",
+   "recipe": "Falcon fuselage class, canted twin tails, chined nose; 4 under-wing pylons: 2 cream-tipped AA rails + 2 orange-tipped AV pods that recolour with the loaded weapon set; USA tail checker band.",
+   "kit": [
+    "winglet_tips",
+    "lift_ring"
+   ]
+  },
+  "unit.napc.condor_stealth_bomber": {
+   "replaces": "Titan Gunship",
+   "archetype": "air_bomber",
+   "recipe": "Rotor-less faceted flying wing (sawtooth trailing edge), cream underside, one bomb-bay door line; camouflage = edge shimmer, cream fades to 35 % alpha. Silhouette change is total (gunship -> wing).",
+   "kit": [
+    "nav_light_bar"
+   ]
+  },
+  "unit.napc.beaver_amphibious_apc": {
+   "replaces": "Pathfinder APC",
+   "archetype": "veh_scout",
+   "recipe": "Boat-hull 6-wheel APC: raised prow, cream sponsons, prop-guard shrouds aft, snorkel stack, keeps the roof spinner and bubble cab.",
+   "kit": [
+    "float_sponson",
+    "snorkel_stack",
+    "waterline_band"
+   ]
+  },
+  "unit.napc.narwhal_amphibious_tank": {
+   "replaces": "Guardian Tank",
+   "archetype": "mbt_t1",
+   "recipe": "Guardian turret on a sealed hull: folding wave-breaker vane on the glacis, cream sponsons folded up on the deck, aft water-jet ducts, sealed gun boot. Same size card as the Guardian (mbt_t1).",
+   "kit": [
+    "wave_breaker",
+    "float_sponson",
+    "snorkel_stack"
+   ]
+  },
+  "unit.napc.vanguard_rifle_squad": {
+   "replaces": "Rifle Squad",
+   "archetype": "inf_line",
+   "recipe": "Rifle squad with a folded portable cover shield on each back (olive plate, orange edge); deployed = 1.1 m cover panel stands in front (DEPLOY part).",
+   "kit": [
+    "riot_shield_rack"
+   ]
+  },
+  "unit.napc.aguila_breach_team": {
+   "replaces": "Combat Medic",
+   "archetype": "inf_combat_spec",
+   "recipe": "Heavy plate-carrier infantry: rectangular orange breach-charge pack, short grenade launcher, visored helmets; NO medical marking.",
+   "kit": [
+    "breach_pack"
+   ]
+  },
+  "unit.nec.fen_recon_carrier": {
+   "replaces": "Surveyor APC",
+   "archetype": "veh_scout",
+   "recipe": "Sealed amphibious hull with float collar; a fold-out mast unfolds to 6 m (amber head) on deploy - exposed, so the mast is bright.",
+   "kit": [
+    "fold_mast_double",
+    "float_collar"
+   ]
+  },
+  "unit.nec.fjord_missile_carrier": {
+   "replaces": "Archer SPG",
+   "archetype": "arty_missile",
+   "recipe": "Amphibious 6-wheel hull carrying a 4-tube canted missile pack; tube caps white, amber strip; tubes lie flat when moving, rise 35 deg to fire.",
+   "kit": [
+    "float_collar"
+   ]
+  },
+  "unit.nec.marte_heavy_mbt": {
+   "replaces": "Leopard Tank",
+   "archetype": "mbt_t2",
+   "recipe": "Leopard silhouette x1.15, thicker glacis wedge with appliqué plates, larger angular turret, two mast stubs.",
+   "kit": [
+    "applique_wedge",
+    "heavy_skirt"
+   ]
+  },
+  "unit.nec.charlemagne_siege_tank": {
+   "replaces": "Argent Rail Tank",
+   "archetype": "siege_rail",
+   "recipe": "Longer rail gun on a heavier hull; deploy drops ground spades (DEPLOY) and the barrel extends telescopically +25 %.",
+   "kit": [
+    "heavy_skirt"
+   ]
+  },
+  "unit.nec.alpine_pioneer": {
+   "replaces": "Sapper",
+   "archetype": "inf_combat_spec",
+   "recipe": "Infantry with a grey-white shelter roll and folding spade on the back; the deployed shelter is a small tent prop (0.9 m).",
+   "kit": [
+    "shelter_roll"
+   ]
+  },
+  "unit.nec.ibex_crawler_gun": {
+   "replaces": "Archer SPG",
+   "archetype": "arty_howitzer",
+   "recipe": "Compact tracked howitzer: wide stubby crawler tracks with deep cleats, short thick barrel, front slab armour, rock-guard fenders; no wheels.",
+   "kit": [
+    "rock_guard"
+   ]
+  },
+  "unit.olm.dawn_laser_aa": {
+   "replaces": "Crescent AA",
+   "archetype": "veh_aa_beam",
+   "recipe": "Hooded lens turret replaces the missile pods: glass-copper prism lens, teal cooling fins, gold beam emitter.",
+   "kit": [
+    "solar_fin"
+   ]
+  },
+  "unit.olm.ifrit_prism_tank": {
+   "replaces": "Sunlance Beam Tank",
+   "archetype": "siege_beam",
+   "recipe": "Sunlance chassis with a faceted 6-face prism cluster in a copper cradle; deploy = outriggers + prism rises 0.6 m and opens.",
+   "kit": [
+    "solar_fin",
+    "mirror_cap"
+   ]
+  },
+  "unit.olm.dune_rover": {
+   "replaces": "Caravan APC",
+   "archetype": "veh_scout",
+   "recipe": "Open-cage 4-wheel dune buggy: roll cage, draped camo netting, cream/teal; camouflage shimmer.",
+   "kit": [
+    "camo_net",
+    "sand_fender"
+   ]
+  },
+  "unit.olm.scorpion_rocket_buggy": {
+   "replaces": "Sandglass Mortar",
+   "archetype": "arty_light",
+   "recipe": "Light buggy with a canted 12-tube copper rocket rack on a scorpion-tail arm over the rear.",
+   "kit": [
+    "sand_fender"
+   ]
+  },
+  "unit.olm.gate_guard": {
+   "replaces": "Wayfarer Guard",
+   "archetype": "inf_line",
+   "recipe": "Riot-shield infantry: teal-faced 0.5 m shield held in front; slower stride.",
+   "kit": [
+    "riot_shield_rack"
+   ]
+  },
+  "unit.olm.strait_frigate": {
+   "replaces": "Lantern Escort",
+   "archetype": "ship_escort",
+   "recipe": "Escort hull with a heavier forward gun house, shorter mast, extra deck gun, copper hull band.",
+   "kit": [
+    "harbour_bollards"
+   ]
+  },
+  "unit.def.ural_assault_tank": {
+   "replaces": "Hammer Tank",
+   "archetype": "mbt_t2",
+   "recipe": "Hammer hull +15 %, two round APS pods on the turret cheeks, slab front plates; the deck container is replaced by an APS radar box.",
+   "kit": [
+    "aps_pods",
+    "slab_addon"
+   ]
+  },
+  "unit.def.bear_siege_crawler": {
+   "replaces": "Colossus Siege Tank",
+   "archetype": "siege_demo",
+   "recipe": "Very low wide crawler tracks, front wall of three slabs, one fat demolition cannon, tiny slit cupola.",
+   "kit": [
+    "slab_addon"
+   ]
+  },
+  "unit.def.steppe_recon_carrier": {
+   "replaces": "Mule APC",
+   "archetype": "veh_scout",
+   "recipe": "Lighter wheeled truck-cab with a tall extending recon mast and antenna fan; pale-yellow spare fuel drums.",
+   "kit": [
+    "jerry_rack",
+    "whip_pair"
+   ]
+  },
+  "unit.def.saker_missile_truck": {
+   "replaces": "Anvil Rocket Battery",
+   "archetype": "arty_missile",
+   "recipe": "6x6 truck carrying two large single guided-missile canisters (Anvil has a rocket-pod block); raise 20 deg on deploy.",
+   "kit": [
+    "jerry_rack"
+   ]
+  },
+  "unit.def.fortress_guard": {
+   "replaces": "Line Conscript",
+   "archetype": "inf_line",
+   "recipe": "Infantry with a tripod heavy rifle (DEPLOY) and a slab shield; sandbag-coloured ground plate under the deployed team.",
+   "kit": [
+    "riot_shield_rack",
+    "fortress_visor"
+   ]
+  },
+  "unit.def.echo_team": {
+   "replaces": "Signal Officer",
+   "archetype": "inf_support",
+   "recipe": "Two-person team: radio pack + a flat decoy-tank frame strapped to the back that unfolds as the decoy.",
+   "kit": [
+    "decoy_frame",
+    "camo_net"
+   ]
+  },
+  "unit.pd.outrider_howitzer": {
+   "replaces": "Breaker Howitzer",
+   "archetype": "arty_howitzer",
+   "recipe": "8x8 wheeled howitzer, barrel x1.35, wheeled stabiliser feet, coral muzzle brake, narrow-arc mount.",
+   "kit": [
+    "long_barrel_sleeve",
+    "recon_pod"
+   ]
+  },
+  "unit.pd.wedge_recon_fighter": {
+   "replaces": "Petrel Fighter",
+   "archetype": "air_fighter",
+   "recipe": "Delta-wing fighter with a sensor spine and a chin sensor ball; fold-able wingtips.",
+   "kit": [
+    "recon_pod",
+    "winglet_tips"
+   ]
+  },
+  "unit.pd.kancil_landing_skimmer": {
+   "replaces": "Wake Skimmer",
+   "archetype": "veh_scout",
+   "recipe": "Wake Skimmer hull widened with a bow ramp and grab rails; lighter turret.",
+   "kit": [
+    "landing_ramp",
+    "grab_rails"
+   ]
+  },
+  "unit.pd.island_raider": {
+   "replaces": "Ranger Marine",
+   "archetype": "inf_line",
+   "recipe": "Marine squad, lighter kit, snorkel masks pushed up on helmets, coral wrist bands, bright dry bags.",
+   "kit": [
+    "dry_bag"
+   ]
+  },
+  "unit.pd.shinano_adaptive_tank": {
+   "replaces": "Tide Tank",
+   "archetype": "mbt_t1",
+   "recipe": "Tide hull with a two-mode turret: low mobile gun plus a folding long-barrel siege module that unfolds upward; coral hazard at the hinge.",
+   "kit": [
+    "modular_hardpoint",
+    "sensor_ball"
+   ]
+  },
+  "unit.pd.shogun_drone_carrier": {
+   "replaces": "Tempest Carrier",
+   "archetype": "ship_carrier",
+   "recipe": "Deck split in two: left half strike-drone launch rails (coral), right half interceptor cradles (white); sensor-ball tower.",
+   "kit": [
+    "sensor_ball",
+    "drone_bay_hatch"
+   ]
+  },
+  "unit.han.imperial_guard_tank": {
+   "replaces": "Ox Tank",
+   "archetype": "mbt_t2",
+   "recipe": "Ox hull +10 %, long-barrel gun with fume extractor, porcelain shoulder plates and a crimson band; shorter crown.",
+   "kit": [
+    "numbered_module_plate",
+    "heavy_crown"
+   ]
+  },
+  "unit.han.long_command_walker": {
+   "replaces": "Dragon Command Walker",
+   "archetype": "veh_command",
+   "recipe": "Wider stance with a deployable outrigger ring; larger crown that extends 2 cells (tines lengthen on deploy).",
+   "kit": [
+    "heavy_crown",
+    "numbered_module_plate"
+   ]
+  },
+  "unit.han.canopy_ranger": {
+   "replaces": "Banner Infantry",
+   "archetype": "inf_line",
+   "recipe": "Rifle infantry with leaf-clip ghillie tunics (jade + brown) and low packs; camouflage shimmer.",
+   "kit": [
+    "leaf_clip"
+   ]
+  },
+  "unit.han.reed_rocket_skimmer": {
+   "replaces": "Nest Rocket Drone",
+   "archetype": "arty_light",
+   "recipe": "Small amphibious hovering skimmer with a 6-tube rocket pod and a reed-green skirt; unmanned (no hatch).",
+   "kit": [
+    "reed_skirt",
+    "float_collar"
+   ]
+  },
+  "unit.han.lotus_drone_tender": {
+   "replaces": "Jade Carrier",
+   "archetype": "veh_scout",
+   "recipe": "Jade Carrier hull with a lotus-petal drone dock ring (4 folding petals) on the roof and a small manipulator arm.",
+   "kit": [
+    "tender_cradle",
+    "repair_arm"
+   ]
+  },
+  "unit.han.mekong_field_engineer": {
+   "replaces": "Link Operator",
+   "archetype": "inf_support",
+   "recipe": "Operator with a folding boom antenna and tool belt; stationary deploy unfolds a mast (command-field provider stays readable via mini crown).",
+   "kit": [
+    "boom_antenna"
+   ]
+  },
+  "unit.ae.civic_rifle_team": {
+   "replaces": "Union Guard",
+   "archetype": "inf_line",
+   "recipe": "Riflemen with a belt of sensor pucks (cyan discs, 0.12 m).",
+   "kit": [
+    "puck_belt"
+   ]
+  },
+  "unit.ae.lagos_drone_guard": {
+   "replaces": "Weaver AA",
+   "archetype": "veh_aa",
+   "recipe": "AA vehicle with a small repair drone docked on the turret roof in a cyan-lit cradle.",
+   "kit": [
+    "drone_guard_cradle",
+    "comm_mast"
+   ]
+  },
+  "unit.ae.okapi_amphibious_carrier": {
+   "replaces": "Mamba APC",
+   "archetype": "veh_scout",
+   "recipe": "Amphibious wheeled carrier, tall bulky cargo hold with cleaner sheet panels (thin armour), float collar.",
+   "kit": [
+    "float_collar",
+    "reed_screen"
+   ]
+  },
+  "unit.ae.river_warden": {
+   "replaces": "Reclaimer",
+   "archetype": "inf_combat_spec",
+   "recipe": "Armed salvage infantry in reed-green cloth wrap with a cutting torch; camouflage shimmer.",
+   "kit": [
+    "reed_wrap"
+   ]
+  },
+  "unit.ae.rhino_rail_tank": {
+   "replaces": "Buffalo Tank",
+   "archetype": "mbt_t2_rail",
+   "recipe": "Buffalo hull with a long rail barrel between two capacitor cylinders (cyan rings); little splash.",
+   "kit": [
+    "rangefinder_box",
+    "long_recoil_sleeve"
+   ]
+  },
+  "unit.ae.protea_gun_carrier": {
+   "replaces": "Forge Howitzer",
+   "archetype": "arty_howitzer",
+   "recipe": "Gun on a turntable with a swappable canister shroud; module collar in cyan; switches 3 s.",
+   "kit": [
+    "long_recoil_sleeve",
+    "rangefinder_box"
+   ]
+  },
+  "unit.sap.arjun_assault_tank": {
+   "replaces": "Bulwark Tank",
+   "archetype": "mbt_t2",
+   "recipe": "Bulwark with an APS ring: four small saffron radar patches on the turret corners, thicker layered front.",
+   "kit": [
+    "layer_plate",
+    "aps_pods"
+   ]
+  },
+  "unit.sap.gaj_siege_platform": {
+   "replaces": "Elephant Siege Tank",
+   "archetype": "siege_he",
+   "recipe": "Heavy platform with huge front braces (outrigger legs deploying), lowered chassis, long sleeved barrel.",
+   "kit": [
+    "layer_plate",
+    "command_pennant"
+   ]
+  },
+  "unit.sap.naga_amphibious_carrier": {
+   "replaces": "Jackal APC",
+   "archetype": "veh_scout",
+   "recipe": "Amphibious carrier with a six-tube smoke bank at the rear, serpentine wave-cut hull, float collar.",
+   "kit": [
+    "smoke_bank",
+    "float_collar",
+    "mooring_hook"
+   ]
+  },
+  "unit.sap.river_marine": {
+   "replaces": "Shield Rifle Squad",
+   "archetype": "inf_line",
+   "recipe": "Marines with lighter shields on the back and saffron life-vests.",
+   "kit": [
+    "riot_shield_rack"
+   ]
+  },
+  "unit.sap.shaheen_missile_battery": {
+   "replaces": "Monsoon Howitzer",
+   "archetype": "arty_missile",
+   "recipe": "Tracked missile battery with 4 long canted tubes; stabiliser legs deploy (DEPLOY part); sensor mast.",
+   "kit": [
+    "missile_rail_cover",
+    "periscope_mast"
+   ]
+  },
+  "unit.sap.watchpost_recon_team": {
+   "replaces": "Combat Pioneer",
+   "archetype": "inf_support",
+   "recipe": "Observers with a tripod optic and camouflage cloak; cloak shimmer.",
+   "kit": [
+    "camo_net"
+   ]
+  }
+ },
+ "player_colors": {
+  "default": [
+   {
+    "id": 0,
+    "key": "crimson",
+    "hex": "#D8323B"
+   },
+   {
+    "id": 1,
+    "key": "azure",
+    "hex": "#2C86F0"
+   },
+   {
+    "id": 2,
+    "key": "emerald",
+    "hex": "#2FAE5E"
+   },
+   {
+    "id": 3,
+    "key": "amber",
+    "hex": "#F5C13A"
+   },
+   {
+    "id": 4,
+    "key": "violet",
+    "hex": "#7250D8"
+   },
+   {
+    "id": 5,
+    "key": "cyan",
+    "hex": "#25CDE0"
+   },
+   {
+    "id": 6,
+    "key": "orange",
+    "hex": "#F47B2A"
+   },
+   {
+    "id": 7,
+    "key": "magenta",
+    "hex": "#E0489F"
+   },
+   {
+    "id": 8,
+    "key": "lime",
+    "hex": "#9BD13B"
+   },
+   {
+    "id": 9,
+    "key": "slate",
+    "hex": "#8A97A8"
+   },
+   {
+    "id": 10,
+    "key": "brown",
+    "hex": "#8C5A3B"
+   },
+   {
+    "id": 11,
+    "key": "white",
+    "hex": "#ECECEC"
+   }
+  ],
+  "cvd": [
+   {
+    "id": 0,
+    "key": "crimson",
+    "hex": "#CE251A"
+   },
+   {
+    "id": 1,
+    "key": "azure",
+    "hex": "#6D99FA"
+   },
+   {
+    "id": 2,
+    "key": "emerald",
+    "hex": "#86C280"
+   },
+   {
+    "id": 3,
+    "key": "amber",
+    "hex": "#E4CD19"
+   },
+   {
+    "id": 4,
+    "key": "violet",
+    "hex": "#7957CD"
+   },
+   {
+    "id": 5,
+    "key": "cyan",
+    "hex": "#3CE0EA"
+   },
+   {
+    "id": 6,
+    "key": "orange",
+    "hex": "#E9711E"
+   },
+   {
+    "id": 7,
+    "key": "magenta",
+    "hex": "#9E3773"
+   }
+  ],
+  "assign_order": [
+   1,
+   0,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7
+  ],
+  "metrics_authored": {
+   "default8": {
+    "normal": 22.6,
+    "protan": 8.5,
+    "deutan": 9.0,
+    "tritan": 8.7
+   },
+   "cvd8": {
+    "normal": 20.8,
+    "protan": 14.5,
+    "deutan": 13.8,
+    "tritan": 13.5
+   }
+  },
+  "metrics_rendered": {
+   "default8": {
+    "normal": 17.4,
+    "protan": 6.9,
+    "deutan": 6.2,
+    "tritan": 8.0,
+    "authored_to_rendered_mean_dE": 5.4,
+    "max_dE": 8.8
+   },
+   "cvd8": {
+    "normal": 17.3,
+    "protan": 12.6,
+    "deutan": 9.9,
+    "tritan": 10.0,
+    "authored_to_rendered_mean_dE": 5.4,
+    "max_dE": 7.1
+   },
+   "conditions": "Filmic tonemap, studio-like spike lighting (sun 1.9 warm + blue fill), team_key plate, Color->Vector4 uniform fix applied"
+  },
+  "cvd_extended_note": "ids 8..11 do not exist in the cvd set; the UI offers only ids 0..7 when the CVD palette is active",
+  "rendered_plates_expected": {
+   "default8": [
+    "#CF3A49",
+    "#3A8FD0",
+    "#3FB273",
+    "#D8BF4D",
+    "#8560CC",
+    "#33C2CF",
+    "#CC8342",
+    "#C955A7"
+   ],
+   "cvd8": [
+    "#CA2F2E",
+    "#7E9CD1",
+    "#95B990",
+    "#D2C533",
+    "#8B67C6",
+    "#48C9D1",
+    "#C97A3B",
+    "#A94687"
+   ],
+   "conditions": "mean pixel of the key-paint plate, Filmic, studio_neutral-like proof lighting, camera MID; tolerance 3 dE00"
+  },
+  "swatch_probe": {
+   "authored": "#2C86F0",
+   "vector4_path_expected": "#2988F1",
+   "color_path_defect": "#063CE0",
+   "tolerance_levels": 3
+  }
+ },
+ "team_plate": {
+  "key_paint": "#C6C6C6",
+  "key_paint_note": "sRGB; linear luma 0.565 -> albedo factor 0.909 in the spike shader (0.40 + 0.9 * luma)",
+  "gasket_outer": "#dark (faction palette.dark)",
+  "hairline": "#E6E6E6",
+  "gasket_outer_width_m": 0.08,
+  "hairline_width_m": 0.04,
+  "plate_thickness_m": 0.03,
+  "area_top_view_min": 0.05,
+  "area_top_view_max": 0.12,
+  "structure_roof_min_m2": 1.0,
+  "structure_roof_min_frac": 0.025,
+  "min_dimension_m": 0.45
+ },
+ "size_classes": {
+  "inf": {
+   "radius_cells": 0.4
+  },
+  "light": {
+   "radius_cells": 0.45
+  },
+  "medium": {
+   "radius_cells": 0.55
+  },
+  "heavy": {
+   "radius_cells": 0.8
+  },
+  "huge": {
+   "radius_cells": 1.0
+  },
+  "air_medium": {
+   "radius_cells": 0.5
+  },
+  "air_large": {
+   "radius_cells": 0.65
+  },
+  "ship_small": {
+   "radius_cells": 0.6
+  },
+  "ship_medium": {
+   "radius_cells": 1.0
+  },
+  "ship_large": {
+   "radius_cells": 1.4
+  },
+  "s1": {
+   "radius_cells": 0.5
+  },
+  "s2": {
+   "radius_cells": 1.0
+  },
+  "s3": {
+   "radius_cells": 1.5
+  },
+  "s4": {
+   "radius_cells": 2.0
+  }
+ },
+ "cell_m": 3.0,
+ "archetypes": {
+  "inf_line": {
+   "size_class": "inf",
+   "radius_cells": 0.4,
+   "class_radius_cells": 0.4,
+   "length_m": 1.9,
+   "width_m": 1.7,
+   "height_m": 1.25,
+   "length_cells": 0.63,
+   "width_cells": 0.57,
+   "team_area_min_m2": 0.2,
+   "altitude_m": 0,
+   "soldiers": 4,
+   "note": "4 soldiers, 2x2 diamond, spacing 0.75 m; model_scale 1.25 on the 1.0 m soldier"
+  },
+  "inf_at": {
+   "size_class": "inf",
+   "radius_cells": 0.4,
+   "class_radius_cells": 0.4,
+   "length_m": 1.9,
+   "width_m": 1.7,
+   "height_m": 1.25,
+   "length_cells": 0.63,
+   "width_cells": 0.57,
+   "team_area_min_m2": 0.16,
+   "altitude_m": 0,
+   "soldiers": 3,
+   "note": "3 soldiers; launcher tube 0.9 m; one kneels"
+  },
+  "inf_support": {
+   "size_class": "inf",
+   "radius_cells": 0.4,
+   "class_radius_cells": 0.4,
+   "length_m": 1.5,
+   "width_m": 1.3,
+   "height_m": 1.25,
+   "length_cells": 0.5,
+   "width_cells": 0.43,
+   "team_area_min_m2": 0.1,
+   "altitude_m": 0,
+   "soldiers": 2,
+   "note": "2 soldiers; distinctive backpack/gear silhouette (0.5 m)"
+  },
+  "inf_combat_spec": {
+   "size_class": "inf",
+   "radius_cells": 0.4,
+   "class_radius_cells": 0.4,
+   "length_m": 1.8,
+   "width_m": 1.6,
+   "height_m": 1.25,
+   "length_cells": 0.6,
+   "width_cells": 0.53,
+   "team_area_min_m2": 0.14,
+   "altitude_m": 0,
+   "soldiers": 3,
+   "note": "3 soldiers; heavier kit"
+  },
+  "veh_scout": {
+   "size_class": "light",
+   "radius_cells": 0.45,
+   "class_radius_cells": 0.45,
+   "length_m": 3.4,
+   "width_m": 1.8,
+   "height_m": 1.7,
+   "length_cells": 1.13,
+   "width_cells": 0.6,
+   "team_area_min_m2": 0.7,
+   "altitude_m": 0,
+   "soldiers": 0,
+   "note": "4x4/6x6 wheeled; roof sensor spinner or mast"
+  },
+  "arty_light": {
+   "size_class": "light",
+   "radius_cells": 0.5,
+   "class_radius_cells": 0.45,
+   "length_m": 3.6,
+   "width_m": 1.9,
+   "height_m": 1.9,
+   "length_cells": 1.2,
+   "width_cells": 0.63,
+   "team_area_min_m2": 0.7,
+   "altitude_m": 0,
+   "soldiers": 0,
+   "note": "light wheeled/skimmer chassis; rack raised to 2.6 m when firing"
+  },
+  "mbt_t1": {
+   "size_class": "medium",
+   "radius_cells": 0.55,
+   "class_radius_cells": 0.55,
+   "length_m": 3.5,
+   "width_m": 1.95,
+   "height_m": 2.0,
+   "length_cells": 1.17,
+   "width_cells": 0.65,
+   "team_area_min_m2": 1.0,
+   "altitude_m": 0,
+   "soldiers": 0,
+   "note": "hull top 1.16 m; turret to 2.0 m; barrel adds 1.6-2.7 m forward"
+  },
+  "mbt_t2": {
+   "size_class": "medium",
+   "radius_cells": 0.6,
+   "class_radius_cells": 0.55,
+   "length_m": 3.9,
+   "width_m": 2.1,
+   "height_m": 2.2,
+   "length_cells": 1.3,
+   "width_cells": 0.7,
+   "team_area_min_m2": 1.1,
+   "altitude_m": 0,
+   "soldiers": 0,
+   "note": "T1 style dict x1.10 length, heavier glacis, second sensor or APS feature"
+  },
+  "mbt_t2_rail": {
+   "size_class": "medium",
+   "radius_cells": 0.6,
+   "class_radius_cells": 0.55,
+   "length_m": 3.9,
+   "width_m": 2.1,
+   "height_m": 2.2,
+   "length_cells": 1.3,
+   "width_cells": 0.7,
+   "team_area_min_m2": 1.1,
+   "altitude_m": 0,
+   "soldiers": 0,
+   "note": "long rail barrel 3.2 m with cyan-blue capacitor rings"
+  },
+  "veh_aa": {
+   "size_class": "medium",
+   "radius_cells": 0.55,
+   "class_radius_cells": 0.55,
+   "length_m": 3.6,
+   "width_m": 2.0,
+   "height_m": 2.5,
+   "length_cells": 1.2,
+   "width_cells": 0.67,
+   "team_area_min_m2": 1.0,
+   "altitude_m": 0,
+   "soldiers": 0,
+   "note": "tall turret; radar/mast to 3.0 m; multi-barrel or launcher pods"
+  },
+  "veh_aa_beam": {
+   "size_class": "medium",
+   "radius_cells": 0.55,
+   "class_radius_cells": 0.55,
+   "length_m": 3.6,
+   "width_m": 2.0,
+   "height_m": 2.5,
+   "length_cells": 1.2,
+   "width_cells": 0.67,
+   "team_area_min_m2": 1.0,
+   "altitude_m": 0,
+   "soldiers": 0,
+   "note": "lens turret instead of pods"
+  },
+  "veh_aa_flak": {
+   "size_class": "medium",
+   "radius_cells": 0.55,
+   "class_radius_cells": 0.55,
+   "length_m": 3.6,
+   "width_m": 2.0,
+   "height_m": 2.5,
+   "length_cells": 1.2,
+   "width_cells": 0.67,
+   "team_area_min_m2": 1.0,
+   "altitude_m": 0,
+   "soldiers": 0,
+   "note": "twin flak barrels, open mount"
+  },
+  "arty_howitzer": {
+   "size_class": "medium",
+   "radius_cells": 0.6,
+   "class_radius_cells": 0.55,
+   "length_m": 4.0,
+   "width_m": 2.0,
+   "height_m": 2.3,
+   "length_cells": 1.33,
+   "width_cells": 0.67,
+   "team_area_min_m2": 1.0,
+   "altitude_m": 0,
+   "soldiers": 0,
+   "note": "casemate turret to the rear; barrel raised to 3.5 m; rear spades (DEPLOY part)"
+  },
+  "arty_rocket": {
+   "size_class": "medium",
+   "radius_cells": 0.6,
+   "class_radius_cells": 0.55,
+   "length_m": 4.0,
+   "width_m": 2.1,
+   "height_m": 2.6,
+   "length_cells": 1.33,
+   "width_cells": 0.7,
+   "team_area_min_m2": 1.0,
+   "altitude_m": 0,
+   "soldiers": 0,
+   "note": "rocket rack raised to 3.2 m"
+  },
+  "arty_missile": {
+   "size_class": "medium",
+   "radius_cells": 0.6,
+   "class_radius_cells": 0.55,
+   "length_m": 4.0,
+   "width_m": 2.1,
+   "height_m": 2.6,
+   "length_cells": 1.33,
+   "width_cells": 0.7,
+   "team_area_min_m2": 1.0,
+   "altitude_m": 0,
+   "soldiers": 0,
+   "note": "canted tubes raised to 3.2 m"
+  },
+  "siege_ap": {
+   "size_class": "heavy",
+   "radius_cells": 0.8,
+   "class_radius_cells": 0.8,
+   "length_m": 5.0,
+   "width_m": 2.7,
+   "height_m": 2.5,
+   "length_cells": 1.67,
+   "width_cells": 0.9,
+   "team_area_min_m2": 1.6,
+   "altitude_m": 0,
+   "soldiers": 0,
+   "note": "twin-gun heavy; hull top 1.35 m"
+  },
+  "siege_he": {
+   "size_class": "heavy",
+   "radius_cells": 0.8,
+   "class_radius_cells": 0.8,
+   "length_m": 5.0,
+   "width_m": 2.7,
+   "height_m": 2.5,
+   "length_cells": 1.67,
+   "width_cells": 0.9,
+   "team_area_min_m2": 1.6,
+   "altitude_m": 0,
+   "soldiers": 0,
+   "note": "one fat siege gun"
+  },
+  "siege_rail": {
+   "size_class": "heavy",
+   "radius_cells": 0.8,
+   "class_radius_cells": 0.8,
+   "length_m": 5.0,
+   "width_m": 2.7,
+   "height_m": 2.4,
+   "length_cells": 1.67,
+   "width_cells": 0.9,
+   "team_area_min_m2": 1.6,
+   "altitude_m": 0,
+   "soldiers": 0,
+   "note": "long rail gun; deployable variant adds outriggers"
+  },
+  "siege_beam": {
+   "size_class": "heavy",
+   "radius_cells": 0.8,
+   "class_radius_cells": 0.8,
+   "length_m": 5.0,
+   "width_m": 2.7,
+   "height_m": 2.6,
+   "length_cells": 1.67,
+   "width_cells": 0.9,
+   "team_area_min_m2": 1.6,
+   "altitude_m": 0,
+   "soldiers": 0,
+   "note": "prism / lens array on a raised mount"
+  },
+  "siege_demo": {
+   "size_class": "heavy",
+   "radius_cells": 0.85,
+   "class_radius_cells": 0.8,
+   "length_m": 5.4,
+   "width_m": 2.9,
+   "height_m": 2.6,
+   "length_cells": 1.8,
+   "width_cells": 0.97,
+   "team_area_min_m2": 1.7,
+   "altitude_m": 0,
+   "soldiers": 0,
+   "note": "very low wide crawler; short huge cannon"
+  },
+  "veh_command": {
+   "size_class": "huge",
+   "radius_cells": 1.0,
+   "class_radius_cells": 1.0,
+   "length_m": 5.2,
+   "width_m": 4.4,
+   "height_m": 4.2,
+   "length_cells": 1.73,
+   "width_cells": 1.47,
+   "team_area_min_m2": 2.2,
+   "altitude_m": 0,
+   "soldiers": 0,
+   "note": "walker: 4-leg stance 4.4 m wide, body at 3.0 m, crown to 4.2 m"
+  },
+  "veh_assault_carrier": {
+   "size_class": "huge",
+   "radius_cells": 1.0,
+   "class_radius_cells": 1.0,
+   "length_m": 6.4,
+   "width_m": 3.3,
+   "height_m": 2.7,
+   "length_cells": 2.13,
+   "width_cells": 1.1,
+   "team_area_min_m2": 2.0,
+   "altitude_m": 0,
+   "soldiers": 0,
+   "note": "amphibious hull; bow ramp; siege cannon"
+  },
+  "air_fighter": {
+   "size_class": "air_medium",
+   "radius_cells": 0.5,
+   "class_radius_cells": 0.5,
+   "length_m": 5.2,
+   "width_m": 3.8,
+   "height_m": 1.3,
+   "length_cells": 1.73,
+   "width_cells": 1.27,
+   "team_area_min_m2": 0.5,
+   "altitude_m": 9.0,
+   "soldiers": 0,
+   "note": "cruise altitude 9 m; shadow blob offset by altitude"
+  },
+  "air_gunship": {
+   "size_class": "air_large",
+   "radius_cells": 0.65,
+   "class_radius_cells": 0.65,
+   "length_m": 4.6,
+   "width_m": 1.5,
+   "height_m": 1.9,
+   "length_cells": 1.53,
+   "width_cells": 0.5,
+   "team_area_min_m2": 0.55,
+   "altitude_m": 4.5,
+   "soldiers": 0,
+   "note": "rotor disc 5.4 m; hover altitude 4.5 m (rotor top 6.8 m)"
+  },
+  "air_bomber": {
+   "size_class": "air_large",
+   "radius_cells": 0.7,
+   "class_radius_cells": 0.65,
+   "length_m": 6.6,
+   "width_m": 8.0,
+   "height_m": 1.7,
+   "length_cells": 2.2,
+   "width_cells": 2.67,
+   "team_area_min_m2": 0.7,
+   "altitude_m": 11.0,
+   "soldiers": 0,
+   "note": "flying-wing or delta; altitude 11 m"
+  },
+  "air_drone": {
+   "size_class": "air_medium",
+   "radius_cells": 0.5,
+   "class_radius_cells": 0.5,
+   "length_m": 2.8,
+   "width_m": 3.0,
+   "height_m": 0.8,
+   "length_cells": 0.93,
+   "width_cells": 1.0,
+   "team_area_min_m2": 0.3,
+   "altitude_m": 6.0,
+   "soldiers": 0,
+   "note": "quad/wing drone; altitude 6 m"
+  },
+  "air_ew": {
+   "size_class": "air_large",
+   "radius_cells": 0.6,
+   "class_radius_cells": 0.65,
+   "length_m": 6.0,
+   "width_m": 6.4,
+   "height_m": 1.9,
+   "length_cells": 2.0,
+   "width_cells": 2.13,
+   "team_area_min_m2": 0.6,
+   "altitude_m": 10.0,
+   "soldiers": 0,
+   "note": "jammer aircraft; large dorsal radome"
+  },
+  "ship_patrol": {
+   "size_class": "ship_small",
+   "radius_cells": 0.6,
+   "class_radius_cells": 0.6,
+   "length_m": 4.6,
+   "width_m": 1.9,
+   "height_m": 2.2,
+   "length_cells": 1.53,
+   "width_cells": 0.63,
+   "team_area_min_m2": 0.6,
+   "altitude_m": 0,
+   "soldiers": 0,
+   "note": "mast to 3.2 m; draft 0.3 m"
+  },
+  "ship_escort": {
+   "size_class": "ship_medium",
+   "radius_cells": 1.0,
+   "class_radius_cells": 1.0,
+   "length_m": 7.6,
+   "width_m": 2.7,
+   "height_m": 3.3,
+   "length_cells": 2.53,
+   "width_cells": 0.9,
+   "team_area_min_m2": 1.2,
+   "altitude_m": 0,
+   "soldiers": 0,
+   "note": "mast to 4.8 m; forward gun house, aft AA"
+  },
+  "ship_siege": {
+   "size_class": "ship_large",
+   "radius_cells": 1.3,
+   "class_radius_cells": 1.4,
+   "length_m": 9.8,
+   "width_m": 3.5,
+   "height_m": 3.6,
+   "length_cells": 3.27,
+   "width_cells": 1.17,
+   "team_area_min_m2": 1.6,
+   "altitude_m": 0,
+   "soldiers": 0,
+   "note": "big gun turrets fore/aft; superstructure amidships"
+  },
+  "ship_carrier": {
+   "size_class": "ship_large",
+   "radius_cells": 1.5,
+   "class_radius_cells": 1.4,
+   "length_m": 11.6,
+   "width_m": 4.8,
+   "height_m": 3.6,
+   "length_cells": 3.87,
+   "width_cells": 1.6,
+   "team_area_min_m2": 2.0,
+   "altitude_m": 0,
+   "soldiers": 0,
+   "note": "flight deck; island tower to 5.0 m"
+  },
+  "ship_sub": {
+   "size_class": "ship_medium",
+   "radius_cells": 0.9,
+   "class_radius_cells": 1.0,
+   "length_m": 6.8,
+   "width_m": 1.7,
+   "height_m": 1.7,
+   "length_cells": 2.27,
+   "width_cells": 0.57,
+   "team_area_min_m2": 0.5,
+   "altitude_m": 0,
+   "soldiers": 0,
+   "note": "sail to 2.5 m; submerged: dark hull shape 1.2 m under the surface"
+  },
+  "service.engineer": {
+   "size_class": "inf",
+   "radius_cells": 0.4,
+   "class_radius_cells": 0.4,
+   "length_m": 1.5,
+   "width_m": 1.2,
+   "height_m": 1.25,
+   "length_cells": 0.5,
+   "width_cells": 0.4,
+   "team_area_min_m2": 0.1,
+   "altitude_m": 0,
+   "soldiers": 2,
+   "note": "2 engineers, tool bag + hard-hats in accent"
+  },
+  "service.collector": {
+   "size_class": "light",
+   "radius_cells": 0.6,
+   "class_radius_cells": 0.45,
+   "length_m": 4.2,
+   "width_m": 2.3,
+   "height_m": 2.4,
+   "length_cells": 1.4,
+   "width_cells": 0.77,
+   "team_area_min_m2": 0.8,
+   "altitude_m": 0,
+   "soldiers": 0,
+   "note": "hopper truck with front scoop; hopper visibly fills (BODY_BOB/level uniform)"
+  },
+  "service.mcv": {
+   "size_class": "medium",
+   "radius_cells": 0.8,
+   "class_radius_cells": 0.55,
+   "length_m": 5.2,
+   "width_m": 2.7,
+   "height_m": 3.0,
+   "length_cells": 1.73,
+   "width_cells": 0.9,
+   "team_area_min_m2": 1.3,
+   "altitude_m": 0,
+   "soldiers": 0,
+   "note": "boxy carrier with folded HQ frame on the bed; deploy part unfolds"
+  },
+  "service.landing_transport": {
+   "size_class": "light",
+   "radius_cells": 0.8,
+   "class_radius_cells": 0.45,
+   "length_m": 5.2,
+   "width_m": 2.9,
+   "height_m": 2.1,
+   "length_cells": 1.73,
+   "width_cells": 0.97,
+   "team_area_min_m2": 1.0,
+   "altitude_m": 0,
+   "soldiers": 0,
+   "note": "amphibious flat-deck hover/LCAC style, ramp at the bow"
+  }
+ },
+ "structures": {
+  "headquarters": {
+   "footprint_cells": [
+    3,
+    3
+   ],
+   "footprint_m": [
+    9.0,
+    9.0
+   ],
+   "body_h_m": 7.0,
+   "landmark_h_m": 10.5,
+   "note": "tallest non-strategic; roof landmark + pennant; south apron 3x2"
+  },
+  "generator": {
+   "footprint_cells": [
+    2,
+    2
+   ],
+   "footprint_m": [
+    6.0,
+    6.0
+   ],
+   "body_h_m": 3.4,
+   "landmark_h_m": 7.2,
+   "note": "power: stacks / mirrors / dome / tiers"
+  },
+  "refinery": {
+   "footprint_cells": [
+    3,
+    3
+   ],
+   "footprint_m": [
+    9.0,
+    9.0
+   ],
+   "body_h_m": 5.5,
+   "landmark_h_m": 8.0,
+   "note": "silos + intake bay on the south side (collector dock cell)"
+  },
+  "barracks": {
+   "footprint_cells": [
+    2,
+    2
+   ],
+   "footprint_m": [
+    6.0,
+    6.0
+   ],
+   "body_h_m": 3.6,
+   "landmark_h_m": 5.5,
+   "note": "door bay faces south; recruitment banner"
+  },
+  "factory": {
+   "footprint_cells": [
+    3,
+    3
+   ],
+   "footprint_m": [
+    9.0,
+    9.0
+   ],
+   "body_h_m": 4.2,
+   "landmark_h_m": 7.0,
+   "note": "wide roll-up door on the south face; gantry / crane"
+  },
+  "dock": {
+   "footprint_cells": [
+    3,
+    3
+   ],
+   "footprint_m": [
+    9.0,
+    9.0
+   ],
+   "body_h_m": 3.2,
+   "landmark_h_m": 8.5,
+   "note": "quay with crane; 3x2 berth on the water side"
+  },
+  "radar": {
+   "footprint_cells": [
+    2,
+    2
+   ],
+   "footprint_m": [
+    6.0,
+    6.0
+   ],
+   "body_h_m": 3.0,
+   "landmark_h_m": 8.0,
+   "note": "rotating dish/array is the landmark"
+  },
+  "airfield": {
+   "footprint_cells": [
+    6,
+    3
+   ],
+   "footprint_m": [
+    18.0,
+    9.0
+   ],
+   "body_h_m": 4.2,
+   "landmark_h_m": 8.0,
+   "note": "footprint follows DefStructure.fp (6x3 in economy.md, 4x3 in balance); 4 pads in the middle row; tower 8 m"
+  },
+  "laboratory": {
+   "footprint_cells": [
+    3,
+    3
+   ],
+   "footprint_m": [
+    9.0,
+    9.0
+   ],
+   "body_h_m": 6.0,
+   "landmark_h_m": 9.0,
+   "note": "dome / prism / array on the roof"
+  },
+  "watchtower": {
+   "footprint_cells": [
+    1,
+    1
+   ],
+   "footprint_m": [
+    3.0,
+    3.0
+   ],
+   "body_h_m": 7.5,
+   "landmark_h_m": 7.5,
+   "note": "slim tower, 1.6 m wide, cab with glazing"
+  },
+  "anti_tank_turret": {
+   "footprint_cells": [
+    1,
+    1
+   ],
+   "footprint_m": [
+    3.0,
+    3.0
+   ],
+   "body_h_m": 2.3,
+   "landmark_h_m": 2.3,
+   "note": "low bunker + traversing gun (economy 1x1; balance 2x2 - visual scales to fp)"
+  },
+  "aa_battery": {
+   "footprint_cells": [
+    2,
+    2
+   ],
+   "footprint_m": [
+    6.0,
+    6.0
+   ],
+   "body_h_m": 3.6,
+   "landmark_h_m": 4.5,
+   "note": "launcher rack or flak mount on a bunker"
+  },
+  "advanced_defense": {
+   "footprint_cells": [
+    2,
+    2
+   ],
+   "footprint_m": [
+    6.0,
+    6.0
+   ],
+   "body_h_m": 4.8,
+   "landmark_h_m": 6.0,
+   "note": "faction unique heavy turret / launcher"
+  },
+  "relay": {
+   "footprint_cells": [
+    1,
+    1
+   ],
+   "footprint_m": [
+    3.0,
+    3.0
+   ],
+   "body_h_m": 6.5,
+   "landmark_h_m": 6.5,
+   "note": "NEC only: slim mast with 3 fold-out arms; 6-cell field ring on the ground"
+  },
+  "superweapon": {
+   "footprint_cells": [
+    4,
+    4
+   ],
+   "footprint_m": [
+    12.0,
+    12.0
+   ],
+   "body_h_m": 12.0,
+   "landmark_h_m": 14.0,
+   "note": "unique landmark per faction; visible from MAX zoom"
+  },
+  "neutral.substation": {
+   "footprint_cells": [
+    2,
+    2
+   ],
+   "footprint_m": [
+    6.0,
+    6.0
+   ],
+   "body_h_m": 4.5,
+   "landmark_h_m": 6.0,
+   "note": "civic grey with civic-blue trim; pylons"
+  },
+  "neutral.salvage_depot": {
+   "footprint_cells": [
+    3,
+    3
+   ],
+   "footprint_m": [
+    9.0,
+    9.0
+   ],
+   "body_h_m": 5.0,
+   "landmark_h_m": 8.0,
+   "note": "scrap yard + crane; gunmetal / rust"
+  },
+  "neutral.field_hospital": {
+   "footprint_cells": [
+    2,
+    3
+   ],
+   "footprint_m": [
+    6.0,
+    9.0
+   ],
+   "body_h_m": 4.2,
+   "landmark_h_m": 5.5,
+   "note": "white tent-hall with a civic-blue bar and beacons"
+  },
+  "neutral.observation_tower": {
+   "footprint_cells": [
+    1,
+    1
+   ],
+   "footprint_m": [
+    3.0,
+    3.0
+   ],
+   "body_h_m": 8.0,
+   "landmark_h_m": 8.0,
+   "note": "lattice tower + cab"
+  },
+  "neutral.civilian_garrison": {
+   "footprint_cells": [
+    3,
+    3
+   ],
+   "footprint_m": [
+    9.0,
+    9.0
+   ],
+   "body_h_m": 8.0,
+   "landmark_h_m": 10.0,
+   "note": "apartment block; garrison slits glow when occupied"
+  },
+  "neutral.harbor_terminal": {
+   "footprint_cells": [
+    3,
+    3
+   ],
+   "footprint_m": [
+    9.0,
+    9.0
+   ],
+   "body_h_m": 3.6,
+   "landmark_h_m": 9.0,
+   "note": "shore only; cranes and container stacks"
+  },
+  "neutral.salvage_field": {
+   "footprint_cells": [
+    3,
+    3
+   ],
+   "footprint_m": [
+    9.0,
+    9.0
+   ],
+   "body_h_m": 1.6,
+   "landmark_h_m": 2.6,
+   "note": "resource deposit: scrap heaps, glint sprites; richness by pile count"
+  }
+ },
+ "camera_tiers": {
+  "NEAR": {
+   "zoom": 0.0,
+   "height_m": 34.0,
+   "pitch_deg": 46.0,
+   "distance_m": 47.3,
+   "fov_deg": 38,
+   "px_per_m": 33.2,
+   "px_per_m_ground_depth": 23.9
+  },
+  "MID": {
+   "zoom": 0.25,
+   "height_m": 43.2,
+   "pitch_deg": 48.8,
+   "distance_m": 57.5,
+   "fov_deg": 38,
+   "px_per_m": 27.3,
+   "px_per_m_ground_depth": 20.5
+  },
+  "FAR": {
+   "zoom": 0.7,
+   "height_m": 65.3,
+   "pitch_deg": 55.4,
+   "distance_m": 79.4,
+   "fov_deg": 38,
+   "px_per_m": 19.8,
+   "px_per_m_ground_depth": 16.3
+  },
+  "MAX": {
+   "zoom": 1.0,
+   "height_m": 84.0,
+   "pitch_deg": 61.0,
+   "distance_m": 96.0,
+   "fov_deg": 38,
+   "px_per_m": 16.3,
+   "px_per_m_ground_depth": 14.3
+  }
+ },
+ "style_kits": {
+  "tank_medium": {
+   "napc": {
+    "len": 3.5,
+    "hull_w": 1.92,
+    "hull_top": 1.16,
+    "glacis": 0.75,
+    "track_w": 0.46,
+    "track_x": 0.88,
+    "wheel_n": 5,
+    "wheel_r": 0.3,
+    "skirt": "modules",
+    "turret_n": 8,
+    "turret_rot": 22.5,
+    "turret_hw": 0.74,
+    "turret_hl": 0.96,
+    "turret_h": 0.42,
+    "turret_top": 0.72,
+    "turret_z": 0.18,
+    "turret_shift": 0.06,
+    "barrel_len": 2.0,
+    "barrel_r": 0.075,
+    "muzzle": "brake",
+    "roof": "cupola",
+    "deck": "none",
+    "seed": 7
+   },
+   "nec": {
+    "len": 3.8,
+    "hull_w": 1.8,
+    "hull_top": 0.98,
+    "glacis": 1.25,
+    "track_w": 0.4,
+    "track_x": 0.82,
+    "wheel_n": 6,
+    "wheel_r": 0.25,
+    "skirt": "slab",
+    "turret_n": 6,
+    "turret_rot": 30.0,
+    "turret_hw": 0.62,
+    "turret_hl": 1.15,
+    "turret_h": 0.3,
+    "turret_top": 0.55,
+    "turret_z": 0.42,
+    "turret_shift": 0.15,
+    "barrel_len": 2.7,
+    "barrel_r": 0.058,
+    "muzzle": "plain",
+    "roof": "mast",
+    "deck": "none",
+    "seed": 11
+   },
+   "olm": {
+    "len": 3.7,
+    "hull_w": 1.7,
+    "hull_top": 1.04,
+    "glacis": 0.95,
+    "track_w": 0.3,
+    "track_x": 0.8,
+    "wheel_n": 5,
+    "wheel_r": 0.34,
+    "skirt": "fabric",
+    "turret_n": 10,
+    "turret_rot": 18.0,
+    "turret_hw": 0.66,
+    "turret_hl": 0.8,
+    "turret_h": 0.36,
+    "turret_top": 0.72,
+    "turret_z": 0.3,
+    "turret_shift": 0.0,
+    "barrel_len": 2.2,
+    "barrel_r": 0.06,
+    "muzzle": "sleeve",
+    "roof": "dish",
+    "deck": "heat_shield",
+    "wheels": "bogie",
+    "seed": 41
+   },
+   "def": {
+    "len": 3.4,
+    "hull_w": 2.06,
+    "hull_top": 1.24,
+    "glacis": 0.4,
+    "track_w": 0.5,
+    "track_x": 0.95,
+    "wheel_n": 6,
+    "wheel_r": 0.34,
+    "skirt": "none",
+    "turret_n": 4,
+    "turret_rot": 45.0,
+    "turret_hw": 0.86,
+    "turret_hl": 0.86,
+    "turret_h": 0.52,
+    "turret_top": 0.9,
+    "turret_z": 0.1,
+    "turret_shift": 0.0,
+    "barrel_len": 1.85,
+    "barrel_r": 0.098,
+    "muzzle": "brake",
+    "roof": "cupola",
+    "deck": "container",
+    "seed": 21
+   },
+   "pd": {
+    "len": 3.6,
+    "hull_w": 1.94,
+    "hull_top": 1.06,
+    "glacis": 1.1,
+    "track_w": 0.34,
+    "track_x": 0.84,
+    "wheel_n": 5,
+    "wheel_r": 0.27,
+    "skirt": "float",
+    "turret_n": 12,
+    "turret_rot": 15.0,
+    "turret_hw": 0.66,
+    "turret_hl": 0.72,
+    "turret_h": 0.34,
+    "turret_top": 0.74,
+    "turret_z": 0.2,
+    "turret_shift": 0.0,
+    "barrel_len": 1.9,
+    "barrel_r": 0.07,
+    "muzzle": "sleeve",
+    "roof": "snorkel",
+    "deck": "drone_pad",
+    "bow": true,
+    "seed": 51
+   },
+   "han": {
+    "len": 3.0,
+    "hull_w": 1.72,
+    "hull_top": 1.06,
+    "glacis": 0.85,
+    "track_w": 0.4,
+    "track_x": 0.8,
+    "wheel_n": 4,
+    "wheel_r": 0.27,
+    "skirt": "modules",
+    "turret_n": 12,
+    "turret_rot": 15.0,
+    "turret_hw": 0.7,
+    "turret_hl": 0.7,
+    "turret_h": 0.36,
+    "turret_top": 0.78,
+    "turret_z": 0.1,
+    "turret_shift": 0.0,
+    "barrel_len": 1.75,
+    "barrel_r": 0.068,
+    "muzzle": "sleeve",
+    "roof": "crown",
+    "deck": "drone_rack",
+    "seed": 31
+   },
+   "ae": {
+    "len": 3.5,
+    "hull_w": 2.0,
+    "hull_top": 1.12,
+    "glacis": 0.6,
+    "track_w": 0.46,
+    "track_x": 0.92,
+    "wheel_n": 5,
+    "wheel_r": 0.36,
+    "skirt": "patches",
+    "turret_n": 6,
+    "turret_rot": 30.0,
+    "turret_hw": 0.8,
+    "turret_hl": 0.86,
+    "turret_h": 0.44,
+    "turret_top": 0.8,
+    "turret_z": 0.16,
+    "turret_shift": 0.0,
+    "barrel_len": 2.0,
+    "barrel_r": 0.08,
+    "muzzle": "plain",
+    "roof": "rails",
+    "deck": "spares",
+    "wheels": "heavy",
+    "seed": 61
+   },
+   "sap": {
+    "len": 3.5,
+    "hull_w": 2.06,
+    "hull_top": 1.2,
+    "glacis": 0.35,
+    "track_w": 0.48,
+    "track_x": 0.95,
+    "wheel_n": 5,
+    "wheel_r": 0.3,
+    "skirt": "layered",
+    "turret_n": 8,
+    "turret_rot": 22.5,
+    "turret_hw": 0.8,
+    "turret_hl": 0.92,
+    "turret_h": 0.46,
+    "turret_top": 0.76,
+    "turret_z": 0.2,
+    "turret_shift": 0.0,
+    "barrel_len": 1.9,
+    "barrel_r": 0.085,
+    "muzzle": "brake",
+    "roof": "sensors",
+    "deck": "braces",
+    "layers": true,
+    "hull_col": "secondary",
+    "seed": 71
+   }
+  }
+ },
+ "emblems": {
+  "unit_square": true,
+  "y_down": true,
+  "roles": [
+   "c1",
+   "c2",
+   "dim",
+   "bg"
+  ],
+  "min_stroke_px": 1.5,
+  "factions": {
+   "napc": [
+    [
+     "poly",
+     [
+      0.15,
+      0.08,
+      0.85,
+      0.08,
+      0.85,
+      0.5,
+      0.5,
+      0.95,
+      0.15,
+      0.5
+     ],
+     "dim",
+     "fill"
+    ],
+    [
+     "poly",
+     [
+      0.15,
+      0.08,
+      0.85,
+      0.08,
+      0.85,
+      0.5,
+      0.5,
+      0.95,
+      0.15,
+      0.5
+     ],
+     "c1",
+     "stroke",
+     0.065
+    ],
+    [
+     "poly",
+     [
+      0.15,
+      0.08,
+      0.85,
+      0.08,
+      0.85,
+      0.21,
+      0.15,
+      0.21
+     ],
+     "c1",
+     "fill"
+    ],
+    [
+     "poly",
+     [
+      0.5,
+      0.25,
+      0.553,
+      0.397,
+      0.709,
+      0.402,
+      0.586,
+      0.498,
+      0.629,
+      0.648,
+      0.5,
+      0.56,
+      0.371,
+      0.648,
+      0.414,
+      0.498,
+      0.291,
+      0.402,
+      0.447,
+      0.397
+     ],
+     "c2",
+     "fill"
+    ]
+   ],
+   "nec": [
+    [
+     "circle",
+     0.9,
+     0.5,
+     0.055,
+     "c1",
+     "fill"
+    ],
+    [
+     "circle",
+     0.846,
+     0.7,
+     0.055,
+     "c1",
+     "fill"
+    ],
+    [
+     "circle",
+     0.7,
+     0.846,
+     0.055,
+     "c1",
+     "fill"
+    ],
+    [
+     "circle",
+     0.5,
+     0.9,
+     0.055,
+     "c1",
+     "fill"
+    ],
+    [
+     "circle",
+     0.3,
+     0.846,
+     0.055,
+     "c1",
+     "fill"
+    ],
+    [
+     "circle",
+     0.154,
+     0.7,
+     0.055,
+     "c1",
+     "fill"
+    ],
+    [
+     "circle",
+     0.1,
+     0.5,
+     0.055,
+     "c1",
+     "fill"
+    ],
+    [
+     "circle",
+     0.154,
+     0.3,
+     0.055,
+     "c1",
+     "fill"
+    ],
+    [
+     "circle",
+     0.3,
+     0.154,
+     0.055,
+     "c1",
+     "fill"
+    ],
+    [
+     "circle",
+     0.5,
+     0.1,
+     0.055,
+     "c1",
+     "fill"
+    ],
+    [
+     "circle",
+     0.7,
+     0.154,
+     0.055,
+     "c1",
+     "fill"
+    ],
+    [
+     "circle",
+     0.846,
+     0.3,
+     0.055,
+     "c1",
+     "fill"
+    ],
+    [
+     "arc",
+     0.5,
+     0.5,
+     0.26,
+     0,
+     359.9,
+     "dim",
+     0.04
+    ],
+    [
+     "poly",
+     [
+      0.5,
+      0.27,
+      0.71,
+      0.5,
+      0.5,
+      0.73,
+      0.29,
+      0.5
+     ],
+     "c2",
+     "fill"
+    ]
+   ],
+   "olm": [
+    [
+     "arc",
+     0.5,
+     0.5,
+     0.34,
+     48,
+     312,
+     "c1",
+     0.13
+    ],
+    [
+     "circle",
+     0.68,
+     0.5,
+     0.12,
+     "c2",
+     "fill"
+    ],
+    [
+     "poly",
+     [
+      0.85,
+      0.53,
+      0.93,
+      0.5,
+      0.85,
+      0.47
+     ],
+     "dim",
+     "fill"
+    ],
+    [
+     "poly",
+     [
+      0.779,
+      0.641,
+      0.857,
+      0.677,
+      0.821,
+      0.599
+     ],
+     "dim",
+     "fill"
+    ],
+    [
+     "poly",
+     [
+      0.65,
+      0.67,
+      0.68,
+      0.75,
+      0.71,
+      0.67
+     ],
+     "dim",
+     "fill"
+    ],
+    [
+     "poly",
+     [
+      0.539,
+      0.599,
+      0.503,
+      0.677,
+      0.581,
+      0.641
+     ],
+     "dim",
+     "fill"
+    ],
+    [
+     "poly",
+     [
+      0.51,
+      0.47,
+      0.43,
+      0.5,
+      0.51,
+      0.53
+     ],
+     "dim",
+     "fill"
+    ],
+    [
+     "poly",
+     [
+      0.581,
+      0.359,
+      0.503,
+      0.323,
+      0.539,
+      0.401
+     ],
+     "dim",
+     "fill"
+    ],
+    [
+     "poly",
+     [
+      0.71,
+      0.33,
+      0.68,
+      0.25,
+      0.65,
+      0.33
+     ],
+     "dim",
+     "fill"
+    ],
+    [
+     "poly",
+     [
+      0.821,
+      0.401,
+      0.857,
+      0.323,
+      0.779,
+      0.359
+     ],
+     "dim",
+     "fill"
+    ]
+   ],
+   "def": [
+    [
+     "poly",
+     [
+      0.97,
+      0.5,
+      0.735,
+      0.907,
+      0.265,
+      0.907,
+      0.03,
+      0.5,
+      0.265,
+      0.093,
+      0.735,
+      0.093
+     ],
+     "dim",
+     "fill"
+    ],
+    [
+     "poly",
+     [
+      0.97,
+      0.5,
+      0.735,
+      0.907,
+      0.265,
+      0.907,
+      0.03,
+      0.5,
+      0.265,
+      0.093,
+      0.735,
+      0.093
+     ],
+     "c1",
+     "stroke",
+     0.06
+    ],
+    [
+     "line",
+     [
+      0.24,
+      0.6,
+      0.5,
+      0.34,
+      0.76,
+      0.6
+     ],
+     "c1",
+     0.085
+    ],
+    [
+     "line",
+     [
+      0.24,
+      0.79,
+      0.5,
+      0.53,
+      0.76,
+      0.79
+     ],
+     "c2",
+     0.085
+    ]
+   ],
+   "pd": [
+    [
+     "circle",
+     0.5,
+     0.5,
+     0.43,
+     "dim",
+     "fill"
+    ],
+    [
+     "circle",
+     0.5,
+     0.5,
+     0.43,
+     "c1",
+     "stroke",
+     0.06
+    ],
+    [
+     "line",
+     [
+      0.2,
+      0.34,
+      0.35,
+      0.27,
+      0.5,
+      0.34,
+      0.65,
+      0.41,
+      0.8,
+      0.34
+     ],
+     "c1",
+     0.055
+    ],
+    [
+     "line",
+     [
+      0.2,
+      0.5,
+      0.35,
+      0.43,
+      0.5,
+      0.5,
+      0.65,
+      0.57,
+      0.8,
+      0.5
+     ],
+     "c2",
+     0.055
+    ],
+    [
+     "line",
+     [
+      0.2,
+      0.66,
+      0.35,
+      0.59,
+      0.5,
+      0.66,
+      0.65,
+      0.73,
+      0.8,
+      0.66
+     ],
+     "c1",
+     0.055
+    ]
+   ],
+   "han": [
+    [
+     "poly",
+     [
+      0.5,
+      0.03,
+      0.97,
+      0.5,
+      0.5,
+      0.97,
+      0.03,
+      0.5
+     ],
+     "dim",
+     "fill"
+    ],
+    [
+     "poly",
+     [
+      0.5,
+      0.03,
+      0.97,
+      0.5,
+      0.5,
+      0.97,
+      0.03,
+      0.5
+     ],
+     "c1",
+     "stroke",
+     0.06
+    ],
+    [
+     "poly",
+     [
+      0.5,
+      0.25,
+      0.75,
+      0.5,
+      0.5,
+      0.75,
+      0.25,
+      0.5
+     ],
+     "c2",
+     "stroke",
+     0.05
+    ],
+    [
+     "circle",
+     0.5,
+     0.5,
+     0.075,
+     "c1",
+     "fill"
+    ]
+   ],
+   "ae": [
+    [
+     "circle",
+     0.5,
+     0.5,
+     0.17,
+     "c1",
+     "fill"
+    ],
+    [
+     "poly",
+     [
+      0.56,
+      0.23,
+      0.5,
+      0.02,
+      0.44,
+      0.23
+     ],
+     "c1",
+     "fill"
+    ],
+    [
+     "poly",
+     [
+      0.707,
+      0.317,
+      0.782,
+      0.112,
+      0.61,
+      0.246
+     ],
+     "c1",
+     "fill"
+    ],
+    [
+     "poly",
+     [
+      0.775,
+      0.474,
+      0.957,
+      0.352,
+      0.738,
+      0.36
+     ],
+     "c1",
+     "fill"
+    ],
+    [
+     "poly",
+     [
+      0.738,
+      0.64,
+      0.957,
+      0.648,
+      0.775,
+      0.526
+     ],
+     "c1",
+     "fill"
+    ],
+    [
+     "poly",
+     [
+      0.61,
+      0.754,
+      0.782,
+      0.888,
+      0.707,
+      0.683
+     ],
+     "c1",
+     "fill"
+    ],
+    [
+     "poly",
+     [
+      0.44,
+      0.77,
+      0.5,
+      0.98,
+      0.56,
+      0.77
+     ],
+     "c1",
+     "fill"
+    ],
+    [
+     "poly",
+     [
+      0.293,
+      0.683,
+      0.218,
+      0.888,
+      0.39,
+      0.754
+     ],
+     "c1",
+     "fill"
+    ],
+    [
+     "poly",
+     [
+      0.225,
+      0.526,
+      0.043,
+      0.648,
+      0.262,
+      0.64
+     ],
+     "c1",
+     "fill"
+    ],
+    [
+     "poly",
+     [
+      0.262,
+      0.36,
+      0.043,
+      0.352,
+      0.225,
+      0.474
+     ],
+     "c1",
+     "fill"
+    ],
+    [
+     "poly",
+     [
+      0.39,
+      0.246,
+      0.218,
+      0.112,
+      0.293,
+      0.317
+     ],
+     "c1",
+     "fill"
+    ],
+    [
+     "circle",
+     0.5,
+     0.5,
+     0.075,
+     "c2",
+     "fill"
+    ]
+   ],
+   "sap": [
+    [
+     "poly",
+     [
+      0.5,
+      0.05,
+      0.95,
+      0.93,
+      0.05,
+      0.93
+     ],
+     "dim",
+     "fill"
+    ],
+    [
+     "poly",
+     [
+      0.5,
+      0.05,
+      0.95,
+      0.93,
+      0.05,
+      0.93
+     ],
+     "c1",
+     "stroke",
+     0.07
+    ],
+    [
+     "poly",
+     [
+      0.5,
+      0.3,
+      0.76,
+      0.8,
+      0.24,
+      0.8
+     ],
+     "c2",
+     "stroke",
+     0.06
+    ],
+    [
+     "poly",
+     [
+      0.5,
+      0.52,
+      0.6,
+      0.7,
+      0.4,
+      0.7
+     ],
+     "c1",
+     "fill"
+    ],
+    [
+     "circle",
+     0.5,
+     0.13,
+     0.05,
+     "c2",
+     "fill"
+    ]
+   ]
+  },
+  "subs": {
+   "napc.usa": [
+    [
+     "poly",
+     [
+      0.06,
+      0.66,
+      0.5,
+      0.26,
+      0.94,
+      0.66,
+      0.5,
+      0.5
+     ],
+     "c1",
+     "fill"
+    ],
+    [
+     "poly",
+     [
+      0.5,
+      0.56,
+      0.62,
+      0.8,
+      0.5,
+      0.74,
+      0.38,
+      0.8
+     ],
+     "c1",
+     "fill"
+    ]
+   ],
+   "napc.canada": [
+    [
+     "circle",
+     0.5,
+     0.17,
+     0.1,
+     "c2",
+     "stroke",
+     0.07
+    ],
+    [
+     "line",
+     [
+      0.5,
+      0.27,
+      0.5,
+      0.86
+     ],
+     "c1",
+     0.1
+    ],
+    [
+     "line",
+     [
+      0.3,
+      0.38,
+      0.7,
+      0.38
+     ],
+     "c1",
+     0.1
+    ],
+    [
+     "arc",
+     0.5,
+     0.56,
+     0.34,
+     20,
+     160,
+     "c1",
+     0.1
+    ],
+    [
+     "poly",
+     [
+      0.1,
+      0.62,
+      0.2,
+      0.5,
+      0.24,
+      0.68
+     ],
+     "c1",
+     "fill"
+    ],
+    [
+     "poly",
+     [
+      0.9,
+      0.62,
+      0.8,
+      0.5,
+      0.76,
+      0.68
+     ],
+     "c1",
+     "fill"
+    ]
+   ],
+   "napc.mexico": [
+    [
+     "poly",
+     [
+      0.1,
+      0.62,
+      0.32,
+      0.62,
+      0.32,
+      0.9,
+      0.1,
+      0.9
+     ],
+     "c1",
+     "fill"
+    ],
+    [
+     "poly",
+     [
+      0.39,
+      0.4,
+      0.61,
+      0.4,
+      0.61,
+      0.9,
+      0.39,
+      0.9
+     ],
+     "c1",
+     "fill"
+    ],
+    [
+     "poly",
+     [
+      0.68,
+      0.16,
+      0.9,
+      0.16,
+      0.9,
+      0.9,
+      0.68,
+      0.9
+     ],
+     "c1",
+     "fill"
+    ]
+   ],
+   "nec.nordics": [
+    [
+     "poly",
+     [
+      0.5,
+      0.03,
+      0.592,
+      0.408,
+      0.97,
+      0.5,
+      0.592,
+      0.592,
+      0.5,
+      0.97,
+      0.408,
+      0.592,
+      0.03,
+      0.5,
+      0.408,
+      0.408
+     ],
+     "c1",
+     "fill"
+    ],
+    [
+     "circle",
+     0.5,
+     0.5,
+     0.075,
+     "c2",
+     "fill"
+    ]
+   ],
+   "nec.eurocorps": [
+    [
+     "line",
+     [
+      0.14,
+      0.4,
+      0.5,
+      0.14,
+      0.86,
+      0.4
+     ],
+     "c1",
+     0.11
+    ],
+    [
+     "line",
+     [
+      0.14,
+      0.62,
+      0.5,
+      0.36,
+      0.86,
+      0.62
+     ],
+     "c1",
+     0.11
+    ],
+    [
+     "line",
+     [
+      0.14,
+      0.84,
+      0.5,
+      0.58,
+      0.86,
+      0.84
+     ],
+     "c2",
+     0.11
+    ]
+   ],
+   "nec.alpine_brotherhood": [
+    [
+     "poly",
+     [
+      0.06,
+      0.9,
+      0.5,
+      0.12,
+      0.94,
+      0.9
+     ],
+     "c1",
+     "fill"
+    ],
+    [
+     "poly",
+     [
+      0.34,
+      0.9,
+      0.34,
+      0.66,
+      0.5,
+      0.52,
+      0.66,
+      0.66,
+      0.66,
+      0.9
+     ],
+     "bg",
+     "fill"
+    ]
+   ],
+   "olm.saudi_arabia": [
+    [
+     "circle",
+     0.5,
+     0.5,
+     0.2,
+     "c1",
+     "fill"
+    ],
+    [
+     "poly",
+     [
+      0.8,
+      0.555,
+      0.97,
+      0.5,
+      0.8,
+      0.445
+     ],
+     "c2",
+     "fill"
+    ],
+    [
+     "poly",
+     [
+      0.673,
+      0.751,
+      0.832,
+      0.832,
+      0.751,
+      0.673
+     ],
+     "c2",
+     "fill"
+    ],
+    [
+     "poly",
+     [
+      0.445,
+      0.8,
+      0.5,
+      0.97,
+      0.555,
+      0.8
+     ],
+     "c2",
+     "fill"
+    ],
+    [
+     "poly",
+     [
+      0.249,
+      0.673,
+      0.168,
+      0.832,
+      0.327,
+      0.751
+     ],
+     "c2",
+     "fill"
+    ],
+    [
+     "poly",
+     [
+      0.2,
+      0.445,
+      0.03,
+      0.5,
+      0.2,
+      0.555
+     ],
+     "c2",
+     "fill"
+    ],
+    [
+     "poly",
+     [
+      0.327,
+      0.249,
+      0.168,
+      0.168,
+      0.249,
+      0.327
+     ],
+     "c2",
+     "fill"
+    ],
+    [
+     "poly",
+     [
+      0.555,
+      0.2,
+      0.5,
+      0.03,
+      0.445,
+      0.2
+     ],
+     "c2",
+     "fill"
+    ],
+    [
+     "poly",
+     [
+      0.751,
+      0.327,
+      0.832,
+      0.168,
+      0.673,
+      0.249
+     ],
+     "c2",
+     "fill"
+    ]
+   ],
+   "olm.algeria": [
+    [
+     "line",
+     [
+      0.06,
+      0.38,
+      0.66,
+      0.38
+     ],
+     "c1",
+     0.1
+    ],
+    [
+     "line",
+     [
+      0.06,
+      0.62,
+      0.66,
+      0.62
+     ],
+     "c1",
+     0.1
+    ],
+    [
+     "poly",
+     [
+      0.62,
+      0.2,
+      0.96,
+      0.5,
+      0.62,
+      0.8
+     ],
+     "c2",
+     "fill"
+    ]
+   ],
+   "olm.el_andalus": [
+    [
+     "line",
+     [
+      0.18,
+      0.92,
+      0.18,
+      0.46
+     ],
+     "c1",
+     0.12
+    ],
+    [
+     "line",
+     [
+      0.82,
+      0.92,
+      0.82,
+      0.46
+     ],
+     "c1",
+     0.12
+    ],
+    [
+     "arc",
+     0.5,
+     0.46,
+     0.32,
+     180,
+     360,
+     "c1",
+     0.12
+    ],
+    [
+     "poly",
+     [
+      0.44,
+      0.6,
+      0.56,
+      0.6,
+      0.56,
+      0.92,
+      0.44,
+      0.92
+     ],
+     "c2",
+     "fill"
+    ]
+   ],
+   "def.russia": [
+    [
+     "poly",
+     [
+      0.08,
+      0.14,
+      0.92,
+      0.14,
+      0.92,
+      0.32,
+      0.08,
+      0.32
+     ],
+     "c1",
+     "fill"
+    ],
+    [
+     "poly",
+     [
+      0.2,
+      0.41,
+      0.8,
+      0.41,
+      0.8,
+      0.59,
+      0.2,
+      0.59
+     ],
+     "c1",
+     "fill"
+    ],
+    [
+     "poly",
+     [
+      0.32,
+      0.68,
+      0.68,
+      0.68,
+      0.68,
+      0.86,
+      0.32,
+      0.86
+     ],
+     "c2",
+     "fill"
+    ]
+   ],
+   "def.kazakhstan": [
+    [
+     "line",
+     [
+      0.04,
+      0.68,
+      0.96,
+      0.68
+     ],
+     "c1",
+     0.09
+    ],
+    [
+     "arc",
+     0.5,
+     0.62,
+     0.26,
+     180,
+     360,
+     "c2",
+     0.16
+    ],
+    [
+     "line",
+     [
+      0.12,
+      0.86,
+      0.88,
+      0.86
+     ],
+     "c1",
+     0.07
+    ]
+   ],
+   "def.north_korea": [
+    [
+     "poly",
+     [
+      0.08,
+      0.84,
+      0.92,
+      0.84,
+      0.76,
+      0.3,
+      0.24,
+      0.3
+     ],
+     "c1",
+     "fill"
+    ],
+    [
+     "poly",
+     [
+      0.32,
+      0.5,
+      0.68,
+      0.5,
+      0.68,
+      0.6,
+      0.32,
+      0.6
+     ],
+     "bg",
+     "fill"
+    ]
+   ],
+   "pd.australia": [
+    [
+     "line",
+     [
+      0.1,
+      0.82,
+      0.167,
+      0.618,
+      0.233,
+      0.453,
+      0.3,
+      0.325,
+      0.367,
+      0.233,
+      0.433,
+      0.178,
+      0.5,
+      0.16,
+      0.567,
+      0.178,
+      0.633,
+      0.233,
+      0.7,
+      0.325,
+      0.767,
+      0.453,
+      0.833,
+      0.618,
+      0.9,
+      0.82
+     ],
+     "c1",
+     0.09
+    ],
+    [
+     "circle",
+     0.1,
+     0.82,
+     0.09,
+     "c2",
+     "fill"
+    ],
+    [
+     "poly",
+     [
+      0.8,
+      0.76,
+      0.96,
+      0.86,
+      0.8,
+      0.92
+     ],
+     "c2",
+     "fill"
+    ]
+   ],
+   "pd.indonesia": [
+    [
+     "circle",
+     0.28,
+     0.62,
+     0.15,
+     "c1",
+     "fill"
+    ],
+    [
+     "circle",
+     0.62,
+     0.36,
+     0.19,
+     "c1",
+     "fill"
+    ],
+    [
+     "circle",
+     0.74,
+     0.74,
+     0.11,
+     "c2",
+     "fill"
+    ]
+   ],
+   "pd.japan": [
+    [
+     "poly",
+     [
+      0.673,
+      0.4,
+      0.5,
+      0.5,
+      0.327,
+      0.4,
+      0.327,
+      0.2,
+      0.5,
+      0.1,
+      0.673,
+      0.2
+     ],
+     "c1",
+     "stroke",
+     0.07
+    ],
+    [
+     "poly",
+     [
+      0.473,
+      0.75,
+      0.3,
+      0.85,
+      0.127,
+      0.75,
+      0.127,
+      0.55,
+      0.3,
+      0.45,
+      0.473,
+      0.55
+     ],
+     "c1",
+     "stroke",
+     0.07
+    ],
+    [
+     "poly",
+     [
+      0.873,
+      0.75,
+      0.7,
+      0.85,
+      0.527,
+      0.75,
+      0.527,
+      0.55,
+      0.7,
+      0.45,
+      0.873,
+      0.55
+     ],
+     "c2",
+     "stroke",
+     0.07
+    ]
+   ],
+   "han.china": [
+    [
+     "poly",
+     [
+      0.12,
+      0.12,
+      0.88,
+      0.12,
+      0.88,
+      0.88,
+      0.12,
+      0.88
+     ],
+     "c1",
+     "stroke",
+     0.1
+    ],
+    [
+     "poly",
+     [
+      0.36,
+      0.36,
+      0.64,
+      0.36,
+      0.64,
+      0.64,
+      0.36,
+      0.64
+     ],
+     "c2",
+     "fill"
+    ]
+   ],
+   "han.vietnam": [
+    [
+     "poly",
+     [
+      0.5,
+      0.9,
+      0.165,
+      0.731,
+      0.057,
+      0.333,
+      0.417,
+      0.534
+     ],
+     "c2",
+     "fill"
+    ],
+    [
+     "poly",
+     [
+      0.5,
+      0.9,
+      0.34,
+      0.56,
+      0.5,
+      0.18,
+      0.66,
+      0.56
+     ],
+     "c1",
+     "fill"
+    ],
+    [
+     "poly",
+     [
+      0.5,
+      0.9,
+      0.583,
+      0.534,
+      0.943,
+      0.333,
+      0.835,
+      0.731
+     ],
+     "c2",
+     "fill"
+    ]
+   ],
+   "han.cambodia": [
+    [
+     "line",
+     [
+      0.1,
+      0.22,
+      0.46,
+      0.26,
+      0.72,
+      0.42,
+      0.44,
+      0.6,
+      0.58,
+      0.76,
+      0.9,
+      0.8
+     ],
+     "c1",
+     0.11
+    ],
+    [
+     "circle",
+     0.9,
+     0.8,
+     0.08,
+     "c2",
+     "fill"
+    ]
+   ],
+   "ae.nigeria": [
+    [
+     "line",
+     [
+      0.5,
+      0.14,
+      0.14,
+      0.82,
+      0.86,
+      0.82,
+      0.5,
+      0.14
+     ],
+     "c1",
+     0.07
+    ],
+    [
+     "circle",
+     0.5,
+     0.14,
+     0.11,
+     "c2",
+     "fill"
+    ],
+    [
+     "circle",
+     0.14,
+     0.82,
+     0.11,
+     "c2",
+     "fill"
+    ],
+    [
+     "circle",
+     0.86,
+     0.82,
+     0.11,
+     "c2",
+     "fill"
+    ]
+   ],
+   "ae.kongo": [
+    [
+     "line",
+     [
+      0.5,
+      0.94,
+      0.5,
+      0.56
+     ],
+     "c1",
+     0.12
+    ],
+    [
+     "line",
+     [
+      0.5,
+      0.56,
+      0.2,
+      0.14
+     ],
+     "c1",
+     0.12
+    ],
+    [
+     "line",
+     [
+      0.5,
+      0.56,
+      0.8,
+      0.14
+     ],
+     "c1",
+     0.12
+    ],
+    [
+     "circle",
+     0.2,
+     0.14,
+     0.09,
+     "c2",
+     "fill"
+    ],
+    [
+     "circle",
+     0.8,
+     0.14,
+     0.09,
+     "c2",
+     "fill"
+    ]
+   ],
+   "ae.south_africa": [
+    [
+     "circle",
+     0.5,
+     0.5,
+     0.24,
+     "c1",
+     "stroke",
+     0.12
+    ],
+    [
+     "poly",
+     [
+      0.84,
+      0.575,
+      0.97,
+      0.5,
+      0.84,
+      0.425
+     ],
+     "c1",
+     "fill"
+    ],
+    [
+     "poly",
+     [
+      0.687,
+      0.793,
+      0.832,
+      0.832,
+      0.793,
+      0.687
+     ],
+     "c1",
+     "fill"
+    ],
+    [
+     "poly",
+     [
+      0.425,
+      0.84,
+      0.5,
+      0.97,
+      0.575,
+      0.84
+     ],
+     "c1",
+     "fill"
+    ],
+    [
+     "poly",
+     [
+      0.207,
+      0.687,
+      0.168,
+      0.832,
+      0.313,
+      0.793
+     ],
+     "c1",
+     "fill"
+    ],
+    [
+     "poly",
+     [
+      0.16,
+      0.425,
+      0.03,
+      0.5,
+      0.16,
+      0.575
+     ],
+     "c1",
+     "fill"
+    ],
+    [
+     "poly",
+     [
+      0.313,
+      0.207,
+      0.168,
+      0.168,
+      0.207,
+      0.313
+     ],
+     "c1",
+     "fill"
+    ],
+    [
+     "poly",
+     [
+      0.575,
+      0.16,
+      0.5,
+      0.03,
+      0.425,
+      0.16
+     ],
+     "c1",
+     "fill"
+    ],
+    [
+     "poly",
+     [
+      0.793,
+      0.313,
+      0.832,
+      0.168,
+      0.687,
+      0.207
+     ],
+     "c1",
+     "fill"
+    ]
+   ],
+   "sap.india": [
+    [
+     "circle",
+     0.5,
+     0.5,
+     0.36,
+     "c1",
+     "stroke",
+     0.08
+    ],
+    [
+     "circle",
+     0.5,
+     0.5,
+     0.09,
+     "c2",
+     "fill"
+    ],
+    [
+     "line",
+     [
+      0.59,
+      0.5,
+      0.84,
+      0.5
+     ],
+     "c1",
+     0.07
+    ],
+    [
+     "line",
+     [
+      0.545,
+      0.578,
+      0.67,
+      0.794
+     ],
+     "c1",
+     0.07
+    ],
+    [
+     "line",
+     [
+      0.455,
+      0.578,
+      0.33,
+      0.794
+     ],
+     "c1",
+     0.07
+    ],
+    [
+     "line",
+     [
+      0.41,
+      0.5,
+      0.16,
+      0.5
+     ],
+     "c1",
+     0.07
+    ],
+    [
+     "line",
+     [
+      0.455,
+      0.422,
+      0.33,
+      0.206
+     ],
+     "c1",
+     0.07
+    ],
+    [
+     "line",
+     [
+      0.545,
+      0.422,
+      0.67,
+      0.206
+     ],
+     "c1",
+     0.07
+    ]
+   ],
+   "sap.thailand": [
+    [
+     "line",
+     [
+      0.22,
+      0.14,
+      0.22,
+      0.56,
+      0.78,
+      0.56,
+      0.78,
+      0.14
+     ],
+     "c1",
+     0.11
+    ],
+    [
+     "line",
+     [
+      0.5,
+      0.1,
+      0.5,
+      0.92
+     ],
+     "c2",
+     0.11
+    ]
+   ],
+   "sap.pakistan": [
+    [
+     "circle",
+     0.5,
+     0.5,
+     0.3,
+     "c1",
+     "stroke",
+     0.08
+    ],
+    [
+     "circle",
+     0.5,
+     0.5,
+     0.07,
+     "c2",
+     "fill"
+    ],
+    [
+     "line",
+     [
+      0.5,
+      0.04,
+      0.5,
+      0.22
+     ],
+     "c1",
+     0.08
+    ],
+    [
+     "line",
+     [
+      0.5,
+      0.78,
+      0.5,
+      0.96
+     ],
+     "c1",
+     0.08
+    ],
+    [
+     "line",
+     [
+      0.04,
+      0.5,
+      0.22,
+      0.5
+     ],
+     "c1",
+     0.08
+    ],
+    [
+     "line",
+     [
+      0.78,
+      0.5,
+      0.96,
+      0.5
+     ],
+     "c1",
+     0.08
+    ]
+   ]
+  },
+  "pips": {
+   "radius_rel": 0.06,
+   "gap_rel": 0.17,
+   "max": 3,
+   "below_px": 48
+  }
+ },
+ "ui": {
+  "tokens": {
+   "BG_DEEP": "#06080B",
+   "BG_PANEL": "#0B1016",
+   "BG_RAISED": "#121A23",
+   "BG_CONTROL": "#182230",
+   "BG_HOVER": "#213145",
+   "LINE_DIM": "#212D3B",
+   "LINE": "#35465A",
+   "LINE_BRIGHT": "#5F7A96",
+   "TEXT": "#E6EEF6",
+   "TEXT_DIM": "#95A8BB",
+   "TEXT_MUTE": "#7A8CA0",
+   "TEXT_DISABLED": "#5D6F83",
+   "CREDITS": "#FFD35C",
+   "OK": "#5CE383",
+   "WARN": "#FFB52A",
+   "DANGER": "#FF5555",
+   "POWER": "#49D0FF",
+   "BLACK_A": "#0000008C"
+  },
+  "type": {
+   "note_fonts": "font files are addressed relative to the project resource root (game/); they are vendored with their OFL texts by the UI task",
+   "fonts": {
+    "BODY": {
+     "family": "Rajdhani SemiBold",
+     "file": "assets/fonts/rajdhani_semibold.ttf",
+     "license": "OFL"
+    },
+    "BODY_BOLD": {
+     "family": "Rajdhani Bold",
+     "file": "assets/fonts/rajdhani_bold.ttf",
+     "license": "OFL"
+    },
+    "HEAD": {
+     "family": "Orbitron (variable, wght 700)",
+     "file": "assets/fonts/orbitron_variable.ttf",
+     "license": "OFL",
+     "variation_wght": 700,
+     "spacing_glyph": 1
+    },
+    "NUM": {
+     "family": "Share Tech Mono",
+     "file": "assets/fonts/share_tech_mono.ttf",
+     "license": "OFL"
+    },
+    "BODY_ALT": {
+     "family": "Atkinson Hyperlegible",
+     "file": "assets/fonts/atkinson_hyperlegible_regular.ttf",
+     "license": "OFL",
+     "note": "optional dyslexia-friendly replacement for BODY and BODY_BOLD (qa.md A-17); +1 px on every size"
+    }
+   },
+   "scale_1080": {
+    "micro": 11,
+    "small": 14,
+    "body": 15,
+    "head": 14,
+    "sub": 18,
+    "title": 40,
+    "hero": 56,
+    "num": 15,
+    "num_big": 34
+   },
+   "min_essential_px": 14,
+   "min_decor_px": 11,
+   "ui_scale_range": [
+    0.75,
+    1.5
+   ]
+  },
+  "chrome": {
+   "grid_px": 4,
+   "panel_cut_px": 10,
+   "button_cut_px": 6,
+   "inset_cut_px": 4,
+   "border_px": 1,
+   "bracket_len_px": 12,
+   "bracket_w_px": 2,
+   "glow_alpha": 0.22,
+   "hover_ms": 90,
+   "press_ms": 60,
+   "panel_slide_ms": 180,
+   "ease": "cubic_out",
+   "stroke_px": 1.8,
+   "glyph_grid": 24,
+   "min_glyph_px": 16,
+   "min_stroke_px": 1.5,
+   "panel": {
+    "top_tint_mix": 0.55,
+    "bottom_tint_mix": 0.25,
+    "top_from": "BG_RAISED",
+    "bottom_from": "BG_PANEL",
+    "alpha": [
+     0.94,
+     0.97
+    ],
+    "border": "LINE",
+    "cut_px": 10,
+    "sidebar_cut_px": 18,
+    "ribbon_cut_px": 12,
+    "padding_px": [
+     12,
+     10
+    ]
+   },
+   "button": {
+    "cut_px": 6,
+    "normal": [
+     "#1F2C3C",
+     "#141E2B"
+    ],
+    "hover": [
+     "#2A3F57",
+     "#1A2A3C"
+    ],
+    "pressed": [
+     "#0D141C",
+     "#182638"
+    ],
+    "disabled": [
+     "#0F151C",
+     "#0C1218"
+    ],
+    "border": {
+     "normal": "LINE",
+     "hover": "accent",
+     "pressed": "accent",
+     "disabled": "LINE_DIM"
+    },
+    "label_on_accent": "#10161D",
+    "accent_fill": {
+     "from_lighten": 0.12,
+     "to_darken": 0.42
+    },
+    "accent_border_lighten": 0.35,
+    "hero": {
+     "cut_px": 12,
+     "font": "HEAD",
+     "size_px": 20,
+     "alpha": 0.78
+    }
+   },
+   "bar": {
+    "inset_cut_px": 3,
+    "fill": {
+     "from_lighten": 0.25,
+     "to_darken": 0.35
+    },
+    "scroll_padding_px": 3,
+    "track_alpha": 0.35,
+    "grabber_darken": 0.35
+   },
+   "tooltip": {
+    "alpha": 0.98,
+    "cut_px": 8,
+    "bracket": "top_left"
+   },
+   "timing": {
+    "credit_ticker_ms": 300,
+    "alert_pulse_hz": 1.0,
+    "max_animation_hz": 2.0
+   }
+  },
+  "skins": {
+   "napc": {
+    "accent": "#F07F2C",
+    "accent2": "#C9D27A",
+    "tint": "#2A2F16"
+   },
+   "nec": {
+    "accent": "#5B93E0",
+    "accent2": "#FFB733",
+    "tint": "#14243D"
+   },
+   "olm": {
+    "accent": "#2FC9BB",
+    "accent2": "#D9803F",
+    "tint": "#0F2B2C"
+   },
+   "def": {
+    "accent": "#E0503A",
+    "accent2": "#F0DC8C",
+    "tint": "#341612"
+   },
+   "pd": {
+    "accent": "#33A0EC",
+    "accent2": "#FF7F5C",
+    "tint": "#0F2740"
+   },
+   "han": {
+    "accent": "#33C98A",
+    "accent2": "#E0424F",
+    "tint": "#0F2F22"
+   },
+   "ae": {
+    "accent": "#26D6E8",
+    "accent2": "#E0AA3C",
+    "tint": "#11292D"
+   },
+   "sap": {
+    "accent": "#F3A622",
+    "accent2": "#7A72E6",
+    "tint": "#2C2412"
+   }
+  },
+  "icon_rig": {
+   "aspect": "4:3",
+   "sizes_recommended": {
+    "icon": [
+     128,
+     96
+    ],
+    "icon_hidpi": [
+     256,
+     192
+    ],
+    "portrait": [
+     384,
+     288
+    ]
+   },
+   "rig_yaw_deg": 150,
+   "camera_pitch_deg": 24,
+   "fov_deg": 30,
+   "margin": 0.78,
+   "framing": "bounding sphere of rest_aabb x margin",
+   "key": {
+    "euler_deg": [
+     -52,
+     -38,
+     0
+    ],
+    "energy": 1.9,
+    "color": "#FFEBC7"
+   },
+   "fill": {
+    "euler_deg": [
+     -30,
+     140,
+     0
+    ],
+    "energy": 0.45,
+    "color": "#8CB3FF"
+   },
+   "shadows": false,
+   "background": "transparent",
+   "msaa": "4x",
+   "mesh_lod_threshold": 0,
+   "team_color": "faction accent (icons are faction-branded)",
+   "cache": "user://cache/icons/<content_key>.png",
+   "note": "Values of the models spike (_mode_icons) and render.md 5.8.10 (ViewIconBake)."
+  },
+  "relation": {
+   "self": "#5CE383",
+   "ally": "#49D0FF",
+   "enemy": "#FF5555",
+   "neutral": "#FFD35C"
+  },
+  "hp_ramp": {
+   "high": "#5CE383",
+   "mid": "#FFB52A",
+   "low": "#FF5555",
+   "mid_at": 0.66,
+   "low_at": 0.33
+  },
+  "selection": {
+   "unit_ring": {
+    "radius_scale": 1.25,
+    "min_radius_m": 0.9,
+    "stroke_rel": 0.06
+   },
+   "structure_brackets": {
+    "arm_rel_short_side": 0.22,
+    "margin_m": 0.3
+   },
+   "cue": {
+    "self": "solid",
+    "ally": "solid + diamond pip",
+    "enemy": "four notches + cross pip",
+    "neutral": "dashed"
+   },
+   "rim_color": "#FFEAB3",
+   "rim_power": 5.0,
+   "hit_flash": "#FFD9A0",
+   "hpbar": {
+    "width_px": {
+     "inf": 28,
+     "light": 36,
+     "medium": 44,
+     "heavy": 56,
+     "huge": 72,
+     "air": 36,
+     "ship_small": 40,
+     "ship_medium": 60,
+     "ship_large": 84,
+     "structure": "clamp(fw*22, 44, 130)"
+    },
+    "h_px": 5,
+    "border_px": 1,
+    "segs": [
+     0.33,
+     0.66
+    ],
+    "bg": "#06080BB3"
+   }
+  }
+ },
+ "vfx": {
+  "damage_types": [
+   {
+    "id": 0,
+    "key": "bullet",
+    "core": "#FFF3C4",
+    "glow": "#FFC23A",
+    "hdr_peak": 6.0,
+    "shape": "tracer streak 1.2-2.0 m x 0.06-0.10 m; muzzle flash warm white; impact: dust puff (the look's sand colour) or metal sparks"
+   },
+   {
+    "id": 1,
+    "key": "ap",
+    "core": "#FFE7B0",
+    "glow": "#FF8A1F",
+    "hdr_peak": 8.0,
+    "shape": "compact orange fireball + hard spark burst; missiles trail white smoke with orange exhaust"
+   },
+   {
+    "id": 2,
+    "key": "he",
+    "core": "#FFDCA0",
+    "glow": "#FF6A1A",
+    "hdr_peak": 9.0,
+    "shape": "large fireball + AoE truth ring + dust ring + dark smoke column + debris"
+   },
+   {
+    "id": 3,
+    "key": "thermal",
+    "core": "#FFFFFF",
+    "glow": "faction.emissive",
+    "hdr_peak": 8.0,
+    "shape": "continuous beam (0.9 m wide), white core, faction-hued body, heat shimmer, scorch mark, embers"
+   },
+   {
+    "id": 4,
+    "key": "rail",
+    "core": "#FFFFFF",
+    "glow": "#8FC4FF",
+    "hdr_peak": 10.0,
+    "shape": "instant helical streak, blue-white; supersonic ring + lens flare; barrel capacitor glow"
+   },
+   {
+    "id": 5,
+    "key": "kinetic",
+    "core": "#FFF6E0",
+    "glow": "#FF8A2A",
+    "hdr_peak": 12.0,
+    "shape": "orbital slug: sky streak + incandescent sheath, white flash, dust column, expanding ring"
+   },
+   {
+    "id": 6,
+    "key": "emp",
+    "core": "#D8F6FF",
+    "glow": "#58E1FF",
+    "hdr_peak": 6.0,
+    "shape": "expanding cyan ring + crawling arcs + white sparks; victims flicker cyan"
+   }
+  ],
+  "tiers": [
+   {
+    "tier": 0,
+    "splash_m": [
+     0.0,
+     0.0
+    ],
+    "fireball_r_m": 0.25,
+    "dur_s": 0.15,
+    "smoke_s": 0.0,
+    "light": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "shake": 0.0,
+    "scorch_r_m": 0.2,
+    "scorch_life_s": 20,
+    "debris": 0,
+    "examples": "small arms, machine gun, autocannon, beams (per tick)"
+   },
+   {
+    "tier": 1,
+    "splash_m": [
+     0.1,
+     2.2
+    ],
+    "fireball_r_m": 1.6,
+    "dur_s": 0.45,
+    "smoke_s": 1.2,
+    "light": [
+     2.2,
+     6.0,
+     0.12
+    ],
+    "shake": 0.05,
+    "scorch_r_m": 1.2,
+    "scorch_life_s": 30,
+    "debris": 4,
+    "examples": "tank cannon, AT/AA/air/drone missiles (splash 0, floor tier 1), naval gun, missile artillery, torpedo hit"
+   },
+   {
+    "tier": 2,
+    "splash_m": [
+     2.2,
+     4.4
+    ],
+    "fireball_r_m": 2.6,
+    "dur_s": 0.7,
+    "smoke_s": 1.8,
+    "light": [
+     3.0,
+     10.0,
+     0.16
+    ],
+    "shake": 0.15,
+    "scorch_r_m": 2.2,
+    "scorch_life_s": 45,
+    "debris": 8,
+    "examples": "siege gun, rocket barrage, mortar, grenade, canister"
+   },
+   {
+    "tier": 3,
+    "splash_m": [
+     4.4,
+     6.9
+    ],
+    "fireball_r_m": 3.8,
+    "dur_s": 1.0,
+    "smoke_s": 2.6,
+    "light": [
+     4.0,
+     14.0,
+     0.2
+    ],
+    "shake": 0.3,
+    "scorch_r_m": 3.2,
+    "scorch_life_s": 60,
+    "debris": 14,
+    "examples": "artillery shell, naval bombard, bomb, flak airburst, cruise missile"
+   },
+   {
+    "tier": 4,
+    "splash_m": [
+     6.9,
+     10.0
+    ],
+    "fireball_r_m": 5.2,
+    "dur_s": 1.4,
+    "smoke_s": 3.6,
+    "light": [
+     5.5,
+     20.0,
+     0.25
+    ],
+    "shake": 0.55,
+    "scorch_r_m": 4.4,
+    "scorch_life_s": 90,
+    "debris": 22,
+    "examples": "demolition cannon, depth charge, heavy bomb, structure collapse (small)"
+   },
+   {
+    "tier": 5,
+    "splash_m": [
+     10.0,
+     999.0
+    ],
+    "fireball_r_m": 8.0,
+    "dur_s": 2.5,
+    "smoke_s": 6.0,
+    "light": [
+     14.0,
+     80.0,
+     0.7
+    ],
+    "shake": 1.0,
+    "scorch_r_m": 9.0,
+    "scorch_life_s": 120,
+    "debris": 40,
+    "examples": "superweapon packets, structure collapse (large), aircraft crash"
+   }
+  ],
+  "status": {
+   "emp": {
+    "color": "#58E1FF",
+    "flicker_hz": 4.0
+   },
+   "suppress": {
+    "color": "#FFD9A0"
+   },
+   "camo": {
+    "shimmer_alpha": 0.35
+   },
+   "burning": {
+    "color": "#FF7A2A"
+   },
+   "interception": {
+    "color": "#5A5FE0",
+    "flash": "#FFC060"
+   },
+   "zone_friendly": "#49D0FF",
+   "zone_enemy": "#FF5555",
+   "zone_neutral": "#FFD35C"
+  },
+  "budget": {
+   "max_s3plus_explosions_in_view": 12,
+   "max_live_marks": 128,
+   "max_overdraw_layers": 6,
+   "max_screen_fraction_single_effect_s4": 0.12,
+   "fireball_alpha_cap_after_s": 0.25,
+   "fireball_alpha_cap": 0.85
+  },
+  "faction_tint_bias": 0.12,
+  "colors": {
+   "muzzle_bullet": "#FFE08A",
+   "tracer_core": "#FFF3C4",
+   "spark_metal": "#FFC23A",
+   "missile_exhaust": "#FF8A1F",
+   "missile_smoke_from": "#F2F2F2",
+   "missile_smoke_to": "#9A9A9A",
+   "he_smoke": "#2B2724",
+   "scorch": "#1E1A17",
+   "scorch_ember": "#FF7A2A",
+   "rail_glow": "#8FC4FF",
+   "rail_bias_ae": "#7FE7FF",
+   "rail_bias_nec": "#DFF3FF",
+   "kinetic_sheath_from": "#FF8A2A",
+   "kinetic_sheath_to": "#FF4A10",
+   "emp_ring": "#7FE9FF",
+   "emp_glow": "#58E1FF",
+   "structure_debris": "#8A8E90",
+   "wake": "#F5FAFF",
+   "smoke_zone": "#C9C6C0",
+   "repair_mote": "#5CE383",
+   "atlas_core": "#FFF6E0",
+   "atlas_sheath": "#FF8A2A",
+   "aurora_dome_edge": "#DFF3FF",
+   "helios_core": "#FFF1C0",
+   "helios_body": "#FFC060",
+   "perun_rocket": "#FF6A1A",
+   "perun_smoke": "#F2F2F2",
+   "tempest_drone": "#F1F4F6",
+   "tempest_coral": "#FF6F5B",
+   "dragonfall_glow": "#7CFFC8",
+   "horizon_streak": "#8FC4FF",
+   "horizon_dust": "#C4AE84",
+   "no_construction_hatch": "#FFB52A",
+   "trident_lattice": "#5A5FE0",
+   "trident_flash": "#FFC060"
+  },
+  "catalog": [
+   "fx.muzzle.small_arms",
+   "fx.muzzle.tank_gun",
+   "fx.muzzle.siege",
+   "fx.muzzle.missile",
+   "fx.muzzle.artillery",
+   "fx.muzzle.rocket",
+   "fx.muzzle.beam",
+   "fx.muzzle.rail",
+   "fx.muzzle.bomb",
+   "fx.muzzle.flak",
+   "fx.muzzle.special",
+   "fx.impact.bullet.s0",
+   "fx.impact.ap.s1",
+   "fx.impact.ap.s2",
+   "fx.impact.ap.s3",
+   "fx.impact.he.s1",
+   "fx.impact.he.s2",
+   "fx.impact.he.s3",
+   "fx.impact.he.s4",
+   "fx.impact.he.s5",
+   "fx.impact.thermal.s0",
+   "fx.impact.thermal.s1",
+   "fx.impact.rail.s1",
+   "fx.impact.kinetic.s5",
+   "fx.impact.emp.s1",
+   "fx.impact.emp.s2",
+   "fx.impact.emp.s3",
+   "fx.impact.emp.s4",
+   "fx.impact.emp.s5",
+   "fx.proj.tracer",
+   "fx.proj.shell",
+   "fx.proj.missile",
+   "fx.proj.rocket",
+   "fx.proj.bomb",
+   "fx.proj.torpedo",
+   "fx.proj.rail_helix",
+   "fx.proj.beam",
+   "fx.proj.strike_column",
+   "fx.proj.drone",
+   "fx.sw.atlas",
+   "fx.sw.aurora",
+   "fx.sw.helios",
+   "fx.sw.perun",
+   "fx.sw.tempest",
+   "fx.sw.dragonfall",
+   "fx.sw.horizon",
+   "fx.sw.trident",
+   "fx.status.emp",
+   "fx.status.suppress",
+   "fx.status.camo",
+   "fx.status.burning",
+   "fx.status.intercept",
+   "fx.status.construction",
+   "fx.power.strike",
+   "fx.power.recon",
+   "fx.power.reveal",
+   "fx.power.repair",
+   "fx.power.buff",
+   "fx.power.production",
+   "fx.power.smoke",
+   "fx.power.decoy",
+   "fx.power.mark",
+   "fx.death.vehicle",
+   "fx.death.infantry",
+   "fx.death.crash",
+   "fx.death.air_explode",
+   "fx.death.sink",
+   "fx.death.structure",
+   "fx.death.drone",
+   "fx.env.dust",
+   "fx.env.wake",
+   "fx.env.contrail",
+   "fx.env.splash",
+   "fx.env.scorch",
+   "fx.env.rubble",
+   "fx.env.oil",
+   "fx.env.smoke_plume",
+   "fx.env.sparks"
+  ]
+ },
+ "lighting_rig": {
+  "key": {
+   "azimuth_range_deg": [
+    285,
+    325
+   ],
+   "to_sun": "to_sun = (cos(el)*sin(az), sin(el), cos(el)*cos(az)); +Z is south, camera yaw 0 looks toward -Z",
+   "shadow_max_m": [
+    110,
+    140
+   ],
+   "splits": 4,
+   "bias": 0.04,
+   "normal_bias": 1.4
+  },
+  "fill": {
+   "follows_camera_yaw": true,
+   "yaw_offset_deg": 150,
+   "pitch_deg": -30,
+   "shadows": false
+  },
+  "tonemapper": "filmic",
+  "ssao": {
+   "radius": [
+    1.0,
+    2.2
+   ]
+  },
+  "glow_blend": "softlight"
+ },
+ "fog_of_war": {
+  "shroud": "#000000",
+  "edge_noise": 0.35,
+  "edge_smoothstep": [
+   0.32,
+   0.68
+  ],
+  "fog_terrain": {
+   "saturation_mix": 0.45,
+   "brightness": 0.42
+  },
+  "fog_minimap": {
+   "saturation_mix": 0.5,
+   "brightness": 0.45
+  },
+  "remembered_structure": {
+   "desaturate": 0.7,
+   "brightness": 0.45
+  },
+  "unit_dim": 0.45,
+  "note": "Values of the terrain spike shaders (terrain.gdshader, minimap_fog.gdshader); remembered structures follow render.md UF_GHOST"
+ },
+ "looks": {
+  "look.temperate_day": {
+   "id": 0,
+   "label": "Temperate day",
+   "note": "Default. Clear day, saturated greens, crisp shadows.",
+   "used_by_map": [
+    [
+     "temperate",
+     "open"
+    ]
+   ],
+   "home_factions": [
+    "napc",
+    "nec",
+    "def",
+    "han"
+   ],
+   "sun": {
+    "elevation_deg": 44,
+    "azimuth_deg": 300,
+    "color": "#FFF2D9",
+    "energy": 1.55
+   },
+   "fill": {
+    "color": "#8CB2FF",
+    "energy": 0.4,
+    "yaw_from_camera_deg": 150,
+    "pitch_deg": -30,
+    "shadows": false
+   },
+   "sky": {
+    "top": "#2B61C7",
+    "horizon": "#A8C7EB",
+    "ground_horizon": "#94A3A3",
+    "ground_bottom": "#3D4542"
+   },
+   "ambient_energy": 0.78,
+   "fog": {
+    "color": "#A3C2E6",
+    "density": 0.0011,
+    "sun_scatter": 0.25,
+    "aerial_perspective": 0.35
+   },
+   "tonemap": {
+    "mode": "filmic",
+    "exposure": 1.1,
+    "white": 5.0
+   },
+   "grade": {
+    "saturation": 1.08,
+    "contrast": 1.06,
+    "brightness": 1.0
+   },
+   "post": {
+    "glow_intensity": 0.45,
+    "glow_hdr_threshold": 1.15,
+    "ssao_intensity": 1.5
+   },
+   "water": {
+    "shallow": "#29949E",
+    "deep": "#082E57",
+    "absorb": 0.42
+   },
+   "terrain": {
+    "grass_a": "#3D6B1F",
+    "grass_b": "#6B9933",
+    "dry_a": "#7A6B38",
+    "dry_b": "#9E8C4C",
+    "dirt_a": "#4A3826",
+    "dirt_b": "#735940",
+    "rock_a": "#454240",
+    "rock_b": "#756E66",
+    "sand_a": "#B8A675",
+    "sand_b": "#DBC996",
+    "snow": "#EDF5FF",
+    "road": "#4D4E52",
+    "foliage_a": "#295718",
+    "foliage_b": "#578026"
+   },
+   "proof_ground": {
+    "a": "#456129",
+    "b": "#5C7836"
+   }
+  },
+  "look.arid_day": {
+   "id": 1,
+   "label": "Arid noon",
+   "note": "Bleached noon, high sun, pale sky, heat haze. Hardest for ivory/sand hulls (OLM, SAP) and ochre (AE): keep the dark mass.",
+   "used_by_map": [
+    [
+     "desert",
+     "open"
+    ],
+    [
+     "desert",
+     "urban"
+    ]
+   ],
+   "home_factions": [
+    "olm",
+    "ae",
+    "sap"
+   ],
+   "sun": {
+    "elevation_deg": 52,
+    "azimuth_deg": 305,
+    "color": "#FFF0CC",
+    "energy": 1.75
+   },
+   "fill": {
+    "color": "#9EB8F2",
+    "energy": 0.36,
+    "yaw_from_camera_deg": 150,
+    "pitch_deg": -30,
+    "shadows": false
+   },
+   "sky": {
+    "top": "#4275CC",
+    "horizon": "#D1D6DB",
+    "ground_horizon": "#B8A88F",
+    "ground_bottom": "#574A3D"
+   },
+   "ambient_energy": 0.85,
+   "fog": {
+    "color": "#D9CCB2",
+    "density": 0.0016,
+    "sun_scatter": 0.35,
+    "aerial_perspective": 0.45
+   },
+   "tonemap": {
+    "mode": "filmic",
+    "exposure": 1.0,
+    "white": 5.0
+   },
+   "grade": {
+    "saturation": 1.02,
+    "contrast": 1.08,
+    "brightness": 1.0
+   },
+   "post": {
+    "glow_intensity": 0.5,
+    "glow_hdr_threshold": 1.1,
+    "ssao_intensity": 1.7
+   },
+   "water": {
+    "shallow": "#479994",
+    "deep": "#0D3352",
+    "absorb": 0.48
+   },
+   "terrain": {
+    "grass_a": "#3D661F",
+    "grass_b": "#668F30",
+    "dry_a": "#8F7547",
+    "dry_b": "#B89961",
+    "dirt_a": "#5C4230",
+    "dirt_b": "#85664A",
+    "rock_a": "#5C4F4A",
+    "rock_b": "#998573",
+    "sand_a": "#BD9E70",
+    "sand_b": "#E6C794",
+    "snow": "#E6E0EB",
+    "road": "#57534F",
+    "foliage_a": "#66662A",
+    "foliage_b": "#9E8433"
+   },
+   "proof_ground": {
+    "a": "#9E855C",
+    "b": "#B89E70"
+   }
+  },
+  "look.arid_dusk": {
+   "id": 2,
+   "label": "Arid golden hour",
+   "note": "Golden hour, long shadows to the north-east, warm skew. Stylised: hull colours shift strongly (median dE00 13.9) while plate hue drift stays within 6 degrees.",
+   "used_by_map": [
+    [
+     "desert",
+     "coast_river"
+    ]
+   ],
+   "home_factions": [
+    "olm",
+    "ae",
+    "sap"
+   ],
+   "sun": {
+    "elevation_deg": 26,
+    "azimuth_deg": 298,
+    "color": "#FFDBB2",
+    "energy": 1.8
+   },
+   "fill": {
+    "color": "#8094F2",
+    "energy": 0.42,
+    "yaw_from_camera_deg": 150,
+    "pitch_deg": -30,
+    "shadows": false
+   },
+   "sky": {
+    "top": "#3D5294",
+    "horizon": "#F2B885",
+    "ground_horizon": "#9E806B",
+    "ground_bottom": "#332924"
+   },
+   "ambient_energy": 0.95,
+   "fog": {
+    "color": "#C7A38C",
+    "density": 0.0012,
+    "sun_scatter": 0.45,
+    "aerial_perspective": 0.4
+   },
+   "tonemap": {
+    "mode": "filmic",
+    "exposure": 1.1,
+    "white": 4.6
+   },
+   "grade": {
+    "saturation": 0.98,
+    "contrast": 1.08,
+    "brightness": 1.0
+   },
+   "post": {
+    "glow_intensity": 0.6,
+    "glow_hdr_threshold": 1.0,
+    "ssao_intensity": 1.8
+   },
+   "water": {
+    "shallow": "#478C8C",
+    "deep": "#0D2142",
+    "absorb": 0.5
+   },
+   "terrain": {
+    "grass_a": "#3D661F",
+    "grass_b": "#668F30",
+    "dry_a": "#8F7547",
+    "dry_b": "#B89961",
+    "dirt_a": "#5C4230",
+    "dirt_b": "#85664A",
+    "rock_a": "#5C4F4A",
+    "rock_b": "#998573",
+    "sand_a": "#BD9E70",
+    "sand_b": "#E6C794",
+    "snow": "#E6E0EB",
+    "road": "#57534F",
+    "foliage_a": "#66662A",
+    "foliage_b": "#9E8433"
+   },
+   "proof_ground": {
+    "a": "#8A7861",
+    "b": "#A38F70"
+   }
+  },
+  "look.urban_overcast": {
+   "id": 3,
+   "label": "Urban overcast",
+   "note": "Flat overcast light, low shadow, high ambient, strong SSAO. Neutral grey ground makes every hue pop; NEC slate blue is the weakest hull.",
+   "used_by_map": [
+    [
+     "temperate",
+     "urban"
+    ]
+   ],
+   "home_factions": [
+    "nec",
+    "def",
+    "napc"
+   ],
+   "sun": {
+    "elevation_deg": 58,
+    "azimuth_deg": 310,
+    "color": "#EBF0FA",
+    "energy": 0.95
+   },
+   "fill": {
+    "color": "#B2C7F2",
+    "energy": 0.55,
+    "yaw_from_camera_deg": 150,
+    "pitch_deg": -30,
+    "shadows": false
+   },
+   "sky": {
+    "top": "#8594A8",
+    "horizon": "#BDC4CC",
+    "ground_horizon": "#8C9194",
+    "ground_bottom": "#383B3D"
+   },
+   "ambient_energy": 1.15,
+   "fog": {
+    "color": "#ADB8C4",
+    "density": 0.0022,
+    "sun_scatter": 0.08,
+    "aerial_perspective": 0.55
+   },
+   "tonemap": {
+    "mode": "filmic",
+    "exposure": 1.1,
+    "white": 5.5
+   },
+   "grade": {
+    "saturation": 1.06,
+    "contrast": 1.1,
+    "brightness": 1.0
+   },
+   "post": {
+    "glow_intensity": 0.3,
+    "glow_hdr_threshold": 1.2,
+    "ssao_intensity": 2.2
+   },
+   "water": {
+    "shallow": "#336670",
+    "deep": "#0F2438",
+    "absorb": 0.55
+   },
+   "terrain": {
+    "grass_a": "#4A5A38",
+    "grass_b": "#63744A",
+    "dry_a": "#6D6A58",
+    "dry_b": "#8A8670",
+    "dirt_a": "#4B4740",
+    "dirt_b": "#6A655B",
+    "rock_a": "#4A4C50",
+    "rock_b": "#7C7E82",
+    "sand_a": "#9A9484",
+    "sand_b": "#B5AF9C",
+    "snow": "#E6EAF0",
+    "road": "#34363A",
+    "foliage_a": "#3D5230",
+    "foliage_b": "#5C7444",
+    "concrete_a": "#6B6D70",
+    "concrete_b": "#8E9094"
+   },
+   "proof_ground": {
+    "a": "#66696B",
+    "b": "#7A7A78"
+   }
+  },
+  "look.coastal_morning": {
+   "id": 4,
+   "label": "Coastal morning",
+   "note": "Low soft sun, cool haze; water and sand; hulls skew toward teal, olive NAPC shifts most.",
+   "used_by_map": [
+    [
+     "temperate",
+     "coast_river"
+    ]
+   ],
+   "home_factions": [
+    "pd",
+    "olm",
+    "ae"
+   ],
+   "sun": {
+    "elevation_deg": 30,
+    "azimuth_deg": 295,
+    "color": "#FFE6C2",
+    "energy": 1.6
+   },
+   "fill": {
+    "color": "#8CB8FF",
+    "energy": 0.45,
+    "yaw_from_camera_deg": 150,
+    "pitch_deg": -30,
+    "shadows": false
+   },
+   "sky": {
+    "top": "#3875C7",
+    "horizon": "#DBD6CC",
+    "ground_horizon": "#A8A8A3",
+    "ground_bottom": "#424747"
+   },
+   "ambient_energy": 0.85,
+   "fog": {
+    "color": "#C7D1DB",
+    "density": 0.0018,
+    "sun_scatter": 0.4,
+    "aerial_perspective": 0.5
+   },
+   "tonemap": {
+    "mode": "filmic",
+    "exposure": 1.1,
+    "white": 5.0
+   },
+   "grade": {
+    "saturation": 1.08,
+    "contrast": 1.06,
+    "brightness": 1.0
+   },
+   "post": {
+    "glow_intensity": 0.5,
+    "glow_hdr_threshold": 1.1,
+    "ssao_intensity": 1.6
+   },
+   "water": {
+    "shallow": "#339EA8",
+    "deep": "#083361",
+    "absorb": 0.4
+   },
+   "terrain": {
+    "grass_a": "#4F7034",
+    "grass_b": "#79994A",
+    "dry_a": "#8A7C4A",
+    "dry_b": "#B0A066",
+    "dirt_a": "#5A4834",
+    "dirt_b": "#7E6A50",
+    "rock_a": "#5A5A58",
+    "rock_b": "#8A8880",
+    "sand_a": "#BFB08A",
+    "sand_b": "#DCCFAA",
+    "snow": "#EEF3F8",
+    "road": "#4A4B4F",
+    "foliage_a": "#3F6A2C",
+    "foliage_b": "#6E9A3C"
+   },
+   "proof_ground": {
+    "a": "#9E9470",
+    "b": "#708547"
+   }
+  },
+  "look.tundra_dawn": {
+   "id": 5,
+   "label": "Tundra dawn",
+   "note": "Snow, cold blue shadows, low warm sun. Hardest for OLM ivory; shadows are long and blue.",
+   "used_by_map": [
+    [
+     "arctic",
+     "open"
+    ],
+    [
+     "arctic",
+     "urban"
+    ],
+    [
+     "arctic",
+     "coast_river"
+    ]
+   ],
+   "home_factions": [
+    "def",
+    "nec"
+   ],
+   "sun": {
+    "elevation_deg": 16,
+    "azimuth_deg": 290,
+    "color": "#FFDBB8",
+    "energy": 1.45
+   },
+   "fill": {
+    "color": "#CCD4EB",
+    "energy": 0.35,
+    "yaw_from_camera_deg": 150,
+    "pitch_deg": -30,
+    "shadows": false
+   },
+   "sky": {
+    "top": "#708AB2",
+    "horizon": "#E6D9CC",
+    "ground_horizon": "#CCC9C7",
+    "ground_bottom": "#757578"
+   },
+   "ambient_energy": 0.85,
+   "fog": {
+    "color": "#D6D9DE",
+    "density": 0.0018,
+    "sun_scatter": 0.4,
+    "aerial_perspective": 0.4
+   },
+   "tonemap": {
+    "mode": "filmic",
+    "exposure": 1.05,
+    "white": 5.0
+   },
+   "grade": {
+    "saturation": 1.02,
+    "contrast": 1.06,
+    "brightness": 1.0
+   },
+   "post": {
+    "glow_intensity": 0.55,
+    "glow_hdr_threshold": 1.05,
+    "ssao_intensity": 1.6
+   },
+   "water": {
+    "shallow": "#4C8594",
+    "deep": "#0F2947",
+    "absorb": 0.5
+   },
+   "terrain": {
+    "grass_a": "#5C6A4A",
+    "grass_b": "#7C8A66",
+    "dry_a": "#7A7660",
+    "dry_b": "#9A9680",
+    "dirt_a": "#52483C",
+    "dirt_b": "#746858",
+    "rock_a": "#4A4C52",
+    "rock_b": "#7A7C84",
+    "sand_a": "#A8A090",
+    "sand_b": "#C8C0AE",
+    "snow": "#F1F5FA",
+    "road": "#3E4046",
+    "foliage_a": "#2F4A3A",
+    "foliage_b": "#4E6C56"
+   },
+   "proof_ground": {
+    "a": "#BDC2C7",
+    "b": "#9EA3AB"
+   }
+  },
+  "look.monsoon_haze": {
+   "id": 6,
+   "label": "Monsoon haze",
+   "note": "Humid green haze, low contrast, teal fog; olive NAPC is weakest.",
+   "used_by_map": [
+    [
+     "tropical",
+     "open"
+    ],
+    [
+     "tropical",
+     "urban"
+    ],
+    [
+     "tropical",
+     "coast_river"
+    ]
+   ],
+   "home_factions": [
+    "han",
+    "pd",
+    "sap"
+   ],
+   "sun": {
+    "elevation_deg": 48,
+    "azimuth_deg": 302,
+    "color": "#FFF5DB",
+    "energy": 1.2
+   },
+   "fill": {
+    "color": "#99C7E6",
+    "energy": 0.5,
+    "yaw_from_camera_deg": 150,
+    "pitch_deg": -30,
+    "shadows": false
+   },
+   "sky": {
+    "top": "#5C8CB2",
+    "horizon": "#C7D6D1",
+    "ground_horizon": "#8C9E8C",
+    "ground_bottom": "#334238"
+   },
+   "ambient_energy": 1.0,
+   "fog": {
+    "color": "#A8C7BD",
+    "density": 0.0026,
+    "sun_scatter": 0.2,
+    "aerial_perspective": 0.6
+   },
+   "tonemap": {
+    "mode": "filmic",
+    "exposure": 1.05,
+    "white": 5.0
+   },
+   "grade": {
+    "saturation": 1.1,
+    "contrast": 1.05,
+    "brightness": 1.0
+   },
+   "post": {
+    "glow_intensity": 0.4,
+    "glow_hdr_threshold": 1.15,
+    "ssao_intensity": 1.7
+   },
+   "water": {
+    "shallow": "#388575",
+    "deep": "#0A3342",
+    "absorb": 0.55
+   },
+   "terrain": {
+    "grass_a": "#2F5A1E",
+    "grass_b": "#4E8030",
+    "dry_a": "#6E6A3A",
+    "dry_b": "#8C8850",
+    "dirt_a": "#4A3A2A",
+    "dirt_b": "#6A5440",
+    "rock_a": "#3E4440",
+    "rock_b": "#6A726C",
+    "sand_a": "#A89C78",
+    "sand_b": "#C8BC96",
+    "snow": "#EAF2F0",
+    "road": "#3F403F",
+    "foliage_a": "#1F4A1C",
+    "foliage_b": "#3E7A2C"
+   },
+   "proof_ground": {
+    "a": "#335C24",
+    "b": "#4C7533"
+   }
+  },
+  "look.night_ops": {
+   "id": 7,
+   "label": "Night operations",
+   "note": "Optional time of day. Cool moon key, high exposure; team plates and lamps carry the read. Lighting over the map's day terrain set (temperate when selected directly).",
+   "used_by_map": [],
+   "home_factions": [],
+   "sun": {
+    "elevation_deg": 34,
+    "azimuth_deg": 300,
+    "color": "#A8C2FF",
+    "energy": 0.7
+   },
+   "fill": {
+    "color": "#738CF2",
+    "energy": 0.3,
+    "yaw_from_camera_deg": 150,
+    "pitch_deg": -30,
+    "shadows": false
+   },
+   "sky": {
+    "top": "#080D1F",
+    "horizon": "#1A2442",
+    "ground_horizon": "#141A29",
+    "ground_bottom": "#05080D"
+   },
+   "ambient_energy": 0.95,
+   "fog": {
+    "color": "#0F172B",
+    "density": 0.002,
+    "sun_scatter": 0.0,
+    "aerial_perspective": 0.3
+   },
+   "tonemap": {
+    "mode": "filmic",
+    "exposure": 1.7,
+    "white": 5.0
+   },
+   "grade": {
+    "saturation": 1.04,
+    "contrast": 1.1,
+    "brightness": 1.0
+   },
+   "post": {
+    "glow_intensity": 0.9,
+    "glow_hdr_threshold": 0.85,
+    "ssao_intensity": 1.4
+   },
+   "water": {
+    "shallow": "#0D2438",
+    "deep": "#030814",
+    "absorb": 0.6
+   },
+   "terrain": {
+    "grass_a": "#3D6B1F",
+    "grass_b": "#6B9933",
+    "dry_a": "#7A6B38",
+    "dry_b": "#9E8C4C",
+    "dirt_a": "#4A3826",
+    "dirt_b": "#735940",
+    "rock_a": "#454240",
+    "rock_b": "#756E66",
+    "sand_a": "#B8A675",
+    "sand_b": "#DBC996",
+    "snow": "#EDF5FF",
+    "road": "#4D4E52",
+    "foliage_a": "#295718",
+    "foliage_b": "#578026"
+   },
+   "proof_ground": {
+    "a": "#293329",
+    "b": "#384233"
+   }
+  },
+  "look.studio_neutral": {
+   "id": 8,
+   "label": "Studio neutral (QA reference)",
+   "note": "QA reference lighting: white sun, neutral ambient, no grade. Palette and plate measurements are taken under this look only.",
+   "used_by_map": [],
+   "home_factions": [],
+   "sun": {
+    "elevation_deg": 48,
+    "azimuth_deg": 300,
+    "color": "#FFFFFF",
+    "energy": 1.45
+   },
+   "fill": {
+    "color": "#FFFFFF",
+    "energy": 0.3,
+    "yaw_from_camera_deg": 150,
+    "pitch_deg": -30,
+    "shadows": false
+   },
+   "sky": {
+    "top": "#9E9E9E",
+    "horizon": "#B8B8B8",
+    "ground_horizon": "#8C8C8C",
+    "ground_bottom": "#595959"
+   },
+   "ambient_energy": 0.85,
+   "fog": {
+    "color": "#B8B8B8",
+    "density": 0.0,
+    "sun_scatter": 0.0,
+    "aerial_perspective": 0.0
+   },
+   "tonemap": {
+    "mode": "filmic",
+    "exposure": 1.0,
+    "white": 5.0
+   },
+   "grade": {
+    "saturation": 1.0,
+    "contrast": 1.0,
+    "brightness": 1.0
+   },
+   "post": {
+    "glow_intensity": 0.3,
+    "glow_hdr_threshold": 1.2,
+    "ssao_intensity": 1.5
+   },
+   "water": {
+    "shallow": "#338080",
+    "deep": "#0D334C",
+    "absorb": 0.4
+   },
+   "terrain": {
+    "grass_a": "#3D6B1F",
+    "grass_b": "#6B9933",
+    "dry_a": "#7A6B38",
+    "dry_b": "#9E8C4C",
+    "dirt_a": "#4A3826",
+    "dirt_b": "#735940",
+    "rock_a": "#454240",
+    "rock_b": "#756E66",
+    "sand_a": "#B8A675",
+    "sand_b": "#DBC996",
+    "snow": "#EDF5FF",
+    "road": "#4D4E52",
+    "foliage_a": "#295718",
+    "foliage_b": "#578026"
+   },
+   "proof_ground": {
+    "a": "#808080",
+    "b": "#8C8C8C"
+   }
+  }
+ },
+ "map_look": {
+  "note": "MapData.biome (terrain_movement.md: 0 temperate, 1 desert, 2 arctic, 3 tropical) x MapData.family (0 open, 1 urban, 2 coast_river) -> look name; the optional night time-of-day applies the look.night_ops lighting over the terrain set of the day look; look.studio_neutral is QA only.",
+  "biomes": [
+   "temperate",
+   "desert",
+   "arctic",
+   "tropical"
+  ],
+  "families": [
+   "open",
+   "urban",
+   "coast_river"
+  ],
+  "table": [
+   [
+    "look.temperate_day",
+    "look.urban_overcast",
+    "look.coastal_morning"
+   ],
+   [
+    "look.arid_day",
+    "look.arid_day",
+    "look.arid_dusk"
+   ],
+   [
+    "look.tundra_dawn",
+    "look.tundra_dawn",
+    "look.tundra_dawn"
+   ],
+   [
+    "look.monsoon_haze",
+    "look.monsoon_haze",
+    "look.monsoon_haze"
+   ]
+  ],
+  "night": "look.night_ops",
+  "qa": "look.studio_neutral"
+ },
+ "thresholds": {
+  "plate_render_dE_max": 10.0,
+  "plate_render_dE_mean": 7.0,
+  "player_rendered_min_dE_normal": 15.0,
+  "cvd_rendered_min_dE": 9.0,
+  "hull_vs_ground_dE_min": 12.0,
+  "plate_vs_ground_dE_min": 15.0,
+  "ui_text_contrast_min": 4.5,
+  "ui_large_contrast_min": 3.0,
+  "silhouette_iou_max_same_faction": 0.8,
+  "silhouette_iou_max_same_archetype_across_factions": 0.95,
+  "size_tolerance": 0.08,
+  "value_spread_dark_min": 0.12,
+  "value_spread_light_min": 0.08,
+  "emissive_area_max": 0.03,
+  "team_area_min": 0.05,
+  "team_area_max": 0.12,
+  "structure_roof_plate_min_m2": 1.0,
+  "structure_roof_plate_min_frac": 0.025,
+  "landmark_cap_small_m": 8.0,
+  "landmark_cap_large_m": 12.0,
+  "landmark_cap_superweapon_m": 14.0,
+  "structure_plinth_margin_m": 0.5,
+  "look_fidelity_tolerance_dE": 3.0,
+  "accent_area_max": 0.08
+ }
+}

@@ -1,0 +1,180 @@
+{
+ "schema": "meridian.recipe/1",
+ "id": "unit.pd.kancil_landing_skimmer",
+ "archetype": "veh_amphib",
+ "style": "auto",
+ "params": {
+  "float": "hover",
+  "roof": "rails",
+  "deck": "none",
+  "body_w": 2.1,
+  "body_len": 3.9
+ },
+ "ops_after": [
+  {
+   "part": {
+    "kind": "deploy",
+    "pivot": [
+     0,
+     0.72,
+     "-hl-0.13"
+    ],
+    "param": 0.143,
+    "extra": 0
+   },
+   "do": [
+    [
+     "brush",
+     "sec"
+    ],
+    [
+     "box",
+     [
+      0,
+      1.16,
+      "-hl-0.13"
+     ],
+     [
+      "body_w-0.32",
+      0.9,
+      0.07
+     ],
+     0.0
+    ],
+    [
+     "brush",
+     "acc"
+    ],
+    [
+     "box",
+     [
+      0,
+      0.75,
+      "-hl-0.13"
+     ],
+     [
+      "body_w-0.32",
+      0.09,
+      0.09
+     ],
+     0.0
+    ],
+    [
+     "brush",
+     "dark"
+    ],
+    [
+     "box",
+     [
+      0,
+      1.16,
+      "-hl-0.17"
+     ],
+     [
+      0.14,
+      0.62,
+      0.02
+     ],
+     0.0
+    ],
+    [
+     "brush",
+     "acc"
+    ],
+    [
+     "box",
+     [
+      0,
+      1.55,
+      "-hl-0.13"
+     ],
+     [
+      "body_w-0.32",
+      0.06,
+      0.09
+     ],
+     0.0
+    ]
+   ]
+  },
+  {
+   "mirror_x": [
+    [
+     "tier",
+     1
+    ],
+    [
+     "brush",
+     "acc"
+    ],
+    [
+     "box",
+     [
+      "hw-0.10",
+      "body_top+0.08",
+      "(hl-0.3-hl+0.6)*0.5"
+     ],
+     [
+      0.05,
+      0.05,
+      "hl*2-0.9"
+     ],
+     0.0
+    ],
+    {
+     "for": "k",
+     "n": 3,
+     "do": [
+      [
+       "box",
+       [
+        "hw-0.10",
+        "body_top+0.03",
+        "-hl+0.6+(hl*2-0.9)*k/2"
+       ],
+       [
+        0.04,
+        0.1,
+        0.04
+       ],
+       0.0
+      ]
+     ]
+    },
+    [
+     "tier",
+     0
+    ]
+   ]
+  },
+  {
+   "call": "team_panel",
+   "args": {
+    "center": [
+     0,
+     "body_top+0.02",
+     -0.75
+    ],
+    "size": [
+     "hw*0.9",
+     0.02,
+     0.5
+    ]
+   }
+  },
+  {
+   "slot": "pat_veh_amphib"
+  },
+  {
+   "slot": "emb_veh_amphib"
+  }
+ ],
+ "meta": {
+  "role": "landing_transport",
+  "icon": {
+   "yaw": 150,
+   "pitch": 24,
+   "margin": 0.78
+  }
+ }
+}

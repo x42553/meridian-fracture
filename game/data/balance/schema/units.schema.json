@@ -1,0 +1,102 @@
+{
+  "_doc": "meridian.balance.units/1 -- units_<code>.json (spec data_balance 7.7). Vocabulary values (classes, archetypes, ability names) are checked against global.json / ability_kinds.json by the rules, not enumerated here.",
+  "type": "object",
+  "required": ["schema", "faction", "units"],
+  "additionalProperties": false,
+  "properties": {
+    "schema": { "const": "meridian.balance.units/1", "x-rule": "V-SCH-01" },
+    "faction": { "type": ["string", "null"], "pattern": "^faction\\.[a-z]+$", "x-rule": "V-SCH-03" },
+    "units": { "type": "array", "items": { "$ref": "#/definitions/unit" } },
+    "weapons": { "type": "array", "items": { "$ref": "weapon.schema.json" } },
+    "summons": { "type": "array", "items": { "$ref": "#/definitions/summon" } }
+  },
+  "definitions": {
+    "id_list": { "type": "array", "uniqueItems": true, "items": { "type": "string" } },
+    "tag_list": { "type": "array", "uniqueItems": true, "items": { "type": "string", "pattern": "^[a-z][a-z0-9_]*$", "x-rule": "V-SCH-08" } },
+    "pres": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "recipe": { "type": "string", "pattern": "^[a-z0-9_.:#-]+$" },
+        "icon": { "type": "string", "pattern": "^[a-z0-9_.:#-]+$" },
+        "snd_profile": { "type": "string", "pattern": "^[a-z0-9_.:#-]+$" },
+        "ai_role": { "type": "string", "pattern": "^[a-z0-9_.:#-]+$" },
+        "scale_pct": { "type": "number", "minimum": 10, "maximum": 1000 }
+      }
+    },
+    "unit": {
+      "type": "object",
+      "required": ["id", "archetype"],
+      "additionalProperties": false,
+      "x-forbidden": {
+        "requires": "V-CNF-04", "requires_all_structure_ids": "V-CNF-04", "prerequisites": "V-CNF-04", "producer": "V-CNF-04",
+        "producer_structure_id": "V-CNF-04", "faction_id": "V-CNF-04", "roster_class": "V-CNF-04", "replaces_unit_id": "V-CNF-04",
+        "introduced_by_roster_id": "V-CNF-04"
+      },
+      "properties": {
+        "id": { "type": "string", "pattern": "^unit\\.[a-z][a-z0-9_]*\\.[a-z0-9_]+$", "x-rule": "V-SCH-03" },
+        "archetype": { "type": "string", "x-rule": "V-REF-04" },
+        "tier": { "type": "integer", "minimum": 1, "maximum": 3 },
+        "size_class": { "type": "string" },
+        "armor_class": { "type": "string" },
+        "movement_class": { "type": "string" },
+        "layer": { "type": "string" },
+        "cost_credits": { "type": "integer", "minimum": 0 },
+        "build_time_s": { "type": "number", "minimum": 0 },
+        "health": { "type": "integer", "minimum": 1 },
+        "speed_cells_s": { "type": "number", "minimum": 0 },
+        "vision_cells": { "type": "number", "minimum": 0 },
+        "radius_cells": { "type": "number", "minimum": 0 },
+        "turn_deg_s": { "type": "number", "minimum": 0 },
+        "accel_ticks": { "type": "integer", "minimum": 1 },
+        "deep_speed_pct": { "type": ["number", "null"], "minimum": 0, "maximum": 300 },
+        "rearm_s_full": { "type": "number", "minimum": 0 },
+        "pop_n": { "type": "integer", "minimum": 0 },
+        "weapons": { "$ref": "#/definitions/id_list" },
+        "abilities": { "$ref": "#/definitions/id_list" },
+        "ability_params": { "type": "object", "additionalProperties": { "type": "object" } },
+        "tags": { "$ref": "#/definitions/id_list" },
+        "tags_add": { "$ref": "#/definitions/tag_list" },
+        "flags": { "type": "array", "uniqueItems": true, "items": { "type": "string", "enum": ["fire_stationary", "hover_fire", "no_combat_mods", "no_command_buff", "no_repair", "no_capture", "no_salvage", "non_blocking", "harmless"] } },
+        "dps_vs_primary": { "type": "number", "minimum": 0 },
+        "sortie_avg_dps_vs_primary": { "type": "number", "minimum": 0 },
+        "range_cells": { "type": "number", "minimum": 0 },
+        "pres": { "$ref": "#/definitions/pres" },
+        "params": { "type": "object" },
+        "notes": { "type": "string" }
+      }
+    },
+    "summon": {
+      "type": "object",
+      "required": ["id", "class", "unit_tags", "size_class", "armor_class", "movement_class", "layer", "health", "speed_cells_s", "vision_cells", "radius_cells"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string", "pattern": "^summon\\.[a-z][a-z0-9_]*\\.[a-z0-9_]+$", "x-rule": "V-SCH-03" },
+        "class": { "type": "string", "enum": ["summon", "drone"] },
+        "unit_tags": { "$ref": "#/definitions/tag_list" },
+        "size_class": { "type": "string" },
+        "armor_class": { "type": "string" },
+        "movement_class": { "type": "string" },
+        "layer": { "type": "string" },
+        "cost_credits": { "type": "integer", "minimum": 0 },
+        "build_time_s": { "type": "number", "minimum": 0 },
+        "health": { "type": "integer", "minimum": 1 },
+        "speed_cells_s": { "type": "number", "minimum": 0 },
+        "vision_cells": { "type": "number", "minimum": 0 },
+        "radius_cells": { "type": "number", "minimum": 0 },
+        "turn_deg_s": { "type": "number", "minimum": 0 },
+        "accel_ticks": { "type": "integer", "minimum": 1 },
+        "deep_speed_pct": { "type": ["number", "null"], "minimum": 0, "maximum": 300 },
+        "lifetime_s": { "type": "number", "minimum": 0 },
+        "pop_n": { "type": "integer", "minimum": 0 },
+        "weapons": { "$ref": "#/definitions/id_list" },
+        "abilities": { "$ref": "#/definitions/id_list" },
+        "ability_params": { "type": "object", "additionalProperties": { "type": "object" } },
+        "flags": { "type": "array", "uniqueItems": true, "items": { "type": "string", "enum": ["fire_stationary", "hover_fire", "no_combat_mods", "no_command_buff", "no_repair", "no_capture", "no_salvage", "non_blocking", "harmless"] } },
+        "pres": { "$ref": "#/definitions/pres" },
+        "params": { "type": "object" },
+        "notes": { "type": "string" }
+      }
+    }
+  }
+}

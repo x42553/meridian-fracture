@@ -1,0 +1,13 @@
+{
+  "schema": 1,
+  "_doc": "HAN doctrine patch: infantry and drone swarm - more infantry and artillery drones, fewer heavy machines.",
+  "faction": "faction.han",
+  "base": {
+    "composition_patch": {
+      "opening": {"INFANTRY_BASIC": 50, "TANK_MAIN": 20},
+      "buildup": {"INFANTRY_BASIC": 35, "ARTILLERY": 15},
+      "midgame": {"INFANTRY_BASIC": 25, "ARTILLERY": 20, "HEAVY": 6}
+    }
+  },
+  "rosters": {"roster.han.vanilla": {}, "roster.han.china": {}, "roster.han.cambodia": {}, "roster.han.vietnam": {}}
+}

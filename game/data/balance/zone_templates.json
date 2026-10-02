@@ -1,0 +1,260 @@
+{
+  "schema": "meridian.balance.zone_templates/1",
+  "zones": {
+    "zone.decoy_light_vehicle": {
+      "kind": "decoy",
+      "shape": "circle",
+      "radius_cells": 0.6,
+      "duration_s": 25,
+      "affects": "friendly",
+      "hp": 1,
+      "visible_to_enemy": true,
+      "params": {
+        "unit_decoy_tags": [
+          "land_vehicle",
+          "light"
+        ],
+        "harmless": true,
+        "non_blocking": true,
+        "detected_by_detectors": true,
+        "no_capture": true
+      },
+      "_designer_params": [
+        "radius_cells"
+      ]
+    },
+    "zone.decoy_radar": {
+      "kind": "decoy",
+      "shape": "circle",
+      "radius_cells": 1.5,
+      "duration_s": 30,
+      "affects": "friendly",
+      "hp": 1,
+      "visible_to_enemy": true,
+      "params": {
+        "structure_id": "structure.shared.radar",
+        "harmless": true,
+        "non_blocking": true,
+        "detected_by_detectors": true
+      },
+      "_designer_params": [
+        "radius_cells"
+      ]
+    },
+    "zone.decoy_tank": {
+      "kind": "decoy",
+      "shape": "circle",
+      "radius_cells": 0.8,
+      "duration_s": 30,
+      "affects": "friendly",
+      "hp": 1,
+      "visible_to_enemy": true,
+      "params": {
+        "unit_decoy_tags": [
+          "land_vehicle",
+          "tank"
+        ],
+        "harmless": true,
+        "non_blocking": true,
+        "detected_by_detectors": true
+      },
+      "_designer_params": [
+        "radius_cells"
+      ]
+    },
+    "zone.decoy_transport": {
+      "kind": "decoy",
+      "shape": "circle",
+      "radius_cells": 0.8,
+      "duration_s": 25,
+      "affects": "friendly",
+      "hp": 1,
+      "visible_to_enemy": true,
+      "params": {
+        "unit_decoy_tags": [
+          "transport"
+        ],
+        "harmless": true,
+        "non_blocking": true,
+        "detected_by_detectors": true,
+        "no_cargo": true
+      },
+      "_designer_params": [
+        "radius_cells"
+      ]
+    },
+    "zone.horizon_debris": {
+      "kind": "debris",
+      "shape": "line",
+      "length_cells": 10.0,
+      "width_cells": 6,
+      "duration_s": 20,
+      "affects": "all",
+      "visible_to_enemy": true,
+      "effects": [
+        {
+          "op": "stat_mod",
+          "stat": "movement_speed",
+          "delta_pct": -35,
+          "selector": {
+            "kinds": [
+              "unit"
+            ],
+            "tags_all": [
+              "land_vehicle"
+            ]
+          },
+          "stack_group": "horizon_debris"
+        }
+      ],
+      "params": {
+        "blocks_new_construction": true,
+        "never_blocks_movement": true,
+        "land_only": true
+      },
+      "_designer_params": [
+        "width_cells"
+      ]
+    },
+    "zone.infantry_shelter": {
+      "kind": "shelter",
+      "shape": "circle",
+      "radius_cells": 1.2,
+      "duration_s": 45,
+      "affects": "friendly",
+      "max_per_owner_n": 0,
+      "effects": [
+        {
+          "op": "resist_mod",
+          "pct": 25,
+          "groups": [
+            "bullet"
+          ],
+          "selector": {
+            "kinds": [
+              "unit"
+            ],
+            "tags_all": [
+              "infantry"
+            ]
+          },
+          "stack_group": "shelter"
+        }
+      ],
+      "params": {
+        "occupants_only": true
+      },
+      "_designer_params": [
+        "radius_cells"
+      ]
+    },
+    "zone.portable_cover": {
+      "kind": "cover",
+      "shape": "circle",
+      "radius_cells": 1.2,
+      "duration_s": 45,
+      "affects": "friendly",
+      "max_per_owner_n": 0,
+      "effects": [
+        {
+          "op": "resist_mod",
+          "pct": 20,
+          "groups": [
+            "bullet"
+          ],
+          "selector": {
+            "kinds": [
+              "unit"
+            ],
+            "tags_all": [
+              "infantry"
+            ]
+          },
+          "stack_group": "cover"
+        }
+      ],
+      "_designer_params": [
+        "radius_cells"
+      ]
+    },
+    "zone.repair_station": {
+      "kind": "repair",
+      "shape": "circle",
+      "radius_cells": 5,
+      "duration_s": 10,
+      "affects": "friendly",
+      "effects": [
+        {
+          "op": "heal",
+          "rate_pct_per_s": 2,
+          "cost": "free",
+          "selector": "selector.balance.land_vehicles",
+          "stack_group": "repair_station"
+        }
+      ]
+    },
+    "zone.sensor_puck": {
+      "kind": "puck",
+      "shape": "circle",
+      "radius_cells": 4,
+      "duration_s": 20,
+      "affects": "friendly",
+      "hp": 60,
+      "effects": [
+        {
+          "op": "reveal",
+          "detect": false
+        }
+      ],
+      "_designer_params": [
+        "hp"
+      ]
+    },
+    "zone.smoke_dust_screen": {
+      "kind": "smoke",
+      "shape": "circle",
+      "radius_cells": 6,
+      "duration_s": 12,
+      "affects": "all",
+      "effects": [
+        {
+          "op": "resist_mod",
+          "pct": 30,
+          "fire_modes": [
+            "direct"
+          ],
+          "selector": {
+            "kinds": [
+              "unit"
+            ],
+            "tags_all": [
+              "ground"
+            ]
+          },
+          "stack_group": "smoke"
+        }
+      ]
+    },
+    "zone.trident_interception": {
+      "kind": "intercept",
+      "shape": "circle",
+      "radius_cells": 6.0,
+      "duration_s": 25,
+      "affects": "enemy",
+      "visible_to_enemy": true,
+      "params": {
+        "charges_n": 24,
+        "charges_per_ordinary_projectile_n": 1,
+        "charges_per_strategic_packet_n": 8,
+        "strategic_reduction_pct": 50,
+        "bypass_groups": [
+          "beam",
+          "bullet",
+          "emp"
+        ],
+        "bypass_units_inside": true,
+        "bypass_weapons_fired_from_inside": true
+      }
+    }
+  }
+}

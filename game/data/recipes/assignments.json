@@ -1,0 +1,880 @@
+{
+  "schema": "meridian.recipes.assignments/1",
+  "_doc": [
+    "Input of tools/py/gen_recipe_stubs.py (render spec 5.8.7 / 7.4). Resolution per def id: `overrides` (exact id) > `patterns` (fnmatch, top to bottom) > units only: `balance_to_view` of the balance archetype, then `ability_rules`.",
+    "An id that matches nothing gets `default_archetype` and validate_recipes.py warns (V-RCP-02), so a renamed def never fails silently.",
+    "`params` of a rule are written into the stub only where the used archetype declares them (`defaults`). `style: owner` = instantiate with the owning player's style.",
+    "`fallbacks` (extension of the spec): while the view archetype named by a rule has no file in archetypes/, the stub uses the generic archetype named here (gen_*, veh_tank, inf_squad) so nothing ever falls back to the magenta placeholder box. As soon as archetypes/<name>.json exists, `gen_recipe_stubs.py` re-points every STUB (meta.stub = true) at it; hand-authored recipes are never touched.",
+    "Structure kits: str_defense_adv `kit` = bulwark_cannon | lance_rail | sunwall | citadel_mortar | sea_spear | dragon_tooth | forge_cannon | bastion_tower; str_superweapon `kit` = halo_tower | billboard | sunflower | gantry_silo | hive_tower | assembly_hall | long_barrel | three_masts; neu_building `kit` = garrison | substation | outpost | depot | hospital | harbor | deposit (+ `heaps` 1..4)."
+  ],
+  "balance_to_view": {
+    "inf_line": "inf_rifle",
+    "inf_at": "inf_at",
+    "inf_support": "inf_support",
+    "inf_combat_spec": "inf_special",
+    "service.engineer": "inf_engineer",
+    "veh_scout": "veh_apc",
+    "arty_light": "veh_lightarty",
+    "mbt_t1": "veh_tank",
+    "mbt_t2": "veh_tank",
+    "mbt_t2_rail": "veh_tank",
+    "siege_ap": "veh_siege",
+    "siege_he": "veh_siege",
+    "siege_rail": "veh_siege",
+    "siege_beam": "veh_siege",
+    "siege_demo": "veh_siege",
+    "veh_aa": "veh_aa",
+    "veh_aa_beam": "veh_aa",
+    "veh_aa_flak": "veh_aa",
+    "arty_howitzer": "veh_howitzer",
+    "arty_rocket": "veh_rocket",
+    "arty_missile": "veh_rocket",
+    "veh_command": "veh_walker",
+    "veh_assault_carrier": "veh_hovercarrier",
+    "service.collector": "veh_collector",
+    "service.mcv": "veh_mcv",
+    "service.landing_transport": "veh_landing",
+    "air_fighter": "air_jet",
+    "air_gunship": "air_heli",
+    "air_bomber": "air_bomber",
+    "air_drone": "air_drone",
+    "air_ew": "air_ew",
+    "ship_patrol": "ship_patrol",
+    "ship_escort": "ship_escort",
+    "ship_siege": "ship_siege",
+    "ship_carrier": "ship_carrier",
+    "ship_sub": "ship_sub"
+  },
+  "ability_rules": [
+    {
+      "when_view": "veh_apc",
+      "has_ability": "amphibious",
+      "then": "veh_amphib"
+    }
+  ],
+  "default_archetype": "gen_prop",
+  "patterns": [
+    {
+      "match": "neutral.*garrison*",
+      "archetype": "neu_building",
+      "params": {
+        "kit": "garrison"
+      }
+    },
+    {
+      "match": "neutral.*substation",
+      "archetype": "neu_building",
+      "params": {
+        "kit": "substation"
+      }
+    },
+    {
+      "match": "neutral.*outpost",
+      "archetype": "neu_building",
+      "params": {
+        "kit": "outpost"
+      }
+    },
+    {
+      "match": "neutral.observation_*",
+      "archetype": "neu_building",
+      "params": {
+        "kit": "outpost"
+      }
+    },
+    {
+      "match": "neutral.*depot",
+      "archetype": "neu_building",
+      "params": {
+        "kit": "depot"
+      }
+    },
+    {
+      "match": "neutral.*hospital",
+      "archetype": "neu_building",
+      "params": {
+        "kit": "hospital"
+      }
+    },
+    {
+      "match": "neutral.*harbor*",
+      "archetype": "neu_building",
+      "params": {
+        "kit": "harbor"
+      }
+    },
+    {
+      "match": "neutral.*",
+      "archetype": "neu_building",
+      "params": {
+        "kit": "garrison"
+      }
+    },
+    {
+      "match": "summon.*uav",
+      "archetype": "sum_uav"
+    },
+    {
+      "match": "summon.*balloon*",
+      "archetype": "sum_balloon"
+    },
+    {
+      "match": "summon.*cargo*",
+      "archetype": "sum_cargo"
+    },
+    {
+      "match": "summon.*drone*",
+      "archetype": "sum_drone_swarm"
+    },
+    {
+      "match": "summon.*decoy_light_vehicle",
+      "archetype": "veh_apc",
+      "style": "owner"
+    },
+    {
+      "match": "summon.*decoy_tank",
+      "archetype": "veh_tank",
+      "style": "owner"
+    },
+    {
+      "match": "summon.*decoy_transport",
+      "archetype": "veh_amphib",
+      "style": "owner"
+    },
+    {
+      "match": "summon.*capsule",
+      "archetype": "sum_capsule"
+    },
+    {
+      "match": "summon.*engine",
+      "archetype": "sum_engine"
+    },
+    {
+      "match": "summon.*station",
+      "archetype": "sum_station"
+    },
+    {
+      "match": "summon.*repair_station",
+      "archetype": "sum_station"
+    },
+    {
+      "match": "summon.*cover",
+      "archetype": "sum_cover"
+    },
+    {
+      "match": "summon.*pontoon",
+      "archetype": "sum_cover"
+    }
+  ],
+  "overrides": {
+    "neutral.civilian_garrison": {
+      "archetype": "neu_building",
+      "params": {
+        "kit": "garrison"
+      }
+    },
+    "neutral.field_hospital": {
+      "archetype": "neu_building",
+      "params": {
+        "kit": "hospital"
+      }
+    },
+    "neutral.harbor_terminal": {
+      "archetype": "neu_building",
+      "params": {
+        "kit": "harbor"
+      }
+    },
+    "neutral.observation_tower": {
+      "archetype": "neu_building",
+      "params": {
+        "kit": "outpost"
+      }
+    },
+    "neutral.salvage_depot": {
+      "archetype": "neu_building",
+      "params": {
+        "kit": "depot"
+      }
+    },
+    "neutral.salvage_field": {
+      "archetype": "neu_building",
+      "params": {
+        "kit": "deposit",
+        "heaps": 2
+      }
+    },
+    "neutral.salvage_field_rich": {
+      "archetype": "neu_building",
+      "params": {
+        "kit": "deposit",
+        "heaps": 4
+      }
+    },
+    "neutral.substation": {
+      "archetype": "neu_building",
+      "params": {
+        "kit": "substation"
+      }
+    },
+    "proj.bomb": {
+      "archetype": "proj_bomb"
+    },
+    "proj.missile": {
+      "archetype": "proj_missile"
+    },
+    "proj.rocket": {
+      "archetype": "proj_rocket"
+    },
+    "proj.torpedo": {
+      "archetype": "proj_torpedo"
+    },
+    "structure.ae.forge_cannon": {
+      "archetype": "str_defense_adv",
+      "params": {
+        "kit": "forge_cannon"
+      }
+    },
+    "structure.ae.horizon_mass_driver": {
+      "archetype": "str_superweapon",
+      "params": {
+        "kit": "long_barrel"
+      }
+    },
+    "structure.def.citadel_mortar": {
+      "archetype": "str_defense_adv",
+      "params": {
+        "kit": "citadel_mortar"
+      }
+    },
+    "structure.def.perun_missile_complex": {
+      "archetype": "str_superweapon",
+      "params": {
+        "kit": "gantry_silo"
+      }
+    },
+    "structure.han.dragon_tooth_launcher": {
+      "archetype": "str_defense_adv",
+      "params": {
+        "kit": "dragon_tooth"
+      }
+    },
+    "structure.han.dragonfall_field_foundry": {
+      "archetype": "str_superweapon",
+      "params": {
+        "kit": "assembly_hall"
+      }
+    },
+    "structure.napc.atlas_kinetic_array": {
+      "archetype": "str_superweapon",
+      "params": {
+        "kit": "halo_tower"
+      }
+    },
+    "structure.napc.bulwark_cannon": {
+      "archetype": "str_defense_adv",
+      "params": {
+        "kit": "bulwark_cannon"
+      }
+    },
+    "structure.nec.aurora_microwave_array": {
+      "archetype": "str_superweapon",
+      "params": {
+        "kit": "billboard"
+      }
+    },
+    "structure.nec.lance_rail_emplacement": {
+      "archetype": "str_defense_adv",
+      "params": {
+        "kit": "lance_rail"
+      }
+    },
+    "structure.nec.relay": {
+      "archetype": "str_relay"
+    },
+    "structure.olm.helios_reflector": {
+      "archetype": "str_superweapon",
+      "params": {
+        "kit": "sunflower"
+      }
+    },
+    "structure.olm.sunwall_projector": {
+      "archetype": "str_defense_adv",
+      "params": {
+        "kit": "sunwall"
+      }
+    },
+    "structure.pd.sea_spear_battery": {
+      "archetype": "str_defense_adv",
+      "params": {
+        "kit": "sea_spear"
+      }
+    },
+    "structure.pd.tempest_swarm_hub": {
+      "archetype": "str_superweapon",
+      "params": {
+        "kit": "hive_tower"
+      }
+    },
+    "structure.sap.bastion_missile_tower": {
+      "archetype": "str_defense_adv",
+      "params": {
+        "kit": "bastion_tower"
+      }
+    },
+    "structure.sap.trident_interception_array": {
+      "archetype": "str_superweapon",
+      "params": {
+        "kit": "three_masts"
+      }
+    },
+    "structure.shared.aa_battery": {
+      "archetype": "str_aa_battery"
+    },
+    "structure.shared.airfield": {
+      "archetype": "str_airfield"
+    },
+    "structure.shared.anti_tank_turret": {
+      "archetype": "str_at_turret"
+    },
+    "structure.shared.barracks": {
+      "archetype": "str_barracks"
+    },
+    "structure.shared.dock": {
+      "archetype": "str_dock"
+    },
+    "structure.shared.factory": {
+      "archetype": "str_factory"
+    },
+    "structure.shared.generator": {
+      "archetype": "str_generator"
+    },
+    "structure.shared.headquarters": {
+      "archetype": "str_headquarters"
+    },
+    "structure.shared.laboratory": {
+      "archetype": "str_laboratory"
+    },
+    "structure.shared.radar": {
+      "archetype": "str_radar"
+    },
+    "structure.shared.refinery": {
+      "archetype": "str_refinery"
+    },
+    "structure.shared.watchtower": {
+      "archetype": "str_watchtower"
+    },
+    "summon.ae.repair_drone": {
+      "archetype": "sum_uav"
+    },
+    "summon.han.dragonfall_capsule": {
+      "archetype": "sum_capsule"
+    },
+    "summon.han.dragonfall_engine": {
+      "archetype": "sum_engine"
+    },
+    "summon.han.emperor_strike_drone": {
+      "archetype": "sum_drone_swarm"
+    },
+    "summon.napc.cargo_aircraft": {
+      "archetype": "sum_cargo"
+    },
+    "summon.napc.pontoon": {
+      "archetype": "sum_cover"
+    },
+    "summon.napc.uav": {
+      "archetype": "sum_uav"
+    },
+    "summon.pd.decoy_transport": {
+      "archetype": "veh_amphib",
+      "style": "owner"
+    },
+    "summon.pd.interceptor_drone": {
+      "archetype": "sum_drone_swarm"
+    },
+    "summon.pd.patrol_aircraft": {
+      "archetype": "air_jet"
+    },
+    "summon.pd.surface_strike_drone": {
+      "archetype": "sum_drone_swarm"
+    },
+    "summon.pd.tempest_strike_drone": {
+      "archetype": "sum_drone_swarm"
+    },
+    "summon.pd.workshop_aircraft": {
+      "archetype": "sum_cargo"
+    }
+  },
+  "fallbacks": {
+    "air_bomber": {
+      "archetype": "gen_air",
+      "params": {
+        "kind": "bomber"
+      }
+    },
+    "air_drone": {
+      "archetype": "gen_air",
+      "params": {
+        "kind": "drone"
+      }
+    },
+    "air_ew": {
+      "archetype": "gen_air",
+      "params": {
+        "kind": "ew"
+      }
+    },
+    "air_heli": {
+      "archetype": "gen_air",
+      "params": {
+        "kind": "heli"
+      }
+    },
+    "air_jet": {
+      "archetype": "gen_air",
+      "params": {
+        "kind": "jet"
+      }
+    },
+    "inf_at": {
+      "archetype": "inf_squad",
+      "params": {
+        "kit": "launcher",
+        "n": 3
+      }
+    },
+    "inf_engineer": {
+      "archetype": "inf_squad",
+      "params": {
+        "kit": "tool",
+        "n": 1,
+        "helmet": "cap"
+      }
+    },
+    "inf_rifle": {
+      "archetype": "inf_squad",
+      "params": {
+        "kit": "rifle",
+        "n": 4
+      }
+    },
+    "inf_special": {
+      "archetype": "inf_squad",
+      "params": {
+        "kit": "breach",
+        "n": 3
+      }
+    },
+    "inf_support": {
+      "archetype": "inf_squad",
+      "params": {
+        "kit": "radio",
+        "n": 2
+      }
+    },
+    "neu_building": {
+      "archetype": "gen_neutral",
+      "params": {
+        "kit": "garrison"
+      }
+    },
+    "proj_bomb": {
+      "archetype": "gen_prop",
+      "params": {
+        "kind": "bomb"
+      }
+    },
+    "proj_missile": {
+      "archetype": "gen_prop",
+      "params": {
+        "kind": "missile"
+      }
+    },
+    "proj_rocket": {
+      "archetype": "gen_prop",
+      "params": {
+        "kind": "rocket"
+      }
+    },
+    "proj_torpedo": {
+      "archetype": "gen_prop",
+      "params": {
+        "kind": "torpedo"
+      }
+    },
+    "ship_carrier": {
+      "archetype": "gen_ship",
+      "params": {
+        "kind": "carrier"
+      }
+    },
+    "ship_escort": {
+      "archetype": "gen_ship",
+      "params": {
+        "kind": "escort"
+      }
+    },
+    "ship_patrol": {
+      "archetype": "gen_ship",
+      "params": {
+        "kind": "patrol"
+      }
+    },
+    "ship_siege": {
+      "archetype": "gen_ship",
+      "params": {
+        "kind": "siege"
+      }
+    },
+    "ship_sub": {
+      "archetype": "gen_ship",
+      "params": {
+        "kind": "sub"
+      }
+    },
+    "str_aa_battery": {
+      "archetype": "gen_structure",
+      "params": {
+        "role": "aa_battery"
+      }
+    },
+    "str_airfield": {
+      "archetype": "gen_structure",
+      "params": {
+        "role": "airfield"
+      }
+    },
+    "str_at_turret": {
+      "archetype": "gen_structure",
+      "params": {
+        "role": "at_turret"
+      }
+    },
+    "str_barracks": {
+      "archetype": "gen_structure",
+      "params": {
+        "role": "barracks"
+      }
+    },
+    "str_defense_adv": {
+      "archetype": "gen_defense",
+      "params": {
+        "kit": "bulwark_cannon"
+      }
+    },
+    "str_dock": {
+      "archetype": "gen_structure",
+      "params": {
+        "role": "dock"
+      }
+    },
+    "str_factory": {
+      "archetype": "gen_structure",
+      "params": {
+        "role": "factory"
+      }
+    },
+    "str_generator": {
+      "archetype": "gen_structure",
+      "params": {
+        "role": "generator"
+      }
+    },
+    "str_headquarters": {
+      "archetype": "gen_structure",
+      "params": {
+        "role": "hq"
+      }
+    },
+    "str_laboratory": {
+      "archetype": "gen_structure",
+      "params": {
+        "role": "laboratory"
+      }
+    },
+    "str_radar": {
+      "archetype": "gen_structure",
+      "params": {
+        "role": "radar"
+      }
+    },
+    "str_refinery": {
+      "archetype": "gen_structure",
+      "params": {
+        "role": "refinery"
+      }
+    },
+    "str_relay": {
+      "archetype": "gen_structure",
+      "params": {
+        "role": "relay"
+      }
+    },
+    "str_superweapon": {
+      "archetype": "gen_superweapon",
+      "params": {
+        "kit": "halo_tower"
+      }
+    },
+    "str_watchtower": {
+      "archetype": "gen_structure",
+      "params": {
+        "role": "watchtower"
+      }
+    },
+    "sum_balloon": {
+      "archetype": "gen_prop",
+      "params": {
+        "kind": "balloon"
+      }
+    },
+    "sum_capsule": {
+      "archetype": "gen_prop",
+      "params": {
+        "kind": "capsule"
+      }
+    },
+    "sum_cargo": {
+      "archetype": "gen_prop",
+      "params": {
+        "kind": "cargo"
+      }
+    },
+    "sum_cover": {
+      "archetype": "gen_prop",
+      "params": {
+        "kind": "cover"
+      }
+    },
+    "sum_drone_swarm": {
+      "archetype": "gen_prop",
+      "params": {
+        "kind": "drone_swarm"
+      }
+    },
+    "sum_engine": {
+      "archetype": "gen_prop",
+      "params": {
+        "kind": "engine"
+      }
+    },
+    "sum_station": {
+      "archetype": "gen_prop",
+      "params": {
+        "kind": "station"
+      }
+    },
+    "sum_uav": {
+      "archetype": "gen_prop",
+      "params": {
+        "kind": "uav"
+      }
+    },
+    "veh_aa": {
+      "archetype": "veh_tank",
+      "params": {
+        "len": 3.2,
+        "hull_w": 1.85,
+        "hull_top": 1.05,
+        "glacis": 0.7,
+        "wheel_n": 6,
+        "wheel_r": 0.27,
+        "barrel_len": 1.3,
+        "barrel_r": 0.05,
+        "turret_hw": 0.6,
+        "turret_hl": 0.7,
+        "turret_h": 0.3,
+        "turret_n": 6,
+        "skirt": "none",
+        "roof": "mast"
+      }
+    },
+    "veh_amphib": {
+      "archetype": "veh_tank",
+      "params": {
+        "len": 3.2,
+        "hull_w": 1.85,
+        "hull_top": 1.05,
+        "glacis": 0.7,
+        "wheel_n": 6,
+        "wheel_r": 0.27,
+        "barrel_len": 1.0,
+        "barrel_r": 0.045,
+        "turret_hw": 0.52,
+        "turret_hl": 0.6,
+        "turret_h": 0.3,
+        "turret_n": 6,
+        "skirt": "none",
+        "roof": "cupola",
+        "float_skirt": true
+      }
+    },
+    "veh_apc": {
+      "archetype": "veh_tank",
+      "params": {
+        "len": 3.2,
+        "hull_w": 1.85,
+        "hull_top": 1.05,
+        "glacis": 0.7,
+        "wheel_n": 6,
+        "wheel_r": 0.27,
+        "barrel_len": 1.0,
+        "barrel_r": 0.045,
+        "turret_hw": 0.52,
+        "turret_hl": 0.6,
+        "turret_h": 0.3,
+        "turret_n": 6,
+        "skirt": "none",
+        "roof": "cupola"
+      }
+    },
+    "veh_collector": {
+      "archetype": "veh_tank",
+      "params": {
+        "len": 3.4,
+        "hull_w": 1.85,
+        "hull_top": 1.05,
+        "glacis": 0.7,
+        "wheel_n": 6,
+        "wheel_r": 0.27,
+        "barrel_len": 0.3,
+        "barrel_r": 0.03,
+        "turret_hw": 0.6,
+        "turret_hl": 0.8,
+        "turret_h": 0.25,
+        "turret_n": 6,
+        "skirt": "none",
+        "roof": "cupola",
+        "deck": "container"
+      }
+    },
+    "veh_hovercarrier": {
+      "archetype": "veh_tank",
+      "params": {
+        "len": 6.0,
+        "hull_w": 3.4,
+        "hull_top": 1.5,
+        "track_x": 1.5,
+        "barrel_len": 2.4,
+        "barrel_r": 0.11,
+        "turret_hw": 1.0,
+        "turret_hl": 1.2,
+        "float_skirt": true,
+        "skirt": "none"
+      }
+    },
+    "veh_howitzer": {
+      "archetype": "veh_tank",
+      "params": {
+        "len": 4.0,
+        "hull_w": 2.1,
+        "barrel_len": 3.0,
+        "barrel_r": 0.09,
+        "turret_hl": 1.2,
+        "turret_hw": 0.8,
+        "skirt": "slab"
+      }
+    },
+    "veh_landing": {
+      "archetype": "veh_tank",
+      "params": {
+        "len": 4.4,
+        "hull_w": 2.4,
+        "hull_top": 1.05,
+        "glacis": 0.7,
+        "wheel_n": 6,
+        "wheel_r": 0.27,
+        "barrel_len": 0.3,
+        "barrel_r": 0.045,
+        "turret_hw": 0.52,
+        "turret_hl": 0.6,
+        "turret_h": 0.2,
+        "turret_n": 6,
+        "skirt": "none",
+        "roof": "cupola",
+        "float_skirt": true
+      }
+    },
+    "veh_lightarty": {
+      "archetype": "veh_tank",
+      "params": {
+        "len": 3.2,
+        "hull_w": 1.85,
+        "hull_top": 1.05,
+        "glacis": 0.7,
+        "wheel_n": 6,
+        "wheel_r": 0.27,
+        "barrel_len": 1.5,
+        "barrel_r": 0.045,
+        "turret_hw": 0.52,
+        "turret_hl": 0.7,
+        "turret_h": 0.3,
+        "turret_n": 6,
+        "skirt": "none",
+        "roof": "cupola"
+      }
+    },
+    "veh_mcv": {
+      "archetype": "veh_tank",
+      "params": {
+        "len": 4.0,
+        "hull_w": 2.3,
+        "hull_top": 1.6,
+        "barrel_len": 0.3,
+        "barrel_r": 0.03,
+        "turret_hw": 1.0,
+        "turret_hl": 1.2,
+        "turret_h": 0.9,
+        "deck": "container",
+        "skirt": "slab"
+      }
+    },
+    "veh_rocket": {
+      "archetype": "veh_tank",
+      "params": {
+        "len": 3.8,
+        "hull_w": 1.85,
+        "hull_top": 1.05,
+        "glacis": 0.7,
+        "wheel_n": 6,
+        "wheel_r": 0.27,
+        "barrel_len": 0.7,
+        "barrel_r": 0.13,
+        "turret_hw": 0.7,
+        "turret_hl": 1.1,
+        "turret_h": 0.45,
+        "turret_n": 6,
+        "skirt": "none",
+        "roof": "cupola"
+      }
+    },
+    "veh_siege": {
+      "archetype": "veh_tank",
+      "params": {
+        "len": 4.2,
+        "hull_w": 2.3,
+        "hull_top": 1.3,
+        "track_x": 1.0,
+        "track_w": 0.52,
+        "barrel_len": 2.6,
+        "barrel_r": 0.11,
+        "turret_hw": 0.95,
+        "turret_hl": 1.15,
+        "turret_h": 0.5,
+        "skirt": "slab"
+      }
+    },
+    "veh_walker": {
+      "archetype": "veh_tank",
+      "params": {
+        "len": 4.4,
+        "hull_w": 2.4,
+        "hull_top": 1.5,
+        "barrel_len": 1.0,
+        "barrel_r": 0.06,
+        "roof": "crown",
+        "skirt": "cage"
+      }
+    }
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "schema": 1,
+  "_doc": "AE doctrine patch: salvage follow-up - salvagers ride behind the army (engineers are the fallback salvager).",
+  "faction": "faction.ae",
+  "base": {
+    "opener_patch": {
+      "append": [
+        {
+          "id": "salv1",
+          "op": "train",
+          "role": "SALVAGER",
+          "n": 1,
+          "parallel": true,
+          "when": {
+            "tier_ge": 2
+          }
+        }
+      ]
+    }
+  },
+  "rosters": {
+    "roster.ae.vanilla": {},
+    "roster.ae.nigeria": {},
+    "roster.ae.kongo": {
+      "composition_patch": {
+        "buildup": {
+          "ESCORT_SHIP": 4,
+          "BOAT_LIGHT": 2,
+          "AMPH_TRANSPORT": 4
+        },
+        "midgame": {
+          "ESCORT_SHIP": 8,
+          "BOAT_LIGHT": 2,
+          "SIEGE_SHIP": 4,
+          "AMPH_TRANSPORT": 6
+        },
+        "late": {
+          "ESCORT_SHIP": 8,
+          "SIEGE_SHIP": 6,
+          "AMPH_TRANSPORT": 4
+        }
+      }
+    },
+    "roster.ae.south_africa": {}
+  }
+}

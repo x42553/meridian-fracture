@@ -1,0 +1,174 @@
+{
+ "schema": "meridian.recipe/1",
+ "id": "unit.napc.riverwatch_patrol_boat",
+ "archetype": "ship_patrol",
+ "style": "auto",
+ "params": {
+  "sp_len": 5.0,
+  "sp_beam": 1.95,
+  "bow": "sharp",
+  "cabin": "bubble",
+  "gun": "mg"
+ },
+ "ops_after": [
+  [
+   "brush",
+   "acc"
+  ],
+  [
+   "box",
+   [
+    0,
+    "fb+0.10",
+    "-hl+0.30"
+   ],
+   [
+    0.3,
+    0.16,
+    0.12
+   ],
+   0.0
+  ],
+  [
+   "brush",
+   "plate"
+  ],
+  [
+   "box",
+   [
+    0,
+    "fb+0.10",
+    "-hl+0.235"
+   ],
+   [
+    0.12,
+    0.08,
+    0.012
+   ],
+   0.0
+  ],
+  {
+   "mirror_x": [
+    [
+     "brush",
+     "sec"
+    ],
+    [
+     "box",
+     [
+      "sp_beam*0.5-0.10",
+      "fb+0.05",
+      "0"
+     ],
+     [
+      0.06,
+      0.1,
+      "sp_len*0.78"
+     ],
+     0.0
+    ]
+   ]
+  },
+  {
+   "call": "beacon",
+   "args": {
+    "pos": [
+     0,
+     "fb+0.82",
+     "hl*0.05-0.1"
+    ],
+    "r": 0.07,
+    "col": "acc",
+    "phase": 0.0
+   }
+  },
+  {
+   "push": {
+    "pos": [
+     0,
+     "fb+0.27",
+     "hl-0.15"
+    ],
+    "euler": [
+     0,
+     0,
+     0
+    ]
+   },
+   "do": [
+    {
+     "let": {
+      "ld_len": 0.5
+     }
+    },
+    {
+     "slot": "kit_nav_light_bar"
+    }
+   ]
+  },
+  {
+   "mirror_x": [
+    {
+     "push": {
+      "pos": [
+       "sp_beam*0.5+0.012",
+       "fb*0.55",
+       "-hl*0.42"
+      ],
+      "euler": [
+       0,
+       90,
+       0
+      ]
+     },
+     "do": [
+      {
+       "let": {
+        "ld_wid": 0.38
+       }
+      },
+      {
+       "slot": "kit_emblem"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "mirror_x": [
+    {
+     "push": {
+      "pos": [
+       "sp_beam*0.5+0.02",
+       0.3,
+       0.2
+      ],
+      "euler": [
+       0,
+       0,
+       0
+      ]
+     },
+     "do": [
+      {
+       "let": {
+        "ld_len": "sp_len*0.5"
+       }
+      },
+      {
+       "slot": "kit_waterline_band"
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "meta": {
+  "role": "patrol_boat",
+  "icon": {
+   "yaw": 150,
+   "pitch": 24,
+   "margin": 0.8
+  }
+ }
+}

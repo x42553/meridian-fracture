@@ -1,0 +1,57 @@
+{
+  "schema": "meridian.recipe/1",
+  "id": "unit.han.mekong_field_engineer",
+  "archetype": "inf_support",
+  "style": "auto",
+  "params": {"gadget": "tool", "helmet": "cap"},
+  "slots": {
+    "gear": [
+      ["member", 0, 2],
+      {
+        "part": {"kind": "body_bob", "pivot": [0, 0, 0], "param": "0.25", "extra": 0},
+        "do": [
+          {
+            "push": {"pos": ["sin(0*TAU/2+PI*0.5)*0.36", 0, "-cos(0*TAU/2+PI*0.5)*0.36"]},
+            "do": [
+              ["tier", 1],
+              ["brush", "acc"],
+              ["box", [0, 0.5, 0], [0.42, 0.05, 0.26], 0.005],
+              ["brush", "metal", "metal"],
+              ["cyl", [0, 0.7, 0.3], [0, 0.84, 0.3], 0.02, 5, 0],
+              {
+                "part": {"kind": "deploy", "pivot": [0, 0.78, 0.34], "param": 0.143},
+                "do": [
+                  ["brush", "metal", "metal"],
+                  ["box", [0, 0.78, 0.66], [0.028, 0.028, 0.6], 0],
+                  ["brush", "sec"],
+                  ["dome", [0, 0.78, 0.96], [0, 0, 1], 0.075, 0.05, 8, 2]
+                ]
+              },
+              ["tier", 0],
+              ["tier", 0],
+              ["brush", "metal", "metal"],
+              ["cyl", [0, 0.84, 0.3], [0, "(0.84)+0.1", 0.3], 0.018, 5, 0],
+              {
+                "part": {"kind": "radar", "pivot": [0, "(0.84)+0.1", 0.3], "extra": 0.3},
+                "do": [
+                  ["brush", "sec"],
+                  ["cyl", [0, "(0.84)+0.1", 0.3], [0, "(0.84)+0.125", 0.3], 0.11, 8, 0],
+                  ["brush", "acc"],
+                  {
+                    "for": "k",
+                    "n": 4,
+                    "do": [["box", ["(0.0)+cos(k*TAU/4)*0.11", "(0.84)+0.195", "(0.3)+sin(k*TAU/4)*0.11"], [0.035, 0.14, 0.035], 0]]
+                  },
+                  ["brush", "mix(light,base,0.35)", "emissive"],
+                  ["box", [0, "(0.84)+0.15", 0.3], [0.06, 0.05, 0.06], 0]
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      ["member", 0, 0]
+    ]
+  },
+  "meta": {"han_gen": true}
+}

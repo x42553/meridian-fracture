@@ -1,0 +1,123 @@
+{
+  "schema": "meridian.archetype/1",
+  "id": "str_radar",
+  "size_class": "structure",
+  "meta": {"motion": "static", "death": {"kind": "structure", "ticks": 7}, "doc": "Radar (2x2): base hut, lattice mast and a large ribbed array antenna that rotates (RADAR part, 1.2 rad/s while powered, stops unpowered)."},
+  "defaults": {},
+  "slots": {"roof": [], "front": [], "extra": []},
+  "derive": {
+    "pw": "fw*3-0.5",
+    "ph": "fh*3-0.5",
+    "hw": "pw*0.5",
+    "hh": "ph*0.5",
+    "ap": "fw*fh>1 ? 1.0 : 0.3",
+    "fz": "hh-ap",
+    "bk": "-hh+0.25",
+    "bd": "fz-bk",
+    "bz": "(fz+bk)*0.5",
+    "bw": "pw-0.5",
+    "k": "clamp(min(pw,ph)/5.5,0.8,1.25)",
+    "hcap": "(max(fw,fh)>=4 ? 12.5 : (max(fw,fh)>=3 ? 10 : 7))-0.35",
+    "bh": "2.0*k",
+    "ar": "clamp(1.5*k,1.2,1.9)",
+    "mh": "min(6.2*k,hcap-0.6-0.95*ar)",
+    "mz": "bz-bd*0.1",
+    "ay": "mh+0.5",
+    "ry": "bh+0.09"
+  },
+  "ops": [
+    ["bevel", 0.05],
+    {"call": "foundation", "args": {"fw": "fw", "fh": "fh", "depth": 1.2, "col": "concrete", "edge": "dark", "chevron": "fw*fh>1 ? 1 : 0", "acc": "acc"}},
+    {"call": "wall_block", "args": {"center": [0, "bh*0.5", "mz+bd*0.12"], "size": ["bw*0.78", "bh", "bd*0.66"], "col": "base", "sec": "base", "dado": 0.0, "ribs": 1, "rib": "sec", "cap": "sec", "coping": 0}},
+    ["brush", "dark"],
+    ["ao", 0.75],
+    ["box", [0, 0.3, "mz+bd*0.12"], ["bw*0.78+0.1", 0.3, "bd*0.66+0.1"], 0.02],
+    ["ao", 1.0],
+    ["brush", "mix(sec,dark,0.55)"],
+    ["box", [0, "(bh)+0.04", "mz+bd*0.12"], ["(bw*0.78)+0.06", 0.08, "(bd*0.66)+0.06"], 0.01],
+    ["brush", "sec"],
+    ["box", [0, "(bh)+0.08+0.12", "(mz+bd*0.12)+(bd*0.66)*0.5-0.075"], ["(bw*0.78)+0.16", 0.24, 0.15], 0.02],
+    ["box", [0, "(bh)+0.08+0.12", "(mz+bd*0.12)-(bd*0.66)*0.5+0.075"], ["(bw*0.78)+0.16", 0.24, 0.15], 0.02],
+    ["box", ["0+(bw*0.78)*0.5-0.075", "(bh)+0.08+0.12", "mz+bd*0.12"], [0.15, 0.24, "(bd*0.66)-0.3"], 0.02],
+    ["box", ["0-(bw*0.78)*0.5+0.075", "(bh)+0.08+0.12", "mz+bd*0.12"], [0.15, 0.24, "(bd*0.66)-0.3"], 0.02],
+    ["brush", "dark"],
+    ["ao", 0.8],
+    ["box", ["-bw*0.16", 0.95, "mz+bd*0.12+bd*0.33+0.02"], [1.0, 1.7, 0.06], 0.02],
+    ["ao", 1.0],
+    ["brush", "acc"],
+    ["box", ["-bw*0.16", 1.85, "mz+bd*0.12+bd*0.33+0.06"], [1.2, 0.08, 0.14]],
+    {"call": "window_strip", "args": {"center": ["bw*0.18", "bh*0.6", "mz+bd*0.12+bd*0.33+0.02"], "n": 2, "size": [0.7, 0.5, 0.05], "dir": 0, "col": "mix(light,glass,0.5)"}},
+    {
+      "push": {"pos": ["-bw*0.16+0.9", 1.9, "mz+bd*0.12+bd*0.33+0.03"], "euler": [0, 0, 0]},
+      "do": [
+        ["brush", "metal", "metal"],
+        ["box", [0, 0, 0.05], [0.22, 0.12, 0.12], 0.01],
+        ["brush", "light", "emissive"],
+        ["box", [0, -0.02, 0.12], [0.16, 0.06, 0.03]]
+      ]
+    },
+    ["brush", "mix(sec,metal,0.5)"],
+    ["box", ["bw*0.26", "(ry)+0.175", "mz+bd*0.28"], [0.8, 0.35, 0.6], 0.03],
+    {"call": "vent", "args": {"center": ["bw*0.26", "(ry)+0.36", "mz+bd*0.28"], "size": [0.576, 0.05, 0.42], "slats": 3}},
+    {"call": "roof_plate", "args": {"center": ["-bw*0.14", "ry+0.05", "mz+bd*0.3"], "size": ["clamp(bw*0.26,1.2,1.8)", 0.03, "clamp(bd*0.14,0.7,1.0)"]}},
+    {"call": "pipe", "args": {"from": ["-bw*0.3", "ry+0.1", "mz+bd*0.05"], "to": ["-bw*0.3", "ry+0.1", "mz+bd*0.2"], "r": 0.05, "col": "metal"}},
+    {"call": "lattice", "args": {"center": [0, "ry", "mz-bd*0.04"], "h": "mh-ry", "w0": "min(1.6*k,bw*0.34)", "w1": 0.55, "bays": 4, "col": "sec", "brace": "metal"}},
+    ["brush", "dark", "metal"],
+    ["cyl", [0, "mh-0.05", "mz-bd*0.04"], [0, "mh+0.25", "mz-bd*0.04"], 0.55, 14, 0.02],
+    {
+      "part": {"kind": "radar", "pivot": [0, "ay", "mz-bd*0.04"], "extra": 1.0},
+      "do": [
+        ["brush", "metal", "metal"],
+        ["box", [0, "ay", "mz-bd*0.04"], [0.5, 0.5, 0.5], 0.03],
+        ["brush", "sec"],
+        {
+          "push": {"pos": [0, "ay+ar*0.45", "mz-bd*0.04-0.15"], "euler": [-12, 0, 0]},
+          "do": [
+            ["box", [0, 0, 0], ["ar*2.3", "ar*1.0", 0.16], 0.04],
+            ["brush", "dark"],
+            ["box", [0, 0, 0.09], ["ar*2.3-0.2", "ar*1.0-0.18", 0.05], 0.02],
+            ["brush", "metal", "metal"],
+            ["box", [0, 0, 0.13], ["ar*2.3-0.15", 0.05, 0.05], 0],
+            {
+              "for": "g",
+              "n": 5,
+              "do": [
+                ["box", ["(g-2)*ar*0.45", 0, 0.13], [0.05, "ar*1.0-0.2", 0.05], 0]
+              ]
+            },
+            ["brush", "acc"],
+            ["box", [0, "ar*0.5+0.07", 0], ["ar*2.3+0.06", 0.09, 0.2], 0.02]
+          ]
+        },
+        ["brush", "metal", "metal"],
+        ["cyl", [0, "ay+ar*0.45", "mz-bd*0.04-0.15"], [0, "ay+ar*0.45", "mz-bd*0.04+0.55"], 0.06, 6, 0],
+        ["brush", "light", "emissive"],
+        ["box", [0, "ay+ar*0.45", "mz-bd*0.04+0.6"], [0.14, 0.14, 0.12]],
+        ["brush", "dark"],
+        ["box", [0, "ay+0.1", "mz-bd*0.04-0.7"], [0.4, 0.5, 0.5], 0.03]
+      ]
+    },
+    {"call": "beacon", "args": {"pos": [0, "mh+0.3", "mz-bd*0.04+0.55"], "r": 0.08, "phase": 0}},
+    {
+      "push": {"pos": ["bw*0.34", 0.16, "bk+0.55"], "euler": [0, 10, 0]},
+      "do": [
+        ["brush", "dark"],
+        ["box", [0, 0.16, 0], [0.5, 0.32, 0.4], 0.03],
+        ["brush", "acc"],
+        ["box", [0, 0.335, 0], [0.52, 0.03, 0.42], 0],
+        ["brush", "mix(base,dark,0.3)"],
+        ["box", [0.42, 0.11, 0.06], [0.34, 0.22, 0.3], 0.03],
+        ["box", [0.1, 0.44, 0.02], [0.36, 0.22, 0.3], 0.03]
+      ]
+    },
+    ["socket", "door_exit", ["door_cx", 0.16, "door_cz"], [0, 0, 1]],
+    ["socket", "weld0", [1.0, "bh+0.3", 0.5], [0, 1, 0]],
+    ["socket", "weld1", [-1.0, "bh+0.3", -0.5], [0, 1, 0]],
+    ["socket", "weld2", [0, "bh+0.3", 0.25], [0, 1, 0]],
+    ["socket", "top", [0, "ay+ar", "mz-bd*0.04"], [0, 1, 0]],
+    {"slot": "roof"},
+    {"slot": "front"},
+    {"slot": "extra"},
+    ["meta", "footprint", ["fw", "fh"]]
+  ]
+}

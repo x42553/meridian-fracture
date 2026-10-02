@@ -1,0 +1,11 @@
+{
+  "schema": "meridian.recipe/1",
+  "id": "structure.shared.dock",
+  "archetype": "str_dock",
+  "style": "auto",
+  "meta": {
+    "stub": true,
+    "view_archetype": "str_dock",
+    "rule": "override"
+  }
+}

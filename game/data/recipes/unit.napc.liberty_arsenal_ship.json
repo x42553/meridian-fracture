@@ -1,0 +1,176 @@
+{
+ "schema": "meridian.recipe/1",
+ "id": "unit.napc.liberty_arsenal_ship",
+ "archetype": "ship_siege",
+ "style": "auto",
+ "params": {
+  "ss_len": 12.2,
+  "ss_beam": 4.4,
+  "battery": "guns",
+  "bow": "blunt"
+ },
+ "ops_after": [
+  {
+   "mirror_x": [
+    [
+     "brush",
+     "acc"
+    ],
+    [
+     "cyl",
+     [
+      "ss_beam*0.5-0.4",
+      "fb",
+      "hl-0.35"
+     ],
+     [
+      "ss_beam*0.5-0.4",
+      "fb+0.28",
+      "hl-0.35"
+     ],
+     0.1,
+     6,
+     0.0
+    ],
+    [
+     "brush",
+     "sec"
+    ],
+    [
+     "box",
+     [
+      "ss_beam*0.5-0.9",
+      "fb+0.05",
+      "-hl+1.4"
+     ],
+     [
+      0.5,
+      0.1,
+      1.2
+     ],
+     0.0
+    ]
+   ]
+  },
+  {
+   "call": "beacon",
+   "args": {
+    "pos": [
+     0,
+     "fb+3.55",
+     "hl*0.08-0.9"
+    ],
+    "r": 0.09,
+    "col": "acc",
+    "phase": 0.4
+   }
+  },
+  {
+   "push": {
+    "pos": [
+     0,
+     "fb+0.66",
+     "hl-0.4"
+    ],
+    "euler": [
+     0,
+     0,
+     0
+    ]
+   },
+   "do": [
+    {
+     "let": {
+      "ld_len": 0.8
+     }
+    },
+    {
+     "slot": "kit_nav_light_bar"
+    }
+   ]
+  },
+  {
+   "mirror_x": [
+    {
+     "push": {
+      "pos": [
+       "ss_beam*0.5+0.012",
+       "fb*0.55",
+       "-hl*0.5"
+      ],
+      "euler": [
+       0,
+       90,
+       0
+      ]
+     },
+     "do": [
+      {
+       "let": {
+        "ld_wid": 0.7
+       }
+      },
+      {
+       "slot": "kit_emblem"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "mirror_x": [
+    {
+     "call": "team_panel",
+     "args": {
+      "center": [
+       "ss_beam*0.5-0.5",
+       "fb+0.08",
+       "hl*0.08-0.4"
+      ],
+      "size": [
+       0.7,
+       0.02,
+       2.4
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "mirror_x": [
+    {
+     "push": {
+      "pos": [
+       "ss_beam*0.5+0.02",
+       0.4,
+       0.2
+      ],
+      "euler": [
+       0,
+       0,
+       0
+      ]
+     },
+     "do": [
+      {
+       "let": {
+        "ld_len": "ss_len*0.55"
+       }
+      },
+      {
+       "slot": "kit_waterline_band"
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "meta": {
+  "role": "arsenal_ship",
+  "icon": {
+   "yaw": 150,
+   "pitch": 24,
+   "margin": 0.8
+  }
+ }
+}

@@ -1,0 +1,1053 @@
+{
+  "schema": "meridian.balance.research_effects/1",
+  "selectors": {
+    "selector.balance.collectors": {
+      "kinds": [
+        "unit"
+      ],
+      "tags_all": [
+        "collector"
+      ]
+    },
+    "selector.balance.ground_transports": {
+      "kinds": [
+        "unit"
+      ],
+      "tags_all": [
+        "ground",
+        "transport"
+      ]
+    },
+    "selector.balance.ground_units": {
+      "kinds": [
+        "unit"
+      ],
+      "tags_all": [
+        "ground"
+      ]
+    },
+    "selector.balance.infantry": {
+      "kinds": [
+        "unit"
+      ],
+      "tags_all": [
+        "infantry"
+      ]
+    },
+    "selector.balance.infantry_and_land_vehicles": {
+      "kinds": [
+        "unit"
+      ],
+      "tags_all": [
+        "combat"
+      ],
+      "tags_any": [
+        "infantry",
+        "land_vehicle"
+      ]
+    },
+    "selector.balance.land_vehicles": {
+      "kinds": [
+        "unit"
+      ],
+      "tags_all": [
+        "land_vehicle"
+      ]
+    },
+    "selector.balance.production_structures": {
+      "kinds": [
+        "structure"
+      ],
+      "structure_ids": [
+        "structure.shared.airfield",
+        "structure.shared.barracks",
+        "structure.shared.dock",
+        "structure.shared.factory"
+      ]
+    },
+    "selector.balance.radar": {
+      "kinds": [
+        "structure"
+      ],
+      "structure_ids": [
+        "structure.shared.radar"
+      ]
+    },
+    "selector.balance.unmanned_land_units": {
+      "kinds": [
+        "unit"
+      ],
+      "tags_all": [
+        "land_vehicle",
+        "unmanned"
+      ]
+    },
+    "selector.balance.vehicles_and_ships": {
+      "kinds": [
+        "unit"
+      ],
+      "tags_any": [
+        "land_vehicle",
+        "ship"
+      ]
+    }
+  },
+  "research": {
+    "research.ae.circular_armor": {
+      "bible_numbers": [
+        10
+      ],
+      "effects": [
+        {
+          "op": "stat_mod",
+          "stat": "health",
+          "delta_pct": 10,
+          "selector": "selector.land_combat_vehicles"
+        }
+      ]
+    },
+    "research.ae.municipal_reserves": {
+      "bible_numbers": [
+        10,
+        6
+      ],
+      "effects": [
+        {
+          "op": "stat_mod",
+          "stat": "health",
+          "delta_pct": 10,
+          "selector": {
+            "unit_ids": [
+              "unit.ae.civic_rifle_team"
+            ]
+          },
+          "cond": [
+            {
+              "code": "near_friendly_structure",
+              "radius_cells": 6,
+              "structure_ids": [
+                "structure.shared.barracks",
+                "structure.shared.refinery"
+              ]
+            }
+          ],
+          "stack_group": "research.ae.municipal_reserves"
+        }
+      ]
+    },
+    "research.ae.precision_machining": {
+      "bible_numbers": [
+        10
+      ],
+      "effects": [
+        {
+          "op": "stat_mod",
+          "stat": "reload_interval_seconds",
+          "delta_pct": -10,
+          "selector": {
+            "unit_ids": [
+              "unit.ae.protea_gun_carrier",
+              "unit.ae.rhino_rail_tank"
+            ]
+          }
+        }
+      ]
+    },
+    "research.ae.recovery_winches": {
+      "bible_numbers": [
+        5,
+        8
+      ],
+      "effects": [
+        {
+          "op": "param_mod",
+          "scope": "ability",
+          "ability": "salvage",
+          "key": "action_s",
+          "set": 5,
+          "selector": {
+            "unit_ids": [
+              "unit.ae.reclaimer",
+              "unit.ae.river_warden",
+              "unit.shared.engineer"
+            ]
+          }
+        }
+      ]
+    },
+    "research.ae.watershed_logistics": {
+      "bible_numbers": [
+        1,
+        6
+      ],
+      "effects": [
+        {
+          "op": "grant_ability",
+          "ability": {
+            "ref": "ability.regen.default",
+            "params": {
+              "rate_pct_per_s": 1,
+              "idle_s": 6,
+              "target": "passengers"
+            }
+          },
+          "selector": {
+            "unit_ids": [
+              "unit.ae.okapi_amphibious_carrier"
+            ]
+          }
+        }
+      ]
+    },
+    "research.def.buried_command_lines": {
+      "bible_numbers": [
+        25
+      ],
+      "effects": [
+        {
+          "op": "param_mod",
+          "scope": "def",
+          "key": "emp_recovery_pct",
+          "mul_pct": 75,
+          "selector": [
+            "selector.balance.radar",
+            "selector.defensive_structures"
+          ]
+        }
+      ]
+    },
+    "research.def.coordinated_barrages": {
+      "bible_numbers": [
+        10,
+        4
+      ],
+      "effects": [
+        {
+          "op": "stat_mod",
+          "stat": "reload_interval_seconds",
+          "delta_pct": -10,
+          "selector": {
+            "unit_ids": [
+              "unit.def.anvil_rocket_battery",
+              "unit.def.colossus_siege_tank"
+            ],
+            "include_replacements": true
+          },
+          "cond": [
+            {
+              "code": "stationary",
+              "for_s": 4
+            }
+          ]
+        }
+      ]
+    },
+    "research.def.layered_protection": {
+      "bible_numbers": [
+        12,
+        9,
+        1
+      ],
+      "effects": [
+        {
+          "op": "param_mod",
+          "scope": "ability",
+          "ability": "interceptor",
+          "key": "cooldown_s",
+          "set": 9,
+          "selector": {
+            "unit_ids": [
+              "unit.def.ural_assault_tank"
+            ]
+          }
+        },
+        {
+          "op": "grant_ability",
+          "ability": {
+            "ref": "ability.interceptor.default",
+            "params": {
+              "cooldown_s": 9,
+              "charges_n": 1
+            }
+          },
+          "selector": {
+            "unit_ids": [
+              "unit.def.bear_siege_crawler"
+            ]
+          }
+        }
+      ]
+    },
+    "research.def.mobile_dispatch": {
+      "bible_numbers": [
+        15
+      ],
+      "effects": [
+        {
+          "op": "stat_mod",
+          "stat": "sight_cells",
+          "delta_pct": 15,
+          "selector": {
+            "unit_ids": [
+              "unit.def.saker_missile_truck",
+              "unit.def.steppe_recon_carrier"
+            ]
+          }
+        },
+        {
+          "op": "param_mod",
+          "scope": "ability",
+          "ability": "deploy",
+          "key": "pack_s",
+          "set": 0,
+          "selector": {
+            "unit_ids": [
+              "unit.def.saker_missile_truck"
+            ]
+          }
+        }
+      ]
+    },
+    "research.def.standardized_parts": {
+      "bible_numbers": [
+        15
+      ],
+      "effects": [
+        {
+          "op": "stat_mod",
+          "stat": "repair_credit_cost_per_health",
+          "delta_pct": -15,
+          "selector": "selector.land_vehicle_repairs"
+        }
+      ]
+    },
+    "research.han.distributed_cognition": {
+      "bible_numbers": [
+        5,
+        7
+      ],
+      "effects": [
+        {
+          "op": "param_mod",
+          "scope": "ability",
+          "ability": "command_field",
+          "key": "radius_cells",
+          "set": 7,
+          "selector": {
+            "unit_ids": [
+              "unit.han.dragon_command_walker",
+              "unit.han.link_operator",
+              "unit.han.long_command_walker",
+              "unit.han.mekong_field_engineer"
+            ],
+            "include_replacements": true
+          },
+          "stack_group": "command_field"
+        }
+      ]
+    },
+    "research.han.guard_integration": {
+      "bible_numbers": [],
+      "effects": [
+        {
+          "op": "set_flag",
+          "flag": "command_field_eligible",
+          "selector": {
+            "unit_ids": [
+              "unit.han.imperial_guard_tank"
+            ]
+          }
+        }
+      ]
+    },
+    "research.han.hidden_relays": {
+      "bible_numbers": [
+        6
+      ],
+      "effects": [
+        {
+          "op": "grant_ability",
+          "ability": {
+            "ref": "ability.camouflage.default",
+            "params": {
+              "delay_s": 6,
+              "needs_stationary": true,
+              "needs_no_attack": true,
+              "keeps_abilities_active": true
+            }
+          },
+          "selector": {
+            "unit_ids": [
+              "unit.han.link_operator"
+            ]
+          }
+        }
+      ]
+    },
+    "research.han.modular_servicing": {
+      "bible_numbers": [
+        50
+      ],
+      "effects": [
+        {
+          "op": "param_mod",
+          "scope": "ability",
+          "ability": "repair",
+          "key": "rate_pct_per_s",
+          "mul_pct": 150,
+          "selector": {
+            "unit_ids": [
+              "unit.han.lotus_drone_tender"
+            ]
+          }
+        }
+      ]
+    },
+    "research.han.resilient_mesh": {
+      "bible_numbers": [
+        25
+      ],
+      "effects": [
+        {
+          "op": "param_mod",
+          "scope": "def",
+          "key": "emp_recovery_pct",
+          "mul_pct": 75,
+          "selector": "selector.unmanned_combat_units"
+        }
+      ]
+    },
+    "research.napc.adaptive_plating": {
+      "bible_numbers": [
+        10
+      ],
+      "effects": [
+        {
+          "op": "resist_mod",
+          "pct": 10,
+          "groups": [
+            "explosive"
+          ],
+          "selector": "selector.land_combat_vehicles"
+        }
+      ]
+    },
+    "research.napc.dispersed_runways": {
+      "bible_numbers": [
+        2
+      ],
+      "effects": [
+        {
+          "op": "param_mod",
+          "scope": "ability",
+          "ability": "service_pads",
+          "key": "pads_n",
+          "add": 2,
+          "selector": {
+            "structure_ids": [
+              "structure.shared.airfield"
+            ]
+          }
+        }
+      ]
+    },
+    "research.napc.joint_tactical_links": {
+      "bible_numbers": [
+        10,
+        6
+      ],
+      "effects": [
+        {
+          "op": "stat_mod",
+          "stat": "weapon_range_cells",
+          "delta_pct": 10,
+          "selector": {
+            "unit_ids": [
+              "unit.napc.aegis_frigate",
+              "unit.napc.sentinel_aa"
+            ],
+            "include_replacements": true
+          },
+          "cond": [
+            {
+              "code": "near_friendly_unit",
+              "radius_cells": 6,
+              "unit_ids": [
+                "unit.napc.javelin_team",
+                "unit.napc.rifle_squad"
+              ],
+              "include_replacements": true
+            }
+          ],
+          "stack_group": "research.napc.joint_tactical_links"
+        }
+      ]
+    },
+    "research.napc.sealed_compartments": {
+      "bible_numbers": [
+        15
+      ],
+      "effects": [
+        {
+          "op": "resist_mod",
+          "pct": 15,
+          "groups": [
+            "explosive"
+          ],
+          "selector": {
+            "unit_ids": [
+              "unit.napc.beaver_amphibious_apc",
+              "unit.napc.narwhal_amphibious_tank"
+            ]
+          },
+          "cond": [
+            {
+              "code": "on_water"
+            }
+          ]
+        }
+      ]
+    },
+    "research.napc.section_logistics": {
+      "bible_numbers": [
+        1,
+        6
+      ],
+      "effects": [
+        {
+          "op": "grant_ability",
+          "ability": {
+            "ref": "ability.regen.default",
+            "params": {
+              "rate_pct_per_s": 1,
+              "idle_s": 6,
+              "source_structure_ids": [
+                "structure.shared.barracks"
+              ],
+              "source_radius_cells": 6,
+              "source_powered": true
+            }
+          },
+          "selector": "selector.combat_infantry"
+        }
+      ],
+      "designer_params": [
+        "source_radius_cells"
+      ]
+    },
+    "research.nec.dispersed_links": {
+      "bible_numbers": [
+        4
+      ],
+      "effects": [
+        {
+          "op": "grant_ability",
+          "ability": {
+            "ref": "ability.relay_field.default",
+            "params": {
+              "radius_cells": 4,
+              "powered_required": false,
+              "requires_deployed": true,
+              "radius_upgradeable": false,
+              "stack_group": "relay_field"
+            }
+          },
+          "selector": {
+            "unit_ids": [
+              "unit.nec.fen_recon_carrier"
+            ]
+          }
+        }
+      ]
+    },
+    "research.nec.distributed_control": {
+      "bible_numbers": [
+        6,
+        8,
+        10
+      ],
+      "effects": [
+        {
+          "op": "param_mod",
+          "scope": "ability",
+          "ability": "relay_field",
+          "key": "radius_cells",
+          "set": 8,
+          "selector": {
+            "structure_ids": [
+              "structure.nec.relay"
+            ]
+          }
+        },
+        {
+          "op": "param_mod",
+          "scope": "ability",
+          "ability": "relay_field",
+          "key": "retain_after_power_loss_s",
+          "set": 10,
+          "selector": {
+            "structure_ids": [
+              "structure.nec.relay"
+            ]
+          }
+        }
+      ]
+    },
+    "research.nec.sensor_fusion": {
+      "bible_numbers": [
+        2
+      ],
+      "effects": [
+        {
+          "op": "param_mod",
+          "scope": "ability",
+          "ability": "detector",
+          "key": "radius_cells",
+          "add": 2,
+          "selector": {
+            "unit_ids": [
+              "unit.nec.horizon_escort",
+              "unit.nec.rapier_aa",
+              "unit.nec.surveyor_apc"
+            ],
+            "include_replacements": true
+          }
+        }
+      ]
+    },
+    "research.nec.shared_fire_solutions": {
+      "bible_numbers": [
+        10
+      ],
+      "effects": [
+        {
+          "op": "stat_mod",
+          "stat": "reload_interval_seconds",
+          "delta_pct": -10,
+          "selector": {
+            "unit_ids": [
+              "unit.nec.charlemagne_siege_tank",
+              "unit.nec.marte_heavy_mbt"
+            ]
+          },
+          "cond": [
+            {
+              "code": "in_relay_field",
+              "powered": true
+            }
+          ]
+        }
+      ]
+    },
+    "research.nec.tunnel_workshops": {
+      "bible_numbers": [
+        25
+      ],
+      "effects": [
+        {
+          "op": "param_mod",
+          "scope": "ability",
+          "ability": "repair",
+          "key": "rate_pct_per_s",
+          "mul_pct": 125,
+          "selector": {
+            "unit_ids": [
+              "unit.nec.alpine_pioneer",
+              "unit.shared.engineer"
+            ]
+          },
+          "filter": {
+            "target_structure_tags": [
+              "defense"
+            ]
+          }
+        }
+      ]
+    },
+    "research.olm.distributed_fuel_caches": {
+      "bible_numbers": [
+        10,
+        6
+      ],
+      "effects": [
+        {
+          "op": "stat_mod",
+          "stat": "movement_speed",
+          "delta_pct": 10,
+          "selector": {
+            "unit_ids": [
+              "unit.olm.dune_rover",
+              "unit.olm.scorpion_rocket_buggy"
+            ]
+          },
+          "cond": [
+            {
+              "code": "out_of_combat",
+              "for_s": 6
+            }
+          ]
+        }
+      ]
+    },
+    "research.olm.harbor_militia": {
+      "bible_numbers": [
+        10,
+        6
+      ],
+      "effects": [
+        {
+          "op": "stat_mod",
+          "stat": "weapon_damage",
+          "delta_pct": 10,
+          "selector": {
+            "unit_ids": [
+              "unit.olm.gate_guard"
+            ]
+          },
+          "cond": [
+            {
+              "code": "near_friendly_structure",
+              "radius_cells": 6,
+              "structure_ids": [
+                "structure.shared.dock",
+                "structure.shared.factory"
+              ]
+            }
+          ],
+          "stack_group": "research.olm.harbor_militia"
+        }
+      ]
+    },
+    "research.olm.optical_mesh": {
+      "bible_numbers": [
+        6
+      ],
+      "effects": [
+        {
+          "op": "grant_ability",
+          "ability": {
+            "ref": "ability.camouflage.default",
+            "params": {
+              "delay_s": 6,
+              "needs_stationary": true,
+              "needs_no_attack": true
+            }
+          },
+          "selector": {
+            "unit_ids": [
+              "unit.olm.caravan_apc"
+            ],
+            "include_replacements": true
+          }
+        }
+      ]
+    },
+    "research.olm.thermal_reservoirs": {
+      "bible_numbers": [
+        10
+      ],
+      "effects": [
+        {
+          "op": "stat_mod",
+          "stat": "reload_interval_seconds",
+          "delta_pct": -10,
+          "selector": {
+            "unit_ids": [
+              "unit.olm.dawn_laser_aa",
+              "unit.olm.ifrit_prism_tank"
+            ]
+          }
+        }
+      ]
+    },
+    "research.olm.thermal_shrouds": {
+      "bible_numbers": [
+        10
+      ],
+      "effects": [
+        {
+          "op": "stat_mod",
+          "stat": "sight_cells",
+          "delta_pct": 10,
+          "selector": "selector.light_land_vehicles"
+        },
+        {
+          "op": "resist_mod",
+          "pct": 10,
+          "groups": [
+            "thermal"
+          ],
+          "selector": "selector.light_land_vehicles"
+        }
+      ]
+    },
+    "research.pd.distributed_beachheads": {
+      "bible_numbers": [
+        15,
+        1
+      ],
+      "effects": [
+        {
+          "op": "stat_mod",
+          "stat": "movement_speed",
+          "delta_pct": 15,
+          "selector": {
+            "unit_ids": [
+              "unit.pd.reef_technician"
+            ]
+          }
+        },
+        {
+          "op": "param_mod",
+          "scope": "ability",
+          "ability": "repair",
+          "key": "can_repair_transport_riding",
+          "set": true,
+          "selector": {
+            "unit_ids": [
+              "unit.pd.reef_technician"
+            ]
+          }
+        }
+      ]
+    },
+    "research.pd.expeditionary_maintenance": {
+      "bible_numbers": [
+        25
+      ],
+      "effects": [
+        {
+          "op": "param_mod",
+          "scope": "ability",
+          "ability": "repair",
+          "key": "rate_pct_per_s",
+          "mul_pct": 125,
+          "selector": {
+            "unit_ids": [
+              "unit.pd.reef_technician"
+            ]
+          }
+        }
+      ]
+    },
+    "research.pd.forward_fire_control": {
+      "bible_numbers": [
+        10,
+        6
+      ],
+      "effects": [
+        {
+          "op": "stat_mod",
+          "stat": "reload_interval_seconds",
+          "delta_pct": -10,
+          "selector": {
+            "unit_ids": [
+              "unit.pd.outrider_howitzer"
+            ]
+          },
+          "cond": [
+            {
+              "code": "target_near_friendly_unit",
+              "radius_cells": 6,
+              "unit_ids": [
+                "unit.pd.wedge_recon_fighter"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "research.pd.integrated_flight_decks": {
+      "bible_numbers": [
+        15
+      ],
+      "effects": [
+        {
+          "op": "stat_mod",
+          "stat": "rearm_time_seconds",
+          "delta_pct": -15,
+          "selector": "selector.aircraft"
+        },
+        {
+          "op": "param_mod",
+          "scope": "ability",
+          "ability": "carrier",
+          "key": "replace_s",
+          "mul_pct": 85,
+          "selector": {
+            "unit_ids": [
+              "unit.pd.tempest_carrier"
+            ],
+            "include_replacements": true
+          }
+        }
+      ]
+    },
+    "research.pd.predictive_maintenance": {
+      "bible_numbers": [
+        2,
+        20
+      ],
+      "effects": [
+        {
+          "op": "param_mod",
+          "scope": "ability",
+          "ability": "mode_switch",
+          "key": "switch_s",
+          "set": 2,
+          "selector": {
+            "unit_ids": [
+              "unit.pd.shinano_adaptive_tank"
+            ]
+          }
+        },
+        {
+          "op": "param_mod",
+          "scope": "ability",
+          "ability": "carrier",
+          "key": "replace_s",
+          "mul_pct": 80,
+          "selector": {
+            "unit_ids": [
+              "unit.pd.shogun_drone_carrier"
+            ]
+          }
+        }
+      ]
+    },
+    "research.sap.integrated_protection": {
+      "bible_numbers": [
+        15,
+        10,
+        1
+      ],
+      "effects": [
+        {
+          "op": "param_mod",
+          "scope": "ability",
+          "ability": "interceptor",
+          "key": "cooldown_s",
+          "set": 10,
+          "selector": {
+            "unit_ids": [
+              "unit.sap.arjun_assault_tank"
+            ]
+          }
+        },
+        {
+          "op": "grant_ability",
+          "ability": {
+            "ref": "ability.interceptor.default",
+            "params": {
+              "cooldown_s": 10,
+              "charges_n": 1
+            }
+          },
+          "selector": {
+            "unit_ids": [
+              "unit.sap.gaj_siege_platform"
+            ]
+          }
+        }
+      ]
+    },
+    "research.sap.layered_fieldworks": {
+      "bible_numbers": [
+        4,
+        10
+      ],
+      "effects": [
+        {
+          "op": "resist_mod",
+          "pct": 10,
+          "groups": [
+            "explosive"
+          ],
+          "selector": "selector.combat_infantry",
+          "cond": [
+            {
+              "code": "near_friendly_structure",
+              "radius_cells": 4,
+              "selector": "selector.defensive_structures"
+            }
+          ],
+          "stack_group": "layered_fieldworks"
+        }
+      ]
+    },
+    "research.sap.observer_network": {
+      "bible_numbers": [
+        10,
+        6
+      ],
+      "effects": [
+        {
+          "op": "stat_mod",
+          "stat": "reload_interval_seconds",
+          "delta_pct": -10,
+          "selector": {
+            "unit_ids": [
+              "unit.sap.shaheen_missile_battery"
+            ]
+          },
+          "cond": [
+            {
+              "code": "target_near_friendly_unit",
+              "radius_cells": 6,
+              "unit_ids": [
+                "unit.sap.watchpost_recon_team"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "research.sap.rapid_ferry_drills": {
+      "bible_numbers": [
+        40
+      ],
+      "effects": [
+        {
+          "op": "param_mod",
+          "scope": "ability",
+          "ability": "transport",
+          "key": "load_s",
+          "mul_pct": 60,
+          "selector": {
+            "unit_ids": [
+              "unit.sap.naga_amphibious_carrier"
+            ]
+          }
+        },
+        {
+          "op": "param_mod",
+          "scope": "ability",
+          "ability": "transport",
+          "key": "unload_s",
+          "mul_pct": 60,
+          "selector": {
+            "unit_ids": [
+              "unit.sap.naga_amphibious_carrier"
+            ]
+          }
+        }
+      ]
+    },
+    "research.sap.reserve_capacitors": {
+      "bible_numbers": [
+        20,
+        35,
+        60
+      ],
+      "effects": [
+        {
+          "op": "param_mod",
+          "scope": "player",
+          "ability": "defense_power_reserve",
+          "key": "reserve_s",
+          "set": 35
+        }
+      ]
+    }
+  }
+}

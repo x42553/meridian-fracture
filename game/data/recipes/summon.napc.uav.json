@@ -1,0 +1,11 @@
+{
+  "schema": "meridian.recipe/1",
+  "id": "summon.napc.uav",
+  "archetype": "sum_uav",
+  "style": "auto",
+  "meta": {
+    "stub": true,
+    "view_archetype": "sum_uav",
+    "rule": "override"
+  }
+}

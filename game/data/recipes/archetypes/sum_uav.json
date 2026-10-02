@@ -1,0 +1,66 @@
+{
+  "schema": "meridian.archetype/1",
+  "id": "sum_uav",
+  "size_class": "air",
+  "meta": {"motion": "air_hover", "death": {"kind": "air_explode", "ticks": 1}, "doc": "Recon UAV (summon): slender fuselage, flying wing with two wing-tip lift fans (ROTOR), V-tail, belly camera; cruise 14 m."},
+  "defaults": {},
+  "ops": [
+    ["bevel", 0.02],
+    ["brush", "base"],
+    ["lathe", [0, 0.55, 1.4], [0, 0.55, -1.4], [[0, 0, 0], [0.05, 0.15, 0], [0.11, 0.5, 0], [0.17, 1.1, 0], [0.2, 1.8, 0], [0.18, 2.35, 0], [0.1, 2.65, 0], [0, 2.8, 0]], 12, 38],
+    ["brush", "dark", "glass"],
+    ["dome", [0, 0.42, -0.55], [0, -1, 0], 0.13, 0.14, 10, 3],
+    ["brush", "sec"],
+    ["box", [0, 0.58, -0.1], [4.0, 0.05, 0.6], 0.015],
+    ["brush", "acc"],
+    ["box", [-1.95, 0.58, -0.1], [0.06, 0.06, 0.62]],
+    ["box", [1.95, 0.58, -0.1], [0.06, 0.06, 0.62]],
+    {
+      "mirror_x": [
+        {"call": "team_panel", "args": {"center": [0.75, 0.62, -0.1], "size": [0.9, 0.03, 0.4], "col": "base"}}
+      ]
+    },
+    {
+      "mirror_x": [
+        ["brush", "sec"],
+        {
+          "push": {"pos": [0.16, 0.85, 1.15], "euler": [0, 0, -32]},
+          "do": [
+            ["box", [0.0, 0.0, 0.0], [0.04, 0.56, 0.4], 0.01]
+          ]
+        }
+      ]
+    },
+    {
+      "mirror_x": [
+        ["brush", "sec"],
+        ["cyl", [1.55, 0.62, -0.1], [1.55, 0.82, -0.1], 0.38, 14, 0.02, false],
+        ["brush", "dark", "metal"],
+        ["cyl", [1.55, 0.62, -0.1], [1.55, 0.64, -0.1], 0.06, 8, 0],
+        {
+          "part": {"kind": "rotor", "pivot": [1.55, 0.76, -0.1]},
+          "do": [
+            ["brush", "dark", "metal"],
+            {
+              "for": "b",
+              "n": 2,
+              "do": [
+                {
+                  "push": {"pos": [1.55, 0.76, -0.1], "euler": [0, "180*b/2", 0]},
+                  "do": [
+                    ["box", [0, 0, 0], [0.646, 0.02, 0.09], 0]
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        ["brush", "sec"],
+        ["box", [0.78, 0.6, -0.1], [1.1, 0.06, 0.16], 0.01]
+      ]
+    },
+    {"call": "beacon", "args": {"pos": [0, 0.9, 1.35], "r": 0.05, "col": "#ff3b1a", "phase": 0}},
+    ["socket", "top", [0, 1.1, 0], [0, 1, 0]],
+    ["meta", "hover", 14.0]
+  ]
+}

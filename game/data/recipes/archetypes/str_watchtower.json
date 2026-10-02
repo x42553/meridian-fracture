@@ -1,0 +1,90 @@
+{
+  "schema": "meridian.archetype/1",
+  "id": "str_watchtower",
+  "size_class": "structure",
+  "meta": {"motion": "static", "death": {"kind": "structure", "ticks": 7}, "doc": "Watchtower (1x1): slim tapered shaft with a ladder, sandbagged footing, glazed cab, rotating searchlight bar (RADAR), blinking mast. Height capped to hcap on larger footprints."},
+  "defaults": {},
+  "slots": {"roof": [], "front": [], "extra": []},
+  "derive": {
+    "pw": "fw*3-0.5",
+    "ph": "fh*3-0.5",
+    "hw": "pw*0.5",
+    "hh": "ph*0.5",
+    "ap": "fw*fh>1 ? 1.0 : 0.3",
+    "fz": "hh-ap",
+    "bk": "-hh+0.25",
+    "bd": "fz-bk",
+    "bz": "(fz+bk)*0.5",
+    "bw": "pw-0.5",
+    "k": "clamp(min(pw,ph)/2.5,1.0,1.9)",
+    "hcap": "(max(fw,fh)>=4 ? 12.5 : (max(fw,fh)>=3 ? 10 : 7))-0.35",
+    "th": "min(4.9*sqrt(k),hcap-2.95)",
+    "cw": "1.6*clamp(k,1.0,1.3)",
+    "cz": "bz",
+    "bs": "min(pw,ph)-0.35",
+    "fw2": "min(1.8*sqrt(k),bs)"
+  },
+  "ops": [
+    ["bevel", 0.04],
+    {"call": "foundation", "args": {"fw": "fw", "fh": "fh", "depth": 1.2, "col": "concrete", "edge": "dark", "chevron": "fw*fh>1 ? 1 : 0", "acc": "acc"}},
+    ["brush", "concrete"],
+    ["box", [0, 0.5, "cz"], ["fw2", 0.7, "fw2"], 0.04],
+    ["brush", "mix(sec,base,0.5)"],
+    {
+      "for": "sb",
+      "n": 6,
+      "do": [
+        {
+          "push": {"pos": ["cos(sb*TAU/6+0.5)*(fw2*0.5+0.1)", 0.3, "cz+sin(sb*TAU/6+0.5)*(fw2*0.5+0.1)"], "euler": [0, "-sb*60-30", 0]},
+          "do": [
+            ["box", [0, 0.06, 0], [0.42, 0.24, 0.3], 0.08]
+          ]
+        }
+      ]
+    },
+    ["brush", "base"],
+    ["tbox", [0, "0.85+th*0.5", "cz"], ["1.25*sqrt(k)", "1.25*sqrt(k)"], ["0.9*sqrt(k)", "0.9*sqrt(k)"], "th", [0, 0], 0.04],
+    ["brush", "acc"],
+    ["box", [0, "0.85+th*0.5", "cz+0.62*sqrt(k)"], [0.09, "th*0.98", 0.05]],
+    ["brush", "metal", "metal"],
+    {
+      "for": "i",
+      "n": 6,
+      "do": [
+        ["box", [0.35, "1.3+i*th/6.6", "cz+0.6*sqrt(k)"], [0.4, 0.03, 0.05], 0]
+      ]
+    },
+    ["brush", "sec"],
+    ["box", [0, "0.85+th+0.08", "cz"], ["cw+0.3", 0.14, "cw+0.3"], 0.03],
+    ["brush", "dark"],
+    ["box", [0, "0.85+th+0.56", "cz"], ["cw", 0.9, "cw"], 0.03],
+    ["brush", "glass", "glass"],
+    ["box", [0, "0.85+th+0.6", "cz"], ["cw+0.08", 0.5, "cw+0.08"], 0.0],
+    ["brush", "light", "emissive"],
+    ["box", [0, "0.85+th+0.6", "cz+cw*0.5+0.05"], ["cw*0.6", 0.08, 0.03]],
+    ["brush", "sec"],
+    ["box", [0, "0.85+th+1.15", "cz"], ["cw+0.5", 0.16, "cw+0.5"], 0.03],
+    {"call": "roof_plate", "args": {"center": [0, "0.85+th+1.26", "cz"], "size": ["cw*0.55", 0.03, "cw*0.45"]}},
+    {
+      "part": {"kind": "radar", "pivot": [0, "0.85+th+1.4", "cz"], "extra": 1.5},
+      "do": [
+        ["brush", "metal", "metal"],
+        ["box", [0, "0.85+th+1.4", "cz"], [0.9, 0.14, 0.16], 0.02],
+        ["brush", "light", "emissive"],
+        ["box", [0.5, "0.85+th+1.4", "cz"], [0.16, 0.14, 0.14]]
+      ]
+    },
+    {"call": "whip", "args": {"base": [0.6, "0.85+th+1.2", "cz+0.6"], "tip": [0.6, "0.85+th+1.9", "cz+0.6"], "r": 0.015, "col": "metal"}},
+    {"call": "beacon", "args": {"pos": [0.6, "0.85+th+1.9", "cz+0.6"], "r": 0.07, "phase": 0}},
+    ["socket", "muzzle0_0", [0, "0.85+th+0.6", "cz+cw*0.5+0.4"], [0, 0, 1]],
+    ["socket", "door_exit", ["door_cx", 0.16, "door_cz"], [0, 0, 1]],
+    ["socket", "weld0", [0.6, "0.85+th+1.3", 0.4], [0, 1, 0]],
+    ["socket", "weld1", [-0.6, "0.85+th+1.3", -0.4], [0, 1, 0]],
+    ["socket", "weld2", [0, "0.85+th+1.3", 0.2], [0, 1, 0]],
+    ["socket", "top", [0, "0.85+th+2.0", "cz"], [0, 1, 0]],
+    {"slot": "roof"},
+    {"slot": "front"},
+    {"slot": "extra"},
+    ["meta", "footprint", ["fw", "fh"]]
+  ]
+}

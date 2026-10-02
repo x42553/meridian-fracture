@@ -1,0 +1,40 @@
+{
+  "_doc": "Weapon instance of units_<code>.json 'weapons' (spec data_balance 7.6, FRAMEWORK 4.4). Archetype-locked fields are forbidden (V-CNF-08).",
+  "type": "object",
+  "required": ["id", "archetype", "damage", "reload_s", "range_cells"],
+  "additionalProperties": false,
+  "x-forbidden": {
+    "damage_type": "V-CNF-08", "fire_mode": "V-CNF-08", "projectile_kind": "V-CNF-08", "interceptable_by": "V-CNF-08",
+    "projectile_speed_cells_s": "V-CNF-08", "homing": "V-CNF-08"
+  },
+  "properties": {
+    "id": { "type": "string", "pattern": "^weapon\\.[a-z][a-z0-9_]*\\.[a-z0-9_]+$", "x-rule": "V-SCH-03" },
+    "archetype": { "type": "string", "x-rule": "V-REF-04" },
+    "damage": { "type": "integer", "minimum": 1 },
+    "hits_per_volley": { "type": "integer", "minimum": 1 },
+    "reload_s": { "type": "number", "minimum": 0 },
+    "range_cells": { "type": "number", "minimum": 0 },
+    "min_range_cells": { "type": "number", "minimum": 0 },
+    "splash_cells": { "type": "number", "minimum": 0 },
+    "splash_edge_pct": { "type": "number", "minimum": 0, "maximum": 100 },
+    "scatter_cells": { "type": "number", "minimum": 0 },
+    "targets_override": {
+      "type": ["array", "null"],
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "type": "string", "enum": ["ground", "air", "surface_water", "underwater"], "x-rule": "V-CNF-08" }
+    },
+    "turret_deg_s": { "type": "number", "minimum": 0 },
+    "arc_deg": { "type": "number", "minimum": 1, "maximum": 360 },
+    "suppressive": { "type": "boolean" },
+    "flags": { "type": "array", "uniqueItems": true, "items": { "type": "string", "enum": ["stationary_fire", "needs_los", "point_defense"] } },
+    "deploy_s": { "type": "number", "minimum": 0 },
+    "ammo_volleys": { "type": "integer", "minimum": 0 },
+    "ramp_seconds": { "type": "number", "minimum": 0 },
+    "ramp_max_pct": { "type": "number", "minimum": 100 },
+    "requires_surface_s": { "type": "number", "minimum": 0 },
+    "mount": { "type": "string", "enum": ["hull", "turret"] },
+    "modes": { "type": "array", "uniqueItems": true, "items": { "type": "integer", "minimum": 0 } },
+    "notes": { "type": "string" }
+  }
+}

@@ -1,0 +1,586 @@
+{
+ "schema": "meridian.audio.music/1",
+ "meter": {
+  "tau_s": 6.0,
+  "h_ref": 25.0,
+  "attack_s": 0.6,
+  "release_s": 4.0,
+  "radius_m": 80.0,
+  "min_dist_weight": 0.15,
+  "far_weight": 0.25,
+  "combat_on": 0.4,
+  "combat_on_hold_s": 1.0,
+  "combat_off": 0.15,
+  "combat_off_hold_s": 18.0,
+  "min_combat_s": 25.0,
+  "weights": {
+   "fire_small": 0.3,
+   "fire_medium": 0.6,
+   "fire_heavy": 1.0,
+   "fire_artillery": 1.2,
+   "beam_start": 0.5,
+   "impact_base": 0.3,
+   "impact_per_size": 0.25,
+   "death_unit_own": 4.0,
+   "death_unit_enemy": 2.0,
+   "death_structure": 8.0,
+   "strategic": 30.0,
+   "alert_own": 20.0
+  }
+ },
+ "director": {
+  "smoothing_s": 0.8,
+  "min_switch_interval_s": 8.0,
+  "calm_base": 0.2,
+  "calm_gain": 1.5,
+  "calm_max": 0.75,
+  "combat_floor": 0.55,
+  "combat_floor_s": 10.0
+ },
+ "stem_windows": {
+  "calm": {
+   "pads": [
+    0.0,
+    0.2
+   ],
+   "bass": [
+    0.1,
+    0.35
+   ],
+   "drums": [
+    0.3,
+    0.6
+   ],
+   "lead": [
+    0.55,
+    0.9
+   ]
+  },
+  "combat": {
+   "pads": [
+    0.0,
+    0.15
+   ],
+   "bass": [
+    0.15,
+    0.4
+   ],
+   "drums": [
+    0.35,
+    0.65
+   ],
+   "lead": [
+    0.65,
+    0.95
+   ]
+  }
+ },
+ "transitions": {
+  "calm>combat": {
+   "from": "next_bar",
+   "to": "start",
+   "fade": "cross",
+   "fade_beats": 2.0,
+   "filler": "riser"
+  },
+  "calm>combat_hot": {
+   "from": "next_beat",
+   "to": "start",
+   "fade": "cross",
+   "fade_beats": 1.0
+  },
+  "combat>calm": {
+   "from": "next_bar",
+   "to": "start",
+   "fade": "cross",
+   "fade_beats": 4.0
+  }
+ },
+ "tracks": {
+  "napc.combat": {
+   "folder": "mus/napc/combat",
+   "bpm": 138.0,
+   "bars": 24,
+   "bar_beats": 4,
+   "beat_count": 96,
+   "length_samples": 1840696,
+   "stems": [
+    "drums",
+    "bass",
+    "pads",
+    "lead"
+   ],
+   "mono_stems": [
+    "bass"
+   ],
+   "mode": "aeolian",
+   "root_midi": 45
+  },
+  "napc.calm": {
+   "folder": "mus/napc/calm",
+   "bpm": 83.0,
+   "bars": 12,
+   "bar_beats": 4,
+   "beat_count": 48,
+   "length_samples": 1530217,
+   "stems": [
+    "drums",
+    "bass",
+    "pads",
+    "lead"
+   ],
+   "mono_stems": [
+    "bass"
+   ],
+   "mode": "aeolian",
+   "root_midi": 45
+  },
+  "nec.combat": {
+   "folder": "mus/nec/combat",
+   "bpm": 128.0,
+   "bars": 24,
+   "bar_beats": 4,
+   "beat_count": 96,
+   "length_samples": 1984500,
+   "stems": [
+    "drums",
+    "bass",
+    "pads",
+    "lead"
+   ],
+   "mono_stems": [
+    "bass"
+   ],
+   "mode": "dorian",
+   "root_midi": 38
+  },
+  "nec.calm": {
+   "folder": "mus/nec/calm",
+   "bpm": 77.0,
+   "bars": 12,
+   "bar_beats": 4,
+   "beat_count": 48,
+   "length_samples": 1649455,
+   "stems": [
+    "drums",
+    "bass",
+    "pads",
+    "lead"
+   ],
+   "mono_stems": [
+    "bass"
+   ],
+   "mode": "dorian",
+   "root_midi": 38
+  },
+  "olm.combat": {
+   "folder": "mus/olm/combat",
+   "bpm": 126.0,
+   "bars": 24,
+   "bar_beats": 4,
+   "beat_count": 96,
+   "length_samples": 2016000,
+   "stems": [
+    "drums",
+    "bass",
+    "pads",
+    "lead"
+   ],
+   "mono_stems": [
+    "bass"
+   ],
+   "mode": "phrygian_dominant",
+   "root_midi": 40
+  },
+  "olm.calm": {
+   "folder": "mus/olm/calm",
+   "bpm": 76.0,
+   "bars": 12,
+   "bar_beats": 4,
+   "beat_count": 48,
+   "length_samples": 1671158,
+   "stems": [
+    "drums",
+    "bass",
+    "pads",
+    "lead"
+   ],
+   "mono_stems": [
+    "bass"
+   ],
+   "mode": "phrygian_dominant",
+   "root_midi": 40
+  },
+  "def.combat": {
+   "folder": "mus/def/combat",
+   "bpm": 132.0,
+   "bars": 24,
+   "bar_beats": 4,
+   "beat_count": 96,
+   "length_samples": 1924364,
+   "stems": [
+    "drums",
+    "bass",
+    "pads",
+    "lead"
+   ],
+   "mono_stems": [
+    "bass"
+   ],
+   "mode": "harmonic_minor",
+   "root_midi": 36
+  },
+  "def.calm": {
+   "folder": "mus/def/calm",
+   "bpm": 79.0,
+   "bars": 12,
+   "bar_beats": 4,
+   "beat_count": 48,
+   "length_samples": 1607696,
+   "stems": [
+    "drums",
+    "bass",
+    "pads",
+    "lead"
+   ],
+   "mono_stems": [
+    "bass"
+   ],
+   "mode": "harmonic_minor",
+   "root_midi": 36
+  },
+  "pd.combat": {
+   "folder": "mus/pd/combat",
+   "bpm": 140.0,
+   "bars": 24,
+   "bar_beats": 4,
+   "beat_count": 96,
+   "length_samples": 1814400,
+   "stems": [
+    "drums",
+    "bass",
+    "pads",
+    "lead"
+   ],
+   "mono_stems": [
+    "bass"
+   ],
+   "mode": "pentatonic_minor",
+   "root_midi": 43
+  },
+  "pd.calm": {
+   "folder": "mus/pd/calm",
+   "bpm": 84.0,
+   "bars": 12,
+   "bar_beats": 4,
+   "beat_count": 48,
+   "length_samples": 1512000,
+   "stems": [
+    "drums",
+    "bass",
+    "pads",
+    "lead"
+   ],
+   "mono_stems": [
+    "bass"
+   ],
+   "mode": "pentatonic_minor",
+   "root_midi": 43
+  },
+  "han.combat": {
+   "folder": "mus/han/combat",
+   "bpm": 120.0,
+   "bars": 24,
+   "bar_beats": 4,
+   "beat_count": 96,
+   "length_samples": 2116800,
+   "stems": [
+    "drums",
+    "bass",
+    "pads",
+    "lead"
+   ],
+   "mono_stems": [
+    "bass"
+   ],
+   "mode": "hirajoshi",
+   "root_midi": 38
+  },
+  "han.calm": {
+   "folder": "mus/han/calm",
+   "bpm": 72.0,
+   "bars": 12,
+   "bar_beats": 4,
+   "beat_count": 48,
+   "length_samples": 1764000,
+   "stems": [
+    "drums",
+    "bass",
+    "pads",
+    "lead"
+   ],
+   "mono_stems": [
+    "bass"
+   ],
+   "mode": "hirajoshi",
+   "root_midi": 38
+  },
+  "ae.combat": {
+   "folder": "mus/ae/combat",
+   "bpm": 126.0,
+   "bars": 24,
+   "bar_beats": 4,
+   "beat_count": 96,
+   "length_samples": 2016000,
+   "stems": [
+    "drums",
+    "bass",
+    "pads",
+    "lead"
+   ],
+   "mono_stems": [
+    "bass"
+   ],
+   "mode": "dorian",
+   "root_midi": 41
+  },
+  "ae.calm": {
+   "folder": "mus/ae/calm",
+   "bpm": 76.0,
+   "bars": 12,
+   "bar_beats": 4,
+   "beat_count": 48,
+   "length_samples": 1671158,
+   "stems": [
+    "drums",
+    "bass",
+    "pads",
+    "lead"
+   ],
+   "mono_stems": [
+    "bass"
+   ],
+   "mode": "dorian",
+   "root_midi": 41
+  },
+  "sap.combat": {
+   "folder": "mus/sap/combat",
+   "bpm": 132.0,
+   "bars": 24,
+   "bar_beats": 4,
+   "beat_count": 96,
+   "length_samples": 1924364,
+   "stems": [
+    "drums",
+    "bass",
+    "pads",
+    "lead"
+   ],
+   "mono_stems": [
+    "bass"
+   ],
+   "mode": "phrygian_dominant",
+   "root_midi": 42
+  },
+  "sap.calm": {
+   "folder": "mus/sap/calm",
+   "bpm": 79.0,
+   "bars": 12,
+   "bar_beats": 4,
+   "beat_count": 48,
+   "length_samples": 1607696,
+   "stems": [
+    "drums",
+    "bass",
+    "pads",
+    "lead"
+   ],
+   "mono_stems": [
+    "bass"
+   ],
+   "mode": "phrygian_dominant",
+   "root_midi": 42
+  },
+  "menu.theme": {
+   "folder": "mus/menu",
+   "bpm": 100.0,
+   "bars": 24,
+   "bar_beats": 4,
+   "beat_count": 96,
+   "length_samples": 2540160,
+   "stems": [
+    "drums",
+    "bass",
+    "pads",
+    "lead"
+   ],
+   "mono_stems": [
+    "bass"
+   ],
+   "mode": "aeolian",
+   "root_midi": 40
+  }
+ },
+ "stingers": {
+  "stinger.napc.riser": {
+   "stream": "mus/stinger/napc_riser",
+   "bpm": 138.0,
+   "bars": 2
+  },
+  "stinger.napc.victory": {
+   "stream": "mus/stinger/napc_victory"
+  },
+  "stinger.napc.defeat": {
+   "stream": "mus/stinger/napc_defeat"
+  },
+  "stinger.nec.riser": {
+   "stream": "mus/stinger/nec_riser",
+   "bpm": 128.0,
+   "bars": 2
+  },
+  "stinger.nec.victory": {
+   "stream": "mus/stinger/nec_victory"
+  },
+  "stinger.nec.defeat": {
+   "stream": "mus/stinger/nec_defeat"
+  },
+  "stinger.olm.riser": {
+   "stream": "mus/stinger/olm_riser",
+   "bpm": 126.0,
+   "bars": 2
+  },
+  "stinger.olm.victory": {
+   "stream": "mus/stinger/olm_victory"
+  },
+  "stinger.olm.defeat": {
+   "stream": "mus/stinger/olm_defeat"
+  },
+  "stinger.def.riser": {
+   "stream": "mus/stinger/def_riser",
+   "bpm": 132.0,
+   "bars": 2
+  },
+  "stinger.def.victory": {
+   "stream": "mus/stinger/def_victory"
+  },
+  "stinger.def.defeat": {
+   "stream": "mus/stinger/def_defeat"
+  },
+  "stinger.pd.riser": {
+   "stream": "mus/stinger/pd_riser",
+   "bpm": 140.0,
+   "bars": 2
+  },
+  "stinger.pd.victory": {
+   "stream": "mus/stinger/pd_victory"
+  },
+  "stinger.pd.defeat": {
+   "stream": "mus/stinger/pd_defeat"
+  },
+  "stinger.han.riser": {
+   "stream": "mus/stinger/han_riser",
+   "bpm": 120.0,
+   "bars": 2
+  },
+  "stinger.han.victory": {
+   "stream": "mus/stinger/han_victory"
+  },
+  "stinger.han.defeat": {
+   "stream": "mus/stinger/han_defeat"
+  },
+  "stinger.ae.riser": {
+   "stream": "mus/stinger/ae_riser",
+   "bpm": 126.0,
+   "bars": 2
+  },
+  "stinger.ae.victory": {
+   "stream": "mus/stinger/ae_victory"
+  },
+  "stinger.ae.defeat": {
+   "stream": "mus/stinger/ae_defeat"
+  },
+  "stinger.sap.riser": {
+   "stream": "mus/stinger/sap_riser",
+   "bpm": 132.0,
+   "bars": 2
+  },
+  "stinger.sap.victory": {
+   "stream": "mus/stinger/sap_victory"
+  },
+  "stinger.sap.defeat": {
+   "stream": "mus/stinger/sap_defeat"
+  },
+  "stinger.match_start": {
+   "stream": "mus/stinger/match_start"
+  }
+ },
+ "sets": {
+  "napc": {
+   "calm": "napc.calm",
+   "combat": "napc.combat",
+   "riser": "stinger.napc.riser",
+   "victory": "stinger.napc.victory",
+   "defeat": "stinger.napc.defeat"
+  },
+  "nec": {
+   "calm": "nec.calm",
+   "combat": "nec.combat",
+   "riser": "stinger.nec.riser",
+   "victory": "stinger.nec.victory",
+   "defeat": "stinger.nec.defeat"
+  },
+  "olm": {
+   "calm": "olm.calm",
+   "combat": "olm.combat",
+   "riser": "stinger.olm.riser",
+   "victory": "stinger.olm.victory",
+   "defeat": "stinger.olm.defeat"
+  },
+  "def": {
+   "calm": "def.calm",
+   "combat": "def.combat",
+   "riser": "stinger.def.riser",
+   "victory": "stinger.def.victory",
+   "defeat": "stinger.def.defeat"
+  },
+  "pd": {
+   "calm": "pd.calm",
+   "combat": "pd.combat",
+   "riser": "stinger.pd.riser",
+   "victory": "stinger.pd.victory",
+   "defeat": "stinger.pd.defeat"
+  },
+  "han": {
+   "calm": "han.calm",
+   "combat": "han.combat",
+   "riser": "stinger.han.riser",
+   "victory": "stinger.han.victory",
+   "defeat": "stinger.han.defeat"
+  },
+  "ae": {
+   "calm": "ae.calm",
+   "combat": "ae.combat",
+   "riser": "stinger.ae.riser",
+   "victory": "stinger.ae.victory",
+   "defeat": "stinger.ae.defeat"
+  },
+  "sap": {
+   "calm": "sap.calm",
+   "combat": "sap.combat",
+   "riser": "stinger.sap.riser",
+   "victory": "stinger.sap.victory",
+   "defeat": "stinger.sap.defeat"
+  }
+ },
+ "roster_sets": {},
+ "contexts": {
+  "menu": {
+   "track": "menu.theme",
+   "intensity": 0.6
+  },
+  "lobby": {
+   "track": "menu.theme",
+   "intensity": 0.35
+  }
+ }
+}
