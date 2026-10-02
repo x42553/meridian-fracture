@@ -68,7 +68,7 @@ func _dialog(view: String) -> void:
 		"firewall-linux":
 			dlg = UiDlgFirewallHelp.new("linux")
 		"host-dialog":
-			dlg = UiDlgHostGame.new({"lobby_name": "Simon's game", "port": 27615, "advertise": true, "spectators": true})
+			dlg = UiDlgHostGame.new({"lobby_name": "X42553's game", "port": 27615, "advertise": true, "spectators": true})
 		"connecting":
 			dlg = UiDialog.new("Connecting", 460)
 			dlg.add_text("Connecting to 192.168.1.20:27615 ...\nThe attempt gives up after 6 seconds.")
@@ -94,7 +94,7 @@ func _browser(empty: bool) -> void:
 	screen.browser = d
 	if not empty:
 		var rows: Array = [
-			["Simon's game", "192.168.1.20", 27615, 0x1001, 0, 1, 3, 2, 128, 1, 0, data.data_hash(), SimConfig.SIM_VERSION, NetProtocol.PROTO_VERSION],
+			["X42553's game", "192.168.1.20", 27615, 0x1001, 0, 1, 3, 2, 128, 1, 0, data.data_hash(), SimConfig.SIM_VERSION, NetProtocol.PROTO_VERSION],
 			["Friday night", "192.168.1.34", 27615, 0x1002, NetDiscoveryEntry.F_PASSWORD | NetDiscoveryEntry.F_SPECTATORS, 2, 4, 1, 160, 0, 1, data.data_hash(), SimConfig.SIM_VERSION, NetProtocol.PROTO_VERSION],
 			["Big map FFA", "192.168.1.51", 27616, 0x1003, NetDiscoveryEntry.F_FULL, 4, 6, 0, 224, 2, 2, data.data_hash(), SimConfig.SIM_VERSION, NetProtocol.PROTO_VERSION],
 			["Old build", "192.168.1.77", 27615, 0x1004, 0, 1, 2, 1, 96, 0, 0, 0x0BADF00D, SimConfig.SIM_VERSION, NetProtocol.PROTO_VERSION],
@@ -118,7 +118,7 @@ func _browser(empty: bool) -> void:
 func _lobby(view: String, drawer: bool) -> void:
 	_kit = NetSessionKit.new()
 	_kit.ai_factory = func(_pid: int, _level: int, _style: int, _seed: int) -> Callable: return func(_w: RefCounted, _out: Array) -> void: pass
-	var host: NetSession = _kit.host("Simon", {"discovery_enabled": false, "countdown_s": 3})
+	var host: NetSession = _kit.host("X42553", {"discovery_enabled": false, "countdown_s": 3})
 	host.lobby.state.host_name = "Friday night"
 	var mara: NetSession = _kit.join("Mara")
 	var jules: NetSession = _kit.join("Jules")

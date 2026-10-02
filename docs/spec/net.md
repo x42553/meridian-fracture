@@ -933,8 +933,8 @@ off size field
 23   1  humans (connected human players)      24 1 slots_total (non-closed player slots)      25 1 slots_free (OPEN slots)
 26   1  map_family                            27 1 map_size_div8                              28 1 ai_count        29 1 reserved(0)
 30   .. str host_name (<=24 bytes)            .. str game_version (<=16 bytes)
-golden (session 0xDEADBEEF, port 27615, data 0x11223344, sim 7, humans 2, total 4, free 2, family 0, 128 cells, "Simon's game", "0.3.1"):
-4D 46 44 53 01 01 01 00 EF BE AD DE DF 6B 44 33 22 11 07 00 00 00 00 02 04 02 00 10 00 00 0C 53 69 6D 6F 6E 27 73 20 67 61 6D 65 05 30 2E 33 2E 31   (49 bytes)
+golden (session 0xDEADBEEF, port 27615, data 0x11223344, sim 7, humans 2, total 4, free 2, family 0, 128 cells, "X42553's game", "0.3.1"):
+4D 46 44 53 01 01 01 00 EF BE AD DE DF 6B 44 33 22 11 07 00 00 00 00 02 04 02 00 10 00 00 0D 58 34 32 35 35 33 27 73 20 67 61 6D 65 05 30 2E 33 2E 31   (50 bytes)
 ```
 The browser derives the join address from the datagram's **source IP** (`PacketPeerUDP.get_packet_ip()`), never from the payload (multi-homed hosts, NAT-free LAN correctness).
 
@@ -1641,7 +1641,7 @@ Worked example (pretty-printed for reading; a 2-human + 1-AI match, host is pid 
   "match_id": "a3f19c0e5b7d2468",
   "net": {"allow_spectators": true, "auto_drop_ms": 60000, "checksum_period": 20, "input_delay": 2, "on_disconnect": 0, "pause_policy": 1, "speed_pct": 100, "turn_ticks": 2},
   "players": [
-    {"color": 1, "handicap": 100, "kind": "human", "name": "Simon", "peer": 1, "pid": 0, "roster": "roster.napc.canada", "start": 0, "team": 1},
+    {"color": 1, "handicap": 100, "kind": "human", "name": "X42553", "peer": 1, "pid": 0, "roster": "roster.napc.canada", "start": 0, "team": 1},
     {"color": 4, "handicap": 100, "kind": "human", "name": "Mia", "peer": 2, "pid": 1, "roster": "roster.nec.vanilla", "start": 1, "team": 1},
     {"ai": {"flags": 0, "level": 2, "style": 0}, "color": 0, "handicap": 100, "kind": "ai", "name": "AI 3", "peer": 0, "pid": 2, "roster": "roster.han.china", "start": 2, "team": 10}
   ],
@@ -1690,7 +1690,7 @@ The `srgb` values are defaults for lobby swatches and tests; the authoritative t
 
 ```ini
 [net]
-player_name="Simon"            ; default: sanitised OS user name, else "Commander"
+player_name="X42553"            ; default: sanitised OS user name, else "Commander"
 port=27615
 last_address="192.168.1.20:27615"
 recent_hosts=["192.168.1.20:27615"]   ; <= 8, most recent first (quick join)

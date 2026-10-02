@@ -3,14 +3,14 @@ extends RefCounted
 
 const GOLDEN: PackedByteArray = [
 	0x4D, 0x46, 0x44, 0x53, 0x01, 0x01, 0x01, 0x00, 0xEF, 0xBE, 0xAD, 0xDE, 0xDF, 0x6B, 0x44, 0x33, 0x22, 0x11, 0x07, 0x00,
-	0x00, 0x00, 0x00, 0x02, 0x04, 0x02, 0x00, 0x10, 0x00, 0x00, 0x0C, 0x53, 0x69, 0x6D, 0x6F, 0x6E, 0x27, 0x73, 0x20, 0x67,
-	0x61, 0x6D, 0x65, 0x05, 0x30, 0x2E, 0x33, 0x2E, 0x31]
+	0x00, 0x00, 0x00, 0x02, 0x04, 0x02, 0x00, 0x10, 0x00, 0x00, 0x0D, 0x58, 0x34, 0x32, 0x35, 0x35, 0x33, 0x27, 0x73, 0x20,
+	0x67, 0x61, 0x6D, 0x65, 0x05, 0x30, 0x2E, 0x33, 0x2E, 0x31]
 
 
 func _fields() -> Dictionary:
 	return {"kind": 1, "proto_version": 1, "session_id": 0xDEADBEEF, "game_port": 27615, "data_hash": 0x11223344, "sim_version": 7,
 		"flags": 0, "humans": 2, "slots_total": 4, "slots_free": 2, "map_family": 0, "map_size": 128, "ai_count": 0,
-		"host_name": "Simon's game", "game_version": "0.3.1"}
+		"host_name": "X42553's game", "game_version": "0.3.1"}
 
 
 func _disc(clock: NetClock, sim: int = 7, data: int = 0x11223344) -> NetDiscovery:
@@ -29,7 +29,7 @@ func _browser(clock: NetClock, sim: int = 7, data: int = 0x11223344) -> NetDisco
 
 func test_golden_datagram(t: TestCtx) -> void:
 	var enc: PackedByteArray = NetDiscovery.encode_datagram(_fields())
-	t.eq(enc.size(), 49)
+	t.eq(enc.size(), 50)
 	t.eq(enc, GOLDEN, "golden bytes")
 	var d: Dictionary = NetDiscovery.decode_datagram(GOLDEN)
 	t.eq(int(d["session_id"]), 0xDEADBEEF)
@@ -40,7 +40,7 @@ func test_golden_datagram(t: TestCtx) -> void:
 	t.eq(int(d["slots_total"]), 4)
 	t.eq(int(d["slots_free"]), 2)
 	t.eq(int(d["map_size"]), 128)
-	t.eq(str(d["host_name"]), "Simon's game")
+	t.eq(str(d["host_name"]), "X42553's game")
 	t.eq(str(d["game_version"]), "0.3.1")
 	t.eq(NetDiscovery.encode_datagram(d), GOLDEN, "canonical re-encode")
 	# flags
@@ -261,7 +261,7 @@ func test_real_udp_unicast_loopback(t: TestCtx) -> void:
 	t.eq(es.size(), 1, "announce received over real UDP")
 	if es.size() == 1:
 		t.eq(es[0].address, "127.0.0.1")
-		t.eq(es[0].host_name, "Simon's game")
+		t.eq(es[0].host_name, "X42553's game")
 		t.eq(es[0].port, 27615)
 		t.eq(es[0].session_id, 0xDEADBEEF)
 		t.check(es[0].compatible)

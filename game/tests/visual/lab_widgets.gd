@@ -283,7 +283,7 @@ func _lists() -> Control:
 	head.is_header = true
 	head.set_cells([{"text": "GAME"}, {"text": "MAP"}, {"text": "SLOTS"}, {"text": "PING"}], widths)
 	v.add_child(head)
-	var rows: Array = [["Saturday LAN", "Dust Basin", "3/4", "12 ms"], ["Simon's game", "Twin Rivers", "1/2", "4 ms"], ["Ranked 2v2", "Iron Ridge", "4/4", "38 ms"], ["Old build", "Dust Basin", "2/8", "9 ms"]]
+	var rows: Array = [["Saturday LAN", "Dust Basin", "3/4", "12 ms"], ["X42553's game", "Twin Rivers", "1/2", "4 ms"], ["Ranked 2v2", "Iron Ridge", "4/4", "38 ms"], ["Old build", "Dust Basin", "2/8", "9 ms"]]
 	for i in rows.size():
 		var r := UiListRow.new()
 		r.odd = i % 2 == 1

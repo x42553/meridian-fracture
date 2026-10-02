@@ -388,7 +388,7 @@ func _snapshot_dict() -> Dictionary:
 		slots.append({"index": i, "kind": 2 if i == 0 else (3 if i == 1 else 1 if i < 4 else 0), "peer_id": 1 if i == 0 else 0,
 			"name": "P%d é" % i, "roster_id": "random.vanilla" if i else "napc", "team": i % 3, "color": i, "start": -1 if i % 2 else i,
 			"handicap_pct": 100 + 5 * i, "ready": i % 2 == 0, "connected": i < 2, "ai_level": i % 4, "ai_style": i % 4, "ai_flags": i, "ping_ms": 10 * i})
-	return {"revision": 77, "phase": 0, "password_set": true, "allow_spectators": true, "host_name": "Simon's game", "map_family": 1,
+	return {"revision": 77, "phase": 0, "password_set": true, "allow_spectators": true, "host_name": "X42553's game", "map_family": 1,
 		"map_size": 128, "map_seed": 0xC0FFEE11, "layout_players": 4, "rules": {"start_credits": 7500, "unit_cap": 150, "fog": 1, "neg": -5},
 		"speed_code": 2, "pause_policy": 1, "on_disconnect": 0, "auto_drop_ms": 60000, "slots": slots,
 		"spectators": [{"peer_id": 9, "name": "Watcher"}]}

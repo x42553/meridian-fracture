@@ -4,7 +4,7 @@ extends Control
 ## player list and version/data-hash compatibility, chat, direct connect by IP.
 
 const GAMES: Array[Dictionary] = [
-	{"name": "Simon's Skirmish", "host": "MBP-M5", "map": "Ridgeline Crossing", "players": "3 / 8", "rules": "7.5k  1.0x  SW", "ping": 2, "ver": "0.1.0", "ok": true},
+	{"name": "X42553's Skirmish", "host": "MBP-M5", "map": "Ridgeline Crossing", "players": "3 / 8", "rules": "7.5k  1.0x  SW", "ping": 2, "ver": "0.1.0", "ok": true},
 	{"name": "Ladder night #12", "host": "DESKTOP-4090", "map": "Salt Flats 4P", "players": "4 / 4", "rules": "10k  1.5x  SW", "ping": 6, "ver": "0.1.0", "ok": true, "full": true},
 	{"name": "Coastal Clash", "host": "debian-nuc", "map": "Estuary Gate", "players": "5 / 6", "rules": "7.5k  1.0x", "ping": 14, "ver": "0.1.0", "ok": true},
 	{"name": "LAN party (old build)", "host": "steamdeck", "map": "Dry River", "players": "2 / 4", "rules": "5k  1.0x", "ping": 31, "ver": "0.0.9", "ok": false},

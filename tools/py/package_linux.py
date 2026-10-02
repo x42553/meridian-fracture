@@ -114,7 +114,7 @@ def build_deb(dest: Path, version: str, payload: dict) -> None:
         installed += len(data)
     data_members.append((_tarinfo("./usr/bin/meridian-fracture", typ=tarfile.SYMTYPE, mode=0o777, link=f"/{INSTALL_DIR}/{BIN}"), None))
     control = (f"Package: {PKG}\nVersion: {version}\nSection: games\nPriority: optional\nArchitecture: amd64\n"
-               f"Depends: {DEPENDS}\nRecommends: {RECOMMENDS}\nSuggests: pulseaudio | pipewire-pulse\nInstalled-Size: {installed // 1024 + 1}\nMaintainer: Meridian Fracture Team <noreply@example.invalid>\n"
+               f"Depends: {DEPENDS}\nRecommends: {RECOMMENDS}\nSuggests: pulseaudio | pipewire-pulse\nInstalled-Size: {installed // 1024 + 1}\nMaintainer: X42553 <noreply@example.invalid>\n"
                "Homepage: https://example.invalid/meridian-fracture\n"
                "Description: Meridian Fracture - real-time strategy game\n"
                " Command & Conquer style RTS with eight factions and deterministic lockstep\n"

@@ -2,7 +2,7 @@ extends RefCounted
 ## SimMatchRules / SimPlayerSlot / SimMatchConfig: validation messages, net.md 7.1 example, config_hash (sim_core 5.10).
 
 const NET_EXAMPLE: String = """{"map":{"family":0,"layout_players":4,"params":{},"seed":20240517,"size":128},
- "players":[{"color":1,"handicap":100,"kind":"human","name":"Simon","peer":1,"pid":0,"roster":"roster.fx.a","start":0,"team":1},
+ "players":[{"color":1,"handicap":100,"kind":"human","name":"X42553","peer":1,"pid":0,"roster":"roster.fx.a","start":0,"team":1},
             {"color":4,"handicap":100,"kind":"human","name":"Mia","peer":2,"pid":1,"roster":"roster.fx.b","start":1,"team":1},
             {"ai":{"flags":0,"level":2,"style":0},"color":0,"handicap":120,"kind":"ai","name":"AI 3","peer":0,"pid":5,"roster":"roster.fx.c","start":2,"team":10}],
  "rules":{"fog":true,"shared_vision":false,"start_credits":7500,"superweapons":true,"unit_cap":150,"veterancy":false,"vision_budget":128,"vision_stride":2},

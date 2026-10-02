@@ -18,11 +18,11 @@ func _gd() -> GameData:
 	return d
 
 
-## Host "Simon" + clients "Mara" (and "Jules" when asked) in the lobby. The AI factory is a stub so AI slots can start.
+## Host "X42553" + clients "Mara" (and "Jules" when asked) in the lobby. The AI factory is a stub so AI slots can start.
 func _rig(clients: int = 1) -> NetSession:
 	_kit = NetSessionKit.new()
 	_kit.ai_factory = func(_pid: int, _level: int, _style: int, _seed: int) -> Callable: return func(_w: RefCounted, _out: Array) -> void: pass
-	var host: NetSession = _kit.host("Simon", {"discovery_enabled": false, "countdown_s": 3})
+	var host: NetSession = _kit.host("X42553", {"discovery_enabled": false, "countdown_s": 3})
 	for name_text: String in ["Mara", "Jules"].slice(0, clients):
 		_kit.join(name_text)
 	_kit.all_in(NetSession.Phase.LOBBY, 100)

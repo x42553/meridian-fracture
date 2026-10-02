@@ -51,7 +51,7 @@ _Maintained by the assistant that orchestrated the build. Last updated 2026-10-0
 2. Weaker-GPU path: no MultiMesh batch backend for the Mobile/Compatibility renderers (node backend only); no integrated-GPU measurements.
 3. Release polish: macOS notarization (Apple Developer account), Windows icon/version embedding and code signing, first real CI run, placeholder .deb maintainer/homepage, license choice (MIT placeholder).
 4. Gameplay extensions: multi-human/coop missions, LAN spectators (lobby-only today), more maps/biomes, veterancy (bible: none in the first prototype), AI second attack wave and siege kills, Field Manual counter suggestions.
-5. Small known issues: map generator leaves ~10 % of coast water cells above water level (the view compensates); sample player/host names in specs/tests use a first name as placeholder data.
+5. Small known issues: map generator leaves ~10 % of coast water cells above water level (the view compensates).
 
 ## Lessons for whoever continues (human or assistant)
 

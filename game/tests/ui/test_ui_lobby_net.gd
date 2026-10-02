@@ -12,9 +12,9 @@ func _gd() -> GameData:
 	return _data
 
 
-## Host "Simon" (slot 0, napc), client "Mara" (slot 1, nec, ready), AI hard (slot 2, han, team 2), slot 3 open, layout 4.
+## Host "X42553" (slot 0, napc), client "Mara" (slot 1, nec, ready), AI hard (slot 2, han, team 2), slot 3 open, layout 4.
 func _fixture() -> NetLobbyState:
-	var st: NetLobbyState = NetLobbyState.create_default("Simon", 7, 0xA31F09C2)
+	var st: NetLobbyState = NetLobbyState.create_default("X42553", 7, 0xA31F09C2)
 	st.map_family = 2
 	st.map_size = 160
 	st.layout_players = 4
@@ -353,7 +353,7 @@ func test_join_rejected_texts(t: TestCtx) -> void:
 	t.eq(UiDlgJoinRejected.describe(NetProtocol.RejectReason.IN_PROGRESS, {})["body"], "The match has already started.")
 	t.eq(UiDlgJoinRejected.describe(NetProtocol.RejectReason.BANNED, {})["body"], "The host removed you from this game.")
 	t.eq(UiDlgJoinRejected.describe(NetProtocol.RejectReason.HOST_BUSY, {})["body"], "The host is starting the game. Try again in a moment.")
-	var pw: Dictionary = UiDlgJoinRejected.describe(NetProtocol.RejectReason.BAD_PASSWORD, {}, "Simon's game")
+	var pw: Dictionary = UiDlgJoinRejected.describe(NetProtocol.RejectReason.BAD_PASSWORD, {}, "X42553's game")
 	t.eq(pw["title"], "Password required")
 	var a: Dictionary = UiDlgJoinRejected.abort_text(NetProtocol.AbortReason.MAP_MISMATCH, "Mara generated a different map (host 3F9A21C4, Mara 11B0E7D2).")
 	t.eq(a["title"], "Different map generated")
@@ -374,7 +374,7 @@ func test_join_rejected_and_host_dialogs_build(t: TestCtx) -> void:
 	var plain: UiDlgJoinRejected = UiDlgJoinRejected.new(NetProtocol.RejectReason.LOBBY_FULL, {})
 	t.eq(plain.button_count(), 1)
 	plain.free()
-	t.eq(UiDlgHostGame.validate({"lobby_name": "Simon's game", "port": 27615}), "")
+	t.eq(UiDlgHostGame.validate({"lobby_name": "X42553's game", "port": 27615}), "")
 	t.check(UiDlgHostGame.validate({"lobby_name": "  ", "port": 27615}) != "", "a name is required")
 	t.check(UiDlgHostGame.validate({"lobby_name": "x", "port": 80}) != "", "port range")
 	t.check(UiDlgHostGame.validate({"lobby_name": "x", "port": 27615, "password": "p".repeat(40)}) != "", "password length")

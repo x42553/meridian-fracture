@@ -8,7 +8,7 @@ const EXAMPLE: String = """{
   "match_id": "a3f19c0e5b7d2468",
   "net": {"allow_spectators": true, "auto_drop_ms": 60000, "checksum_period": 20, "input_delay": 2, "on_disconnect": 0, "pause_policy": 1, "speed_pct": 100, "turn_ticks": 2},
   "players": [
-    {"color": 1, "handicap": 100, "kind": "human", "name": "Simon", "peer": 1, "pid": 0, "roster": "roster.napc.canada", "start": 0, "team": 1},
+    {"color": 1, "handicap": 100, "kind": "human", "name": "X42553", "peer": 1, "pid": 0, "roster": "roster.napc.canada", "start": 0, "team": 1},
     {"color": 4, "handicap": 100, "kind": "human", "name": "Mia", "peer": 2, "pid": 1, "roster": "roster.nec.vanilla", "start": 1, "team": 1},
     {"ai": {"flags": 0, "level": 2, "style": 0}, "color": 0, "handicap": 100, "kind": "ai", "name": "AI 3", "peer": 0, "pid": 2, "roster": "roster.han.china", "start": 2, "team": 10}
   ],
@@ -352,15 +352,15 @@ func test_from_lobby_copies_options_and_rules(t: TestCtx) -> void:
 
 func test_lobby_state_defaults_and_queries(t: TestCtx) -> void:
 	var o: StubOpts = StubOpts.new()
-	var st: NetLobbyState = NetLobbyState.create_default("  Simon  ", 0xFFFFFFFFF, 0x1FFFFFFFF, o)
-	t.eq(st.host_name, "Simon")
+	var st: NetLobbyState = NetLobbyState.create_default("  X42553  ", 0xFFFFFFFFF, 0x1FFFFFFFF, o)
+	t.eq(st.host_name, "X42553")
 	t.eq(st.session_id, 0xFFFFFFFF)
 	t.eq(st.map_seed, 0xFFFFFFFF)
 	t.eq(st.slots.size(), 8)
 	t.eq(st.slots[0].kind, NetProtocol.SlotKind.HUMAN)
 	t.eq(st.slots[0].peer_id, 1)
 	t.check(st.slots[0].ready and st.slots[0].connected)
-	t.eq(st.slots[0].name, "Simon")
+	t.eq(st.slots[0].name, "X42553")
 	t.eq(st.first_open_slot(), 1)
 	t.eq(st.slots[3].kind, NetProtocol.SlotKind.OPEN)
 	t.eq(st.slots[4].kind, NetProtocol.SlotKind.CLOSED, "slots >= layout_players")
@@ -390,7 +390,7 @@ func test_lobby_state_defaults_and_queries(t: TestCtx) -> void:
 	c.slots[0].name = "X"
 	c.rules["fog"] = 0
 	c.spectators.append({"peer_id": 9, "name": "S"})
-	t.eq(st.slots[0].name, "Simon")
+	t.eq(st.slots[0].name, "X42553")
 	t.eq(st.rules["fog"], 1)
 	t.eq(st.spectators.size(), 0)
 	t.eq(c.slots[1].index, 1)

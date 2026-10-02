@@ -1191,7 +1191,7 @@ Version: 0.1.0-1
 Section: games
 Priority: optional
 Architecture: amd64
-Maintainer: Meridian Fracture Team <noreply@example.invalid>
+Maintainer: X42553 <noreply@example.invalid>
 Installed-Size: <computed, KiB>
 Depends: libc6 (>= 2.28), libx11-6, libxcursor1, libxext6, libxi6, libxinerama1, libxrandr2, libxrender1, libxkbcommon0, libfontconfig1, libegl1, libvulkan1, libasound2t64 | libasound2
 Recommends: mesa-vulkan-drivers | nvidia-vulkan-icd, libgl1-mesa-dri, libpulse0, libudev1, libdbus-1-3, libwayland-client0, libwayland-cursor0, libwayland-egl1, libdecor-0-0

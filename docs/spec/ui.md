@@ -1720,7 +1720,7 @@ music=70
 colour_mode="cvd"
 
 [net]
-player_name="Simon"
+player_name="X42553"
 recent_hosts=PackedStringArray("192.168.1.20:27615")
 
 [game]
@@ -3402,7 +3402,7 @@ A fixture is a *scripted* stand-in for the sim (no `GameData` mutation): it lets
 
 ```json
 { "format": 1, "roster": "roster.napc.canada", "map": { "w": 128, "h": 128 }, "viewer": 0, "tick": 15200,
-  "players": [ { "pid": 0, "name": "Simon", "team": 1, "color": 0, "roster": "roster.napc.canada", "credits": 12450, "harvested": 61000, "power_supply": 300, "power_demand": 265 },
+  "players": [ { "pid": 0, "name": "X42553", "team": 1, "color": 0, "roster": "roster.napc.canada", "credits": 12450, "harvested": 61000, "power_supply": 300, "power_demand": 265 },
                { "pid": 1, "name": "AI 2",  "team": 2, "color": 1, "roster": "roster.def.russia" } ],
   "construction": { "state": 1, "def": "structure.shared.radar", "progress_permille": 372, "eta_ticks": 377, "rate_pct": 100, "queue_state": 0, "queue": [] },
   "producers": [ { "id": 88, "def": "structure.shared.factory", "queue": ["unit.napc.narwhal_amphibious_tank", "unit.napc.narwhal_amphibious_tank"], "progress_permille": 620, "queue_state": 0 } ],
