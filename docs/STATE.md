@@ -14,7 +14,7 @@ _Maintained by the assistant that orchestrated the build. Last updated 2026-10-0
 | Network | NetSession (LOCAL/HOST/CLIENT), lobby, UDP discovery, lockstep, desync detection; two-process ENet proofs identical on macOS and Linux |
 | Presentation | procedural models per faction/subfaction, terrain/water/atmosphere/moods, FX (191 effects), HUD, menus, Field Manual with 3D viewer, options, campaign UI, replays/observer UI |
 | Audio | 492 SFX, 17 music tracks x 4 stems, 25 stingers, 513 announcer lines (Kokoro TTS, Apache-2.0), unit responses; runtime wired |
-| Tests | 2,448 tests green on macOS arm64, Linux arm64 and Linux amd64; `tools/gd check --strict` clean; ~153k lines of game code, ~87k lines of tests, ~32k lines of Python tooling |
+| Tests | 2,448 tests green on macOS arm64, Linux arm64 and Linux amd64; `tools/gd check --strict` clean; ~153k lines of game code, ~87k lines of tests, ~32k lines of Python tooling; a fresh `git clone` (only the engine linked in) passes the same suite and `check --strict` (2,448/2,448, 691 s, macOS arm64) and the 195 Python tool tests |
 | Packages | macOS universal `.dmg` + `.zip`, Linux `.tar.gz` + amd64 `.deb`, Windows `.zip` (`builds/packages/`, checksums in `builds/RELEASE_MANIFEST.json`; `builds/` is not versioned) |
 | Version control | git, branch `main`, history starts at this release candidate (tag `v0.1.0-rc1`); no remote, nothing pushed; `docs/shots/` (835 MB working screenshots), `builds/`, `.backups/`, engines and the import cache are git-ignored |
 | Performance | exported macOS build: 1.65 s to menu, 2.6 s to a running match; frame time p95 10.7 ms at 1080p, 4 players, 192x192 (M5 Max); RSS ~710 MB in a match |
