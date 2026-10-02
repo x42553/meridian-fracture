@@ -12,6 +12,8 @@ $EDITOR CHANGELOG.md                          # add '## [X.Y.Z] - date' (move it
 python3 tools/py/version.py check             # must print 'version X.Y.Z consistent'
 ```
 
+Commit the stamped files; tag the exact commit that passes sections 2 to 5 (`git tag -a vX.Y.Z -m "Meridian Fracture X.Y.Z"`; release candidates `vX.Y.Z-rcN`). Packages in `builds/` are not versioned: publish them as release assets next to the tag.
+
 If the emblem or colours changed: `pip install pillow && python3 tools/py/gen_app_icon.py` (rewrites `game/assets/icons/`), then
 `python3 tools/py/gen_app_icon.py --check`.
 

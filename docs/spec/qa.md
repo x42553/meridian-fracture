@@ -849,7 +849,7 @@ Constraint: ARCHITECTURE allows only stdlib + numpy + Pillow in `tools/py`; the 
 
 ### 5.13 Release packaging (builds on tooling's packagers)
 
-**Versioning.** SemVer `MAJOR.MINOR.PATCH[-rcN]` in `application/config/version` (read by `env.project_version()` in the packagers and by net as `game_version`), macOS `application/version` + `short_version`, Windows file/product version. `SimConfig.SIM_VERSION`, `NetProtocol.PROTO_VERSION` and the data hash are independent and appear in the lobby handshake, the crash header and `MERIDIAN_BOOT`. There is no git: a release is `gd snapshot release-<ver>` + `builds/packages/` + `SHA256SUMS.txt`.
+**Versioning.** SemVer `MAJOR.MINOR.PATCH[-rcN]` in `application/config/version` (read by `env.project_version()` in the packagers and by net as `game_version`), macOS `application/version` + `short_version`, Windows file/product version. `SimConfig.SIM_VERSION`, `NetProtocol.PROTO_VERSION` and the data hash are independent and appear in the lobby handshake, the crash header and `MERIDIAN_BOOT`. A release is a tagged commit (`vX.Y.Z[-rcN]`) + `builds/packages/` + `SHA256SUMS.txt` (`gd snapshot release-<ver>` still makes a source tarball outside git).
 **Pipeline (tooling steps exist; QA steps are new).**
 ```
 export.py export all                    (tooling)  release template, exclude_filter "tests/*"   -> builds/<platform>/

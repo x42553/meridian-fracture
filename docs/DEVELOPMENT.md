@@ -255,4 +255,4 @@ The `.pck` is about 100 MB and byte-identical across OSes. The macOS app is ad-h
 
 ## Working agreements
 
-Own only the files your task assigns; verify with `tools/gd check --strict` and the relevant `tools/gd test` filter; quote real results; verify Godot APIs with `tools/gd docs`; never run git in the shared tree (snapshots go to `.backups/`); never touch `Input/`. Balance numbers come from AI-versus-AI soaks; any change to data needs the validators, regenerated unit docs and a look at the replay fixtures.
+Own only the files your task assigns; verify with `tools/gd check --strict` and the relevant `tools/gd test` filter; quote real results; verify Godot APIs with `tools/gd docs`; when several agents share one tree, never run mutating git commands in it (only the orchestrator or a human commits, one logical change per commit, after `tools/gd check --strict` and the relevant tests; snapshots go to `.backups/`); never touch `Input/`. Balance numbers come from AI-versus-AI soaks; any change to data needs the validators, regenerated unit docs and a look at the replay fixtures.
