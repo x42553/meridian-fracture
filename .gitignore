@@ -1,0 +1,33 @@
+# Godot
+game/.godot/
+game/.import/
+*.translation
+# Engine binaries & caches (large, re-downloadable via tools/setup)
+tools/godot/
+tools/godot-linux-x86_64/
+tools/godot_docs/
+.cache/
+.backups/
+builds/
+prototypes/*/.godot/
+.DS_Store
+__pycache__/
+*.pyc
+# Working screenshots of the visual passes (about 830 MB; docs/img is the curated set that ships)
+docs/shots/
+# Engine downloads for every platform (fetched by tools/setup)
+tools/godot-linux-*/
+tools/godot-*/
+*.tpz
+# Throw-away R&D spikes: keep their source, drop the generated outputs (hundreds of MB)
+prototypes/*/shots/
+prototypes/*/out/
+prototypes/*/results/
+prototypes/*/analysis/
+prototypes/*/assets/
+# Local environments / editor noise
+.venv/
+venv/
+.idea/
+.vscode/
+*.swp

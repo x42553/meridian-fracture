@@ -1,0 +1,28 @@
+# Meridian Fracture — working notes
+
+Deterministic-lockstep Command & Conquer-style RTS in **Godot 4.7.2 (GDScript only)**; Windows / Linux (Debian) / macOS; LAN multiplayer; 8 factions x (vanilla + 3 subfactions) from the bible in `Input/` (read-only).
+Read `docs/ARCHITECTURE.md` first (the constitution). Orchestration state and next steps: `docs/STATE.md`.
+
+## Commands (always through the wrappers)
+- `tools/gd check [--strict]` (lint + compile) · `tools/gd test [filter] -q` · `tools/gd run <res://x>` · `tools/gd shot <scene> out.png` · `tools/gd docs <Class> [member]` · `tools/gd linux <cmd>` (Debian container) · `tools/gd snapshot`. Never run the Godot binary on `game/` directly: `tools/gd` serialises the shared `game/.godot` import cache. Manual: `docs/spec/qa_tooling.md`.
+- The specs in `docs/spec/*.md` are HUGE (150-500 KB). Never read one whole: `tools/spec list <spec>`, `tools/spec show <spec> <section...>`, `tools/spec grep <spec> <regex>`, `tools/spec sizes`. Spike findings (proven engine behaviour/pitfalls): `docs/spikes/*.md`. Faction digests of the bible: `docs/factions/<code>.md`. **Unit/structure/tech stats reference (generated, base values): `docs/units/README.md` + `docs/units/<code>.md`** — regenerate with `python3 tools/py/gen_unit_reference.py`; the numbers live in `game/data/balance/units_<code>.json`.
+- `python3 tools/py/xplat_determinism.py res://tests/scenarios/<x>.gd` compares hash chains on macOS / linux-amd64 / linux-arm64. Balance: `python3 tools/py/validate_balance.py --strict`, `python3 tools/py/balance_calc.py --help`.
+
+## Layout
+`Input/` bible (never edit) · `docs/` · `tools/` (gd, spec, py/) · `game/` Godot project (`res://`): `src/{core,data,map,sim,net,ai,view,ui,audio,app}`, `data/{bible,balance,recipes}`, `tests/` · `prototypes/` throw-away spikes · `builds/` exports.
+
+## Rules that bite
+- Simulation code (`src/core|sim|map|data`) is **integer-only and deterministic**: no floats, `Vector2/3`, `randf`, `Time`, `delta`, `sin/sqrt/pow/...`, no Node/await/signals. Lint L003 enforces; `# lint-allow: RULE reason` only where a spec allows. Presentation (`view|ui|audio`) reads the sim and never mutates it; the UI/AI/net act only through `SimCommand`s.
+- `class_name` prefix per directory (Sim*, Def*, Map*, Net*, Ai*, View*/Fx*, Ui*, Snd*, App*); file name = snake_case(class_name); **exact-case `res://` paths** (Linux is case-sensitive); lowercase snake_case file names.
+- Static typing everywhere; no debug `print` (use `Log`); `TODO` only as `TODO(module)`; files <= 1500 lines.
+- Own only the files your task assigns; verify with `tools/gd check --strict` and `tools/gd test <filter>`; quote results. Verify Godot APIs with `tools/gd docs` (4.7.2 is newer than most training data).
+
+## Binding decisions (override anything in the specs; they were written concurrently and overlap)
+1. **One content pipeline, owned by the data module** (`src/data`, `game/data/balance`): unit weapons = weapon *instances* inside `units_<code>.json` + `weapon_archetypes` in `global.json`; unit abilities = the `abilities` entries in `units_<code>.json` per `ability_kinds.json`; research/powers/zones/traits/neutrals = `research_effects.json`, `power_actions.json`, `zone_templates.json`, `faction_traits.json`, `neutral_structures.json`; superweapons are compiled from `global.json`. Runtime domains (movement, combat, economy, abilities, vision, zones) read content ONLY through `GameData` / `DefPlayerView` / `Def*`. They do **not** author competing content files (no `combat_*.json`, `abilities.json`, `powers.json`, `economy.json`, `superweapons.json`, `summons.json`, `repair_profiles.json`, `structure_rules.json`); if the runtime needs an extra parameter, extend the data schema + validator and tell the data owner via CROSS_MODULE_REQUESTS. Combat derives its internal warhead/projectile/mount tables from `DefWeaponArch` + `DefWeaponSlot` at match start (private to combat).
+1b. The authored rules files (research/powers/zones/traits/neutrals) extend the spec schemas in places: **docs/RULES_DATA_NOTES.md lists every extension** — loaders (DefLoaderRules), the effect runtime (economy/abilities) and validators must support them, or record a change request.
+2. Runtime tasks implement the *effect kinds / ability kinds / order handlers* the data files reference; a kind that no data entry uses yet is implemented last.
+3. `sim_core.md` is the reconciled kernel master (names, command opcodes, event codes, flag bits, tick pipeline). Other domain specs adapt to it. Component classes are declared by the kernel (`SimComp*` stubs); the owning domain adds the fields.
+4. Use the essential subset first: skip anything a spec marks optional/P3, hot reload/browsers/inspectors/visual tools, and fuzz/soak infrastructure until the game runs end to end.
+
+## Budget lessons (the account hit its weekly limit once)
+Max-effort agents wrote 150-500 KB specs and burned ~14M subagent tokens in 5 h. Use `effort: high|medium`, scoped task briefs with explicit spec section lists, small tool outputs, terse reports. Subagents cannot write report-style `.md` files (harness blocks them): return findings in the final message.

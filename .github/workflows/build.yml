@@ -1,0 +1,387 @@
+# Meridian Fracture CI. Every step calls the same tools/ scripts a developer runs locally (docs/spec/qa_tooling.md); nothing here
+# is CI-only logic. Official Godot 4.7.2 release binaries (sha512-verified against SHA512-SUMS.txt) on ubuntu / windows / macos.
+#
+#   tools          python unit tests (lint, gd library, .deb structure, workflow sanity) + bible mirror
+#   test           the FULL suite (2221 tests, ~7 min on a fast Mac; shards ai 177 s | view+abil+audio 94 s | econ+map+integration 81 s | rest 60 s) split in SHARDS per OS (`gd test <filters>`), lint + compile with
+#                  `gd check --strict` once per OS
+#   proofs         cross-OS determinism scenarios (hash chains) per OS, then diffed by `determinism`
+#   export         export (icon + version stamped; `version.py check --packages`; macOS .dmg + .zip via package_macos.py) + exported-build proof (smoke + headless autostart match from the .pck; on the Windows runner the .exe is
+#                  really executed) + packages; the pck must be byte-identical on all three runners
+#   debian         the whole suite + check + app two-process LAN proof + .deb install test inside Debian 12 containers (amd64 and arm64)
+#   soak           nightly / manual: 8 players x 30 game minutes headless (memory growth, ms per tick, 0 engine errors)
+#   perf           manual: GUI frame-time probe on a self-hosted runner with a GPU (hosted runners have none)
+name: build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      soak:
+        description: "also run the 30-minute soak"
+        type: boolean
+        default: false
+  schedule:
+    - cron: "17 3 * * *"   # nightly: the soak
+
+permissions:
+  contents: read
+
+concurrency:
+  group: build-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  GODOT_RELEASE: 4.7.2-stable
+  PYTHONUTF8: "1"
+
+jobs:
+  tools:
+    name: tools (python tests, bible mirror)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - name: Keep LF line endings (hashes and the bible manifest must match byte for byte)
+        run: git config --global core.autocrlf false
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Fetch Godot ${{ env.GODOT_RELEASE }} (official release, sha512 verified)
+        run: python tools/py/fetch_engines.py --ci linux-x86_64 --dest "${{ runner.temp }}/godot" --github-env
+      - name: Python test dependencies (Pillow renders the icon, PyYAML validates this workflow)
+        run: python -m pip install --quiet pillow pyyaml
+      - name: Python unit tests (linter, gd library, packaging, workflow sanity, end-to-end gd against the real engine)
+        run: python -m unittest discover -s tools/py/tests -v
+        env:
+          GD_SKIP_GUI: "1"   # runners have no GPU
+      - name: Version consistency (VERSION == project.godot == export presets == README badge == CHANGELOG) and icon set is the generator's output
+        run: |
+          python tools/py/version.py check
+          python tools/py/gen_app_icon.py --check
+      - name: Bible mirror is in sync with Input/
+        run: python tools/py/sync_bible.py --check
+      - name: Balance data validator (strict; documented waivers in tools/py/balance_lib/waivers.json)
+        run: python tools/py/validate_balance.py --strict
+
+  test:
+    name: test ${{ matrix.platform }} / ${{ matrix.shard }}
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 75
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-24.04, windows-latest, macos-latest]
+        shard: [s1, s2, s3, s4]
+        include:
+          - { os: ubuntu-24.04,   platform: linux,   engine: linux-x86_64 }
+          - { os: windows-latest, platform: windows, engine: windows }
+          - { os: macos-latest,   platform: macos,   engine: macos }
+          # SHARDS: case-insensitive substrings of `<dir>/<file>.gd::<method>` (tools/py/tests/test_ci_workflow.py fails when a test file is in no shard or in two)
+          - { shard: s1, filters: "ai/" }
+          - { shard: s2, filters: "view/ abil/ audio/" }
+          - { shard: s3, filters: "econ/ map/ integration/" }
+          - { shard: s4, filters: "net/ ui/ unit/ sim/ combat/ core/ scenarios/ harness/" }
+    steps:
+      - name: Keep LF line endings (Windows runners default to autocrlf)
+        run: git config --global core.autocrlf false
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Linux system libraries (headless Godot needs the X11/GL client libs to load)
+        if: matrix.platform == 'linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends libx11-6 libxcursor1 libxinerama1 libxext6 libxrandr2 libxrender1 libxi6 \
+            libxkbcommon0 libgl1 libgl1-mesa-dri libvulkan1 mesa-vulkan-drivers libudev1 libfontconfig1 libasound2t64 xvfb
+      - name: Cache Godot downloads
+        uses: actions/cache@v4
+        with:
+          path: ${{ runner.temp }}/godot
+          key: godot-${{ env.GODOT_RELEASE }}-${{ matrix.engine }}
+      - name: Fetch Godot ${{ env.GODOT_RELEASE }}
+        run: python tools/py/fetch_engines.py --ci ${{ matrix.engine }} --dest "${{ runner.temp }}/godot" --github-env
+      - name: Import
+        run: python tools/gd import
+      - name: Lint + compile every script (warnings fail in CI)
+        if: matrix.shard == 's1'
+        run: python tools/gd check --strict
+      - name: Tests (${{ matrix.shard }})
+        shell: bash
+        run: python tools/gd test -q --stall 0 --timeout 4200 --json "tests-${{ matrix.platform }}-${{ matrix.shard }}.json" ${{ matrix.filters }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: tests-${{ matrix.platform }}-${{ matrix.shard }}
+          path: tests-${{ matrix.platform }}-${{ matrix.shard }}.json
+          if-no-files-found: ignore
+      - name: "Quit stress (headless, the app exits by itself, exit code 0, in every phase and quit mode)"
+        if: matrix.shard == 's1'
+        run: python tools/py/quit_stress.py --headless --iterations 20 --seed 1 --timeout 90 --jobs 2
+      - name: Screenshot smoke (Linux, xvfb + software rendering; informational)
+        if: matrix.platform == 'linux' && matrix.shard == 's1'
+        continue-on-error: true
+        run: python tools/gd shot res://src/app/boot.tscn "${{ runner.temp }}/boot.png" --frames 5 --size 640x360 --rendering-method gl_compatibility
+
+  proofs:
+    name: determinism chains ${{ matrix.platform }}
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { os: ubuntu-24.04,   platform: linux,   engine: linux-x86_64 }
+          - { os: windows-latest, platform: windows, engine: windows }
+          - { os: macos-latest,   platform: macos,   engine: macos }
+    steps:
+      - run: git config --global core.autocrlf false
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Fetch Godot ${{ env.GODOT_RELEASE }}
+        run: python tools/py/fetch_engines.py --ci ${{ matrix.engine }} --dest "${{ runner.temp }}/godot" --github-env
+      - name: Import
+        run: python tools/gd import
+      - name: Hash chains of this runner (the scenarios the cross-OS gate diffs)
+        shell: bash
+        run: |
+          mkdir -p determinism
+          for s in xplat_int_math xplat_match xplat_match_navair xplat_ab2 xplat_ai_brain xplat_net_local; do
+            python tools/py/xplat_determinism.py res://tests/scenarios/$s.gd --only-local --out "determinism/$s.${{ matrix.platform }}.hashes"
+          done
+      - uses: actions/upload-artifact@v4
+        with:
+          name: determinism-${{ matrix.platform }}
+          path: determinism/
+          if-no-files-found: error
+
+  determinism:
+    name: cross-OS determinism (hash chains must be identical)
+    needs: [proofs, export]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: determinism-*
+          path: chains
+          merge-multiple: true
+      - name: Diff the chains produced on the Linux, Windows and macOS runners
+        run: |
+          for s in xplat_int_math xplat_match xplat_match_navair xplat_ab2 xplat_ai_brain xplat_net_local; do
+            python tools/py/xplat_determinism.py --compare chains/$s.linux.hashes chains/$s.windows.hashes chains/$s.macos.hashes
+          done
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: exported-match-*
+          path: exported
+          merge-multiple: true
+      - name: The EXPORTED builds (Windows .exe on a real Windows host, Linux, macOS) end the same 1200-tick match on the same chain
+        run: |
+          cat exported/*.txt
+          test "$(cat exported/*.txt | sort -u | wc -l)" = "1"
+
+  export:
+    name: export + package ${{ matrix.platform }}
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { os: ubuntu-24.04,   platform: linux,   engine: linux-x86_64 }
+          - { os: windows-latest, platform: windows, engine: windows }
+          - { os: macos-latest,   platform: macos,   engine: macos }
+    steps:
+      - run: git config --global core.autocrlf false
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Linux system libraries (the exported binary dlopens them)
+        if: matrix.platform == 'linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends libx11-6 libxcursor1 libxinerama1 libxext6 libxrandr2 libxrender1 libxi6 \
+            libxkbcommon0 libgl1 libgl1-mesa-dri libvulkan1 mesa-vulkan-drivers libudev1 libfontconfig1 libasound2t64 xvfb
+      - name: Fetch Godot ${{ env.GODOT_RELEASE }}
+        run: python tools/py/fetch_engines.py --ci ${{ matrix.engine }} --dest "${{ runner.temp }}/godot" --github-env
+      - name: Fetch export templates
+        run: python tools/py/fetch_engines.py --ci templates --dest "${{ runner.temp }}/godot" --github-env
+      - name: Install export templates
+        run: python tools/py/export.py install-templates --tpz "$TEMPLATES_TPZ"
+        shell: bash
+      - name: Import
+        run: python tools/gd import
+      - name: Export the full game (this platform) and smoke-run it
+        run: python tools/py/export.py export ${{ matrix.platform }}
+      - name: pck audit (runtime data in; tests / tools / prototypes / docs out) + pck hash
+        shell: bash
+        run: |
+          pck=$(ls builds/${{ matrix.platform }}/*.pck builds/macos/*.app/Contents/Resources/*.pck 2>/dev/null | head -1)
+          python tools/py/pck_list.py "$pck" --audit --project game
+          python -c "import hashlib,sys; print('pck sha256', hashlib.sha256(open(sys.argv[1],'rb').read()).hexdigest())" "$pck"
+      - name: Run the exported build - headless autostart match from the pck (Linux / macOS)
+        if: matrix.platform != 'windows'
+        shell: bash
+        run: |
+          if [ "${{ matrix.platform }}" = "macos" ]; then exe="builds/macos/MeridianFracture.app/Contents/MacOS/Meridian Fracture"; else exe=builds/linux/MeridianFracture.x86_64; fi
+          "$exe" --headless -- --autostart=match --ticks=1200 --speed=0 --bots --fresh-settings --no-audio | tee match.txt
+          grep -q "APPTEST_END reason=ticks tick=1200" match.txt
+          ! grep -E "ERROR|FATAL" match.txt
+          mkdir -p exported-match && grep "APPTEST tick=1200" match.txt | sort -u > exported-match/${{ matrix.platform }}.txt
+      - name: Run the exported build - Windows (console wrapper), smoke + headless autostart match from the pck
+        if: matrix.platform == 'windows'
+        shell: bash
+        run: |
+          builds/windows/MeridianFracture.console.exe --headless --smoke | tee smoke.txt
+          grep -q "selftest=ok" smoke.txt
+          builds/windows/MeridianFracture.console.exe --headless -- --autostart=match --ticks=1200 --speed=0 --bots --fresh-settings --no-audio | tee match.txt
+          grep -q "APPTEST_END reason=ticks tick=1200" match.txt
+          ! grep -E "ERROR|FATAL" match.txt
+          mkdir -p exported-match && grep "APPTEST tick=1200" match.txt | sort -u > exported-match/${{ matrix.platform }}.txt
+      - name: Exported-build proofs - smoke, matches, tutorial + operation missions, record/replay (tools/py/export_qa.py; the exported build has no SimBot)
+        shell: bash
+        run: |
+          case "${{ matrix.platform }}" in
+            windows) exe=builds/windows/MeridianFracture.console.exe ;;
+            macos) exe="builds/macos/MeridianFracture.app/Contents/MacOS/Meridian Fracture" ;;
+            *) exe=builds/linux/MeridianFracture.x86_64 ;;
+          esac
+          python tools/py/export_qa.py --binary "$exe" --label ${{ matrix.platform }} --missions tut_field_training,op_napc --out export-qa
+      - name: Release version
+        id: ver
+        shell: bash
+        run: echo "version=$(python tools/py/version.py show)" >> "$GITHUB_OUTPUT"
+      - name: Package (Linux tar.gz + .deb)
+        if: matrix.platform == 'linux'
+        run: python tools/py/package_linux.py
+      - name: Package (Windows zip)
+        if: matrix.platform == 'windows'
+        run: python tools/py/package_windows.py
+      - name: Package (macOS .dmg + .zip of the ad-hoc signed .app; verifies icon, version, signature, hdiutil attach/detach)
+        if: matrix.platform == 'macos'
+        run: python tools/py/package_macos.py
+      - name: Packages carry the release version (file names, .deb control)
+        shell: bash
+        run: python tools/py/version.py check --packages
+      - uses: actions/upload-artifact@v4
+        with:
+          name: meridian-fracture-${{ steps.ver.outputs.version }}-${{ matrix.platform }}
+          path: |
+            builds/packages/*
+            builds/export_report.json
+          if-no-files-found: error
+      - uses: actions/upload-artifact@v4
+        with:
+          name: exported-match-${{ matrix.platform }}
+          path: |
+            exported-match/
+            export-qa/
+          if-no-files-found: error
+
+  debian:
+    name: Debian 12 container (${{ matrix.arch }})
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 120
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { arch: amd64, runner: ubuntu-24.04,     fetch: --linux-x86_64 }
+          - { arch: arm64, runner: ubuntu-24.04-arm, fetch: --linux-arm64 }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Fetch the Linux engine into tools/ (official release, sha512 verified)
+        run: python tools/py/fetch_engines.py ${{ matrix.fetch }}
+      - name: Check inside the Debian 12 container
+        run: python tools/gd linux --arch ${{ matrix.arch }} check --strict
+      - name: Full suite inside the Debian 12 container (case-sensitive paths, threads, no GPU)
+        run: python tools/gd linux --arch ${{ matrix.arch }} test -q --stall 0 --timeout 5400
+      - name: Determinism scenarios, container vs native
+        if: matrix.arch == 'amd64'
+        run: |
+          for s in xplat_int_math xplat_match xplat_match_navair xplat_ab2 xplat_ai_brain xplat_net_local; do
+            python tools/py/xplat_determinism.py res://tests/scenarios/$s.gd --targets native,amd64
+          done
+      - name: App-level two-process LAN proof inside the container
+        run: python tools/py/app_two_process.py --linux --arch ${{ matrix.arch }}
+
+  deb:
+    name: .deb install test (Debian 12 and 13)
+    needs: export
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: meridian-fracture-*-linux
+          merge-multiple: true
+          path: art
+      - name: Install the .deb in clean debian:12-slim / debian:13-slim (minimal install, headless smoke + autostart match, then window under xvfb)
+        run: |
+          mkdir -p builds/packages && find art -name '*.deb' -exec cp {} builds/packages/ \;
+          python - <<'EOF'
+          import sys, pathlib
+          sys.path.insert(0, "tools/py")
+          import package_linux
+          deb = next(pathlib.Path("builds/packages").glob("*.deb"))
+          sys.exit(package_linux.test_deb(deb))
+          EOF
+
+  soak:
+    name: soak (8 players, 30 game minutes, headless)
+    if: github.event_name == 'schedule' || inputs.soak
+    runs-on: ubuntu-24.04
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Fetch Godot ${{ env.GODOT_RELEASE }}
+        run: python tools/py/fetch_engines.py --ci linux-x86_64 --dest "${{ runner.temp }}/godot" --github-env
+      - name: Import
+        run: python tools/gd import
+      - name: Soak (FX / audio off, then on with the dummy drivers); 0 engine errors, memory growth bounded
+        run: python tools/py/soak_run.py --game-min 30 --players 8 --out soak
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: soak
+          path: soak/
+
+  perf:
+    name: GUI frame-time probe (self-hosted, needs a GPU)
+    if: github.event_name == 'workflow_dispatch' && inputs.soak && vars.PERF_RUNNER != ''
+    runs-on: ${{ vars.PERF_RUNNER }}
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Fetch Godot ${{ env.GODOT_RELEASE }}
+        run: python tools/py/fetch_engines.py --ci ${{ vars.PERF_ENGINE || 'linux-x86_64' }} --dest "${{ runner.temp }}/godot" --github-env
+      - run: python tools/gd import
+      - name: 4 / 8 players x High / Low, 5 game minutes each at 1080p
+        run: python tools/py/perf_run.py --matrix --binary "$GODOT_BIN"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: perf
+          path: docs/perf/
