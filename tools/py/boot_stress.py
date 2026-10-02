@@ -66,7 +66,7 @@ def main() -> int:
     for i in range(a.iterations):
         fam, size, players, mseed = rng.randint(0, 2), rng.choice(sizes), rng.randint(2, 8), rng.randint(1, 9999)
         audio = a.audio_every > 0 and i % a.audio_every == a.audio_every - 1
-        cmd = [a.binary] + (["--headless"] if a.headless else []) if a.binary else [str(GD), "run", SCENE, "--timeout", str(a.timeout)] + ([] if a.headless else ["--gui"])
+        cmd = [a.binary] + (["--headless"] if a.headless else []) if a.binary else [sys.executable, str(GD), "run", SCENE, "--timeout", str(a.timeout)] + ([] if a.headless else ["--gui"])
         cmd += ["--", "--fresh-settings", "--no-banner", "--autostart=match", "--with-ui", "--bots=all", "--ticks=60", "--speed=0", "--quit-on-end",
                 f"--family={fam}", f"--map-size={size}", f"--map-seed={mseed}", f"--players={players}"]
         if not audio:

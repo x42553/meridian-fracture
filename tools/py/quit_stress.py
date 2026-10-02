@@ -84,7 +84,7 @@ def run_one(i: int, name: str, sc: dict, mode: str, delay: int, headless: bool, 
     if BINARY:
         cmd = [BINARY] + (["--headless"] if headless else []) + ["--"]
     else:
-        cmd = [str(GD), "run", SCENE, "--timeout", str(timeout)]
+        cmd = [sys.executable, str(GD), "run", SCENE, "--timeout", str(timeout)]  # tools/gd is a script: Windows cannot execute it directly
         if not headless:
             cmd.append("--gui")
         cmd += ["--"]
