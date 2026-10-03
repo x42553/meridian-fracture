@@ -28,6 +28,11 @@ class TestWorkflow(unittest.TestCase):
         self.assertNotIn("\t", self.text)
         self.assertNotIn("\r", self.text)
 
+    def test_no_negated_commands_in_run_scripts(self) -> None:
+        # `! cmd` never trips `bash -e`, so a negated check can never fail the step (issue #30): use `if cmd; then exit 1; fi`.
+        bad = [line.strip() for line in self.text.splitlines() if re.match(r"\s*!\s", line)]
+        self.assertEqual(bad, [])
+
     def test_called_python_tools_exist(self) -> None:
         for name in set(re.findall(r"tools/py/([A-Za-z0-9_]+\.py)", self.text)):
             self.assertTrue((ROOT / "tools" / "py" / name).exists(), name)

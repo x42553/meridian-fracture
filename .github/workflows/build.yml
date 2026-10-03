@@ -239,7 +239,7 @@ jobs:
           if [ "${{ matrix.platform }}" = "macos" ]; then exe="builds/macos/MeridianFracture.app/Contents/MacOS/Meridian Fracture"; else exe=builds/linux/MeridianFracture.x86_64; fi
           "$exe" --headless -- --autostart=match --ticks=1200 --speed=0 --bots --fresh-settings --no-audio | tee match.txt
           grep -q "APPTEST_END reason=ticks tick=1200" match.txt
-          ! grep -E "ERROR|FATAL" match.txt
+          if grep -E "ERROR|FATAL" match.txt; then echo "::error::the exported match printed ERROR/FATAL lines"; exit 1; fi
           mkdir -p exported-match && grep "APPTEST tick=1200" match.txt | tr -d '\r' | sort -u > exported-match/${{ matrix.platform }}.txt
       - name: Run the exported build - Windows (console wrapper), smoke + headless autostart match from the pck
         if: matrix.platform == 'windows'
@@ -249,7 +249,7 @@ jobs:
           grep -q "selftest=ok" smoke.txt
           builds/windows/MeridianFracture.console.exe --headless -- --autostart=match --ticks=1200 --speed=0 --bots --fresh-settings --no-audio | tee match.txt
           grep -q "APPTEST_END reason=ticks tick=1200" match.txt
-          ! grep -E "ERROR|FATAL" match.txt
+          if grep -E "ERROR|FATAL" match.txt; then echo "::error::the exported match printed ERROR/FATAL lines"; exit 1; fi
           mkdir -p exported-match && grep "APPTEST tick=1200" match.txt | tr -d '\r' | sort -u > exported-match/${{ matrix.platform }}.txt
       - name: Exported-build proofs - smoke, matches, tutorial + operation missions, record/replay (tools/py/export_qa.py; the exported build has no SimBot)
         shell: bash
